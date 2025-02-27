@@ -23,6 +23,7 @@ Creates a new API App.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -74,7 +75,7 @@ public class ApiAppCreateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling ApiApp#ApiAppCreate: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -144,6 +145,7 @@ Deletes an API App. Can only be invoked for apps you own.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -167,7 +169,7 @@ public class ApiAppDeleteExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling ApiApp#ApiAppDelete: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -234,6 +236,7 @@ Returns an object with information about an API App.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -259,7 +262,7 @@ public class ApiAppGetExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling ApiApp#ApiAppGet: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -329,6 +332,7 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -355,7 +359,7 @@ public class ApiAppListExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling ApiApp#ApiAppList: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -426,6 +430,7 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -479,7 +484,7 @@ public class ApiAppUpdateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling ApiApp#ApiAppUpdate: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppUpdate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

@@ -58,7 +58,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling UnclaimedDraft#unclaimedDraftCreate: {$e->getMessage()}";
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftCreate: {$e->getMessage()}";
 }
 
 ```
@@ -125,7 +125,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling UnclaimedDraft#unclaimedDraftCreateEmbedded: {$e->getMessage()}";
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbedded: {$e->getMessage()}";
 }
 
 ```
@@ -212,7 +212,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling UnclaimedDraft#unclaimedDraftCreateEmbeddedWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbeddedWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -277,7 +277,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling UnclaimedDraft#unclaimedDraftEditAndResend: {$e->getMessage()}";
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftEditAndResend: {$e->getMessage()}";
 }
 
 ```

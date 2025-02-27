@@ -77,11 +77,12 @@ Please follow the [installation](#installation) procedure and then run the follo
 
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 account_create_request = Dropbox::Sign::AccountCreateRequest.new
@@ -94,7 +95,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Account#account_create: #{e}"
+  puts "Exception when calling AccountApi#account_create: #{e}"
 end
 
 ```

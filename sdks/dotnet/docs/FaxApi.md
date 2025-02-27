@@ -23,6 +23,7 @@ Deletes the specified Fax from the system
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -45,7 +46,7 @@ public class FaxDeleteExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Fax#FaxDelete: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -112,6 +113,7 @@ Downloads files associated with a Fax
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -138,7 +140,7 @@ public class FaxFilesExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Fax#FaxFiles: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxFiles: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -208,6 +210,7 @@ Returns information about a Fax
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -232,7 +235,7 @@ public class FaxGetExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Fax#FaxGet: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -302,6 +305,7 @@ Returns properties of multiple Faxes
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -327,7 +331,7 @@ public class FaxListExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Fax#FaxList: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -398,6 +402,7 @@ Creates and sends a new Fax with the submitted file(s)
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -439,7 +444,7 @@ public class FaxSendExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Fax#FaxSend: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxSend: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

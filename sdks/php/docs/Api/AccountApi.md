@@ -45,7 +45,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Account#accountCreate: {$e->getMessage()}";
+    echo "Exception when calling AccountApi#accountCreate: {$e->getMessage()}";
 }
 
 ```
@@ -103,7 +103,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Account#accountGet: {$e->getMessage()}";
+    echo "Exception when calling AccountApi#accountGet: {$e->getMessage()}";
 }
 
 ```
@@ -168,7 +168,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Account#accountUpdate: {$e->getMessage()}";
+    echo "Exception when calling AccountApi#accountUpdate: {$e->getMessage()}";
 }
 
 ```
@@ -231,7 +231,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Account#accountVerify: {$e->getMessage()}";
+    echo "Exception when calling AccountApi#accountVerify: {$e->getMessage()}";
 }
 
 ```

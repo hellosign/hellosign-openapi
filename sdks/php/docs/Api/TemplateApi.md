@@ -53,7 +53,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateAddUser: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateAddUser: {$e->getMessage()}";
 }
 
 ```
@@ -192,7 +192,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateCreate: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateCreate: {$e->getMessage()}";
 }
 
 ```
@@ -296,7 +296,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateCreateEmbeddedDraft: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateCreateEmbeddedDraft: {$e->getMessage()}";
 }
 
 ```
@@ -354,7 +354,7 @@ try {
         template_id: "f57db65d3f933b5316d398057a36176831451a35",
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateDelete: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateDelete: {$e->getMessage()}";
 }
 
 ```
@@ -415,7 +415,7 @@ try {
 
     copy($response->getRealPath(), __DIR__ . '/file_response');
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateFiles: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateFiles: {$e->getMessage()}";
 }
 
 ```
@@ -476,7 +476,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateFilesAsDataUri: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateFilesAsDataUri: {$e->getMessage()}";
 }
 
 ```
@@ -537,7 +537,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateFilesAsFileUrl: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateFilesAsFileUrl: {$e->getMessage()}";
 }
 
 ```
@@ -598,7 +598,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateGet: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateGet: {$e->getMessage()}";
 }
 
 ```
@@ -661,7 +661,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateList: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateList: {$e->getMessage()}";
 }
 
 ```
@@ -728,7 +728,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateRemoveUser: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateRemoveUser: {$e->getMessage()}";
 }
 
 ```
@@ -794,7 +794,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateUpdateFiles: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateUpdateFiles: {$e->getMessage()}";
 }
 
 ```

@@ -28,6 +28,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -56,7 +57,7 @@ public class AccountCreateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Account#accountCreate");
+            System.err.println("Exception when calling AccountApi#accountCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -111,6 +112,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -134,7 +136,7 @@ public class AccountGetExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Account#accountGet");
+            System.err.println("Exception when calling AccountApi#accountGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -190,6 +192,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -219,7 +222,7 @@ public class AccountUpdateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Account#accountUpdate");
+            System.err.println("Exception when calling AccountApi#accountUpdate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -274,6 +277,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -302,7 +306,7 @@ public class AccountVerifyExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Account#accountVerify");
+            System.err.println("Exception when calling AccountApi#accountVerify");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

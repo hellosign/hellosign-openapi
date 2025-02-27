@@ -25,6 +25,7 @@ Grants a user access to the specified Fax Line.
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -47,7 +48,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling FaxLine#fax_line_add_user: %s\n" % e)
+        print("Exception when calling FaxLineApi#fax_line_add_user: %s\n" % e)
 
 ```
 ```
@@ -91,6 +92,7 @@ Returns a list of available area codes for a given state/province and city
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -103,7 +105,7 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     try:
         response = api.FaxLineApi(api_client).fax_line_area_code_get(
-            country=None,
+            country="US",
             state=None,
             province=None,
             city=None,
@@ -111,7 +113,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling FaxLine#fax_line_area_code_get: %s\n" % e)
+        print("Exception when calling FaxLineApi#fax_line_area_code_get: %s\n" % e)
 
 ```
 ```
@@ -158,6 +160,7 @@ Purchases a new Fax Line
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -180,7 +183,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling FaxLine#fax_line_create: %s\n" % e)
+        print("Exception when calling FaxLineApi#fax_line_create: %s\n" % e)
 
 ```
 ```
@@ -224,6 +227,7 @@ Deletes the specified Fax Line from the subscription.
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -243,7 +247,7 @@ with ApiClient(configuration) as api_client:
             fax_line_delete_request=fax_line_delete_request,
         )
     except ApiException as e:
-        print("Exception when calling FaxLine#fax_line_delete: %s\n" % e)
+        print("Exception when calling FaxLineApi#fax_line_delete: %s\n" % e)
 
 ```
 ```
@@ -287,6 +291,7 @@ Returns the properties and settings of a Fax Line.
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -299,12 +304,12 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     try:
         response = api.FaxLineApi(api_client).fax_line_get(
-            number=None,
+            number="123-123-1234",
         )
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling FaxLine#fax_line_get: %s\n" % e)
+        print("Exception when calling FaxLineApi#fax_line_get: %s\n" % e)
 
 ```
 ```
@@ -348,6 +353,7 @@ Returns the properties and settings of multiple Fax Lines.
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -368,7 +374,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling FaxLine#fax_line_list: %s\n" % e)
+        print("Exception when calling FaxLineApi#fax_line_list: %s\n" % e)
 
 ```
 ```
@@ -415,6 +421,7 @@ Removes a user's access to the specified Fax Line
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -437,7 +444,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling FaxLine#fax_line_remove_user: %s\n" % e)
+        print("Exception when calling FaxLineApi#fax_line_remove_user: %s\n" % e)
 
 ```
 ```

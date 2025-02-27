@@ -21,11 +21,12 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 account_create_request = Dropbox::Sign::AccountCreateRequest.new
@@ -38,7 +39,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Account#account_create: #{e}"
+  puts "Exception when calling AccountApi#account_create: #{e}"
 end
 
 ```
@@ -92,11 +93,12 @@ Returns the properties and settings of your Account.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
@@ -104,7 +106,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Account#account_get: #{e}"
+  puts "Exception when calling AccountApi#account_get: #{e}"
 end
 
 ```
@@ -159,11 +161,12 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 account_update_request = Dropbox::Sign::AccountUpdateRequest.new
@@ -177,7 +180,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Account#account_update: #{e}"
+  puts "Exception when calling AccountApi#account_update: #{e}"
 end
 
 ```
@@ -231,11 +234,12 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 account_verify_request = Dropbox::Sign::AccountVerifyRequest.new
@@ -248,7 +252,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Account#account_verify: #{e}"
+  puts "Exception when calling AccountApi#account_verify: #{e}"
 end
 
 ```

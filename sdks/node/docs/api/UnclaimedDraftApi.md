@@ -37,23 +37,23 @@ signers1.emailAddress = "jack@example.com";
 signers1.order = 0;
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const unclaimedDraftCreateRequest = new models.UnclaimedDraftCreateRequest();
 unclaimedDraftCreateRequest.type = models.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature;
 unclaimedDraftCreateRequest.testMode = true;
 unclaimedDraftCreateRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 unclaimedDraftCreateRequest.signers = signers;
 
 apiCaller.unclaimedDraftCreate(
-    unclaimedDraftCreateRequest,
+  unclaimedDraftCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftCreate:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreate:");
   console.log(error.body);
 });
 
@@ -108,15 +108,15 @@ unclaimedDraftCreateEmbeddedRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a
 unclaimedDraftCreateEmbeddedRequest.requesterEmailAddress = "jack@dropboxsign.com";
 unclaimedDraftCreateEmbeddedRequest.testMode = true;
 unclaimedDraftCreateEmbeddedRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 
 apiCaller.unclaimedDraftCreateEmbedded(
-    unclaimedDraftCreateEmbeddedRequest,
+  unclaimedDraftCreateEmbeddedRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftCreateEmbedded:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbedded:");
   console.log(error.body);
 });
 
@@ -171,7 +171,7 @@ ccs1.role = "Accounting";
 ccs1.emailAddress = "accounting@dropboxsign.com";
 
 const ccs = [
-    ccs1,
+  ccs1,
 ];
 
 const signers1 = new models.SubUnclaimedDraftTemplateSigner();
@@ -180,25 +180,25 @@ signers1.name = "George";
 signers1.emailAddress = "george@example.com";
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const unclaimedDraftCreateEmbeddedWithTemplateRequest = new models.UnclaimedDraftCreateEmbeddedWithTemplateRequest();
 unclaimedDraftCreateEmbeddedWithTemplateRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
 unclaimedDraftCreateEmbeddedWithTemplateRequest.requesterEmailAddress = "jack@dropboxsign.com";
 unclaimedDraftCreateEmbeddedWithTemplateRequest.templateIds = [
-    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  "61a832ff0d8423f91d503e76bfbcc750f7417c78",
 ];
 unclaimedDraftCreateEmbeddedWithTemplateRequest.testMode = false;
 unclaimedDraftCreateEmbeddedWithTemplateRequest.ccs = ccs;
 unclaimedDraftCreateEmbeddedWithTemplateRequest.signers = signers;
 
 apiCaller.unclaimedDraftCreateEmbeddedWithTemplate(
-    unclaimedDraftCreateEmbeddedWithTemplateRequest,
+  unclaimedDraftCreateEmbeddedWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftCreateEmbeddedWithTemplate:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbeddedWithTemplate:");
   console.log(error.body);
 });
 
@@ -252,15 +252,13 @@ const unclaimedDraftEditAndResendRequest = new models.UnclaimedDraftEditAndResen
 unclaimedDraftEditAndResendRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
 unclaimedDraftEditAndResendRequest.testMode = false;
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.unclaimedDraftEditAndResend(
-    signatureRequestId,
-    unclaimedDraftEditAndResendRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  unclaimedDraftEditAndResendRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftEditAndResend:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftEditAndResend:");
   console.log(error.body);
 });
 

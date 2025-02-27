@@ -38,6 +38,7 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -144,7 +145,7 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestBulkCreateEmbeddedWithTemplate: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestBulkCreateEmbeddedWithTemplate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -214,6 +215,7 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -320,7 +322,7 @@ public class SignatureRequestBulkSendWithTemplateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestBulkSendWithTemplate: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestBulkSendWithTemplate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -390,6 +392,7 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -413,7 +416,7 @@ public class SignatureRequestCancelExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestCancel: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestCancel: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -480,6 +483,7 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -552,7 +556,7 @@ public class SignatureRequestCreateEmbeddedExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestCreateEmbedded: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestCreateEmbedded: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -622,6 +626,7 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -678,7 +683,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestCreateEmbeddedWithTemplate: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestCreateEmbeddedWithTemplate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -748,6 +753,7 @@ Edits and sends a SignatureRequest with the submitted documents. If `form_fields
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -809,11 +815,12 @@ public class SignatureRequestEditExample
                     mode: FileMode.Open
                 ),
             },
-            metadata: new Dictionary<string, object>
-            {
-                ["custom_id"] = 1234,
-                ["custom_text"] = "NDA #9",
-            },
+            metadata: JsonSerializer.Deserialize<Dictionary<string, object>>("""
+                {
+                    "custom_id": 1234,
+                    "custom_text": "NDA #9"
+                }
+            """),
             fieldOptions: fieldOptions,
             signingOptions: signingOptions,
             signers: signers
@@ -830,7 +837,7 @@ public class SignatureRequestEditExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestEdit: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestEdit: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -901,6 +908,7 @@ Edits a SignatureRequest with the submitted documents to be signed in an embedde
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -974,7 +982,7 @@ public class SignatureRequestEditEmbeddedExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestEditEmbedded: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestEditEmbedded: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1045,6 +1053,7 @@ Edits a SignatureRequest based on the given Template(s) to be signed in an embed
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1102,7 +1111,7 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestEditEmbeddedWithTemplate: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestEditEmbeddedWithTemplate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1173,6 +1182,7 @@ Edits and sends a SignatureRequest based off of the Template(s) specified with t
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1253,7 +1263,7 @@ public class SignatureRequestEditWithTemplateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestEditWithTemplate: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestEditWithTemplate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1324,6 +1334,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1352,7 +1363,7 @@ public class SignatureRequestFilesExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestFiles: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestFiles: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1423,6 +1434,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1448,7 +1460,7 @@ public class SignatureRequestFilesAsDataUriExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestFilesAsDataUri: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestFilesAsDataUri: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1518,6 +1530,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1544,7 +1557,7 @@ public class SignatureRequestFilesAsFileUrlExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestFilesAsFileUrl: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestFilesAsFileUrl: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1615,6 +1628,7 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1640,7 +1654,7 @@ public class SignatureRequestGetExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestGet: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1710,6 +1724,7 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1738,7 +1753,7 @@ public class SignatureRequestListExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestList: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1811,6 +1826,7 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1836,7 +1852,7 @@ public class SignatureRequestReleaseHoldExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestReleaseHold: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestReleaseHold: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1906,6 +1922,7 @@ Sends an email to the signer reminding them to sign the signature request. You c
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1936,7 +1953,7 @@ public class SignatureRequestRemindExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestRemind: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestRemind: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -2007,6 +2024,7 @@ Removes your access to a completed signature request. This action is **not rever
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -2029,7 +2047,7 @@ public class SignatureRequestRemoveExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestRemove: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestRemove: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -2096,6 +2114,7 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -2157,11 +2176,12 @@ public class SignatureRequestSendExample
                     mode: FileMode.Open
                 ),
             },
-            metadata: new Dictionary<string, object>
-            {
-                ["custom_id"] = 1234,
-                ["custom_text"] = "NDA #9",
-            },
+            metadata: JsonSerializer.Deserialize<Dictionary<string, object>>("""
+                {
+                    "custom_id": 1234,
+                    "custom_text": "NDA #9"
+                }
+            """),
             fieldOptions: fieldOptions,
             signingOptions: signingOptions,
             signers: signers
@@ -2177,7 +2197,7 @@ public class SignatureRequestSendExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestSend: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestSend: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -2247,6 +2267,7 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -2326,7 +2347,7 @@ public class SignatureRequestSendWithTemplateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestSendWithTemplate: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestSendWithTemplate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -2396,6 +2417,7 @@ Updates the email address and/or the name for a given signer on a signature requ
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -2427,7 +2449,7 @@ public class SignatureRequestUpdateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestUpdate: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestUpdate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

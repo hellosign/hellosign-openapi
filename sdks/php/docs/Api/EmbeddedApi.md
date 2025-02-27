@@ -50,7 +50,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Embedded#embeddedEditUrl: {$e->getMessage()}";
+    echo "Exception when calling EmbeddedApi#embeddedEditUrl: {$e->getMessage()}";
 }
 
 ```
@@ -111,7 +111,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Embedded#embeddedSignUrl: {$e->getMessage()}";
+    echo "Exception when calling EmbeddedApi#embeddedSignUrl: {$e->getMessage()}";
 }
 
 ```

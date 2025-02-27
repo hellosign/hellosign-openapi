@@ -35,11 +35,11 @@ const accountCreateRequest = new models.AccountCreateRequest();
 accountCreateRequest.emailAddress = "newuser@dropboxsign.com";
 
 apiCaller.accountCreate(
-    accountCreateRequest,
+  accountCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Account#accountCreate:");
+  console.log("Exception when calling AccountApi#accountCreate:");
   console.log(error.body);
 });
 
@@ -89,11 +89,10 @@ const apiCaller = new api.AccountApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-
 apiCaller.accountGet().then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Account#accountGet:");
+  console.log("Exception when calling AccountApi#accountGet:");
   console.log(error.body);
 });
 
@@ -149,11 +148,11 @@ accountUpdateRequest.callbackUrl = "https://www.example.com/callback";
 accountUpdateRequest.locale = "en-US";
 
 apiCaller.accountUpdate(
-    accountUpdateRequest,
+  accountUpdateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Account#accountUpdate:");
+  console.log("Exception when calling AccountApi#accountUpdate:");
   console.log(error.body);
 });
 
@@ -207,11 +206,11 @@ const accountVerifyRequest = new models.AccountVerifyRequest();
 accountVerifyRequest.emailAddress = "some_user@dropboxsign.com";
 
 apiCaller.accountVerify(
-    accountVerifyRequest,
+  accountVerifyRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Account#accountVerify:");
+  console.log("Exception when calling AccountApi#accountVerify:");
   console.log(error.body);
 });
 

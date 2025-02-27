@@ -35,8 +35,8 @@ apiCaller.username = "YOUR_API_KEY";
 const oauth = new models.SubOAuth();
 oauth.callbackUrl = "https://example.com/oauth";
 oauth.scopes = [
-    models.SubOAuth.ScopesEnum.BasicAccountInfo,
-    models.SubOAuth.ScopesEnum.RequestSignature,
+  models.SubOAuth.ScopesEnum.BasicAccountInfo,
+  models.SubOAuth.ScopesEnum.RequestSignature,
 ];
 
 const whiteLabelingOptions = new models.SubWhiteLabelingOptions();
@@ -46,18 +46,18 @@ whiteLabelingOptions.primaryButtonTextColor = "#ffffff";
 const apiAppCreateRequest = new models.ApiAppCreateRequest();
 apiAppCreateRequest.name = "My Production App";
 apiAppCreateRequest.domains = [
-    "example.com",
+  "example.com",
 ];
 apiAppCreateRequest.customLogoFile = fs.createReadStream("CustomLogoFile.png");
 apiAppCreateRequest.oauth = oauth;
 apiAppCreateRequest.whiteLabelingOptions = whiteLabelingOptions;
 
 apiCaller.apiAppCreate(
-    apiAppCreateRequest,
+  apiAppCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling ApiApp#apiAppCreate:");
+  console.log("Exception when calling ApiAppApi#apiAppCreate:");
   console.log(error.body);
 });
 
@@ -107,12 +107,10 @@ const apiCaller = new api.ApiAppApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
 apiCaller.apiAppDelete(
-    clientId,
+  "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
 ).catch(error => {
-  console.log("Exception when calling ApiApp#apiAppDelete:");
+  console.log("Exception when calling ApiAppApi#apiAppDelete:");
   console.log(error.body);
 });
 
@@ -162,14 +160,12 @@ const apiCaller = new api.ApiAppApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
 apiCaller.apiAppGet(
-    clientId,
+  "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling ApiApp#apiAppGet:");
+  console.log("Exception when calling ApiAppApi#apiAppGet:");
   console.log(error.body);
 });
 
@@ -219,16 +215,13 @@ const apiCaller = new api.ApiAppApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const page = 1;
-const pageSize = 20;
-
 apiCaller.apiAppList(
-    page,
-    pageSize,
+  1, // page
+  20, // pageSize
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling ApiApp#apiAppList:");
+  console.log("Exception when calling ApiAppApi#apiAppList:");
   console.log(error.body);
 });
 
@@ -282,8 +275,8 @@ apiCaller.username = "YOUR_API_KEY";
 const oauth = new models.SubOAuth();
 oauth.callbackUrl = "https://example.com/oauth";
 oauth.scopes = [
-    models.SubOAuth.ScopesEnum.BasicAccountInfo,
-    models.SubOAuth.ScopesEnum.RequestSignature,
+  models.SubOAuth.ScopesEnum.BasicAccountInfo,
+  models.SubOAuth.ScopesEnum.RequestSignature,
 ];
 
 const whiteLabelingOptions = new models.SubWhiteLabelingOptions();
@@ -294,21 +287,19 @@ const apiAppUpdateRequest = new models.ApiAppUpdateRequest();
 apiAppUpdateRequest.callbackUrl = "https://example.com/dropboxsign";
 apiAppUpdateRequest.name = "New Name";
 apiAppUpdateRequest.domains = [
-    "example.com",
+  "example.com",
 ];
 apiAppUpdateRequest.customLogoFile = fs.createReadStream("CustomLogoFile.png");
 apiAppUpdateRequest.oauth = oauth;
 apiAppUpdateRequest.whiteLabelingOptions = whiteLabelingOptions;
 
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
 apiCaller.apiAppUpdate(
-    clientId,
-    apiAppUpdateRequest,
+  "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
+  apiAppUpdateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling ApiApp#apiAppUpdate:");
+  console.log("Exception when calling ApiAppApi#apiAppUpdate:");
   console.log(error.body);
 });
 

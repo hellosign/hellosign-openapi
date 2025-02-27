@@ -22,6 +22,7 @@ Deletes the specified Fax from the system
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -30,10 +31,10 @@ end
 
 begin
   Dropbox::Sign::FaxApi.new.fax_delete(
-    "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # fax_id
   )
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Fax#fax_delete: #{e}"
+  puts "Exception when calling FaxApi#fax_delete: #{e}"
 end
 
 ```
@@ -87,6 +88,7 @@ Downloads files associated with a Fax
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -95,12 +97,12 @@ end
 
 begin
   response = Dropbox::Sign::FaxApi.new.fax_files(
-    "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # fax_id
   )
 
   FileUtils.cp(response.path, "./file_response")
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Fax#fax_files: #{e}"
+  puts "Exception when calling FaxApi#fax_files: #{e}"
 end
 
 ```
@@ -154,6 +156,7 @@ Returns information about a Fax
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -162,12 +165,12 @@ end
 
 begin
   response = Dropbox::Sign::FaxApi.new.fax_get(
-    "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # fax_id
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Fax#fax_get: #{e}"
+  puts "Exception when calling FaxApi#fax_get: #{e}"
 end
 
 ```
@@ -221,6 +224,7 @@ Returns properties of multiple Faxes
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -237,7 +241,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Fax#fax_list: #{e}"
+  puts "Exception when calling FaxApi#fax_list: #{e}"
 end
 
 ```
@@ -292,6 +296,7 @@ Creates and sends a new Fax with the submitted file(s)
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -317,7 +322,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Fax#fax_send: #{e}"
+  puts "Exception when calling FaxApi#fax_send: #{e}"
 end
 
 ```

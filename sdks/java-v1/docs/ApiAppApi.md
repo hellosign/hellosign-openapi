@@ -29,6 +29,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -74,7 +75,7 @@ public class ApiAppCreateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApiApp#apiAppCreate");
+            System.err.println("Exception when calling ApiAppApi#apiAppCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -129,6 +130,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -149,10 +151,10 @@ public class ApiAppDeleteExample
         try
         {
             new ApiAppApi(config).apiAppDelete(
-                "0dd3b823a682527788c4e40cb7b6f7e9"
+                "0dd3b823a682527788c4e40cb7b6f7e9" // clientId
             );
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApiApp#apiAppDelete");
+            System.err.println("Exception when calling ApiAppApi#apiAppDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -207,6 +209,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -227,12 +230,12 @@ public class ApiAppGetExample
         try
         {
             var response = new ApiAppApi(config).apiAppGet(
-                "0dd3b823a682527788c4e40cb7b6f7e9"
+                "0dd3b823a682527788c4e40cb7b6f7e9" // clientId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApiApp#apiAppGet");
+            System.err.println("Exception when calling ApiAppApi#apiAppGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -287,6 +290,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -307,13 +311,13 @@ public class ApiAppListExample
         try
         {
             var response = new ApiAppApi(config).apiAppList(
-                1,
-                20
+                1, // page
+                20 // pageSize
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApiApp#apiAppList");
+            System.err.println("Exception when calling ApiAppApi#apiAppList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -369,6 +373,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -410,13 +415,13 @@ public class ApiAppUpdateExample
         try
         {
             var response = new ApiAppApi(config).apiAppUpdate(
-                "0dd3b823a682527788c4e40cb7b6f7e9",
+                "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
                 apiAppUpdateRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApiApp#apiAppUpdate");
+            System.err.println("Exception when calling ApiAppApi#apiAppUpdate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

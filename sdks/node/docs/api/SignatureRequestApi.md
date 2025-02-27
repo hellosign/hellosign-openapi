@@ -51,7 +51,7 @@ signerList2CustomFields1.name = "company";
 signerList2CustomFields1.value = "123 LLC";
 
 const signerList2CustomFields = [
-    signerList2CustomFields1,
+  signerList2CustomFields1,
 ];
 
 const signerList2Signers1 = new models.SubSignatureRequestTemplateSigner();
@@ -61,7 +61,7 @@ signerList2Signers1.emailAddress = "mary@example.com";
 signerList2Signers1.pin = "gd9as5b";
 
 const signerList2Signers = [
-    signerList2Signers1,
+  signerList2Signers1,
 ];
 
 const signerList1CustomFields1 = new models.SubBulkSignerListCustomField();
@@ -69,7 +69,7 @@ signerList1CustomFields1.name = "company";
 signerList1CustomFields1.value = "ABC Corp";
 
 const signerList1CustomFields = [
-    signerList1CustomFields1,
+  signerList1CustomFields1,
 ];
 
 const signerList1Signers1 = new models.SubSignatureRequestTemplateSigner();
@@ -79,7 +79,7 @@ signerList1Signers1.emailAddress = "george@example.com";
 signerList1Signers1.pin = "d79a3td";
 
 const signerList1Signers = [
-    signerList1Signers1,
+  signerList1Signers1,
 ];
 
 const signerList1 = new models.SubBulkSignerList();
@@ -91,8 +91,8 @@ signerList2.customFields = signerList2CustomFields;
 signerList2.signers = signerList2Signers;
 
 const signerList = [
-    signerList1,
-    signerList2,
+  signerList1,
+  signerList2,
 ];
 
 const ccs1 = new models.SubCC();
@@ -100,13 +100,13 @@ ccs1.role = "Accounting";
 ccs1.emailAddress = "accounting@example.com";
 
 const ccs = [
-    ccs1,
+  ccs1,
 ];
 
 const signatureRequestBulkCreateEmbeddedWithTemplateRequest = new models.SignatureRequestBulkCreateEmbeddedWithTemplateRequest();
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.clientId = "1a659d9ad95bccd307ecad78d72192f8";
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.templateIds = [
-    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
 ];
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.subject = "Purchase Order";
@@ -115,11 +115,11 @@ signatureRequestBulkCreateEmbeddedWithTemplateRequest.signerList = signerList;
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.ccs = ccs;
 
 apiCaller.signatureRequestBulkCreateEmbeddedWithTemplate(
-    signatureRequestBulkCreateEmbeddedWithTemplateRequest,
+  signatureRequestBulkCreateEmbeddedWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestBulkCreateEmbeddedWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestBulkCreateEmbeddedWithTemplate:");
   console.log(error.body);
 });
 
@@ -174,7 +174,7 @@ signerList2CustomFields1.name = "company";
 signerList2CustomFields1.value = "123 LLC";
 
 const signerList2CustomFields = [
-    signerList2CustomFields1,
+  signerList2CustomFields1,
 ];
 
 const signerList2Signers1 = new models.SubSignatureRequestTemplateSigner();
@@ -184,7 +184,7 @@ signerList2Signers1.emailAddress = "mary@example.com";
 signerList2Signers1.pin = "gd9as5b";
 
 const signerList2Signers = [
-    signerList2Signers1,
+  signerList2Signers1,
 ];
 
 const signerList1CustomFields1 = new models.SubBulkSignerListCustomField();
@@ -192,7 +192,7 @@ signerList1CustomFields1.name = "company";
 signerList1CustomFields1.value = "ABC Corp";
 
 const signerList1CustomFields = [
-    signerList1CustomFields1,
+  signerList1CustomFields1,
 ];
 
 const signerList1Signers1 = new models.SubSignatureRequestTemplateSigner();
@@ -202,7 +202,7 @@ signerList1Signers1.emailAddress = "george@example.com";
 signerList1Signers1.pin = "d79a3td";
 
 const signerList1Signers = [
-    signerList1Signers1,
+  signerList1Signers1,
 ];
 
 const signerList1 = new models.SubBulkSignerList();
@@ -214,8 +214,8 @@ signerList2.customFields = signerList2CustomFields;
 signerList2.signers = signerList2Signers;
 
 const signerList = [
-    signerList1,
-    signerList2,
+  signerList1,
+  signerList2,
 ];
 
 const ccs1 = new models.SubCC();
@@ -223,12 +223,12 @@ ccs1.role = "Accounting";
 ccs1.emailAddress = "accounting@example.com";
 
 const ccs = [
-    ccs1,
+  ccs1,
 ];
 
 const signatureRequestBulkSendWithTemplateRequest = new models.SignatureRequestBulkSendWithTemplateRequest();
 signatureRequestBulkSendWithTemplateRequest.templateIds = [
-    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
 ];
 signatureRequestBulkSendWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestBulkSendWithTemplateRequest.subject = "Purchase Order";
@@ -237,11 +237,11 @@ signatureRequestBulkSendWithTemplateRequest.signerList = signerList;
 signatureRequestBulkSendWithTemplateRequest.ccs = ccs;
 
 apiCaller.signatureRequestBulkSendWithTemplate(
-    signatureRequestBulkSendWithTemplateRequest,
+  signatureRequestBulkSendWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestBulkSendWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestBulkSendWithTemplate:");
   console.log(error.body);
 });
 
@@ -291,12 +291,10 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestCancel(
-    signatureRequestId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
 ).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestCancel:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestCancel:");
   console.log(error.body);
 });
 
@@ -364,8 +362,8 @@ signers2.emailAddress = "jill@example.com";
 signers2.order = 1;
 
 const signers = [
-    signers1,
-    signers2,
+  signers1,
+  signers2,
 ];
 
 const signatureRequestCreateEmbeddedRequest = new models.SignatureRequestCreateEmbeddedRequest();
@@ -375,21 +373,21 @@ signatureRequestCreateEmbeddedRequest.subject = "The NDA we talked about";
 signatureRequestCreateEmbeddedRequest.testMode = true;
 signatureRequestCreateEmbeddedRequest.title = "NDA with Acme Co.";
 signatureRequestCreateEmbeddedRequest.ccEmailAddresses = [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@dropboxsign.com",
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
 ];
 signatureRequestCreateEmbeddedRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 signatureRequestCreateEmbeddedRequest.signingOptions = signingOptions;
 signatureRequestCreateEmbeddedRequest.signers = signers;
 
 apiCaller.signatureRequestCreateEmbedded(
-    signatureRequestCreateEmbeddedRequest,
+  signatureRequestCreateEmbeddedRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestCreateEmbedded:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestCreateEmbedded:");
   console.log(error.body);
 });
 
@@ -452,13 +450,13 @@ signers1.name = "George";
 signers1.emailAddress = "george@example.com";
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const signatureRequestCreateEmbeddedWithTemplateRequest = new models.SignatureRequestCreateEmbeddedWithTemplateRequest();
 signatureRequestCreateEmbeddedWithTemplateRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
 signatureRequestCreateEmbeddedWithTemplateRequest.templateIds = [
-    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
 ];
 signatureRequestCreateEmbeddedWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestCreateEmbeddedWithTemplateRequest.subject = "Purchase Order";
@@ -467,11 +465,11 @@ signatureRequestCreateEmbeddedWithTemplateRequest.signingOptions = signingOption
 signatureRequestCreateEmbeddedWithTemplateRequest.signers = signers;
 
 apiCaller.signatureRequestCreateEmbeddedWithTemplate(
-    signatureRequestCreateEmbeddedWithTemplateRequest,
+  signatureRequestCreateEmbeddedWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestCreateEmbeddedWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestCreateEmbeddedWithTemplate:");
   console.log(error.body);
 });
 
@@ -542,8 +540,8 @@ signers2.emailAddress = "jill@example.com";
 signers2.order = 1;
 
 const signers = [
-    signers1,
-    signers2,
+  signers1,
+  signers2,
 ];
 
 const signatureRequestEditRequest = new models.SignatureRequestEditRequest();
@@ -552,29 +550,27 @@ signatureRequestEditRequest.subject = "The NDA we talked about";
 signatureRequestEditRequest.testMode = true;
 signatureRequestEditRequest.title = "NDA with Acme Co.";
 signatureRequestEditRequest.ccEmailAddresses = [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@dropboxsign.com",
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
 ];
 signatureRequestEditRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
-signatureRequestEditRequest.metadata = {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
+signatureRequestEditRequest.metadata =   {
+  "custom_id": 1234,
+  "custom_text": "NDA #9"
 };
 signatureRequestEditRequest.fieldOptions = fieldOptions;
 signatureRequestEditRequest.signingOptions = signingOptions;
 signatureRequestEditRequest.signers = signers;
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestEdit(
-    signatureRequestId,
-    signatureRequestEditRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestEdit:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEdit:");
   console.log(error.body);
 });
 
@@ -643,8 +639,8 @@ signers2.emailAddress = "jill@example.com";
 signers2.order = 1;
 
 const signers = [
-    signers1,
-    signers2,
+  signers1,
+  signers2,
 ];
 
 const signatureRequestEditEmbeddedRequest = new models.SignatureRequestEditEmbeddedRequest();
@@ -654,24 +650,22 @@ signatureRequestEditEmbeddedRequest.subject = "The NDA we talked about";
 signatureRequestEditEmbeddedRequest.testMode = true;
 signatureRequestEditEmbeddedRequest.title = "NDA with Acme Co.";
 signatureRequestEditEmbeddedRequest.ccEmailAddresses = [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@dropboxsign.com",
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
 ];
 signatureRequestEditEmbeddedRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 signatureRequestEditEmbeddedRequest.signingOptions = signingOptions;
 signatureRequestEditEmbeddedRequest.signers = signers;
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestEditEmbedded(
-    signatureRequestId,
-    signatureRequestEditEmbeddedRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditEmbeddedRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestEditEmbedded:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEditEmbedded:");
   console.log(error.body);
 });
 
@@ -735,13 +729,13 @@ signers1.name = "George";
 signers1.emailAddress = "george@example.com";
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const signatureRequestEditEmbeddedWithTemplateRequest = new models.SignatureRequestEditEmbeddedWithTemplateRequest();
 signatureRequestEditEmbeddedWithTemplateRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
 signatureRequestEditEmbeddedWithTemplateRequest.templateIds = [
-    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
 ];
 signatureRequestEditEmbeddedWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestEditEmbeddedWithTemplateRequest.subject = "Purchase Order";
@@ -749,15 +743,13 @@ signatureRequestEditEmbeddedWithTemplateRequest.testMode = true;
 signatureRequestEditEmbeddedWithTemplateRequest.signingOptions = signingOptions;
 signatureRequestEditEmbeddedWithTemplateRequest.signers = signers;
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestEditEmbeddedWithTemplate(
-    signatureRequestId,
-    signatureRequestEditEmbeddedWithTemplateRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditEmbeddedWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestEditEmbeddedWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEditEmbeddedWithTemplate:");
   console.log(error.body);
 });
 
@@ -821,7 +813,7 @@ signers1.name = "George";
 signers1.emailAddress = "george@example.com";
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const ccs1 = new models.SubCC();
@@ -829,7 +821,7 @@ ccs1.role = "Accounting";
 ccs1.emailAddress = "accounting@example.com";
 
 const ccs = [
-    ccs1,
+  ccs1,
 ];
 
 const customFields1 = new models.SubCustomField();
@@ -839,12 +831,12 @@ customFields1.required = true;
 customFields1.value = "$20,000";
 
 const customFields = [
-    customFields1,
+  customFields1,
 ];
 
 const signatureRequestEditWithTemplateRequest = new models.SignatureRequestEditWithTemplateRequest();
 signatureRequestEditWithTemplateRequest.templateIds = [
-    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  "61a832ff0d8423f91d503e76bfbcc750f7417c78",
 ];
 signatureRequestEditWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestEditWithTemplateRequest.subject = "Purchase Order";
@@ -854,15 +846,13 @@ signatureRequestEditWithTemplateRequest.signers = signers;
 signatureRequestEditWithTemplateRequest.ccs = ccs;
 signatureRequestEditWithTemplateRequest.customFields = customFields;
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestEditWithTemplate(
-    signatureRequestId,
-    signatureRequestEditWithTemplateRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestEditWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEditWithTemplate:");
   console.log(error.body);
 });
 
@@ -913,16 +903,13 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-const fileType = "pdf";
-
 apiCaller.signatureRequestFiles(
-    signatureRequestId,
-    fileType,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  "pdf", // fileType
 ).then(response => {
   fs.createWriteStream('./file_response').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestFiles:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestFiles:");
   console.log(error.body);
 });
 
@@ -973,14 +960,12 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestFilesAsDataUri(
-    signatureRequestId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestFilesAsDataUri:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestFilesAsDataUri:");
   console.log(error.body);
 });
 
@@ -1030,16 +1015,13 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-const forceDownload = 1;
-
 apiCaller.signatureRequestFilesAsFileUrl(
-    signatureRequestId,
-    forceDownload,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  1, // forceDownload
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestFilesAsFileUrl:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestFilesAsFileUrl:");
   console.log(error.body);
 });
 
@@ -1090,14 +1072,12 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestGet(
-    signatureRequestId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestGet:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestGet:");
   console.log(error.body);
 });
 
@@ -1147,20 +1127,15 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const accountId = undefined;
-const page = 1;
-const pageSize = 20;
-const query = undefined;
-
 apiCaller.signatureRequestList(
-    accountId,
-    page,
-    pageSize,
-    query,
+  undefined, // accountId
+  1, // page
+  20, // pageSize
+  undefined, // query
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestList:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestList:");
   console.log(error.body);
 });
 
@@ -1213,14 +1188,12 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestReleaseHold(
-    signatureRequestId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestReleaseHold:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestReleaseHold:");
   console.log(error.body);
 });
 
@@ -1273,15 +1246,13 @@ apiCaller.username = "YOUR_API_KEY";
 const signatureRequestRemindRequest = new models.SignatureRequestRemindRequest();
 signatureRequestRemindRequest.emailAddress = "john@example.com";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestRemind(
-    signatureRequestId,
-    signatureRequestRemindRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestRemindRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestRemind:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestRemind:");
   console.log(error.body);
 });
 
@@ -1331,12 +1302,10 @@ import models from "@dropbox/sign"
 const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestRemove(
-    signatureRequestId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
 ).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestRemove:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestRemove:");
   console.log(error.body);
 });
 
@@ -1407,8 +1376,8 @@ signers2.emailAddress = "jill@example.com";
 signers2.order = 1;
 
 const signers = [
-    signers1,
-    signers2,
+  signers1,
+  signers2,
 ];
 
 const signatureRequestSendRequest = new models.SignatureRequestSendRequest();
@@ -1417,26 +1386,26 @@ signatureRequestSendRequest.subject = "The NDA we talked about";
 signatureRequestSendRequest.testMode = true;
 signatureRequestSendRequest.title = "NDA with Acme Co.";
 signatureRequestSendRequest.ccEmailAddresses = [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@dropboxsign.com",
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
 ];
 signatureRequestSendRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
-signatureRequestSendRequest.metadata = {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
+signatureRequestSendRequest.metadata =   {
+  "custom_id": 1234,
+  "custom_text": "NDA #9"
 };
 signatureRequestSendRequest.fieldOptions = fieldOptions;
 signatureRequestSendRequest.signingOptions = signingOptions;
 signatureRequestSendRequest.signers = signers;
 
 apiCaller.signatureRequestSend(
-    signatureRequestSendRequest,
+  signatureRequestSendRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestSend:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestSend:");
   console.log(error.body);
 });
 
@@ -1499,7 +1468,7 @@ signers1.name = "George";
 signers1.emailAddress = "george@example.com";
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const ccs1 = new models.SubCC();
@@ -1507,7 +1476,7 @@ ccs1.role = "Accounting";
 ccs1.emailAddress = "accounting@example.com";
 
 const ccs = [
-    ccs1,
+  ccs1,
 ];
 
 const customFields1 = new models.SubCustomField();
@@ -1517,12 +1486,12 @@ customFields1.required = true;
 customFields1.value = "$20,000";
 
 const customFields = [
-    customFields1,
+  customFields1,
 ];
 
 const signatureRequestSendWithTemplateRequest = new models.SignatureRequestSendWithTemplateRequest();
 signatureRequestSendWithTemplateRequest.templateIds = [
-    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  "61a832ff0d8423f91d503e76bfbcc750f7417c78",
 ];
 signatureRequestSendWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestSendWithTemplateRequest.subject = "Purchase Order";
@@ -1533,11 +1502,11 @@ signatureRequestSendWithTemplateRequest.ccs = ccs;
 signatureRequestSendWithTemplateRequest.customFields = customFields;
 
 apiCaller.signatureRequestSendWithTemplate(
-    signatureRequestSendWithTemplateRequest,
+  signatureRequestSendWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestSendWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestSendWithTemplate:");
   console.log(error.body);
 });
 
@@ -1591,15 +1560,13 @@ const signatureRequestUpdateRequest = new models.SignatureRequestUpdateRequest()
 signatureRequestUpdateRequest.signatureId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 signatureRequestUpdateRequest.emailAddress = "john@example.com";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestUpdate(
-    signatureRequestId,
-    signatureRequestUpdateRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestUpdateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestUpdate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestUpdate:");
   console.log(error.body);
 });
 

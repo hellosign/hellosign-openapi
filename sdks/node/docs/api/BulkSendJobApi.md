@@ -29,18 +29,14 @@ const apiCaller = new api.BulkSendJobApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-const page = 1;
-const pageSize = 20;
-
 apiCaller.bulkSendJobGet(
-    bulkSendJobId,
-    page,
-    pageSize,
+  "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174", // bulkSendJobId
+  1, // page
+  20, // pageSize
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling BulkSendJob#bulkSendJobGet:");
+  console.log("Exception when calling BulkSendJobApi#bulkSendJobGet:");
   console.log(error.body);
 });
 
@@ -92,16 +88,13 @@ const apiCaller = new api.BulkSendJobApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const page = 1;
-const pageSize = 20;
-
 apiCaller.bulkSendJobList(
-    page,
-    pageSize,
+  1, // page
+  20, // pageSize
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling BulkSendJob#bulkSendJobList:");
+  console.log("Exception when calling BulkSendJobApi#bulkSendJobList:");
   console.log(error.body);
 });
 

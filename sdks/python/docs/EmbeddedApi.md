@@ -21,6 +21,7 @@ Retrieves an embedded object containing a template url that can be opened in an 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -49,7 +50,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Embedded#embedded_edit_url: %s\n" % e)
+        print("Exception when calling EmbeddedApi#embedded_edit_url: %s\n" % e)
 
 ```
 ```
@@ -95,6 +96,7 @@ Retrieves an embedded object containing a signature url that can be opened in an
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -113,7 +115,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Embedded#embedded_sign_url: %s\n" % e)
+        print("Exception when calling EmbeddedApi#embedded_sign_url: %s\n" % e)
 
 ```
 ```

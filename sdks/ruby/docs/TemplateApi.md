@@ -28,11 +28,12 @@ Gives the specified Account access to the specified Template. The specified Acco
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 template_add_user_request = Dropbox::Sign::TemplateAddUserRequest.new
@@ -40,13 +41,13 @@ template_add_user_request.email_address = "george@dropboxsign.com"
 
 begin
   response = Dropbox::Sign::TemplateApi.new.template_add_user(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
       template_add_user_request,
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_add_user: #{e}"
+  puts "Exception when calling TemplateApi#template_add_user: #{e}"
 end
 
 ```
@@ -101,11 +102,12 @@ Creates a template that can then be used.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 field_options = Dropbox::Sign::SubFieldOptions.new
@@ -194,7 +196,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_create: #{e}"
+  puts "Exception when calling TemplateApi#template_create: #{e}"
 end
 
 ```
@@ -248,11 +250,12 @@ The first step in an embedded template workflow. Creates a draft template that c
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 field_options = Dropbox::Sign::SubFieldOptions.new
@@ -307,7 +310,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_create_embedded_draft: #{e}"
+  puts "Exception when calling TemplateApi#template_create_embedded_draft: #{e}"
 end
 
 ```
@@ -361,19 +364,20 @@ Completely deletes the template specified from the account.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   Dropbox::Sign::TemplateApi.new.template_delete(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
   )
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_delete: #{e}"
+  puts "Exception when calling TemplateApi#template_delete: #{e}"
 end
 
 ```
@@ -427,21 +431,22 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   response = Dropbox::Sign::TemplateApi.new.template_files(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
   )
 
   FileUtils.cp(response.path, "./file_response")
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_files: #{e}"
+  puts "Exception when calling TemplateApi#template_files: #{e}"
 end
 
 ```
@@ -496,21 +501,22 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   response = Dropbox::Sign::TemplateApi.new.template_files_as_data_uri(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_files_as_data_uri: #{e}"
+  puts "Exception when calling TemplateApi#template_files_as_data_uri: #{e}"
 end
 
 ```
@@ -564,16 +570,17 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   response = Dropbox::Sign::TemplateApi.new.template_files_as_file_url(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
       {
           force_download: 1,
       },
@@ -581,7 +588,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_files_as_file_url: #{e}"
+  puts "Exception when calling TemplateApi#template_files_as_file_url: #{e}"
 end
 
 ```
@@ -636,21 +643,22 @@ Returns the Template specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   response = Dropbox::Sign::TemplateApi.new.template_get(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_get: #{e}"
+  puts "Exception when calling TemplateApi#template_get: #{e}"
 end
 
 ```
@@ -704,11 +712,12 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
@@ -723,7 +732,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_list: #{e}"
+  puts "Exception when calling TemplateApi#template_list: #{e}"
 end
 
 ```
@@ -780,11 +789,12 @@ Removes the specified Account's access to the specified Template.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 template_remove_user_request = Dropbox::Sign::TemplateRemoveUserRequest.new
@@ -792,13 +802,13 @@ template_remove_user_request.email_address = "george@dropboxsign.com"
 
 begin
   response = Dropbox::Sign::TemplateApi.new.template_remove_user(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
       template_remove_user_request,
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_remove_user: #{e}"
+  puts "Exception when calling TemplateApi#template_remove_user: #{e}"
 end
 
 ```
@@ -853,11 +863,12 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 template_update_files_request = Dropbox::Sign::TemplateUpdateFilesRequest.new
@@ -867,13 +878,13 @@ template_update_files_request.files = [
 
 begin
   response = Dropbox::Sign::TemplateApi.new.template_update_files(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
       template_update_files_request,
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Template#template_update_files: #{e}"
+  puts "Exception when calling TemplateApi#template_update_files: #{e}"
 end
 
 ```

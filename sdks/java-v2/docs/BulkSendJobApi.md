@@ -26,6 +26,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -46,14 +47,14 @@ public class BulkSendJobGetExample
         try
         {
             var response = new BulkSendJobApi(config).bulkSendJobGet(
-                "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174",
-                1,
-                20
+                "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174", // bulkSendJobId
+                1, // page
+                20 // pageSize
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BulkSendJob#bulkSendJobGet");
+            System.err.println("Exception when calling BulkSendJobApi#bulkSendJobGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -110,6 +111,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -130,13 +132,13 @@ public class BulkSendJobListExample
         try
         {
             var response = new BulkSendJobApi(config).bulkSendJobList(
-                1,
-                20
+                1, // page
+                20 // pageSize
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BulkSendJob#bulkSendJobList");
+            System.err.println("Exception when calling BulkSendJobApi#bulkSendJobList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

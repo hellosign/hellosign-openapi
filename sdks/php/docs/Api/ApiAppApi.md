@@ -63,7 +63,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling ApiApp#apiAppCreate: {$e->getMessage()}";
+    echo "Exception when calling ApiAppApi#apiAppCreate: {$e->getMessage()}";
 }
 
 ```
@@ -121,7 +121,7 @@ try {
         client_id: "0dd3b823a682527788c4e40cb7b6f7e9",
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling ApiApp#apiAppDelete: {$e->getMessage()}";
+    echo "Exception when calling ApiAppApi#apiAppDelete: {$e->getMessage()}";
 }
 
 ```
@@ -181,7 +181,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling ApiApp#apiAppGet: {$e->getMessage()}";
+    echo "Exception when calling ApiAppApi#apiAppGet: {$e->getMessage()}";
 }
 
 ```
@@ -242,7 +242,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling ApiApp#apiAppList: {$e->getMessage()}";
+    echo "Exception when calling ApiAppApi#apiAppList: {$e->getMessage()}";
 }
 
 ```
@@ -325,7 +325,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling ApiApp#apiAppUpdate: {$e->getMessage()}";
+    echo "Exception when calling ApiAppApi#apiAppUpdate: {$e->getMessage()}";
 }
 
 ```

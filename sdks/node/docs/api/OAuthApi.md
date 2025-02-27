@@ -35,11 +35,11 @@ oAuthTokenGenerateRequest.state = "900e06e2";
 oAuthTokenGenerateRequest.grantType = "authorization_code";
 
 apiCaller.oauthTokenGenerate(
-    oAuthTokenGenerateRequest,
+  oAuthTokenGenerateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling OAuth#oauthTokenGenerate:");
+  console.log("Exception when calling OAuthApi#oauthTokenGenerate:");
   console.log(error.body);
 });
 
@@ -92,11 +92,11 @@ oAuthTokenRefreshRequest.grantType = "refresh_token";
 oAuthTokenRefreshRequest.refreshToken = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3";
 
 apiCaller.oauthTokenRefresh(
-    oAuthTokenRefreshRequest,
+  oAuthTokenRefreshRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling OAuth#oauthTokenRefresh:");
+  console.log("Exception when calling OAuthApi#oauthTokenRefresh:");
   console.log(error.body);
 });
 

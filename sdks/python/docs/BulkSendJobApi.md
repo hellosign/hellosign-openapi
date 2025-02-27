@@ -21,6 +21,7 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -41,7 +42,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling BulkSendJob#bulk_send_job_get: %s\n" % e)
+        print("Exception when calling BulkSendJobApi#bulk_send_job_get: %s\n" % e)
 
 ```
 ```
@@ -88,6 +89,7 @@ Returns a list of BulkSendJob that you can access.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -107,7 +109,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling BulkSendJob#bulk_send_job_list: %s\n" % e)
+        print("Exception when calling BulkSendJobApi#bulk_send_job_list: %s\n" % e)
 
 ```
 ```

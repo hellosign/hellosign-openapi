@@ -30,6 +30,7 @@ Gives the specified Account access to the specified Template. The specified Acco
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -53,7 +54,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Template#template_add_user: %s\n" % e)
+        print("Exception when calling TemplateApi#template_add_user: %s\n" % e)
 
 ```
 ```
@@ -99,6 +100,7 @@ Creates a template that can then be used.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -204,7 +206,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Template#template_create: %s\n" % e)
+        print("Exception when calling TemplateApi#template_create: %s\n" % e)
 
 ```
 ```
@@ -249,6 +251,7 @@ The first step in an embedded template workflow. Creates a draft template that c
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -319,7 +322,8 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling Template#template_create_embedded_draft: %s\n" % e
+            "Exception when calling TemplateApi#template_create_embedded_draft: %s\n"
+            % e
         )
 
 ```
@@ -365,6 +369,7 @@ Completely deletes the template specified from the account.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -381,7 +386,7 @@ with ApiClient(configuration) as api_client:
             template_id="f57db65d3f933b5316d398057a36176831451a35",
         )
     except ApiException as e:
-        print("Exception when calling Template#template_delete: %s\n" % e)
+        print("Exception when calling TemplateApi#template_delete: %s\n" % e)
 
 ```
 ```
@@ -426,6 +431,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -445,7 +451,7 @@ with ApiClient(configuration) as api_client:
 
         open("./file_response", "wb").write(response.read())
     except ApiException as e:
-        print("Exception when calling Template#template_files: %s\n" % e)
+        print("Exception when calling TemplateApi#template_files: %s\n" % e)
 
 ```
 ```
@@ -491,6 +497,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -509,7 +516,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Template#template_files_as_data_uri: %s\n" % e)
+        print("Exception when calling TemplateApi#template_files_as_data_uri: %s\n" % e)
 
 ```
 ```
@@ -554,6 +561,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -573,7 +581,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Template#template_files_as_file_url: %s\n" % e)
+        print("Exception when calling TemplateApi#template_files_as_file_url: %s\n" % e)
 
 ```
 ```
@@ -619,6 +627,7 @@ Returns the Template specified by the `template_id` parameter.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -637,7 +646,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Template#template_get: %s\n" % e)
+        print("Exception when calling TemplateApi#template_get: %s\n" % e)
 
 ```
 ```
@@ -682,6 +691,7 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -703,7 +713,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Template#template_list: %s\n" % e)
+        print("Exception when calling TemplateApi#template_list: %s\n" % e)
 
 ```
 ```
@@ -751,6 +761,7 @@ Removes the specified Account's access to the specified Template.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -774,7 +785,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Template#template_remove_user: %s\n" % e)
+        print("Exception when calling TemplateApi#template_remove_user: %s\n" % e)
 
 ```
 ```
@@ -820,6 +831,7 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -845,7 +857,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Template#template_update_files: %s\n" % e)
+        print("Exception when calling TemplateApi#template_update_files: %s\n" % e)
 
 ```
 ```

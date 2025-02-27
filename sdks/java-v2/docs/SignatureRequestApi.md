@@ -46,6 +46,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -138,7 +139,7 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestBulkCreateEmbeddedWithTemplate");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestBulkCreateEmbeddedWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -195,6 +196,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -287,7 +289,7 @@ public class SignatureRequestBulkSendWithTemplateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestBulkSendWithTemplate");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestBulkSendWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -350,6 +352,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -370,10 +373,10 @@ public class SignatureRequestCancelExample
         try
         {
             new SignatureRequestApi(config).signatureRequestCancel(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // signatureRequestId
             );
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestCancel");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestCancel");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -428,6 +431,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -491,7 +495,7 @@ public class SignatureRequestCreateEmbeddedExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestCreateEmbedded");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestCreateEmbedded");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -546,6 +550,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -598,7 +603,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestCreateEmbeddedWithTemplate");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestCreateEmbeddedWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -655,6 +660,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -709,10 +715,12 @@ public class SignatureRequestEditExample
         signatureRequestEditRequest.files(List.of (
             new File("./example_signature_request.pdf")
         ));
-        signatureRequestEditRequest.metadata(Map.of (
-            "custom_id", 1234,
-            "custom_text", "NDA #9"
-        ));
+        signatureRequestEditRequest.metadata(JSON.deserialize("""
+            {
+                "custom_id": 1234,
+                "custom_text": "NDA #9"
+            }
+        """, Map.class));
         signatureRequestEditRequest.fieldOptions(fieldOptions);
         signatureRequestEditRequest.signingOptions(signingOptions);
         signatureRequestEditRequest.signers(signers);
@@ -720,13 +728,13 @@ public class SignatureRequestEditExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestEdit(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
                 signatureRequestEditRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestEdit");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestEdit");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -782,6 +790,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -840,13 +849,13 @@ public class SignatureRequestEditEmbeddedExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestEditEmbedded(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
                 signatureRequestEditEmbeddedRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestEditEmbedded");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestEditEmbedded");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -902,6 +911,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -949,13 +959,13 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestEditEmbeddedWithTemplate(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
                 signatureRequestEditEmbeddedWithTemplateRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestEditEmbeddedWithTemplate");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestEditEmbeddedWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1013,6 +1023,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1079,13 +1090,13 @@ public class SignatureRequestEditWithTemplateExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestEditWithTemplate(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
                 signatureRequestEditWithTemplateRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestEditWithTemplate");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestEditWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1143,6 +1154,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1163,12 +1175,12 @@ public class SignatureRequestFilesExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestFiles(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
-                "pdf"
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+                "pdf" // fileType
             );
             response.renameTo(new File("./file_response"));
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestFiles");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestFiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1226,6 +1238,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1246,12 +1259,12 @@ public class SignatureRequestFilesAsDataUriExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestFilesAsDataUri(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // signatureRequestId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestFilesAsDataUri");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestFilesAsDataUri");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1308,6 +1321,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1328,13 +1342,13 @@ public class SignatureRequestFilesAsFileUrlExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestFilesAsFileUrl(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
-                1
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+                1 // forceDownload
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestFilesAsFileUrl");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestFilesAsFileUrl");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1390,6 +1404,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1410,12 +1425,12 @@ public class SignatureRequestGetExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestGet(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // signatureRequestId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestGet");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1472,6 +1487,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1492,15 +1508,15 @@ public class SignatureRequestListExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestList(
-                null,
-                1,
-                20,
-                null
+                null, // accountId
+                1, // page
+                20, // pageSize
+                null // query
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestList");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1558,6 +1574,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1578,12 +1595,12 @@ public class SignatureRequestReleaseHoldExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestReleaseHold(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // signatureRequestId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestReleaseHold");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestReleaseHold");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1640,6 +1657,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1663,13 +1681,13 @@ public class SignatureRequestRemindExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestRemind(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
                 signatureRequestRemindRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestRemind");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestRemind");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1729,6 +1747,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1748,10 +1767,10 @@ public class SignatureRequestRemoveExample
         try
         {
             new SignatureRequestApi(config).signatureRequestRemove(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // signatureRequestId
             );
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestRemove");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestRemove");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1806,6 +1825,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1860,10 +1880,12 @@ public class SignatureRequestSendExample
         signatureRequestSendRequest.files(List.of (
             new File("./example_signature_request.pdf")
         ));
-        signatureRequestSendRequest.metadata(Map.of (
-            "custom_id", 1234,
-            "custom_text", "NDA #9"
-        ));
+        signatureRequestSendRequest.metadata(JSON.deserialize("""
+            {
+                "custom_id": 1234,
+                "custom_text": "NDA #9"
+            }
+        """, Map.class));
         signatureRequestSendRequest.fieldOptions(fieldOptions);
         signatureRequestSendRequest.signingOptions(signingOptions);
         signatureRequestSendRequest.signers(signers);
@@ -1876,7 +1898,7 @@ public class SignatureRequestSendExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestSend");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestSend");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1931,6 +1953,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -2002,7 +2025,7 @@ public class SignatureRequestSendWithTemplateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestSendWithTemplate");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestSendWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2061,6 +2084,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -2085,13 +2109,13 @@ public class SignatureRequestUpdateExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestUpdate(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
                 signatureRequestUpdateRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestUpdate");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestUpdate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

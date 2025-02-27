@@ -18,6 +18,7 @@ Request the creation of one or more report(s).  When the report(s) have been gen
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -39,7 +40,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Report#report_create: #{e}"
+  puts "Exception when calling ReportApi#report_create: #{e}"
 end
 
 ```

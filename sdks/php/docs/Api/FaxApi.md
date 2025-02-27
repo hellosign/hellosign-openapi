@@ -40,7 +40,7 @@ try {
         fax_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Fax#faxDelete: {$e->getMessage()}";
+    echo "Exception when calling FaxApi#faxDelete: {$e->getMessage()}";
 }
 
 ```
@@ -99,7 +99,7 @@ try {
 
     copy($response->getRealPath(), __DIR__ . '/file_response');
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Fax#faxFiles: {$e->getMessage()}";
+    echo "Exception when calling FaxApi#faxFiles: {$e->getMessage()}";
 }
 
 ```
@@ -158,7 +158,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Fax#faxGet: {$e->getMessage()}";
+    echo "Exception when calling FaxApi#faxGet: {$e->getMessage()}";
 }
 
 ```
@@ -218,7 +218,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Fax#faxList: {$e->getMessage()}";
+    echo "Exception when calling FaxApi#faxList: {$e->getMessage()}";
 }
 
 ```
@@ -289,7 +289,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Fax#faxSend: {$e->getMessage()}";
+    echo "Exception when calling FaxApi#faxSend: {$e->getMessage()}";
 }
 
 ```

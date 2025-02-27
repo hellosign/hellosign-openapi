@@ -29,6 +29,7 @@ Gives the specified Account access to the specified Template. The specified Acco
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -59,7 +60,7 @@ public class TemplateAddUserExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateAddUser: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateAddUser: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -130,6 +131,7 @@ Creates a template that can then be used.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -249,7 +251,7 @@ public class TemplateCreateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateCreate: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -319,6 +321,7 @@ The first step in an embedded template workflow. Creates a draft template that c
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -401,7 +404,7 @@ public class TemplateCreateEmbeddedDraftExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateCreateEmbeddedDraft: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateCreateEmbeddedDraft: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -471,6 +474,7 @@ Completely deletes the template specified from the account.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -494,7 +498,7 @@ public class TemplateDeleteExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateDelete: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -561,6 +565,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -589,7 +594,7 @@ public class TemplateFilesExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateFiles: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateFiles: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -660,6 +665,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -685,7 +691,7 @@ public class TemplateFilesAsDataUriExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateFilesAsDataUri: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateFilesAsDataUri: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -755,6 +761,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -781,7 +788,7 @@ public class TemplateFilesAsFileUrlExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateFilesAsFileUrl: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateFilesAsFileUrl: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -852,6 +859,7 @@ Returns the Template specified by the `template_id` parameter.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -877,7 +885,7 @@ public class TemplateGetExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateGet: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -947,6 +955,7 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -975,7 +984,7 @@ public class TemplateListExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateList: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1048,6 +1057,7 @@ Removes the specified Account's access to the specified Template.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1078,7 +1088,7 @@ public class TemplateRemoveUserExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateRemoveUser: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateRemoveUser: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1149,6 +1159,7 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -1185,7 +1196,7 @@ public class TemplateUpdateFilesExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateUpdateFiles: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateUpdateFiles: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

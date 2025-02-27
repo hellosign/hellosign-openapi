@@ -48,7 +48,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineAddUser: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineAddUser: {$e->getMessage()}";
 }
 
 ```
@@ -102,7 +102,7 @@ $config->setUsername("YOUR_API_KEY");
 
 try {
     $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineAreaCodeGet(
-        country: null,
+        country: "US",
         state: null,
         province: null,
         city: null,
@@ -110,7 +110,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineAreaCodeGet: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineAreaCodeGet: {$e->getMessage()}";
 }
 
 ```
@@ -176,7 +176,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineCreate: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineCreate: {$e->getMessage()}";
 }
 
 ```
@@ -236,7 +236,7 @@ try {
         fax_line_delete_request: $fax_line_delete_request,
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineDelete: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineDelete: {$e->getMessage()}";
 }
 
 ```
@@ -290,12 +290,12 @@ $config->setUsername("YOUR_API_KEY");
 
 try {
     $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineGet(
-        number: null,
+        number: "123-123-1234",
     );
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineGet: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineGet: {$e->getMessage()}";
 }
 
 ```
@@ -357,7 +357,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineList: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineList: {$e->getMessage()}";
 }
 
 ```
@@ -423,7 +423,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineRemoveUser: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineRemoveUser: {$e->getMessage()}";
 }
 
 ```

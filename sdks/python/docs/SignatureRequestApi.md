@@ -38,6 +38,7 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -136,7 +137,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_bulk_create_embedded_with_template: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_bulk_create_embedded_with_template: %s\n"
             % e
         )
 
@@ -183,6 +184,7 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -281,7 +283,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_bulk_send_with_template: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_bulk_send_with_template: %s\n"
             % e
         )
 
@@ -328,6 +330,7 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -345,7 +348,8 @@ with ApiClient(configuration) as api_client:
         )
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_cancel: %s\n" % e
+            "Exception when calling SignatureRequestApi#signature_request_cancel: %s\n"
+            % e
         )
 
 ```
@@ -391,6 +395,7 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -454,7 +459,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_create_embedded: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_create_embedded: %s\n"
             % e
         )
 
@@ -501,6 +506,7 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -554,7 +560,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_create_embedded_with_template: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_create_embedded_with_template: %s\n"
             % e
         )
 
@@ -601,6 +607,7 @@ Edits and sends a SignatureRequest with the submitted documents. If `form_fields
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -653,10 +660,14 @@ with ApiClient(configuration) as api_client:
         files=[
             open("./example_signature_request.pdf", "rb").read(),
         ],
-        metadata={
-            "custom_id": 1234,
-            "custom_text": "NDA #9",
-        },
+        metadata=json.loads(
+            """
+            {
+                "custom_id": 1234,
+                "custom_text": "NDA #9"
+            }
+        """
+        ),
         field_options=field_options,
         signing_options=signing_options,
         signers=signers,
@@ -671,7 +682,8 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_edit: %s\n" % e
+            "Exception when calling SignatureRequestApi#signature_request_edit: %s\n"
+            % e
         )
 
 ```
@@ -718,6 +730,7 @@ Edits a SignatureRequest with the submitted documents to be signed in an embedde
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -780,7 +793,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_edit_embedded: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_edit_embedded: %s\n"
             % e
         )
 
@@ -828,6 +841,7 @@ Edits a SignatureRequest based on the given Template(s) to be signed in an embed
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -882,7 +896,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_edit_embedded_with_template: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_edit_embedded_with_template: %s\n"
             % e
         )
 
@@ -930,6 +944,7 @@ Edits and sends a SignatureRequest based off of the Template(s) specified with t
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1005,7 +1020,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_edit_with_template: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_edit_with_template: %s\n"
             % e
         )
 
@@ -1053,6 +1068,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1073,7 +1089,8 @@ with ApiClient(configuration) as api_client:
         open("./file_response", "wb").write(response.read())
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_files: %s\n" % e
+            "Exception when calling SignatureRequestApi#signature_request_files: %s\n"
+            % e
         )
 
 ```
@@ -1120,6 +1137,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1141,7 +1159,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_files_as_data_uri: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_files_as_data_uri: %s\n"
             % e
         )
 
@@ -1188,6 +1206,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1210,7 +1229,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_files_as_file_url: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_files_as_file_url: %s\n"
             % e
         )
 
@@ -1258,6 +1277,7 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1276,7 +1296,9 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling SignatureRequest#signature_request_get: %s\n" % e)
+        print(
+            "Exception when calling SignatureRequestApi#signature_request_get: %s\n" % e
+        )
 
 ```
 ```
@@ -1321,6 +1343,7 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1343,7 +1366,8 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_list: %s\n" % e
+            "Exception when calling SignatureRequestApi#signature_request_list: %s\n"
+            % e
         )
 
 ```
@@ -1392,6 +1416,7 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1411,7 +1436,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_release_hold: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_release_hold: %s\n"
             % e
         )
 
@@ -1458,6 +1483,7 @@ Sends an email to the signer reminding them to sign the signature request. You c
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1482,7 +1508,8 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_remind: %s\n" % e
+            "Exception when calling SignatureRequestApi#signature_request_remind: %s\n"
+            % e
         )
 
 ```
@@ -1528,6 +1555,7 @@ Removes your access to a completed signature request. This action is **not rever
 * Basic Authentication (api_key):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1544,7 +1572,8 @@ with ApiClient(configuration) as api_client:
         )
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_remove: %s\n" % e
+            "Exception when calling SignatureRequestApi#signature_request_remove: %s\n"
+            % e
         )
 
 ```
@@ -1590,6 +1619,7 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1642,10 +1672,14 @@ with ApiClient(configuration) as api_client:
         files=[
             open("./example_signature_request.pdf", "rb").read(),
         ],
-        metadata={
-            "custom_id": 1234,
-            "custom_text": "NDA #9",
-        },
+        metadata=json.loads(
+            """
+            {
+                "custom_id": 1234,
+                "custom_text": "NDA #9"
+            }
+        """
+        ),
         field_options=field_options,
         signing_options=signing_options,
         signers=signers,
@@ -1659,7 +1693,8 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_send: %s\n" % e
+            "Exception when calling SignatureRequestApi#signature_request_send: %s\n"
+            % e
         )
 
 ```
@@ -1705,6 +1740,7 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1779,7 +1815,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_send_with_template: %s\n"
+            "Exception when calling SignatureRequestApi#signature_request_send_with_template: %s\n"
             % e
         )
 
@@ -1826,6 +1862,7 @@ Updates the email address and/or the name for a given signer on a signature requ
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -1851,7 +1888,8 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling SignatureRequest#signature_request_update: %s\n" % e
+            "Exception when calling SignatureRequestApi#signature_request_update: %s\n"
+            % e
         )
 
 ```

@@ -35,6 +35,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -58,13 +59,13 @@ public class TemplateAddUserExample
         try
         {
             var response = new TemplateApi(config).templateAddUser(
-                "f57db65d3f933b5316d398057a36176831451a35",
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
                 templateAddUserRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateAddUser");
+            System.err.println("Exception when calling TemplateApi#templateAddUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -120,6 +121,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -224,7 +226,7 @@ public class TemplateCreateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateCreate");
+            System.err.println("Exception when calling TemplateApi#templateCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -279,6 +281,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -349,7 +352,7 @@ public class TemplateCreateEmbeddedDraftExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateCreateEmbeddedDraft");
+            System.err.println("Exception when calling TemplateApi#templateCreateEmbeddedDraft");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -404,6 +407,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -424,10 +428,10 @@ public class TemplateDeleteExample
         try
         {
             new TemplateApi(config).templateDelete(
-                "f57db65d3f933b5316d398057a36176831451a35"
+                "f57db65d3f933b5316d398057a36176831451a35" // templateId
             );
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateDelete");
+            System.err.println("Exception when calling TemplateApi#templateDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -484,6 +488,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -504,12 +509,12 @@ public class TemplateFilesExample
         try
         {
             var response = new TemplateApi(config).templateFiles(
-                "f57db65d3f933b5316d398057a36176831451a35",
-                null
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                null // fileType
             );
             response.renameTo(new File("./file_response"));
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateFiles");
+            System.err.println("Exception when calling TemplateApi#templateFiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -567,6 +572,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -587,12 +593,12 @@ public class TemplateFilesAsDataUriExample
         try
         {
             var response = new TemplateApi(config).templateFilesAsDataUri(
-                "f57db65d3f933b5316d398057a36176831451a35"
+                "f57db65d3f933b5316d398057a36176831451a35" // templateId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateFilesAsDataUri");
+            System.err.println("Exception when calling TemplateApi#templateFilesAsDataUri");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -649,6 +655,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -669,13 +676,13 @@ public class TemplateFilesAsFileUrlExample
         try
         {
             var response = new TemplateApi(config).templateFilesAsFileUrl(
-                "f57db65d3f933b5316d398057a36176831451a35",
-                1
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                1 // forceDownload
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateFilesAsFileUrl");
+            System.err.println("Exception when calling TemplateApi#templateFilesAsFileUrl");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -731,6 +738,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -751,12 +759,12 @@ public class TemplateGetExample
         try
         {
             var response = new TemplateApi(config).templateGet(
-                "f57db65d3f933b5316d398057a36176831451a35"
+                "f57db65d3f933b5316d398057a36176831451a35" // templateId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateGet");
+            System.err.println("Exception when calling TemplateApi#templateGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -813,6 +821,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -833,15 +842,15 @@ public class TemplateListExample
         try
         {
             var response = new TemplateApi(config).templateList(
-                null,
-                1,
-                20,
-                null
+                null, // accountId
+                1, // page
+                20, // pageSize
+                null // query
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateList");
+            System.err.println("Exception when calling TemplateApi#templateList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -899,6 +908,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -922,13 +932,13 @@ public class TemplateRemoveUserExample
         try
         {
             var response = new TemplateApi(config).templateRemoveUser(
-                "f57db65d3f933b5316d398057a36176831451a35",
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
                 templateRemoveUserRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateRemoveUser");
+            System.err.println("Exception when calling TemplateApi#templateRemoveUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -995,6 +1005,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -1020,13 +1031,13 @@ public class TemplateUpdateFilesExample
         try
         {
             var response = new TemplateApi(config).templateUpdateFiles(
-                "f57db65d3f933b5316d398057a36176831451a35",
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
                 templateUpdateFilesRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateUpdateFiles");
+            System.err.println("Exception when calling TemplateApi#templateUpdateFiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

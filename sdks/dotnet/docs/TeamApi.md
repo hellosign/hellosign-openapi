@@ -28,6 +28,7 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -58,7 +59,7 @@ public class TeamAddMemberExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamAddMember: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamAddMember: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -129,6 +130,7 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -158,7 +160,7 @@ public class TeamCreateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamCreate: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -228,6 +230,7 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -249,7 +252,7 @@ public class TeamDeleteExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamDelete: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -312,6 +315,7 @@ Returns information about your Team as well as a list of its members. If you do 
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -335,7 +339,7 @@ public class TeamGetExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamGet: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -401,6 +405,7 @@ Provides information about a team.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -426,7 +431,7 @@ public class TeamInfoExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamInfo: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamInfo: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -496,6 +501,7 @@ Provides a list of team invites (and their roles).
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -519,7 +525,7 @@ public class TeamInvitesExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamInvites: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamInvites: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -589,6 +595,7 @@ Provides a paginated list of members (and their roles) that belong to a given te
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -616,7 +623,7 @@ public class TeamMembersExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamMembers: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamMembers: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -688,6 +695,7 @@ Removes the provided user Account from your Team. If the Account had an outstand
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -718,7 +726,7 @@ public class TeamRemoveMemberExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamRemoveMember: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamRemoveMember: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -788,6 +796,7 @@ Provides a paginated list of sub teams that belong to a given team.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -815,7 +824,7 @@ public class TeamSubTeamsExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamSubTeams: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamSubTeams: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -887,6 +896,7 @@ Updates the name of your Team.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -916,7 +926,7 @@ public class TeamUpdateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamUpdate: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamUpdate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

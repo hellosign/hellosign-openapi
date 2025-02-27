@@ -23,6 +23,7 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -45,7 +46,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Account#account_create: %s\n" % e)
+        print("Exception when calling AccountApi#account_create: %s\n" % e)
 
 ```
 ```
@@ -90,6 +91,7 @@ Returns the properties and settings of your Account.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -106,7 +108,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Account#account_get: %s\n" % e)
+        print("Exception when calling AccountApi#account_get: %s\n" % e)
 
 ```
 ```
@@ -152,6 +154,7 @@ Updates the properties and settings of your Account. Currently only allows for u
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -175,7 +178,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Account#account_update: %s\n" % e)
+        print("Exception when calling AccountApi#account_update: %s\n" % e)
 
 ```
 ```
@@ -220,6 +223,7 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -242,7 +246,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Account#account_verify: %s\n" % e)
+        print("Exception when calling AccountApi#account_verify: %s\n" % e)
 
 ```
 ```

@@ -19,11 +19,12 @@ Retrieves an embedded object containing a template url that can be opened in an 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 merge_fields = [
@@ -37,13 +38,13 @@ embedded_edit_url_request.merge_fields = merge_fields
 
 begin
   response = Dropbox::Sign::EmbeddedApi.new.embedded_edit_url(
-    "f57db65d3f933b5316d398057a36176831451a35",
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
       embedded_edit_url_request,
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Embedded#embedded_edit_url: #{e}"
+  puts "Exception when calling EmbeddedApi#embedded_edit_url: #{e}"
 end
 
 ```
@@ -98,21 +99,22 @@ Retrieves an embedded object containing a signature url that can be opened in an
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   response = Dropbox::Sign::EmbeddedApi.new.embedded_sign_url(
-    "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b",
+    "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b", # signature_id
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Embedded#embedded_sign_url: #{e}"
+  puts "Exception when calling EmbeddedApi#embedded_sign_url: #{e}"
 end
 
 ```

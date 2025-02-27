@@ -41,15 +41,13 @@ apiCaller.username = "YOUR_API_KEY";
 const templateAddUserRequest = new models.TemplateAddUserRequest();
 templateAddUserRequest.emailAddress = "george@dropboxsign.com";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 apiCaller.templateAddUser(
-    templateId,
-    templateAddUserRequest,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateAddUserRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateAddUser:");
+  console.log("Exception when calling TemplateApi#templateAddUser:");
   console.log(error.body);
 });
 
@@ -112,8 +110,8 @@ signerRoles2.name = "Witness";
 signerRoles2.order = 1;
 
 const signerRoles = [
-    signerRoles1,
-    signerRoles2,
+  signerRoles1,
+  signerRoles2,
 ];
 
 const formFieldsPerDocument1 = new models.SubFormFieldsPerDocumentText();
@@ -145,8 +143,8 @@ formFieldsPerDocument2.name = "";
 formFieldsPerDocument2.page = 1;
 
 const formFieldsPerDocument = [
-    formFieldsPerDocument1,
-    formFieldsPerDocument2,
+  formFieldsPerDocument1,
+  formFieldsPerDocument2,
 ];
 
 const mergeFields1 = new models.SubMergeField();
@@ -158,8 +156,8 @@ mergeFields2.name = "Is Registered?";
 mergeFields2.type = models.SubMergeField.TypeEnum.Checkbox;
 
 const mergeFields = [
-    mergeFields1,
-    mergeFields2,
+  mergeFields1,
+  mergeFields2,
 ];
 
 const templateCreateRequest = new models.TemplateCreateRequest();
@@ -169,10 +167,10 @@ templateCreateRequest.subject = "Please sign this document";
 templateCreateRequest.testMode = true;
 templateCreateRequest.title = "Test Template";
 templateCreateRequest.ccRoles = [
-    "Manager",
+  "Manager",
 ];
 templateCreateRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 templateCreateRequest.fieldOptions = fieldOptions;
 templateCreateRequest.signerRoles = signerRoles;
@@ -180,11 +178,11 @@ templateCreateRequest.formFieldsPerDocument = formFieldsPerDocument;
 templateCreateRequest.mergeFields = mergeFields;
 
 apiCaller.templateCreate(
-    templateCreateRequest,
+  templateCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateCreate:");
+  console.log("Exception when calling TemplateApi#templateCreate:");
   console.log(error.body);
 });
 
@@ -246,8 +244,8 @@ mergeFields2.name = "Is Registered?";
 mergeFields2.type = models.SubMergeField.TypeEnum.Checkbox;
 
 const mergeFields = [
-    mergeFields1,
-    mergeFields2,
+  mergeFields1,
+  mergeFields2,
 ];
 
 const signerRoles1 = new models.SubTemplateRole();
@@ -259,8 +257,8 @@ signerRoles2.name = "Witness";
 signerRoles2.order = 1;
 
 const signerRoles = [
-    signerRoles1,
-    signerRoles2,
+  signerRoles1,
+  signerRoles2,
 ];
 
 const templateCreateEmbeddedDraftRequest = new models.TemplateCreateEmbeddedDraftRequest();
@@ -270,21 +268,21 @@ templateCreateEmbeddedDraftRequest.subject = "Please sign this document";
 templateCreateEmbeddedDraftRequest.testMode = true;
 templateCreateEmbeddedDraftRequest.title = "Test Template";
 templateCreateEmbeddedDraftRequest.ccRoles = [
-    "Manager",
+  "Manager",
 ];
 templateCreateEmbeddedDraftRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 templateCreateEmbeddedDraftRequest.fieldOptions = fieldOptions;
 templateCreateEmbeddedDraftRequest.mergeFields = mergeFields;
 templateCreateEmbeddedDraftRequest.signerRoles = signerRoles;
 
 apiCaller.templateCreateEmbeddedDraft(
-    templateCreateEmbeddedDraftRequest,
+  templateCreateEmbeddedDraftRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateCreateEmbeddedDraft:");
+  console.log("Exception when calling TemplateApi#templateCreateEmbeddedDraft:");
   console.log(error.body);
 });
 
@@ -334,12 +332,10 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 apiCaller.templateDelete(
-    templateId,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
 ).catch(error => {
-  console.log("Exception when calling Template#templateDelete:");
+  console.log("Exception when calling TemplateApi#templateDelete:");
   console.log(error.body);
 });
 
@@ -389,16 +385,13 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-const fileType = undefined;
-
 apiCaller.templateFiles(
-    templateId,
-    fileType,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  undefined, // fileType
 ).then(response => {
   fs.createWriteStream('./file_response').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateFiles:");
+  console.log("Exception when calling TemplateApi#templateFiles:");
   console.log(error.body);
 });
 
@@ -449,14 +442,12 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 apiCaller.templateFilesAsDataUri(
-    templateId,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateFilesAsDataUri:");
+  console.log("Exception when calling TemplateApi#templateFilesAsDataUri:");
   console.log(error.body);
 });
 
@@ -506,16 +497,13 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-const forceDownload = 1;
-
 apiCaller.templateFilesAsFileUrl(
-    templateId,
-    forceDownload,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  1, // forceDownload
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateFilesAsFileUrl:");
+  console.log("Exception when calling TemplateApi#templateFilesAsFileUrl:");
   console.log(error.body);
 });
 
@@ -566,14 +554,12 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 apiCaller.templateGet(
-    templateId,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateGet:");
+  console.log("Exception when calling TemplateApi#templateGet:");
   console.log(error.body);
 });
 
@@ -623,20 +609,15 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const accountId = undefined;
-const page = 1;
-const pageSize = 20;
-const query = undefined;
-
 apiCaller.templateList(
-    accountId,
-    page,
-    pageSize,
-    query,
+  undefined, // accountId
+  1, // page
+  20, // pageSize
+  undefined, // query
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateList:");
+  console.log("Exception when calling TemplateApi#templateList:");
   console.log(error.body);
 });
 
@@ -692,15 +673,13 @@ apiCaller.username = "YOUR_API_KEY";
 const templateRemoveUserRequest = new models.TemplateRemoveUserRequest();
 templateRemoveUserRequest.emailAddress = "george@dropboxsign.com";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 apiCaller.templateRemoveUser(
-    templateId,
-    templateRemoveUserRequest,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateRemoveUserRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateRemoveUser:");
+  console.log("Exception when calling TemplateApi#templateRemoveUser:");
   console.log(error.body);
 });
 
@@ -753,18 +732,16 @@ apiCaller.username = "YOUR_API_KEY";
 
 const templateUpdateFilesRequest = new models.TemplateUpdateFilesRequest();
 templateUpdateFilesRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 apiCaller.templateUpdateFiles(
-    templateId,
-    templateUpdateFilesRequest,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateUpdateFilesRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateUpdateFiles:");
+  console.log("Exception when calling TemplateApi#templateUpdateFiles:");
   console.log(error.body);
 });
 

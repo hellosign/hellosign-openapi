@@ -59,11 +59,11 @@ const accountCreateRequest = new models.AccountCreateRequest();
 accountCreateRequest.emailAddress = "newuser@dropboxsign.com";
 
 apiCaller.accountCreate(
-    accountCreateRequest,
+  accountCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Account#accountCreate:");
+  console.log("Exception when calling AccountApi#accountCreate:");
   console.log(error.body);
 });
 

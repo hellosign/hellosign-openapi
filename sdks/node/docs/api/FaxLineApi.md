@@ -38,11 +38,11 @@ faxLineAddUserRequest.number = "[FAX_NUMBER]";
 faxLineAddUserRequest.emailAddress = "member@dropboxsign.com";
 
 apiCaller.faxLineAddUser(
-    faxLineAddUserRequest,
+  faxLineAddUserRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineAddUser:");
+  console.log("Exception when calling FaxLineApi#faxLineAddUser:");
   console.log(error.body);
 });
 
@@ -91,20 +91,15 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const country = undefined;
-const state = undefined;
-const province = undefined;
-const city = undefined;
-
 apiCaller.faxLineAreaCodeGet(
-    country,
-    state,
-    province,
-    city,
+  "US", // country
+  undefined, // state
+  undefined, // province
+  undefined, // city
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineAreaCodeGet:");
+  console.log("Exception when calling FaxLineApi#faxLineAreaCodeGet:");
   console.log(error.body);
 });
 
@@ -161,11 +156,11 @@ faxLineCreateRequest.areaCode = 209;
 faxLineCreateRequest.country = models.FaxLineCreateRequest.CountryEnum.Us;
 
 apiCaller.faxLineCreate(
-    faxLineCreateRequest,
+  faxLineCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineCreate:");
+  console.log("Exception when calling FaxLineApi#faxLineCreate:");
   console.log(error.body);
 });
 
@@ -218,9 +213,9 @@ const faxLineDeleteRequest = new models.FaxLineDeleteRequest();
 faxLineDeleteRequest.number = "[FAX_NUMBER]";
 
 apiCaller.faxLineDelete(
-    faxLineDeleteRequest,
+  faxLineDeleteRequest,
 ).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineDelete:");
+  console.log("Exception when calling FaxLineApi#faxLineDelete:");
   console.log(error.body);
 });
 
@@ -269,14 +264,12 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const number = undefined;
-
 apiCaller.faxLineGet(
-    number,
+  "123-123-1234", // number
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineGet:");
+  console.log("Exception when calling FaxLineApi#faxLineGet:");
   console.log(error.body);
 });
 
@@ -325,20 +318,15 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const accountId = "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97";
-const page = 1;
-const pageSize = 20;
-const showTeamLines = undefined;
-
 apiCaller.faxLineList(
-    accountId,
-    page,
-    pageSize,
-    showTeamLines,
+  "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97", // accountId
+  1, // page
+  20, // pageSize
+  undefined, // showTeamLines
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineList:");
+  console.log("Exception when calling FaxLineApi#faxLineList:");
   console.log(error.body);
 });
 
@@ -395,11 +383,11 @@ faxLineRemoveUserRequest.number = "[FAX_NUMBER]";
 faxLineRemoveUserRequest.emailAddress = "member@dropboxsign.com";
 
 apiCaller.faxLineRemoveUser(
-    faxLineRemoveUserRequest,
+  faxLineRemoveUserRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineRemoveUser:");
+  console.log("Exception when calling FaxLineApi#faxLineRemoveUser:");
   console.log(error.body);
 });
 

@@ -20,6 +20,7 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -47,7 +48,7 @@ public class BulkSendJobGetExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling BulkSendJob#BulkSendJobGet: " + e.Message);
+            Console.WriteLine("Exception when calling BulkSendJobApi#BulkSendJobGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -119,6 +120,7 @@ Returns a list of BulkSendJob that you can access.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -145,7 +147,7 @@ public class BulkSendJobListExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling BulkSendJob#BulkSendJobList: " + e.Message);
+            Console.WriteLine("Exception when calling BulkSendJobApi#BulkSendJobList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

@@ -23,6 +23,7 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -60,7 +61,9 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling UnclaimedDraft#unclaimed_draft_create: %s\n" % e)
+        print(
+            "Exception when calling UnclaimedDraftApi#unclaimed_draft_create: %s\n" % e
+        )
 
 ```
 ```
@@ -105,6 +108,7 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -135,7 +139,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling UnclaimedDraft#unclaimed_draft_create_embedded: %s\n"
+            "Exception when calling UnclaimedDraftApi#unclaimed_draft_create_embedded: %s\n"
             % e
         )
 
@@ -182,6 +186,7 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -235,7 +240,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling UnclaimedDraft#unclaimed_draft_create_embedded_with_template: %s\n"
+            "Exception when calling UnclaimedDraftApi#unclaimed_draft_create_embedded_with_template: %s\n"
             % e
         )
 
@@ -282,6 +287,7 @@ Creates a new signature request from an embedded request that can be edited prio
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -307,7 +313,7 @@ with ApiClient(configuration) as api_client:
         pprint(response)
     except ApiException as e:
         print(
-            "Exception when calling UnclaimedDraft#unclaimed_draft_edit_and_resend: %s\n"
+            "Exception when calling UnclaimedDraftApi#unclaimed_draft_edit_and_resend: %s\n"
             % e
         )
 

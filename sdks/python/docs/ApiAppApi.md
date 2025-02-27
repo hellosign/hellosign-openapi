@@ -24,6 +24,7 @@ Creates a new API App.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -65,7 +66,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling ApiApp#api_app_create: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_create: %s\n" % e)
 
 ```
 ```
@@ -110,6 +111,7 @@ Deletes an API App. Can only be invoked for apps you own.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -126,7 +128,7 @@ with ApiClient(configuration) as api_client:
             client_id="0dd3b823a682527788c4e40cb7b6f7e9",
         )
     except ApiException as e:
-        print("Exception when calling ApiApp#api_app_delete: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_delete: %s\n" % e)
 
 ```
 ```
@@ -171,6 +173,7 @@ Returns an object with information about an API App.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -189,7 +192,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling ApiApp#api_app_get: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_get: %s\n" % e)
 
 ```
 ```
@@ -234,6 +237,7 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -253,7 +257,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling ApiApp#api_app_list: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_list: %s\n" % e)
 
 ```
 ```
@@ -299,6 +303,7 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -342,7 +347,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling ApiApp#api_app_update: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_update: %s\n" % e)
 
 ```
 ```

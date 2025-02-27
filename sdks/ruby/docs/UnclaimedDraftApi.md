@@ -21,11 +21,12 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 signers_1 = Dropbox::Sign::SubUnclaimedDraftSigner.new
@@ -52,7 +53,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling UnclaimedDraft#unclaimed_draft_create: #{e}"
+  puts "Exception when calling UnclaimedDraftApi#unclaimed_draft_create: #{e}"
 end
 
 ```
@@ -106,11 +107,12 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 unclaimed_draft_create_embedded_request = Dropbox::Sign::UnclaimedDraftCreateEmbeddedRequest.new
@@ -128,7 +130,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling UnclaimedDraft#unclaimed_draft_create_embedded: #{e}"
+  puts "Exception when calling UnclaimedDraftApi#unclaimed_draft_create_embedded: #{e}"
 end
 
 ```
@@ -182,11 +184,12 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 ccs_1 = Dropbox::Sign::SubCC.new
@@ -223,7 +226,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling UnclaimedDraft#unclaimed_draft_create_embedded_with_template: #{e}"
+  puts "Exception when calling UnclaimedDraftApi#unclaimed_draft_create_embedded_with_template: #{e}"
 end
 
 ```
@@ -277,11 +280,12 @@ Creates a new signature request from an embedded request that can be edited prio
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 unclaimed_draft_edit_and_resend_request = Dropbox::Sign::UnclaimedDraftEditAndResendRequest.new
@@ -290,13 +294,13 @@ unclaimed_draft_edit_and_resend_request.test_mode = false
 
 begin
   response = Dropbox::Sign::UnclaimedDraftApi.new.unclaimed_draft_edit_and_resend(
-    "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
       unclaimed_draft_edit_and_resend_request,
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling UnclaimedDraft#unclaimed_draft_edit_and_resend: #{e}"
+  puts "Exception when calling UnclaimedDraftApi#unclaimed_draft_edit_and_resend: #{e}"
 end
 
 ```

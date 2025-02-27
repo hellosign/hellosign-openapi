@@ -125,7 +125,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestBulkCreateEmbeddedWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestBulkCreateEmbeddedWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -252,7 +252,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestBulkSendWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestBulkSendWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -310,7 +310,7 @@ try {
         signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestCancel: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestCancel: {$e->getMessage()}";
 }
 
 ```
@@ -407,7 +407,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestCreateEmbedded: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestCreateEmbedded: {$e->getMessage()}";
 }
 
 ```
@@ -494,7 +494,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestCreateEmbeddedWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestCreateEmbeddedWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -583,10 +583,12 @@ $signature_request_edit_request = (new Dropbox\Sign\Model\SignatureRequestEditRe
     ])
     ->setFiles([
     ])
-    ->setMetadata([
-        "custom_id" => 1234,
-        "custom_text" => "NDA #9",
-    ])
+    ->setMetadata(json_decode(<<<'EOD'
+        {
+            "custom_id": 1234,
+            "custom_text": "NDA #9"
+        }
+    EOD, true))
     ->setFieldOptions($field_options)
     ->setSigningOptions($signing_options)
     ->setSigners($signers);
@@ -599,7 +601,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestEdit: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestEdit: {$e->getMessage()}";
 }
 
 ```
@@ -698,7 +700,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestEditEmbedded: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestEditEmbedded: {$e->getMessage()}";
 }
 
 ```
@@ -787,7 +789,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestEditEmbeddedWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestEditEmbeddedWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -869,7 +871,7 @@ $custom_fields_1 = (new Dropbox\Sign\Model\SubCustomField())
     ->setName("Cost")
     ->setEditor("Client")
     ->setRequired(true)
-    ->setValue("$20,000");
+    ->setValue('$20,000');
 
 $custom_fields = [
     $custom_fields_1,
@@ -895,7 +897,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestEditWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestEditWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -957,7 +959,7 @@ try {
 
     copy($response->getRealPath(), __DIR__ . '/file_response');
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestFiles: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestFiles: {$e->getMessage()}";
 }
 
 ```
@@ -1018,7 +1020,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestFilesAsDataUri: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestFilesAsDataUri: {$e->getMessage()}";
 }
 
 ```
@@ -1079,7 +1081,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestFilesAsFileUrl: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestFilesAsFileUrl: {$e->getMessage()}";
 }
 
 ```
@@ -1140,7 +1142,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestGet: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestGet: {$e->getMessage()}";
 }
 
 ```
@@ -1203,7 +1205,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestList: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestList: {$e->getMessage()}";
 }
 
 ```
@@ -1266,7 +1268,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestReleaseHold: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestReleaseHold: {$e->getMessage()}";
 }
 
 ```
@@ -1330,7 +1332,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestRemind: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestRemind: {$e->getMessage()}";
 }
 
 ```
@@ -1388,7 +1390,7 @@ try {
         signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestRemove: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestRemove: {$e->getMessage()}";
 }
 
 ```
@@ -1477,10 +1479,12 @@ $signature_request_send_request = (new Dropbox\Sign\Model\SignatureRequestSendRe
     ])
     ->setFiles([
     ])
-    ->setMetadata([
-        "custom_id" => 1234,
-        "custom_text" => "NDA #9",
-    ])
+    ->setMetadata(json_decode(<<<'EOD'
+        {
+            "custom_id": 1234,
+            "custom_text": "NDA #9"
+        }
+    EOD, true))
     ->setFieldOptions($field_options)
     ->setSigningOptions($signing_options)
     ->setSigners($signers);
@@ -1492,7 +1496,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestSend: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestSend: {$e->getMessage()}";
 }
 
 ```
@@ -1573,7 +1577,7 @@ $custom_fields_1 = (new Dropbox\Sign\Model\SubCustomField())
     ->setName("Cost")
     ->setEditor("Client")
     ->setRequired(true)
-    ->setValue("$20,000");
+    ->setValue('$20,000');
 
 $custom_fields = [
     $custom_fields_1,
@@ -1598,7 +1602,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestSendWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestSendWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -1663,7 +1667,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestUpdate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestUpdate: {$e->getMessage()}";
 }
 
 ```

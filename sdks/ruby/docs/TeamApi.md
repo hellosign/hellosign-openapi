@@ -27,11 +27,12 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 team_add_member_request = Dropbox::Sign::TeamAddMemberRequest.new
@@ -47,7 +48,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_add_member: #{e}"
+  puts "Exception when calling TeamApi#team_add_member: #{e}"
 end
 
 ```
@@ -102,11 +103,12 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 team_create_request = Dropbox::Sign::TeamCreateRequest.new
@@ -119,7 +121,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_create: #{e}"
+  puts "Exception when calling TeamApi#team_create: #{e}"
 end
 
 ```
@@ -173,17 +175,18 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   Dropbox::Sign::TeamApi.new.team_delete
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_delete: #{e}"
+  puts "Exception when calling TeamApi#team_delete: #{e}"
 end
 
 ```
@@ -235,11 +238,12 @@ Returns information about your Team as well as a list of its members. If you do 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
@@ -247,7 +251,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_get: #{e}"
+  puts "Exception when calling TeamApi#team_get: #{e}"
 end
 
 ```
@@ -299,11 +303,12 @@ Provides information about a team.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
@@ -315,7 +320,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_info: #{e}"
+  puts "Exception when calling TeamApi#team_info: #{e}"
 end
 
 ```
@@ -369,11 +374,12 @@ Provides a list of team invites (and their roles).
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
@@ -381,7 +387,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_invites: #{e}"
+  puts "Exception when calling TeamApi#team_invites: #{e}"
 end
 
 ```
@@ -435,16 +441,17 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   response = Dropbox::Sign::TeamApi.new.team_members(
-    "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+    "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", # team_id
       {
           page: 1,
           page_size: 20,
@@ -453,7 +460,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_members: #{e}"
+  puts "Exception when calling TeamApi#team_members: #{e}"
 end
 
 ```
@@ -509,11 +516,12 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 team_remove_member_request = Dropbox::Sign::TeamRemoveMemberRequest.new
@@ -527,7 +535,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_remove_member: #{e}"
+  puts "Exception when calling TeamApi#team_remove_member: #{e}"
 end
 
 ```
@@ -581,16 +589,17 @@ Provides a paginated list of sub teams that belong to a given team.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
   response = Dropbox::Sign::TeamApi.new.team_sub_teams(
-    "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+    "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", # team_id
       {
           page: 1,
           page_size: 20,
@@ -599,7 +608,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_sub_teams: #{e}"
+  puts "Exception when calling TeamApi#team_sub_teams: #{e}"
 end
 
 ```
@@ -655,11 +664,12 @@ Updates the name of your Team.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
   config.username = "YOUR_API_KEY"
-  # config.access_token = "YOUR_ACCESS_TOKEN";
+  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 team_update_request = Dropbox::Sign::TeamUpdateRequest.new
@@ -672,7 +682,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Team#team_update: #{e}"
+  puts "Exception when calling TeamApi#team_update: #{e}"
 end
 
 ```

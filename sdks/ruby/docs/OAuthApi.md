@@ -19,6 +19,7 @@ Once you have retrieved the code from the user callback, you will need to exchan
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -38,7 +39,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling OAuth#oauth_token_generate: #{e}"
+  puts "Exception when calling OAuthApi#oauth_token_generate: #{e}"
 end
 
 ```
@@ -92,6 +93,7 @@ Access tokens are only valid for a given period of time (typically one hour) for
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -108,7 +110,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling OAuth#oauth_token_refresh: #{e}"
+  puts "Exception when calling OAuthApi#oauth_token_refresh: #{e}"
 end
 
 ```

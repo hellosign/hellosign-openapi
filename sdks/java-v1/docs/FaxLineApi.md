@@ -31,6 +31,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -59,7 +60,7 @@ public class FaxLineAddUserExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling FaxLine#faxLineAddUser");
+            System.err.println("Exception when calling FaxLineApi#faxLineAddUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -114,6 +115,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -133,15 +135,15 @@ public class FaxLineAreaCodeGetExample
         try
         {
             var response = new FaxLineApi(config).faxLineAreaCodeGet(
-                null,
-                null,
-                null,
-                null
+                "US", // country
+                null, // state
+                null, // province
+                null // city
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling FaxLine#faxLineAreaCodeGet");
+            System.err.println("Exception when calling FaxLineApi#faxLineAreaCodeGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -199,6 +201,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -227,7 +230,7 @@ public class FaxLineCreateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling FaxLine#faxLineCreate");
+            System.err.println("Exception when calling FaxLineApi#faxLineCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -282,6 +285,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -307,7 +311,7 @@ public class FaxLineDeleteExample
                 faxLineDeleteRequest
             );
         } catch (ApiException e) {
-            System.err.println("Exception when calling FaxLine#faxLineDelete");
+            System.err.println("Exception when calling FaxLineApi#faxLineDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -362,6 +366,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -381,12 +386,12 @@ public class FaxLineGetExample
         try
         {
             var response = new FaxLineApi(config).faxLineGet(
-                null
+                "123-123-1234" // number
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling FaxLine#faxLineGet");
+            System.err.println("Exception when calling FaxLineApi#faxLineGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -441,6 +446,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -460,15 +466,15 @@ public class FaxLineListExample
         try
         {
             var response = new FaxLineApi(config).faxLineList(
-                "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97",
-                1,
-                20,
-                null
+                "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97", // accountId
+                1, // page
+                20, // pageSize
+                null // showTeamLines
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling FaxLine#faxLineList");
+            System.err.println("Exception when calling FaxLineApi#faxLineList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -526,6 +532,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -554,7 +561,7 @@ public class FaxLineRemoveUserExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling FaxLine#faxLineRemoveUser");
+            System.err.println("Exception when calling FaxLineApi#faxLineRemoveUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

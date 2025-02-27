@@ -40,15 +40,13 @@ apiCaller.username = "YOUR_API_KEY";
 const teamAddMemberRequest = new models.TeamAddMemberRequest();
 teamAddMemberRequest.emailAddress = "george@example.com";
 
-const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
 apiCaller.teamAddMember(
-    teamAddMemberRequest,
-    teamId,
+  teamAddMemberRequest,
+  "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", // teamId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamAddMember:");
+  console.log("Exception when calling TeamApi#teamAddMember:");
   console.log(error.body);
 });
 
@@ -103,11 +101,11 @@ const teamCreateRequest = new models.TeamCreateRequest();
 teamCreateRequest.name = "New Team Name";
 
 apiCaller.teamCreate(
-    teamCreateRequest,
+  teamCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamCreate:");
+  console.log("Exception when calling TeamApi#teamCreate:");
   console.log(error.body);
 });
 
@@ -158,7 +156,7 @@ apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 apiCaller.teamDelete().catch(error => {
-  console.log("Exception when calling Team#teamDelete:");
+  console.log("Exception when calling TeamApi#teamDelete:");
   console.log(error.body);
 });
 
@@ -209,7 +207,7 @@ apiCaller.username = "YOUR_API_KEY";
 apiCaller.teamGet().then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamGet:");
+  console.log("Exception when calling TeamApi#teamGet:");
   console.log(error.body);
 });
 
@@ -257,14 +255,12 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
 apiCaller.teamInfo(
-    teamId,
+  "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", // teamId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamInfo:");
+  console.log("Exception when calling TeamApi#teamInfo:");
   console.log(error.body);
 });
 
@@ -314,11 +310,10 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-
 apiCaller.teamInvites().then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamInvites:");
+  console.log("Exception when calling TeamApi#teamInvites:");
   console.log(error.body);
 });
 
@@ -368,18 +363,14 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-const page = 1;
-const pageSize = 20;
-
 apiCaller.teamMembers(
-    teamId,
-    page,
-    pageSize,
+  "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", // teamId
+  1, // page
+  20, // pageSize
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamMembers:");
+  console.log("Exception when calling TeamApi#teamMembers:");
   console.log(error.body);
 });
 
@@ -436,11 +427,11 @@ teamRemoveMemberRequest.emailAddress = "teammate@dropboxsign.com";
 teamRemoveMemberRequest.newOwnerEmailAddress = "new_teammate@dropboxsign.com";
 
 apiCaller.teamRemoveMember(
-    teamRemoveMemberRequest,
+  teamRemoveMemberRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamRemoveMember:");
+  console.log("Exception when calling TeamApi#teamRemoveMember:");
   console.log(error.body);
 });
 
@@ -490,18 +481,14 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-const page = 1;
-const pageSize = 20;
-
 apiCaller.teamSubTeams(
-    teamId,
-    page,
-    pageSize,
+  "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", // teamId
+  1, // page
+  20, // pageSize
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamSubTeams:");
+  console.log("Exception when calling TeamApi#teamSubTeams:");
   console.log(error.body);
 });
 
@@ -557,11 +544,11 @@ const teamUpdateRequest = new models.TeamUpdateRequest();
 teamUpdateRequest.name = "New Team Name";
 
 apiCaller.teamUpdate(
-    teamUpdateRequest,
+  teamUpdateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamUpdate:");
+  console.log("Exception when calling TeamApi#teamUpdate:");
   console.log(error.body);
 });
 

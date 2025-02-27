@@ -19,6 +19,7 @@ Request the creation of one or more report(s).  When the report(s) have been gen
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -52,7 +53,7 @@ public class ReportCreateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Report#ReportCreate: " + e.Message);
+            Console.WriteLine("Exception when calling ReportApi#ReportCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

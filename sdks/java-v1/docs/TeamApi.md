@@ -34,6 +34,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -58,12 +59,12 @@ public class TeamAddMemberExample
         {
             var response = new TeamApi(config).teamAddMember(
                 teamAddMemberRequest,
-                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
+                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c" // teamId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamAddMember");
+            System.err.println("Exception when calling TeamApi#teamAddMember");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -119,6 +120,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -147,7 +149,7 @@ public class TeamCreateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamCreate");
+            System.err.println("Exception when calling TeamApi#teamCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -202,6 +204,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -223,7 +226,7 @@ public class TeamDeleteExample
         {
             new TeamApi(config).teamDelete();
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamDelete");
+            System.err.println("Exception when calling TeamApi#teamDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -275,6 +278,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -298,7 +302,7 @@ public class TeamGetExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamGet");
+            System.err.println("Exception when calling TeamApi#teamGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -350,6 +354,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -370,12 +375,12 @@ public class TeamInfoExample
         try
         {
             var response = new TeamApi(config).teamInfo(
-                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
+                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c" // teamId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamInfo");
+            System.err.println("Exception when calling TeamApi#teamInfo");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -430,6 +435,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -453,7 +459,7 @@ public class TeamInvitesExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamInvites");
+            System.err.println("Exception when calling TeamApi#teamInvites");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -508,6 +514,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -528,14 +535,14 @@ public class TeamMembersExample
         try
         {
             var response = new TeamApi(config).teamMembers(
-                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
-                1,
-                20
+                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", // teamId
+                1, // page
+                20 // pageSize
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamMembers");
+            System.err.println("Exception when calling TeamApi#teamMembers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -592,6 +599,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -621,7 +629,7 @@ public class TeamRemoveMemberExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamRemoveMember");
+            System.err.println("Exception when calling TeamApi#teamRemoveMember");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -676,6 +684,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -696,14 +705,14 @@ public class TeamSubTeamsExample
         try
         {
             var response = new TeamApi(config).teamSubTeams(
-                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
-                1,
-                20
+                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", // teamId
+                1, // page
+                20 // pageSize
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamSubTeams");
+            System.err.println("Exception when calling TeamApi#teamSubTeams");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -760,6 +769,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -788,7 +798,7 @@ public class TeamUpdateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamUpdate");
+            System.err.println("Exception when calling TeamApi#teamUpdate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

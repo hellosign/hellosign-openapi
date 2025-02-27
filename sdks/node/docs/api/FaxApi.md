@@ -31,12 +31,10 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.faxDelete(
-    faxId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // faxId
 ).catch(error => {
-  console.log("Exception when calling Fax#faxDelete:");
+  console.log("Exception when calling FaxApi#faxDelete:");
   console.log(error.body);
 });
 
@@ -85,14 +83,12 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.faxFiles(
-    faxId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // faxId
 ).then(response => {
   fs.createWriteStream('./file_response').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling Fax#faxFiles:");
+  console.log("Exception when calling FaxApi#faxFiles:");
   console.log(error.body);
 });
 
@@ -141,14 +137,12 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.faxGet(
-    faxId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // faxId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Fax#faxGet:");
+  console.log("Exception when calling FaxApi#faxGet:");
   console.log(error.body);
 });
 
@@ -197,16 +191,13 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const page = 1;
-const pageSize = 20;
-
 apiCaller.faxList(
-    page,
-    pageSize,
+  1, // page
+  20, // pageSize
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Fax#faxList:");
+  console.log("Exception when calling FaxApi#faxList:");
   console.log(error.body);
 });
 
@@ -265,15 +256,15 @@ faxSendRequest.coverPageFrom = "Faxer Faxerson";
 faxSendRequest.coverPageMessage = "I'm sending you a fax!";
 faxSendRequest.title = "This is what the fax is about!";
 faxSendRequest.files = [
-    fs.createReadStream("./example_fax.pdf"),
+  fs.createReadStream("./example_fax.pdf"),
 ];
 
 apiCaller.faxSend(
-    faxSendRequest,
+  faxSendRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Fax#faxSend:");
+  console.log("Exception when calling FaxApi#faxSend:");
   console.log(error.body);
 });
 

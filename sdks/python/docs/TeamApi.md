@@ -29,6 +29,7 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -52,7 +53,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_add_member: %s\n" % e)
+        print("Exception when calling TeamApi#team_add_member: %s\n" % e)
 
 ```
 ```
@@ -98,6 +99,7 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -120,7 +122,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_create: %s\n" % e)
+        print("Exception when calling TeamApi#team_create: %s\n" % e)
 
 ```
 ```
@@ -165,6 +167,7 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -179,7 +182,7 @@ with ApiClient(configuration) as api_client:
     try:
         api.TeamApi(api_client).team_delete()
     except ApiException as e:
-        print("Exception when calling Team#team_delete: %s\n" % e)
+        print("Exception when calling TeamApi#team_delete: %s\n" % e)
 
 ```
 ```
@@ -222,6 +225,7 @@ Returns information about your Team as well as a list of its members. If you do 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -238,7 +242,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_get: %s\n" % e)
+        print("Exception when calling TeamApi#team_get: %s\n" % e)
 
 ```
 ```
@@ -281,6 +285,7 @@ Provides information about a team.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -299,7 +304,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_info: %s\n" % e)
+        print("Exception when calling TeamApi#team_info: %s\n" % e)
 
 ```
 ```
@@ -344,6 +349,7 @@ Provides a list of team invites (and their roles).
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -360,7 +366,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_invites: %s\n" % e)
+        print("Exception when calling TeamApi#team_invites: %s\n" % e)
 
 ```
 ```
@@ -405,6 +411,7 @@ Provides a paginated list of members (and their roles) that belong to a given te
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -425,7 +432,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_members: %s\n" % e)
+        print("Exception when calling TeamApi#team_members: %s\n" % e)
 
 ```
 ```
@@ -472,6 +479,7 @@ Removes the provided user Account from your Team. If the Account had an outstand
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -495,7 +503,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_remove_member: %s\n" % e)
+        print("Exception when calling TeamApi#team_remove_member: %s\n" % e)
 
 ```
 ```
@@ -540,6 +548,7 @@ Provides a paginated list of sub teams that belong to a given team.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -560,7 +569,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_sub_teams: %s\n" % e)
+        print("Exception when calling TeamApi#team_sub_teams: %s\n" % e)
 
 ```
 ```
@@ -607,6 +616,7 @@ Updates the name of your Team.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -629,7 +639,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Team#team_update: %s\n" % e)
+        print("Exception when calling TeamApi#team_update: %s\n" % e)
 
 ```
 ```

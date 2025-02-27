@@ -52,7 +52,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamAddMember: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamAddMember: {$e->getMessage()}";
 }
 
 ```
@@ -116,7 +116,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamCreate: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamCreate: {$e->getMessage()}";
 }
 
 ```
@@ -172,7 +172,7 @@ $config->setUsername("YOUR_API_KEY");
 try {
     (new Dropbox\Sign\Api\TeamApi(config: $config))->teamDelete();
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamDelete: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamDelete: {$e->getMessage()}";
 }
 
 ```
@@ -228,7 +228,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamGet: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamGet: {$e->getMessage()}";
 }
 
 ```
@@ -286,7 +286,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamInfo: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamInfo: {$e->getMessage()}";
 }
 
 ```
@@ -344,7 +344,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamInvites: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamInvites: {$e->getMessage()}";
 }
 
 ```
@@ -406,7 +406,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamMembers: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamMembers: {$e->getMessage()}";
 }
 
 ```
@@ -472,7 +472,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamRemoveMember: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamRemoveMember: {$e->getMessage()}";
 }
 
 ```
@@ -534,7 +534,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamSubTeams: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamSubTeams: {$e->getMessage()}";
 }
 
 ```
@@ -599,7 +599,7 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamUpdate: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamUpdate: {$e->getMessage()}";
 }
 
 ```

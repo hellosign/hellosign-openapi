@@ -26,6 +26,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -54,13 +55,13 @@ public class EmbeddedEditUrlExample
         try
         {
             var response = new EmbeddedApi(config).embeddedEditUrl(
-                "f57db65d3f933b5316d398057a36176831451a35",
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
                 embeddedEditUrlRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Embedded#embeddedEditUrl");
+            System.err.println("Exception when calling EmbeddedApi#embeddedEditUrl");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -116,6 +117,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -136,12 +138,12 @@ public class EmbeddedSignUrlExample
         try
         {
             var response = new EmbeddedApi(config).embeddedSignUrl(
-                "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
+                "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b" // signatureId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Embedded#embeddedSignUrl");
+            System.err.println("Exception when calling EmbeddedApi#embeddedSignUrl");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

@@ -22,6 +22,7 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -71,7 +72,7 @@ public class UnclaimedDraftCreateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling UnclaimedDraft#UnclaimedDraftCreate: " + e.Message);
+            Console.WriteLine("Exception when calling UnclaimedDraftApi#UnclaimedDraftCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -141,6 +142,7 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -179,7 +181,7 @@ public class UnclaimedDraftCreateEmbeddedExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling UnclaimedDraft#UnclaimedDraftCreateEmbedded: " + e.Message);
+            Console.WriteLine("Exception when calling UnclaimedDraftApi#UnclaimedDraftCreateEmbedded: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -249,6 +251,7 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -306,7 +309,7 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling UnclaimedDraft#UnclaimedDraftCreateEmbeddedWithTemplate: " + e.Message);
+            Console.WriteLine("Exception when calling UnclaimedDraftApi#UnclaimedDraftCreateEmbeddedWithTemplate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -376,6 +379,7 @@ Creates a new signature request from an embedded request that can be edited prio
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -407,7 +411,7 @@ public class UnclaimedDraftEditAndResendExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling UnclaimedDraft#UnclaimedDraftEditAndResend: " + e.Message);
+            Console.WriteLine("Exception when calling UnclaimedDraftApi#UnclaimedDraftEditAndResend: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

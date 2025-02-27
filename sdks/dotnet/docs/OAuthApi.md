@@ -20,6 +20,7 @@ Once you have retrieved the code from the user callback, you will need to exchan
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -51,7 +52,7 @@ public class OauthTokenGenerateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling OAuth#OauthTokenGenerate: " + e.Message);
+            Console.WriteLine("Exception when calling OAuthApi#OauthTokenGenerate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -121,6 +122,7 @@ Access tokens are only valid for a given period of time (typically one hour) for
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -149,7 +151,7 @@ public class OauthTokenRefreshExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling OAuth#OauthTokenRefresh: " + e.Message);
+            Console.WriteLine("Exception when calling OAuthApi#OauthTokenRefresh: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

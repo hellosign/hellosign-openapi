@@ -22,6 +22,7 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -51,7 +52,7 @@ public class AccountCreateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Account#AccountCreate: " + e.Message);
+            Console.WriteLine("Exception when calling AccountApi#AccountCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -121,6 +122,7 @@ Returns the properties and settings of your Account.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -144,7 +146,7 @@ public class AccountGetExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Account#AccountGet: " + e.Message);
+            Console.WriteLine("Exception when calling AccountApi#AccountGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -215,6 +217,7 @@ Updates the properties and settings of your Account. Currently only allows for u
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -245,7 +248,7 @@ public class AccountUpdateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Account#AccountUpdate: " + e.Message);
+            Console.WriteLine("Exception when calling AccountApi#AccountUpdate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -315,6 +318,7 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -344,7 +348,7 @@ public class AccountVerifyExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Account#AccountVerify: " + e.Message);
+            Console.WriteLine("Exception when calling AccountApi#AccountVerify: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
