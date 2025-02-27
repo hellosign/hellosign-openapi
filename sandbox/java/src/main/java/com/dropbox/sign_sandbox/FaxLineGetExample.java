@@ -24,7 +24,7 @@ public class FaxLineGetExample
         try
         {
             var response = new FaxLineApi(config).faxLineGet(
-                null // number
+                "123-123-1234" // number
             );
 
             System.out.println(response);

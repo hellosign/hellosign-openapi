@@ -7,7 +7,7 @@ end
 
 begin
     response = Dropbox::Sign::FaxLineApi.new.fax_line_get(
-        nil, # number
+        "123-123-1234", # number
     )
 
     p response

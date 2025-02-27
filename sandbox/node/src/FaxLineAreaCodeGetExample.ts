@@ -6,7 +6,7 @@ const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
 apiCaller.faxLineAreaCodeGet(
-  undefined, // country
+  "US", // country
   undefined, // state
   undefined, // province
   undefined, // city

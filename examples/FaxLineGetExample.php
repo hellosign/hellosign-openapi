@@ -12,7 +12,7 @@ $config->setUsername("YOUR_API_KEY");
 
 try {
     $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineGet(
-        number: null,
+        number: "123-123-1234",
     );
 
     print_r($response);

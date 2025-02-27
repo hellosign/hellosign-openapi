@@ -24,7 +24,7 @@ public class FaxLineAreaCodeGetExample
         try
         {
             var response = new FaxLineApi(config).faxLineAreaCodeGet(
-                null, // country
+                "US", // country
                 null, // state
                 null, // province
                 null // city

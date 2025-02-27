@@ -11,7 +11,7 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     try:
         response = api.FaxLineApi(api_client).fax_line_area_code_get(
-            country=None,
+            country="US",
             state=None,
             province=None,
             city=None,

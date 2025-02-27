@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Dropbox.Sign.Model;
 using Dropbox.Sign;

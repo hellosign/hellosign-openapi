@@ -7,7 +7,7 @@ end
 
 begin
     response = Dropbox::Sign::FaxLineApi.new.fax_line_area_code_get(
-        nil, # country
+        "US", # country
     )
 
     p response

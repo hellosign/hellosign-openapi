@@ -19,7 +19,7 @@ public class FaxLineGetExample
         try
         {
             var response = new FaxLineApi(config).FaxLineGet(
-                number: null
+                number: "123-123-1234"
             );
 
             Console.WriteLine(response);

@@ -6,7 +6,7 @@ const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
 apiCaller.faxLineGet(
-  undefined, // number
+  "123-123-1234", // number
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
