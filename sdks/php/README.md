@@ -75,28 +75,28 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$accountApi = new Dropbox\Sign\Api\AccountApi($config);
-
-$data = new Dropbox\Sign\Model\AccountCreateRequest();
-$data->setEmailAddress("newuser@dropboxsign.com");
+$account_create_request = (new Dropbox\Sign\Model\AccountCreateRequest())
+    ->setEmailAddress("newuser@dropboxsign.com");
 
 try {
-    $result = $accountApi->accountCreate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\AccountApi(config: $config))->accountCreate(
+        account_create_request: $account_create_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling AccountApi#accountCreate: {$e->getMessage()}";
 }
 
 ```

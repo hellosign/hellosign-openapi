@@ -30,28 +30,29 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$data = new Dropbox\Sign\Model\TeamAddMemberRequest();
-$data->setEmailAddress("george@example.com");
+$team_add_member_request = (new Dropbox\Sign\Model\TeamAddMemberRequest())
+    ->setEmailAddress("george@example.com");
 
 try {
-    $result = $teamApi->teamAddMember($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamAddMember(
+        team_add_member_request: $team_add_member_request,
+        team_id: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamAddMember: {$e->getMessage()}";
 }
 
 ```
@@ -94,28 +95,28 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$data = new Dropbox\Sign\Model\TeamCreateRequest();
-$data->setName("New Team Name");
+$team_create_request = (new Dropbox\Sign\Model\TeamCreateRequest())
+    ->setName("New Team Name");
 
 try {
-    $result = $teamApi->teamCreate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamCreate(
+        team_create_request: $team_create_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamCreate: {$e->getMessage()}";
 }
 
 ```
@@ -157,24 +158,21 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
 try {
-    $teamApi->teamDelete();
+    (new Dropbox\Sign\Api\TeamApi(config: $config))->teamDelete();
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamDelete: {$e->getMessage()}";
 }
 
 ```
@@ -214,25 +212,23 @@ Returns information about your Team as well as a list of its members. If you do 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
 try {
-    $result = $teamApi->teamGet();
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamGet();
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamGet: {$e->getMessage()}";
 }
 
 ```
@@ -272,25 +268,25 @@ Provides information about a team.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
 try {
-    $result = $teamApi->teamInfo();
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamInfo(
+        team_id: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamInfo: {$e->getMessage()}";
 }
 
 ```
@@ -332,27 +328,23 @@ Provides a list of team invites (and their roles).
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$emailAddress = "user@dropboxsign.com";
-
 try {
-    $result = $teamApi->teamInvites($emailAddress);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamInvites();
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamInvites: {$e->getMessage()}";
 }
 
 ```
@@ -394,27 +386,27 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
 try {
-    $result = $teamApi->teamMembers($teamId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamMembers(
+        team_id: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamMembers: {$e->getMessage()}";
 }
 
 ```
@@ -458,29 +450,29 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$data = new Dropbox\Sign\Model\TeamRemoveMemberRequest();
-$data->setEmailAddress("teammate@dropboxsign.com")
+$team_remove_member_request = (new Dropbox\Sign\Model\TeamRemoveMemberRequest())
+    ->setEmailAddress("teammate@dropboxsign.com")
     ->setNewOwnerEmailAddress("new_teammate@dropboxsign.com");
 
 try {
-    $result = $teamApi->teamRemoveMember($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamRemoveMember(
+        team_remove_member_request: $team_remove_member_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamRemoveMember: {$e->getMessage()}";
 }
 
 ```
@@ -522,27 +514,27 @@ Provides a paginated list of sub teams that belong to a given team.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
 try {
-    $result = $teamApi->teamSubTeams($teamId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamSubTeams(
+        team_id: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamSubTeams: {$e->getMessage()}";
 }
 
 ```
@@ -586,28 +578,28 @@ Updates the name of your Team.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$data = new Dropbox\Sign\Model\TeamUpdateRequest();
-$data->setName("New Team Name");
+$team_update_request = (new Dropbox\Sign\Model\TeamUpdateRequest())
+    ->setName("New Team Name");
 
 try {
-    $result = $teamApi->teamUpdate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamUpdate(
+        team_update_request: $team_update_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TeamApi#teamUpdate: {$e->getMessage()}";
 }
 
 ```

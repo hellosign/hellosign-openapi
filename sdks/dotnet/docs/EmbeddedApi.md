@@ -20,38 +20,43 @@ Retrieves an embedded object containing a template url that can be opened in an 
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class EmbeddedEditUrlExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
+        var mergeFields = new List<SubMergeField>();
 
-        var embeddedApi = new EmbeddedApi(config);
-
-        var data = new EmbeddedEditUrlRequest(
-            ccRoles: new List<string>(){""},
-            mergeFields: new List<SubMergeField>()
+        var embeddedEditUrlRequest = new EmbeddedEditUrlRequest(
+            ccRoles: [
+                "",
+            ],
+            mergeFields: mergeFields
         );
-
-        var templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
         try
         {
-            var result = embeddedApi.EmbeddedEditUrl(templateId, data);
-            Console.WriteLine(result);
+            var response = new EmbeddedApi(config).EmbeddedEditUrl(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35",
+                embeddedEditUrlRequest: embeddedEditUrlRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling EmbeddedApi#EmbeddedEditUrl: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -122,33 +127,33 @@ Retrieves an embedded object containing a signature url that can be opened in an
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class EmbeddedSignUrlExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var embeddedApi = new EmbeddedApi(config);
-
-        var signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = embeddedApi.EmbeddedSignUrl(signatureId);
-            Console.WriteLine(result);
+            var response = new EmbeddedApi(config).EmbeddedSignUrl(
+                signatureId: "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling EmbeddedApi#EmbeddedSignUrl: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

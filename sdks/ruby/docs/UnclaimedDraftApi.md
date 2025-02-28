@@ -21,61 +21,39 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-unclaimed_draft_api = Dropbox::Sign::UnclaimedDraftApi.new
+signers_1 = Dropbox::Sign::SubUnclaimedDraftSigner.new
+signers_1.name = "Jack"
+signers_1.email_address = "jack@example.com"
+signers_1.order = 0
 
-signer_1 = Dropbox::Sign::SubUnclaimedDraftSigner.new
-signer_1.email_address = "jack@example.com"
-signer_1.name = "Jack"
-signer_1.order = 0
-
-signer_2 = Dropbox::Sign::SubUnclaimedDraftSigner.new
-signer_2.email_address = "jill@example.com"
-signer_2.name = "Jill"
-signer_2.order = 1
-
-signing_options = Dropbox::Sign::SubSigningOptions.new
-signing_options.draw = true
-signing_options.type = true
-signing_options.upload = true
-signing_options.phone = false
-signing_options.default_type = "draw"
-
-field_options = Dropbox::Sign::SubFieldOptions.new
-field_options.date_format = "DD - MM - YYYY"
-
-data = Dropbox::Sign::UnclaimedDraftCreateRequest.new
-data.subject = "The NDA we talked about"
-data.type = "request_signature"
-data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
-data.signers = [signer_1, signer_2]
-data.cc_email_addresses = [
-  "lawyer1@dropboxsign.com",
-  "lawyer2@dropboxsign.com",
+signers = [
+    signers_1,
 ]
-data.files = [File.new("example_signature_request.pdf", "r")]
-data.metadata = {
-  custom_id: 1234,
-  custom_text: "NDA #9",
-}
-data.signing_options = signing_options
-data.field_options = field_options
-data.test_mode = true
+
+unclaimed_draft_create_request = Dropbox::Sign::UnclaimedDraftCreateRequest.new
+unclaimed_draft_create_request.type = "request_signature"
+unclaimed_draft_create_request.test_mode = true
+unclaimed_draft_create_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
+unclaimed_draft_create_request.signers = signers
 
 begin
-  result = unclaimed_draft_api.unclaimed_draft_create(data)
-  p result
+  response = Dropbox::Sign::UnclaimedDraftApi.new.unclaimed_draft_create(
+    unclaimed_draft_create_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling UnclaimedDraftApi#unclaimed_draft_create: #{e}"
 end
 
 ```
@@ -129,29 +107,30 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-unclaimed_draft_api = Dropbox::Sign::UnclaimedDraftApi.new
-
-data = Dropbox::Sign::UnclaimedDraftCreateEmbeddedRequest.new
-data.client_id = "ec64a202072370a737edf4a0eb7f4437"
-data.files = [File.new("example_signature_request.pdf", "r")]
-data.requester_email_address = "jack@dropboxsign.com"
-data.test_mode = true
+unclaimed_draft_create_embedded_request = Dropbox::Sign::UnclaimedDraftCreateEmbeddedRequest.new
+unclaimed_draft_create_embedded_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+unclaimed_draft_create_embedded_request.requester_email_address = "jack@dropboxsign.com"
+unclaimed_draft_create_embedded_request.test_mode = true
+unclaimed_draft_create_embedded_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
 
 begin
-  result = unclaimed_draft_api.unclaimed_draft_create_embedded(data)
-  p result
+  response = Dropbox::Sign::UnclaimedDraftApi.new.unclaimed_draft_create_embedded(
+    unclaimed_draft_create_embedded_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling UnclaimedDraftApi#unclaimed_draft_create_embedded: #{e}"
 end
 
 ```
@@ -205,40 +184,49 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-unclaimed_draft_api = Dropbox::Sign::UnclaimedDraftApi.new
+ccs_1 = Dropbox::Sign::SubCC.new
+ccs_1.role = "Accounting"
+ccs_1.email_address = "accounting@dropboxsign.com"
 
-signer_1 = Dropbox::Sign::SubUnclaimedDraftTemplateSigner.new
-signer_1.role = "Client"
-signer_1.name = "George"
-signer_1.email_address = "george@example.com"
+ccs = [
+    ccs_1,
+]
 
-cc_1 = Dropbox::Sign::SubCC.new
-cc_1.role = "Accounting"
-cc_1.email_address = "accounting@example.com"
+signers_1 = Dropbox::Sign::SubUnclaimedDraftTemplateSigner.new
+signers_1.role = "Client"
+signers_1.name = "George"
+signers_1.email_address = "george@example.com"
 
-data = Dropbox::Sign::UnclaimedDraftCreateEmbeddedWithTemplateRequest.new
-data.client_id = "ec64a202072370a737edf4a0eb7f4437"
-data.template_ids = ["61a832ff0d8423f91d503e76bfbcc750f7417c78"]
-data.requester_email_address = "jack@dropboxsign.com"
-data.signers = [signer_1]
-data.ccs = [cc_1]
-data.test_mode = true
+signers = [
+    signers_1,
+]
+
+unclaimed_draft_create_embedded_with_template_request = Dropbox::Sign::UnclaimedDraftCreateEmbeddedWithTemplateRequest.new
+unclaimed_draft_create_embedded_with_template_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+unclaimed_draft_create_embedded_with_template_request.requester_email_address = "jack@dropboxsign.com"
+unclaimed_draft_create_embedded_with_template_request.template_ids = [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+]
+unclaimed_draft_create_embedded_with_template_request.test_mode = false
+unclaimed_draft_create_embedded_with_template_request.ccs = ccs
+unclaimed_draft_create_embedded_with_template_request.signers = signers
 
 begin
-  result = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(data)
-  p result
+  response = Dropbox::Sign::UnclaimedDraftApi.new.unclaimed_draft_create_embedded_with_template(
+    unclaimed_draft_create_embedded_with_template_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling UnclaimedDraftApi#unclaimed_draft_create_embedded_with_template: #{e}"
 end
 
 ```
@@ -292,29 +280,27 @@ Creates a new signature request from an embedded request that can be edited prio
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-unclaimed_draft_api = Dropbox::Sign::UnclaimedDraftApi.new
-
-data = Dropbox::Sign::UnclaimedDraftEditAndResendRequest.new
-data.client_id = "ec64a202072370a737edf4a0eb7f4437"
-data.test_mode = true
-
-signature_request_id = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f"
+unclaimed_draft_edit_and_resend_request = Dropbox::Sign::UnclaimedDraftEditAndResendRequest.new
+unclaimed_draft_edit_and_resend_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+unclaimed_draft_edit_and_resend_request.test_mode = false
 
 begin
-  result = unclaimed_draft_api.unclaimed_draft_edit_and_resend(signature_request_id, data)
-  p result
+  response = Dropbox::Sign::UnclaimedDraftApi.new.unclaimed_draft_edit_and_resend(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      unclaimed_draft_edit_and_resend_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling UnclaimedDraftApi#unclaimed_draft_edit_and_resend: #{e}"
 end
 
 ```

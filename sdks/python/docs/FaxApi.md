@@ -23,22 +23,23 @@ Deletes the specified Fax from the system
 * Basic Authentication (api_key):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
 )
 
 with ApiClient(configuration) as api_client:
-    fax_api = apis.FaxApi(api_client)
-
     try:
-        fax_api.fax_delete("fa5c8a0b0f492d768749333ad6fcc214c111e967")
+        api.FaxApi(api_client).fax_delete(
+            fax_id="fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        )
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling FaxApi#fax_delete: %s\n" % e)
 
 ```
 ```
@@ -82,25 +83,25 @@ Downloads files associated with a Fax
 * Basic Authentication (api_key):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
 )
 
 with ApiClient(configuration) as api_client:
-    fax_api = apis.FaxApi(api_client)
-
-    fax_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
     try:
-        response = fax_api.fax_files(fax_id)
-        open("file_response.pdf", "wb").write(response.read())
+        response = api.FaxApi(api_client).fax_files(
+            fax_id="fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        )
+
+        open("./file_response", "wb").write(response.read())
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling FaxApi#fax_files: %s\n" % e)
 
 ```
 ```
@@ -144,25 +145,25 @@ Returns information about a Fax
 * Basic Authentication (api_key):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
 )
 
 with ApiClient(configuration) as api_client:
-    fax_api = apis.FaxApi(api_client)
-
-    fax_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
     try:
-        response = fax_api.fax_get(fax_id)
+        response = api.FaxApi(api_client).fax_get(
+            fax_id="fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling FaxApi#fax_get: %s\n" % e)
 
 ```
 ```
@@ -206,29 +207,26 @@ Returns properties of multiple Faxes
 * Basic Authentication (api_key):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
 )
 
 with ApiClient(configuration) as api_client:
-    fax_api = apis.FaxApi(api_client)
-
-    page = 1
-    page_size = 2
-
     try:
-        response = fax_api.fax_list(
-            page=page,
-            page_size=page_size,
+        response = api.FaxApi(api_client).fax_list(
+            page=1,
+            page_size=20,
         )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling FaxApi#fax_list: %s\n" % e)
 
 ```
 ```
@@ -273,34 +271,38 @@ Creates and sends a new Fax with the submitted file(s)
 * Basic Authentication (api_key):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
 )
 
 with ApiClient(configuration) as api_client:
-    fax_api = apis.FaxApi(api_client)
-
-    data = models.FaxSendRequest(
-        files=[open("example_signature_request.pdf", "rb")],
-        test_mode=True,
+    fax_send_request = models.FaxSendRequest(
         recipient="16690000001",
         sender="16690000000",
+        test_mode=True,
         cover_page_to="Jill Fax",
-        cover_page_message="I'm sending you a fax!",
         cover_page_from="Faxer Faxerson",
+        cover_page_message="I'm sending you a fax!",
         title="This is what the fax is about!",
+        files=[
+            open("./example_fax.pdf", "rb").read(),
+        ],
     )
 
     try:
-        response = fax_api.fax_send(data)
+        response = api.FaxApi(api_client).fax_send(
+            fax_send_request=fax_send_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling FaxApi#fax_send: %s\n" % e)
 
 ```
 ```

@@ -28,6 +28,10 @@ additionalProperties:
   licenseUrl: https://www.opensource.org/licenses/mit-license.php
   useCustomTemplateCode: true
   licenseCopyrightYear: 2024
+  oseg.package: com.dropbox.sign_sandbox
+  oseg.printApiCallProperty: true
+  oseg.security.api_key.username: YOUR_API_KEY
+  oseg.security.oauth2.access_token: YOUR_ACCESS_TOKEN
 files:
   dropbox-EventCallbackHelper.mustache:
     templateType: SupportingFiles

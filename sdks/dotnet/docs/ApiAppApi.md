@@ -23,29 +23,28 @@ Creates a new API App.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class ApiAppCreateExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var oauth = new SubOAuth(
             callbackUrl: "https://example.com/oauth",
-            scopes: new List<SubOAuth.ScopesEnum>() {
+            scopes: [
                 SubOAuth.ScopesEnum.BasicAccountInfo,
-                SubOAuth.ScopesEnum.RequestSignature
-            }
+                SubOAuth.ScopesEnum.RequestSignature,
+            ]
         );
 
         var whiteLabelingOptions = new SubWhiteLabelingOptions(
@@ -53,27 +52,30 @@ public class Example
             primaryButtonTextColor: "#ffffff"
         );
 
-        var customLogoFile = new FileStream(
-            "CustomLogoFile.png",
-            FileMode.Open
-        );
-
-        var data = new ApiAppCreateRequest(
+        var apiAppCreateRequest = new ApiAppCreateRequest(
             name: "My Production App",
-            domains: new List<string>(){"example.com"},
+            domains: [
+                "example.com",
+            ],
+            customLogoFile: new FileStream(
+                path: "CustomLogoFile.png",
+                mode: FileMode.Open
+            ),
             oauth: oauth,
-            whiteLabelingOptions: whiteLabelingOptions,
-            customLogoFile: customLogoFile
+            whiteLabelingOptions: whiteLabelingOptions
         );
 
         try
         {
-            var result = apiAppApi.ApiAppCreate(data);
-            Console.WriteLine(result);
+            var response = new ApiAppApi(config).ApiAppCreate(
+                apiAppCreateRequest: apiAppCreateRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -143,32 +145,31 @@ Deletes an API App. Can only be invoked for apps you own.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class ApiAppDeleteExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
-
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            apiAppApi.ApiAppDelete(clientId);
+            new ApiAppApi(config).ApiAppDelete(
+                clientId: "0dd3b823a682527788c4e40cb7b6f7e9"
+            );
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -233,34 +234,35 @@ Returns an object with information about an API App.
 ### Example
 ```csharp
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class ApiAppGetExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
-
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = apiAppApi.ApiAppGet(clientId);
-            Console.WriteLine(result);
+            var response = new ApiAppApi(config).ApiAppGet(
+                clientId: "0dd3b823a682527788c4e40cb7b6f7e9"
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -328,35 +330,36 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### Example
 ```csharp
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class ApiAppListExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
-
-        var page = 1;
-        var pageSize = 2;
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = apiAppApi.ApiAppList(page, pageSize);
-            Console.WriteLine(result);
+            var response = new ApiAppApi(config).ApiAppList(
+                page: 1,
+                pageSize: 20
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -427,29 +430,28 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class ApiAppUpdateExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var oauth = new SubOAuth(
             callbackUrl: "https://example.com/oauth",
-            scopes: new List<SubOAuth.ScopesEnum>() {
+            scopes: [
                 SubOAuth.ScopesEnum.BasicAccountInfo,
-                SubOAuth.ScopesEnum.RequestSignature
-            }
+                SubOAuth.ScopesEnum.RequestSignature,
+            ]
         );
 
         var whiteLabelingOptions = new SubWhiteLabelingOptions(
@@ -457,29 +459,32 @@ public class Example
             primaryButtonTextColor: "#ffffff"
         );
 
-        var customLogoFile = new FileStream(
-            "CustomLogoFile.png",
-            FileMode.Open
-        );
-
-        var data = new ApiAppUpdateRequest(
-            name: "My Production App",
-            domains: new List<string>(){"example.com"},
+        var apiAppUpdateRequest = new ApiAppUpdateRequest(
+            callbackUrl: "https://example.com/dropboxsign",
+            name: "New Name",
+            domains: [
+                "example.com",
+            ],
+            customLogoFile: new FileStream(
+                path: "CustomLogoFile.png",
+                mode: FileMode.Open
+            ),
             oauth: oauth,
-            whiteLabelingOptions: whiteLabelingOptions,
-            customLogoFile: customLogoFile
+            whiteLabelingOptions: whiteLabelingOptions
         );
-
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
         try
         {
-            var result = apiAppApi.ApiAppUpdate(clientId, data);
-            Console.WriteLine(result);
+            var response = new ApiAppApi(config).ApiAppUpdate(
+                clientId: "0dd3b823a682527788c4e40cb7b6f7e9",
+                apiAppUpdateRequest: apiAppUpdateRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppUpdate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

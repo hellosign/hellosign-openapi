@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{7045D429-F203-4317-A29F-FB9FD34B7FF9}") = "Dropbox.SignSandbox", "src\Dropbox.SignSandbox\Dropbox.SignSandbox.csproj", "{F8C8232D-7020-4603-8E04-18D060AE530B}"
+EndProject
+Global
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|Any CPU = Debug|Any CPU
+        Release|Any CPU = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {F8C8232D-7020-4603-8E04-18D060AE530B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {F8C8232D-7020-4603-8E04-18D060AE530B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {F8C8232D-7020-4603-8E04-18D060AE530B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {F8C8232D-7020-4603-8E04-18D060AE530B}.Release|Any CPU.Build.0 = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(SolutionProperties) = preSolution
+        HideSolutionNode = FALSE
+    EndGlobalSection
+EndGlobal

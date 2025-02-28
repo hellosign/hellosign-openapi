@@ -23,26 +23,30 @@ Deletes the specified Fax from the system
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class FaxDeleteExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
         config.Username = "YOUR_API_KEY";
 
-        var faxApi = new FaxApi(config);
-
         try
         {
-            faxApi.FaxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
+            new FaxApi(config).FaxDelete(
+                faxId: "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+            );
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -109,32 +113,34 @@ Downloads files associated with a Fax
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class FaxFilesExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
         config.Username = "YOUR_API_KEY";
 
-        var faxApi = new FaxApi(config);
-
-        var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
         try
         {
-            var result = faxApi.FaxFiles(faxId);
-            var fileStream = File.Create("file_response.pdf");
-            result.Seek(0, SeekOrigin.Begin);
-            result.CopyTo(fileStream);
+            var response = new FaxApi(config).FaxFiles(
+                faxId: "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+            );
+            var fileStream = File.Create("./file_response");
+            response.Seek(0, SeekOrigin.Begin);
+            response.CopyTo(fileStream);
             fileStream.Close();
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxFiles: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -202,31 +208,34 @@ Returns information about a Fax
 ### Example
 ```csharp
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class FaxGetExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        var faxApi = new FaxApi(config);
-
-        var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try
         {
-            var result = faxApi.FaxGet(faxId);
-            Console.WriteLine(result);
+            var response = new FaxApi(config).FaxGet(
+                faxId: "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -294,32 +303,35 @@ Returns properties of multiple Faxes
 ### Example
 ```csharp
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class FaxListExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        var faxApi = new FaxApi(config);
-
-        var page = 1;
-        var pageSize = 2;
 
         try
         {
-            var result = faxApi.FaxList(page, pageSize);
-            Console.WriteLine(result);
+            var response = new FaxApi(config).FaxList(
+                page: 1,
+                pageSize: 20
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -390,47 +402,49 @@ Creates and sends a new Fax with the submitted file(s)
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class FaxSendExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
         config.Username = "YOUR_API_KEY";
 
-        var faxApi = new FaxApi(config);
-
-        var files = new List<Stream> {
-            new FileStream(
-                "./example_fax.pdf",
-                FileMode.Open,
-                FileAccess.Read,
-                FileShare.Read
-            )
-        };
-
-        var data = new FaxSendRequest(
-            files: files,
-            testMode: true,
+        var faxSendRequest = new FaxSendRequest(
             recipient: "16690000001",
             sender: "16690000000",
+            testMode: true,
             coverPageTo: "Jill Fax",
-            coverPageMessage: "I'm sending you a fax!",
             coverPageFrom: "Faxer Faxerson",
+            coverPageMessage: "I'm sending you a fax!",
             title: "This is what the fax is about!",
+            files: new List<Stream>
+            {
+                new FileStream(
+                    path: "./example_fax.pdf",
+                    mode: FileMode.Open
+                ),
+            }
         );
 
         try
         {
-            var result = faxApi.FaxSend(data);
-            Console.WriteLine(result);
+            var response = new FaxApi(config).FaxSend(
+                faxSendRequest: faxSendRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling FaxApi#FaxSend: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

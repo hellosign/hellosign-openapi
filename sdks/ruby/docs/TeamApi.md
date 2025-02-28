@@ -27,26 +27,28 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
-data = Dropbox::Sign::TeamAddMemberRequest.new
-data.email_address = "george@example.com"
+team_add_member_request = Dropbox::Sign::TeamAddMemberRequest.new
+team_add_member_request.email_address = "george@example.com"
 
 begin
-  result = team_api.team_add_member(data)
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_add_member(
+    team_add_member_request,
+      {
+          team_id: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_add_member: #{e}"
 end
 
 ```
@@ -101,26 +103,25 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
-data = Dropbox::Sign::TeamCreateRequest.new
-data.name = "New Team Name"
+team_create_request = Dropbox::Sign::TeamCreateRequest.new
+team_create_request.name = "New Team Name"
 
 begin
-  result = team_api.team_create(data)
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_create(
+    team_create_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_create: #{e}"
 end
 
 ```
@@ -174,23 +175,18 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
 begin
-  result = team_api.team_delete
-  p result
+  Dropbox::Sign::TeamApi.new.team_delete
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_delete: #{e}"
 end
 
 ```
@@ -242,23 +238,20 @@ Returns information about your Team as well as a list of its members. If you do 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
 begin
-  result = team_api.team_get
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_get
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_get: #{e}"
 end
 
 ```
@@ -310,23 +303,24 @@ Provides information about a team.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
 begin
-  result = team_api.team_info
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_info(
+    {
+          team_id: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_info: #{e}"
 end
 
 ```
@@ -380,25 +374,20 @@ Provides a list of team invites (and their roles).
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
-email_address = "user@dropboxsign.com"
-
 begin
-  result = team_api.team_invites({ email_address: email_address })
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_invites
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_invites: #{e}"
 end
 
 ```
@@ -452,25 +441,26 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
-team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
-
 begin
-  result = team_api.team_members(team_id)
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_members(
+    "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", # team_id
+      {
+          page: 1,
+          page_size: 20,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_members: #{e}"
 end
 
 ```
@@ -526,27 +516,26 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
-data = Dropbox::Sign::TeamRemoveMemberRequest.new
-data.email_address = "teammate@dropboxsign.com"
-data.new_owner_email_address = "new_teammate@dropboxsign.com"
+team_remove_member_request = Dropbox::Sign::TeamRemoveMemberRequest.new
+team_remove_member_request.email_address = "teammate@dropboxsign.com"
+team_remove_member_request.new_owner_email_address = "new_teammate@dropboxsign.com"
 
 begin
-  result = team_api.team_remove_member(data)
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_remove_member(
+    team_remove_member_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_remove_member: #{e}"
 end
 
 ```
@@ -600,25 +589,26 @@ Provides a paginated list of sub teams that belong to a given team.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
-team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
-
 begin
-  result = team_api.team_sub_teams(team_id)
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_sub_teams(
+    "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", # team_id
+      {
+          page: 1,
+          page_size: 20,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_sub_teams: #{e}"
 end
 
 ```
@@ -674,26 +664,25 @@ Updates the name of your Team.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = Dropbox::Sign::TeamApi.new
-
-data = Dropbox::Sign::TeamUpdateRequest.new
-data.name = "New Team Name"
+team_update_request = Dropbox::Sign::TeamUpdateRequest.new
+team_update_request.name = "New Team Name"
 
 begin
-  result = team_api.team_update(data)
-  p result
+  response = Dropbox::Sign::TeamApi.new.team_update(
+    team_update_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TeamApi#team_update: #{e}"
 end
 
 ```

@@ -19,27 +19,31 @@ Once you have retrieved the code from the user callback, you will need to exchan
 
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
-    oauth_api = apis.OAuthApi(api_client)
-
-    data = models.OAuthTokenGenerateRequest(
-        state="900e06e2",
-        code="1b0d28d90c86c141",
+    o_auth_token_generate_request = models.OAuthTokenGenerateRequest(
         client_id="cc91c61d00f8bb2ece1428035716b",
         client_secret="1d14434088507ffa390e6f5528465",
+        code="1b0d28d90c86c141",
+        state="900e06e2",
+        grant_type="authorization_code",
     )
 
     try:
-        response = oauth_api.oauth_token_generate(data)
+        response = api.OAuthApi(api_client).oauth_token_generate(
+            o_auth_token_generate_request=o_auth_token_generate_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling OAuthApi#oauth_token_generate: %s\n" % e)
 
 ```
 ```
@@ -82,24 +86,28 @@ Access tokens are only valid for a given period of time (typically one hour) for
 
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
-    oauth_api = apis.OAuthApi(api_client)
-
-    data = models.OAuthTokenRefreshRequest(
+    o_auth_token_refresh_request = models.OAuthTokenRefreshRequest(
+        grant_type="refresh_token",
         refresh_token="hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3",
     )
 
     try:
-        response = oauth_api.oauth_token_refresh(data)
+        response = api.OAuthApi(api_client).oauth_token_refresh(
+            o_auth_token_refresh_request=o_auth_token_refresh_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling OAuthApi#oauth_token_refresh: %s\n" % e)
 
 ```
 ```

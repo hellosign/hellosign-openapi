@@ -14,4 +14,11 @@ printf "\n"
 
 bash "${DIR}/bin/php" ./bin/generate-oas.php
 
+cp "${DIR}/examples/"*.cs "${DIR}/sandbox/dotnet/src/Dropbox.SignSandbox/"
+cp "${DIR}/examples/"*.java "${DIR}/sandbox/java/src/main/java/com/dropbox/sign_sandbox/"
+cp "${DIR}/examples/"*.php "${DIR}/sandbox/php/src/"
+cp "${DIR}/examples/"*.py "${DIR}/sandbox/python/src/"
+cp "${DIR}/examples/"*.rb "${DIR}/sandbox/ruby/src/"
+cp "${DIR}/examples/"*.ts "${DIR}/sandbox/node/src/"
+
 printf "Success!\n"

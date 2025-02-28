@@ -2,7 +2,7 @@
     "name": "dropbox/sign-sandbox",
     "autoload": {
         "psr-4": {
-            "Dropbox\\SignSandbox\\Tests\\": "test"
+            "Dropbox\\SignSandbox\\": "src"
         }
     },
     "require": {

@@ -9,6 +9,10 @@ additionalProperties:
   sortModelPropertiesByRequiredFlag: true
   useCustomTemplateCode: true
   licenseCopyrightYear: 2024
+  oseg.npmName: "@dropbox/sign-sandbox"
+  oseg.printApiCallProperty: true
+  oseg.security.api_key.username: YOUR_API_KEY
+  oseg.security.oauth2.access_token: YOUR_ACCESS_TOKEN
 files:
   dropbox-npmignore:
     templateType: SupportingFiles

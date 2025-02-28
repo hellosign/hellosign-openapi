@@ -24,63 +24,41 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new Dropbox\Sign\Api\UnclaimedDraftApi($config);
-
-$signer1 = new Dropbox\Sign\Model\SubUnclaimedDraftSigner();
-$signer1->setEmailAddress("jack@example.com")
+$signers_1 = (new Dropbox\Sign\Model\SubUnclaimedDraftSigner())
     ->setName("Jack")
+    ->setEmailAddress("jack@example.com")
     ->setOrder(0);
 
-$signer2 = new Dropbox\Sign\Model\SubUnclaimedDraftSigner();
-$signer2->setEmailAddress("jill@example.com")
-    ->setName("Jill")
-    ->setOrder(1);
+$signers = [
+    $signers_1,
+];
 
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
-    ->setPhone(false)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
-
-$fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
-
-$data = new Dropbox\Sign\Model\UnclaimedDraftCreateRequest();
-$data->setSubject("The NDA we talked about")
+$unclaimed_draft_create_request = (new Dropbox\Sign\Model\UnclaimedDraftCreateRequest())
     ->setType(Dropbox\Sign\Model\UnclaimedDraftCreateRequest::TYPE_REQUEST_SIGNATURE)
-    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-    ->setSigners([$signer1, $signer2])
-    ->setCcEmailAddresses([
-        "lawyer1@dropboxsign.com",
-        "lawyer2@dropboxsign.com",
+    ->setTestMode(true)
+    ->setFiles([
     ])
-    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setMetadata([
-        "custom_id" => 1234,
-        "custom_text" => "NDA #9",
-    ])
-    ->setSigningOptions($signingOptions)
-    ->setFieldOptions($fieldOptions)
-    ->setTestMode(true);
+    ->setSigners($signers);
 
 try {
-    $result = $unclaimedDraftApi->unclaimedDraftCreate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\UnclaimedDraftApi(config: $config))->unclaimedDraftCreate(
+        unclaimed_draft_create_request: $unclaimed_draft_create_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftCreate: {$e->getMessage()}";
 }
 
 ```
@@ -122,31 +100,32 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new Dropbox\Sign\Api\UnclaimedDraftApi($config);
-
-$data = new Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedRequest();
-$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
-    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+$unclaimed_draft_create_embedded_request = (new Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedRequest())
+    ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
     ->setRequesterEmailAddress("jack@dropboxsign.com")
-    ->setTestMode(true);
+    ->setTestMode(true)
+    ->setFiles([
+    ]);
 
 try {
-    $result = $unclaimedDraftApi->unclaimedDraftCreateEmbedded($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\UnclaimedDraftApi(config: $config))->unclaimedDraftCreateEmbedded(
+        unclaimed_draft_create_embedded_request: $unclaimed_draft_create_embedded_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbedded: {$e->getMessage()}";
 }
 
 ```
@@ -188,42 +167,52 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new Dropbox\Sign\Api\UnclaimedDraftApi($config);
+$ccs_1 = (new Dropbox\Sign\Model\SubCC())
+    ->setRole("Accounting")
+    ->setEmailAddress("accounting@dropboxsign.com");
 
-$signer1 = new Dropbox\Sign\Model\SubUnclaimedDraftTemplateSigner();
-$signer1->setRole("Client")
+$ccs = [
+    $ccs_1,
+];
+
+$signers_1 = (new Dropbox\Sign\Model\SubUnclaimedDraftTemplateSigner())
+    ->setRole("Client")
     ->setName("George")
     ->setEmailAddress("george@example.com");
 
-$cc1 = new Dropbox\Sign\Model\SubCC();
-$cc1->setRole("Accounting")
-    ->setEmailAddress("accounting@dropboxsign.com");
+$signers = [
+    $signers_1,
+];
 
-$data = new Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest();
-$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
-    ->setTemplateIds(["61a832ff0d8423f91d503e76bfbcc750f7417c78"])
+$unclaimed_draft_create_embedded_with_template_request = (new Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest())
+    ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
     ->setRequesterEmailAddress("jack@dropboxsign.com")
-    ->setSigners([$signer1])
-    ->setCcs([$cc1])
-    ->setTestMode(true);
+    ->setTemplateIds([
+        "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+    ])
+    ->setTestMode(false)
+    ->setCcs($ccs)
+    ->setSigners($signers);
 
 try {
-    $result = $unclaimedDraftApi->unclaimedDraftCreateEmbeddedWithTemplate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\UnclaimedDraftApi(config: $config))->unclaimedDraftCreateEmbeddedWithTemplate(
+        unclaimed_draft_create_embedded_with_template_request: $unclaimed_draft_create_embedded_with_template_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbeddedWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -265,31 +254,30 @@ Creates a new signature request from an embedded request that can be edited prio
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new Dropbox\Sign\Api\UnclaimedDraftApi($config);
-
-$data = new Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest();
-$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
-    ->setTestMode(true);
-
-$signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
+$unclaimed_draft_edit_and_resend_request = (new Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest())
+    ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
+    ->setTestMode(false);
 
 try {
-    $result = $unclaimedDraftApi->unclaimedDraftEditAndResend($signatureRequestId, $data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\UnclaimedDraftApi(config: $config))->unclaimedDraftEditAndResend(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        unclaimed_draft_edit_and_resend_request: $unclaimed_draft_edit_and_resend_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftEditAndResend: {$e->getMessage()}";
 }
 
 ```

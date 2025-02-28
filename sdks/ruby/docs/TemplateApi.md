@@ -28,28 +28,26 @@ Gives the specified Account access to the specified Template. The specified Acco
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-data = Dropbox::Sign::TemplateAddUserRequest.new
-data.email_address = "george@dropboxsign.com"
-
-template_id = "f57db65d3f933b5316d398057a36176831451a35"
+template_add_user_request = Dropbox::Sign::TemplateAddUserRequest.new
+template_add_user_request.email_address = "george@dropboxsign.com"
 
 begin
-  result = template_api.template_add_user(template_id, data)
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_add_user(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+      template_add_user_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_add_user: #{e}"
 end
 
 ```
@@ -104,54 +102,101 @@ Creates a template that can then be used.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
-
-template_api = Dropbox::Sign::TemplateApi.new
-
-role_1 = Dropbox::Sign::SubTemplateRole.new
-role_1.name = "Client"
-role_1.order = 0
-
-role_2 = Dropbox::Sign::SubTemplateRole.new
-role_2.name = "Witness"
-role_2.order = 1
-
-merge_field_1 = Dropbox::Sign::SubMergeField.new
-merge_field_1.name = "Full Name"
-merge_field_1.type = "text"
-
-merge_field_2 = Dropbox::Sign::SubMergeField.new
-merge_field_2.name = "Is Registered?"
-merge_field_2.type = "checkbox"
 
 field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
-data = Dropbox::Sign::TemplateCreateRequest.new
-data.client_id = "37dee8d8440c66d54cfa05d92c160882"
-data.files = [File.new("example_signature_request.pdf", "r")]
-data.title = "Test Template"
-data.subject = "Please sign this document"
-data.message = "For your approval"
-data.signer_roles = [role_1, role_2]
-data.cc_roles = ["Manager"]
-data.merge_fields = [merge_field_1, merge_field_2]
-data.field_options = field_options
-data.test_mode = true
+signer_roles_1 = Dropbox::Sign::SubTemplateRole.new
+signer_roles_1.name = "Client"
+signer_roles_1.order = 0
+
+signer_roles_2 = Dropbox::Sign::SubTemplateRole.new
+signer_roles_2.name = "Witness"
+signer_roles_2.order = 1
+
+signer_roles = [
+    signer_roles_1,
+    signer_roles_2,
+]
+
+form_fields_per_document_1 = Dropbox::Sign::SubFormFieldsPerDocumentText.new
+form_fields_per_document_1.document_index = 0
+form_fields_per_document_1.api_id = "uniqueIdHere_1"
+form_fields_per_document_1.type = "text"
+form_fields_per_document_1.required = true
+form_fields_per_document_1.signer = "1"
+form_fields_per_document_1.width = 100
+form_fields_per_document_1.height = 16
+form_fields_per_document_1.x = 112
+form_fields_per_document_1.y = 328
+form_fields_per_document_1.name = ""
+form_fields_per_document_1.page = 1
+form_fields_per_document_1.placeholder = ""
+form_fields_per_document_1.validation_type = "numbers_only"
+
+form_fields_per_document_2 = Dropbox::Sign::SubFormFieldsPerDocumentSignature.new
+form_fields_per_document_2.document_index = 0
+form_fields_per_document_2.api_id = "uniqueIdHere_2"
+form_fields_per_document_2.type = "signature"
+form_fields_per_document_2.required = true
+form_fields_per_document_2.signer = "0"
+form_fields_per_document_2.width = 120
+form_fields_per_document_2.height = 30
+form_fields_per_document_2.x = 530
+form_fields_per_document_2.y = 415
+form_fields_per_document_2.name = ""
+form_fields_per_document_2.page = 1
+
+form_fields_per_document = [
+    form_fields_per_document_1,
+    form_fields_per_document_2,
+]
+
+merge_fields_1 = Dropbox::Sign::SubMergeField.new
+merge_fields_1.name = "Full Name"
+merge_fields_1.type = "text"
+
+merge_fields_2 = Dropbox::Sign::SubMergeField.new
+merge_fields_2.name = "Is Registered?"
+merge_fields_2.type = "checkbox"
+
+merge_fields = [
+    merge_fields_1,
+    merge_fields_2,
+]
+
+template_create_request = Dropbox::Sign::TemplateCreateRequest.new
+template_create_request.client_id = "37dee8d8440c66d54cfa05d92c160882"
+template_create_request.message = "For your approval"
+template_create_request.subject = "Please sign this document"
+template_create_request.test_mode = true
+template_create_request.title = "Test Template"
+template_create_request.cc_roles = [
+    "Manager",
+]
+template_create_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
+template_create_request.field_options = field_options
+template_create_request.signer_roles = signer_roles
+template_create_request.form_fields_per_document = form_fields_per_document
+template_create_request.merge_fields = merge_fields
 
 begin
-  result = template_api.template_create(data)
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_create(
+    template_create_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_create: #{e}"
 end
 
 ```
@@ -205,54 +250,67 @@ The first step in an embedded template workflow. Creates a draft template that c
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
-
-template_api = Dropbox::Sign::TemplateApi.new
-
-role_1 = Dropbox::Sign::SubTemplateRole.new
-role_1.name = "Client"
-role_1.order = 0
-
-role_2 = Dropbox::Sign::SubTemplateRole.new
-role_2.name = "Witness"
-role_2.order = 1
-
-merge_field_1 = Dropbox::Sign::SubMergeField.new
-merge_field_1.name = "Full Name"
-merge_field_1.type = "text"
-
-merge_field_2 = Dropbox::Sign::SubMergeField.new
-merge_field_2.name = "Is Registered?"
-merge_field_2.type = "checkbox"
 
 field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
-data = Dropbox::Sign::TemplateCreateEmbeddedDraftRequest.new
-data.client_id = "37dee8d8440c66d54cfa05d92c160882"
-data.files = [File.new("example_signature_request.pdf", "r")]
-data.title = "Test Template"
-data.subject = "Please sign this document"
-data.message = "For your approval"
-data.signer_roles = [role_1, role_2]
-data.cc_roles = ["Manager"]
-data.merge_fields = [merge_field_1, merge_field_2]
-data.field_options = field_options
-data.test_mode = true
+merge_fields_1 = Dropbox::Sign::SubMergeField.new
+merge_fields_1.name = "Full Name"
+merge_fields_1.type = "text"
+
+merge_fields_2 = Dropbox::Sign::SubMergeField.new
+merge_fields_2.name = "Is Registered?"
+merge_fields_2.type = "checkbox"
+
+merge_fields = [
+    merge_fields_1,
+    merge_fields_2,
+]
+
+signer_roles_1 = Dropbox::Sign::SubTemplateRole.new
+signer_roles_1.name = "Client"
+signer_roles_1.order = 0
+
+signer_roles_2 = Dropbox::Sign::SubTemplateRole.new
+signer_roles_2.name = "Witness"
+signer_roles_2.order = 1
+
+signer_roles = [
+    signer_roles_1,
+    signer_roles_2,
+]
+
+template_create_embedded_draft_request = Dropbox::Sign::TemplateCreateEmbeddedDraftRequest.new
+template_create_embedded_draft_request.client_id = "37dee8d8440c66d54cfa05d92c160882"
+template_create_embedded_draft_request.message = "For your approval"
+template_create_embedded_draft_request.subject = "Please sign this document"
+template_create_embedded_draft_request.test_mode = true
+template_create_embedded_draft_request.title = "Test Template"
+template_create_embedded_draft_request.cc_roles = [
+    "Manager",
+]
+template_create_embedded_draft_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
+template_create_embedded_draft_request.field_options = field_options
+template_create_embedded_draft_request.merge_fields = merge_fields
+template_create_embedded_draft_request.signer_roles = signer_roles
 
 begin
-  result = template_api.template_create_embedded_draft(data)
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_create_embedded_draft(
+    template_create_embedded_draft_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_create_embedded_draft: #{e}"
 end
 
 ```
@@ -306,25 +364,20 @@ Completely deletes the template specified from the account.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-template_id = "5de8179668f2033afac48da1868d0093bf133266"
-
 begin
-  result = template_api.template_delete(template_id)
-  p result
+  Dropbox::Sign::TemplateApi.new.template_delete(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+  )
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_delete: #{e}"
 end
 
 ```
@@ -378,25 +431,22 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-template_id = "5de8179668f2033afac48da1868d0093bf133266"
-
 begin
-  file_bin = template_api.template_files(template_id)
-  FileUtils.cp(file_bin.path, "path/to/file.pdf")
+  response = Dropbox::Sign::TemplateApi.new.template_files(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+  )
+
+  FileUtils.cp(response.path, "./file_response")
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_files: #{e}"
 end
 
 ```
@@ -451,25 +501,22 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-template_id = "5de8179668f2033afac48da1868d0093bf133266"
-
 begin
-  result = template_api.template_files_as_data_uri(template_id)
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_files_as_data_uri(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_files_as_data_uri: #{e}"
 end
 
 ```
@@ -523,25 +570,25 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-template_id = "5de8179668f2033afac48da1868d0093bf133266"
-
 begin
-  result = template_api.template_files_as_file_url(template_id)
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_files_as_file_url(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+      {
+          force_download: 1,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_files_as_file_url: #{e}"
 end
 
 ```
@@ -596,25 +643,22 @@ Returns the Template specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-template_id = "f57db65d3f933b5316d398057a36176831451a35"
-
 begin
-  result = template_api.template_get(template_id)
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_get(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_get: #{e}"
 end
 
 ```
@@ -668,25 +712,27 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-account_id = "f57db65d3f933b5316d398057a36176831451a35"
-
 begin
-  result = template_api.template_list({ account_id: account_id })
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_list(
+    {
+          account_id: nil,
+          page: 1,
+          page_size: 20,
+          query: nil,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_list: #{e}"
 end
 
 ```
@@ -743,28 +789,26 @@ Removes the specified Account's access to the specified Template.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-data = Dropbox::Sign::TemplateRemoveUserRequest.new
-data.email_address = "george@dropboxsign.com"
-
-template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
+template_remove_user_request = Dropbox::Sign::TemplateRemoveUserRequest.new
+template_remove_user_request.email_address = "george@dropboxsign.com"
 
 begin
-  result = template_api.template_remove_user(template_id, data)
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_remove_user(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+      template_remove_user_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_remove_user: #{e}"
 end
 
 ```
@@ -819,28 +863,28 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = Dropbox::Sign::TemplateApi.new
-
-data = Dropbox::Sign::TemplateUpdateFilesRequest.new
-data.files = [File.new("example_signature_request.pdf", "r")]
-
-template_id = "5de8179668f2033afac48da1868d0093bf133266"
+template_update_files_request = Dropbox::Sign::TemplateUpdateFilesRequest.new
+template_update_files_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
 
 begin
-  result = template_api.template_update_files(template_id, data)
-  p result
+  response = Dropbox::Sign::TemplateApi.new.template_update_files(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+      template_update_files_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling TemplateApi#template_update_files: #{e}"
 end
 
 ```

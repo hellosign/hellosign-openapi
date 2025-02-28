@@ -10,10 +10,9 @@ TARGET_DIR="${DIR}/../sandbox/php"
 ARTIFACTS_DIR="${DIR}/../sandbox/php/artifacts"
 
 mkdir -p "${ARTIFACTS_DIR}"
-
-rm -rf "${ARTIFACTS_DIR}/"*
+rm -f "${ARTIFACTS_DIR}/*.zip"
 rm -f "${TARGET_DIR}/composer.lock"
-rm -rf "${TARGET_DIR}/vendor/hellosign"
+rm -rf "${TARGET_DIR}/vendor"
 
 cp -r "${SDK_DIR}" "${ARTIFACTS_DIR}/package"
 cd "${ARTIFACTS_DIR}/package"
@@ -40,13 +39,6 @@ zip -9 -r "${ARTIFACTS_DIR}/dropbox-sign.zip" \
      "./templates/*" \
      "./test/*" \
      "./vendor/*"
-
-docker run -it --rm \
-  -v "${TARGET_DIR}:${WORKING_DIR}" \
-  -v "dropbox-sign-sdk-composer-cache:/.composer" \
-  -w "${WORKING_DIR}" \
-  -u root:root \
-  jtreminio/php-cli:7.4 composer install
 
 cd "${ARTIFACTS_DIR}"
 rm -rf "${ARTIFACTS_DIR}/package"

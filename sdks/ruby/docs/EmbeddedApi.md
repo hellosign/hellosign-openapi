@@ -19,29 +19,32 @@ Retrieves an embedded object containing a template url that can be opened in an 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = Dropbox::Sign::EmbeddedApi.new
+merge_fields = [
+]
 
-data = Dropbox::Sign::EmbeddedEditUrlRequest.new
-data.cc_roles = [""]
-data.merge_fields = []
-
-template_id = "5de8179668f2033afac48da1868d0093bf133266"
+embedded_edit_url_request = Dropbox::Sign::EmbeddedEditUrlRequest.new
+embedded_edit_url_request.cc_roles = [
+    "",
+]
+embedded_edit_url_request.merge_fields = merge_fields
 
 begin
-  result = embedded_api.embedded_edit_url(template_id, data)
-  p result
+  response = Dropbox::Sign::EmbeddedApi.new.embedded_edit_url(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+      embedded_edit_url_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling EmbeddedApi#embedded_edit_url: #{e}"
 end
 
 ```
@@ -96,25 +99,22 @@ Retrieves an embedded object containing a signature url that can be opened in an
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = Dropbox::Sign::EmbeddedApi.new
-
-signature_id = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
-
 begin
-  result = embedded_api.embedded_sign_url(signature_id)
-  p result
+  response = Dropbox::Sign::EmbeddedApi.new.embedded_sign_url(
+    "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b", # signature_id
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling EmbeddedApi#embedded_sign_url: #{e}"
 end
 
 ```

@@ -23,29 +23,30 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    account_api = apis.AccountApi(api_client)
-
-    data = models.AccountCreateRequest(
+    account_create_request = models.AccountCreateRequest(
         email_address="newuser@dropboxsign.com",
     )
 
     try:
-        response = account_api.account_create(data)
+        response = api.AccountApi(api_client).account_create(
+            account_create_request=account_create_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling AccountApi#account_create: %s\n" % e)
 
 ```
 ```
@@ -90,25 +91,24 @@ Returns the properties and settings of your Account.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    account_api = apis.AccountApi(api_client)
-
     try:
-        response = account_api.account_get(email_address="jack@example.com")
+        response = api.AccountApi(api_client).account_get()
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling AccountApi#account_get: %s\n" % e)
 
 ```
 ```
@@ -154,29 +154,31 @@ Updates the properties and settings of your Account. Currently only allows for u
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    account_api = apis.AccountApi(api_client)
-
-    data = models.AccountUpdateRequest(
+    account_update_request = models.AccountUpdateRequest(
         callback_url="https://www.example.com/callback",
+        locale="en-US",
     )
 
     try:
-        response = account_api.account_update(data)
+        response = api.AccountApi(api_client).account_update(
+            account_update_request=account_update_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling AccountApi#account_update: %s\n" % e)
 
 ```
 ```
@@ -221,29 +223,30 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    account_api = apis.AccountApi(api_client)
-
-    data = models.AccountVerifyRequest(
+    account_verify_request = models.AccountVerifyRequest(
         email_address="some_user@dropboxsign.com",
     )
 
     try:
-        response = account_api.account_verify(data)
+        response = api.AccountApi(api_client).account_verify(
+            account_verify_request=account_verify_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling AccountApi#account_verify: %s\n" % e)
 
 ```
 ```

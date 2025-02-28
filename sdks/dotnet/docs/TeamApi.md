@@ -27,35 +27,39 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamAddMemberExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        var data = new TeamAddMemberRequest(
+        var teamAddMemberRequest = new TeamAddMemberRequest(
             emailAddress: "george@example.com"
         );
 
         try
         {
-            var result = teamApi.TeamAddMember(data);
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamAddMember(
+                teamAddMemberRequest: teamAddMemberRequest,
+                teamId: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamAddMember: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -125,35 +129,38 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamCreateExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        var data = new TeamCreateRequest(
+        var teamCreateRequest = new TeamCreateRequest(
             name: "New Team Name"
         );
 
         try
         {
-            var result = teamApi.TeamCreate(data);
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamCreate(
+                teamCreateRequest: teamCreateRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -222,30 +229,30 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamDeleteExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            teamApi.TeamDelete();
+            new TeamApi(config).TeamDelete();
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -307,31 +314,32 @@ Returns information about your Team as well as a list of its members. If you do 
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamGetExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = teamApi.TeamGet();
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamGet();
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -396,31 +404,34 @@ Provides information about a team.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamInfoExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = teamApi.TeamInfo();
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamInfo(
+                teamId: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamInfo: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -489,32 +500,32 @@ Provides a list of team invites (and their roles).
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamInvitesExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-        var emailAddress = "user@dropboxsign.com";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = teamApi.TeamInvites(emailAddress);
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamInvites();
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamInvites: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -583,32 +594,36 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamMembersExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-        var teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = teamApi.TeamMembers(teamId);
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamMembers(
+                teamId: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+                page: 1,
+                pageSize: 20
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamMembers: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -679,36 +694,39 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamRemoveMemberExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        var data = new TeamRemoveMemberRequest(
+        var teamRemoveMemberRequest = new TeamRemoveMemberRequest(
             emailAddress: "teammate@dropboxsign.com",
             newOwnerEmailAddress: "new_teammate@dropboxsign.com"
         );
 
         try
         {
-            var result = teamApi.TeamRemoveMember(data);
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamRemoveMember(
+                teamRemoveMemberRequest: teamRemoveMemberRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamRemoveMember: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -777,32 +795,36 @@ Provides a paginated list of sub teams that belong to a given team.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamSubTeamsExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-        var teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = teamApi.TeamSubTeams(teamId);
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamSubTeams(
+                teamId: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+                page: 1,
+                pageSize: 20
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamSubTeams: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -873,35 +895,38 @@ Updates the name of your Team.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TeamUpdateExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        var data = new TeamUpdateRequest(
+        var teamUpdateRequest = new TeamUpdateRequest(
             name: "New Team Name"
         );
 
         try
         {
-            var result = teamApi.TeamUpdate(data);
-            Console.WriteLine(result);
+            var response = new TeamApi(config).TeamUpdate(
+                teamUpdateRequest: teamUpdateRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamUpdate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

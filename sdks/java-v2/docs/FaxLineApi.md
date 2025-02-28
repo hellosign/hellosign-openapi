@@ -25,29 +25,42 @@ Grants a user access to the specified Fax Line.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxLineAddUserExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        var faxLineApi = new FaxLineApi(apiClient);
+        var faxLineAddUserRequest = new FaxLineAddUserRequest();
+        faxLineAddUserRequest.number("[FAX_NUMBER]");
+        faxLineAddUserRequest.emailAddress("member@dropboxsign.com");
 
-        var data = new FaxLineAddUserRequest()
-            .number("[FAX_NUMBER]")
-            .emailAddress("member@dropboxsign.com");
+        try
+        {
+            var response = new FaxLineApi(config).faxLineAddUser(
+                faxLineAddUserRequest
+            );
 
-        try {
-            FaxLineResponse result = faxLineApi.faxLineAddUser(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxLineApi#faxLineAddUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -96,25 +109,41 @@ Returns a list of available area codes for a given state/province and city
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxLineAreaCodeGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        var faxLineApi = new FaxLineApi(apiClient);
+        try
+        {
+            var response = new FaxLineApi(config).faxLineAreaCodeGet(
+                "US", // country
+                null, // state
+                null, // province
+                null // city
+            );
 
-        try {
-            FaxLineAreaCodeGetResponse result = faxLineApi.faxLineAreaCodeGet("US", "CA");
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxLineApi#faxLineAreaCodeGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -166,29 +195,42 @@ Purchases a new Fax Line
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxLineCreateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        var faxLineApi = new FaxLineApi(apiClient);
+        var faxLineCreateRequest = new FaxLineCreateRequest();
+        faxLineCreateRequest.areaCode(209);
+        faxLineCreateRequest.country(FaxLineCreateRequest.CountryEnum.US);
 
-        var data = new FaxLineCreateRequest()
-            .areaCode(209)
-            .country("US");
+        try
+        {
+            var response = new FaxLineApi(config).faxLineCreate(
+                faxLineCreateRequest
+            );
 
-        try {
-            FaxLineResponse result = faxLineApi.faxLineCreate(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxLineApi#faxLineCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -237,27 +279,39 @@ Deletes the specified Fax Line from the subscription.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxLineDeleteExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        var faxLineApi = new FaxLineApi(apiClient);
+        var faxLineDeleteRequest = new FaxLineDeleteRequest();
+        faxLineDeleteRequest.number("[FAX_NUMBER]");
 
-        var data = new FaxLineDeleteRequest()
-            .number("[FAX_NUMBER]");
-
-        try {
-            faxLineApi.faxLineDelete(data);
+        try
+        {
+            new FaxLineApi(config).faxLineDelete(
+                faxLineDeleteRequest
+            );
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxLineApi#faxLineDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -306,25 +360,38 @@ Returns the properties and settings of a Fax Line.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxLineGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        var faxLineApi = new FaxLineApi(apiClient);
+        try
+        {
+            var response = new FaxLineApi(config).faxLineGet(
+                "123-123-1234" // number
+            );
 
-        try {
-            FaxLineResponse result = faxLineApi.faxLineGet("[FAX_NUMBER]");
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxLineApi#faxLineGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -373,25 +440,41 @@ Returns the properties and settings of multiple Fax Lines.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxLineListExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        var faxLineApi = new FaxLineApi(apiClient);
+        try
+        {
+            var response = new FaxLineApi(config).faxLineList(
+                "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97", // accountId
+                1, // page
+                20, // pageSize
+                null // showTeamLines
+            );
 
-        try {
-            FaxLineListResponse result = faxLineApi.faxLineList();
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxLineApi#faxLineList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -443,29 +526,42 @@ Removes a user's access to the specified Fax Line
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxLineRemoveUserExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        var faxLineApi = new FaxLineApi(apiClient);
+        var faxLineRemoveUserRequest = new FaxLineRemoveUserRequest();
+        faxLineRemoveUserRequest.number("[FAX_NUMBER]");
+        faxLineRemoveUserRequest.emailAddress("member@dropboxsign.com");
 
-        var data = new FaxLineRemoveUserRequest()
-            .number("[FAX_NUMBER]")
-            .emailAddress("member@dropboxsign.com");
+        try
+        {
+            var response = new FaxLineApi(config).faxLineRemoveUser(
+                faxLineRemoveUserRequest
+            );
 
-        try {
-            FaxLineResponse result = faxLineApi.faxLineRemoveUser(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxLineApi#faxLineRemoveUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

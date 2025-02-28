@@ -22,27 +22,27 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$bulkSendJobApi = new Dropbox\Sign\Api\BulkSendJobApi($config);
-
-$bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-
 try {
-    $result = $bulkSendJobApi->bulkSendJobGet($bulkSendJobId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\BulkSendJobApi(config: $config))->bulkSendJobGet(
+        bulk_send_job_id: "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174",
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling BulkSendJobApi#bulkSendJobGet: {$e->getMessage()}";
 }
 
 ```
@@ -86,28 +86,26 @@ Returns a list of BulkSendJob that you can access.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$bulkSendJobApi = new Dropbox\Sign\Api\BulkSendJobApi($config);
-
-$page = 1;
-$pageSize = 20;
-
 try {
-    $result = $bulkSendJobApi->bulkSendJobList($page, $pageSize);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\BulkSendJobApi(config: $config))->bulkSendJobList(
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling BulkSendJobApi#bulkSendJobList: {$e->getMessage()}";
 }
 
 ```
