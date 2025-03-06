@@ -16,6 +16,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('test_fixtures')
 ;
 
+
 $config = new PhpCsFixer\Config();
 $config->setParallelConfig(
     PhpCsFixer\Runner\Parallel\ParallelConfigFactory::detect()
