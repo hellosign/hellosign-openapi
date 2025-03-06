@@ -170,10 +170,6 @@ namespace {{packageName}}.Client
     {
         private readonly string _baseUrl;
 
-{{#useCustomTemplateCode}}
-        private readonly RestClient _restClient;
-
-{{/useCustomTemplateCode}}
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
@@ -225,23 +221,6 @@ namespace {{packageName}}.Client
             _baseUrl = basePath;
         }
 
-{{#useCustomTemplateCode}}
-        /// <summary>
-            /// Initializes a new instance of the <see cref="ApiClient" />. This should be used in unit tests only
-            /// </summary>
-        /// <param name="basePath">The target service's base path in URL format.</param>
-        /// <param name="mockClient">Mock client for unit testing purpose </param>
-        /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string basePath, RestClient mockClient)
-        {
-            if (string.IsNullOrEmpty(basePath))
-            throw new ArgumentException("basePath cannot be empty");
-
-            _baseUrl = basePath;
-            _restClient = mockClient;
-        }
-
-{{/useCustomTemplateCode}}
         /// <summary>
         /// Constructs the RestSharp version of an http method
         /// </summary>
@@ -338,7 +317,7 @@ namespace {{packageName}}.Client
                 {
                     foreach (var value in headerParam.Value)
                     {
-                        request.AddOrUpdateHeader(headerParam.Key, value);
+                        request.AddHeader(headerParam.Key, value);
                     }
                 }
             }
@@ -402,14 +381,6 @@ namespace {{packageName}}.Client
                         else
                             request.AddFile(fileParam.Key, bytes, "no_file_name_provided");
                     }
-                }
-            }
-
-            if (options.HeaderParameters != null)
-            {
-                if (options.HeaderParameters.TryGetValue("Content-Type", out var contentTypes) && contentTypes.Any(header => header.Contains("multipart/form-data")))
-                {
-                    request.AlwaysMultipartFormData = true;
                 }
             }
 
@@ -484,7 +455,7 @@ namespace {{packageName}}.Client
             var clientOptions = new RestClientOptions(baseUrl)
             {
                 ClientCertificates = configuration.ClientCertificates,
-                Timeout = configuration.Timeout,
+                MaxTimeout = configuration.Timeout,
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent,
                 UseDefaultCredentials = configuration.UseDefaultCredentials,
@@ -509,22 +480,8 @@ namespace {{packageName}}.Client
             }
 
             {{/hasOAuthMethods}}
-{{^useCustomTemplateCode}}
             using (RestClient client = new RestClient(clientOptions,
                 configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration))))
-            {
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-            RestClient client = _restClient;
-            if (client == null)
-            {
-                client = new RestClient(clientOptions,
-                    configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration))
-                );
-            }
-
-            using (client)
-{{/useCustomTemplateCode}}
             {
                 InterceptRequest(request);
 

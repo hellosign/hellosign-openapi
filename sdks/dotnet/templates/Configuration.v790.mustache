@@ -17,10 +17,6 @@ using System.Net.Security;
 {{#hasOAuthMethods}}using {{packageName}}.Client.Auth;
 {{/hasOAuthMethods}}
 {{/useRestSharp}}
-{{#useCustomTemplateCode}}
-using Newtonsoft.Json;
-using Dropbox.Sign.Model;
-{{/useCustomTemplateCode}}
 
 namespace {{packageName}}.Client
 {
@@ -58,23 +54,13 @@ namespace {{packageName}}.Client
             {
                 return new ApiException(status,
                     string.Format("Error calling {0}: {1}", methodName, response.RawContent),
-{{^useCustomTemplateCode}}
                     response.RawContent, response.Headers);
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-                    JsonConvert.DeserializeObject<ErrorResponse>(response.RawContent), response.Headers);
-{{/useCustomTemplateCode}}
             }
             {{^netStandard}}
             if (status == 0)
             {
                 return new ApiException(status,
-{{^useCustomTemplateCode}}
                     string.Format("Error calling {0}: {1}", methodName, response.ErrorText), response.ErrorText);
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-                    string.Format("Error calling {0}: {1}", methodName, response.ErrorText), JsonConvert.DeserializeObject<ErrorResponse>(response.ErrorText));
-{{/useCustomTemplateCode}}
             }
             {{/netStandard}}
             return null;
@@ -216,7 +202,7 @@ namespace {{packageName}}.Client
             };
 
             // Setting Timeout has side effects (forces ApiClient creation).
-            Timeout = TimeSpan.FromSeconds(100);
+            Timeout = 100000;
         }
 
         /// <summary>
@@ -300,9 +286,9 @@ namespace {{packageName}}.Client
         public virtual IDictionary<string, string> DefaultHeaders { get; set; }
 
         /// <summary>
-        /// Gets or sets the HTTP timeout of ApiClient. Defaults to 100 seconds.
+        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
         /// </summary>
-        public virtual TimeSpan Timeout { get; set; }
+        public virtual int Timeout { get; set; }
 
         /// <summary>
         /// Gets or sets the proxy
