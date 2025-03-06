@@ -1,14 +1,11 @@
 <?php
-
 /**
  * TeamInviteResponse
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,78 +27,79 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * TeamInviteResponse Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class TeamInviteResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'TeamInviteResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'email_address' => 'string',
         'team_id' => 'string',
         'role' => 'string',
         'sent_at' => 'int',
         'redeemed_at' => 'int',
-        'expires_at' => 'int'
+        'expires_at' => 'int',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'email_address' => null,
         'team_id' => null,
         'role' => null,
         'sent_at' => null,
         'redeemed_at' => null,
-        'expires_at' => null
+        'expires_at' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'email_address' => false,
         'team_id' => false,
         'role' => false,
         'sent_at' => false,
         'redeemed_at' => false,
-        'expires_at' => false
+        'expires_at' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -126,8 +124,6 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -137,7 +133,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -147,7 +143,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -156,9 +152,6 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -167,9 +160,6 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -188,7 +178,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'role' => 'role',
         'sent_at' => 'sent_at',
         'redeemed_at' => 'redeemed_at',
-        'expires_at' => 'expires_at'
+        'expires_at' => 'expires_at',
     ];
 
     /**
@@ -202,7 +192,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'role' => 'setRole',
         'sent_at' => 'setSentAt',
         'redeemed_at' => 'setRedeemedAt',
-        'expires_at' => 'setExpiresAt'
+        'expires_at' => 'setExpiresAt',
     ];
 
     /**
@@ -216,7 +206,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'role' => 'getRole',
         'sent_at' => 'getSentAt',
         'redeemed_at' => 'getRedeemedAt',
-        'expires_at' => 'getExpiresAt'
+        'expires_at' => 'getExpiresAt',
     ];
 
     /**
@@ -260,7 +250,6 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -272,7 +261,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -284,34 +273,33 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): TeamInviteResponse
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): TeamInviteResponse
     {
         /** @var TeamInviteResponse */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             TeamInviteResponse::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -328,9 +316,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -343,7 +329,6 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets email_address
@@ -358,14 +343,14 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets email_address
      *
-     * @param string|null $email_address Email address of the user invited to this team.
+     * @param string|null $email_address email address of the user invited to this team
      *
      * @return self
      */
-    public function setEmailAddress($email_address)
+    public function setEmailAddress(?string $email_address)
     {
         if (is_null($email_address)) {
-            throw new \InvalidArgumentException('non-nullable email_address cannot be null');
+            throw new InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
 
@@ -385,14 +370,14 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets team_id
      *
-     * @param string|null $team_id Id of the team.
+     * @param string|null $team_id id of the team
      *
      * @return self
      */
-    public function setTeamId($team_id)
+    public function setTeamId(?string $team_id)
     {
         if (is_null($team_id)) {
-            throw new \InvalidArgumentException('non-nullable team_id cannot be null');
+            throw new InvalidArgumentException('non-nullable team_id cannot be null');
         }
         $this->container['team_id'] = $team_id;
 
@@ -412,14 +397,14 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets role
      *
-     * @param string|null $role Role of the user invited to this team.
+     * @param string|null $role role of the user invited to this team
      *
      * @return self
      */
-    public function setRole($role)
+    public function setRole(?string $role)
     {
         if (is_null($role)) {
-            throw new \InvalidArgumentException('non-nullable role cannot be null');
+            throw new InvalidArgumentException('non-nullable role cannot be null');
         }
         $this->container['role'] = $role;
 
@@ -439,14 +424,14 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets sent_at
      *
-     * @param int|null $sent_at Timestamp when the invitation was sent.
+     * @param int|null $sent_at timestamp when the invitation was sent
      *
      * @return self
      */
-    public function setSentAt($sent_at)
+    public function setSentAt(?int $sent_at)
     {
         if (is_null($sent_at)) {
-            throw new \InvalidArgumentException('non-nullable sent_at cannot be null');
+            throw new InvalidArgumentException('non-nullable sent_at cannot be null');
         }
         $this->container['sent_at'] = $sent_at;
 
@@ -466,14 +451,14 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets redeemed_at
      *
-     * @param int|null $redeemed_at Timestamp when the invitation was redeemed.
+     * @param int|null $redeemed_at timestamp when the invitation was redeemed
      *
      * @return self
      */
-    public function setRedeemedAt($redeemed_at)
+    public function setRedeemedAt(?int $redeemed_at)
     {
         if (is_null($redeemed_at)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_at cannot be null');
+            throw new InvalidArgumentException('non-nullable redeemed_at cannot be null');
         }
         $this->container['redeemed_at'] = $redeemed_at;
 
@@ -493,27 +478,26 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at Timestamp when the invitation is expiring.
+     * @param int|null $expires_at timestamp when the invitation is expiring
      *
      * @return self
      */
-    public function setExpiresAt($expires_at)
+    public function setExpiresAt(?int $expires_at)
     {
         if (is_null($expires_at)) {
-            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
+            throw new InvalidArgumentException('non-nullable expires_at cannot be null');
         }
         $this->container['expires_at'] = $expires_at;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -522,11 +506,11 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -537,10 +521,8 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -553,11 +535,9 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -565,12 +545,12 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -599,5 +579,3 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

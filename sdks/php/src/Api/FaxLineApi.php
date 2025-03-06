@@ -1,13 +1,10 @@
 <?php
-
 /**
  * FaxLineApi
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,6 +26,11 @@
 
 namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -36,44 +38,34 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\ObjectSerializer;
-use Dropbox\Sign\Model;
+use InvalidArgumentException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 
 /**
  * FaxLineApi Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class FaxLineApi
 {
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var Configuration
-     */
+    /** @var Configuration */
     protected $config;
 
-    /**
-     * @var HeaderSelector
-     */
+    /** @var HeaderSelector */
     protected $headerSelector;
 
-    /**
-     * @var int Host index
-     */
+    /** @var int Host index */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /**
+     * @var string[] *
+     */
     public const contentTypes = [
         'faxLineAddUser' => [
             'application/json',
@@ -102,10 +94,7 @@ class FaxLineApi
     protected $response;
 
     /**
-     * @param Configuration   $config
-     * @param ClientInterface $client
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ?Configuration $config = null,
@@ -125,7 +114,7 @@ class FaxLineApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex(int $hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -162,13 +151,13 @@ class FaxLineApi
      *
      * Add Fax Line User
      *
-     * @param  Model\FaxLineAddUserRequest $fax_line_add_user_request fax_line_add_user_request (required)
+     * @param Model\FaxLineAddUserRequest $fax_line_add_user_request fax_line_add_user_request (required)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\FaxLineResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function faxLineAddUser($fax_line_add_user_request)
+    public function faxLineAddUser(Model\FaxLineAddUserRequest $fax_line_add_user_request)
     {
         list($response) = $this->faxLineAddUserWithHttpInfo($fax_line_add_user_request);
         return $response;
@@ -179,15 +168,15 @@ class FaxLineApi
      *
      * Add Fax Line User
      *
-     * @param  Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
+     * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
+     * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
-    public function faxLineAddUserWithHttpInfo($fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
+    public function faxLineAddUserWithHttpInfo(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
         $request = $this->faxLineAddUserRequest($fax_line_add_user_request, $contentType);
 
@@ -199,21 +188,20 @@ class FaxLineApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -224,17 +212,16 @@ class FaxLineApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FaxLineResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\FaxLineResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -251,9 +238,8 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FaxLineResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -261,23 +247,23 @@ class FaxLineApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -294,11 +280,9 @@ class FaxLineApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -311,7 +295,6 @@ class FaxLineApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -322,14 +305,14 @@ class FaxLineApi
      *
      * Add Fax Line User
      *
-     * @param  Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
+     * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
+     * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
-    public function faxLineAddUserAsync($fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
+    public function faxLineAddUserAsync(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
         return $this->faxLineAddUserAsyncWithHttpInfo($fax_line_add_user_request, $contentType)
             ->then(
@@ -344,14 +327,14 @@ class FaxLineApi
      *
      * Add Fax Line User
      *
-     * @param  Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
+     * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
+     * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
-    public function faxLineAddUserAsyncWithHttpInfo($fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
+    public function faxLineAddUserAsyncWithHttpInfo(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
         $request = $this->faxLineAddUserRequest($fax_line_add_user_request, $contentType);
@@ -361,9 +344,9 @@ class FaxLineApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -372,7 +355,7 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -386,7 +369,7 @@ class FaxLineApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -395,23 +378,21 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineAddUser'
      *
-     * @param  Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
+     * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
+     * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
-    public function faxLineAddUserRequest($fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
+    public function faxLineAddUserRequest(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
-
         // verify the required parameter 'fax_line_add_user_request' is set
         if ($fax_line_add_user_request === null || (is_array($fax_line_add_user_request) && count($fax_line_add_user_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $fax_line_add_user_request when calling faxLineAddUser'
             );
         }
-
 
         $resourcePath = '/fax_line/add_user';
         $formParams = [];
@@ -426,11 +407,8 @@ class FaxLineApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -438,7 +416,7 @@ class FaxLineApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_add_user_request));
             } else {
                 $httpBody = $fax_line_add_user_request;
@@ -451,7 +429,7 @@ class FaxLineApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -468,9 +446,8 @@ class FaxLineApi
                     $payloadHook('multipart', $multipartContents, $fax_line_add_user_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -509,16 +486,16 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param  string $country Filter area codes by country (required)
-     * @param  string|null $state Filter area codes by state (optional)
-     * @param  string|null $province Filter area codes by province (optional)
-     * @param  string|null $city Filter area codes by city (optional)
+     * @param string      $country  Filter area codes by country (required)
+     * @param string|null $state    Filter area codes by state (optional)
+     * @param string|null $province Filter area codes by province (optional)
+     * @param string|null $city     Filter area codes by city (optional)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\FaxLineAreaCodeGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function faxLineAreaCodeGet($country, $state = null, $province = null, $city = null)
+    public function faxLineAreaCodeGet(string $country, ?string $state = null, ?string $province = null, ?string $city = null)
     {
         list($response) = $this->faxLineAreaCodeGetWithHttpInfo($country, $state, $province, $city);
         return $response;
@@ -529,18 +506,18 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param  string $country Filter area codes by country (required)
-     * @param  string|null $state Filter area codes by state (optional)
-     * @param  string|null $province Filter area codes by province (optional)
-     * @param  string|null $city Filter area codes by city (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
+     * @param string      $country     Filter area codes by country (required)
+     * @param string|null $state       Filter area codes by state (optional)
+     * @param string|null $province    Filter area codes by province (optional)
+     * @param string|null $city        Filter area codes by city (optional)
+     * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\FaxLineAreaCodeGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAreaCodeGet. This method will eventually become unavailable
      */
-    public function faxLineAreaCodeGetWithHttpInfo($country, $state = null, $province = null, $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
+    public function faxLineAreaCodeGetWithHttpInfo(string $country, ?string $state = null, ?string $province = null, ?string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
         $request = $this->faxLineAreaCodeGetRequest($country, $state, $province, $city, $contentType);
 
@@ -552,21 +529,20 @@ class FaxLineApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -577,17 +553,16 @@ class FaxLineApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FaxLineAreaCodeGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\FaxLineAreaCodeGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -604,9 +579,8 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FaxLineAreaCodeGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -614,23 +588,23 @@ class FaxLineApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\FaxLineAreaCodeGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -647,11 +621,9 @@ class FaxLineApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -664,7 +636,6 @@ class FaxLineApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -675,17 +646,17 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param  string $country Filter area codes by country (required)
-     * @param  string|null $state Filter area codes by state (optional)
-     * @param  string|null $province Filter area codes by province (optional)
-     * @param  string|null $city Filter area codes by city (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
+     * @param string      $country     Filter area codes by country (required)
+     * @param string|null $state       Filter area codes by state (optional)
+     * @param string|null $province    Filter area codes by province (optional)
+     * @param string|null $city        Filter area codes by city (optional)
+     * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAreaCodeGet. This method will eventually become unavailable
      */
-    public function faxLineAreaCodeGetAsync($country, $state = null, $province = null, $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
+    public function faxLineAreaCodeGetAsync(string $country, ?string $state = null, ?string $province = null, ?string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
         return $this->faxLineAreaCodeGetAsyncWithHttpInfo($country, $state, $province, $city, $contentType)
             ->then(
@@ -700,17 +671,17 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param  string $country Filter area codes by country (required)
-     * @param  string|null $state Filter area codes by state (optional)
-     * @param  string|null $province Filter area codes by province (optional)
-     * @param  string|null $city Filter area codes by city (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
+     * @param string      $country     Filter area codes by country (required)
+     * @param string|null $state       Filter area codes by state (optional)
+     * @param string|null $province    Filter area codes by province (optional)
+     * @param string|null $city        Filter area codes by city (optional)
+     * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAreaCodeGet. This method will eventually become unavailable
      */
-    public function faxLineAreaCodeGetAsyncWithHttpInfo($country, $state = null, $province = null, $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
+    public function faxLineAreaCodeGetAsyncWithHttpInfo(string $country, ?string $state = null, ?string $province = null, ?string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineAreaCodeGetResponse';
         $request = $this->faxLineAreaCodeGetRequest($country, $state, $province, $city, $contentType);
@@ -720,9 +691,9 @@ class FaxLineApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -731,7 +702,7 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -745,7 +716,7 @@ class FaxLineApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -754,29 +725,24 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineAreaCodeGet'
      *
-     * @param  string $country Filter area codes by country (required)
-     * @param  string|null $state Filter area codes by state (optional)
-     * @param  string|null $province Filter area codes by province (optional)
-     * @param  string|null $city Filter area codes by city (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
+     * @param string      $country     Filter area codes by country (required)
+     * @param string|null $state       Filter area codes by state (optional)
+     * @param string|null $province    Filter area codes by province (optional)
+     * @param string|null $city        Filter area codes by city (optional)
+     * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAreaCodeGet. This method will eventually become unavailable
      */
-    public function faxLineAreaCodeGetRequest($country, $state = null, $province = null, $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
+    public function faxLineAreaCodeGetRequest(string $country, ?string $state = null, ?string $province = null, ?string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
-
         // verify the required parameter 'country' is set
         if ($country === null || (is_array($country) && count($country) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $country when calling faxLineAreaCodeGet'
             );
         }
-
-
-
-
 
         $resourcePath = '/fax_line/area_codes';
         $formParams = [];
@@ -822,11 +788,8 @@ class FaxLineApi
             false // required
         ) ?? []);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -840,7 +803,7 @@ class FaxLineApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -854,9 +817,8 @@ class FaxLineApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -895,13 +857,13 @@ class FaxLineApi
      *
      * Purchase Fax Line
      *
-     * @param  Model\FaxLineCreateRequest $fax_line_create_request fax_line_create_request (required)
+     * @param Model\FaxLineCreateRequest $fax_line_create_request fax_line_create_request (required)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\FaxLineResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function faxLineCreate($fax_line_create_request)
+    public function faxLineCreate(Model\FaxLineCreateRequest $fax_line_create_request)
     {
         list($response) = $this->faxLineCreateWithHttpInfo($fax_line_create_request);
         return $response;
@@ -912,15 +874,15 @@ class FaxLineApi
      *
      * Purchase Fax Line
      *
-     * @param  Model\FaxLineCreateRequest $fax_line_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
+     * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
-    public function faxLineCreateWithHttpInfo($fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
+    public function faxLineCreateWithHttpInfo(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
         $request = $this->faxLineCreateRequest($fax_line_create_request, $contentType);
 
@@ -932,21 +894,20 @@ class FaxLineApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -957,17 +918,16 @@ class FaxLineApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FaxLineResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\FaxLineResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -984,9 +944,8 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FaxLineResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -994,23 +953,23 @@ class FaxLineApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1027,11 +986,9 @@ class FaxLineApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1044,7 +1001,6 @@ class FaxLineApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -1055,14 +1011,14 @@ class FaxLineApi
      *
      * Purchase Fax Line
      *
-     * @param  Model\FaxLineCreateRequest $fax_line_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
+     * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
-    public function faxLineCreateAsync($fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
+    public function faxLineCreateAsync(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
         return $this->faxLineCreateAsyncWithHttpInfo($fax_line_create_request, $contentType)
             ->then(
@@ -1077,14 +1033,14 @@ class FaxLineApi
      *
      * Purchase Fax Line
      *
-     * @param  Model\FaxLineCreateRequest $fax_line_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
+     * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
-    public function faxLineCreateAsyncWithHttpInfo($fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
+    public function faxLineCreateAsyncWithHttpInfo(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
         $request = $this->faxLineCreateRequest($fax_line_create_request, $contentType);
@@ -1094,9 +1050,9 @@ class FaxLineApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1105,7 +1061,7 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -1119,7 +1075,7 @@ class FaxLineApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1128,23 +1084,21 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineCreate'
      *
-     * @param  Model\FaxLineCreateRequest $fax_line_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
+     * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
-    public function faxLineCreateRequest($fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
+    public function faxLineCreateRequest(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
-
         // verify the required parameter 'fax_line_create_request' is set
         if ($fax_line_create_request === null || (is_array($fax_line_create_request) && count($fax_line_create_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $fax_line_create_request when calling faxLineCreate'
             );
         }
-
 
         $resourcePath = '/fax_line/create';
         $formParams = [];
@@ -1159,11 +1113,8 @@ class FaxLineApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1171,7 +1122,7 @@ class FaxLineApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_create_request));
             } else {
                 $httpBody = $fax_line_create_request;
@@ -1184,7 +1135,7 @@ class FaxLineApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1201,9 +1152,8 @@ class FaxLineApi
                     $payloadHook('multipart', $multipartContents, $fax_line_create_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1242,13 +1192,12 @@ class FaxLineApi
      *
      * Delete Fax Line
      *
-     * @param  Model\FaxLineDeleteRequest $fax_line_delete_request fax_line_delete_request (required)
+     * @param Model\FaxLineDeleteRequest $fax_line_delete_request fax_line_delete_request (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
+     * @throws InvalidArgumentException
      */
-    public function faxLineDelete($fax_line_delete_request)
+    public function faxLineDelete(Model\FaxLineDeleteRequest $fax_line_delete_request)
     {
         $this->faxLineDeleteWithHttpInfo($fax_line_delete_request);
     }
@@ -1258,15 +1207,15 @@ class FaxLineApi
      *
      * Delete Fax Line
      *
-     * @param  Model\FaxLineDeleteRequest $fax_line_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
+     * @param Model\FaxLineDeleteRequest $fax_line_delete_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineDelete. This method will eventually become unavailable
      */
-    public function faxLineDeleteWithHttpInfo($fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
+    public function faxLineDeleteWithHttpInfo(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
         $request = $this->faxLineDeleteRequest($fax_line_delete_request, $contentType);
 
@@ -1278,14 +1227,14 @@ class FaxLineApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -1293,16 +1242,12 @@ class FaxLineApi
 
             $statusCode = $response->getStatusCode();
 
-
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
             switch ($e->getCode()) {
-
             }
             throw $e;
         }
@@ -1313,14 +1258,14 @@ class FaxLineApi
      *
      * Delete Fax Line
      *
-     * @param  Model\FaxLineDeleteRequest $fax_line_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
+     * @param Model\FaxLineDeleteRequest $fax_line_delete_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineDelete. This method will eventually become unavailable
      */
-    public function faxLineDeleteAsync($fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
+    public function faxLineDeleteAsync(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
         return $this->faxLineDeleteAsyncWithHttpInfo($fax_line_delete_request, $contentType)
             ->then(
@@ -1335,14 +1280,14 @@ class FaxLineApi
      *
      * Delete Fax Line
      *
-     * @param  Model\FaxLineDeleteRequest $fax_line_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
+     * @param Model\FaxLineDeleteRequest $fax_line_delete_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineDelete. This method will eventually become unavailable
      */
-    public function faxLineDeleteAsyncWithHttpInfo($fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
+    public function faxLineDeleteAsyncWithHttpInfo(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
         $returnType = '';
         $request = $this->faxLineDeleteRequest($fax_line_delete_request, $contentType);
@@ -1350,7 +1295,7 @@ class FaxLineApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) use ($returnType) {
+                function ($response) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
@@ -1364,7 +1309,7 @@ class FaxLineApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1373,23 +1318,21 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineDelete'
      *
-     * @param  Model\FaxLineDeleteRequest $fax_line_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
+     * @param Model\FaxLineDeleteRequest $fax_line_delete_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineDelete. This method will eventually become unavailable
      */
-    public function faxLineDeleteRequest($fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
+    public function faxLineDeleteRequest(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
-
         // verify the required parameter 'fax_line_delete_request' is set
         if ($fax_line_delete_request === null || (is_array($fax_line_delete_request) && count($fax_line_delete_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $fax_line_delete_request when calling faxLineDelete'
             );
         }
-
 
         $resourcePath = '/fax_line';
         $formParams = [];
@@ -1404,11 +1347,8 @@ class FaxLineApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1416,7 +1356,7 @@ class FaxLineApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_delete_request));
             } else {
                 $httpBody = $fax_line_delete_request;
@@ -1429,7 +1369,7 @@ class FaxLineApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1446,9 +1386,8 @@ class FaxLineApi
                     $payloadHook('multipart', $multipartContents, $fax_line_delete_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1487,13 +1426,13 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param  string $number The Fax Line number (required)
+     * @param string $number The Fax Line number (required)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\FaxLineResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function faxLineGet($number)
+    public function faxLineGet(string $number)
     {
         list($response) = $this->faxLineGetWithHttpInfo($number);
         return $response;
@@ -1504,15 +1443,15 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param  string $number The Fax Line number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
+     * @param string $number      The Fax Line number (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineGet. This method will eventually become unavailable
      */
-    public function faxLineGetWithHttpInfo($number, string $contentType = self::contentTypes['faxLineGet'][0])
+    public function faxLineGetWithHttpInfo(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
         $request = $this->faxLineGetRequest($number, $contentType);
 
@@ -1524,21 +1463,20 @@ class FaxLineApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -1549,17 +1487,16 @@ class FaxLineApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FaxLineResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\FaxLineResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1576,9 +1513,8 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FaxLineResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -1586,23 +1522,23 @@ class FaxLineApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1619,11 +1555,9 @@ class FaxLineApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1636,7 +1570,6 @@ class FaxLineApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -1647,14 +1580,14 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param  string $number The Fax Line number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
+     * @param string $number      The Fax Line number (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineGet. This method will eventually become unavailable
      */
-    public function faxLineGetAsync($number, string $contentType = self::contentTypes['faxLineGet'][0])
+    public function faxLineGetAsync(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
         return $this->faxLineGetAsyncWithHttpInfo($number, $contentType)
             ->then(
@@ -1669,14 +1602,14 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param  string $number The Fax Line number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
+     * @param string $number      The Fax Line number (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineGet. This method will eventually become unavailable
      */
-    public function faxLineGetAsyncWithHttpInfo($number, string $contentType = self::contentTypes['faxLineGet'][0])
+    public function faxLineGetAsyncWithHttpInfo(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
         $request = $this->faxLineGetRequest($number, $contentType);
@@ -1686,9 +1619,9 @@ class FaxLineApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1697,7 +1630,7 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -1711,7 +1644,7 @@ class FaxLineApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1720,23 +1653,21 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineGet'
      *
-     * @param  string $number The Fax Line number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
+     * @param string $number      The Fax Line number (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineGet. This method will eventually become unavailable
      */
-    public function faxLineGetRequest($number, string $contentType = self::contentTypes['faxLineGet'][0])
+    public function faxLineGetRequest(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
-
         // verify the required parameter 'number' is set
         if ($number === null || (is_array($number) && count($number) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $number when calling faxLineGet'
             );
         }
-
 
         $resourcePath = '/fax_line';
         $formParams = [];
@@ -1755,11 +1686,8 @@ class FaxLineApi
             true // required
         ) ?? []);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1773,7 +1701,7 @@ class FaxLineApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1787,9 +1715,8 @@ class FaxLineApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1828,16 +1755,16 @@ class FaxLineApi
      *
      * List Fax Lines
      *
-     * @param  string|null $account_id Account ID (optional)
-     * @param  int|null $page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  bool|null $show_team_lines Include Fax Lines belonging to team members in the list (optional)
+     * @param string|null $account_id      Account ID (optional)
+     * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool|null   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\FaxLineListResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function faxLineList($account_id = null, $page = 1, $page_size = 20, $show_team_lines = null)
+    public function faxLineList(?string $account_id = null, ?int $page = 1, ?int $page_size = 20, ?bool $show_team_lines = null)
     {
         list($response) = $this->faxLineListWithHttpInfo($account_id, $page, $page_size, $show_team_lines);
         return $response;
@@ -1848,18 +1775,18 @@ class FaxLineApi
      *
      * List Fax Lines
      *
-     * @param  string|null $account_id Account ID (optional)
-     * @param  int|null $page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  bool|null $show_team_lines Include Fax Lines belonging to team members in the list (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
+     * @param string|null $account_id      Account ID (optional)
+     * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool|null   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
+     * @param string      $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\FaxLineListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineList. This method will eventually become unavailable
      */
-    public function faxLineListWithHttpInfo($account_id = null, $page = 1, $page_size = 20, $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
+    public function faxLineListWithHttpInfo(?string $account_id = null, ?int $page = 1, ?int $page_size = 20, ?bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
         $request = $this->faxLineListRequest($account_id, $page, $page_size, $show_team_lines, $contentType);
 
@@ -1871,21 +1798,20 @@ class FaxLineApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -1896,17 +1822,16 @@ class FaxLineApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FaxLineListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\FaxLineListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1923,9 +1848,8 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FaxLineListResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -1933,23 +1857,23 @@ class FaxLineApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\FaxLineListResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1966,11 +1890,9 @@ class FaxLineApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1983,7 +1905,6 @@ class FaxLineApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -1994,17 +1915,17 @@ class FaxLineApi
      *
      * List Fax Lines
      *
-     * @param  string|null $account_id Account ID (optional)
-     * @param  int|null $page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  bool|null $show_team_lines Include Fax Lines belonging to team members in the list (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
+     * @param string|null $account_id      Account ID (optional)
+     * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool|null   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
+     * @param string      $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineList. This method will eventually become unavailable
      */
-    public function faxLineListAsync($account_id = null, $page = 1, $page_size = 20, $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
+    public function faxLineListAsync(?string $account_id = null, ?int $page = 1, ?int $page_size = 20, ?bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
         return $this->faxLineListAsyncWithHttpInfo($account_id, $page, $page_size, $show_team_lines, $contentType)
             ->then(
@@ -2019,17 +1940,17 @@ class FaxLineApi
      *
      * List Fax Lines
      *
-     * @param  string|null $account_id Account ID (optional)
-     * @param  int|null $page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  bool|null $show_team_lines Include Fax Lines belonging to team members in the list (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
+     * @param string|null $account_id      Account ID (optional)
+     * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool|null   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
+     * @param string      $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineList. This method will eventually become unavailable
      */
-    public function faxLineListAsyncWithHttpInfo($account_id = null, $page = 1, $page_size = 20, $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
+    public function faxLineListAsyncWithHttpInfo(?string $account_id = null, ?int $page = 1, ?int $page_size = 20, ?bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineListResponse';
         $request = $this->faxLineListRequest($account_id, $page, $page_size, $show_team_lines, $contentType);
@@ -2039,9 +1960,9 @@ class FaxLineApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2050,7 +1971,7 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -2064,7 +1985,7 @@ class FaxLineApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -2073,24 +1994,18 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineList'
      *
-     * @param  string|null $account_id Account ID (optional)
-     * @param  int|null $page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  bool|null $show_team_lines Include Fax Lines belonging to team members in the list (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
+     * @param string|null $account_id      Account ID (optional)
+     * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool|null   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
+     * @param string      $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineList. This method will eventually become unavailable
      */
-    public function faxLineListRequest($account_id = null, $page = 1, $page_size = 20, $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
+    public function faxLineListRequest(?string $account_id = null, ?int $page = 1, ?int $page_size = 20, ?bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
-
-
-
-
-
-
         $resourcePath = '/fax_line/list';
         $formParams = [];
         $queryParams = [];
@@ -2135,11 +2050,8 @@ class FaxLineApi
             false // required
         ) ?? []);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -2153,7 +2065,7 @@ class FaxLineApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -2167,9 +2079,8 @@ class FaxLineApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2208,13 +2119,13 @@ class FaxLineApi
      *
      * Remove Fax Line Access
      *
-     * @param  Model\FaxLineRemoveUserRequest $fax_line_remove_user_request fax_line_remove_user_request (required)
+     * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request fax_line_remove_user_request (required)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\FaxLineResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function faxLineRemoveUser($fax_line_remove_user_request)
+    public function faxLineRemoveUser(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request)
     {
         list($response) = $this->faxLineRemoveUserWithHttpInfo($fax_line_remove_user_request);
         return $response;
@@ -2225,15 +2136,15 @@ class FaxLineApi
      *
      * Remove Fax Line Access
      *
-     * @param  Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
+     * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
-    public function faxLineRemoveUserWithHttpInfo($fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
+    public function faxLineRemoveUserWithHttpInfo(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
         $request = $this->faxLineRemoveUserRequest($fax_line_remove_user_request, $contentType);
 
@@ -2245,21 +2156,20 @@ class FaxLineApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -2270,17 +2180,16 @@ class FaxLineApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FaxLineResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\FaxLineResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2297,9 +2206,8 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FaxLineResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -2307,23 +2215,23 @@ class FaxLineApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2340,11 +2248,9 @@ class FaxLineApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2357,7 +2263,6 @@ class FaxLineApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -2368,14 +2273,14 @@ class FaxLineApi
      *
      * Remove Fax Line Access
      *
-     * @param  Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
+     * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
-    public function faxLineRemoveUserAsync($fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
+    public function faxLineRemoveUserAsync(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
         return $this->faxLineRemoveUserAsyncWithHttpInfo($fax_line_remove_user_request, $contentType)
             ->then(
@@ -2390,14 +2295,14 @@ class FaxLineApi
      *
      * Remove Fax Line Access
      *
-     * @param  Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
+     * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
-    public function faxLineRemoveUserAsyncWithHttpInfo($fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
+    public function faxLineRemoveUserAsyncWithHttpInfo(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
         $request = $this->faxLineRemoveUserRequest($fax_line_remove_user_request, $contentType);
@@ -2407,9 +2312,9 @@ class FaxLineApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2418,7 +2323,7 @@ class FaxLineApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -2432,7 +2337,7 @@ class FaxLineApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -2441,23 +2346,21 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineRemoveUser'
      *
-     * @param  Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
+     * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
-    public function faxLineRemoveUserRequest($fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
+    public function faxLineRemoveUserRequest(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
-
         // verify the required parameter 'fax_line_remove_user_request' is set
         if ($fax_line_remove_user_request === null || (is_array($fax_line_remove_user_request) && count($fax_line_remove_user_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $fax_line_remove_user_request when calling faxLineRemoveUser'
             );
         }
-
 
         $resourcePath = '/fax_line/remove_user';
         $formParams = [];
@@ -2472,11 +2375,8 @@ class FaxLineApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -2484,7 +2384,7 @@ class FaxLineApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_remove_user_request));
             } else {
                 $httpBody = $fax_line_remove_user_request;
@@ -2497,7 +2397,7 @@ class FaxLineApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -2514,9 +2414,8 @@ class FaxLineApi
                     $payloadHook('multipart', $multipartContents, $fax_line_remove_user_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2553,8 +2452,8 @@ class FaxLineApi
     /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -2562,7 +2461,7 @@ class FaxLineApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -2578,8 +2477,8 @@ class FaxLineApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -2589,9 +2488,9 @@ class FaxLineApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); //stream goes to serializer
+            $content = $response->getBody(); // stream goes to serializer
         } else {
-            $content = (string) $response->getBody();
+            $content = (string)$response->getBody();
         }
 
         return [
@@ -2610,8 +2509,8 @@ class FaxLineApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

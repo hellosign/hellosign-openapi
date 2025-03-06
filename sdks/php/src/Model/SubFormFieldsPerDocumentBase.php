@@ -1,14 +1,11 @@
 <?php
-
 /**
  * SubFormFieldsPerDocumentBase
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,35 +27,36 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SubFormFieldsPerDocumentBase Class Doc Comment
  *
  * @category Class
  * @description The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = 'type';
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubFormFieldsPerDocumentBase';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'document_index' => 'int',
         'api_id' => 'string',
@@ -70,16 +68,16 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         'x' => 'int',
         'y' => 'int',
         'name' => 'string',
-        'page' => 'int'
+        'page' => 'int',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'document_index' => null,
         'api_id' => null,
@@ -91,14 +89,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         'x' => null,
         'y' => null,
         'name' => null,
-        'page' => null
+        'page' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'document_index' => false,
         'api_id' => false,
@@ -110,14 +108,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         'x' => false,
         'y' => false,
         'name' => false,
-        'page' => true
+        'page' => true,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -142,8 +140,6 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -153,7 +149,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -163,7 +159,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -172,9 +168,6 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -183,9 +176,6 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -209,7 +199,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         'x' => 'x',
         'y' => 'y',
         'name' => 'name',
-        'page' => 'page'
+        'page' => 'page',
     ];
 
     /**
@@ -228,7 +218,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         'x' => 'setX',
         'y' => 'setY',
         'name' => 'setName',
-        'page' => 'setPage'
+        'page' => 'setPage',
     ];
 
     /**
@@ -247,7 +237,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         'x' => 'getX',
         'y' => 'getY',
         'name' => 'getName',
-        'page' => 'getPage'
+        'page' => 'getPage',
     ];
 
     /**
@@ -291,7 +281,6 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -303,7 +292,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -322,7 +311,6 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         // Initialize discriminator property with the model name.
         $this->container['type'] = static::$openAPIModelName;
     }
-
 
     public static function discriminatorClassName(array $data): ?string
     {
@@ -365,14 +353,12 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -432,7 +418,6 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets document_index
      *
@@ -446,14 +431,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets document_index
      *
-     * @param int $document_index Represents the integer index of the `file` or `file_url` document the field should be attached to.
+     * @param int $document_index represents the integer index of the `file` or `file_url` document the field should be attached to
      *
      * @return self
      */
-    public function setDocumentIndex($document_index)
+    public function setDocumentIndex(int $document_index)
     {
         if (is_null($document_index)) {
-            throw new \InvalidArgumentException('non-nullable document_index cannot be null');
+            throw new InvalidArgumentException('non-nullable document_index cannot be null');
         }
         $this->container['document_index'] = $document_index;
 
@@ -473,14 +458,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets api_id
      *
-     * @param string $api_id An identifier for the field that is unique across all documents in the request.
+     * @param string $api_id an identifier for the field that is unique across all documents in the request
      *
      * @return self
      */
-    public function setApiId($api_id)
+    public function setApiId(string $api_id)
     {
         if (is_null($api_id)) {
-            throw new \InvalidArgumentException('non-nullable api_id cannot be null');
+            throw new InvalidArgumentException('non-nullable api_id cannot be null');
         }
         $this->container['api_id'] = $api_id;
 
@@ -500,14 +485,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets height
      *
-     * @param int $height Size of the field in pixels.
+     * @param int $height size of the field in pixels
      *
      * @return self
      */
-    public function setHeight($height)
+    public function setHeight(int $height)
     {
         if (is_null($height)) {
-            throw new \InvalidArgumentException('non-nullable height cannot be null');
+            throw new InvalidArgumentException('non-nullable height cannot be null');
         }
         $this->container['height'] = $height;
 
@@ -527,14 +512,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets required
      *
-     * @param bool $required Whether this field is required.
+     * @param bool $required whether this field is required
      *
      * @return self
      */
-    public function setRequired($required)
+    public function setRequired(bool $required)
     {
         if (is_null($required)) {
-            throw new \InvalidArgumentException('non-nullable required cannot be null');
+            throw new InvalidArgumentException('non-nullable required cannot be null');
         }
         $this->container['required'] = $required;
 
@@ -558,10 +543,10 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
      *
      * @return self
      */
-    public function setSigner($signer)
+    public function setSigner(string $signer)
     {
         if (is_null($signer)) {
-            throw new \InvalidArgumentException('non-nullable signer cannot be null');
+            throw new InvalidArgumentException('non-nullable signer cannot be null');
         }
         $this->container['signer'] = $signer;
 
@@ -585,10 +570,10 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -608,14 +593,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets width
      *
-     * @param int $width Size of the field in pixels.
+     * @param int $width size of the field in pixels
      *
      * @return self
      */
-    public function setWidth($width)
+    public function setWidth(int $width)
     {
         if (is_null($width)) {
-            throw new \InvalidArgumentException('non-nullable width cannot be null');
+            throw new InvalidArgumentException('non-nullable width cannot be null');
         }
         $this->container['width'] = $width;
 
@@ -635,14 +620,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets x
      *
-     * @param int $x Location coordinates of the field in pixels.
+     * @param int $x location coordinates of the field in pixels
      *
      * @return self
      */
-    public function setX($x)
+    public function setX(int $x)
     {
         if (is_null($x)) {
-            throw new \InvalidArgumentException('non-nullable x cannot be null');
+            throw new InvalidArgumentException('non-nullable x cannot be null');
         }
         $this->container['x'] = $x;
 
@@ -662,14 +647,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets y
      *
-     * @param int $y Location coordinates of the field in pixels.
+     * @param int $y location coordinates of the field in pixels
      *
      * @return self
      */
-    public function setY($y)
+    public function setY(int $y)
     {
         if (is_null($y)) {
-            throw new \InvalidArgumentException('non-nullable y cannot be null');
+            throw new InvalidArgumentException('non-nullable y cannot be null');
         }
         $this->container['y'] = $y;
 
@@ -689,14 +674,14 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets name
      *
-     * @param string|null $name Display name for the field.
+     * @param string|null $name display name for the field
      *
      * @return self
      */
-    public function setName($name)
+    public function setName(?string $name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -720,13 +705,13 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
      *
      * @return self
      */
-    public function setPage($page)
+    public function setPage(?int $page)
     {
         if (is_null($page)) {
             array_push($this->openAPINullablesSetToNull, 'page');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('page', $nullablesSetToNull, true);
+            $index = array_search('page', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -736,14 +721,13 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -752,11 +736,11 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -767,10 +751,8 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -783,11 +765,9 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -795,12 +775,12 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -829,5 +809,3 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, \Json
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

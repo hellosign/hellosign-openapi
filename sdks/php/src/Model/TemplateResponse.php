@@ -1,14 +1,11 @@
 <?php
-
 /**
  * TemplateResponse
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,35 +27,36 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * TemplateResponse Class Doc Comment
  *
  * @category Class
  * @description Contains information about the templates you and your team have created.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'TemplateResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'template_id' => 'string',
         'title' => 'string',
@@ -75,16 +73,16 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentCustomFieldBase[]',
         'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
         'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
-        'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]'
+        'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'template_id' => null,
         'title' => null,
@@ -101,14 +99,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_fields' => null,
         'named_form_fields' => null,
         'accounts' => null,
-        'attachments' => null
+        'attachments' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'template_id' => false,
         'title' => false,
@@ -125,14 +123,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_fields' => true,
         'named_form_fields' => true,
         'accounts' => false,
-        'attachments' => false
+        'attachments' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -157,8 +155,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -168,7 +164,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -178,7 +174,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -187,9 +183,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -198,9 +191,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -229,7 +219,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_fields' => 'custom_fields',
         'named_form_fields' => 'named_form_fields',
         'accounts' => 'accounts',
-        'attachments' => 'attachments'
+        'attachments' => 'attachments',
     ];
 
     /**
@@ -253,7 +243,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_fields' => 'setCustomFields',
         'named_form_fields' => 'setNamedFormFields',
         'accounts' => 'setAccounts',
-        'attachments' => 'setAttachments'
+        'attachments' => 'setAttachments',
     ];
 
     /**
@@ -277,7 +267,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_fields' => 'getCustomFields',
         'named_form_fields' => 'getNamedFormFields',
         'accounts' => 'getAccounts',
-        'attachments' => 'getAttachments'
+        'attachments' => 'getAttachments',
     ];
 
     /**
@@ -321,7 +311,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -333,7 +322,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -355,34 +344,33 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('attachments', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): TemplateResponse
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): TemplateResponse
     {
         /** @var TemplateResponse */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             TemplateResponse::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -399,9 +387,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -414,7 +400,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets template_id
@@ -429,14 +414,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets template_id
      *
-     * @param string|null $template_id The id of the Template.
+     * @param string|null $template_id the id of the Template
      *
      * @return self
      */
-    public function setTemplateId($template_id)
+    public function setTemplateId(?string $template_id)
     {
         if (is_null($template_id)) {
-            throw new \InvalidArgumentException('non-nullable template_id cannot be null');
+            throw new InvalidArgumentException('non-nullable template_id cannot be null');
         }
         $this->container['template_id'] = $template_id;
 
@@ -460,10 +445,10 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setTitle(?string $title)
     {
         if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+            throw new InvalidArgumentException('non-nullable title cannot be null');
         }
         $this->container['title'] = $title;
 
@@ -487,10 +472,10 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setMessage(?string $message)
     {
         if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
         $this->container['message'] = $message;
 
@@ -510,14 +495,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param int|null $updated_at Time the template was last updated.
+     * @param int|null $updated_at time the template was last updated
      *
      * @return self
      */
-    public function setUpdatedAt($updated_at)
+    public function setUpdatedAt(?int $updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            throw new InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -541,13 +526,13 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setIsEmbedded($is_embedded)
+    public function setIsEmbedded(?bool $is_embedded)
     {
         if (is_null($is_embedded)) {
             array_push($this->openAPINullablesSetToNull, 'is_embedded');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_embedded', $nullablesSetToNull, true);
+            $index = array_search('is_embedded', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -571,14 +556,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_creator
      *
-     * @param bool|null $is_creator `true` if you are the owner of this template, `false` if it's been shared with you by a team member.
+     * @param bool|null $is_creator `true` if you are the owner of this template, `false` if it's been shared with you by a team member
      *
      * @return self
      */
-    public function setIsCreator($is_creator)
+    public function setIsCreator(?bool $is_creator)
     {
         if (is_null($is_creator)) {
-            throw new \InvalidArgumentException('non-nullable is_creator cannot be null');
+            throw new InvalidArgumentException('non-nullable is_creator cannot be null');
         }
         $this->container['is_creator'] = $is_creator;
 
@@ -598,14 +583,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets can_edit
      *
-     * @param bool|null $can_edit Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
+     * @param bool|null $can_edit indicates whether edit rights have been granted to you by the owner (always `true` if that's you)
      *
      * @return self
      */
-    public function setCanEdit($can_edit)
+    public function setCanEdit(?bool $can_edit)
     {
         if (is_null($can_edit)) {
-            throw new \InvalidArgumentException('non-nullable can_edit cannot be null');
+            throw new InvalidArgumentException('non-nullable can_edit cannot be null');
         }
         $this->container['can_edit'] = $can_edit;
 
@@ -629,10 +614,10 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setIsLocked($is_locked)
+    public function setIsLocked(?bool $is_locked)
     {
         if (is_null($is_locked)) {
-            throw new \InvalidArgumentException('non-nullable is_locked cannot be null');
+            throw new InvalidArgumentException('non-nullable is_locked cannot be null');
         }
         $this->container['is_locked'] = $is_locked;
 
@@ -652,14 +637,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata The metadata attached to the template.
+     * @param array<string,mixed>|null $metadata the metadata attached to the template
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setMetadata(?array $metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
 
@@ -679,14 +664,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets signer_roles
      *
-     * @param TemplateResponseSignerRole[]|null $signer_roles An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+     * @param TemplateResponseSignerRole[]|null $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
      *
      * @return self
      */
-    public function setSignerRoles($signer_roles)
+    public function setSignerRoles(?array $signer_roles)
     {
         if (is_null($signer_roles)) {
-            throw new \InvalidArgumentException('non-nullable signer_roles cannot be null');
+            throw new InvalidArgumentException('non-nullable signer_roles cannot be null');
         }
         $this->container['signer_roles'] = $signer_roles;
 
@@ -706,14 +691,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cc_roles
      *
-     * @param TemplateResponseCCRole[]|null $cc_roles An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+     * @param TemplateResponseCCRole[]|null $cc_roles an array of the designated CC roles that must be specified when sending a SignatureRequest using this Template
      *
      * @return self
      */
-    public function setCcRoles($cc_roles)
+    public function setCcRoles(?array $cc_roles)
     {
         if (is_null($cc_roles)) {
-            throw new \InvalidArgumentException('non-nullable cc_roles cannot be null');
+            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
         }
         $this->container['cc_roles'] = $cc_roles;
 
@@ -737,10 +722,10 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setDocuments($documents)
+    public function setDocuments(?array $documents)
     {
         if (is_null($documents)) {
-            throw new \InvalidArgumentException('non-nullable documents cannot be null');
+            throw new InvalidArgumentException('non-nullable documents cannot be null');
         }
         $this->container['documents'] = $documents;
 
@@ -766,13 +751,13 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return self
      * @deprecated
      */
-    public function setCustomFields($custom_fields)
+    public function setCustomFields(?array $custom_fields)
     {
         if (is_null($custom_fields)) {
             array_push($this->openAPINullablesSetToNull, 'custom_fields');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom_fields', $nullablesSetToNull, true);
+            $index = array_search('custom_fields', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -802,13 +787,13 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return self
      * @deprecated
      */
-    public function setNamedFormFields($named_form_fields)
+    public function setNamedFormFields(?array $named_form_fields)
     {
         if (is_null($named_form_fields)) {
             array_push($this->openAPINullablesSetToNull, 'named_form_fields');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('named_form_fields', $nullablesSetToNull, true);
+            $index = array_search('named_form_fields', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -832,14 +817,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets accounts
      *
-     * @param TemplateResponseAccount[]|null $accounts An array of the Accounts that can use this Template.
+     * @param TemplateResponseAccount[]|null $accounts an array of the Accounts that can use this Template
      *
      * @return self
      */
-    public function setAccounts($accounts)
+    public function setAccounts(?array $accounts)
     {
         if (is_null($accounts)) {
-            throw new \InvalidArgumentException('non-nullable accounts cannot be null');
+            throw new InvalidArgumentException('non-nullable accounts cannot be null');
         }
         $this->container['accounts'] = $accounts;
 
@@ -859,27 +844,26 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attachments
      *
-     * @param SignatureRequestResponseAttachment[]|null $attachments Signer attachments.
+     * @param SignatureRequestResponseAttachment[]|null $attachments signer attachments
      *
      * @return self
      */
-    public function setAttachments($attachments)
+    public function setAttachments(?array $attachments)
     {
         if (is_null($attachments)) {
-            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
+            throw new InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -888,11 +872,11 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -903,10 +887,8 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -919,11 +901,9 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -931,12 +911,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -965,5 +945,3 @@ class TemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

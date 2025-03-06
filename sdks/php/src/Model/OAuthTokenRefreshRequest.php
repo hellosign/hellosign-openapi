@@ -1,14 +1,11 @@
 <?php
-
 /**
  * OAuthTokenRefreshRequest
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,72 +27,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * OAuthTokenRefreshRequest Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'OAuthTokenRefreshRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'grant_type' => 'string',
         'refresh_token' => 'string',
         'client_id' => 'string',
-        'client_secret' => 'string'
+        'client_secret' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'grant_type' => null,
         'refresh_token' => null,
         'client_id' => null,
-        'client_secret' => null
+        'client_secret' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'grant_type' => false,
         'refresh_token' => false,
         'client_id' => false,
-        'client_secret' => false
+        'client_secret' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -120,8 +118,6 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -131,7 +127,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -141,7 +137,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -150,9 +146,6 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -161,9 +154,6 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -180,7 +170,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'grant_type' => 'grant_type',
         'refresh_token' => 'refresh_token',
         'client_id' => 'client_id',
-        'client_secret' => 'client_secret'
+        'client_secret' => 'client_secret',
     ];
 
     /**
@@ -192,7 +182,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'grant_type' => 'setGrantType',
         'refresh_token' => 'setRefreshToken',
         'client_id' => 'setClientId',
-        'client_secret' => 'setClientSecret'
+        'client_secret' => 'setClientSecret',
     ];
 
     /**
@@ -204,7 +194,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'grant_type' => 'getGrantType',
         'refresh_token' => 'getRefreshToken',
         'client_id' => 'getClientId',
-        'client_secret' => 'getClientSecret'
+        'client_secret' => 'getClientSecret',
     ];
 
     /**
@@ -248,7 +238,6 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -260,7 +249,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -270,34 +259,33 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('client_secret', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): OAuthTokenRefreshRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): OAuthTokenRefreshRequest
     {
         /** @var OAuthTokenRefreshRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             OAuthTokenRefreshRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -336,7 +324,6 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets grant_type
      *
@@ -350,14 +337,14 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets grant_type
      *
-     * @param string $grant_type When refreshing an existing token use `refresh_token`.
+     * @param string $grant_type when refreshing an existing token use `refresh_token`
      *
      * @return self
      */
-    public function setGrantType($grant_type)
+    public function setGrantType(string $grant_type)
     {
         if (is_null($grant_type)) {
-            throw new \InvalidArgumentException('non-nullable grant_type cannot be null');
+            throw new InvalidArgumentException('non-nullable grant_type cannot be null');
         }
         $this->container['grant_type'] = $grant_type;
 
@@ -377,14 +364,14 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets refresh_token
      *
-     * @param string $refresh_token The token provided when you got the expired access token.
+     * @param string $refresh_token the token provided when you got the expired access token
      *
      * @return self
      */
-    public function setRefreshToken($refresh_token)
+    public function setRefreshToken(string $refresh_token)
     {
         if (is_null($refresh_token)) {
-            throw new \InvalidArgumentException('non-nullable refresh_token cannot be null');
+            throw new InvalidArgumentException('non-nullable refresh_token cannot be null');
         }
         $this->container['refresh_token'] = $refresh_token;
 
@@ -408,10 +395,10 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return self
      */
-    public function setClientId($client_id)
+    public function setClientId(?string $client_id)
     {
         if (is_null($client_id)) {
-            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
+            throw new InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
 
@@ -435,23 +422,22 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return self
      */
-    public function setClientSecret($client_secret)
+    public function setClientSecret(?string $client_secret)
     {
         if (is_null($client_secret)) {
-            throw new \InvalidArgumentException('non-nullable client_secret cannot be null');
+            throw new InvalidArgumentException('non-nullable client_secret cannot be null');
         }
         $this->container['client_secret'] = $client_secret;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -460,11 +446,11 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -475,10 +461,8 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -491,11 +475,9 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -503,12 +485,12 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -537,5 +519,3 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, \JsonSeri
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

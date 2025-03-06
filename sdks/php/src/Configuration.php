@@ -1,13 +1,10 @@
 <?php
-
 /**
  * Configuration
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,23 +26,21 @@
 
 namespace Dropbox\Sign;
 
+use InvalidArgumentException;
+
 /**
  * Configuration Class Doc Comment
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class Configuration
 {
     public const BOOLEAN_FORMAT_INT = 'int';
     public const BOOLEAN_FORMAT_STRING = 'string';
 
-    /**
-     * @var Configuration
-     */
+    /** @var Configuration */
     private static $defaultConfiguration;
 
     /**
@@ -133,7 +128,7 @@ class Configuration
     protected $options = [];
 
     /** @var ?callable */
-    protected $payloadHook = null;
+    protected $payloadHook;
 
     /**
      * Constructor
@@ -151,7 +146,7 @@ class Configuration
      *
      * @return $this
      */
-    protected function setApiKey($apiKeyIdentifier, $key)
+    protected function setApiKey(string $apiKeyIdentifier, string $key)
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
         return $this;
@@ -162,9 +157,9 @@ class Configuration
      *
      * @param string $apiKeyIdentifier API key identifier (authentication scheme)
      *
-     * @return null|string API key or token
+     * @return string|null API key or token
      */
-    protected function getApiKey($apiKeyIdentifier)
+    protected function getApiKey(string $apiKeyIdentifier)
     {
         return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
     }
@@ -177,7 +172,7 @@ class Configuration
      *
      * @return $this
      */
-    protected function setApiKeyPrefix($apiKeyIdentifier, $prefix)
+    protected function setApiKeyPrefix(string $apiKeyIdentifier, string $prefix)
     {
         $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
         return $this;
@@ -188,9 +183,9 @@ class Configuration
      *
      * @param string $apiKeyIdentifier API key identifier (authentication scheme)
      *
-     * @return null|string
+     * @return string|null
      */
-    protected function getApiKeyPrefix($apiKeyIdentifier)
+    protected function getApiKeyPrefix(string $apiKeyIdentifier)
     {
         return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
     }
@@ -202,7 +197,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setAccessToken($accessToken)
+    public function setAccessToken(string $accessToken)
     {
         $this->accessToken = $accessToken;
         return $this;
@@ -249,7 +244,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setUsername(string $username)
     {
         $this->username = $username;
         return $this;
@@ -272,7 +267,7 @@ class Configuration
      *
      * @return $this
      */
-    protected function setPassword($password)
+    protected function setPassword(string $password)
     {
         $this->password = $password;
         return $this;
@@ -295,7 +290,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setHost(string $host)
     {
         $this->host = $host;
         return $this;
@@ -316,13 +311,13 @@ class Configuration
      *
      * @param string $userAgent the user agent of the api client
      *
-     * @throws \InvalidArgumentException
      * @return $this
+     * @throws InvalidArgumentException
      */
-    public function setUserAgent($userAgent)
+    public function setUserAgent(string $userAgent)
     {
         if (!is_string($userAgent)) {
-            throw new \InvalidArgumentException('User-agent must be a string.');
+            throw new InvalidArgumentException('User-agent must be a string.');
         }
 
         $this->userAgent = $userAgent;
@@ -346,7 +341,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setDebug($debug)
+    public function setDebug(bool $debug)
     {
         $this->debug = $debug;
         return $this;
@@ -369,7 +364,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setDebugFile($debugFile)
+    public function setDebugFile(string $debugFile)
     {
         $this->debugFile = $debugFile;
         return $this;
@@ -392,7 +387,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setTempFolderPath($tempFolderPath)
+    public function setTempFolderPath(string $tempFolderPath)
     {
         $this->tempFolderPath = $tempFolderPath;
         return $this;
@@ -426,8 +421,6 @@ class Configuration
      * Sets the default configuration instance
      *
      * @param Configuration $config An instance of the Configuration Object
-     *
-     * @return void
      */
     public static function setDefaultConfiguration(Configuration $config)
     {
@@ -441,7 +434,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (Dropbox\Sign) Debug Report:' . PHP_EOL;
+        $report = 'PHP SDK (Dropbox\Sign) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 3.0.0' . PHP_EOL;
@@ -454,11 +447,11 @@ class Configuration
     /**
      * Get API key (with prefix if set)
      *
-     * @param  string $apiKeyIdentifier name of apikey
+     * @param string $apiKeyIdentifier name of apikey
      *
-     * @return null|string API key with the prefix
+     * @return string|null API key with the prefix
      */
-    protected function getApiKeyWithPrefix($apiKeyIdentifier)
+    protected function getApiKeyWithPrefix(string $apiKeyIdentifier)
     {
         $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
         $apiKey = $this->getApiKey($apiKeyIdentifier);
@@ -485,21 +478,21 @@ class Configuration
     {
         return [
             [
-                "url" => "https://api.hellosign.com/v3",
-                "description" => "No description provided",
-            ]
+                'url' => 'https://api.hellosign.com/v3',
+                'description' => 'No description provided',
+            ],
         ];
     }
 
     /**
-    * Returns URL based on host settings, index and variables
-    *
-    * @param array      $hostSettings array of host settings, generated from getHostSettings() or equivalent from the API clients
-    * @param int        $hostIndex    index of the host settings
-    * @param array|null $variables    hash of variable and the corresponding value (optional)
-    * @return string URL based on host settings
-    */
-    public static function getHostString(array $hostSettings, $hostIndex, ?array $variables = null)
+     * Returns URL based on host settings, index and variables
+     *
+     * @param  array      $hostSettings array of host settings, generated from getHostSettings() or equivalent from the API clients
+     * @param  int        $hostIndex    index of the host settings
+     * @param  array|null $variables    hash of variable and the corresponding value (optional)
+     * @return string     URL based on host settings
+     */
+    public static function getHostString(array $hostSettings, int $hostIndex, ?array $variables = null)
     {
         if (null === $variables) {
             $variables = [];
@@ -507,23 +500,23 @@ class Configuration
 
         // check array index out of bound
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new \InvalidArgumentException("Invalid index $hostIndex when selecting the host. Must be less than ".count($hostSettings));
+            throw new InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than " . count($hostSettings));
         }
 
         $host = $hostSettings[$hostIndex];
-        $url = $host["url"];
+        $url = $host['url'];
 
         // go through variable and assign a value
-        foreach ($host["variables"] ?? [] as $name => $variable) {
+        foreach ($host['variables'] ?? [] as $name => $variable) {
             if (array_key_exists($name, $variables)) { // check to see if it's in the variables provided by the user
-                if (!isset($variable['enum_values']) || in_array($variables[$name], $variable["enum_values"], true)) { // check to see if the value is in the enum
-                    $url = str_replace("{".$name."}", $variables[$name], $url);
+                if (!isset($variable['enum_values']) || in_array($variables[$name], $variable['enum_values'], true)) { // check to see if the value is in the enum
+                    $url = str_replace('{' . $name . '}', $variables[$name], $url);
                 } else {
-                    throw new \InvalidArgumentException("The variable `$name` in the host URL has invalid value ".$variables[$name].". Must be ".join(',', $variable["enum_values"]).".");
+                    throw new InvalidArgumentException("The variable `{$name}` in the host URL has invalid value " . $variables[$name] . '. Must be ' . join(',', $variable['enum_values']) . '.');
                 }
             } else {
                 // use default value
-                $url = str_replace("{".$name."}", $variable["default_value"], $url);
+                $url = str_replace('{' . $name . '}', $variable['default_value'], $url);
             }
         }
 
@@ -533,11 +526,11 @@ class Configuration
     /**
      * Returns URL based on the index and variables
      *
-     * @param int        $index     index of the host settings
-     * @param array|null $variables hash of variable and the corresponding value (optional)
-     * @return string URL based on host settings
+     * @param  int        $index     index of the host settings
+     * @param  array|null $variables hash of variable and the corresponding value (optional)
+     * @return string     URL based on host settings
      */
-    public function getHostFromSettings($index, $variables = null)
+    public function getHostFromSettings(int $index, ?array $variables = null)
     {
         return self::getHostString($this->getHostSettings(), $index, $variables);
     }
@@ -551,8 +544,6 @@ class Configuration
 
     /**
      * Get extra request options
-     *
-     * @return array
      */
     public function getOptions(): array
     {

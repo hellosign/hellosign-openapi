@@ -1,14 +1,11 @@
 <?php
-
 /**
  * BulkSendJobGetResponseSignatureRequests
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,34 +27,35 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * BulkSendJobGetResponseSignatureRequests Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAccess, \JsonSerializable
+class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'BulkSendJobGetResponseSignatureRequests';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'test_mode' => 'bool',
         'signature_request_id' => 'string',
@@ -83,16 +81,16 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
         'response_data' => '\Dropbox\Sign\Model\SignatureRequestResponseDataBase[]',
         'signatures' => '\Dropbox\Sign\Model\SignatureRequestResponseSignatures[]',
-        'bulk_send_job_id' => 'string'
+        'bulk_send_job_id' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'test_mode' => null,
         'signature_request_id' => null,
@@ -118,14 +116,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'attachments' => null,
         'response_data' => null,
         'signatures' => null,
-        'bulk_send_job_id' => null
+        'bulk_send_job_id' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'test_mode' => false,
         'signature_request_id' => false,
@@ -151,14 +149,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'attachments' => true,
         'response_data' => true,
         'signatures' => false,
-        'bulk_send_job_id' => false
+        'bulk_send_job_id' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -183,8 +181,6 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -194,7 +190,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -204,7 +200,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -213,9 +209,6 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -224,9 +217,6 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -264,7 +254,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'attachments' => 'attachments',
         'response_data' => 'response_data',
         'signatures' => 'signatures',
-        'bulk_send_job_id' => 'bulk_send_job_id'
+        'bulk_send_job_id' => 'bulk_send_job_id',
     ];
 
     /**
@@ -297,7 +287,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'attachments' => 'setAttachments',
         'response_data' => 'setResponseData',
         'signatures' => 'setSignatures',
-        'bulk_send_job_id' => 'setBulkSendJobId'
+        'bulk_send_job_id' => 'setBulkSendJobId',
     ];
 
     /**
@@ -330,7 +320,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'attachments' => 'getAttachments',
         'response_data' => 'getResponseData',
         'signatures' => 'getSignatures',
-        'bulk_send_job_id' => 'getBulkSendJobId'
+        'bulk_send_job_id' => 'getBulkSendJobId',
     ];
 
     /**
@@ -374,7 +364,6 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -386,7 +375,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -417,34 +406,33 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         $this->setIfExists('bulk_send_job_id', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): BulkSendJobGetResponseSignatureRequests
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): BulkSendJobGetResponseSignatureRequests
     {
         /** @var BulkSendJobGetResponseSignatureRequests */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             BulkSendJobGetResponseSignatureRequests::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -461,9 +449,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -476,7 +462,6 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets test_mode
@@ -495,10 +480,10 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      *
      * @return self
      */
-    public function setTestMode($test_mode)
+    public function setTestMode(?bool $test_mode)
     {
         if (is_null($test_mode)) {
-            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
@@ -518,14 +503,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets signature_request_id
      *
-     * @param string|null $signature_request_id The id of the SignatureRequest.
+     * @param string|null $signature_request_id the id of the SignatureRequest
      *
      * @return self
      */
-    public function setSignatureRequestId($signature_request_id)
+    public function setSignatureRequestId(?string $signature_request_id)
     {
         if (is_null($signature_request_id)) {
-            throw new \InvalidArgumentException('non-nullable signature_request_id cannot be null');
+            throw new InvalidArgumentException('non-nullable signature_request_id cannot be null');
         }
         $this->container['signature_request_id'] = $signature_request_id;
 
@@ -545,17 +530,17 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets requester_email_address
      *
-     * @param string|null $requester_email_address The email address of the initiator of the SignatureRequest.
+     * @param string|null $requester_email_address the email address of the initiator of the SignatureRequest
      *
      * @return self
      */
-    public function setRequesterEmailAddress($requester_email_address)
+    public function setRequesterEmailAddress(?string $requester_email_address)
     {
         if (is_null($requester_email_address)) {
             array_push($this->openAPINullablesSetToNull, 'requester_email_address');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('requester_email_address', $nullablesSetToNull, true);
+            $index = array_search('requester_email_address', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -579,14 +564,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets title
      *
-     * @param string|null $title The title the specified Account uses for the SignatureRequest.
+     * @param string|null $title the title the specified Account uses for the SignatureRequest
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setTitle(?string $title)
     {
         if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+            throw new InvalidArgumentException('non-nullable title cannot be null');
         }
         $this->container['title'] = $title;
 
@@ -606,14 +591,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets original_title
      *
-     * @param string|null $original_title Default Label for account.
+     * @param string|null $original_title default Label for account
      *
      * @return self
      */
-    public function setOriginalTitle($original_title)
+    public function setOriginalTitle(?string $original_title)
     {
         if (is_null($original_title)) {
-            throw new \InvalidArgumentException('non-nullable original_title cannot be null');
+            throw new InvalidArgumentException('non-nullable original_title cannot be null');
         }
         $this->container['original_title'] = $original_title;
 
@@ -633,17 +618,17 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets subject
      *
-     * @param string|null $subject The subject in the email that was initially sent to the signers.
+     * @param string|null $subject the subject in the email that was initially sent to the signers
      *
      * @return self
      */
-    public function setSubject($subject)
+    public function setSubject(?string $subject)
     {
         if (is_null($subject)) {
             array_push($this->openAPINullablesSetToNull, 'subject');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('subject', $nullablesSetToNull, true);
+            $index = array_search('subject', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -667,17 +652,17 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets message
      *
-     * @param string|null $message The custom message in the email that was initially sent to the signers.
+     * @param string|null $message the custom message in the email that was initially sent to the signers
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setMessage(?string $message)
     {
         if (is_null($message)) {
             array_push($this->openAPINullablesSetToNull, 'message');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('message', $nullablesSetToNull, true);
+            $index = array_search('message', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -701,14 +686,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata The metadata attached to the signature request.
+     * @param array<string,mixed>|null $metadata the metadata attached to the signature request
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setMetadata(?array $metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
 
@@ -728,14 +713,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets created_at
      *
-     * @param int|null $created_at Time the signature request was created.
+     * @param int|null $created_at time the signature request was created
      *
      * @return self
      */
-    public function setCreatedAt($created_at)
+    public function setCreatedAt(?int $created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            throw new InvalidArgumentException('non-nullable created_at cannot be null');
         }
         $this->container['created_at'] = $created_at;
 
@@ -759,13 +744,13 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      *
      * @return self
      */
-    public function setExpiresAt($expires_at)
+    public function setExpiresAt(?int $expires_at)
     {
         if (is_null($expires_at)) {
             array_push($this->openAPINullablesSetToNull, 'expires_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('expires_at', $nullablesSetToNull, true);
+            $index = array_search('expires_at', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -789,14 +774,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets is_complete
      *
-     * @param bool|null $is_complete Whether or not the SignatureRequest has been fully executed by all signers.
+     * @param bool|null $is_complete whether or not the SignatureRequest has been fully executed by all signers
      *
      * @return self
      */
-    public function setIsComplete($is_complete)
+    public function setIsComplete(?bool $is_complete)
     {
         if (is_null($is_complete)) {
-            throw new \InvalidArgumentException('non-nullable is_complete cannot be null');
+            throw new InvalidArgumentException('non-nullable is_complete cannot be null');
         }
         $this->container['is_complete'] = $is_complete;
 
@@ -816,14 +801,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets is_declined
      *
-     * @param bool|null $is_declined Whether or not the SignatureRequest has been declined by a signer.
+     * @param bool|null $is_declined whether or not the SignatureRequest has been declined by a signer
      *
      * @return self
      */
-    public function setIsDeclined($is_declined)
+    public function setIsDeclined(?bool $is_declined)
     {
         if (is_null($is_declined)) {
-            throw new \InvalidArgumentException('non-nullable is_declined cannot be null');
+            throw new InvalidArgumentException('non-nullable is_declined cannot be null');
         }
         $this->container['is_declined'] = $is_declined;
 
@@ -843,14 +828,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets has_error
      *
-     * @param bool|null $has_error Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
+     * @param bool|null $has_error whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings)
      *
      * @return self
      */
-    public function setHasError($has_error)
+    public function setHasError(?bool $has_error)
     {
         if (is_null($has_error)) {
-            throw new \InvalidArgumentException('non-nullable has_error cannot be null');
+            throw new InvalidArgumentException('non-nullable has_error cannot be null');
         }
         $this->container['has_error'] = $has_error;
 
@@ -870,14 +855,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets files_url
      *
-     * @param string|null $files_url The URL where a copy of the request's documents can be downloaded.
+     * @param string|null $files_url the URL where a copy of the request's documents can be downloaded
      *
      * @return self
      */
-    public function setFilesUrl($files_url)
+    public function setFilesUrl(?string $files_url)
     {
         if (is_null($files_url)) {
-            throw new \InvalidArgumentException('non-nullable files_url cannot be null');
+            throw new InvalidArgumentException('non-nullable files_url cannot be null');
         }
         $this->container['files_url'] = $files_url;
 
@@ -901,13 +886,13 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      *
      * @return self
      */
-    public function setSigningUrl($signing_url)
+    public function setSigningUrl(?string $signing_url)
     {
         if (is_null($signing_url)) {
             array_push($this->openAPINullablesSetToNull, 'signing_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('signing_url', $nullablesSetToNull, true);
+            $index = array_search('signing_url', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -931,14 +916,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets details_url
      *
-     * @param string|null $details_url The URL where the requester and the signers can view the current status of the SignatureRequest.
+     * @param string|null $details_url the URL where the requester and the signers can view the current status of the SignatureRequest
      *
      * @return self
      */
-    public function setDetailsUrl($details_url)
+    public function setDetailsUrl(?string $details_url)
     {
         if (is_null($details_url)) {
-            throw new \InvalidArgumentException('non-nullable details_url cannot be null');
+            throw new InvalidArgumentException('non-nullable details_url cannot be null');
         }
         $this->container['details_url'] = $details_url;
 
@@ -962,10 +947,10 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      *
      * @return self
      */
-    public function setCcEmailAddresses($cc_email_addresses)
+    public function setCcEmailAddresses(?array $cc_email_addresses)
     {
         if (is_null($cc_email_addresses)) {
-            throw new \InvalidArgumentException('non-nullable cc_email_addresses cannot be null');
+            throw new InvalidArgumentException('non-nullable cc_email_addresses cannot be null');
         }
         $this->container['cc_email_addresses'] = $cc_email_addresses;
 
@@ -985,17 +970,17 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url The URL you want the signer redirected to after they successfully sign.
+     * @param string|null $signing_redirect_url the URL you want the signer redirected to after they successfully sign
      *
      * @return self
      */
-    public function setSigningRedirectUrl($signing_redirect_url)
+    public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
         if (is_null($signing_redirect_url)) {
             array_push($this->openAPINullablesSetToNull, 'signing_redirect_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('signing_redirect_url', $nullablesSetToNull, true);
+            $index = array_search('signing_redirect_url', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -1023,13 +1008,13 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      *
      * @return self
      */
-    public function setFinalCopyUri($final_copy_uri)
+    public function setFinalCopyUri(?string $final_copy_uri)
     {
         if (is_null($final_copy_uri)) {
             array_push($this->openAPINullablesSetToNull, 'final_copy_uri');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('final_copy_uri', $nullablesSetToNull, true);
+            $index = array_search('final_copy_uri', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -1053,17 +1038,17 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets template_ids
      *
-     * @param string[]|null $template_ids Templates IDs used in this SignatureRequest (if any).
+     * @param string[]|null $template_ids templates IDs used in this SignatureRequest (if any)
      *
      * @return self
      */
-    public function setTemplateIds($template_ids)
+    public function setTemplateIds(?array $template_ids)
     {
         if (is_null($template_ids)) {
             array_push($this->openAPINullablesSetToNull, 'template_ids');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('template_ids', $nullablesSetToNull, true);
+            $index = array_search('template_ids', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -1091,13 +1076,13 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      *
      * @return self
      */
-    public function setCustomFields($custom_fields)
+    public function setCustomFields(?array $custom_fields)
     {
         if (is_null($custom_fields)) {
             array_push($this->openAPINullablesSetToNull, 'custom_fields');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom_fields', $nullablesSetToNull, true);
+            $index = array_search('custom_fields', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -1121,17 +1106,17 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets attachments
      *
-     * @param SignatureRequestResponseAttachment[]|null $attachments Signer attachments.
+     * @param SignatureRequestResponseAttachment[]|null $attachments signer attachments
      *
      * @return self
      */
-    public function setAttachments($attachments)
+    public function setAttachments(?array $attachments)
     {
         if (is_null($attachments)) {
             array_push($this->openAPINullablesSetToNull, 'attachments');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('attachments', $nullablesSetToNull, true);
+            $index = array_search('attachments', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -1155,17 +1140,17 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets response_data
      *
-     * @param SignatureRequestResponseDataBase[]|null $response_data An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+     * @param SignatureRequestResponseDataBase[]|null $response_data an array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers
      *
      * @return self
      */
-    public function setResponseData($response_data)
+    public function setResponseData(?array $response_data)
     {
         if (is_null($response_data)) {
             array_push($this->openAPINullablesSetToNull, 'response_data');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('response_data', $nullablesSetToNull, true);
+            $index = array_search('response_data', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -1189,14 +1174,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets signatures
      *
-     * @param SignatureRequestResponseSignatures[]|null $signatures An array of signature objects, 1 for each signer.
+     * @param SignatureRequestResponseSignatures[]|null $signatures an array of signature objects, 1 for each signer
      *
      * @return self
      */
-    public function setSignatures($signatures)
+    public function setSignatures(?array $signatures)
     {
         if (is_null($signatures)) {
-            throw new \InvalidArgumentException('non-nullable signatures cannot be null');
+            throw new InvalidArgumentException('non-nullable signatures cannot be null');
         }
         $this->container['signatures'] = $signatures;
 
@@ -1216,27 +1201,26 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets bulk_send_job_id
      *
-     * @param string|null $bulk_send_job_id The id of the BulkSendJob.
+     * @param string|null $bulk_send_job_id the id of the BulkSendJob
      *
      * @return self
      */
-    public function setBulkSendJobId($bulk_send_job_id)
+    public function setBulkSendJobId(?string $bulk_send_job_id)
     {
         if (is_null($bulk_send_job_id)) {
-            throw new \InvalidArgumentException('non-nullable bulk_send_job_id cannot be null');
+            throw new InvalidArgumentException('non-nullable bulk_send_job_id cannot be null');
         }
         $this->container['bulk_send_job_id'] = $bulk_send_job_id;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -1245,11 +1229,11 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -1260,10 +1244,8 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -1276,11 +1258,9 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -1288,12 +1268,12 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -1322,5 +1302,3 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -1,14 +1,11 @@
 <?php
-
 /**
  * ReportCreateRequest
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,69 +27,70 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * ReportCreateRequest Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReportCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'ReportCreateRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'end_date' => 'string',
         'report_type' => 'string[]',
-        'start_date' => 'string'
+        'start_date' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'end_date' => null,
         'report_type' => null,
-        'start_date' => null
+        'start_date' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'end_date' => false,
         'report_type' => false,
-        'start_date' => false
+        'start_date' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -117,8 +115,6 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -128,7 +124,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -138,7 +134,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -147,9 +143,6 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -158,9 +151,6 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -176,7 +166,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'end_date' => 'end_date',
         'report_type' => 'report_type',
-        'start_date' => 'start_date'
+        'start_date' => 'start_date',
     ];
 
     /**
@@ -187,7 +177,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'end_date' => 'setEndDate',
         'report_type' => 'setReportType',
-        'start_date' => 'setStartDate'
+        'start_date' => 'setStartDate',
     ];
 
     /**
@@ -198,7 +188,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'end_date' => 'getEndDate',
         'report_type' => 'getReportType',
-        'start_date' => 'getStartDate'
+        'start_date' => 'getStartDate',
     ];
 
     /**
@@ -269,7 +259,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -278,34 +268,33 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('start_date', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): ReportCreateRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): ReportCreateRequest
     {
         /** @var ReportCreateRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             ReportCreateRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -330,11 +319,11 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['report_type'] === null) {
             $invalidProperties[] = "'report_type' can't be null";
         }
-        if ((count($this->container['report_type']) > 2)) {
+        if (count($this->container['report_type']) > 2) {
             $invalidProperties[] = "invalid value for 'report_type', number of items must be less than or equal to 2.";
         }
 
-        if ((count($this->container['report_type']) < 1)) {
+        if (count($this->container['report_type']) < 1) {
             $invalidProperties[] = "invalid value for 'report_type', number of items must be greater than or equal to 1.";
         }
 
@@ -355,7 +344,6 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets end_date
      *
@@ -369,14 +357,14 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets end_date
      *
-     * @param string $end_date The (inclusive) end date for the report data in `MM/DD/YYYY` format.
+     * @param string $end_date the (inclusive) end date for the report data in `MM/DD/YYYY` format
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setEndDate(string $end_date)
     {
         if (is_null($end_date)) {
-            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+            throw new InvalidArgumentException('non-nullable end_date cannot be null');
         }
         $this->container['end_date'] = $end_date;
 
@@ -400,14 +388,14 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      *
      * @return self
      */
-    public function setReportType($report_type)
+    public function setReportType(array $report_type)
     {
         if (is_null($report_type)) {
-            throw new \InvalidArgumentException('non-nullable report_type cannot be null');
+            throw new InvalidArgumentException('non-nullable report_type cannot be null');
         }
         $allowedValues = $this->getReportTypeAllowableValues();
         if (array_diff($report_type, $allowedValues)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'report_type', must be one of '%s'",
                     implode("', '", $allowedValues)
@@ -415,11 +403,11 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
 
-        if ((count($report_type) > 2)) {
-            throw new \InvalidArgumentException('invalid value for $report_type when calling ReportCreateRequest., number of items must be less than or equal to 2.');
+        if (count($report_type) > 2) {
+            throw new InvalidArgumentException('invalid value for $report_type when calling ReportCreateRequest., number of items must be less than or equal to 2.');
         }
-        if ((count($report_type) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $report_type when calling ReportCreateRequest., number of items must be greater than or equal to 1.');
+        if (count($report_type) < 1) {
+            throw new InvalidArgumentException('invalid length for $report_type when calling ReportCreateRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['report_type'] = $report_type;
 
@@ -439,27 +427,26 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets start_date
      *
-     * @param string $start_date The (inclusive) start date for the report data in `MM/DD/YYYY` format.
+     * @param string $start_date the (inclusive) start date for the report data in `MM/DD/YYYY` format
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setStartDate(string $start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            throw new InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -468,11 +455,11 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -483,10 +470,8 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -499,11 +484,9 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -511,12 +494,12 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -545,5 +528,3 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

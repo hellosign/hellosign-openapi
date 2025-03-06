@@ -1,14 +1,11 @@
 <?php
-
 /**
  * EventCallbackRequestEventMetadata
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,73 +27,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * EventCallbackRequestEventMetadata Class Doc Comment
  *
  * @category Class
  * @description Specific metadata about the event.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'EventCallbackRequestEventMetadata';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'related_signature_id' => 'string',
         'reported_for_account_id' => 'string',
         'reported_for_app_id' => 'string',
-        'event_message' => 'string'
+        'event_message' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'related_signature_id' => null,
         'reported_for_account_id' => null,
         'reported_for_app_id' => null,
-        'event_message' => null
+        'event_message' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'related_signature_id' => true,
         'reported_for_account_id' => true,
         'reported_for_app_id' => true,
-        'event_message' => true
+        'event_message' => true,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -121,8 +118,6 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -132,7 +127,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -142,7 +137,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -151,9 +146,6 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -162,9 +154,6 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -181,7 +170,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
         'related_signature_id' => 'related_signature_id',
         'reported_for_account_id' => 'reported_for_account_id',
         'reported_for_app_id' => 'reported_for_app_id',
-        'event_message' => 'event_message'
+        'event_message' => 'event_message',
     ];
 
     /**
@@ -193,7 +182,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
         'related_signature_id' => 'setRelatedSignatureId',
         'reported_for_account_id' => 'setReportedForAccountId',
         'reported_for_app_id' => 'setReportedForAppId',
-        'event_message' => 'setEventMessage'
+        'event_message' => 'setEventMessage',
     ];
 
     /**
@@ -205,7 +194,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
         'related_signature_id' => 'getRelatedSignatureId',
         'reported_for_account_id' => 'getReportedForAccountId',
         'reported_for_app_id' => 'getReportedForAppId',
-        'event_message' => 'getEventMessage'
+        'event_message' => 'getEventMessage',
     ];
 
     /**
@@ -249,7 +238,6 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -261,7 +249,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -271,34 +259,33 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
         $this->setIfExists('event_message', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): EventCallbackRequestEventMetadata
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): EventCallbackRequestEventMetadata
     {
         /** @var EventCallbackRequestEventMetadata */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             EventCallbackRequestEventMetadata::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -315,9 +302,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -330,7 +315,6 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets related_signature_id
@@ -349,13 +333,13 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
      *
      * @return self
      */
-    public function setRelatedSignatureId($related_signature_id)
+    public function setRelatedSignatureId(?string $related_signature_id)
     {
         if (is_null($related_signature_id)) {
             array_push($this->openAPINullablesSetToNull, 'related_signature_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('related_signature_id', $nullablesSetToNull, true);
+            $index = array_search('related_signature_id', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -379,17 +363,17 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Sets reported_for_account_id
      *
-     * @param string|null $reported_for_account_id Account ID the event was reported for.
+     * @param string|null $reported_for_account_id account ID the event was reported for
      *
      * @return self
      */
-    public function setReportedForAccountId($reported_for_account_id)
+    public function setReportedForAccountId(?string $reported_for_account_id)
     {
         if (is_null($reported_for_account_id)) {
             array_push($this->openAPINullablesSetToNull, 'reported_for_account_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reported_for_account_id', $nullablesSetToNull, true);
+            $index = array_search('reported_for_account_id', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -413,17 +397,17 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Sets reported_for_app_id
      *
-     * @param string|null $reported_for_app_id App ID the event was reported for.
+     * @param string|null $reported_for_app_id app ID the event was reported for
      *
      * @return self
      */
-    public function setReportedForAppId($reported_for_app_id)
+    public function setReportedForAppId(?string $reported_for_app_id)
     {
         if (is_null($reported_for_app_id)) {
             array_push($this->openAPINullablesSetToNull, 'reported_for_app_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reported_for_app_id', $nullablesSetToNull, true);
+            $index = array_search('reported_for_app_id', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -447,17 +431,17 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Sets event_message
      *
-     * @param string|null $event_message Message about a declined or failed (due to error) signature flow.
+     * @param string|null $event_message message about a declined or failed (due to error) signature flow
      *
      * @return self
      */
-    public function setEventMessage($event_message)
+    public function setEventMessage(?string $event_message)
     {
         if (is_null($event_message)) {
             array_push($this->openAPINullablesSetToNull, 'event_message');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('event_message', $nullablesSetToNull, true);
+            $index = array_search('event_message', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -467,14 +451,13 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -483,11 +466,11 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -498,10 +481,8 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -514,11 +495,9 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -526,12 +505,12 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -560,5 +539,3 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

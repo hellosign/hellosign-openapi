@@ -1,13 +1,10 @@
 <?php
-
 /**
  * BulkSendJobApi
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,6 +26,11 @@
 
 namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -36,44 +38,34 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\ObjectSerializer;
-use Dropbox\Sign\Model;
+use InvalidArgumentException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 
 /**
  * BulkSendJobApi Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class BulkSendJobApi
 {
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var Configuration
-     */
+    /** @var Configuration */
     protected $config;
 
-    /**
-     * @var HeaderSelector
-     */
+    /** @var HeaderSelector */
     protected $headerSelector;
 
-    /**
-     * @var int Host index
-     */
+    /** @var int Host index */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /**
+     * @var string[] *
+     */
     public const contentTypes = [
         'bulkSendJobGet' => [
             'application/json',
@@ -87,10 +79,7 @@ class BulkSendJobApi
     protected $response;
 
     /**
-     * @param Configuration   $config
-     * @param ClientInterface $client
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ?Configuration $config = null,
@@ -110,7 +99,7 @@ class BulkSendJobApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex(int $hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -147,15 +136,15 @@ class BulkSendJobApi
      *
      * Get Bulk Send Job
      *
-     * @param  string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
-     * @param  int|null $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\BulkSendJobGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function bulkSendJobGet($bulk_send_job_id, $page = 1, $page_size = 20)
+    public function bulkSendJobGet(string $bulk_send_job_id, ?int $page = 1, ?int $page_size = 20)
     {
         list($response) = $this->bulkSendJobGetWithHttpInfo($bulk_send_job_id, $page, $page_size);
         return $response;
@@ -166,17 +155,17 @@ class BulkSendJobApi
      *
      * Get Bulk Send Job
      *
-     * @param  string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
-     * @param  int|null $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
+     * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $contentType      The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\BulkSendJobGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::bulkSendJobGet. This method will eventually become unavailable
      */
-    public function bulkSendJobGetWithHttpInfo($bulk_send_job_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
+    public function bulkSendJobGetWithHttpInfo(string $bulk_send_job_id, ?int $page = 1, ?int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
         $request = $this->bulkSendJobGetRequest($bulk_send_job_id, $page, $page_size, $contentType);
 
@@ -188,21 +177,20 @@ class BulkSendJobApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -213,17 +201,16 @@ class BulkSendJobApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\BulkSendJobGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\BulkSendJobGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -240,9 +227,8 @@ class BulkSendJobApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\BulkSendJobGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -250,23 +236,23 @@ class BulkSendJobApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\BulkSendJobGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -283,11 +269,9 @@ class BulkSendJobApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -300,7 +284,6 @@ class BulkSendJobApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -311,16 +294,16 @@ class BulkSendJobApi
      *
      * Get Bulk Send Job
      *
-     * @param  string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
-     * @param  int|null $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
+     * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $contentType      The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::bulkSendJobGet. This method will eventually become unavailable
      */
-    public function bulkSendJobGetAsync($bulk_send_job_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
+    public function bulkSendJobGetAsync(string $bulk_send_job_id, ?int $page = 1, ?int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
         return $this->bulkSendJobGetAsyncWithHttpInfo($bulk_send_job_id, $page, $page_size, $contentType)
             ->then(
@@ -335,16 +318,16 @@ class BulkSendJobApi
      *
      * Get Bulk Send Job
      *
-     * @param  string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
-     * @param  int|null $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
+     * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $contentType      The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::bulkSendJobGet. This method will eventually become unavailable
      */
-    public function bulkSendJobGetAsyncWithHttpInfo($bulk_send_job_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
+    public function bulkSendJobGetAsyncWithHttpInfo(string $bulk_send_job_id, ?int $page = 1, ?int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
         $returnType = '\Dropbox\Sign\Model\BulkSendJobGetResponse';
         $request = $this->bulkSendJobGetRequest($bulk_send_job_id, $page, $page_size, $contentType);
@@ -354,9 +337,9 @@ class BulkSendJobApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -365,7 +348,7 @@ class BulkSendJobApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -379,7 +362,7 @@ class BulkSendJobApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -388,27 +371,23 @@ class BulkSendJobApi
     /**
      * Create request for operation 'bulkSendJobGet'
      *
-     * @param  string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
-     * @param  int|null $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
+     * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $contentType      The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::bulkSendJobGet. This method will eventually become unavailable
      */
-    public function bulkSendJobGetRequest($bulk_send_job_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
+    public function bulkSendJobGetRequest(string $bulk_send_job_id, ?int $page = 1, ?int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
-
         // verify the required parameter 'bulk_send_job_id' is set
         if ($bulk_send_job_id === null || (is_array($bulk_send_job_id) && count($bulk_send_job_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $bulk_send_job_id when calling bulkSendJobGet'
             );
         }
-
-
-
 
         $resourcePath = '/bulk_send_job/{bulk_send_job_id}';
         $formParams = [];
@@ -436,19 +415,17 @@ class BulkSendJobApi
             false // required
         ) ?? []);
 
-
         // path params
         if ($bulk_send_job_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'bulk_send_job_id' . '}',
+                '{bulk_send_job_id}',
                 ObjectSerializer::toPathValue($bulk_send_job_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -462,7 +439,7 @@ class BulkSendJobApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -476,9 +453,8 @@ class BulkSendJobApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -521,14 +497,14 @@ class BulkSendJobApi
      *
      * List Bulk Send Jobs
      *
-     * @param  int|null $page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param int|null $page      Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\BulkSendJobListResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function bulkSendJobList($page = 1, $page_size = 20)
+    public function bulkSendJobList(?int $page = 1, ?int $page_size = 20)
     {
         list($response) = $this->bulkSendJobListWithHttpInfo($page, $page_size);
         return $response;
@@ -539,16 +515,16 @@ class BulkSendJobApi
      *
      * List Bulk Send Jobs
      *
-     * @param  int|null $page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
+     * @param int|null $page        Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\BulkSendJobListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::bulkSendJobList. This method will eventually become unavailable
      */
-    public function bulkSendJobListWithHttpInfo($page = 1, $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
+    public function bulkSendJobListWithHttpInfo(?int $page = 1, ?int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
         $request = $this->bulkSendJobListRequest($page, $page_size, $contentType);
 
@@ -560,21 +536,20 @@ class BulkSendJobApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -585,17 +560,16 @@ class BulkSendJobApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\BulkSendJobListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\BulkSendJobListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -612,9 +586,8 @@ class BulkSendJobApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\BulkSendJobListResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -622,23 +595,23 @@ class BulkSendJobApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\BulkSendJobListResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -655,11 +628,9 @@ class BulkSendJobApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -672,7 +643,6 @@ class BulkSendJobApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -683,15 +653,15 @@ class BulkSendJobApi
      *
      * List Bulk Send Jobs
      *
-     * @param  int|null $page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
+     * @param int|null $page        Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::bulkSendJobList. This method will eventually become unavailable
      */
-    public function bulkSendJobListAsync($page = 1, $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
+    public function bulkSendJobListAsync(?int $page = 1, ?int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
         return $this->bulkSendJobListAsyncWithHttpInfo($page, $page_size, $contentType)
             ->then(
@@ -706,15 +676,15 @@ class BulkSendJobApi
      *
      * List Bulk Send Jobs
      *
-     * @param  int|null $page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
+     * @param int|null $page        Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::bulkSendJobList. This method will eventually become unavailable
      */
-    public function bulkSendJobListAsyncWithHttpInfo($page = 1, $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
+    public function bulkSendJobListAsyncWithHttpInfo(?int $page = 1, ?int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
         $returnType = '\Dropbox\Sign\Model\BulkSendJobListResponse';
         $request = $this->bulkSendJobListRequest($page, $page_size, $contentType);
@@ -724,9 +694,9 @@ class BulkSendJobApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -735,7 +705,7 @@ class BulkSendJobApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -749,7 +719,7 @@ class BulkSendJobApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -758,20 +728,16 @@ class BulkSendJobApi
     /**
      * Create request for operation 'bulkSendJobList'
      *
-     * @param  int|null $page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
+     * @param int|null $page        Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string   $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::bulkSendJobList. This method will eventually become unavailable
      */
-    public function bulkSendJobListRequest($page = 1, $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
+    public function bulkSendJobListRequest(?int $page = 1, ?int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
-
-
-
-
         $resourcePath = '/bulk_send_job/list';
         $formParams = [];
         $queryParams = [];
@@ -798,11 +764,8 @@ class BulkSendJobApi
             false // required
         ) ?? []);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -816,7 +779,7 @@ class BulkSendJobApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -830,9 +793,8 @@ class BulkSendJobApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -873,8 +835,8 @@ class BulkSendJobApi
     /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -882,7 +844,7 @@ class BulkSendJobApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -898,8 +860,8 @@ class BulkSendJobApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -909,9 +871,9 @@ class BulkSendJobApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); //stream goes to serializer
+            $content = $response->getBody(); // stream goes to serializer
         } else {
-            $content = (string) $response->getBody();
+            $content = (string)$response->getBody();
         }
 
         return [
@@ -930,8 +892,8 @@ class BulkSendJobApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

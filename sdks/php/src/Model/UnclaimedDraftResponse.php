@@ -1,14 +1,11 @@
 <?php
-
 /**
  * UnclaimedDraftResponse
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,79 +27,80 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * UnclaimedDraftResponse Class Doc Comment
  *
  * @category Class
  * @description A group of documents that a user can take ownership of via the claim URL.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'UnclaimedDraftResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'signature_request_id' => 'string',
         'claim_url' => 'string',
         'signing_redirect_url' => 'string',
         'requesting_redirect_url' => 'string',
         'expires_at' => 'int',
-        'test_mode' => 'bool'
+        'test_mode' => 'bool',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'signature_request_id' => null,
         'claim_url' => null,
         'signing_redirect_url' => null,
         'requesting_redirect_url' => null,
         'expires_at' => null,
-        'test_mode' => null
+        'test_mode' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'signature_request_id' => true,
         'claim_url' => false,
         'signing_redirect_url' => true,
         'requesting_redirect_url' => true,
         'expires_at' => true,
-        'test_mode' => false
+        'test_mode' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -127,8 +125,6 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -138,7 +134,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -148,7 +144,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -157,9 +153,6 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -168,9 +161,6 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -189,7 +179,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'signing_redirect_url' => 'signing_redirect_url',
         'requesting_redirect_url' => 'requesting_redirect_url',
         'expires_at' => 'expires_at',
-        'test_mode' => 'test_mode'
+        'test_mode' => 'test_mode',
     ];
 
     /**
@@ -203,7 +193,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'signing_redirect_url' => 'setSigningRedirectUrl',
         'requesting_redirect_url' => 'setRequestingRedirectUrl',
         'expires_at' => 'setExpiresAt',
-        'test_mode' => 'setTestMode'
+        'test_mode' => 'setTestMode',
     ];
 
     /**
@@ -217,7 +207,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'signing_redirect_url' => 'getSigningRedirectUrl',
         'requesting_redirect_url' => 'getRequestingRedirectUrl',
         'expires_at' => 'getExpiresAt',
-        'test_mode' => 'getTestMode'
+        'test_mode' => 'getTestMode',
     ];
 
     /**
@@ -261,7 +251,6 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -273,7 +262,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -285,34 +274,33 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('test_mode', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): UnclaimedDraftResponse
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): UnclaimedDraftResponse
     {
         /** @var UnclaimedDraftResponse */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             UnclaimedDraftResponse::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -329,9 +317,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -344,7 +330,6 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets signature_request_id
@@ -359,17 +344,17 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets signature_request_id
      *
-     * @param string|null $signature_request_id The ID of the signature request that is represented by this UnclaimedDraft.
+     * @param string|null $signature_request_id the ID of the signature request that is represented by this UnclaimedDraft
      *
      * @return self
      */
-    public function setSignatureRequestId($signature_request_id)
+    public function setSignatureRequestId(?string $signature_request_id)
     {
         if (is_null($signature_request_id)) {
             array_push($this->openAPINullablesSetToNull, 'signature_request_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('signature_request_id', $nullablesSetToNull, true);
+            $index = array_search('signature_request_id', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -393,14 +378,14 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets claim_url
      *
-     * @param string|null $claim_url The URL to be used to claim this UnclaimedDraft.
+     * @param string|null $claim_url the URL to be used to claim this UnclaimedDraft
      *
      * @return self
      */
-    public function setClaimUrl($claim_url)
+    public function setClaimUrl(?string $claim_url)
     {
         if (is_null($claim_url)) {
-            throw new \InvalidArgumentException('non-nullable claim_url cannot be null');
+            throw new InvalidArgumentException('non-nullable claim_url cannot be null');
         }
         $this->container['claim_url'] = $claim_url;
 
@@ -420,17 +405,17 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url The URL you want signers redirected to after they successfully sign.
+     * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
      *
      * @return self
      */
-    public function setSigningRedirectUrl($signing_redirect_url)
+    public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
         if (is_null($signing_redirect_url)) {
             array_push($this->openAPINullablesSetToNull, 'signing_redirect_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('signing_redirect_url', $nullablesSetToNull, true);
+            $index = array_search('signing_redirect_url', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -458,13 +443,13 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setRequestingRedirectUrl($requesting_redirect_url)
+    public function setRequestingRedirectUrl(?string $requesting_redirect_url)
     {
         if (is_null($requesting_redirect_url)) {
             array_push($this->openAPINullablesSetToNull, 'requesting_redirect_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('requesting_redirect_url', $nullablesSetToNull, true);
+            $index = array_search('requesting_redirect_url', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -488,17 +473,17 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at When the link expires.
+     * @param int|null $expires_at when the link expires
      *
      * @return self
      */
-    public function setExpiresAt($expires_at)
+    public function setExpiresAt(?int $expires_at)
     {
         if (is_null($expires_at)) {
             array_push($this->openAPINullablesSetToNull, 'expires_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('expires_at', $nullablesSetToNull, true);
+            $index = array_search('expires_at', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -526,23 +511,22 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setTestMode($test_mode)
+    public function setTestMode(?bool $test_mode)
     {
         if (is_null($test_mode)) {
-            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -551,11 +535,11 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -566,10 +550,8 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -582,11 +564,9 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -594,12 +574,12 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -628,5 +608,3 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, \JsonSerial
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -1,14 +1,11 @@
 <?php
-
 /**
  * FaxLineAreaCodeGetCountryEnum
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,15 +26,12 @@
  */
 
 namespace Dropbox\Sign\Model;
-use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * FaxLineAreaCodeGetCountryEnum Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class FaxLineAreaCodeGetCountryEnum
 {
@@ -59,9 +53,7 @@ class FaxLineAreaCodeGetCountryEnum
         return [
             self::CA,
             self::US,
-            self::UK
+            self::UK,
         ];
     }
 }
-
-

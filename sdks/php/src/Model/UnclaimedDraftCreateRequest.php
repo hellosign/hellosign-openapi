@@ -1,14 +1,11 @@
 <?php
-
 /**
  * UnclaimedDraftCreateRequest
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,35 +27,37 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
+use SplFileObject;
 
 /**
  * UnclaimedDraftCreateRequest Class Doc Comment
  *
  * @category Class
- * @description 
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @description
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'UnclaimedDraftCreateRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'type' => 'string',
         'files' => '\SplFileObject[]',
@@ -83,16 +82,16 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         'test_mode' => 'bool',
         'use_preexisting_fields' => 'bool',
         'use_text_tags' => 'bool',
-        'expires_at' => 'int'
+        'expires_at' => 'int',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'type' => null,
         'files' => 'binary',
@@ -117,14 +116,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         'test_mode' => null,
         'use_preexisting_fields' => null,
         'use_text_tags' => null,
-        'expires_at' => null
+        'expires_at' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'type' => false,
         'files' => false,
@@ -149,14 +148,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         'test_mode' => false,
         'use_preexisting_fields' => false,
         'use_text_tags' => false,
-        'expires_at' => true
+        'expires_at' => true,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -181,8 +180,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -192,7 +189,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -202,7 +199,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -211,9 +208,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -222,9 +216,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -261,7 +252,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         'test_mode' => 'test_mode',
         'use_preexisting_fields' => 'use_preexisting_fields',
         'use_text_tags' => 'use_text_tags',
-        'expires_at' => 'expires_at'
+        'expires_at' => 'expires_at',
     ];
 
     /**
@@ -293,7 +284,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         'test_mode' => 'setTestMode',
         'use_preexisting_fields' => 'setUsePreexistingFields',
         'use_text_tags' => 'setUseTextTags',
-        'expires_at' => 'setExpiresAt'
+        'expires_at' => 'setExpiresAt',
     ];
 
     /**
@@ -325,7 +316,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         'test_mode' => 'getTestMode',
         'use_preexisting_fields' => 'getUsePreexistingFields',
         'use_text_tags' => 'getUseTextTags',
-        'expires_at' => 'getExpiresAt'
+        'expires_at' => 'getExpiresAt',
     ];
 
     /**
@@ -396,7 +387,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -426,34 +417,33 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): UnclaimedDraftCreateRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): UnclaimedDraftCreateRequest
     {
         /** @var UnclaimedDraftCreateRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             UnclaimedDraftCreateRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -506,7 +496,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets type
      *
@@ -524,14 +513,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
                     $type,
@@ -547,7 +536,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets files
      *
-     * @return \SplFileObject[]|null
+     * @return SplFileObject[]|null
      */
     public function getFiles()
     {
@@ -557,14 +546,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets files
      *
-     * @param \SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFiles($files)
+    public function setFiles(?array $files)
     {
         if (is_null($files)) {
-            throw new \InvalidArgumentException('non-nullable files cannot be null');
+            throw new InvalidArgumentException('non-nullable files cannot be null');
         }
         $this->container['files'] = $files;
 
@@ -588,10 +577,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setFileUrls($file_urls)
+    public function setFileUrls(?array $file_urls)
     {
         if (is_null($file_urls)) {
-            throw new \InvalidArgumentException('non-nullable file_urls cannot be null');
+            throw new InvalidArgumentException('non-nullable file_urls cannot be null');
         }
         $this->container['file_urls'] = $file_urls;
 
@@ -615,10 +604,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setAllowDecline($allow_decline)
+    public function setAllowDecline(?bool $allow_decline)
     {
         if (is_null($allow_decline)) {
-            throw new \InvalidArgumentException('non-nullable allow_decline cannot be null');
+            throw new InvalidArgumentException('non-nullable allow_decline cannot be null');
         }
         $this->container['allow_decline'] = $allow_decline;
 
@@ -642,10 +631,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setAttachments($attachments)
+    public function setAttachments(?array $attachments)
     {
         if (is_null($attachments)) {
-            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
+            throw new InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
 
@@ -665,14 +654,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets cc_email_addresses
      *
-     * @param string[]|null $cc_email_addresses The email addresses that should be CCed.
+     * @param string[]|null $cc_email_addresses the email addresses that should be CCed
      *
      * @return self
      */
-    public function setCcEmailAddresses($cc_email_addresses)
+    public function setCcEmailAddresses(?array $cc_email_addresses)
     {
         if (is_null($cc_email_addresses)) {
-            throw new \InvalidArgumentException('non-nullable cc_email_addresses cannot be null');
+            throw new InvalidArgumentException('non-nullable cc_email_addresses cannot be null');
         }
         $this->container['cc_email_addresses'] = $cc_email_addresses;
 
@@ -696,10 +685,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setClientId($client_id)
+    public function setClientId(?string $client_id)
     {
         if (is_null($client_id)) {
-            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
+            throw new InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
 
@@ -723,10 +712,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setCustomFields($custom_fields)
+    public function setCustomFields(?array $custom_fields)
     {
         if (is_null($custom_fields)) {
-            throw new \InvalidArgumentException('non-nullable custom_fields cannot be null');
+            throw new InvalidArgumentException('non-nullable custom_fields cannot be null');
         }
         $this->container['custom_fields'] = $custom_fields;
 
@@ -750,10 +739,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setFieldOptions($field_options)
+    public function setFieldOptions(?SubFieldOptions $field_options)
     {
         if (is_null($field_options)) {
-            throw new \InvalidArgumentException('non-nullable field_options cannot be null');
+            throw new InvalidArgumentException('non-nullable field_options cannot be null');
         }
         $this->container['field_options'] = $field_options;
 
@@ -777,10 +766,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setFormFieldGroups($form_field_groups)
+    public function setFormFieldGroups(?array $form_field_groups)
     {
         if (is_null($form_field_groups)) {
-            throw new \InvalidArgumentException('non-nullable form_field_groups cannot be null');
+            throw new InvalidArgumentException('non-nullable form_field_groups cannot be null');
         }
         $this->container['form_field_groups'] = $form_field_groups;
 
@@ -800,14 +789,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets form_field_rules
      *
-     * @param SubFormFieldRule[]|null $form_field_rules Conditional Logic rules for fields defined in `form_fields_per_document`.
+     * @param SubFormFieldRule[]|null $form_field_rules conditional Logic rules for fields defined in `form_fields_per_document`
      *
      * @return self
      */
-    public function setFormFieldRules($form_field_rules)
+    public function setFormFieldRules(?array $form_field_rules)
     {
         if (is_null($form_field_rules)) {
-            throw new \InvalidArgumentException('non-nullable form_field_rules cannot be null');
+            throw new InvalidArgumentException('non-nullable form_field_rules cannot be null');
         }
         $this->container['form_field_rules'] = $form_field_rules;
 
@@ -831,10 +820,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setFormFieldsPerDocument($form_fields_per_document)
+    public function setFormFieldsPerDocument(?array $form_fields_per_document)
     {
         if (is_null($form_fields_per_document)) {
-            throw new \InvalidArgumentException('non-nullable form_fields_per_document cannot be null');
+            throw new InvalidArgumentException('non-nullable form_fields_per_document cannot be null');
         }
         $this->container['form_fields_per_document'] = $form_fields_per_document;
 
@@ -858,10 +847,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setHideTextTags($hide_text_tags)
+    public function setHideTextTags(?bool $hide_text_tags)
     {
         if (is_null($hide_text_tags)) {
-            throw new \InvalidArgumentException('non-nullable hide_text_tags cannot be null');
+            throw new InvalidArgumentException('non-nullable hide_text_tags cannot be null');
         }
         $this->container['hide_text_tags'] = $hide_text_tags;
 
@@ -881,17 +870,17 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets message
      *
-     * @param string|null $message The custom message in the email that will be sent to the signers.
+     * @param string|null $message the custom message in the email that will be sent to the signers
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setMessage(?string $message)
     {
         if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        if ((mb_strlen($message) > 5000)) {
-            throw new \InvalidArgumentException('invalid length for $message when calling UnclaimedDraftCreateRequest., must be smaller than or equal to 5000.');
+        if (mb_strlen($message) > 5000) {
+            throw new InvalidArgumentException('invalid length for $message when calling UnclaimedDraftCreateRequest., must be smaller than or equal to 5000.');
         }
 
         $this->container['message'] = $message;
@@ -916,12 +905,11 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setMetadata(?array $metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
-
 
         $this->container['metadata'] = $metadata;
 
@@ -941,14 +929,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets show_progress_stepper
      *
-     * @param bool|null $show_progress_stepper When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
+     * @param bool|null $show_progress_stepper when only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden
      *
      * @return self
      */
-    public function setShowProgressStepper($show_progress_stepper)
+    public function setShowProgressStepper(?bool $show_progress_stepper)
     {
         if (is_null($show_progress_stepper)) {
-            throw new \InvalidArgumentException('non-nullable show_progress_stepper cannot be null');
+            throw new InvalidArgumentException('non-nullable show_progress_stepper cannot be null');
         }
         $this->container['show_progress_stepper'] = $show_progress_stepper;
 
@@ -968,14 +956,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets signers
      *
-     * @param SubUnclaimedDraftSigner[]|null $signers Add Signers to your Unclaimed Draft Signature Request.
+     * @param SubUnclaimedDraftSigner[]|null $signers add Signers to your Unclaimed Draft Signature Request
      *
      * @return self
      */
-    public function setSigners($signers)
+    public function setSigners(?array $signers)
     {
         if (is_null($signers)) {
-            throw new \InvalidArgumentException('non-nullable signers cannot be null');
+            throw new InvalidArgumentException('non-nullable signers cannot be null');
         }
         $this->container['signers'] = $signers;
 
@@ -999,10 +987,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setSigningOptions($signing_options)
+    public function setSigningOptions(?SubSigningOptions $signing_options)
     {
         if (is_null($signing_options)) {
-            throw new \InvalidArgumentException('non-nullable signing_options cannot be null');
+            throw new InvalidArgumentException('non-nullable signing_options cannot be null');
         }
         $this->container['signing_options'] = $signing_options;
 
@@ -1022,14 +1010,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url The URL you want signers redirected to after they successfully sign.
+     * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
      *
      * @return self
      */
-    public function setSigningRedirectUrl($signing_redirect_url)
+    public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
         if (is_null($signing_redirect_url)) {
-            throw new \InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
+            throw new InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
         }
         $this->container['signing_redirect_url'] = $signing_redirect_url;
 
@@ -1049,17 +1037,17 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets subject
      *
-     * @param string|null $subject The subject in the email that will be sent to the signers.
+     * @param string|null $subject the subject in the email that will be sent to the signers
      *
      * @return self
      */
-    public function setSubject($subject)
+    public function setSubject(?string $subject)
     {
         if (is_null($subject)) {
-            throw new \InvalidArgumentException('non-nullable subject cannot be null');
+            throw new InvalidArgumentException('non-nullable subject cannot be null');
         }
-        if ((mb_strlen($subject) > 200)) {
-            throw new \InvalidArgumentException('invalid length for $subject when calling UnclaimedDraftCreateRequest., must be smaller than or equal to 200.');
+        if (mb_strlen($subject) > 200) {
+            throw new InvalidArgumentException('invalid length for $subject when calling UnclaimedDraftCreateRequest., must be smaller than or equal to 200.');
         }
 
         $this->container['subject'] = $subject;
@@ -1084,10 +1072,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setTestMode($test_mode)
+    public function setTestMode(?bool $test_mode)
     {
         if (is_null($test_mode)) {
-            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
@@ -1111,10 +1099,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setUsePreexistingFields($use_preexisting_fields)
+    public function setUsePreexistingFields(?bool $use_preexisting_fields)
     {
         if (is_null($use_preexisting_fields)) {
-            throw new \InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
+            throw new InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
         }
         $this->container['use_preexisting_fields'] = $use_preexisting_fields;
 
@@ -1138,10 +1126,10 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setUseTextTags($use_text_tags)
+    public function setUseTextTags(?bool $use_text_tags)
     {
         if (is_null($use_text_tags)) {
-            throw new \InvalidArgumentException('non-nullable use_text_tags cannot be null');
+            throw new InvalidArgumentException('non-nullable use_text_tags cannot be null');
         }
         $this->container['use_text_tags'] = $use_text_tags;
 
@@ -1165,13 +1153,13 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setExpiresAt($expires_at)
+    public function setExpiresAt(?int $expires_at)
     {
         if (is_null($expires_at)) {
             array_push($this->openAPINullablesSetToNull, 'expires_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('expires_at', $nullablesSetToNull, true);
+            $index = array_search('expires_at', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -1181,14 +1169,13 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -1197,11 +1184,11 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -1212,10 +1199,8 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -1228,11 +1213,9 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -1240,12 +1223,12 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -1274,5 +1257,3 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, \JsonS
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

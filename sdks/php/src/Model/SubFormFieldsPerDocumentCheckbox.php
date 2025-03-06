@@ -1,14 +1,11 @@
 <?php
-
 /**
  * SubFormFieldsPerDocumentCheckbox
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,16 +26,17 @@
  */
 
 namespace Dropbox\Sign\Model;
-use \Dropbox\Sign\ObjectSerializer;
+
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use ReturnTypeWillChange;
 
 /**
  * SubFormFieldsPerDocumentCheckbox Class Doc Comment
  *
  * @category Class
  * @description This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
 class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
@@ -46,52 +44,52 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubFormFieldsPerDocumentCheckbox';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'type' => 'string',
         'is_checked' => 'bool',
-        'group' => 'string'
+        'group' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'type' => null,
         'is_checked' => null,
-        'group' => null
+        'group' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'type' => false,
         'is_checked' => false,
-        'group' => false
+        'group' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -116,8 +114,6 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -127,7 +123,7 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -137,7 +133,7 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -146,9 +142,6 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -157,9 +150,6 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -175,7 +165,7 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     protected static $attributeMap = [
         'type' => 'type',
         'is_checked' => 'is_checked',
-        'group' => 'group'
+        'group' => 'group',
     ];
 
     /**
@@ -186,7 +176,7 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     protected static $setters = [
         'type' => 'setType',
         'is_checked' => 'setIsChecked',
-        'group' => 'setGroup'
+        'group' => 'setGroup',
     ];
 
     /**
@@ -197,7 +187,7 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     protected static $getters = [
         'type' => 'getType',
         'is_checked' => 'getIsChecked',
-        'group' => 'getGroup'
+        'group' => 'getGroup',
     ];
 
     /**
@@ -241,13 +231,11 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
         return self::$openAPIModelName;
     }
 
-
-
     /**
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -258,34 +246,33 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
         $this->setIfExists('group', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SubFormFieldsPerDocumentCheckbox
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SubFormFieldsPerDocumentCheckbox
     {
         /** @var SubFormFieldsPerDocumentCheckbox */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SubFormFieldsPerDocumentCheckbox::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -324,7 +311,6 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets type
      *
@@ -342,10 +328,10 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -365,14 +351,14 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     /**
      * Sets is_checked
      *
-     * @param bool $is_checked `true` for checking the checkbox field by default, otherwise `false`.
+     * @param bool $is_checked `true` for checking the checkbox field by default, otherwise `false`
      *
      * @return self
      */
-    public function setIsChecked($is_checked)
+    public function setIsChecked(bool $is_checked)
     {
         if (is_null($is_checked)) {
-            throw new \InvalidArgumentException('non-nullable is_checked cannot be null');
+            throw new InvalidArgumentException('non-nullable is_checked cannot be null');
         }
         $this->container['is_checked'] = $is_checked;
 
@@ -392,27 +378,26 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     /**
      * Sets group
      *
-     * @param string|null $group String referencing group defined in `form_field_groups` parameter.
+     * @param string|null $group string referencing group defined in `form_field_groups` parameter
      *
      * @return self
      */
-    public function setGroup($group)
+    public function setGroup(?string $group)
     {
         if (is_null($group)) {
-            throw new \InvalidArgumentException('non-nullable group cannot be null');
+            throw new InvalidArgumentException('non-nullable group cannot be null');
         }
         $this->container['group'] = $group;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -421,11 +406,11 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -436,10 +421,8 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -452,11 +435,9 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -464,12 +445,12 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -498,5 +479,3 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

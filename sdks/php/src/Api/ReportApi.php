@@ -1,13 +1,10 @@
 <?php
-
 /**
  * ReportApi
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,6 +26,11 @@
 
 namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -36,44 +38,34 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\ObjectSerializer;
-use Dropbox\Sign\Model;
+use InvalidArgumentException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 
 /**
  * ReportApi Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class ReportApi
 {
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var Configuration
-     */
+    /** @var Configuration */
     protected $config;
 
-    /**
-     * @var HeaderSelector
-     */
+    /** @var HeaderSelector */
     protected $headerSelector;
 
-    /**
-     * @var int Host index
-     */
+    /** @var int Host index */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /**
+     * @var string[] *
+     */
     public const contentTypes = [
         'reportCreate' => [
             'application/json',
@@ -84,10 +76,7 @@ class ReportApi
     protected $response;
 
     /**
-     * @param Configuration   $config
-     * @param ClientInterface $client
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ?Configuration $config = null,
@@ -107,7 +96,7 @@ class ReportApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex(int $hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -144,13 +133,13 @@ class ReportApi
      *
      * Create Report
      *
-     * @param  Model\ReportCreateRequest $report_create_request report_create_request (required)
+     * @param Model\ReportCreateRequest $report_create_request report_create_request (required)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return Model\ReportCreateResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function reportCreate($report_create_request)
+    public function reportCreate(Model\ReportCreateRequest $report_create_request)
     {
         list($response) = $this->reportCreateWithHttpInfo($report_create_request);
         return $response;
@@ -161,15 +150,15 @@ class ReportApi
      *
      * Create Report
      *
-     * @param  Model\ReportCreateRequest $report_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
+     * @param Model\ReportCreateRequest $report_create_request (required)
+     * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of Model\ReportCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
-    public function reportCreateWithHttpInfo($report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreateWithHttpInfo(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
         $request = $this->reportCreateRequest($report_create_request, $contentType);
 
@@ -181,21 +170,20 @@ class ReportApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
             }
 
             $statusCode = $response->getStatusCode();
-
 
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -206,17 +194,16 @@ class ReportApi
                 return $result;
             }
 
-
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\ReportCreateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\ReportCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -233,9 +220,8 @@ class ReportApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ReportCreateResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -243,23 +229,23 @@ class ReportApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             $returnType = '\Dropbox\Sign\Model\ReportCreateResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -276,11 +262,9 @@ class ReportApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -293,7 +277,6 @@ class ReportApi
                     );
                     $e->setResponseObject($data);
                     break;
-
             }
             throw $e;
         }
@@ -304,14 +287,14 @@ class ReportApi
      *
      * Create Report
      *
-     * @param  Model\ReportCreateRequest $report_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
+     * @param Model\ReportCreateRequest $report_create_request (required)
+     * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
-    public function reportCreateAsync($report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreateAsync(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
         return $this->reportCreateAsyncWithHttpInfo($report_create_request, $contentType)
             ->then(
@@ -326,14 +309,14 @@ class ReportApi
      *
      * Create Report
      *
-     * @param  Model\ReportCreateRequest $report_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
+     * @param Model\ReportCreateRequest $report_create_request (required)
+     * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
-    public function reportCreateAsyncWithHttpInfo($report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreateAsyncWithHttpInfo(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\ReportCreateResponse';
         $request = $this->reportCreateRequest($report_create_request, $contentType);
@@ -343,9 +326,9 @@ class ReportApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -354,7 +337,7 @@ class ReportApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -368,7 +351,7 @@ class ReportApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -377,23 +360,21 @@ class ReportApi
     /**
      * Create request for operation 'reportCreate'
      *
-     * @param  Model\ReportCreateRequest $report_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
+     * @param Model\ReportCreateRequest $report_create_request (required)
+     * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
-    public function reportCreateRequest($report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreateRequest(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
-
         // verify the required parameter 'report_create_request' is set
         if ($report_create_request === null || (is_array($report_create_request) && count($report_create_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $report_create_request when calling reportCreate'
             );
         }
-
 
         $resourcePath = '/report/create';
         $formParams = [];
@@ -408,11 +389,8 @@ class ReportApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -420,7 +398,7 @@ class ReportApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($report_create_request));
             } else {
                 $httpBody = $report_create_request;
@@ -433,7 +411,7 @@ class ReportApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -450,9 +428,8 @@ class ReportApi
                     $payloadHook('multipart', $multipartContents, $report_create_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -489,8 +466,8 @@ class ReportApi
     /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -498,7 +475,7 @@ class ReportApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -514,8 +491,8 @@ class ReportApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -525,9 +502,9 @@ class ReportApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); //stream goes to serializer
+            $content = $response->getBody(); // stream goes to serializer
         } else {
-            $content = (string) $response->getBody();
+            $content = (string)$response->getBody();
         }
 
         return [
@@ -546,8 +523,8 @@ class ReportApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

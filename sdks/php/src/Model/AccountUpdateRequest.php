@@ -1,14 +1,11 @@
 <?php
-
 /**
  * AccountUpdateRequest
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,69 +27,70 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * AccountUpdateRequest Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class AccountUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'AccountUpdateRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'account_id' => 'string',
         'callback_url' => 'string',
-        'locale' => 'string'
+        'locale' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'account_id' => null,
         'callback_url' => null,
-        'locale' => null
+        'locale' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'account_id' => true,
         'callback_url' => false,
-        'locale' => false
+        'locale' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -117,8 +115,6 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -128,7 +124,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -138,7 +134,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -147,9 +143,6 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -158,9 +151,6 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -176,7 +166,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'account_id' => 'account_id',
         'callback_url' => 'callback_url',
-        'locale' => 'locale'
+        'locale' => 'locale',
     ];
 
     /**
@@ -187,7 +177,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'account_id' => 'setAccountId',
         'callback_url' => 'setCallbackUrl',
-        'locale' => 'setLocale'
+        'locale' => 'setLocale',
     ];
 
     /**
@@ -198,7 +188,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'account_id' => 'getAccountId',
         'callback_url' => 'getCallbackUrl',
-        'locale' => 'getLocale'
+        'locale' => 'getLocale',
     ];
 
     /**
@@ -242,7 +232,6 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -254,7 +243,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -263,34 +252,33 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('locale', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): AccountUpdateRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): AccountUpdateRequest
     {
         /** @var AccountUpdateRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             AccountUpdateRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -307,9 +295,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -322,7 +308,6 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets account_id
@@ -341,13 +326,13 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setAccountId($account_id)
+    public function setAccountId(?string $account_id)
     {
         if (is_null($account_id)) {
             array_push($this->openAPINullablesSetToNull, 'account_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_id', $nullablesSetToNull, true);
+            $index = array_search('account_id', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -371,14 +356,14 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url The URL that Dropbox Sign should POST events to.
+     * @param string|null $callback_url the URL that Dropbox Sign should POST events to
      *
      * @return self
      */
-    public function setCallbackUrl($callback_url)
+    public function setCallbackUrl(?string $callback_url)
     {
         if (is_null($callback_url)) {
-            throw new \InvalidArgumentException('non-nullable callback_url cannot be null');
+            throw new InvalidArgumentException('non-nullable callback_url cannot be null');
         }
         $this->container['callback_url'] = $callback_url;
 
@@ -402,23 +387,22 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setLocale($locale)
+    public function setLocale(?string $locale)
     {
         if (is_null($locale)) {
-            throw new \InvalidArgumentException('non-nullable locale cannot be null');
+            throw new InvalidArgumentException('non-nullable locale cannot be null');
         }
         $this->container['locale'] = $locale;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -427,11 +411,11 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -442,10 +426,8 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -458,11 +440,9 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -470,12 +450,12 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -504,5 +484,3 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

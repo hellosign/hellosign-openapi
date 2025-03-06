@@ -1,14 +1,11 @@
 <?php
-
 /**
  * EmbeddedSignUrlResponseEmbedded
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,67 +27,68 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * EmbeddedSignUrlResponseEmbedded Class Doc Comment
  *
  * @category Class
  * @description An object that contains necessary information to set up embedded signing.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \JsonSerializable
+class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'EmbeddedSignUrlResponseEmbedded';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'sign_url' => 'string',
-        'expires_at' => 'int'
+        'expires_at' => 'int',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'sign_url' => null,
-        'expires_at' => null
+        'expires_at' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'sign_url' => false,
-        'expires_at' => false
+        'expires_at' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -115,8 +113,6 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -126,7 +122,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -136,7 +132,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -145,9 +141,6 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -156,9 +149,6 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -173,7 +163,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
      */
     protected static $attributeMap = [
         'sign_url' => 'sign_url',
-        'expires_at' => 'expires_at'
+        'expires_at' => 'expires_at',
     ];
 
     /**
@@ -183,7 +173,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
      */
     protected static $setters = [
         'sign_url' => 'setSignUrl',
-        'expires_at' => 'setExpiresAt'
+        'expires_at' => 'setExpiresAt',
     ];
 
     /**
@@ -193,7 +183,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
      */
     protected static $getters = [
         'sign_url' => 'getSignUrl',
-        'expires_at' => 'getExpiresAt'
+        'expires_at' => 'getExpiresAt',
     ];
 
     /**
@@ -237,7 +227,6 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -249,7 +238,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -257,34 +246,33 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): EmbeddedSignUrlResponseEmbedded
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): EmbeddedSignUrlResponseEmbedded
     {
         /** @var EmbeddedSignUrlResponseEmbedded */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             EmbeddedSignUrlResponseEmbedded::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -301,9 +289,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -316,7 +302,6 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets sign_url
@@ -331,14 +316,14 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
     /**
      * Sets sign_url
      *
-     * @param string|null $sign_url A signature url that can be opened in an iFrame.
+     * @param string|null $sign_url a signature url that can be opened in an iFrame
      *
      * @return self
      */
-    public function setSignUrl($sign_url)
+    public function setSignUrl(?string $sign_url)
     {
         if (is_null($sign_url)) {
-            throw new \InvalidArgumentException('non-nullable sign_url cannot be null');
+            throw new InvalidArgumentException('non-nullable sign_url cannot be null');
         }
         $this->container['sign_url'] = $sign_url;
 
@@ -358,27 +343,26 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at The specific time that the the `sign_url` link expires, in epoch.
+     * @param int|null $expires_at the specific time that the the `sign_url` link expires, in epoch
      *
      * @return self
      */
-    public function setExpiresAt($expires_at)
+    public function setExpiresAt(?int $expires_at)
     {
         if (is_null($expires_at)) {
-            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
+            throw new InvalidArgumentException('non-nullable expires_at cannot be null');
         }
         $this->container['expires_at'] = $expires_at;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -387,11 +371,11 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -402,10 +386,8 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -418,11 +400,9 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -430,12 +410,12 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -464,5 +444,3 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, \J
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -1,14 +1,11 @@
 <?php
-
 /**
  * EventCallbackRequest
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,72 +27,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * EventCallbackRequest Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class EventCallbackRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'EventCallbackRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'event' => '\Dropbox\Sign\Model\EventCallbackRequestEvent',
         'account' => '\Dropbox\Sign\Model\AccountResponse',
         'signature_request' => '\Dropbox\Sign\Model\SignatureRequestResponse',
-        'template' => '\Dropbox\Sign\Model\TemplateResponse'
+        'template' => '\Dropbox\Sign\Model\TemplateResponse',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'event' => null,
         'account' => null,
         'signature_request' => null,
-        'template' => null
+        'template' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'event' => false,
         'account' => false,
         'signature_request' => false,
-        'template' => false
+        'template' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -120,8 +118,6 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -131,7 +127,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -141,7 +137,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -150,9 +146,6 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -161,9 +154,6 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -180,7 +170,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'event' => 'event',
         'account' => 'account',
         'signature_request' => 'signature_request',
-        'template' => 'template'
+        'template' => 'template',
     ];
 
     /**
@@ -192,7 +182,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'event' => 'setEvent',
         'account' => 'setAccount',
         'signature_request' => 'setSignatureRequest',
-        'template' => 'setTemplate'
+        'template' => 'setTemplate',
     ];
 
     /**
@@ -204,7 +194,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'event' => 'getEvent',
         'account' => 'getAccount',
         'signature_request' => 'getSignatureRequest',
-        'template' => 'getTemplate'
+        'template' => 'getTemplate',
     ];
 
     /**
@@ -248,7 +238,6 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -260,7 +249,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -270,34 +259,33 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('template', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): EventCallbackRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): EventCallbackRequest
     {
         /** @var EventCallbackRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             EventCallbackRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -333,7 +321,6 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets event
      *
@@ -351,10 +338,10 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setEvent($event)
+    public function setEvent(EventCallbackRequestEvent $event)
     {
         if (is_null($event)) {
-            throw new \InvalidArgumentException('non-nullable event cannot be null');
+            throw new InvalidArgumentException('non-nullable event cannot be null');
         }
         $this->container['event'] = $event;
 
@@ -378,10 +365,10 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setAccount($account)
+    public function setAccount(?AccountResponse $account)
     {
         if (is_null($account)) {
-            throw new \InvalidArgumentException('non-nullable account cannot be null');
+            throw new InvalidArgumentException('non-nullable account cannot be null');
         }
         $this->container['account'] = $account;
 
@@ -405,10 +392,10 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setSignatureRequest($signature_request)
+    public function setSignatureRequest(?SignatureRequestResponse $signature_request)
     {
         if (is_null($signature_request)) {
-            throw new \InvalidArgumentException('non-nullable signature_request cannot be null');
+            throw new InvalidArgumentException('non-nullable signature_request cannot be null');
         }
         $this->container['signature_request'] = $signature_request;
 
@@ -432,23 +419,22 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setTemplate($template)
+    public function setTemplate(?TemplateResponse $template)
     {
         if (is_null($template)) {
-            throw new \InvalidArgumentException('non-nullable template cannot be null');
+            throw new InvalidArgumentException('non-nullable template cannot be null');
         }
         $this->container['template'] = $template;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -457,11 +443,11 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -472,10 +458,8 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -488,11 +472,9 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -500,12 +482,12 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -534,5 +516,3 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

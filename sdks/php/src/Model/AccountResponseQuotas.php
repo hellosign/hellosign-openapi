@@ -1,14 +1,11 @@
 <?php
-
 /**
  * AccountResponseQuotas
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,79 +27,79 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * AccountResponseQuotas Class Doc Comment
  *
  * @category Class
  * @description Details concerning remaining monthly quotas.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSerializable
+class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'AccountResponseQuotas';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'api_signature_requests_left' => 'int',
         'documents_left' => 'int',
         'templates_total' => 'int',
         'templates_left' => 'int',
         'sms_verifications_left' => 'int',
-        'num_fax_pages_left' => 'int'
+        'num_fax_pages_left' => 'int',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'api_signature_requests_left' => null,
         'documents_left' => null,
         'templates_total' => null,
         'templates_left' => null,
         'sms_verifications_left' => null,
-        'num_fax_pages_left' => null
+        'num_fax_pages_left' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'api_signature_requests_left' => true,
         'documents_left' => true,
         'templates_total' => true,
         'templates_left' => true,
         'sms_verifications_left' => true,
-        'num_fax_pages_left' => true
+        'num_fax_pages_left' => true,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -127,8 +124,6 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -138,7 +133,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -148,7 +143,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -157,9 +152,6 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -168,9 +160,6 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -189,7 +178,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
         'templates_total' => 'templates_total',
         'templates_left' => 'templates_left',
         'sms_verifications_left' => 'sms_verifications_left',
-        'num_fax_pages_left' => 'num_fax_pages_left'
+        'num_fax_pages_left' => 'num_fax_pages_left',
     ];
 
     /**
@@ -203,7 +192,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
         'templates_total' => 'setTemplatesTotal',
         'templates_left' => 'setTemplatesLeft',
         'sms_verifications_left' => 'setSmsVerificationsLeft',
-        'num_fax_pages_left' => 'setNumFaxPagesLeft'
+        'num_fax_pages_left' => 'setNumFaxPagesLeft',
     ];
 
     /**
@@ -217,7 +206,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
         'templates_total' => 'getTemplatesTotal',
         'templates_left' => 'getTemplatesLeft',
         'sms_verifications_left' => 'getSmsVerificationsLeft',
-        'num_fax_pages_left' => 'getNumFaxPagesLeft'
+        'num_fax_pages_left' => 'getNumFaxPagesLeft',
     ];
 
     /**
@@ -261,7 +250,6 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -273,7 +261,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -285,34 +273,33 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('num_fax_pages_left', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): AccountResponseQuotas
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): AccountResponseQuotas
     {
         /** @var AccountResponseQuotas */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             AccountResponseQuotas::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -329,9 +316,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -344,7 +329,6 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets api_signature_requests_left
@@ -359,17 +343,17 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets api_signature_requests_left
      *
-     * @param int|null $api_signature_requests_left API signature requests remaining.
+     * @param int|null $api_signature_requests_left API signature requests remaining
      *
      * @return self
      */
-    public function setApiSignatureRequestsLeft($api_signature_requests_left)
+    public function setApiSignatureRequestsLeft(?int $api_signature_requests_left)
     {
         if (is_null($api_signature_requests_left)) {
             array_push($this->openAPINullablesSetToNull, 'api_signature_requests_left');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('api_signature_requests_left', $nullablesSetToNull, true);
+            $index = array_search('api_signature_requests_left', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -393,17 +377,17 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets documents_left
      *
-     * @param int|null $documents_left Signature requests remaining.
+     * @param int|null $documents_left signature requests remaining
      *
      * @return self
      */
-    public function setDocumentsLeft($documents_left)
+    public function setDocumentsLeft(?int $documents_left)
     {
         if (is_null($documents_left)) {
             array_push($this->openAPINullablesSetToNull, 'documents_left');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('documents_left', $nullablesSetToNull, true);
+            $index = array_search('documents_left', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -427,17 +411,17 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets templates_total
      *
-     * @param int|null $templates_total Total API templates allowed.
+     * @param int|null $templates_total total API templates allowed
      *
      * @return self
      */
-    public function setTemplatesTotal($templates_total)
+    public function setTemplatesTotal(?int $templates_total)
     {
         if (is_null($templates_total)) {
             array_push($this->openAPINullablesSetToNull, 'templates_total');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('templates_total', $nullablesSetToNull, true);
+            $index = array_search('templates_total', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -461,17 +445,17 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets templates_left
      *
-     * @param int|null $templates_left API templates remaining.
+     * @param int|null $templates_left API templates remaining
      *
      * @return self
      */
-    public function setTemplatesLeft($templates_left)
+    public function setTemplatesLeft(?int $templates_left)
     {
         if (is_null($templates_left)) {
             array_push($this->openAPINullablesSetToNull, 'templates_left');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('templates_left', $nullablesSetToNull, true);
+            $index = array_search('templates_left', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -495,17 +479,17 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets sms_verifications_left
      *
-     * @param int|null $sms_verifications_left SMS verifications remaining.
+     * @param int|null $sms_verifications_left SMS verifications remaining
      *
      * @return self
      */
-    public function setSmsVerificationsLeft($sms_verifications_left)
+    public function setSmsVerificationsLeft(?int $sms_verifications_left)
     {
         if (is_null($sms_verifications_left)) {
             array_push($this->openAPINullablesSetToNull, 'sms_verifications_left');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sms_verifications_left', $nullablesSetToNull, true);
+            $index = array_search('sms_verifications_left', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -533,13 +517,13 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setNumFaxPagesLeft($num_fax_pages_left)
+    public function setNumFaxPagesLeft(?int $num_fax_pages_left)
     {
         if (is_null($num_fax_pages_left)) {
             array_push($this->openAPINullablesSetToNull, 'num_fax_pages_left');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('num_fax_pages_left', $nullablesSetToNull, true);
+            $index = array_search('num_fax_pages_left', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -549,14 +533,13 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -565,11 +548,11 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -580,10 +563,8 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -596,11 +577,9 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -608,12 +587,12 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -642,5 +621,3 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, \JsonSeriali
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

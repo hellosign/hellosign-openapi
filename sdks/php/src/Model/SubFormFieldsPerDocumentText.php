@@ -1,14 +1,11 @@
 <?php
-
 /**
  * SubFormFieldsPerDocumentText
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,16 +26,17 @@
  */
 
 namespace Dropbox\Sign\Model;
-use \Dropbox\Sign\ObjectSerializer;
+
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use ReturnTypeWillChange;
 
 /**
  * SubFormFieldsPerDocumentText Class Doc Comment
  *
  * @category Class
  * @description This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
 class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
@@ -46,17 +44,17 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubFormFieldsPerDocumentText';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'type' => 'string',
         'placeholder' => 'string',
@@ -68,16 +66,16 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_custom_regex_format_label' => 'string',
         'content' => 'string',
         'font_family' => 'string',
-        'font_size' => 'int'
+        'font_size' => 'int',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'type' => null,
         'placeholder' => null,
@@ -89,14 +87,14 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_custom_regex_format_label' => null,
         'content' => null,
         'font_family' => null,
-        'font_size' => null
+        'font_size' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'type' => false,
         'placeholder' => false,
@@ -108,14 +106,14 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_custom_regex_format_label' => false,
         'content' => false,
         'font_family' => false,
-        'font_size' => false
+        'font_size' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -140,8 +138,6 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -151,7 +147,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -161,7 +157,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -170,9 +166,6 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -181,9 +174,6 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -207,7 +197,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_custom_regex_format_label' => 'validation_custom_regex_format_label',
         'content' => 'content',
         'font_family' => 'font_family',
-        'font_size' => 'font_size'
+        'font_size' => 'font_size',
     ];
 
     /**
@@ -226,7 +216,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_custom_regex_format_label' => 'setValidationCustomRegexFormatLabel',
         'content' => 'setContent',
         'font_family' => 'setFontFamily',
-        'font_size' => 'setFontSize'
+        'font_size' => 'setFontSize',
     ];
 
     /**
@@ -245,7 +235,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_custom_regex_format_label' => 'getValidationCustomRegexFormatLabel',
         'content' => 'getContent',
         'font_family' => 'getFontFamily',
-        'font_size' => 'getFontSize'
+        'font_size' => 'getFontSize',
     ];
 
     /**
@@ -364,12 +354,11 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         ];
     }
 
-
     /**
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -388,34 +377,33 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         $this->setIfExists('font_size', $data ?? [], 12);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SubFormFieldsPerDocumentText
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SubFormFieldsPerDocumentText
     {
         /** @var SubFormFieldsPerDocumentText */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SubFormFieldsPerDocumentText::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -469,7 +457,6 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets type
      *
@@ -487,10 +474,10 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -510,14 +497,14 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     /**
      * Sets placeholder
      *
-     * @param string|null $placeholder Placeholder value for text field.
+     * @param string|null $placeholder placeholder value for text field
      *
      * @return self
      */
-    public function setPlaceholder($placeholder)
+    public function setPlaceholder(?string $placeholder)
     {
         if (is_null($placeholder)) {
-            throw new \InvalidArgumentException('non-nullable placeholder cannot be null');
+            throw new InvalidArgumentException('non-nullable placeholder cannot be null');
         }
         $this->container['placeholder'] = $placeholder;
 
@@ -541,10 +528,10 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setAutoFillType($auto_fill_type)
+    public function setAutoFillType(?string $auto_fill_type)
     {
         if (is_null($auto_fill_type)) {
-            throw new \InvalidArgumentException('non-nullable auto_fill_type cannot be null');
+            throw new InvalidArgumentException('non-nullable auto_fill_type cannot be null');
         }
         $this->container['auto_fill_type'] = $auto_fill_type;
 
@@ -568,10 +555,10 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setLinkId($link_id)
+    public function setLinkId(?string $link_id)
     {
         if (is_null($link_id)) {
-            throw new \InvalidArgumentException('non-nullable link_id cannot be null');
+            throw new InvalidArgumentException('non-nullable link_id cannot be null');
         }
         $this->container['link_id'] = $link_id;
 
@@ -595,10 +582,10 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setMasked($masked)
+    public function setMasked(?bool $masked)
     {
         if (is_null($masked)) {
-            throw new \InvalidArgumentException('non-nullable masked cannot be null');
+            throw new InvalidArgumentException('non-nullable masked cannot be null');
         }
         $this->container['masked'] = $masked;
 
@@ -622,14 +609,14 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setValidationType($validation_type)
+    public function setValidationType(?string $validation_type)
     {
         if (is_null($validation_type)) {
-            throw new \InvalidArgumentException('non-nullable validation_type cannot be null');
+            throw new InvalidArgumentException('non-nullable validation_type cannot be null');
         }
         $allowedValues = $this->getValidationTypeAllowableValues();
         if (!in_array($validation_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'validation_type', must be one of '%s'",
                     $validation_type,
@@ -659,10 +646,10 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setValidationCustomRegex($validation_custom_regex)
+    public function setValidationCustomRegex(?string $validation_custom_regex)
     {
         if (is_null($validation_custom_regex)) {
-            throw new \InvalidArgumentException('non-nullable validation_custom_regex cannot be null');
+            throw new InvalidArgumentException('non-nullable validation_custom_regex cannot be null');
         }
         $this->container['validation_custom_regex'] = $validation_custom_regex;
 
@@ -686,10 +673,10 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setValidationCustomRegexFormatLabel($validation_custom_regex_format_label)
+    public function setValidationCustomRegexFormatLabel(?string $validation_custom_regex_format_label)
     {
         if (is_null($validation_custom_regex_format_label)) {
-            throw new \InvalidArgumentException('non-nullable validation_custom_regex_format_label cannot be null');
+            throw new InvalidArgumentException('non-nullable validation_custom_regex_format_label cannot be null');
         }
         $this->container['validation_custom_regex_format_label'] = $validation_custom_regex_format_label;
 
@@ -713,10 +700,10 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setContent($content)
+    public function setContent(?string $content)
     {
         if (is_null($content)) {
-            throw new \InvalidArgumentException('non-nullable content cannot be null');
+            throw new InvalidArgumentException('non-nullable content cannot be null');
         }
         $this->container['content'] = $content;
 
@@ -736,18 +723,18 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     /**
      * Sets font_family
      *
-     * @param string|null $font_family Font family for the field.
+     * @param string|null $font_family font family for the field
      *
      * @return self
      */
-    public function setFontFamily($font_family)
+    public function setFontFamily(?string $font_family)
     {
         if (is_null($font_family)) {
-            throw new \InvalidArgumentException('non-nullable font_family cannot be null');
+            throw new InvalidArgumentException('non-nullable font_family cannot be null');
         }
         $allowedValues = $this->getFontFamilyAllowableValues();
         if (!in_array($font_family, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'font_family', must be one of '%s'",
                     $font_family,
@@ -777,23 +764,22 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @return self
      */
-    public function setFontSize($font_size)
+    public function setFontSize(?int $font_size)
     {
         if (is_null($font_size)) {
-            throw new \InvalidArgumentException('non-nullable font_size cannot be null');
+            throw new InvalidArgumentException('non-nullable font_size cannot be null');
         }
         $this->container['font_size'] = $font_size;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -802,11 +788,11 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -817,10 +803,8 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -833,11 +817,9 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -845,12 +827,12 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -879,5 +861,3 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -1,14 +1,11 @@
 <?php
-
 /**
  * BulkSendJobResponse
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,73 +27,74 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * BulkSendJobResponse Class Doc Comment
  *
  * @category Class
  * @description Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'BulkSendJobResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'bulk_send_job_id' => 'string',
         'total' => 'int',
         'is_creator' => 'bool',
-        'created_at' => 'int'
+        'created_at' => 'int',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'bulk_send_job_id' => null,
         'total' => null,
         'is_creator' => null,
-        'created_at' => null
+        'created_at' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'bulk_send_job_id' => true,
         'total' => false,
         'is_creator' => false,
-        'created_at' => false
+        'created_at' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -121,8 +119,6 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -132,7 +128,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -142,7 +138,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -151,9 +147,6 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -162,9 +155,6 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -181,7 +171,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'bulk_send_job_id' => 'bulk_send_job_id',
         'total' => 'total',
         'is_creator' => 'is_creator',
-        'created_at' => 'created_at'
+        'created_at' => 'created_at',
     ];
 
     /**
@@ -193,7 +183,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'bulk_send_job_id' => 'setBulkSendJobId',
         'total' => 'setTotal',
         'is_creator' => 'setIsCreator',
-        'created_at' => 'setCreatedAt'
+        'created_at' => 'setCreatedAt',
     ];
 
     /**
@@ -205,7 +195,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'bulk_send_job_id' => 'getBulkSendJobId',
         'total' => 'getTotal',
         'is_creator' => 'getIsCreator',
-        'created_at' => 'getCreatedAt'
+        'created_at' => 'getCreatedAt',
     ];
 
     /**
@@ -249,7 +239,6 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -261,7 +250,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -271,34 +260,33 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('created_at', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): BulkSendJobResponse
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): BulkSendJobResponse
     {
         /** @var BulkSendJobResponse */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             BulkSendJobResponse::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -315,9 +303,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -330,7 +316,6 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets bulk_send_job_id
@@ -345,17 +330,17 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets bulk_send_job_id
      *
-     * @param string|null $bulk_send_job_id The id of the BulkSendJob.
+     * @param string|null $bulk_send_job_id the id of the BulkSendJob
      *
      * @return self
      */
-    public function setBulkSendJobId($bulk_send_job_id)
+    public function setBulkSendJobId(?string $bulk_send_job_id)
     {
         if (is_null($bulk_send_job_id)) {
             array_push($this->openAPINullablesSetToNull, 'bulk_send_job_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('bulk_send_job_id', $nullablesSetToNull, true);
+            $index = array_search('bulk_send_job_id', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -379,14 +364,14 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets total
      *
-     * @param int|null $total The total amount of Signature Requests queued for sending.
+     * @param int|null $total the total amount of Signature Requests queued for sending
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setTotal(?int $total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            throw new InvalidArgumentException('non-nullable total cannot be null');
         }
         $this->container['total'] = $total;
 
@@ -406,14 +391,14 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets is_creator
      *
-     * @param bool|null $is_creator True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.
+     * @param bool|null $is_creator true if you are the owner of this BulkSendJob, false if it's been shared with you by a team member
      *
      * @return self
      */
-    public function setIsCreator($is_creator)
+    public function setIsCreator(?bool $is_creator)
     {
         if (is_null($is_creator)) {
-            throw new \InvalidArgumentException('non-nullable is_creator cannot be null');
+            throw new InvalidArgumentException('non-nullable is_creator cannot be null');
         }
         $this->container['is_creator'] = $is_creator;
 
@@ -433,27 +418,26 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets created_at
      *
-     * @param int|null $created_at Time that the BulkSendJob was created.
+     * @param int|null $created_at time that the BulkSendJob was created
      *
      * @return self
      */
-    public function setCreatedAt($created_at)
+    public function setCreatedAt(?int $created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            throw new InvalidArgumentException('non-nullable created_at cannot be null');
         }
         $this->container['created_at'] = $created_at;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -462,11 +446,11 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -477,10 +461,8 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -493,11 +475,9 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -505,12 +485,12 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -539,5 +519,3 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -1,14 +1,11 @@
 <?php
-
 /**
  * SubSignatureRequestTemplateSigner
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -30,78 +27,79 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SubSignatureRequestTemplateSigner Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubSignatureRequestTemplateSigner';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'role' => 'string',
         'name' => 'string',
         'email_address' => 'string',
         'pin' => 'string',
         'sms_phone_number' => 'string',
-        'sms_phone_number_type' => 'string'
+        'sms_phone_number_type' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'role' => null,
         'name' => null,
         'email_address' => 'email',
         'pin' => null,
         'sms_phone_number' => null,
-        'sms_phone_number_type' => null
+        'sms_phone_number_type' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'role' => false,
         'name' => false,
         'email_address' => false,
         'pin' => false,
         'sms_phone_number' => false,
-        'sms_phone_number_type' => false
+        'sms_phone_number_type' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -126,8 +124,6 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -137,7 +133,7 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -147,7 +143,7 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -156,9 +152,6 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -167,9 +160,6 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -188,7 +178,7 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
         'email_address' => 'email_address',
         'pin' => 'pin',
         'sms_phone_number' => 'sms_phone_number',
-        'sms_phone_number_type' => 'sms_phone_number_type'
+        'sms_phone_number_type' => 'sms_phone_number_type',
     ];
 
     /**
@@ -202,7 +192,7 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
         'email_address' => 'setEmailAddress',
         'pin' => 'setPin',
         'sms_phone_number' => 'setSmsPhoneNumber',
-        'sms_phone_number_type' => 'setSmsPhoneNumberType'
+        'sms_phone_number_type' => 'setSmsPhoneNumberType',
     ];
 
     /**
@@ -216,7 +206,7 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
         'email_address' => 'getEmailAddress',
         'pin' => 'getPin',
         'sms_phone_number' => 'getSmsPhoneNumber',
-        'sms_phone_number_type' => 'getSmsPhoneNumberType'
+        'sms_phone_number_type' => 'getSmsPhoneNumberType',
     ];
 
     /**
@@ -287,7 +277,7 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
      * Constructor
      *
      * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
+     *                           initializing the model
      */
     public function __construct(?array $data = null)
     {
@@ -299,34 +289,33 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
         $this->setIfExists('sms_phone_number_type', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SubSignatureRequestTemplateSigner
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SubSignatureRequestTemplateSigner
     {
         /** @var SubSignatureRequestTemplateSigner */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SubSignatureRequestTemplateSigner::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -385,7 +374,6 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets role
      *
@@ -403,10 +391,10 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
      *
      * @return self
      */
-    public function setRole($role)
+    public function setRole(string $role)
     {
         if (is_null($role)) {
-            throw new \InvalidArgumentException('non-nullable role cannot be null');
+            throw new InvalidArgumentException('non-nullable role cannot be null');
         }
         $this->container['role'] = $role;
 
@@ -426,14 +414,14 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
     /**
      * Sets name
      *
-     * @param string $name The name of the signer.
+     * @param string $name the name of the signer
      *
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -453,14 +441,14 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
     /**
      * Sets email_address
      *
-     * @param string $email_address The email address of the signer.
+     * @param string $email_address the email address of the signer
      *
      * @return self
      */
-    public function setEmailAddress($email_address)
+    public function setEmailAddress(string $email_address)
     {
         if (is_null($email_address)) {
-            throw new \InvalidArgumentException('non-nullable email_address cannot be null');
+            throw new InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
 
@@ -480,20 +468,20 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
     /**
      * Sets pin
      *
-     * @param string|null $pin The 4- to 12-character access code that will secure this signer's signature page.
+     * @param string|null $pin the 4- to 12-character access code that will secure this signer's signature page
      *
      * @return self
      */
-    public function setPin($pin)
+    public function setPin(?string $pin)
     {
         if (is_null($pin)) {
-            throw new \InvalidArgumentException('non-nullable pin cannot be null');
+            throw new InvalidArgumentException('non-nullable pin cannot be null');
         }
-        if ((mb_strlen($pin) > 12)) {
-            throw new \InvalidArgumentException('invalid length for $pin when calling SubSignatureRequestTemplateSigner., must be smaller than or equal to 12.');
+        if (mb_strlen($pin) > 12) {
+            throw new InvalidArgumentException('invalid length for $pin when calling SubSignatureRequestTemplateSigner., must be smaller than or equal to 12.');
         }
-        if ((mb_strlen($pin) < 4)) {
-            throw new \InvalidArgumentException('invalid length for $pin when calling SubSignatureRequestTemplateSigner., must be bigger than or equal to 4.');
+        if (mb_strlen($pin) < 4) {
+            throw new InvalidArgumentException('invalid length for $pin when calling SubSignatureRequestTemplateSigner., must be bigger than or equal to 4.');
         }
 
         $this->container['pin'] = $pin;
@@ -518,10 +506,10 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
      *
      * @return self
      */
-    public function setSmsPhoneNumber($sms_phone_number)
+    public function setSmsPhoneNumber(?string $sms_phone_number)
     {
         if (is_null($sms_phone_number)) {
-            throw new \InvalidArgumentException('non-nullable sms_phone_number cannot be null');
+            throw new InvalidArgumentException('non-nullable sms_phone_number cannot be null');
         }
         $this->container['sms_phone_number'] = $sms_phone_number;
 
@@ -545,14 +533,14 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
      *
      * @return self
      */
-    public function setSmsPhoneNumberType($sms_phone_number_type)
+    public function setSmsPhoneNumberType(?string $sms_phone_number_type)
     {
         if (is_null($sms_phone_number_type)) {
-            throw new \InvalidArgumentException('non-nullable sms_phone_number_type cannot be null');
+            throw new InvalidArgumentException('non-nullable sms_phone_number_type cannot be null');
         }
         $allowedValues = $this->getSmsPhoneNumberTypeAllowableValues();
         if (!in_array($sms_phone_number_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'sms_phone_number_type', must be one of '%s'",
                     $sms_phone_number_type,
@@ -564,14 +552,13 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -580,11 +567,11 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -595,10 +582,8 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -611,11 +596,9 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -623,12 +606,12 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
@@ -657,5 +640,3 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
