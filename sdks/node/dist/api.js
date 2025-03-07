@@ -10794,6 +10794,14 @@ var require_follow_redirects = __commonJS({
   }
 });
 
+// node_modules/es-object-atoms/index.js
+var require_es_object_atoms = __commonJS({
+  "node_modules/es-object-atoms/index.js"(exports, module2) {
+    "use strict";
+    module2.exports = Object;
+  }
+});
+
 // node_modules/es-errors/index.js
 var require_es_errors = __commonJS({
   "node_modules/es-errors/index.js"(exports, module2) {
@@ -10850,6 +10858,118 @@ var require_uri = __commonJS({
   }
 });
 
+// node_modules/math-intrinsics/abs.js
+var require_abs = __commonJS({
+  "node_modules/math-intrinsics/abs.js"(exports, module2) {
+    "use strict";
+    module2.exports = Math.abs;
+  }
+});
+
+// node_modules/math-intrinsics/floor.js
+var require_floor = __commonJS({
+  "node_modules/math-intrinsics/floor.js"(exports, module2) {
+    "use strict";
+    module2.exports = Math.floor;
+  }
+});
+
+// node_modules/math-intrinsics/max.js
+var require_max = __commonJS({
+  "node_modules/math-intrinsics/max.js"(exports, module2) {
+    "use strict";
+    module2.exports = Math.max;
+  }
+});
+
+// node_modules/math-intrinsics/min.js
+var require_min = __commonJS({
+  "node_modules/math-intrinsics/min.js"(exports, module2) {
+    "use strict";
+    module2.exports = Math.min;
+  }
+});
+
+// node_modules/math-intrinsics/pow.js
+var require_pow = __commonJS({
+  "node_modules/math-intrinsics/pow.js"(exports, module2) {
+    "use strict";
+    module2.exports = Math.pow;
+  }
+});
+
+// node_modules/math-intrinsics/round.js
+var require_round = __commonJS({
+  "node_modules/math-intrinsics/round.js"(exports, module2) {
+    "use strict";
+    module2.exports = Math.round;
+  }
+});
+
+// node_modules/math-intrinsics/isNaN.js
+var require_isNaN = __commonJS({
+  "node_modules/math-intrinsics/isNaN.js"(exports, module2) {
+    "use strict";
+    module2.exports = Number.isNaN || function isNaN2(a) {
+      return a !== a;
+    };
+  }
+});
+
+// node_modules/math-intrinsics/sign.js
+var require_sign = __commonJS({
+  "node_modules/math-intrinsics/sign.js"(exports, module2) {
+    "use strict";
+    var $isNaN = require_isNaN();
+    module2.exports = function sign(number) {
+      if ($isNaN(number) || number === 0) {
+        return number;
+      }
+      return number < 0 ? -1 : 1;
+    };
+  }
+});
+
+// node_modules/gopd/gOPD.js
+var require_gOPD = __commonJS({
+  "node_modules/gopd/gOPD.js"(exports, module2) {
+    "use strict";
+    module2.exports = Object.getOwnPropertyDescriptor;
+  }
+});
+
+// node_modules/gopd/index.js
+var require_gopd = __commonJS({
+  "node_modules/gopd/index.js"(exports, module2) {
+    "use strict";
+    var $gOPD = require_gOPD();
+    if ($gOPD) {
+      try {
+        $gOPD([], "length");
+      } catch (e) {
+        $gOPD = null;
+      }
+    }
+    module2.exports = $gOPD;
+  }
+});
+
+// node_modules/es-define-property/index.js
+var require_es_define_property = __commonJS({
+  "node_modules/es-define-property/index.js"(exports, module2) {
+    "use strict";
+    var $defineProperty = Object.defineProperty || false;
+    if ($defineProperty) {
+      try {
+        $defineProperty({}, "a", { value: 1 });
+      } catch (e) {
+        $defineProperty = false;
+      }
+    }
+    module2.exports = $defineProperty;
+  }
+});
+
 // node_modules/has-symbols/shams.js
 var require_shams = __commonJS({
   "node_modules/has-symbols/shams.js"(exports, module2) {
@@ -10875,7 +10995,7 @@ var require_shams = __commonJS({
       }
       var symVal = 42;
       obj[sym] = symVal;
-      for (sym in obj) {
+      for (var _ in obj) {
         return false;
       }
       if (typeof Object.keys === "function" && Object.keys(obj).length !== 0) {
@@ -10926,18 +11046,20 @@ var require_has_symbols = __commonJS({
   }
 });
 
-// node_modules/has-proto/index.js
-var require_has_proto = __commonJS({
-  "node_modules/has-proto/index.js"(exports, module2) {
+// node_modules/get-proto/Reflect.getPrototypeOf.js
+var require_Reflect_getPrototypeOf = __commonJS({
+  "node_modules/get-proto/Reflect.getPrototypeOf.js"(exports, module2) {
     "use strict";
-    var test2 = {
-      __proto__: null,
-      foo: {}
-    };
-    var $Object = Object;
-    module2.exports = function hasProto() {
-      return { __proto__: test2 }.foo === test2.foo && !(test2 instanceof $Object);
-    };
+    module2.exports = typeof Reflect !== "undefined" && Reflect.getPrototypeOf || null;
+  }
+});
+
+// node_modules/get-proto/Object.getPrototypeOf.js
+var require_Object_getPrototypeOf = __commonJS({
+  "node_modules/get-proto/Object.getPrototypeOf.js"(exports, module2) {
+    "use strict";
+    var $Object = require_es_object_atoms();
+    module2.exports = $Object.getPrototypeOf || null;
   }
 });
 
@@ -11026,6 +11148,102 @@ var require_function_bind = __commonJS({
   }
 });
 
+// node_modules/call-bind-apply-helpers/functionCall.js
+var require_functionCall = __commonJS({
+  "node_modules/call-bind-apply-helpers/functionCall.js"(exports, module2) {
+    "use strict";
+    module2.exports = Function.prototype.call;
+  }
+});
+
+// node_modules/call-bind-apply-helpers/functionApply.js
+var require_functionApply = __commonJS({
+  "node_modules/call-bind-apply-helpers/functionApply.js"(exports, module2) {
+    "use strict";
+    module2.exports = Function.prototype.apply;
+  }
+});
+
+// node_modules/call-bind-apply-helpers/reflectApply.js
+var require_reflectApply = __commonJS({
+  "node_modules/call-bind-apply-helpers/reflectApply.js"(exports, module2) {
+    "use strict";
+    module2.exports = typeof Reflect !== "undefined" && Reflect && Reflect.apply;
+  }
+});
+
+// node_modules/call-bind-apply-helpers/actualApply.js
+var require_actualApply = __commonJS({
+  "node_modules/call-bind-apply-helpers/actualApply.js"(exports, module2) {
+    "use strict";
+    var bind2 = require_function_bind();
+    var $apply = require_functionApply();
+    var $call = require_functionCall();
+    var $reflectApply = require_reflectApply();
+    module2.exports = $reflectApply || bind2.call($call, $apply);
+  }
+});
+
+// node_modules/call-bind-apply-helpers/index.js
+var require_call_bind_apply_helpers = __commonJS({
+  "node_modules/call-bind-apply-helpers/index.js"(exports, module2) {
+    "use strict";
+    var bind2 = require_function_bind();
+    var $TypeError = require_type();
+    var $call = require_functionCall();
+    var $actualApply = require_actualApply();
+    module2.exports = function callBindBasic(args) {
+      if (args.length < 1 || typeof args[0] !== "function") {
+        throw new $TypeError("a function is required");
+      }
+      return $actualApply(bind2, $call, args);
+    };
+  }
+});
+
+// node_modules/dunder-proto/get.js
+var require_get = __commonJS({
+  "node_modules/dunder-proto/get.js"(exports, module2) {
+    "use strict";
+    var callBind = require_call_bind_apply_helpers();
+    var gOPD = require_gopd();
+    var hasProtoAccessor;
+    try {
+      hasProtoAccessor = [].__proto__ === Array.prototype;
+    } catch (e) {
+      if (!e || typeof e !== "object" || !("code" in e) || e.code !== "ERR_PROTO_ACCESS") {
+        throw e;
+      }
+    }
+    var desc = !!hasProtoAccessor && gOPD && gOPD(Object.prototype, "__proto__");
+    var $Object = Object;
+    var $getPrototypeOf = $Object.getPrototypeOf;
+    module2.exports = desc && typeof desc.get === "function" ? callBind([desc.get]) : typeof $getPrototypeOf === "function" ? function getDunder(value) {
+      return $getPrototypeOf(value == null ? value : $Object(value));
+    } : false;
+  }
+});
+
+// node_modules/get-proto/index.js
+var require_get_proto = __commonJS({
+  "node_modules/get-proto/index.js"(exports, module2) {
+    "use strict";
+    var reflectGetProto = require_Reflect_getPrototypeOf();
+    var originalGetProto = require_Object_getPrototypeOf();
+    var getDunderProto = require_get();
+    module2.exports = reflectGetProto ? function getProto(O) {
+      return reflectGetProto(O);
+    } : originalGetProto ? function getProto(O) {
+      if (!O || typeof O !== "object" && typeof O !== "function") {
+        throw new TypeError("getProto: not an object");
+      }
+      return originalGetProto(O);
+    } : getDunderProto ? function getProto(O) {
+      return getDunderProto(O);
+    } : null;
+  }
+});
+
 // node_modules/hasown/index.js
 var require_hasown = __commonJS({
   "node_modules/hasown/index.js"(exports, module2) {
@@ -11042,6 +11260,7 @@ var require_get_intrinsic = __commonJS({
   "node_modules/get-intrinsic/index.js"(exports, module2) {
     "use strict";
     var undefined2;
+    var $Object = require_es_object_atoms();
     var $Error = require_es_errors();
     var $EvalError = require_eval();
     var $RangeError = require_range();
@@ -11049,6 +11268,13 @@ var require_get_intrinsic = __commonJS({
     var $SyntaxError = require_syntax();
     var $TypeError = require_type();
     var $URIError = require_uri();
+    var abs = require_abs();
+    var floor = require_floor();
+    var max = require_max();
+    var min = require_min();
+    var pow = require_pow();
+    var round = require_round();
+    var sign = require_sign();
     var $Function = Function;
     var getEvalledConstructor = function(expressionSyntax) {
       try {
@@ -11056,14 +11282,8 @@ var require_get_intrinsic = __commonJS({
       } catch (e) {
       }
     };
-    var $gOPD = Object.getOwnPropertyDescriptor;
-    if ($gOPD) {
-      try {
-        $gOPD({}, "");
-      } catch (e) {
-        $gOPD = null;
-      }
-    }
+    var $gOPD = require_gopd();
+    var $defineProperty = require_es_define_property();
     var throwTypeError = function() {
       throw new $TypeError();
     };
@@ -11080,10 +11300,11 @@ var require_get_intrinsic = __commonJS({
       }
     }() : throwTypeError;
     var hasSymbols = require_has_symbols()();
-    var hasProto = require_has_proto()();
-    var getProto = Object.getPrototypeOf || (hasProto ? function(x) {
-      return x.__proto__;
-    } : null);
+    var getProto = require_get_proto();
+    var $ObjectGPO = require_Object_getPrototypeOf();
+    var $ReflectGPO = require_Reflect_getPrototypeOf();
+    var $apply = require_functionApply();
+    var $call = require_functionCall();
     var needsEval = {};
     var TypedArray = typeof Uint8Array === "undefined" || !getProto ? undefined2 : getProto(Uint8Array);
     var INTRINSICS = {
@@ -11111,6 +11332,7 @@ var require_get_intrinsic = __commonJS({
       "%Error%": $Error,
       "%eval%": eval,
       "%EvalError%": $EvalError,
+      "%Float16Array%": typeof Float16Array === "undefined" ? undefined2 : Float16Array,
       "%Float32Array%": typeof Float32Array === "undefined" ? undefined2 : Float32Array,
       "%Float64Array%": typeof Float64Array === "undefined" ? undefined2 : Float64Array,
       "%FinalizationRegistry%": typeof FinalizationRegistry === "undefined" ? undefined2 : FinalizationRegistry,
@@ -11127,7 +11349,8 @@ var require_get_intrinsic = __commonJS({
       "%MapIteratorPrototype%": typeof Map === "undefined" || !hasSymbols || !getProto ? undefined2 : getProto((/* @__PURE__ */ new Map())[Symbol.iterator]()),
       "%Math%": Math,
       "%Number%": Number,
-      "%Object%": Object,
+      "%Object%": $Object,
+      "%Object.getOwnPropertyDescriptor%": $gOPD,
       "%parseFloat%": parseFloat,
       "%parseInt%": parseInt,
       "%Promise%": typeof Promise === "undefined" ? undefined2 : Promise,
@@ -11153,7 +11376,19 @@ var require_get_intrinsic = __commonJS({
       "%URIError%": $URIError,
       "%WeakMap%": typeof WeakMap === "undefined" ? undefined2 : WeakMap,
       "%WeakRef%": typeof WeakRef === "undefined" ? undefined2 : WeakRef,
-      "%WeakSet%": typeof WeakSet === "undefined" ? undefined2 : WeakSet
+      "%WeakSet%": typeof WeakSet === "undefined" ? undefined2 : WeakSet,
+      "%Function.prototype.call%": $call,
+      "%Function.prototype.apply%": $apply,
+      "%Object.defineProperty%": $defineProperty,
+      "%Object.getPrototypeOf%": $ObjectGPO,
+      "%Math.abs%": abs,
+      "%Math.floor%": floor,
+      "%Math.max%": max,
+      "%Math.min%": min,
+      "%Math.pow%": pow,
+      "%Math.round%": round,
+      "%Math.sign%": sign,
+      "%Reflect.getPrototypeOf%": $ReflectGPO
     };
     if (getProto) {
       try {
@@ -11242,11 +11477,11 @@ var require_get_intrinsic = __commonJS({
     };
     var bind2 = require_function_bind();
     var hasOwn = require_hasown();
-    var $concat = bind2.call(Function.call, Array.prototype.concat);
-    var $spliceApply = bind2.call(Function.apply, Array.prototype.splice);
-    var $replace = bind2.call(Function.call, String.prototype.replace);
-    var $strSlice = bind2.call(Function.call, String.prototype.slice);
-    var $exec = bind2.call(Function.call, RegExp.prototype.exec);
+    var $concat = bind2.call($call, Array.prototype.concat);
+    var $spliceApply = bind2.call($apply, Array.prototype.splice);
+    var $replace = bind2.call($call, String.prototype.replace);
+    var $strSlice = bind2.call($call, String.prototype.slice);
+    var $exec = bind2.call($call, RegExp.prototype.exec);
     var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
     var reEscapeChar = /\\(\\)?/g;
     var stringToPath = function stringToPath2(string) {
@@ -11347,40 +11582,6 @@ var require_get_intrinsic = __commonJS({
       }
       return value;
     };
-  }
-});
-
-// node_modules/es-define-property/index.js
-var require_es_define_property = __commonJS({
-  "node_modules/es-define-property/index.js"(exports, module2) {
-    "use strict";
-    var GetIntrinsic = require_get_intrinsic();
-    var $defineProperty = GetIntrinsic("%Object.defineProperty%", true) || false;
-    if ($defineProperty) {
-      try {
-        $defineProperty({}, "a", { value: 1 });
-      } catch (e) {
-        $defineProperty = false;
-      }
-    }
-    module2.exports = $defineProperty;
-  }
-});
-
-// node_modules/gopd/index.js
-var require_gopd = __commonJS({
-  "node_modules/gopd/index.js"(exports, module2) {
-    "use strict";
-    var GetIntrinsic = require_get_intrinsic();
-    var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
-    if ($gOPD) {
-      try {
-        $gOPD([], "length");
-      } catch (e) {
-        $gOPD = null;
-      }
-    }
-    module2.exports = $gOPD;
   }
 });
 
@@ -18318,6 +18519,18 @@ var primitives = [
   "number",
   "any"
 ];
+function startsWith(str, match) {
+  return str.substring(0, match.length) === match;
+}
+function endsWith2(str, match) {
+  return str.length >= match.length && str.substring(str.length - match.length) === match;
+}
+var nullableSuffix = " | null";
+var optionalSuffix = " | undefined";
+var arrayPrefix = "Array<";
+var arraySuffix = ">";
+var mapPrefix = "{ [key: string]: ";
+var mapSuffix = "; }";
 var ObjectSerializer = class {
   static findCorrectType(data, expectedType) {
     if (data == void 0) {
@@ -18362,13 +18575,25 @@ var ObjectSerializer = class {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
       return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      let subType = type.replace("Array<", "");
-      subType = subType.substring(0, subType.length - 1);
+    } else if (endsWith2(type, nullableSuffix)) {
+      let subType = type.slice(0, -nullableSuffix.length);
+      return ObjectSerializer.serialize(data, subType);
+    } else if (endsWith2(type, optionalSuffix)) {
+      let subType = type.slice(0, -optionalSuffix.length);
+      return ObjectSerializer.serialize(data, subType);
+    } else if (startsWith(type, arrayPrefix)) {
+      let subType = type.slice(arrayPrefix.length, -arraySuffix.length);
       let transformedData = [];
       for (let index = 0; index < data.length; index++) {
         let datum = data[index];
         transformedData.push(ObjectSerializer.serialize(datum, subType));
+      }
+      return transformedData;
+    } else if (startsWith(type, mapPrefix)) {
+      let subType = type.slice(mapPrefix.length, -mapSuffix.length);
+      let transformedData = {};
+      for (let key in data) {
+        transformedData[key] = ObjectSerializer.serialize(data[key], subType);
       }
       return transformedData;
     } else if (type === "Date") {
@@ -18402,13 +18627,25 @@ var ObjectSerializer = class {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
       return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      let subType = type.replace("Array<", "");
-      subType = subType.substring(0, subType.length - 1);
+    } else if (endsWith2(type, nullableSuffix)) {
+      let subType = type.slice(0, -nullableSuffix.length);
+      return ObjectSerializer.deserialize(data, subType);
+    } else if (endsWith2(type, optionalSuffix)) {
+      let subType = type.slice(0, -optionalSuffix.length);
+      return ObjectSerializer.deserialize(data, subType);
+    } else if (startsWith(type, arrayPrefix)) {
+      let subType = type.slice(arrayPrefix.length, -arraySuffix.length);
       let transformedData = [];
       for (let index = 0; index < data.length; index++) {
         let datum = data[index];
         transformedData.push(ObjectSerializer.deserialize(datum, subType));
+      }
+      return transformedData;
+    } else if (startsWith(type, mapPrefix)) {
+      let subType = type.slice(mapPrefix.length, -mapSuffix.length);
+      let transformedData = {};
+      for (let key in data) {
+        transformedData[key] = ObjectSerializer.deserialize(data[key], subType);
       }
       return transformedData;
     } else if (type === "Date") {
@@ -34214,7 +34451,7 @@ var HttpError = class extends Error {
 var queryParamsSerializer = (params) => {
   return import_qs.default.stringify(params, { arrayFormat: "brackets" });
 };
-var USER_AGENT = "OpenAPI-Generator/1.8-dev/node";
+var USER_AGENT = "OpenAPI-Generator/1.8.1-dev/node";
 var generateFormData = (obj, typemap) => {
   const data = {};
   let localVarUseFormData = false;

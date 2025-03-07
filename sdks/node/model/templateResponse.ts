@@ -85,10 +85,14 @@ export class TemplateResponse {
   "documents"?: Array<TemplateResponseDocument>;
   /**
    * Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+   *
+   * @deprecated
    */
   "customFields"?: Array<TemplateResponseDocumentCustomFieldBase> | null;
   /**
    * Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+   *
+   * @deprecated
    */
   "namedFormFields"?: Array<TemplateResponseDocumentFormFieldBase> | null;
   /**

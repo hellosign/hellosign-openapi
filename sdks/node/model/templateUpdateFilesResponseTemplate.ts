@@ -35,6 +35,8 @@ export class TemplateUpdateFilesResponseTemplate {
   "templateId"?: string;
   /**
    * A list of warnings.
+   *
+   * @deprecated
    */
   "warnings"?: Array<WarningResponse>;
 

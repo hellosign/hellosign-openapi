@@ -27,9 +27,20 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
 {{#description}}
     /**
     * {{{.}}}
+    {{#deprecated}}
+    *
+    * @deprecated
+    {{/deprecated}}
     */
 {{/description}}
 {{^useCustomTemplateCode}}
+{{^description}}
+    {{#deprecated}}
+    /**
+    * @deprecated
+    */
+    {{/deprecated}}
+{{/description}}
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}}{{#defaultValue}} = {{#isEnum}}{{classname}}.{{/isEnum}}{{{.}}}{{/defaultValue}};
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
