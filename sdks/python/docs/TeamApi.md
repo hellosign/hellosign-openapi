@@ -217,7 +217,7 @@ void (empty response body)
 
 Get Team
 
-Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
+Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of "not_found" will be returned.
 
 ### Example
 

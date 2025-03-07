@@ -31,10 +31,14 @@ Method | HTTP request | Description
 > ```{{#returnType}}{{{.}}} {{/returnType}}{{{operationId}}}({{#requiredParams}}{{^defaultValue}}{{paramName}}{{^-last}}, {{/-last}}{{/defaultValue}}{{/requiredParams}})```
 {{/useCustomTemplateCode}}
 
-{{{summary}}}{{#notes}}
+{{#summary}}
+{{{summary}}}
 
-{{{.}}}{{/notes}}
+{{/summary}}
+{{#unescapedNotes}}
+{{{.}}}
 
+{{/unescapedNotes}}
 ### Example
 
 {{#hasAuthMethods}}
