@@ -123,12 +123,7 @@
         /// <value>{{.}}</value>
         {{/description}}
         {{#example}}
-{{^useCustomTemplateCode}}
         /* <example>{{.}}</example> */
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-        /// <example>{{.}}</example>
-{{/useCustomTemplateCode}}
         {{/example}}
         [JsonPropertyName("{{baseName}}")]
         {{#deprecated}}
@@ -155,12 +150,7 @@
         /// </summary>{{#description}}
         /// <value>{{.}}</value>{{/description}}
         {{#example}}
-{{^useCustomTemplateCode}}
         /* <example>{{.}}</example> */
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-        /// <example>{{.}}</example>
-{{/useCustomTemplateCode}}
         {{/example}}
         {{#deprecated}}
         [Obsolete]
@@ -176,12 +166,7 @@
         /// </summary>{{#description}}
         /// <value>{{.}}</value>{{/description}}
         {{#example}}
-{{^useCustomTemplateCode}}
         /* <example>{{.}}</example> */
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-        /// <example>{{.}}</example>
-{{/useCustomTemplateCode}}
         {{/example}}
         {{#deprecated}}
         [Obsolete]
@@ -199,7 +184,7 @@
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public {{#isNew}}new {{/isNew}}{{datatypeWithEnum}} {{name}} { get; } = {{^isNew}}"{{classname}}"{{/isNew}}{{#isNew}}{{^isEnum}}"{{classname}}"{{/isEnum}}{{#isEnum}}({{datatypeWithEnum}})Enum.Parse(typeof({{datatypeWithEnum}}), "{{classname}}"){{/isEnum}}{{/isNew}};
+        public {{#isNew}}new {{/isNew}}{{datatypeWithEnum}} {{name}} { get; }
 
         {{/model.composedSchemas.oneOf}}
         {{/model.composedSchemas.anyOf}}
@@ -222,12 +207,7 @@
         /// </summary>{{#description}}
         /// <value>{{.}}</value>{{/description}}
         {{#example}}
-{{^useCustomTemplateCode}}
         /* <example>{{.}}</example> */
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-        /// <example>{{.}}</example>
-{{/useCustomTemplateCode}}
         {{/example}}
         [JsonPropertyName("{{baseName}}")]
         {{#deprecated}}
@@ -252,12 +232,7 @@
         /// </summary>{{#description}}
         /// <value>{{.}}</value>{{/description}}
         {{#example}}
-{{^useCustomTemplateCode}}
         /* <example>{{.}}</example> */
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-        /// <example>{{.}}</example>
-{{/useCustomTemplateCode}}
         {{/example}}
         [JsonPropertyName("{{baseName}}")]
         {{#deprecated}}
@@ -384,7 +359,6 @@
                 {{/readOnlyVars}}
                 {{#readOnlyVars}}
                 {{#lambda.copy}}
-
                 if ({{name}} != null)
                     hashCode = (hashCode * 59) + {{name}}.GetHashCode();
 

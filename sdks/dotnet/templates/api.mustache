@@ -317,6 +317,7 @@ namespace {{packageName}}.{{apiPackage}}
 
 {{^useCustomTemplateCode}}
             var localVarContentType = {{packageName}}.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
 {{/useCustomTemplateCode}}
             if (localVarContentType != null)
             {
