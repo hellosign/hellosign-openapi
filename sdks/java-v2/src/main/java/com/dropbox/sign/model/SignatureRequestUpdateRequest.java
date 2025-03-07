@@ -38,19 +38,23 @@ import com.dropbox.sign.ApiException;
   SignatureRequestUpdateRequest.JSON_PROPERTY_NAME,
   SignatureRequestUpdateRequest.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestUpdateRequest {
   public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
+  @jakarta.annotation.Nonnull
   private String signatureId;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+  @jakarta.annotation.Nullable
   private Integer expiresAt;
 
   public SignatureRequestUpdateRequest() { 
@@ -71,7 +75,7 @@ public class SignatureRequestUpdateRequest {
     );
   }
 
-  public SignatureRequestUpdateRequest signatureId(String signatureId) {
+  public SignatureRequestUpdateRequest signatureId(@jakarta.annotation.Nonnull String signatureId) {
     this.signatureId = signatureId;
     return this;
   }
@@ -91,12 +95,12 @@ public class SignatureRequestUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSignatureId(String signatureId) {
+  public void setSignatureId(@jakarta.annotation.Nonnull String signatureId) {
     this.signatureId = signatureId;
   }
 
 
-  public SignatureRequestUpdateRequest emailAddress(String emailAddress) {
+  public SignatureRequestUpdateRequest emailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -116,12 +120,12 @@ public class SignatureRequestUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public SignatureRequestUpdateRequest name(String name) {
+  public SignatureRequestUpdateRequest name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -141,12 +145,12 @@ public class SignatureRequestUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public SignatureRequestUpdateRequest expiresAt(Integer expiresAt) {
+  public SignatureRequestUpdateRequest expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -166,7 +170,7 @@ public class SignatureRequestUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(Integer expiresAt) {
+  public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
   }
 

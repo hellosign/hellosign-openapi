@@ -41,19 +41,23 @@ import com.dropbox.sign.ApiException;
   TeamResponse.JSON_PROPERTY_INVITED_ACCOUNTS,
   TeamResponse.JSON_PROPERTY_INVITED_EMAILS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamResponse {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
+  @jakarta.annotation.Nullable
   private List<AccountResponse> accounts = null;
 
   public static final String JSON_PROPERTY_INVITED_ACCOUNTS = "invited_accounts";
+  @jakarta.annotation.Nullable
   private List<AccountResponse> invitedAccounts = null;
 
   public static final String JSON_PROPERTY_INVITED_EMAILS = "invited_emails";
+  @jakarta.annotation.Nullable
   private List<String> invitedEmails = null;
 
   public TeamResponse() { 
@@ -74,7 +78,7 @@ public class TeamResponse {
     );
   }
 
-  public TeamResponse name(String name) {
+  public TeamResponse name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -94,12 +98,12 @@ public class TeamResponse {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public TeamResponse accounts(List<AccountResponse> accounts) {
+  public TeamResponse accounts(@jakarta.annotation.Nullable List<AccountResponse> accounts) {
     this.accounts = accounts;
     return this;
   }
@@ -127,12 +131,12 @@ public class TeamResponse {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccounts(List<AccountResponse> accounts) {
+  public void setAccounts(@jakarta.annotation.Nullable List<AccountResponse> accounts) {
     this.accounts = accounts;
   }
 
 
-  public TeamResponse invitedAccounts(List<AccountResponse> invitedAccounts) {
+  public TeamResponse invitedAccounts(@jakarta.annotation.Nullable List<AccountResponse> invitedAccounts) {
     this.invitedAccounts = invitedAccounts;
     return this;
   }
@@ -160,12 +164,12 @@ public class TeamResponse {
 
   @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInvitedAccounts(List<AccountResponse> invitedAccounts) {
+  public void setInvitedAccounts(@jakarta.annotation.Nullable List<AccountResponse> invitedAccounts) {
     this.invitedAccounts = invitedAccounts;
   }
 
 
-  public TeamResponse invitedEmails(List<String> invitedEmails) {
+  public TeamResponse invitedEmails(@jakarta.annotation.Nullable List<String> invitedEmails) {
     this.invitedEmails = invitedEmails;
     return this;
   }
@@ -193,7 +197,7 @@ public class TeamResponse {
 
   @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInvitedEmails(List<String> invitedEmails) {
+  public void setInvitedEmails(@jakarta.annotation.Nullable List<String> invitedEmails) {
     this.invitedEmails = invitedEmails;
   }
 

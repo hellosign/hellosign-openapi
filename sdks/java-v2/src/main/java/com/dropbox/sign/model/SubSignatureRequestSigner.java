@@ -40,31 +40,36 @@ import com.dropbox.sign.ApiException;
   SubSignatureRequestSigner.JSON_PROPERTY_SMS_PHONE_NUMBER,
   SubSignatureRequestSigner.JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubSignatureRequestSigner {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nonnull
   private String emailAddress;
 
   public static final String JSON_PROPERTY_ORDER = "order";
+  @jakarta.annotation.Nullable
   private Integer order;
 
   public static final String JSON_PROPERTY_PIN = "pin";
+  @jakarta.annotation.Nullable
   private String pin;
 
   public static final String JSON_PROPERTY_SMS_PHONE_NUMBER = "sms_phone_number";
+  @jakarta.annotation.Nullable
   private String smsPhoneNumber;
 
   /**
    * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).
    */
   public enum SmsPhoneNumberTypeEnum {
-    AUTHENTICATION("authentication"),
+    AUTHENTICATION(String.valueOf("authentication")),
     
-    DELIVERY("delivery");
+    DELIVERY(String.valueOf("delivery"));
 
     private String value;
 
@@ -94,6 +99,7 @@ public class SubSignatureRequestSigner {
   }
 
   public static final String JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE = "sms_phone_number_type";
+  @jakarta.annotation.Nullable
   private SmsPhoneNumberTypeEnum smsPhoneNumberType;
 
   public SubSignatureRequestSigner() { 
@@ -114,7 +120,7 @@ public class SubSignatureRequestSigner {
     );
   }
 
-  public SubSignatureRequestSigner name(String name) {
+  public SubSignatureRequestSigner name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -134,12 +140,12 @@ public class SubSignatureRequestSigner {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SubSignatureRequestSigner emailAddress(String emailAddress) {
+  public SubSignatureRequestSigner emailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -159,12 +165,12 @@ public class SubSignatureRequestSigner {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public SubSignatureRequestSigner order(Integer order) {
+  public SubSignatureRequestSigner order(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
     return this;
   }
@@ -184,12 +190,12 @@ public class SubSignatureRequestSigner {
 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOrder(Integer order) {
+  public void setOrder(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
   }
 
 
-  public SubSignatureRequestSigner pin(String pin) {
+  public SubSignatureRequestSigner pin(@jakarta.annotation.Nullable String pin) {
     this.pin = pin;
     return this;
   }
@@ -209,12 +215,12 @@ public class SubSignatureRequestSigner {
 
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPin(String pin) {
+  public void setPin(@jakarta.annotation.Nullable String pin) {
     this.pin = pin;
   }
 
 
-  public SubSignatureRequestSigner smsPhoneNumber(String smsPhoneNumber) {
+  public SubSignatureRequestSigner smsPhoneNumber(@jakarta.annotation.Nullable String smsPhoneNumber) {
     this.smsPhoneNumber = smsPhoneNumber;
     return this;
   }
@@ -234,12 +240,12 @@ public class SubSignatureRequestSigner {
 
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSmsPhoneNumber(String smsPhoneNumber) {
+  public void setSmsPhoneNumber(@jakarta.annotation.Nullable String smsPhoneNumber) {
     this.smsPhoneNumber = smsPhoneNumber;
   }
 
 
-  public SubSignatureRequestSigner smsPhoneNumberType(SmsPhoneNumberTypeEnum smsPhoneNumberType) {
+  public SubSignatureRequestSigner smsPhoneNumberType(@jakarta.annotation.Nullable SmsPhoneNumberTypeEnum smsPhoneNumberType) {
     this.smsPhoneNumberType = smsPhoneNumberType;
     return this;
   }
@@ -259,7 +265,7 @@ public class SubSignatureRequestSigner {
 
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSmsPhoneNumberType(SmsPhoneNumberTypeEnum smsPhoneNumberType) {
+  public void setSmsPhoneNumberType(@jakarta.annotation.Nullable SmsPhoneNumberTypeEnum smsPhoneNumberType) {
     this.smsPhoneNumberType = smsPhoneNumberType;
   }
 

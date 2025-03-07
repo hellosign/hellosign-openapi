@@ -38,19 +38,23 @@ import com.dropbox.sign.ApiException;
   SubCustomField.JSON_PROPERTY_REQUIRED,
   SubCustomField.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubCustomField {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_EDITOR = "editor";
+  @jakarta.annotation.Nullable
   private String editor;
 
   public static final String JSON_PROPERTY_REQUIRED = "required";
+  @jakarta.annotation.Nullable
   private Boolean required = false;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nullable
   private String value;
 
   public SubCustomField() { 
@@ -71,7 +75,7 @@ public class SubCustomField {
     );
   }
 
-  public SubCustomField name(String name) {
+  public SubCustomField name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -91,12 +95,12 @@ public class SubCustomField {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SubCustomField editor(String editor) {
+  public SubCustomField editor(@jakarta.annotation.Nullable String editor) {
     this.editor = editor;
     return this;
   }
@@ -116,12 +120,12 @@ public class SubCustomField {
 
   @JsonProperty(JSON_PROPERTY_EDITOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEditor(String editor) {
+  public void setEditor(@jakarta.annotation.Nullable String editor) {
     this.editor = editor;
   }
 
 
-  public SubCustomField required(Boolean required) {
+  public SubCustomField required(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
     return this;
   }
@@ -141,12 +145,12 @@ public class SubCustomField {
 
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequired(Boolean required) {
+  public void setRequired(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
   }
 
 
-  public SubCustomField value(String value) {
+  public SubCustomField value(@jakarta.annotation.Nullable String value) {
     this.value = value;
     return this;
   }
@@ -166,7 +170,7 @@ public class SubCustomField {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = value;
   }
 

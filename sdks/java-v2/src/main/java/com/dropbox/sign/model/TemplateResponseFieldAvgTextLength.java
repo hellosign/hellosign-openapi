@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_CHARS_PER_LINE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseFieldAvgTextLength {
   public static final String JSON_PROPERTY_NUM_LINES = "num_lines";
+  @jakarta.annotation.Nullable
   private Integer numLines;
 
   public static final String JSON_PROPERTY_NUM_CHARS_PER_LINE = "num_chars_per_line";
+  @jakarta.annotation.Nullable
   private Integer numCharsPerLine;
 
   public TemplateResponseFieldAvgTextLength() { 
@@ -63,7 +65,7 @@ public class TemplateResponseFieldAvgTextLength {
     );
   }
 
-  public TemplateResponseFieldAvgTextLength numLines(Integer numLines) {
+  public TemplateResponseFieldAvgTextLength numLines(@jakarta.annotation.Nullable Integer numLines) {
     this.numLines = numLines;
     return this;
   }
@@ -83,12 +85,12 @@ public class TemplateResponseFieldAvgTextLength {
 
   @JsonProperty(JSON_PROPERTY_NUM_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumLines(Integer numLines) {
+  public void setNumLines(@jakarta.annotation.Nullable Integer numLines) {
     this.numLines = numLines;
   }
 
 
-  public TemplateResponseFieldAvgTextLength numCharsPerLine(Integer numCharsPerLine) {
+  public TemplateResponseFieldAvgTextLength numCharsPerLine(@jakarta.annotation.Nullable Integer numCharsPerLine) {
     this.numCharsPerLine = numCharsPerLine;
     return this;
   }
@@ -108,7 +110,7 @@ public class TemplateResponseFieldAvgTextLength {
 
   @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumCharsPerLine(Integer numCharsPerLine) {
+  public void setNumCharsPerLine(@jakarta.annotation.Nullable Integer numCharsPerLine) {
     this.numCharsPerLine = numCharsPerLine;
   }
 

@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   TemplateRemoveUserRequest.JSON_PROPERTY_ACCOUNT_ID,
   TemplateRemoveUserRequest.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateRemoveUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  @jakarta.annotation.Nullable
   private String accountId;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nullable
   private String emailAddress;
 
   public TemplateRemoveUserRequest() { 
@@ -63,7 +65,7 @@ public class TemplateRemoveUserRequest {
     );
   }
 
-  public TemplateRemoveUserRequest accountId(String accountId) {
+  public TemplateRemoveUserRequest accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -83,12 +85,12 @@ public class TemplateRemoveUserRequest {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountId(String accountId) {
+  public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
   }
 
 
-  public TemplateRemoveUserRequest emailAddress(String emailAddress) {
+  public TemplateRemoveUserRequest emailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -108,7 +110,7 @@ public class TemplateRemoveUserRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 

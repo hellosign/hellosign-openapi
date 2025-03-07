@@ -35,24 +35,24 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   SubFieldOptions.JSON_PROPERTY_DATE_FORMAT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFieldOptions {
   /**
    * Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
    */
   public enum DateFormatEnum {
-    MMDDYYYY("MM / DD / YYYY"),
+    MMDDYYYY(String.valueOf("MM / DD / YYYY")),
     
-    MM_DD_YYYY("MM - DD - YYYY"),
+    MM_DD_YYYY(String.valueOf("MM - DD - YYYY")),
     
-    DDMMYYYY("DD / MM / YYYY"),
+    DDMMYYYY(String.valueOf("DD / MM / YYYY")),
     
-    DD_MM_YYYY("DD - MM - YYYY"),
+    DD_MM_YYYY(String.valueOf("DD - MM - YYYY")),
     
-    YYYYMMDD("YYYY / MM / DD"),
+    YYYYMMDD(String.valueOf("YYYY / MM / DD")),
     
-    YYYY_MM_DD("YYYY - MM - DD");
+    YYYY_MM_DD(String.valueOf("YYYY - MM - DD"));
 
     private String value;
 
@@ -82,6 +82,7 @@ public class SubFieldOptions {
   }
 
   public static final String JSON_PROPERTY_DATE_FORMAT = "date_format";
+  @jakarta.annotation.Nonnull
   private DateFormatEnum dateFormat;
 
   public SubFieldOptions() { 
@@ -102,7 +103,7 @@ public class SubFieldOptions {
     );
   }
 
-  public SubFieldOptions dateFormat(DateFormatEnum dateFormat) {
+  public SubFieldOptions dateFormat(@jakarta.annotation.Nonnull DateFormatEnum dateFormat) {
     this.dateFormat = dateFormat;
     return this;
   }
@@ -122,7 +123,7 @@ public class SubFieldOptions {
 
   @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDateFormat(DateFormatEnum dateFormat) {
+  public void setDateFormat(@jakarta.annotation.Nonnull DateFormatEnum dateFormat) {
     this.dateFormat = dateFormat;
   }
 

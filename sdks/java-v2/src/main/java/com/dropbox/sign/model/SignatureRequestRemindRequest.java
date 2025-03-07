@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   SignatureRequestRemindRequest.JSON_PROPERTY_EMAIL_ADDRESS,
   SignatureRequestRemindRequest.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestRemindRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nonnull
   private String emailAddress;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public SignatureRequestRemindRequest() { 
@@ -63,7 +65,7 @@ public class SignatureRequestRemindRequest {
     );
   }
 
-  public SignatureRequestRemindRequest emailAddress(String emailAddress) {
+  public SignatureRequestRemindRequest emailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -83,12 +85,12 @@ public class SignatureRequestRemindRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public SignatureRequestRemindRequest name(String name) {
+  public SignatureRequestRemindRequest name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -108,7 +110,7 @@ public class SignatureRequestRemindRequest {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 

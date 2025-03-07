@@ -64,61 +64,79 @@ import com.dropbox.sign.ApiException;
   TemplateCreateRequest.JSON_PROPERTY_TITLE,
   TemplateCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateCreateRequest {
   public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
+  @jakarta.annotation.Nonnull
   private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
+  @jakarta.annotation.Nonnull
   private List<SubTemplateRole> signerRoles = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FILES = "files";
+  @jakarta.annotation.Nullable
   private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  @jakarta.annotation.Nullable
   private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
+  @jakarta.annotation.Nullable
   private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nullable
   private List<SubAttachment> attachments = null;
 
   public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
+  @jakarta.annotation.Nullable
   private List<String> ccRoles = null;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @jakarta.annotation.Nullable
   private String clientId;
 
   public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
+  @jakarta.annotation.Nullable
   private SubFieldOptions fieldOptions;
 
   public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
+  @jakarta.annotation.Nullable
   private List<SubFormFieldGroup> formFieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
+  @jakarta.annotation.Nullable
   private List<SubFormFieldRule> formFieldRules = null;
 
   public static final String JSON_PROPERTY_MERGE_FIELDS = "merge_fields";
+  @jakarta.annotation.Nullable
   private List<SubMergeField> mergeFields = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
+  @jakarta.annotation.Nullable
   private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_SUBJECT = "subject";
+  @jakarta.annotation.Nullable
   private String subject;
 
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+  @jakarta.annotation.Nullable
   private Boolean testMode = false;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
+  @jakarta.annotation.Nullable
   private Boolean usePreexistingFields = false;
 
   public TemplateCreateRequest() { 
@@ -139,7 +157,7 @@ public class TemplateCreateRequest {
     );
   }
 
-  public TemplateCreateRequest formFieldsPerDocument(List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+  public TemplateCreateRequest formFieldsPerDocument(@jakarta.annotation.Nonnull List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
     this.formFieldsPerDocument = formFieldsPerDocument;
     return this;
   }
@@ -167,12 +185,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFormFieldsPerDocument(List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+  public void setFormFieldsPerDocument(@jakarta.annotation.Nonnull List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
     this.formFieldsPerDocument = formFieldsPerDocument;
   }
 
 
-  public TemplateCreateRequest signerRoles(List<SubTemplateRole> signerRoles) {
+  public TemplateCreateRequest signerRoles(@jakarta.annotation.Nonnull List<SubTemplateRole> signerRoles) {
     this.signerRoles = signerRoles;
     return this;
   }
@@ -200,12 +218,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSignerRoles(List<SubTemplateRole> signerRoles) {
+  public void setSignerRoles(@jakarta.annotation.Nonnull List<SubTemplateRole> signerRoles) {
     this.signerRoles = signerRoles;
   }
 
 
-  public TemplateCreateRequest files(List<File> files) {
+  public TemplateCreateRequest files(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
     return this;
   }
@@ -233,12 +251,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiles(List<File> files) {
+  public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
   }
 
 
-  public TemplateCreateRequest fileUrls(List<String> fileUrls) {
+  public TemplateCreateRequest fileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
     return this;
   }
@@ -266,12 +284,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrls(List<String> fileUrls) {
+  public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
   }
 
 
-  public TemplateCreateRequest allowReassign(Boolean allowReassign) {
+  public TemplateCreateRequest allowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
     return this;
   }
@@ -291,12 +309,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowReassign(Boolean allowReassign) {
+  public void setAllowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
   }
 
 
-  public TemplateCreateRequest attachments(List<SubAttachment> attachments) {
+  public TemplateCreateRequest attachments(@jakarta.annotation.Nullable List<SubAttachment> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -324,12 +342,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttachments(List<SubAttachment> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<SubAttachment> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TemplateCreateRequest ccRoles(List<String> ccRoles) {
+  public TemplateCreateRequest ccRoles(@jakarta.annotation.Nullable List<String> ccRoles) {
     this.ccRoles = ccRoles;
     return this;
   }
@@ -357,12 +375,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_CC_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCcRoles(List<String> ccRoles) {
+  public void setCcRoles(@jakarta.annotation.Nullable List<String> ccRoles) {
     this.ccRoles = ccRoles;
   }
 
 
-  public TemplateCreateRequest clientId(String clientId) {
+  public TemplateCreateRequest clientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
     return this;
   }
@@ -382,12 +400,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientId(String clientId) {
+  public void setClientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
   }
 
 
-  public TemplateCreateRequest fieldOptions(SubFieldOptions fieldOptions) {
+  public TemplateCreateRequest fieldOptions(@jakarta.annotation.Nullable SubFieldOptions fieldOptions) {
     this.fieldOptions = fieldOptions;
     return this;
   }
@@ -407,12 +425,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFieldOptions(SubFieldOptions fieldOptions) {
+  public void setFieldOptions(@jakarta.annotation.Nullable SubFieldOptions fieldOptions) {
     this.fieldOptions = fieldOptions;
   }
 
 
-  public TemplateCreateRequest formFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
+  public TemplateCreateRequest formFieldGroups(@jakarta.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
     this.formFieldGroups = formFieldGroups;
     return this;
   }
@@ -440,12 +458,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
+  public void setFormFieldGroups(@jakarta.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
     this.formFieldGroups = formFieldGroups;
   }
 
 
-  public TemplateCreateRequest formFieldRules(List<SubFormFieldRule> formFieldRules) {
+  public TemplateCreateRequest formFieldRules(@jakarta.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
     this.formFieldRules = formFieldRules;
     return this;
   }
@@ -473,12 +491,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFieldRules(List<SubFormFieldRule> formFieldRules) {
+  public void setFormFieldRules(@jakarta.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
     this.formFieldRules = formFieldRules;
   }
 
 
-  public TemplateCreateRequest mergeFields(List<SubMergeField> mergeFields) {
+  public TemplateCreateRequest mergeFields(@jakarta.annotation.Nullable List<SubMergeField> mergeFields) {
     this.mergeFields = mergeFields;
     return this;
   }
@@ -506,12 +524,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMergeFields(List<SubMergeField> mergeFields) {
+  public void setMergeFields(@jakarta.annotation.Nullable List<SubMergeField> mergeFields) {
     this.mergeFields = mergeFields;
   }
 
 
-  public TemplateCreateRequest message(String message) {
+  public TemplateCreateRequest message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -531,12 +549,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public TemplateCreateRequest metadata(Map<String, Object> metadata) {
+  public TemplateCreateRequest metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -564,12 +582,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetadata(Map<String, Object> metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 
 
-  public TemplateCreateRequest subject(String subject) {
+  public TemplateCreateRequest subject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
     return this;
   }
@@ -589,12 +607,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubject(String subject) {
+  public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
   }
 
 
-  public TemplateCreateRequest testMode(Boolean testMode) {
+  public TemplateCreateRequest testMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
     return this;
   }
@@ -614,12 +632,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTestMode(Boolean testMode) {
+  public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
   }
 
 
-  public TemplateCreateRequest title(String title) {
+  public TemplateCreateRequest title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -639,12 +657,12 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
 
-  public TemplateCreateRequest usePreexistingFields(Boolean usePreexistingFields) {
+  public TemplateCreateRequest usePreexistingFields(@jakarta.annotation.Nullable Boolean usePreexistingFields) {
     this.usePreexistingFields = usePreexistingFields;
     return this;
   }
@@ -664,7 +682,7 @@ public class TemplateCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsePreexistingFields(Boolean usePreexistingFields) {
+  public void setUsePreexistingFields(@jakarta.annotation.Nullable Boolean usePreexistingFields) {
     this.usePreexistingFields = usePreexistingFields;
   }
 

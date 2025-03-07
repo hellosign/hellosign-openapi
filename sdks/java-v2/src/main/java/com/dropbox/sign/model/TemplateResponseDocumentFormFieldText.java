@@ -46,7 +46,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE,
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_GROUP
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -55,43 +55,48 @@ import com.dropbox.sign.ApiException;
 
 public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentFormFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "text";
 
   public static final String JSON_PROPERTY_AVG_TEXT_LENGTH = "avg_text_length";
+  @jakarta.annotation.Nullable
   private TemplateResponseFieldAvgTextLength avgTextLength;
 
   public static final String JSON_PROPERTY_IS_MULTILINE = "isMultiline";
+  @jakarta.annotation.Nullable
   private Boolean isMultiline;
 
   public static final String JSON_PROPERTY_ORIGINAL_FONT_SIZE = "originalFontSize";
+  @jakarta.annotation.Nullable
   private Integer originalFontSize;
 
   public static final String JSON_PROPERTY_FONT_FAMILY = "fontFamily";
+  @jakarta.annotation.Nullable
   private String fontFamily;
 
   /**
    * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
    */
   public enum ValidationTypeEnum {
-    NUMBERS_ONLY("numbers_only"),
+    NUMBERS_ONLY(String.valueOf("numbers_only")),
     
-    LETTERS_ONLY("letters_only"),
+    LETTERS_ONLY(String.valueOf("letters_only")),
     
-    PHONE_NUMBER("phone_number"),
+    PHONE_NUMBER(String.valueOf("phone_number")),
     
-    BANK_ROUTING_NUMBER("bank_routing_number"),
+    BANK_ROUTING_NUMBER(String.valueOf("bank_routing_number")),
     
-    BANK_ACCOUNT_NUMBER("bank_account_number"),
+    BANK_ACCOUNT_NUMBER(String.valueOf("bank_account_number")),
     
-    EMAIL_ADDRESS("email_address"),
+    EMAIL_ADDRESS(String.valueOf("email_address")),
     
-    ZIP_CODE("zip_code"),
+    ZIP_CODE(String.valueOf("zip_code")),
     
-    SOCIAL_SECURITY_NUMBER("social_security_number"),
+    SOCIAL_SECURITY_NUMBER(String.valueOf("social_security_number")),
     
-    EMPLOYER_IDENTIFICATION_NUMBER("employer_identification_number"),
+    EMPLOYER_IDENTIFICATION_NUMBER(String.valueOf("employer_identification_number")),
     
-    CUSTOM_REGEX("custom_regex");
+    CUSTOM_REGEX(String.valueOf("custom_regex"));
 
     private String value;
 
@@ -121,9 +126,11 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
   public static final String JSON_PROPERTY_VALIDATION_TYPE = "validation_type";
+  @jakarta.annotation.Nullable
   private ValidationTypeEnum validationType;
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @jakarta.annotation.Nullable
   private String group;
 
   public TemplateResponseDocumentFormFieldText() { 
@@ -144,7 +151,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
     );
   }
 
-  public TemplateResponseDocumentFormFieldText type(String type) {
+  public TemplateResponseDocumentFormFieldText type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -164,12 +171,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public TemplateResponseDocumentFormFieldText avgTextLength(TemplateResponseFieldAvgTextLength avgTextLength) {
+  public TemplateResponseDocumentFormFieldText avgTextLength(@jakarta.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
     this.avgTextLength = avgTextLength;
     return this;
   }
@@ -189,12 +196,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
   @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAvgTextLength(TemplateResponseFieldAvgTextLength avgTextLength) {
+  public void setAvgTextLength(@jakarta.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
     this.avgTextLength = avgTextLength;
   }
 
 
-  public TemplateResponseDocumentFormFieldText isMultiline(Boolean isMultiline) {
+  public TemplateResponseDocumentFormFieldText isMultiline(@jakarta.annotation.Nullable Boolean isMultiline) {
     this.isMultiline = isMultiline;
     return this;
   }
@@ -214,12 +221,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
   @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsMultiline(Boolean isMultiline) {
+  public void setIsMultiline(@jakarta.annotation.Nullable Boolean isMultiline) {
     this.isMultiline = isMultiline;
   }
 
 
-  public TemplateResponseDocumentFormFieldText originalFontSize(Integer originalFontSize) {
+  public TemplateResponseDocumentFormFieldText originalFontSize(@jakarta.annotation.Nullable Integer originalFontSize) {
     this.originalFontSize = originalFontSize;
     return this;
   }
@@ -239,12 +246,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOriginalFontSize(Integer originalFontSize) {
+  public void setOriginalFontSize(@jakarta.annotation.Nullable Integer originalFontSize) {
     this.originalFontSize = originalFontSize;
   }
 
 
-  public TemplateResponseDocumentFormFieldText fontFamily(String fontFamily) {
+  public TemplateResponseDocumentFormFieldText fontFamily(@jakarta.annotation.Nullable String fontFamily) {
     this.fontFamily = fontFamily;
     return this;
   }
@@ -264,12 +271,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFontFamily(String fontFamily) {
+  public void setFontFamily(@jakarta.annotation.Nullable String fontFamily) {
     this.fontFamily = fontFamily;
   }
 
 
-  public TemplateResponseDocumentFormFieldText validationType(ValidationTypeEnum validationType) {
+  public TemplateResponseDocumentFormFieldText validationType(@jakarta.annotation.Nullable ValidationTypeEnum validationType) {
     this.validationType = validationType;
     return this;
   }
@@ -289,12 +296,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
   @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValidationType(ValidationTypeEnum validationType) {
+  public void setValidationType(@jakarta.annotation.Nullable ValidationTypeEnum validationType) {
     this.validationType = validationType;
   }
 
 
-  public TemplateResponseDocumentFormFieldText group(String group) {
+  public TemplateResponseDocumentFormFieldText group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
@@ -314,7 +321,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 

@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   SubCC.JSON_PROPERTY_ROLE,
   SubCC.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubCC {
   public static final String JSON_PROPERTY_ROLE = "role";
+  @jakarta.annotation.Nonnull
   private String role;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nonnull
   private String emailAddress;
 
   public SubCC() { 
@@ -63,7 +65,7 @@ public class SubCC {
     );
   }
 
-  public SubCC role(String role) {
+  public SubCC role(@jakarta.annotation.Nonnull String role) {
     this.role = role;
     return this;
   }
@@ -83,12 +85,12 @@ public class SubCC {
 
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRole(String role) {
+  public void setRole(@jakarta.annotation.Nonnull String role) {
     this.role = role;
   }
 
 
-  public SubCC emailAddress(String emailAddress) {
+  public SubCC emailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -108,7 +110,7 @@ public class SubCC {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
   }
 

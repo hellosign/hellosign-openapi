@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentRadio.JSON_PROPERTY_GROUP,
   SubFormFieldsPerDocumentRadio.JSON_PROPERTY_IS_CHECKED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -50,12 +50,15 @@ import com.dropbox.sign.ApiException;
 
 public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "radio";
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @jakarta.annotation.Nonnull
   private String group;
 
   public static final String JSON_PROPERTY_IS_CHECKED = "is_checked";
+  @jakarta.annotation.Nonnull
   private Boolean isChecked;
 
   public SubFormFieldsPerDocumentRadio() { 
@@ -76,7 +79,7 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
     );
   }
 
-  public SubFormFieldsPerDocumentRadio type(String type) {
+  public SubFormFieldsPerDocumentRadio type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -96,12 +99,12 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public SubFormFieldsPerDocumentRadio group(String group) {
+  public SubFormFieldsPerDocumentRadio group(@jakarta.annotation.Nonnull String group) {
     this.group = group;
     return this;
   }
@@ -121,12 +124,12 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nonnull String group) {
     this.group = group;
   }
 
 
-  public SubFormFieldsPerDocumentRadio isChecked(Boolean isChecked) {
+  public SubFormFieldsPerDocumentRadio isChecked(@jakarta.annotation.Nonnull Boolean isChecked) {
     this.isChecked = isChecked;
     return this;
   }
@@ -146,7 +149,7 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
 
   @JsonProperty(JSON_PROPERTY_IS_CHECKED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsChecked(Boolean isChecked) {
+  public void setIsChecked(@jakarta.annotation.Nonnull Boolean isChecked) {
     this.isChecked = isChecked;
   }
 

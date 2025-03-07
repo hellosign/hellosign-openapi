@@ -84,7 +84,7 @@ import com.dropbox.sign.model.ErrorResponse;
 /**
  * <p>ApiClient class.</p>
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
@@ -854,6 +854,36 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
+   * Adds the object with the provided key to the MultiPart.
+   * Based on the object type sets Content-Disposition and Content-Type.
+   *
+   * @param obj Object
+   * @param key Key of the object
+   * @param multiPart MultiPart to add the form param to
+   */
+  private void addParamToMultipart(Object value, String key, MultiPart multiPart) {
+    if (value instanceof File) {
+      File file = (File) value;
+      FormDataContentDisposition contentDisp = FormDataContentDisposition.name(key)
+          .fileName(file.getName()).size(file.length()).build();
+
+      // Attempt to probe the content type for the file so that the form part is more correctly
+      // and precisely identified, but fall back to application/octet-stream if that fails.
+      MediaType type;
+      try {
+        type = MediaType.valueOf(Files.probeContentType(file.toPath()));
+      } catch (IOException | IllegalArgumentException e) {
+        type = MediaType.APPLICATION_OCTET_STREAM_TYPE;
+      }
+
+      multiPart.bodyPart(new FormDataBodyPart(contentDisp, file, type));
+    } else {
+      FormDataContentDisposition contentDisp = FormDataContentDisposition.name(key).build();
+      multiPart.bodyPart(new FormDataBodyPart(contentDisp, parameterToString(value)));
+    }
+  }
+
+  /**
    * Serialize the given Java object into string according the given
    * Content-Type (only JSON, HTTP form is supported for now).
    *
@@ -1143,7 +1173,11 @@ public class ApiClient extends JavaTimeFormatter {
     } else if ("PUT".equals(method)) {
       response = invocationBuilder.put(entity);
     } else if ("DELETE".equals(method)) {
+      if ("".equals(entity.getEntity())) {
+        response = invocationBuilder.method("DELETE");
+      } else {
       response = invocationBuilder.method("DELETE", entity);
+      }
     } else if ("PATCH".equals(method)) {
       response = invocationBuilder.method("PATCH", entity);
     } else {

@@ -38,19 +38,23 @@ import com.dropbox.sign.ApiException;
   SubAttachment.JSON_PROPERTY_INSTRUCTIONS,
   SubAttachment.JSON_PROPERTY_REQUIRED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubAttachment {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_SIGNER_INDEX = "signer_index";
+  @jakarta.annotation.Nonnull
   private Integer signerIndex;
 
   public static final String JSON_PROPERTY_INSTRUCTIONS = "instructions";
+  @jakarta.annotation.Nullable
   private String instructions;
 
   public static final String JSON_PROPERTY_REQUIRED = "required";
+  @jakarta.annotation.Nullable
   private Boolean required = false;
 
   public SubAttachment() { 
@@ -71,7 +75,7 @@ public class SubAttachment {
     );
   }
 
-  public SubAttachment name(String name) {
+  public SubAttachment name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -91,12 +95,12 @@ public class SubAttachment {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SubAttachment signerIndex(Integer signerIndex) {
+  public SubAttachment signerIndex(@jakarta.annotation.Nonnull Integer signerIndex) {
     this.signerIndex = signerIndex;
     return this;
   }
@@ -116,12 +120,12 @@ public class SubAttachment {
 
   @JsonProperty(JSON_PROPERTY_SIGNER_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSignerIndex(Integer signerIndex) {
+  public void setSignerIndex(@jakarta.annotation.Nonnull Integer signerIndex) {
     this.signerIndex = signerIndex;
   }
 
 
-  public SubAttachment instructions(String instructions) {
+  public SubAttachment instructions(@jakarta.annotation.Nullable String instructions) {
     this.instructions = instructions;
     return this;
   }
@@ -141,12 +145,12 @@ public class SubAttachment {
 
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstructions(String instructions) {
+  public void setInstructions(@jakarta.annotation.Nullable String instructions) {
     this.instructions = instructions;
   }
 
 
-  public SubAttachment required(Boolean required) {
+  public SubAttachment required(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
     return this;
   }
@@ -166,7 +170,7 @@ public class SubAttachment {
 
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequired(Boolean required) {
+  public void setRequired(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
   }
 

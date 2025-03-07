@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   TemplateCreateEmbeddedDraftResponse.JSON_PROPERTY_TEMPLATE,
   TemplateCreateEmbeddedDraftResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateCreateEmbeddedDraftResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
+  @jakarta.annotation.Nonnull
   private TemplateCreateEmbeddedDraftResponseTemplate template;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public TemplateCreateEmbeddedDraftResponse() { 
@@ -67,7 +69,7 @@ public class TemplateCreateEmbeddedDraftResponse {
     );
   }
 
-  public TemplateCreateEmbeddedDraftResponse template(TemplateCreateEmbeddedDraftResponseTemplate template) {
+  public TemplateCreateEmbeddedDraftResponse template(@jakarta.annotation.Nonnull TemplateCreateEmbeddedDraftResponseTemplate template) {
     this.template = template;
     return this;
   }
@@ -87,12 +89,12 @@ public class TemplateCreateEmbeddedDraftResponse {
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplate(TemplateCreateEmbeddedDraftResponseTemplate template) {
+  public void setTemplate(@jakarta.annotation.Nonnull TemplateCreateEmbeddedDraftResponseTemplate template) {
     this.template = template;
   }
 
 
-  public TemplateCreateEmbeddedDraftResponse warnings(List<WarningResponse> warnings) {
+  public TemplateCreateEmbeddedDraftResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class TemplateCreateEmbeddedDraftResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

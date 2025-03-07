@@ -39,20 +39,20 @@ import com.dropbox.sign.ApiException;
   SubSigningOptions.JSON_PROPERTY_TYPE,
   SubSigningOptions.JSON_PROPERTY_UPLOAD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubSigningOptions {
   /**
    * The default type shown (limited to the listed types)
    */
   public enum DefaultTypeEnum {
-    DRAW("draw"),
+    DRAW(String.valueOf("draw")),
     
-    PHONE("phone"),
+    PHONE(String.valueOf("phone")),
     
-    TYPE("type"),
+    TYPE(String.valueOf("type")),
     
-    UPLOAD("upload");
+    UPLOAD(String.valueOf("upload"));
 
     private String value;
 
@@ -82,18 +82,23 @@ public class SubSigningOptions {
   }
 
   public static final String JSON_PROPERTY_DEFAULT_TYPE = "default_type";
+  @jakarta.annotation.Nonnull
   private DefaultTypeEnum defaultType;
 
   public static final String JSON_PROPERTY_DRAW = "draw";
+  @jakarta.annotation.Nullable
   private Boolean draw = false;
 
   public static final String JSON_PROPERTY_PHONE = "phone";
+  @jakarta.annotation.Nullable
   private Boolean phone = false;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nullable
   private Boolean type = false;
 
   public static final String JSON_PROPERTY_UPLOAD = "upload";
+  @jakarta.annotation.Nullable
   private Boolean upload = false;
 
   public SubSigningOptions() { 
@@ -114,7 +119,7 @@ public class SubSigningOptions {
     );
   }
 
-  public SubSigningOptions defaultType(DefaultTypeEnum defaultType) {
+  public SubSigningOptions defaultType(@jakarta.annotation.Nonnull DefaultTypeEnum defaultType) {
     this.defaultType = defaultType;
     return this;
   }
@@ -134,12 +139,12 @@ public class SubSigningOptions {
 
   @JsonProperty(JSON_PROPERTY_DEFAULT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDefaultType(DefaultTypeEnum defaultType) {
+  public void setDefaultType(@jakarta.annotation.Nonnull DefaultTypeEnum defaultType) {
     this.defaultType = defaultType;
   }
 
 
-  public SubSigningOptions draw(Boolean draw) {
+  public SubSigningOptions draw(@jakarta.annotation.Nullable Boolean draw) {
     this.draw = draw;
     return this;
   }
@@ -159,12 +164,12 @@ public class SubSigningOptions {
 
   @JsonProperty(JSON_PROPERTY_DRAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDraw(Boolean draw) {
+  public void setDraw(@jakarta.annotation.Nullable Boolean draw) {
     this.draw = draw;
   }
 
 
-  public SubSigningOptions phone(Boolean phone) {
+  public SubSigningOptions phone(@jakarta.annotation.Nullable Boolean phone) {
     this.phone = phone;
     return this;
   }
@@ -184,12 +189,12 @@ public class SubSigningOptions {
 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPhone(Boolean phone) {
+  public void setPhone(@jakarta.annotation.Nullable Boolean phone) {
     this.phone = phone;
   }
 
 
-  public SubSigningOptions type(Boolean type) {
+  public SubSigningOptions type(@jakarta.annotation.Nullable Boolean type) {
     this.type = type;
     return this;
   }
@@ -209,12 +214,12 @@ public class SubSigningOptions {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(Boolean type) {
+  public void setType(@jakarta.annotation.Nullable Boolean type) {
     this.type = type;
   }
 
 
-  public SubSigningOptions upload(Boolean upload) {
+  public SubSigningOptions upload(@jakarta.annotation.Nullable Boolean upload) {
     this.upload = upload;
     return this;
   }
@@ -234,7 +239,7 @@ public class SubSigningOptions {
 
   @JsonProperty(JSON_PROPERTY_UPLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpload(Boolean upload) {
+  public void setUpload(@jakarta.annotation.Nullable Boolean upload) {
     this.upload = upload;
   }
 

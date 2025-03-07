@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
   EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EmbeddedEditUrlResponseEmbedded {
   public static final String JSON_PROPERTY_EDIT_URL = "edit_url";
+  @jakarta.annotation.Nullable
   private String editUrl;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+  @jakarta.annotation.Nullable
   private Integer expiresAt;
 
   public EmbeddedEditUrlResponseEmbedded() { 
@@ -63,7 +65,7 @@ public class EmbeddedEditUrlResponseEmbedded {
     );
   }
 
-  public EmbeddedEditUrlResponseEmbedded editUrl(String editUrl) {
+  public EmbeddedEditUrlResponseEmbedded editUrl(@jakarta.annotation.Nullable String editUrl) {
     this.editUrl = editUrl;
     return this;
   }
@@ -83,12 +85,12 @@ public class EmbeddedEditUrlResponseEmbedded {
 
   @JsonProperty(JSON_PROPERTY_EDIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEditUrl(String editUrl) {
+  public void setEditUrl(@jakarta.annotation.Nullable String editUrl) {
     this.editUrl = editUrl;
   }
 
 
-  public EmbeddedEditUrlResponseEmbedded expiresAt(Integer expiresAt) {
+  public EmbeddedEditUrlResponseEmbedded expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -108,7 +110,7 @@ public class EmbeddedEditUrlResponseEmbedded {
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(Integer expiresAt) {
+  public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
   }
 
