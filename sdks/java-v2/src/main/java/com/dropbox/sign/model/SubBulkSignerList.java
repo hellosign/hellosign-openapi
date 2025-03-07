@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   SubBulkSignerList.JSON_PROPERTY_CUSTOM_FIELDS,
   SubBulkSignerList.JSON_PROPERTY_SIGNERS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubBulkSignerList {
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
+  @jakarta.annotation.Nullable
   private List<SubBulkSignerListCustomField> customFields = null;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
+  @jakarta.annotation.Nullable
   private List<SubSignatureRequestTemplateSigner> signers = null;
 
   public SubBulkSignerList() { 
@@ -67,7 +69,7 @@ public class SubBulkSignerList {
     );
   }
 
-  public SubBulkSignerList customFields(List<SubBulkSignerListCustomField> customFields) {
+  public SubBulkSignerList customFields(@jakarta.annotation.Nullable List<SubBulkSignerListCustomField> customFields) {
     this.customFields = customFields;
     return this;
   }
@@ -95,12 +97,12 @@ public class SubBulkSignerList {
 
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomFields(List<SubBulkSignerListCustomField> customFields) {
+  public void setCustomFields(@jakarta.annotation.Nullable List<SubBulkSignerListCustomField> customFields) {
     this.customFields = customFields;
   }
 
 
-  public SubBulkSignerList signers(List<SubSignatureRequestTemplateSigner> signers) {
+  public SubBulkSignerList signers(@jakarta.annotation.Nullable List<SubSignatureRequestTemplateSigner> signers) {
     this.signers = signers;
     return this;
   }
@@ -128,7 +130,7 @@ public class SubBulkSignerList {
 
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigners(List<SubSignatureRequestTemplateSigner> signers) {
+  public void setSigners(@jakarta.annotation.Nullable List<SubSignatureRequestTemplateSigner> signers) {
     this.signers = signers;
   }
 

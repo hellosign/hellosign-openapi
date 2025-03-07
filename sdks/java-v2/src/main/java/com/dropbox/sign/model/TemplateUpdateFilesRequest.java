@@ -43,25 +43,31 @@ import com.dropbox.sign.ApiException;
   TemplateUpdateFilesRequest.JSON_PROPERTY_SUBJECT,
   TemplateUpdateFilesRequest.JSON_PROPERTY_TEST_MODE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateUpdateFilesRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @jakarta.annotation.Nullable
   private String clientId;
 
   public static final String JSON_PROPERTY_FILES = "files";
+  @jakarta.annotation.Nullable
   private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  @jakarta.annotation.Nullable
   private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String JSON_PROPERTY_SUBJECT = "subject";
+  @jakarta.annotation.Nullable
   private String subject;
 
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+  @jakarta.annotation.Nullable
   private Boolean testMode = false;
 
   public TemplateUpdateFilesRequest() { 
@@ -82,7 +88,7 @@ public class TemplateUpdateFilesRequest {
     );
   }
 
-  public TemplateUpdateFilesRequest clientId(String clientId) {
+  public TemplateUpdateFilesRequest clientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
     return this;
   }
@@ -102,12 +108,12 @@ public class TemplateUpdateFilesRequest {
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientId(String clientId) {
+  public void setClientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
   }
 
 
-  public TemplateUpdateFilesRequest files(List<File> files) {
+  public TemplateUpdateFilesRequest files(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
     return this;
   }
@@ -135,12 +141,12 @@ public class TemplateUpdateFilesRequest {
 
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiles(List<File> files) {
+  public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
   }
 
 
-  public TemplateUpdateFilesRequest fileUrls(List<String> fileUrls) {
+  public TemplateUpdateFilesRequest fileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
     return this;
   }
@@ -168,12 +174,12 @@ public class TemplateUpdateFilesRequest {
 
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrls(List<String> fileUrls) {
+  public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
   }
 
 
-  public TemplateUpdateFilesRequest message(String message) {
+  public TemplateUpdateFilesRequest message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -193,12 +199,12 @@ public class TemplateUpdateFilesRequest {
 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public TemplateUpdateFilesRequest subject(String subject) {
+  public TemplateUpdateFilesRequest subject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
     return this;
   }
@@ -218,12 +224,12 @@ public class TemplateUpdateFilesRequest {
 
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubject(String subject) {
+  public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
   }
 
 
-  public TemplateUpdateFilesRequest testMode(Boolean testMode) {
+  public TemplateUpdateFilesRequest testMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
     return this;
   }
@@ -243,7 +249,7 @@ public class TemplateUpdateFilesRequest {
 
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTestMode(Boolean testMode) {
+  public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
   }
 

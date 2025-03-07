@@ -19,8 +19,8 @@
 
 | Name | Value |
 ---- | -----
-| FIELD_VISIBILITY | &quot;change-field-visibility&quot; |
-| GROUP_VISIBILITY | &quot;change-group-visibility&quot; |
+| CHANGE_FIELD_VISIBILITY | &quot;change-field-visibility&quot; |
+| CHANGE_GROUP_VISIBILITY | &quot;change-group-visibility&quot; |
 
 
 

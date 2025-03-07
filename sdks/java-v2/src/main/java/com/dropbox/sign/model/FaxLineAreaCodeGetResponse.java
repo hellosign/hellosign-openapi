@@ -37,10 +37,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FaxLineAreaCodeGetResponse.JSON_PROPERTY_AREA_CODES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineAreaCodeGetResponse {
   public static final String JSON_PROPERTY_AREA_CODES = "area_codes";
+  @jakarta.annotation.Nonnull
   private List<Integer> areaCodes = new ArrayList<>();
 
   public FaxLineAreaCodeGetResponse() { 
@@ -61,7 +62,7 @@ public class FaxLineAreaCodeGetResponse {
     );
   }
 
-  public FaxLineAreaCodeGetResponse areaCodes(List<Integer> areaCodes) {
+  public FaxLineAreaCodeGetResponse areaCodes(@jakarta.annotation.Nonnull List<Integer> areaCodes) {
     this.areaCodes = areaCodes;
     return this;
   }
@@ -89,7 +90,7 @@ public class FaxLineAreaCodeGetResponse {
 
   @JsonProperty(JSON_PROPERTY_AREA_CODES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAreaCodes(List<Integer> areaCodes) {
+  public void setAreaCodes(@jakarta.annotation.Nonnull List<Integer> areaCodes) {
     this.areaCodes = areaCodes;
   }
 

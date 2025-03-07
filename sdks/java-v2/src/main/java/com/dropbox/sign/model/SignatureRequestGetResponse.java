@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   SignatureRequestGetResponse.JSON_PROPERTY_SIGNATURE_REQUEST,
   SignatureRequestGetResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestGetResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUEST = "signature_request";
+  @jakarta.annotation.Nonnull
   private SignatureRequestResponse signatureRequest;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public SignatureRequestGetResponse() { 
@@ -67,7 +69,7 @@ public class SignatureRequestGetResponse {
     );
   }
 
-  public SignatureRequestGetResponse signatureRequest(SignatureRequestResponse signatureRequest) {
+  public SignatureRequestGetResponse signatureRequest(@jakarta.annotation.Nonnull SignatureRequestResponse signatureRequest) {
     this.signatureRequest = signatureRequest;
     return this;
   }
@@ -87,12 +89,12 @@ public class SignatureRequestGetResponse {
 
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSignatureRequest(SignatureRequestResponse signatureRequest) {
+  public void setSignatureRequest(@jakarta.annotation.Nonnull SignatureRequestResponse signatureRequest) {
     this.signatureRequest = signatureRequest;
   }
 
 
-  public SignatureRequestGetResponse warnings(List<WarningResponse> warnings) {
+  public SignatureRequestGetResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class SignatureRequestGetResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentCheckbox.JSON_PROPERTY_IS_CHECKED,
   SubFormFieldsPerDocumentCheckbox.JSON_PROPERTY_GROUP
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -50,12 +50,15 @@ import com.dropbox.sign.ApiException;
 
 public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "checkbox";
 
   public static final String JSON_PROPERTY_IS_CHECKED = "is_checked";
+  @jakarta.annotation.Nonnull
   private Boolean isChecked;
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @jakarta.annotation.Nullable
   private String group;
 
   public SubFormFieldsPerDocumentCheckbox() { 
@@ -76,7 +79,7 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
     );
   }
 
-  public SubFormFieldsPerDocumentCheckbox type(String type) {
+  public SubFormFieldsPerDocumentCheckbox type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -96,12 +99,12 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public SubFormFieldsPerDocumentCheckbox isChecked(Boolean isChecked) {
+  public SubFormFieldsPerDocumentCheckbox isChecked(@jakarta.annotation.Nonnull Boolean isChecked) {
     this.isChecked = isChecked;
     return this;
   }
@@ -121,12 +124,12 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_IS_CHECKED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsChecked(Boolean isChecked) {
+  public void setIsChecked(@jakarta.annotation.Nonnull Boolean isChecked) {
     this.isChecked = isChecked;
   }
 
 
-  public SubFormFieldsPerDocumentCheckbox group(String group) {
+  public SubFormFieldsPerDocumentCheckbox group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
@@ -146,7 +149,7 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 

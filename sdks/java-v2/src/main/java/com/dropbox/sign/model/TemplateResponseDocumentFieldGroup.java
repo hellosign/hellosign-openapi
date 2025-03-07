@@ -37,13 +37,15 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFieldGroup.JSON_PROPERTY_NAME,
   TemplateResponseDocumentFieldGroup.JSON_PROPERTY_RULE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseDocumentFieldGroup {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_RULE = "rule";
+  @jakarta.annotation.Nullable
   private TemplateResponseDocumentFieldGroupRule rule;
 
   public TemplateResponseDocumentFieldGroup() { 
@@ -64,7 +66,7 @@ public class TemplateResponseDocumentFieldGroup {
     );
   }
 
-  public TemplateResponseDocumentFieldGroup name(String name) {
+  public TemplateResponseDocumentFieldGroup name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -84,12 +86,12 @@ public class TemplateResponseDocumentFieldGroup {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public TemplateResponseDocumentFieldGroup rule(TemplateResponseDocumentFieldGroupRule rule) {
+  public TemplateResponseDocumentFieldGroup rule(@jakarta.annotation.Nullable TemplateResponseDocumentFieldGroupRule rule) {
     this.rule = rule;
     return this;
   }
@@ -109,7 +111,7 @@ public class TemplateResponseDocumentFieldGroup {
 
   @JsonProperty(JSON_PROPERTY_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRule(TemplateResponseDocumentFieldGroupRule rule) {
+  public void setRule(@jakarta.annotation.Nullable TemplateResponseDocumentFieldGroupRule rule) {
     this.rule = rule;
   }
 

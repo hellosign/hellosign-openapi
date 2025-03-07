@@ -38,31 +38,32 @@ import com.dropbox.sign.ApiException;
   SubOAuth.JSON_PROPERTY_CALLBACK_URL,
   SubOAuth.JSON_PROPERTY_SCOPES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubOAuth {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
+  @jakarta.annotation.Nullable
   private String callbackUrl;
 
   /**
    * Gets or Sets scopes
    */
   public enum ScopesEnum {
-    REQUEST_SIGNATURE("request_signature"),
+    REQUEST_SIGNATURE(String.valueOf("request_signature")),
     
-    BASIC_ACCOUNT_INFO("basic_account_info"),
+    BASIC_ACCOUNT_INFO(String.valueOf("basic_account_info")),
     
-    ACCOUNT_ACCESS("account_access"),
+    ACCOUNT_ACCESS(String.valueOf("account_access")),
     
-    SIGNATURE_REQUEST_ACCESS("signature_request_access"),
+    SIGNATURE_REQUEST_ACCESS(String.valueOf("signature_request_access")),
     
-    TEMPLATE_ACCESS("template_access"),
+    TEMPLATE_ACCESS(String.valueOf("template_access")),
     
-    TEAM_ACCESS("team_access"),
+    TEAM_ACCESS(String.valueOf("team_access")),
     
-    API_APP_ACCESS("api_app_access"),
+    API_APP_ACCESS(String.valueOf("api_app_access")),
     
-    EMPTY("");
+    EMPTY(String.valueOf(""));
 
     private String value;
 
@@ -92,6 +93,7 @@ public class SubOAuth {
   }
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
+  @jakarta.annotation.Nullable
   private List<ScopesEnum> scopes = null;
 
   public SubOAuth() { 
@@ -112,7 +114,7 @@ public class SubOAuth {
     );
   }
 
-  public SubOAuth callbackUrl(String callbackUrl) {
+  public SubOAuth callbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
     return this;
   }
@@ -132,12 +134,12 @@ public class SubOAuth {
 
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCallbackUrl(String callbackUrl) {
+  public void setCallbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
   }
 
 
-  public SubOAuth scopes(List<ScopesEnum> scopes) {
+  public SubOAuth scopes(@jakarta.annotation.Nullable List<ScopesEnum> scopes) {
     this.scopes = scopes;
     return this;
   }
@@ -165,7 +167,7 @@ public class SubOAuth {
 
   @JsonProperty(JSON_PROPERTY_SCOPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setScopes(List<ScopesEnum> scopes) {
+  public void setScopes(@jakarta.annotation.Nullable List<ScopesEnum> scopes) {
     this.scopes = scopes;
   }
 

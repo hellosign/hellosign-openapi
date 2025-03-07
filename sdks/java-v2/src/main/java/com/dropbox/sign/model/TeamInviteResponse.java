@@ -40,25 +40,31 @@ import com.dropbox.sign.ApiException;
   TeamInviteResponse.JSON_PROPERTY_REDEEMED_AT,
   TeamInviteResponse.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamInviteResponse {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
+  @jakarta.annotation.Nullable
   private String teamId;
 
   public static final String JSON_PROPERTY_ROLE = "role";
+  @jakarta.annotation.Nullable
   private String role;
 
   public static final String JSON_PROPERTY_SENT_AT = "sent_at";
+  @jakarta.annotation.Nullable
   private Integer sentAt;
 
   public static final String JSON_PROPERTY_REDEEMED_AT = "redeemed_at";
+  @jakarta.annotation.Nullable
   private Integer redeemedAt;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+  @jakarta.annotation.Nullable
   private Integer expiresAt;
 
   public TeamInviteResponse() { 
@@ -79,7 +85,7 @@ public class TeamInviteResponse {
     );
   }
 
-  public TeamInviteResponse emailAddress(String emailAddress) {
+  public TeamInviteResponse emailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -99,12 +105,12 @@ public class TeamInviteResponse {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public TeamInviteResponse teamId(String teamId) {
+  public TeamInviteResponse teamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
     return this;
   }
@@ -124,12 +130,12 @@ public class TeamInviteResponse {
 
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTeamId(String teamId) {
+  public void setTeamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
   }
 
 
-  public TeamInviteResponse role(String role) {
+  public TeamInviteResponse role(@jakarta.annotation.Nullable String role) {
     this.role = role;
     return this;
   }
@@ -149,12 +155,12 @@ public class TeamInviteResponse {
 
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRole(String role) {
+  public void setRole(@jakarta.annotation.Nullable String role) {
     this.role = role;
   }
 
 
-  public TeamInviteResponse sentAt(Integer sentAt) {
+  public TeamInviteResponse sentAt(@jakarta.annotation.Nullable Integer sentAt) {
     this.sentAt = sentAt;
     return this;
   }
@@ -174,12 +180,12 @@ public class TeamInviteResponse {
 
   @JsonProperty(JSON_PROPERTY_SENT_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSentAt(Integer sentAt) {
+  public void setSentAt(@jakarta.annotation.Nullable Integer sentAt) {
     this.sentAt = sentAt;
   }
 
 
-  public TeamInviteResponse redeemedAt(Integer redeemedAt) {
+  public TeamInviteResponse redeemedAt(@jakarta.annotation.Nullable Integer redeemedAt) {
     this.redeemedAt = redeemedAt;
     return this;
   }
@@ -199,12 +205,12 @@ public class TeamInviteResponse {
 
   @JsonProperty(JSON_PROPERTY_REDEEMED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRedeemedAt(Integer redeemedAt) {
+  public void setRedeemedAt(@jakarta.annotation.Nullable Integer redeemedAt) {
     this.redeemedAt = redeemedAt;
   }
 
 
-  public TeamInviteResponse expiresAt(Integer expiresAt) {
+  public TeamInviteResponse expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -224,7 +230,7 @@ public class TeamInviteResponse {
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(Integer expiresAt) {
+  public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
   }
 

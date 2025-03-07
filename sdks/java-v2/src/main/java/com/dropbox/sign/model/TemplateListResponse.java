@@ -42,16 +42,19 @@ import com.dropbox.sign.ApiException;
   TemplateListResponse.JSON_PROPERTY_LIST_INFO,
   TemplateListResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateListResponse {
   public static final String JSON_PROPERTY_TEMPLATES = "templates";
+  @jakarta.annotation.Nonnull
   private List<TemplateResponse> templates = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
+  @jakarta.annotation.Nonnull
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public TemplateListResponse() { 
@@ -72,7 +75,7 @@ public class TemplateListResponse {
     );
   }
 
-  public TemplateListResponse templates(List<TemplateResponse> templates) {
+  public TemplateListResponse templates(@jakarta.annotation.Nonnull List<TemplateResponse> templates) {
     this.templates = templates;
     return this;
   }
@@ -100,12 +103,12 @@ public class TemplateListResponse {
 
   @JsonProperty(JSON_PROPERTY_TEMPLATES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplates(List<TemplateResponse> templates) {
+  public void setTemplates(@jakarta.annotation.Nonnull List<TemplateResponse> templates) {
     this.templates = templates;
   }
 
 
-  public TemplateListResponse listInfo(ListInfoResponse listInfo) {
+  public TemplateListResponse listInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
     return this;
   }
@@ -125,12 +128,12 @@ public class TemplateListResponse {
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setListInfo(ListInfoResponse listInfo) {
+  public void setListInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }
 
 
-  public TemplateListResponse warnings(List<WarningResponse> warnings) {
+  public TemplateListResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -158,7 +161,7 @@ public class TemplateListResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

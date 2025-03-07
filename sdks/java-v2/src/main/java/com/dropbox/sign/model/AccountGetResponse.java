@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   AccountGetResponse.JSON_PROPERTY_ACCOUNT,
   AccountGetResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountGetResponse {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
+  @jakarta.annotation.Nonnull
   private AccountResponse account;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public AccountGetResponse() { 
@@ -67,7 +69,7 @@ public class AccountGetResponse {
     );
   }
 
-  public AccountGetResponse account(AccountResponse account) {
+  public AccountGetResponse account(@jakarta.annotation.Nonnull AccountResponse account) {
     this.account = account;
     return this;
   }
@@ -87,12 +89,12 @@ public class AccountGetResponse {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAccount(AccountResponse account) {
+  public void setAccount(@jakarta.annotation.Nonnull AccountResponse account) {
     this.account = account;
   }
 
 
-  public AccountGetResponse warnings(List<WarningResponse> warnings) {
+  public AccountGetResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class AccountGetResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

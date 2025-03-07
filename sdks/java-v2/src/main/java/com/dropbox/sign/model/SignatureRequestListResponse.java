@@ -42,16 +42,19 @@ import com.dropbox.sign.ApiException;
   SignatureRequestListResponse.JSON_PROPERTY_LIST_INFO,
   SignatureRequestListResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestListResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";
+  @jakarta.annotation.Nonnull
   private List<SignatureRequestResponse> signatureRequests = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
+  @jakarta.annotation.Nonnull
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public SignatureRequestListResponse() { 
@@ -72,7 +75,7 @@ public class SignatureRequestListResponse {
     );
   }
 
-  public SignatureRequestListResponse signatureRequests(List<SignatureRequestResponse> signatureRequests) {
+  public SignatureRequestListResponse signatureRequests(@jakarta.annotation.Nonnull List<SignatureRequestResponse> signatureRequests) {
     this.signatureRequests = signatureRequests;
     return this;
   }
@@ -100,12 +103,12 @@ public class SignatureRequestListResponse {
 
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSignatureRequests(List<SignatureRequestResponse> signatureRequests) {
+  public void setSignatureRequests(@jakarta.annotation.Nonnull List<SignatureRequestResponse> signatureRequests) {
     this.signatureRequests = signatureRequests;
   }
 
 
-  public SignatureRequestListResponse listInfo(ListInfoResponse listInfo) {
+  public SignatureRequestListResponse listInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
     return this;
   }
@@ -125,12 +128,12 @@ public class SignatureRequestListResponse {
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setListInfo(ListInfoResponse listInfo) {
+  public void setListInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }
 
 
-  public SignatureRequestListResponse warnings(List<WarningResponse> warnings) {
+  public SignatureRequestListResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -158,7 +161,7 @@ public class SignatureRequestListResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

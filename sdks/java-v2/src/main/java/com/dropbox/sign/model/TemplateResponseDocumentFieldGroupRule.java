@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_REQUIREMENT,
   TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_GROUP_LABEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseDocumentFieldGroupRule {
   public static final String JSON_PROPERTY_REQUIREMENT = "requirement";
+  @jakarta.annotation.Nullable
   private String requirement;
 
   public static final String JSON_PROPERTY_GROUP_LABEL = "groupLabel";
+  @jakarta.annotation.Nullable
   private String groupLabel;
 
   public TemplateResponseDocumentFieldGroupRule() { 
@@ -63,7 +65,7 @@ public class TemplateResponseDocumentFieldGroupRule {
     );
   }
 
-  public TemplateResponseDocumentFieldGroupRule requirement(String requirement) {
+  public TemplateResponseDocumentFieldGroupRule requirement(@jakarta.annotation.Nullable String requirement) {
     this.requirement = requirement;
     return this;
   }
@@ -83,12 +85,12 @@ public class TemplateResponseDocumentFieldGroupRule {
 
   @JsonProperty(JSON_PROPERTY_REQUIREMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequirement(String requirement) {
+  public void setRequirement(@jakarta.annotation.Nullable String requirement) {
     this.requirement = requirement;
   }
 
 
-  public TemplateResponseDocumentFieldGroupRule groupLabel(String groupLabel) {
+  public TemplateResponseDocumentFieldGroupRule groupLabel(@jakarta.annotation.Nullable String groupLabel) {
     this.groupLabel = groupLabel;
     return this;
   }
@@ -108,7 +110,7 @@ public class TemplateResponseDocumentFieldGroupRule {
 
   @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroupLabel(String groupLabel) {
+  public void setGroupLabel(@jakarta.annotation.Nullable String groupLabel) {
     this.groupLabel = groupLabel;
   }
 

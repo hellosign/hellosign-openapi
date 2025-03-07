@@ -44,6 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TimeZone;
+import java.util.function.Supplier;
 
 import {{javaxPackage}}.annotation.Nullable;
 
@@ -87,29 +88,26 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
 
 
     public ApiClient() {
-        this.dateFormat = createDefaultDateFormat();
-        this.objectMapper = createDefaultObjectMapper(this.dateFormat);
-        this.restClient = buildRestClient(this.objectMapper);
-        this.init();
+        this(null);
     }
 
     public ApiClient(RestClient restClient) {
-        this(Optional.ofNullable(restClient).orElseGet(ApiClient::buildRestClient), createDefaultDateFormat());
+        this(restClient, createDefaultDateFormat());
     }
 
     public ApiClient(ObjectMapper mapper, DateFormat format) {
-        this(buildRestClient(mapper.copy()), format);
+        this(null, mapper, format);
     }
 
     public ApiClient(RestClient restClient, ObjectMapper mapper, DateFormat format) {
-        this(Optional.ofNullable(restClient).orElseGet(() -> buildRestClient(mapper.copy())), format);
+        this.objectMapper = mapper.copy();
+        this.restClient = Optional.ofNullable(restClient).orElseGet(() -> buildRestClient(this.objectMapper));
+        this.dateFormat = format;
+        this.init();
     }
 
     private ApiClient(RestClient restClient, DateFormat format) {
-        this.restClient = restClient;
-        this.dateFormat = format;
-        this.objectMapper = createDefaultObjectMapper(format);
-        this.init();
+        this(restClient, createDefaultObjectMapper(format), format);
     }
 
     public static DateFormat createDefaultDateFormat() {
@@ -125,7 +123,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setDateFormat(dateFormat);
         mapper.registerModule(new JavaTimeModule());
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, {{failOnUnknownProperties}});
         {{#openApiNullable}}
         JsonNullableModule jnm = new JsonNullableModule();
         mapper.registerModule(jnm);
@@ -159,9 +157,9 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
 
         {{/withXml}}
         Consumer<List<HttpMessageConverter<?>>> messageConverters = converters -> {
-            converters.add(new MappingJackson2HttpMessageConverter(mapper));
+            converters.add(0, new MappingJackson2HttpMessageConverter(mapper));
             {{#withXml}}
-            converters.add(new MappingJackson2XmlHttpMessageConverter(xmlMapper));
+            converters.add(0, new MappingJackson2XmlHttpMessageConverter(xmlMapper));
             {{/withXml}}
         };
 
@@ -238,6 +236,21 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
             if (auth instanceof HttpBearerAuth) {
                 ((HttpBearerAuth) auth).setBearerToken(bearerToken);
                 return;
+            }
+        }
+        throw new RuntimeException("No Bearer authentication configured!");
+    }
+
+    /**
+    * Helper method to set the supplier of access tokens for Bearer authentication.
+    *
+    * @param tokenSupplier the token supplier function
+    */
+    public void setBearerToken(Supplier<String> tokenSupplier) {
+        for (Authentication auth : authentications.values()) {
+            if (auth instanceof HttpBearerAuth) {
+                ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
+            return;
             }
         }
         throw new RuntimeException("No Bearer authentication configured!");

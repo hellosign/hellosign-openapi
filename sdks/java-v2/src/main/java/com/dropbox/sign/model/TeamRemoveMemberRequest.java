@@ -39,32 +39,36 @@ import com.dropbox.sign.ApiException;
   TeamRemoveMemberRequest.JSON_PROPERTY_NEW_TEAM_ID,
   TeamRemoveMemberRequest.JSON_PROPERTY_NEW_ROLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamRemoveMemberRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  @jakarta.annotation.Nullable
   private String accountId;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_NEW_OWNER_EMAIL_ADDRESS = "new_owner_email_address";
+  @jakarta.annotation.Nullable
   private String newOwnerEmailAddress;
 
   public static final String JSON_PROPERTY_NEW_TEAM_ID = "new_team_id";
+  @jakarta.annotation.Nullable
   private String newTeamId;
 
   /**
    * A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.
    */
   public enum NewRoleEnum {
-    MEMBER("Member"),
+    MEMBER(String.valueOf("Member")),
     
-    DEVELOPER("Developer"),
+    DEVELOPER(String.valueOf("Developer")),
     
-    TEAM_MANAGER("Team Manager"),
+    TEAM_MANAGER(String.valueOf("Team Manager")),
     
-    ADMIN("Admin");
+    ADMIN(String.valueOf("Admin"));
 
     private String value;
 
@@ -94,6 +98,7 @@ public class TeamRemoveMemberRequest {
   }
 
   public static final String JSON_PROPERTY_NEW_ROLE = "new_role";
+  @jakarta.annotation.Nullable
   private NewRoleEnum newRole;
 
   public TeamRemoveMemberRequest() { 
@@ -114,7 +119,7 @@ public class TeamRemoveMemberRequest {
     );
   }
 
-  public TeamRemoveMemberRequest accountId(String accountId) {
+  public TeamRemoveMemberRequest accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -134,12 +139,12 @@ public class TeamRemoveMemberRequest {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountId(String accountId) {
+  public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
   }
 
 
-  public TeamRemoveMemberRequest emailAddress(String emailAddress) {
+  public TeamRemoveMemberRequest emailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -159,12 +164,12 @@ public class TeamRemoveMemberRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public TeamRemoveMemberRequest newOwnerEmailAddress(String newOwnerEmailAddress) {
+  public TeamRemoveMemberRequest newOwnerEmailAddress(@jakarta.annotation.Nullable String newOwnerEmailAddress) {
     this.newOwnerEmailAddress = newOwnerEmailAddress;
     return this;
   }
@@ -184,12 +189,12 @@ public class TeamRemoveMemberRequest {
 
   @JsonProperty(JSON_PROPERTY_NEW_OWNER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNewOwnerEmailAddress(String newOwnerEmailAddress) {
+  public void setNewOwnerEmailAddress(@jakarta.annotation.Nullable String newOwnerEmailAddress) {
     this.newOwnerEmailAddress = newOwnerEmailAddress;
   }
 
 
-  public TeamRemoveMemberRequest newTeamId(String newTeamId) {
+  public TeamRemoveMemberRequest newTeamId(@jakarta.annotation.Nullable String newTeamId) {
     this.newTeamId = newTeamId;
     return this;
   }
@@ -209,12 +214,12 @@ public class TeamRemoveMemberRequest {
 
   @JsonProperty(JSON_PROPERTY_NEW_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNewTeamId(String newTeamId) {
+  public void setNewTeamId(@jakarta.annotation.Nullable String newTeamId) {
     this.newTeamId = newTeamId;
   }
 
 
-  public TeamRemoveMemberRequest newRole(NewRoleEnum newRole) {
+  public TeamRemoveMemberRequest newRole(@jakarta.annotation.Nullable NewRoleEnum newRole) {
     this.newRole = newRole;
     return this;
   }
@@ -234,7 +239,7 @@ public class TeamRemoveMemberRequest {
 
   @JsonProperty(JSON_PROPERTY_NEW_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNewRole(NewRoleEnum newRole) {
+  public void setNewRole(@jakarta.annotation.Nullable NewRoleEnum newRole) {
     this.newRole = newRole;
   }
 

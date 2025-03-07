@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateResponse.JSON_PROPERTY_UNCLAIMED_DRAFT,
   UnclaimedDraftCreateResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftCreateResponse {
   public static final String JSON_PROPERTY_UNCLAIMED_DRAFT = "unclaimed_draft";
+  @jakarta.annotation.Nonnull
   private UnclaimedDraftResponse unclaimedDraft;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public UnclaimedDraftCreateResponse() { 
@@ -67,7 +69,7 @@ public class UnclaimedDraftCreateResponse {
     );
   }
 
-  public UnclaimedDraftCreateResponse unclaimedDraft(UnclaimedDraftResponse unclaimedDraft) {
+  public UnclaimedDraftCreateResponse unclaimedDraft(@jakarta.annotation.Nonnull UnclaimedDraftResponse unclaimedDraft) {
     this.unclaimedDraft = unclaimedDraft;
     return this;
   }
@@ -87,12 +89,12 @@ public class UnclaimedDraftCreateResponse {
 
   @JsonProperty(JSON_PROPERTY_UNCLAIMED_DRAFT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUnclaimedDraft(UnclaimedDraftResponse unclaimedDraft) {
+  public void setUnclaimedDraft(@jakarta.annotation.Nonnull UnclaimedDraftResponse unclaimedDraft) {
     this.unclaimedDraft = unclaimedDraft;
   }
 
 
-  public UnclaimedDraftCreateResponse warnings(List<WarningResponse> warnings) {
+  public UnclaimedDraftCreateResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class UnclaimedDraftCreateResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

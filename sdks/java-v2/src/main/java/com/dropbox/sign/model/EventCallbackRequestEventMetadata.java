@@ -38,19 +38,23 @@ import com.dropbox.sign.ApiException;
   EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_APP_ID,
   EventCallbackRequestEventMetadata.JSON_PROPERTY_EVENT_MESSAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EventCallbackRequestEventMetadata {
   public static final String JSON_PROPERTY_RELATED_SIGNATURE_ID = "related_signature_id";
+  @jakarta.annotation.Nullable
   private String relatedSignatureId;
 
   public static final String JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID = "reported_for_account_id";
+  @jakarta.annotation.Nullable
   private String reportedForAccountId;
 
   public static final String JSON_PROPERTY_REPORTED_FOR_APP_ID = "reported_for_app_id";
+  @jakarta.annotation.Nullable
   private String reportedForAppId;
 
   public static final String JSON_PROPERTY_EVENT_MESSAGE = "event_message";
+  @jakarta.annotation.Nullable
   private String eventMessage;
 
   public EventCallbackRequestEventMetadata() { 
@@ -71,7 +75,7 @@ public class EventCallbackRequestEventMetadata {
     );
   }
 
-  public EventCallbackRequestEventMetadata relatedSignatureId(String relatedSignatureId) {
+  public EventCallbackRequestEventMetadata relatedSignatureId(@jakarta.annotation.Nullable String relatedSignatureId) {
     this.relatedSignatureId = relatedSignatureId;
     return this;
   }
@@ -91,12 +95,12 @@ public class EventCallbackRequestEventMetadata {
 
   @JsonProperty(JSON_PROPERTY_RELATED_SIGNATURE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelatedSignatureId(String relatedSignatureId) {
+  public void setRelatedSignatureId(@jakarta.annotation.Nullable String relatedSignatureId) {
     this.relatedSignatureId = relatedSignatureId;
   }
 
 
-  public EventCallbackRequestEventMetadata reportedForAccountId(String reportedForAccountId) {
+  public EventCallbackRequestEventMetadata reportedForAccountId(@jakarta.annotation.Nullable String reportedForAccountId) {
     this.reportedForAccountId = reportedForAccountId;
     return this;
   }
@@ -116,12 +120,12 @@ public class EventCallbackRequestEventMetadata {
 
   @JsonProperty(JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportedForAccountId(String reportedForAccountId) {
+  public void setReportedForAccountId(@jakarta.annotation.Nullable String reportedForAccountId) {
     this.reportedForAccountId = reportedForAccountId;
   }
 
 
-  public EventCallbackRequestEventMetadata reportedForAppId(String reportedForAppId) {
+  public EventCallbackRequestEventMetadata reportedForAppId(@jakarta.annotation.Nullable String reportedForAppId) {
     this.reportedForAppId = reportedForAppId;
     return this;
   }
@@ -141,12 +145,12 @@ public class EventCallbackRequestEventMetadata {
 
   @JsonProperty(JSON_PROPERTY_REPORTED_FOR_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportedForAppId(String reportedForAppId) {
+  public void setReportedForAppId(@jakarta.annotation.Nullable String reportedForAppId) {
     this.reportedForAppId = reportedForAppId;
   }
 
 
-  public EventCallbackRequestEventMetadata eventMessage(String eventMessage) {
+  public EventCallbackRequestEventMetadata eventMessage(@jakarta.annotation.Nullable String eventMessage) {
     this.eventMessage = eventMessage;
     return this;
   }
@@ -166,7 +170,7 @@ public class EventCallbackRequestEventMetadata {
 
   @JsonProperty(JSON_PROPERTY_EVENT_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEventMessage(String eventMessage) {
+  public void setEventMessage(@jakarta.annotation.Nullable String eventMessage) {
     this.eventMessage = eventMessage;
   }
 

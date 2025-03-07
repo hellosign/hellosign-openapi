@@ -61,57 +61,73 @@ import com.dropbox.sign.ApiException;
   TemplateResponse.JSON_PROPERTY_ACCOUNTS,
   TemplateResponse.JSON_PROPERTY_ATTACHMENTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponse {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
+  @jakarta.annotation.Nullable
   private String templateId;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
+  @jakarta.annotation.Nullable
   private Integer updatedAt;
 
   public static final String JSON_PROPERTY_IS_EMBEDDED = "is_embedded";
+  @jakarta.annotation.Nullable
   private Boolean isEmbedded;
 
   public static final String JSON_PROPERTY_IS_CREATOR = "is_creator";
+  @jakarta.annotation.Nullable
   private Boolean isCreator;
 
   public static final String JSON_PROPERTY_CAN_EDIT = "can_edit";
+  @jakarta.annotation.Nullable
   private Boolean canEdit;
 
   public static final String JSON_PROPERTY_IS_LOCKED = "is_locked";
+  @jakarta.annotation.Nullable
   private Boolean isLocked;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
+  @jakarta.annotation.Nullable
   private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
+  @jakarta.annotation.Nullable
   private List<TemplateResponseSignerRole> signerRoles = null;
 
   public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
+  @jakarta.annotation.Nullable
   private List<TemplateResponseCCRole> ccRoles = null;
 
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
+  @jakarta.annotation.Nullable
   private List<TemplateResponseDocument> documents = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
   @Deprecated
+  @jakarta.annotation.Nullable
   private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
 
   public static final String JSON_PROPERTY_NAMED_FORM_FIELDS = "named_form_fields";
   @Deprecated
+  @jakarta.annotation.Nullable
   private List<TemplateResponseDocumentFormFieldBase> namedFormFields = null;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
+  @jakarta.annotation.Nullable
   private List<TemplateResponseAccount> accounts = null;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nullable
   private List<SignatureRequestResponseAttachment> attachments = null;
 
   public TemplateResponse() { 
@@ -132,7 +148,7 @@ public class TemplateResponse {
     );
   }
 
-  public TemplateResponse templateId(String templateId) {
+  public TemplateResponse templateId(@jakarta.annotation.Nullable String templateId) {
     this.templateId = templateId;
     return this;
   }
@@ -152,12 +168,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplateId(String templateId) {
+  public void setTemplateId(@jakarta.annotation.Nullable String templateId) {
     this.templateId = templateId;
   }
 
 
-  public TemplateResponse title(String title) {
+  public TemplateResponse title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -177,12 +193,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
 
-  public TemplateResponse message(String message) {
+  public TemplateResponse message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -202,12 +218,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public TemplateResponse updatedAt(Integer updatedAt) {
+  public TemplateResponse updatedAt(@jakarta.annotation.Nullable Integer updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -227,12 +243,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdatedAt(Integer updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable Integer updatedAt) {
     this.updatedAt = updatedAt;
   }
 
 
-  public TemplateResponse isEmbedded(Boolean isEmbedded) {
+  public TemplateResponse isEmbedded(@jakarta.annotation.Nullable Boolean isEmbedded) {
     this.isEmbedded = isEmbedded;
     return this;
   }
@@ -252,12 +268,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_IS_EMBEDDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsEmbedded(Boolean isEmbedded) {
+  public void setIsEmbedded(@jakarta.annotation.Nullable Boolean isEmbedded) {
     this.isEmbedded = isEmbedded;
   }
 
 
-  public TemplateResponse isCreator(Boolean isCreator) {
+  public TemplateResponse isCreator(@jakarta.annotation.Nullable Boolean isCreator) {
     this.isCreator = isCreator;
     return this;
   }
@@ -277,12 +293,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_IS_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsCreator(Boolean isCreator) {
+  public void setIsCreator(@jakarta.annotation.Nullable Boolean isCreator) {
     this.isCreator = isCreator;
   }
 
 
-  public TemplateResponse canEdit(Boolean canEdit) {
+  public TemplateResponse canEdit(@jakarta.annotation.Nullable Boolean canEdit) {
     this.canEdit = canEdit;
     return this;
   }
@@ -302,12 +318,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_CAN_EDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCanEdit(Boolean canEdit) {
+  public void setCanEdit(@jakarta.annotation.Nullable Boolean canEdit) {
     this.canEdit = canEdit;
   }
 
 
-  public TemplateResponse isLocked(Boolean isLocked) {
+  public TemplateResponse isLocked(@jakarta.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
     return this;
   }
@@ -327,12 +343,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_IS_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsLocked(Boolean isLocked) {
+  public void setIsLocked(@jakarta.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
   }
 
 
-  public TemplateResponse metadata(Map<String, Object> metadata) {
+  public TemplateResponse metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -360,12 +376,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetadata(Map<String, Object> metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 
 
-  public TemplateResponse signerRoles(List<TemplateResponseSignerRole> signerRoles) {
+  public TemplateResponse signerRoles(@jakarta.annotation.Nullable List<TemplateResponseSignerRole> signerRoles) {
     this.signerRoles = signerRoles;
     return this;
   }
@@ -393,12 +409,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSignerRoles(List<TemplateResponseSignerRole> signerRoles) {
+  public void setSignerRoles(@jakarta.annotation.Nullable List<TemplateResponseSignerRole> signerRoles) {
     this.signerRoles = signerRoles;
   }
 
 
-  public TemplateResponse ccRoles(List<TemplateResponseCCRole> ccRoles) {
+  public TemplateResponse ccRoles(@jakarta.annotation.Nullable List<TemplateResponseCCRole> ccRoles) {
     this.ccRoles = ccRoles;
     return this;
   }
@@ -426,12 +442,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_CC_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCcRoles(List<TemplateResponseCCRole> ccRoles) {
+  public void setCcRoles(@jakarta.annotation.Nullable List<TemplateResponseCCRole> ccRoles) {
     this.ccRoles = ccRoles;
   }
 
 
-  public TemplateResponse documents(List<TemplateResponseDocument> documents) {
+  public TemplateResponse documents(@jakarta.annotation.Nullable List<TemplateResponseDocument> documents) {
     this.documents = documents;
     return this;
   }
@@ -459,13 +475,13 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocuments(List<TemplateResponseDocument> documents) {
+  public void setDocuments(@jakarta.annotation.Nullable List<TemplateResponseDocument> documents) {
     this.documents = documents;
   }
 
 
   @Deprecated
-  public TemplateResponse customFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
+  public TemplateResponse customFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
     return this;
   }
@@ -496,13 +512,13 @@ public class TemplateResponse {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
+  public void setCustomFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
   }
 
 
   @Deprecated
-  public TemplateResponse namedFormFields(List<TemplateResponseDocumentFormFieldBase> namedFormFields) {
+  public TemplateResponse namedFormFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentFormFieldBase> namedFormFields) {
     this.namedFormFields = namedFormFields;
     return this;
   }
@@ -533,12 +549,12 @@ public class TemplateResponse {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_NAMED_FORM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNamedFormFields(List<TemplateResponseDocumentFormFieldBase> namedFormFields) {
+  public void setNamedFormFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentFormFieldBase> namedFormFields) {
     this.namedFormFields = namedFormFields;
   }
 
 
-  public TemplateResponse accounts(List<TemplateResponseAccount> accounts) {
+  public TemplateResponse accounts(@jakarta.annotation.Nullable List<TemplateResponseAccount> accounts) {
     this.accounts = accounts;
     return this;
   }
@@ -566,12 +582,12 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccounts(List<TemplateResponseAccount> accounts) {
+  public void setAccounts(@jakarta.annotation.Nullable List<TemplateResponseAccount> accounts) {
     this.accounts = accounts;
   }
 
 
-  public TemplateResponse attachments(List<SignatureRequestResponseAttachment> attachments) {
+  public TemplateResponse attachments(@jakarta.annotation.Nullable List<SignatureRequestResponseAttachment> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -599,7 +615,7 @@ public class TemplateResponse {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttachments(List<SignatureRequestResponseAttachment> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<SignatureRequestResponseAttachment> attachments) {
     this.attachments = attachments;
   }
 

@@ -38,19 +38,23 @@ import com.dropbox.sign.ApiException;
   AccountCreateRequest.JSON_PROPERTY_CLIENT_SECRET,
   AccountCreateRequest.JSON_PROPERTY_LOCALE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountCreateRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nonnull
   private String emailAddress;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @jakarta.annotation.Nullable
   private String clientId;
 
   public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
+  @jakarta.annotation.Nullable
   private String clientSecret;
 
   public static final String JSON_PROPERTY_LOCALE = "locale";
+  @jakarta.annotation.Nullable
   private String locale;
 
   public AccountCreateRequest() { 
@@ -71,7 +75,7 @@ public class AccountCreateRequest {
     );
   }
 
-  public AccountCreateRequest emailAddress(String emailAddress) {
+  public AccountCreateRequest emailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -91,12 +95,12 @@ public class AccountCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public AccountCreateRequest clientId(String clientId) {
+  public AccountCreateRequest clientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
     return this;
   }
@@ -116,12 +120,12 @@ public class AccountCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientId(String clientId) {
+  public void setClientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
   }
 
 
-  public AccountCreateRequest clientSecret(String clientSecret) {
+  public AccountCreateRequest clientSecret(@jakarta.annotation.Nullable String clientSecret) {
     this.clientSecret = clientSecret;
     return this;
   }
@@ -141,12 +145,12 @@ public class AccountCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientSecret(String clientSecret) {
+  public void setClientSecret(@jakarta.annotation.Nullable String clientSecret) {
     this.clientSecret = clientSecret;
   }
 
 
-  public AccountCreateRequest locale(String locale) {
+  public AccountCreateRequest locale(@jakarta.annotation.Nullable String locale) {
     this.locale = locale;
     return this;
   }
@@ -166,7 +170,7 @@ public class AccountCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLocale(String locale) {
+  public void setLocale(@jakarta.annotation.Nullable String locale) {
     this.locale = locale;
   }
 

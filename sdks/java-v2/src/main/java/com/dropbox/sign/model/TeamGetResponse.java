@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   TeamGetResponse.JSON_PROPERTY_TEAM,
   TeamGetResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamGetResponse {
   public static final String JSON_PROPERTY_TEAM = "team";
+  @jakarta.annotation.Nonnull
   private TeamResponse team;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public TeamGetResponse() { 
@@ -67,7 +69,7 @@ public class TeamGetResponse {
     );
   }
 
-  public TeamGetResponse team(TeamResponse team) {
+  public TeamGetResponse team(@jakarta.annotation.Nonnull TeamResponse team) {
     this.team = team;
     return this;
   }
@@ -87,12 +89,12 @@ public class TeamGetResponse {
 
   @JsonProperty(JSON_PROPERTY_TEAM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTeam(TeamResponse team) {
+  public void setTeam(@jakarta.annotation.Nonnull TeamResponse team) {
     this.team = team;
   }
 
 
-  public TeamGetResponse warnings(List<WarningResponse> warnings) {
+  public TeamGetResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class TeamGetResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

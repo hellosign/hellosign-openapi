@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   TemplateResponseDocumentStaticFieldSignature.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -48,6 +48,7 @@ import com.dropbox.sign.ApiException;
 
 public class TemplateResponseDocumentStaticFieldSignature extends TemplateResponseDocumentStaticFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "signature";
 
   public TemplateResponseDocumentStaticFieldSignature() { 
@@ -68,7 +69,7 @@ public class TemplateResponseDocumentStaticFieldSignature extends TemplateRespon
     );
   }
 
-  public TemplateResponseDocumentStaticFieldSignature type(String type) {
+  public TemplateResponseDocumentStaticFieldSignature type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -88,7 +89,7 @@ public class TemplateResponseDocumentStaticFieldSignature extends TemplateRespon
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 

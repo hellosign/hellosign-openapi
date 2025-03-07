@@ -35,10 +35,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FileResponseDataUri.JSON_PROPERTY_DATA_URI
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FileResponseDataUri {
   public static final String JSON_PROPERTY_DATA_URI = "data_uri";
+  @jakarta.annotation.Nonnull
   private String dataUri;
 
   public FileResponseDataUri() { 
@@ -59,7 +60,7 @@ public class FileResponseDataUri {
     );
   }
 
-  public FileResponseDataUri dataUri(String dataUri) {
+  public FileResponseDataUri dataUri(@jakarta.annotation.Nonnull String dataUri) {
     this.dataUri = dataUri;
     return this;
   }
@@ -79,7 +80,7 @@ public class FileResponseDataUri {
 
   @JsonProperty(JSON_PROPERTY_DATA_URI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDataUri(String dataUri) {
+  public void setDataUri(@jakarta.annotation.Nonnull String dataUri) {
     this.dataUri = dataUri;
   }
 

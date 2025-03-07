@@ -74,86 +74,112 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendRequest.JSON_PROPERTY_USE_TEXT_TAGS,
   SignatureRequestSendRequest.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestSendRequest {
   public static final String JSON_PROPERTY_FILES = "files";
+  @jakarta.annotation.Nullable
   private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  @jakarta.annotation.Nullable
   private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
+  @jakarta.annotation.Nullable
   private List<SubSignatureRequestSigner> signers = null;
 
   public static final String JSON_PROPERTY_GROUPED_SIGNERS = "grouped_signers";
+  @jakarta.annotation.Nullable
   private List<SubSignatureRequestGroupedSigners> groupedSigners = null;
 
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
+  @jakarta.annotation.Nullable
   private Boolean allowDecline = false;
 
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
+  @jakarta.annotation.Nullable
   private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nullable
   private List<SubAttachment> attachments = null;
 
   public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
+  @jakarta.annotation.Nullable
   private List<String> ccEmailAddresses = null;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @jakarta.annotation.Nullable
   private String clientId;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
+  @jakarta.annotation.Nullable
   private List<SubCustomField> customFields = null;
 
   public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
+  @jakarta.annotation.Nullable
   private SubFieldOptions fieldOptions;
 
   public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
+  @jakarta.annotation.Nullable
   private List<SubFormFieldGroup> formFieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
+  @jakarta.annotation.Nullable
   private List<SubFormFieldRule> formFieldRules = null;
 
   public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
+  @jakarta.annotation.Nullable
   private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
 
   public static final String JSON_PROPERTY_HIDE_TEXT_TAGS = "hide_text_tags";
+  @jakarta.annotation.Nullable
   private Boolean hideTextTags = false;
 
   public static final String JSON_PROPERTY_IS_QUALIFIED_SIGNATURE = "is_qualified_signature";
   @Deprecated
+  @jakarta.annotation.Nullable
   private Boolean isQualifiedSignature = false;
 
   public static final String JSON_PROPERTY_IS_EID = "is_eid";
+  @jakarta.annotation.Nullable
   private Boolean isEid = false;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
+  @jakarta.annotation.Nullable
   private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
+  @jakarta.annotation.Nullable
   private SubSigningOptions signingOptions;
 
   public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
+  @jakarta.annotation.Nullable
   private String signingRedirectUrl;
 
   public static final String JSON_PROPERTY_SUBJECT = "subject";
+  @jakarta.annotation.Nullable
   private String subject;
 
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+  @jakarta.annotation.Nullable
   private Boolean testMode = false;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String JSON_PROPERTY_USE_TEXT_TAGS = "use_text_tags";
+  @jakarta.annotation.Nullable
   private Boolean useTextTags = false;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+  @jakarta.annotation.Nullable
   private Integer expiresAt;
 
   public SignatureRequestSendRequest() { 
@@ -174,7 +200,7 @@ public class SignatureRequestSendRequest {
     );
   }
 
-  public SignatureRequestSendRequest files(List<File> files) {
+  public SignatureRequestSendRequest files(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
     return this;
   }
@@ -202,12 +228,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiles(List<File> files) {
+  public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
   }
 
 
-  public SignatureRequestSendRequest fileUrls(List<String> fileUrls) {
+  public SignatureRequestSendRequest fileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
     return this;
   }
@@ -235,12 +261,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrls(List<String> fileUrls) {
+  public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
   }
 
 
-  public SignatureRequestSendRequest signers(List<SubSignatureRequestSigner> signers) {
+  public SignatureRequestSendRequest signers(@jakarta.annotation.Nullable List<SubSignatureRequestSigner> signers) {
     this.signers = signers;
     return this;
   }
@@ -268,12 +294,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigners(List<SubSignatureRequestSigner> signers) {
+  public void setSigners(@jakarta.annotation.Nullable List<SubSignatureRequestSigner> signers) {
     this.signers = signers;
   }
 
 
-  public SignatureRequestSendRequest groupedSigners(List<SubSignatureRequestGroupedSigners> groupedSigners) {
+  public SignatureRequestSendRequest groupedSigners(@jakarta.annotation.Nullable List<SubSignatureRequestGroupedSigners> groupedSigners) {
     this.groupedSigners = groupedSigners;
     return this;
   }
@@ -301,12 +327,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_GROUPED_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroupedSigners(List<SubSignatureRequestGroupedSigners> groupedSigners) {
+  public void setGroupedSigners(@jakarta.annotation.Nullable List<SubSignatureRequestGroupedSigners> groupedSigners) {
     this.groupedSigners = groupedSigners;
   }
 
 
-  public SignatureRequestSendRequest allowDecline(Boolean allowDecline) {
+  public SignatureRequestSendRequest allowDecline(@jakarta.annotation.Nullable Boolean allowDecline) {
     this.allowDecline = allowDecline;
     return this;
   }
@@ -326,12 +352,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowDecline(Boolean allowDecline) {
+  public void setAllowDecline(@jakarta.annotation.Nullable Boolean allowDecline) {
     this.allowDecline = allowDecline;
   }
 
 
-  public SignatureRequestSendRequest allowReassign(Boolean allowReassign) {
+  public SignatureRequestSendRequest allowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
     return this;
   }
@@ -351,12 +377,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowReassign(Boolean allowReassign) {
+  public void setAllowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
   }
 
 
-  public SignatureRequestSendRequest attachments(List<SubAttachment> attachments) {
+  public SignatureRequestSendRequest attachments(@jakarta.annotation.Nullable List<SubAttachment> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -384,12 +410,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttachments(List<SubAttachment> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<SubAttachment> attachments) {
     this.attachments = attachments;
   }
 
 
-  public SignatureRequestSendRequest ccEmailAddresses(List<String> ccEmailAddresses) {
+  public SignatureRequestSendRequest ccEmailAddresses(@jakarta.annotation.Nullable List<String> ccEmailAddresses) {
     this.ccEmailAddresses = ccEmailAddresses;
     return this;
   }
@@ -417,12 +443,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCcEmailAddresses(List<String> ccEmailAddresses) {
+  public void setCcEmailAddresses(@jakarta.annotation.Nullable List<String> ccEmailAddresses) {
     this.ccEmailAddresses = ccEmailAddresses;
   }
 
 
-  public SignatureRequestSendRequest clientId(String clientId) {
+  public SignatureRequestSendRequest clientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
     return this;
   }
@@ -442,12 +468,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientId(String clientId) {
+  public void setClientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
   }
 
 
-  public SignatureRequestSendRequest customFields(List<SubCustomField> customFields) {
+  public SignatureRequestSendRequest customFields(@jakarta.annotation.Nullable List<SubCustomField> customFields) {
     this.customFields = customFields;
     return this;
   }
@@ -475,12 +501,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomFields(List<SubCustomField> customFields) {
+  public void setCustomFields(@jakarta.annotation.Nullable List<SubCustomField> customFields) {
     this.customFields = customFields;
   }
 
 
-  public SignatureRequestSendRequest fieldOptions(SubFieldOptions fieldOptions) {
+  public SignatureRequestSendRequest fieldOptions(@jakarta.annotation.Nullable SubFieldOptions fieldOptions) {
     this.fieldOptions = fieldOptions;
     return this;
   }
@@ -500,12 +526,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFieldOptions(SubFieldOptions fieldOptions) {
+  public void setFieldOptions(@jakarta.annotation.Nullable SubFieldOptions fieldOptions) {
     this.fieldOptions = fieldOptions;
   }
 
 
-  public SignatureRequestSendRequest formFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
+  public SignatureRequestSendRequest formFieldGroups(@jakarta.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
     this.formFieldGroups = formFieldGroups;
     return this;
   }
@@ -533,12 +559,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
+  public void setFormFieldGroups(@jakarta.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
     this.formFieldGroups = formFieldGroups;
   }
 
 
-  public SignatureRequestSendRequest formFieldRules(List<SubFormFieldRule> formFieldRules) {
+  public SignatureRequestSendRequest formFieldRules(@jakarta.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
     this.formFieldRules = formFieldRules;
     return this;
   }
@@ -566,12 +592,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFieldRules(List<SubFormFieldRule> formFieldRules) {
+  public void setFormFieldRules(@jakarta.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
     this.formFieldRules = formFieldRules;
   }
 
 
-  public SignatureRequestSendRequest formFieldsPerDocument(List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+  public SignatureRequestSendRequest formFieldsPerDocument(@jakarta.annotation.Nullable List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
     this.formFieldsPerDocument = formFieldsPerDocument;
     return this;
   }
@@ -599,12 +625,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFieldsPerDocument(List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+  public void setFormFieldsPerDocument(@jakarta.annotation.Nullable List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
     this.formFieldsPerDocument = formFieldsPerDocument;
   }
 
 
-  public SignatureRequestSendRequest hideTextTags(Boolean hideTextTags) {
+  public SignatureRequestSendRequest hideTextTags(@jakarta.annotation.Nullable Boolean hideTextTags) {
     this.hideTextTags = hideTextTags;
     return this;
   }
@@ -624,13 +650,13 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHideTextTags(Boolean hideTextTags) {
+  public void setHideTextTags(@jakarta.annotation.Nullable Boolean hideTextTags) {
     this.hideTextTags = hideTextTags;
   }
 
 
   @Deprecated
-  public SignatureRequestSendRequest isQualifiedSignature(Boolean isQualifiedSignature) {
+  public SignatureRequestSendRequest isQualifiedSignature(@jakarta.annotation.Nullable Boolean isQualifiedSignature) {
     this.isQualifiedSignature = isQualifiedSignature;
     return this;
   }
@@ -653,12 +679,12 @@ public class SignatureRequestSendRequest {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_IS_QUALIFIED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsQualifiedSignature(Boolean isQualifiedSignature) {
+  public void setIsQualifiedSignature(@jakarta.annotation.Nullable Boolean isQualifiedSignature) {
     this.isQualifiedSignature = isQualifiedSignature;
   }
 
 
-  public SignatureRequestSendRequest isEid(Boolean isEid) {
+  public SignatureRequestSendRequest isEid(@jakarta.annotation.Nullable Boolean isEid) {
     this.isEid = isEid;
     return this;
   }
@@ -678,12 +704,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_IS_EID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsEid(Boolean isEid) {
+  public void setIsEid(@jakarta.annotation.Nullable Boolean isEid) {
     this.isEid = isEid;
   }
 
 
-  public SignatureRequestSendRequest message(String message) {
+  public SignatureRequestSendRequest message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -703,12 +729,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public SignatureRequestSendRequest metadata(Map<String, Object> metadata) {
+  public SignatureRequestSendRequest metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -736,12 +762,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetadata(Map<String, Object> metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 
 
-  public SignatureRequestSendRequest signingOptions(SubSigningOptions signingOptions) {
+  public SignatureRequestSendRequest signingOptions(@jakarta.annotation.Nullable SubSigningOptions signingOptions) {
     this.signingOptions = signingOptions;
     return this;
   }
@@ -761,12 +787,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigningOptions(SubSigningOptions signingOptions) {
+  public void setSigningOptions(@jakarta.annotation.Nullable SubSigningOptions signingOptions) {
     this.signingOptions = signingOptions;
   }
 
 
-  public SignatureRequestSendRequest signingRedirectUrl(String signingRedirectUrl) {
+  public SignatureRequestSendRequest signingRedirectUrl(@jakarta.annotation.Nullable String signingRedirectUrl) {
     this.signingRedirectUrl = signingRedirectUrl;
     return this;
   }
@@ -786,12 +812,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigningRedirectUrl(String signingRedirectUrl) {
+  public void setSigningRedirectUrl(@jakarta.annotation.Nullable String signingRedirectUrl) {
     this.signingRedirectUrl = signingRedirectUrl;
   }
 
 
-  public SignatureRequestSendRequest subject(String subject) {
+  public SignatureRequestSendRequest subject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
     return this;
   }
@@ -811,12 +837,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubject(String subject) {
+  public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
   }
 
 
-  public SignatureRequestSendRequest testMode(Boolean testMode) {
+  public SignatureRequestSendRequest testMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
     return this;
   }
@@ -836,12 +862,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTestMode(Boolean testMode) {
+  public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
   }
 
 
-  public SignatureRequestSendRequest title(String title) {
+  public SignatureRequestSendRequest title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -861,12 +887,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
 
-  public SignatureRequestSendRequest useTextTags(Boolean useTextTags) {
+  public SignatureRequestSendRequest useTextTags(@jakarta.annotation.Nullable Boolean useTextTags) {
     this.useTextTags = useTextTags;
     return this;
   }
@@ -886,12 +912,12 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUseTextTags(Boolean useTextTags) {
+  public void setUseTextTags(@jakarta.annotation.Nullable Boolean useTextTags) {
     this.useTextTags = useTextTags;
   }
 
 
-  public SignatureRequestSendRequest expiresAt(Integer expiresAt) {
+  public SignatureRequestSendRequest expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -911,7 +937,7 @@ public class SignatureRequestSendRequest {
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(Integer expiresAt) {
+  public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
   }
 

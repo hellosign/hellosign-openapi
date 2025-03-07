@@ -47,7 +47,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_REQUIRED,
   TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_GROUP
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -66,33 +66,43 @@ import com.dropbox.sign.ApiException;
 
 public class TemplateResponseDocumentStaticFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type;
 
   public static final String JSON_PROPERTY_API_ID = "api_id";
+  @jakarta.annotation.Nullable
   private String apiId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_SIGNER = "signer";
+  @jakarta.annotation.Nullable
   private String signer = "me_now";
 
   public static final String JSON_PROPERTY_X = "x";
+  @jakarta.annotation.Nullable
   private Integer x;
 
   public static final String JSON_PROPERTY_Y = "y";
+  @jakarta.annotation.Nullable
   private Integer y;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
+  @jakarta.annotation.Nullable
   private Integer width;
 
   public static final String JSON_PROPERTY_HEIGHT = "height";
+  @jakarta.annotation.Nullable
   private Integer height;
 
   public static final String JSON_PROPERTY_REQUIRED = "required";
+  @jakarta.annotation.Nullable
   private Boolean required;
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @jakarta.annotation.Nullable
   private String group;
 
   public TemplateResponseDocumentStaticFieldBase() { 
@@ -113,7 +123,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     );
   }
 
-  public TemplateResponseDocumentStaticFieldBase type(String type) {
+  public TemplateResponseDocumentStaticFieldBase type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -133,12 +143,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase apiId(String apiId) {
+  public TemplateResponseDocumentStaticFieldBase apiId(@jakarta.annotation.Nullable String apiId) {
     this.apiId = apiId;
     return this;
   }
@@ -158,12 +168,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setApiId(String apiId) {
+  public void setApiId(@jakarta.annotation.Nullable String apiId) {
     this.apiId = apiId;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase name(String name) {
+  public TemplateResponseDocumentStaticFieldBase name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -183,12 +193,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase signer(String signer) {
+  public TemplateResponseDocumentStaticFieldBase signer(@jakarta.annotation.Nullable String signer) {
     this.signer = signer;
     return this;
   }
@@ -208,12 +218,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigner(String signer) {
+  public void setSigner(@jakarta.annotation.Nullable String signer) {
     this.signer = signer;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase x(Integer x) {
+  public TemplateResponseDocumentStaticFieldBase x(@jakarta.annotation.Nullable Integer x) {
     this.x = x;
     return this;
   }
@@ -233,12 +243,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setX(Integer x) {
+  public void setX(@jakarta.annotation.Nullable Integer x) {
     this.x = x;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase y(Integer y) {
+  public TemplateResponseDocumentStaticFieldBase y(@jakarta.annotation.Nullable Integer y) {
     this.y = y;
     return this;
   }
@@ -258,12 +268,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setY(Integer y) {
+  public void setY(@jakarta.annotation.Nullable Integer y) {
     this.y = y;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase width(Integer width) {
+  public TemplateResponseDocumentStaticFieldBase width(@jakarta.annotation.Nullable Integer width) {
     this.width = width;
     return this;
   }
@@ -283,12 +293,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWidth(Integer width) {
+  public void setWidth(@jakarta.annotation.Nullable Integer width) {
     this.width = width;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase height(Integer height) {
+  public TemplateResponseDocumentStaticFieldBase height(@jakarta.annotation.Nullable Integer height) {
     this.height = height;
     return this;
   }
@@ -308,12 +318,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeight(Integer height) {
+  public void setHeight(@jakarta.annotation.Nullable Integer height) {
     this.height = height;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase required(Boolean required) {
+  public TemplateResponseDocumentStaticFieldBase required(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
     return this;
   }
@@ -333,12 +343,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequired(Boolean required) {
+  public void setRequired(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase group(String group) {
+  public TemplateResponseDocumentStaticFieldBase group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
@@ -358,7 +368,7 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 

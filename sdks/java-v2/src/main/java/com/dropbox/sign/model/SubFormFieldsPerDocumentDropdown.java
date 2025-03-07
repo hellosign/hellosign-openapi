@@ -45,7 +45,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentDropdown.JSON_PROPERTY_FONT_FAMILY,
   SubFormFieldsPerDocumentDropdown.JSON_PROPERTY_FONT_SIZE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -54,49 +54,52 @@ import com.dropbox.sign.ApiException;
 
 public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "dropdown";
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
+  @jakarta.annotation.Nonnull
   private List<String> options = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @jakarta.annotation.Nullable
   private String content;
 
   /**
    * Font family for the field.
    */
   public enum FontFamilyEnum {
-    HELVETICA("helvetica"),
+    HELVETICA(String.valueOf("helvetica")),
     
-    ARIAL("arial"),
+    ARIAL(String.valueOf("arial")),
     
-    COURIER("courier"),
+    COURIER(String.valueOf("courier")),
     
-    CALIBRI("calibri"),
+    CALIBRI(String.valueOf("calibri")),
     
-    CAMBRIA("cambria"),
+    CAMBRIA(String.valueOf("cambria")),
     
-    GEORGIA("georgia"),
+    GEORGIA(String.valueOf("georgia")),
     
-    TIMES("times"),
+    TIMES(String.valueOf("times")),
     
-    TREBUCHET("trebuchet"),
+    TREBUCHET(String.valueOf("trebuchet")),
     
-    VERDANA("verdana"),
+    VERDANA(String.valueOf("verdana")),
     
-    ROBOTO("roboto"),
+    ROBOTO(String.valueOf("roboto")),
     
-    ROBOTO_MONO("robotoMono"),
+    ROBOTO_MONO(String.valueOf("robotoMono")),
     
-    NOTO_SANS("notoSans"),
+    NOTO_SANS(String.valueOf("notoSans")),
     
-    NOTO_SERIF("notoSerif"),
+    NOTO_SERIF(String.valueOf("notoSerif")),
     
-    NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
+    NOTO_CJK_JP_REGULAR(String.valueOf("notoCJK-JP-Regular")),
     
-    NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
+    NOTO_HEBREW_REGULAR(String.valueOf("notoHebrew-Regular")),
     
-    NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
+    NOTO_SAN_THAI_MERGED(String.valueOf("notoSanThaiMerged"));
 
     private String value;
 
@@ -126,9 +129,11 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
   }
 
   public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
+  @jakarta.annotation.Nullable
   private FontFamilyEnum fontFamily;
 
   public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
+  @jakarta.annotation.Nullable
   private Integer fontSize = 12;
 
   public SubFormFieldsPerDocumentDropdown() { 
@@ -149,7 +154,7 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
     );
   }
 
-  public SubFormFieldsPerDocumentDropdown type(String type) {
+  public SubFormFieldsPerDocumentDropdown type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -169,12 +174,12 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public SubFormFieldsPerDocumentDropdown options(List<String> options) {
+  public SubFormFieldsPerDocumentDropdown options(@jakarta.annotation.Nonnull List<String> options) {
     this.options = options;
     return this;
   }
@@ -202,12 +207,12 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOptions(List<String> options) {
+  public void setOptions(@jakarta.annotation.Nonnull List<String> options) {
     this.options = options;
   }
 
 
-  public SubFormFieldsPerDocumentDropdown content(String content) {
+  public SubFormFieldsPerDocumentDropdown content(@jakarta.annotation.Nullable String content) {
     this.content = content;
     return this;
   }
@@ -227,12 +232,12 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContent(String content) {
+  public void setContent(@jakarta.annotation.Nullable String content) {
     this.content = content;
   }
 
 
-  public SubFormFieldsPerDocumentDropdown fontFamily(FontFamilyEnum fontFamily) {
+  public SubFormFieldsPerDocumentDropdown fontFamily(@jakarta.annotation.Nullable FontFamilyEnum fontFamily) {
     this.fontFamily = fontFamily;
     return this;
   }
@@ -252,12 +257,12 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFontFamily(FontFamilyEnum fontFamily) {
+  public void setFontFamily(@jakarta.annotation.Nullable FontFamilyEnum fontFamily) {
     this.fontFamily = fontFamily;
   }
 
 
-  public SubFormFieldsPerDocumentDropdown fontSize(Integer fontSize) {
+  public SubFormFieldsPerDocumentDropdown fontSize(@jakarta.annotation.Nullable Integer fontSize) {
     this.fontSize = fontSize;
     return this;
   }
@@ -277,7 +282,7 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFontSize(Integer fontSize) {
+  public void setFontSize(@jakarta.annotation.Nullable Integer fontSize) {
     this.fontSize = fontSize;
   }
 

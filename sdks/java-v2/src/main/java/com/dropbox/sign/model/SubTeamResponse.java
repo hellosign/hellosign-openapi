@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   SubTeamResponse.JSON_PROPERTY_TEAM_ID,
   SubTeamResponse.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubTeamResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
+  @jakarta.annotation.Nullable
   private String teamId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public SubTeamResponse() { 
@@ -63,7 +65,7 @@ public class SubTeamResponse {
     );
   }
 
-  public SubTeamResponse teamId(String teamId) {
+  public SubTeamResponse teamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
     return this;
   }
@@ -83,12 +85,12 @@ public class SubTeamResponse {
 
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTeamId(String teamId) {
+  public void setTeamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
   }
 
 
-  public SubTeamResponse name(String name) {
+  public SubTeamResponse name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -108,7 +110,7 @@ public class SubTeamResponse {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 

@@ -37,16 +37,19 @@ import com.dropbox.sign.ApiException;
   SubUnclaimedDraftSigner.JSON_PROPERTY_NAME,
   SubUnclaimedDraftSigner.JSON_PROPERTY_ORDER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubUnclaimedDraftSigner {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nonnull
   private String emailAddress;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_ORDER = "order";
+  @jakarta.annotation.Nullable
   private Integer order;
 
   public SubUnclaimedDraftSigner() { 
@@ -67,7 +70,7 @@ public class SubUnclaimedDraftSigner {
     );
   }
 
-  public SubUnclaimedDraftSigner emailAddress(String emailAddress) {
+  public SubUnclaimedDraftSigner emailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -87,12 +90,12 @@ public class SubUnclaimedDraftSigner {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public SubUnclaimedDraftSigner name(String name) {
+  public SubUnclaimedDraftSigner name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -112,12 +115,12 @@ public class SubUnclaimedDraftSigner {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SubUnclaimedDraftSigner order(Integer order) {
+  public SubUnclaimedDraftSigner order(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
     return this;
   }
@@ -137,7 +140,7 @@ public class SubUnclaimedDraftSigner {
 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOrder(Integer order) {
+  public void setOrder(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
   }
 

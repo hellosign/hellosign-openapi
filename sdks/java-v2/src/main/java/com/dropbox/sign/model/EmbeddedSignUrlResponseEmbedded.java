@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_SIGN_URL,
   EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EmbeddedSignUrlResponseEmbedded {
   public static final String JSON_PROPERTY_SIGN_URL = "sign_url";
+  @jakarta.annotation.Nullable
   private String signUrl;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+  @jakarta.annotation.Nullable
   private Integer expiresAt;
 
   public EmbeddedSignUrlResponseEmbedded() { 
@@ -63,7 +65,7 @@ public class EmbeddedSignUrlResponseEmbedded {
     );
   }
 
-  public EmbeddedSignUrlResponseEmbedded signUrl(String signUrl) {
+  public EmbeddedSignUrlResponseEmbedded signUrl(@jakarta.annotation.Nullable String signUrl) {
     this.signUrl = signUrl;
     return this;
   }
@@ -83,12 +85,12 @@ public class EmbeddedSignUrlResponseEmbedded {
 
   @JsonProperty(JSON_PROPERTY_SIGN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSignUrl(String signUrl) {
+  public void setSignUrl(@jakarta.annotation.Nullable String signUrl) {
     this.signUrl = signUrl;
   }
 
 
-  public EmbeddedSignUrlResponseEmbedded expiresAt(Integer expiresAt) {
+  public EmbeddedSignUrlResponseEmbedded expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -108,7 +110,7 @@ public class EmbeddedSignUrlResponseEmbedded {
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(Integer expiresAt) {
+  public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
   }
 

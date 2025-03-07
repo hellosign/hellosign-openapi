@@ -48,7 +48,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentBase.JSON_PROPERTY_NAME,
   SubFormFieldsPerDocumentBase.JSON_PROPERTY_PAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -69,36 +69,47 @@ import com.dropbox.sign.ApiException;
 
 public class SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_DOCUMENT_INDEX = "document_index";
+  @jakarta.annotation.Nonnull
   private Integer documentIndex;
 
   public static final String JSON_PROPERTY_API_ID = "api_id";
+  @jakarta.annotation.Nonnull
   private String apiId;
 
   public static final String JSON_PROPERTY_HEIGHT = "height";
+  @jakarta.annotation.Nonnull
   private Integer height;
 
   public static final String JSON_PROPERTY_REQUIRED = "required";
+  @jakarta.annotation.Nonnull
   private Boolean required;
 
   public static final String JSON_PROPERTY_SIGNER = "signer";
+  @jakarta.annotation.Nonnull
   private String signer;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
+  @jakarta.annotation.Nonnull
   private Integer width;
 
   public static final String JSON_PROPERTY_X = "x";
+  @jakarta.annotation.Nonnull
   private Integer x;
 
   public static final String JSON_PROPERTY_Y = "y";
+  @jakarta.annotation.Nonnull
   private Integer y;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_PAGE = "page";
+  @jakarta.annotation.Nullable
   private Integer page;
 
   public SubFormFieldsPerDocumentBase() { 
@@ -119,7 +130,7 @@ public class SubFormFieldsPerDocumentBase {
     );
   }
 
-  public SubFormFieldsPerDocumentBase documentIndex(Integer documentIndex) {
+  public SubFormFieldsPerDocumentBase documentIndex(@jakarta.annotation.Nonnull Integer documentIndex) {
     this.documentIndex = documentIndex;
     return this;
   }
@@ -139,12 +150,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_DOCUMENT_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDocumentIndex(Integer documentIndex) {
+  public void setDocumentIndex(@jakarta.annotation.Nonnull Integer documentIndex) {
     this.documentIndex = documentIndex;
   }
 
 
-  public SubFormFieldsPerDocumentBase apiId(String apiId) {
+  public SubFormFieldsPerDocumentBase apiId(@jakarta.annotation.Nonnull String apiId) {
     this.apiId = apiId;
     return this;
   }
@@ -164,12 +175,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setApiId(String apiId) {
+  public void setApiId(@jakarta.annotation.Nonnull String apiId) {
     this.apiId = apiId;
   }
 
 
-  public SubFormFieldsPerDocumentBase height(Integer height) {
+  public SubFormFieldsPerDocumentBase height(@jakarta.annotation.Nonnull Integer height) {
     this.height = height;
     return this;
   }
@@ -189,12 +200,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHeight(Integer height) {
+  public void setHeight(@jakarta.annotation.Nonnull Integer height) {
     this.height = height;
   }
 
 
-  public SubFormFieldsPerDocumentBase required(Boolean required) {
+  public SubFormFieldsPerDocumentBase required(@jakarta.annotation.Nonnull Boolean required) {
     this.required = required;
     return this;
   }
@@ -214,12 +225,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequired(Boolean required) {
+  public void setRequired(@jakarta.annotation.Nonnull Boolean required) {
     this.required = required;
   }
 
 
-  public SubFormFieldsPerDocumentBase signer(String signer) {
+  public SubFormFieldsPerDocumentBase signer(@jakarta.annotation.Nonnull String signer) {
     this.signer = signer;
     return this;
   }
@@ -243,7 +254,7 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSigner(String signer) {
+  public void setSigner(@jakarta.annotation.Nonnull String signer) {
     this.signer = signer;
   }
 
@@ -252,7 +263,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  public SubFormFieldsPerDocumentBase type(String type) {
+  public SubFormFieldsPerDocumentBase type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -272,12 +283,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public SubFormFieldsPerDocumentBase width(Integer width) {
+  public SubFormFieldsPerDocumentBase width(@jakarta.annotation.Nonnull Integer width) {
     this.width = width;
     return this;
   }
@@ -297,12 +308,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWidth(Integer width) {
+  public void setWidth(@jakarta.annotation.Nonnull Integer width) {
     this.width = width;
   }
 
 
-  public SubFormFieldsPerDocumentBase x(Integer x) {
+  public SubFormFieldsPerDocumentBase x(@jakarta.annotation.Nonnull Integer x) {
     this.x = x;
     return this;
   }
@@ -322,12 +333,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setX(Integer x) {
+  public void setX(@jakarta.annotation.Nonnull Integer x) {
     this.x = x;
   }
 
 
-  public SubFormFieldsPerDocumentBase y(Integer y) {
+  public SubFormFieldsPerDocumentBase y(@jakarta.annotation.Nonnull Integer y) {
     this.y = y;
     return this;
   }
@@ -347,12 +358,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setY(Integer y) {
+  public void setY(@jakarta.annotation.Nonnull Integer y) {
     this.y = y;
   }
 
 
-  public SubFormFieldsPerDocumentBase name(String name) {
+  public SubFormFieldsPerDocumentBase name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -372,12 +383,12 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public SubFormFieldsPerDocumentBase page(Integer page) {
+  public SubFormFieldsPerDocumentBase page(@jakarta.annotation.Nullable Integer page) {
     this.page = page;
     return this;
   }
@@ -397,7 +408,7 @@ public class SubFormFieldsPerDocumentBase {
 
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPage(Integer page) {
+  public void setPage(@jakarta.annotation.Nullable Integer page) {
     this.page = page;
   }
 

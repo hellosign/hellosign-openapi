@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   EmbeddedSignUrlResponse.JSON_PROPERTY_EMBEDDED,
   EmbeddedSignUrlResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EmbeddedSignUrlResponse {
   public static final String JSON_PROPERTY_EMBEDDED = "embedded";
+  @jakarta.annotation.Nonnull
   private EmbeddedSignUrlResponseEmbedded embedded;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public EmbeddedSignUrlResponse() { 
@@ -67,7 +69,7 @@ public class EmbeddedSignUrlResponse {
     );
   }
 
-  public EmbeddedSignUrlResponse embedded(EmbeddedSignUrlResponseEmbedded embedded) {
+  public EmbeddedSignUrlResponse embedded(@jakarta.annotation.Nonnull EmbeddedSignUrlResponseEmbedded embedded) {
     this.embedded = embedded;
     return this;
   }
@@ -87,12 +89,12 @@ public class EmbeddedSignUrlResponse {
 
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmbedded(EmbeddedSignUrlResponseEmbedded embedded) {
+  public void setEmbedded(@jakarta.annotation.Nonnull EmbeddedSignUrlResponseEmbedded embedded) {
     this.embedded = embedded;
   }
 
 
-  public EmbeddedSignUrlResponse warnings(List<WarningResponse> warnings) {
+  public EmbeddedSignUrlResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class EmbeddedSignUrlResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

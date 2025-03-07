@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   AccountVerifyResponse.JSON_PROPERTY_ACCOUNT,
   AccountVerifyResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountVerifyResponse {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
+  @jakarta.annotation.Nullable
   private AccountVerifyResponseAccount account;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public AccountVerifyResponse() { 
@@ -67,7 +69,7 @@ public class AccountVerifyResponse {
     );
   }
 
-  public AccountVerifyResponse account(AccountVerifyResponseAccount account) {
+  public AccountVerifyResponse account(@jakarta.annotation.Nullable AccountVerifyResponseAccount account) {
     this.account = account;
     return this;
   }
@@ -87,12 +89,12 @@ public class AccountVerifyResponse {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccount(AccountVerifyResponseAccount account) {
+  public void setAccount(@jakarta.annotation.Nullable AccountVerifyResponseAccount account) {
     this.account = account;
   }
 
 
-  public AccountVerifyResponse warnings(List<WarningResponse> warnings) {
+  public AccountVerifyResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class AccountVerifyResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

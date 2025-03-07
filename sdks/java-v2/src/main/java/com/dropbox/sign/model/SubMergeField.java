@@ -36,19 +36,20 @@ import com.dropbox.sign.ApiException;
   SubMergeField.JSON_PROPERTY_NAME,
   SubMergeField.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubMergeField {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   /**
    * The type of merge field.
    */
   public enum TypeEnum {
-    TEXT("text"),
+    TEXT(String.valueOf("text")),
     
-    CHECKBOX("checkbox");
+    CHECKBOX(String.valueOf("checkbox"));
 
     private String value;
 
@@ -78,6 +79,7 @@ public class SubMergeField {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private TypeEnum type;
 
   public SubMergeField() { 
@@ -98,7 +100,7 @@ public class SubMergeField {
     );
   }
 
-  public SubMergeField name(String name) {
+  public SubMergeField name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -118,12 +120,12 @@ public class SubMergeField {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SubMergeField type(TypeEnum type) {
+  public SubMergeField type(@jakarta.annotation.Nonnull TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -143,7 +145,7 @@ public class SubMergeField {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TypeEnum type) {
+  public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
     this.type = type;
   }
 

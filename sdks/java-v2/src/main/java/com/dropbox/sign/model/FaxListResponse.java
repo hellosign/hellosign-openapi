@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   FaxListResponse.JSON_PROPERTY_FAXES,
   FaxListResponse.JSON_PROPERTY_LIST_INFO
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxListResponse {
   public static final String JSON_PROPERTY_FAXES = "faxes";
+  @jakarta.annotation.Nonnull
   private List<FaxResponse> faxes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
+  @jakarta.annotation.Nonnull
   private ListInfoResponse listInfo;
 
   public FaxListResponse() { 
@@ -67,7 +69,7 @@ public class FaxListResponse {
     );
   }
 
-  public FaxListResponse faxes(List<FaxResponse> faxes) {
+  public FaxListResponse faxes(@jakarta.annotation.Nonnull List<FaxResponse> faxes) {
     this.faxes = faxes;
     return this;
   }
@@ -95,12 +97,12 @@ public class FaxListResponse {
 
   @JsonProperty(JSON_PROPERTY_FAXES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFaxes(List<FaxResponse> faxes) {
+  public void setFaxes(@jakarta.annotation.Nonnull List<FaxResponse> faxes) {
     this.faxes = faxes;
   }
 
 
-  public FaxListResponse listInfo(ListInfoResponse listInfo) {
+  public FaxListResponse listInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
     return this;
   }
@@ -120,7 +122,7 @@ public class FaxListResponse {
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setListInfo(ListInfoResponse listInfo) {
+  public void setListInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }
 

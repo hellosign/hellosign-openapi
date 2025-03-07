@@ -37,16 +37,19 @@ import com.dropbox.sign.ApiException;
   TemplateAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS,
   TemplateAddUserRequest.JSON_PROPERTY_SKIP_NOTIFICATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateAddUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  @jakarta.annotation.Nullable
   private String accountId;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_SKIP_NOTIFICATION = "skip_notification";
+  @jakarta.annotation.Nullable
   private Boolean skipNotification = false;
 
   public TemplateAddUserRequest() { 
@@ -67,7 +70,7 @@ public class TemplateAddUserRequest {
     );
   }
 
-  public TemplateAddUserRequest accountId(String accountId) {
+  public TemplateAddUserRequest accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -87,12 +90,12 @@ public class TemplateAddUserRequest {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountId(String accountId) {
+  public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
   }
 
 
-  public TemplateAddUserRequest emailAddress(String emailAddress) {
+  public TemplateAddUserRequest emailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -112,12 +115,12 @@ public class TemplateAddUserRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public TemplateAddUserRequest skipNotification(Boolean skipNotification) {
+  public TemplateAddUserRequest skipNotification(@jakarta.annotation.Nullable Boolean skipNotification) {
     this.skipNotification = skipNotification;
     return this;
   }
@@ -137,7 +140,7 @@ public class TemplateAddUserRequest {
 
   @JsonProperty(JSON_PROPERTY_SKIP_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSkipNotification(Boolean skipNotification) {
+  public void setSkipNotification(@jakarta.annotation.Nullable Boolean skipNotification) {
     this.skipNotification = skipNotification;
   }
 

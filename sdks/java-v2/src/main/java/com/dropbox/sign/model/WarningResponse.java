@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   WarningResponse.JSON_PROPERTY_WARNING_MSG,
   WarningResponse.JSON_PROPERTY_WARNING_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class WarningResponse {
   public static final String JSON_PROPERTY_WARNING_MSG = "warning_msg";
+  @jakarta.annotation.Nonnull
   private String warningMsg;
 
   public static final String JSON_PROPERTY_WARNING_NAME = "warning_name";
+  @jakarta.annotation.Nonnull
   private String warningName;
 
   public WarningResponse() { 
@@ -63,7 +65,7 @@ public class WarningResponse {
     );
   }
 
-  public WarningResponse warningMsg(String warningMsg) {
+  public WarningResponse warningMsg(@jakarta.annotation.Nonnull String warningMsg) {
     this.warningMsg = warningMsg;
     return this;
   }
@@ -83,12 +85,12 @@ public class WarningResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNING_MSG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWarningMsg(String warningMsg) {
+  public void setWarningMsg(@jakarta.annotation.Nonnull String warningMsg) {
     this.warningMsg = warningMsg;
   }
 
 
-  public WarningResponse warningName(String warningName) {
+  public WarningResponse warningName(@jakarta.annotation.Nonnull String warningName) {
     this.warningName = warningName;
     return this;
   }
@@ -108,7 +110,7 @@ public class WarningResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNING_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWarningName(String warningName) {
+  public void setWarningName(@jakarta.annotation.Nonnull String warningName) {
     this.warningName = warningName;
   }
 

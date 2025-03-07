@@ -40,25 +40,28 @@ import com.dropbox.sign.ApiException;
   ReportResponse.JSON_PROPERTY_END_DATE,
   ReportResponse.JSON_PROPERTY_REPORT_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ReportResponse {
   public static final String JSON_PROPERTY_SUCCESS = "success";
+  @jakarta.annotation.Nullable
   private String success;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
+  @jakarta.annotation.Nullable
   private String startDate;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
+  @jakarta.annotation.Nullable
   private String endDate;
 
   /**
    * Gets or Sets reportType
    */
   public enum ReportTypeEnum {
-    USER_ACTIVITY("user_activity"),
+    USER_ACTIVITY(String.valueOf("user_activity")),
     
-    DOCUMENT_STATUS("document_status");
+    DOCUMENT_STATUS(String.valueOf("document_status"));
 
     private String value;
 
@@ -88,6 +91,7 @@ public class ReportResponse {
   }
 
   public static final String JSON_PROPERTY_REPORT_TYPE = "report_type";
+  @jakarta.annotation.Nullable
   private List<ReportTypeEnum> reportType = null;
 
   public ReportResponse() { 
@@ -108,7 +112,7 @@ public class ReportResponse {
     );
   }
 
-  public ReportResponse success(String success) {
+  public ReportResponse success(@jakarta.annotation.Nullable String success) {
     this.success = success;
     return this;
   }
@@ -128,12 +132,12 @@ public class ReportResponse {
 
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSuccess(String success) {
+  public void setSuccess(@jakarta.annotation.Nullable String success) {
     this.success = success;
   }
 
 
-  public ReportResponse startDate(String startDate) {
+  public ReportResponse startDate(@jakarta.annotation.Nullable String startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -153,12 +157,12 @@ public class ReportResponse {
 
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStartDate(String startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable String startDate) {
     this.startDate = startDate;
   }
 
 
-  public ReportResponse endDate(String endDate) {
+  public ReportResponse endDate(@jakarta.annotation.Nullable String endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -178,12 +182,12 @@ public class ReportResponse {
 
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEndDate(String endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable String endDate) {
     this.endDate = endDate;
   }
 
 
-  public ReportResponse reportType(List<ReportTypeEnum> reportType) {
+  public ReportResponse reportType(@jakarta.annotation.Nullable List<ReportTypeEnum> reportType) {
     this.reportType = reportType;
     return this;
   }
@@ -211,7 +215,7 @@ public class ReportResponse {
 
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportType(List<ReportTypeEnum> reportType) {
+  public void setReportType(@jakarta.annotation.Nullable List<ReportTypeEnum> reportType) {
     this.reportType = reportType;
   }
 
