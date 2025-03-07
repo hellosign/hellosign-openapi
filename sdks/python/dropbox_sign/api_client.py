@@ -89,7 +89,7 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = "OpenAPI-Generator/1.8-dev/python"
+        self.user_agent = "OpenAPI-Generator/1.8.1-dev/python"
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):
@@ -398,12 +398,16 @@ class ApiClient:
                 data = json.loads(response_text)
             except ValueError:
                 data = response_text
-        elif content_type.startswith("application/json"):
+        elif re.match(
+            r"^application/(json|[\w!#$&.+-^_]+\+json)\s*(;|$)",
+            content_type,
+            re.IGNORECASE,
+        ):
             if response_text == "":
                 data = ""
             else:
                 data = json.loads(response_text)
-        elif content_type.startswith("text/plain"):
+        elif re.match(r"^text\/[a-z.+-]+\s*(;|$)", content_type, re.IGNORECASE):
             data = response_text
         else:
             raise ApiException(
@@ -507,7 +511,7 @@ class ApiClient:
             if k in collection_formats:
                 collection_format = collection_formats[k]
                 if collection_format == "multi":
-                    new_params.extend((k, str(value)) for value in v)
+                    new_params.extend((k, quote(str(value))) for value in v)
                 else:
                     if collection_format == "ssv":
                         delimiter = " "
@@ -540,6 +544,12 @@ class ApiClient:
             elif isinstance(v, bytes):
                 filename = k
                 filedata = v
+            elif isinstance(v, tuple):
+                filename, filedata = v
+            elif isinstance(v, list):
+                for file_param in v:
+                    params.extend(self.files_parameters({k: file_param}))
+                continue
             elif isinstance(v, io.IOBase):
                 filename = os.path.basename(v.name)
                 filedata = v.read()

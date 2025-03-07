@@ -15,7 +15,7 @@ Do not edit the class manually.
 """  # noqa: E501
 
 
-__version__ = "1.8-dev"
+__version__ = "1.8.1-dev"
 
 # import apis into sdk package
 from dropbox_sign.apis import *
