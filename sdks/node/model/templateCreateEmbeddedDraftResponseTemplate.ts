@@ -43,6 +43,8 @@ export class TemplateCreateEmbeddedDraftResponseTemplate {
   "expiresAt"?: number;
   /**
    * A list of warnings.
+   *
+   * @deprecated
    */
   "warnings"?: Array<WarningResponse>;
 

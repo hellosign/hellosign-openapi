@@ -1,10 +1,10 @@
 {
     "name": "@dropbox/sign",
-    "version": "1.8-dev",
+    "version": "1.8.1-dev",
     "description": "Official Node client for Dropbox Sign",
     "repository": {
         "type": "git",
-        "url": "https://github.com/hellosign/dropbox-sign-node"
+        "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
     },
     "bugs:": "apisupport@hellosign.com",
     "main": "dist/api.js",
@@ -27,7 +27,7 @@
         "@types/bluebird": "^3.5.33",
         "@types/jest": "^29.5.7",
         "@types/json-diff": "^1.0.3",
-        "@types/node": "^20.8.10",
+        "@types/node": "^12",
         "@types/qs": "^6.9.15",
         "axios-mock-adapter": "^1.20.0",
         "esbuild": "^0.14.54",

@@ -201,6 +201,10 @@ export class {{classname}} {
      {{#allParams}}
      * @param {{paramName}} {{description}}
      {{/allParams}}
+     {{#isDeprecated}}
+     *
+     * @deprecated
+     {{/isDeprecated}}
 {{#useCustomTemplateCode}}
      * @param options
 {{/useCustomTemplateCode}}
