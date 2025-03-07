@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Dropbox.Sign.Test</AssemblyName>
     <RootNamespace>Dropbox.Sign.Test</RootNamespace>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <PackageId>Dropbox.Sign.Test</PackageId>
   </PropertyGroup>
