@@ -297,9 +297,9 @@ conf = {{{packageName}}}.Configuration(
         ssl_ca_cert: Optional[str]=None,
         retries: Optional[int] = None,
         ca_cert_data: Optional[Union[str, bytes]] = None,
-                 *,
+        *,
         debug: Optional[bool] = None,
-                 ) -> None:
+    ) -> None:
         """Constructor
         """
         self._base_path = "{{{basePath}}}" if host is None else host

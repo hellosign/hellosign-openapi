@@ -26,11 +26,11 @@ from dropbox_sign.models.sub_bulk_signer_list_custom_field import (
 from dropbox_sign.models.sub_signature_request_template_signer import (
     SubSignatureRequestTemplateSigner,
 )
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class SubBulkSignerList(BaseModel):

@@ -28,11 +28,11 @@ from dropbox_sign.models.api_app_response_owner_account import (
 from dropbox_sign.models.api_app_response_white_labeling_options import (
     ApiAppResponseWhiteLabelingOptions,
 )
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class ApiAppResponse(BaseModel):

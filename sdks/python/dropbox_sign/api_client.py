@@ -89,7 +89,7 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = "OpenAPI-Generator/1.8.1-dev/python"
+        self.user_agent = "OpenAPI-Generator/2.0.0-dev/python"
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):
@@ -529,7 +529,21 @@ class ApiClient:
 
         return "&".join(["=".join(map(str, item)) for item in new_params])
 
-    def files_parameters(self, files: Dict[str, Union[str, bytes, io.IOBase]]):
+    def files_parameters(
+        self,
+        files: Dict[
+            str,
+            Union[
+                str,
+                bytes,
+                io.IOBase,
+                List[str],
+                List[bytes],
+                List[io.IOBase],
+                Tuple[str, bytes, io.IOBase],
+            ],
+        ],
+    ):
         """Builds form parameters.
 
         :param files: File parameters.

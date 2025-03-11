@@ -19,13 +19,13 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class TemplateUpdateFilesRequest(BaseModel):
@@ -37,7 +37,9 @@ class TemplateUpdateFilesRequest(BaseModel):
         default=None,
         description="Client id of the app you're using to update this template.",
     )
-    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(
+    files: Optional[
+        List[Union[StrictBytes, StrictStr, io.IOBase, Tuple[StrictStr, StrictBytes, io.IOBase]]]
+    ] = Field(
         default=None,
         description="Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.",
     )

@@ -23,6 +23,6 @@ rep () {
   done
 }
 
-rep 'Union\[StrictBytes, StrictStr\]' 'Union[StrictBytes, StrictStr, io.IOBase]'
+rep 'Union\[StrictBytes, StrictStr, Tuple\[StrictStr, StrictBytes\]\]' 'Union[StrictBytes, StrictStr, io.IOBase, Tuple[StrictStr, StrictBytes, io.IOBase]]'
 
 printf "\n"

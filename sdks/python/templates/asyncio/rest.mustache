@@ -69,7 +69,7 @@ class RESTClientObject:
 
     async def close(self) -> None:
         if self.pool_manager:
-        await self.pool_manager.close()
+            await self.pool_manager.close()
         if self.retry_client is not None:
             await self.retry_client.close()
 

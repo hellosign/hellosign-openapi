@@ -23,11 +23,11 @@ from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from dropbox_sign.models.sub_form_field_rule_action import SubFormFieldRuleAction
 from dropbox_sign.models.sub_form_field_rule_trigger import SubFormFieldRuleTrigger
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class SubFormFieldRule(BaseModel):

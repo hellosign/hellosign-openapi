@@ -32,11 +32,11 @@ from dropbox_sign.models.template_response_document_form_field_base import (
 from dropbox_sign.models.template_response_document_static_field_base import (
     TemplateResponseDocumentStaticFieldBase,
 )
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class TemplateResponseDocument(BaseModel):

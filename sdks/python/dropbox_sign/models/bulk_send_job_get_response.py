@@ -26,11 +26,11 @@ from dropbox_sign.models.bulk_send_job_get_response_signature_requests import (
 from dropbox_sign.models.bulk_send_job_response import BulkSendJobResponse
 from dropbox_sign.models.list_info_response import ListInfoResponse
 from dropbox_sign.models.warning_response import WarningResponse
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class BulkSendJobGetResponse(BaseModel):

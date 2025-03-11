@@ -9,17 +9,12 @@ import json
 {{#vendorExtensions.x-py-model-imports}}
 {{{.}}}
 {{/vendorExtensions.x-py-model-imports}}
-{{^useCustomTemplateCode}}
 from typing import Optional, Set
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-from typing import Optional, Set, Tuple
-{{/useCustomTemplateCode}}
 from typing_extensions import Self
 {{#useCustomTemplateCode}}
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 {{/useCustomTemplateCode}}
 
 {{#hasChildren}}
@@ -166,12 +161,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
         """Create an instance of {{{classname}}} from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-{{^useCustomTemplateCode}}
-    def to_dict(self) -> Dict[str, Any]:
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-    def to_dict(self, excluded_fields: Set[str] = None) -> Dict[str, Any]:
-{{/useCustomTemplateCode}}
+    def to_dict(self{{#useCustomTemplateCode}}, excluded_fields: Set[str] = None{{/useCustomTemplateCode}}) -> Dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
