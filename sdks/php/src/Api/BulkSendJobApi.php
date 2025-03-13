@@ -97,7 +97,6 @@ class BulkSendJobApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -108,7 +107,6 @@ class BulkSendJobApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -139,14 +137,15 @@ class BulkSendJobApi
      * @param string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
      * @param int    $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int    $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string $contentType      The value for the Content-Type header. Check self::contentTypes['bulkSendJobGet'] to see the possible values for this operation
      *
      * @return Model\BulkSendJobGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function bulkSendJobGet(string $bulk_send_job_id, int $page = 1, int $page_size = 20)
+    public function bulkSendJobGet(string $bulk_send_job_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
-        list($response) = $this->bulkSendJobGetWithHttpInfo($bulk_send_job_id, $page, $page_size);
+        list($response) = $this->bulkSendJobGetWithHttpInfo($bulk_send_job_id, $page, $page_size, $contentType);
         return $response;
     }
 
@@ -163,7 +162,6 @@ class BulkSendJobApi
      * @return array of Model\BulkSendJobGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::bulkSendJobGet. This method will eventually become unavailable
      */
     public function bulkSendJobGetWithHttpInfo(string $bulk_send_job_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
@@ -301,7 +299,6 @@ class BulkSendJobApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::bulkSendJobGet. This method will eventually become unavailable
      */
     public function bulkSendJobGetAsync(string $bulk_send_job_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
@@ -325,7 +322,6 @@ class BulkSendJobApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::bulkSendJobGet. This method will eventually become unavailable
      */
     public function bulkSendJobGetAsyncWithHttpInfo(string $bulk_send_job_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
@@ -378,7 +374,6 @@ class BulkSendJobApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::bulkSendJobGet. This method will eventually become unavailable
      */
     public function bulkSendJobGetRequest(string $bulk_send_job_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobGet'][0])
     {
@@ -425,7 +420,7 @@ class BulkSendJobApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -444,14 +439,6 @@ class BulkSendJobApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -497,16 +484,17 @@ class BulkSendJobApi
      *
      * List Bulk Send Jobs
      *
-     * @param int $page      Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param int    $page        Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
      *
      * @return Model\BulkSendJobListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function bulkSendJobList(int $page = 1, int $page_size = 20)
+    public function bulkSendJobList(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
-        list($response) = $this->bulkSendJobListWithHttpInfo($page, $page_size);
+        list($response) = $this->bulkSendJobListWithHttpInfo($page, $page_size, $contentType);
         return $response;
     }
 
@@ -522,7 +510,6 @@ class BulkSendJobApi
      * @return array of Model\BulkSendJobListResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::bulkSendJobList. This method will eventually become unavailable
      */
     public function bulkSendJobListWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
@@ -659,7 +646,6 @@ class BulkSendJobApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::bulkSendJobList. This method will eventually become unavailable
      */
     public function bulkSendJobListAsync(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
@@ -682,7 +668,6 @@ class BulkSendJobApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::bulkSendJobList. This method will eventually become unavailable
      */
     public function bulkSendJobListAsyncWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
@@ -734,7 +719,6 @@ class BulkSendJobApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::bulkSendJobList. This method will eventually become unavailable
      */
     public function bulkSendJobListRequest(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['bulkSendJobList'][0])
     {
@@ -765,7 +749,7 @@ class BulkSendJobApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -784,14 +768,6 @@ class BulkSendJobApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

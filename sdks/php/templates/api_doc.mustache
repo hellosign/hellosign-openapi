@@ -2,12 +2,7 @@
 
 {{.}}{{/description}}
 
-{{^useCustomTemplateCode}}
 All URIs are relative to {{basePath}}, except if the operation defines another base path.
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-All URIs are relative to {{basePath}}.
-{{/useCustomTemplateCode}}
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -88,12 +83,7 @@ REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_PHP_CODE
 ### Parameters
 
 {{#vendorExtensions.x-group-parameters}}
-{{^useCustomTemplateCode}}
 Note: the input parameter is an associative array with the keys listed as the parameter names below.
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-{{/useCustomTemplateCode}}
 
 {{/vendorExtensions.x-group-parameters}}
 {{^useCustomTemplateCode}}

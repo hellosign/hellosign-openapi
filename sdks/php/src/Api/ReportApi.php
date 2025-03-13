@@ -94,7 +94,6 @@ class ReportApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -105,7 +104,6 @@ class ReportApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -134,14 +132,15 @@ class ReportApi
      * Create Report
      *
      * @param Model\ReportCreateRequest $report_create_request report_create_request (required)
+     * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
      * @return Model\ReportCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function reportCreate(Model\ReportCreateRequest $report_create_request)
+    public function reportCreate(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
-        list($response) = $this->reportCreateWithHttpInfo($report_create_request);
+        list($response) = $this->reportCreateWithHttpInfo($report_create_request, $contentType);
         return $response;
     }
 
@@ -156,7 +155,6 @@ class ReportApi
      * @return array of Model\ReportCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
     public function reportCreateWithHttpInfo(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
@@ -292,7 +290,6 @@ class ReportApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
     public function reportCreateAsync(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
@@ -314,7 +311,6 @@ class ReportApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
     public function reportCreateAsyncWithHttpInfo(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
@@ -365,7 +361,6 @@ class ReportApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
     public function reportCreateRequest(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
@@ -383,20 +378,14 @@ class ReportApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $report_create_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($report_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($report_create_request));
@@ -416,14 +405,6 @@ class ReportApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $report_create_request);
                 }

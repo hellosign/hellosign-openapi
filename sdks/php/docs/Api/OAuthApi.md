@@ -1,6 +1,6 @@
 # Dropbox\Sign\OAuthApi
 
-All URIs are relative to https://api.hellosign.com/v3.
+All URIs are relative to https://api.hellosign.com/v3, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |

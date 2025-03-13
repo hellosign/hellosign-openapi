@@ -1,6 +1,6 @@
 # Dropbox\Sign\SignatureRequestApi
 
-All URIs are relative to https://api.hellosign.com/v3.
+All URIs are relative to https://api.hellosign.com/v3, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -146,7 +146,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -273,7 +273,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -428,7 +428,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -515,7 +515,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -623,7 +623,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -722,7 +722,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -811,7 +811,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -919,7 +919,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1517,7 +1517,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1623,7 +1623,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

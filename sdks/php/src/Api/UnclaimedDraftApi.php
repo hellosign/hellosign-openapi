@@ -68,16 +68,16 @@ class UnclaimedDraftApi
      */
     public const contentTypes = [
         'unclaimedDraftCreate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'unclaimedDraftCreateEmbedded' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'unclaimedDraftCreateEmbeddedWithTemplate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'unclaimedDraftEditAndResend' => [
             'application/json',
@@ -106,7 +106,6 @@ class UnclaimedDraftApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -117,7 +116,6 @@ class UnclaimedDraftApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -146,14 +144,15 @@ class UnclaimedDraftApi
      * Create Unclaimed Draft
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request unclaimed_draft_create_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
      * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreate(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request)
+    public function unclaimedDraftCreate(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
-        list($response) = $this->unclaimedDraftCreateWithHttpInfo($unclaimed_draft_create_request);
+        list($response) = $this->unclaimedDraftCreateWithHttpInfo($unclaimed_draft_create_request, $contentType);
         return $response;
     }
 
@@ -168,7 +167,6 @@ class UnclaimedDraftApi
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
@@ -304,7 +302,6 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateAsync(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
@@ -326,7 +323,6 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateAsyncWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
@@ -377,7 +373,6 @@ class UnclaimedDraftApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateRequest(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
@@ -395,27 +390,19 @@ class UnclaimedDraftApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $unclaimed_draft_create_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($unclaimed_draft_create_request !== null) {
+            $formParams['unclaimed_draft_create_request'] = ObjectSerializer::toFormValue($unclaimed_draft_create_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_request));
-            } else {
-                $httpBody = $unclaimed_draft_create_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -428,17 +415,6 @@ class UnclaimedDraftApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -485,14 +461,15 @@ class UnclaimedDraftApi
      * Create Embedded Unclaimed Draft
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request unclaimed_draft_create_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
      * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreateEmbedded(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request)
+    public function unclaimedDraftCreateEmbedded(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
-        list($response) = $this->unclaimedDraftCreateEmbeddedWithHttpInfo($unclaimed_draft_create_embedded_request);
+        list($response) = $this->unclaimedDraftCreateEmbeddedWithHttpInfo($unclaimed_draft_create_embedded_request, $contentType);
         return $response;
     }
 
@@ -507,7 +484,6 @@ class UnclaimedDraftApi
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
@@ -643,7 +619,6 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedAsync(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
@@ -665,7 +640,6 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
@@ -716,7 +690,6 @@ class UnclaimedDraftApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedRequest(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
@@ -734,27 +707,19 @@ class UnclaimedDraftApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $unclaimed_draft_create_embedded_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($unclaimed_draft_create_embedded_request !== null) {
+            $formParams['unclaimed_draft_create_embedded_request'] = ObjectSerializer::toFormValue($unclaimed_draft_create_embedded_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_embedded_request));
-            } else {
-                $httpBody = $unclaimed_draft_create_embedded_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -767,17 +732,6 @@ class UnclaimedDraftApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_embedded_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -824,14 +778,15 @@ class UnclaimedDraftApi
      * Create Embedded Unclaimed Draft with Template
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request unclaimed_draft_create_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplate(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request)
+    public function unclaimedDraftCreateEmbeddedWithTemplate(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
-        list($response) = $this->unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo($unclaimed_draft_create_embedded_with_template_request);
+        list($response) = $this->unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo($unclaimed_draft_create_embedded_with_template_request, $contentType);
         return $response;
     }
 
@@ -846,7 +801,6 @@ class UnclaimedDraftApi
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
@@ -982,7 +936,6 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateAsync(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
@@ -1004,7 +957,6 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
@@ -1055,7 +1007,6 @@ class UnclaimedDraftApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateRequest(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
@@ -1073,27 +1024,19 @@ class UnclaimedDraftApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $unclaimed_draft_create_embedded_with_template_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($unclaimed_draft_create_embedded_with_template_request !== null) {
+            $formParams['unclaimed_draft_create_embedded_with_template_request'] = ObjectSerializer::toFormValue($unclaimed_draft_create_embedded_with_template_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_embedded_with_template_request));
-            } else {
-                $httpBody = $unclaimed_draft_create_embedded_with_template_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1106,17 +1049,6 @@ class UnclaimedDraftApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_embedded_with_template_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1164,14 +1096,15 @@ class UnclaimedDraftApi
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request unclaimed_draft_edit_and_resend_request (required)
+     * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
      * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftEditAndResend(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request)
+    public function unclaimedDraftEditAndResend(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
-        list($response) = $this->unclaimedDraftEditAndResendWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request);
+        list($response) = $this->unclaimedDraftEditAndResendWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request, $contentType);
         return $response;
     }
 
@@ -1187,7 +1120,6 @@ class UnclaimedDraftApi
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
     public function unclaimedDraftEditAndResendWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
@@ -1324,7 +1256,6 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
     public function unclaimedDraftEditAndResendAsync(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
@@ -1347,7 +1278,6 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
     public function unclaimedDraftEditAndResendAsyncWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
@@ -1399,7 +1329,6 @@ class UnclaimedDraftApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
     public function unclaimedDraftEditAndResendRequest(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
@@ -1424,12 +1353,6 @@ class UnclaimedDraftApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $unclaimed_draft_edit_and_resend_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
@@ -1440,13 +1363,13 @@ class UnclaimedDraftApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($unclaimed_draft_edit_and_resend_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_edit_and_resend_request));
@@ -1466,14 +1389,6 @@ class UnclaimedDraftApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $unclaimed_draft_edit_and_resend_request);
                 }

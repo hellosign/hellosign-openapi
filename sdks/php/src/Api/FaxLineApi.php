@@ -112,7 +112,6 @@ class FaxLineApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -123,7 +122,6 @@ class FaxLineApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -152,14 +150,15 @@ class FaxLineApi
      * Add Fax Line User
      *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request fax_line_add_user_request (required)
+     * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
      * @return Model\FaxLineResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineAddUser(Model\FaxLineAddUserRequest $fax_line_add_user_request)
+    public function faxLineAddUser(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
-        list($response) = $this->faxLineAddUserWithHttpInfo($fax_line_add_user_request);
+        list($response) = $this->faxLineAddUserWithHttpInfo($fax_line_add_user_request, $contentType);
         return $response;
     }
 
@@ -174,7 +173,6 @@ class FaxLineApi
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
     public function faxLineAddUserWithHttpInfo(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
@@ -310,7 +308,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
     public function faxLineAddUserAsync(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
@@ -332,7 +329,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
     public function faxLineAddUserAsyncWithHttpInfo(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
@@ -383,7 +379,6 @@ class FaxLineApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
     public function faxLineAddUserRequest(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
@@ -401,20 +396,14 @@ class FaxLineApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_line_add_user_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($fax_line_add_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_add_user_request));
@@ -434,14 +423,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $fax_line_add_user_request);
                 }
@@ -486,18 +467,19 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param string $country  Filter area codes by country (required)
-     * @param string $state    Filter area codes by state (optional)
-     * @param string $province Filter area codes by province (optional)
-     * @param string $city     Filter area codes by city (optional)
+     * @param string $country     Filter area codes by country (required)
+     * @param string $state       Filter area codes by state (optional)
+     * @param string $province    Filter area codes by province (optional)
+     * @param string $city        Filter area codes by city (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
      * @return Model\FaxLineAreaCodeGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineAreaCodeGet(string $country, string $state = null, string $province = null, string $city = null)
+    public function faxLineAreaCodeGet(string $country, string $state = null, string $province = null, string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
-        list($response) = $this->faxLineAreaCodeGetWithHttpInfo($country, $state, $province, $city);
+        list($response) = $this->faxLineAreaCodeGetWithHttpInfo($country, $state, $province, $city, $contentType);
         return $response;
     }
 
@@ -515,7 +497,6 @@ class FaxLineApi
      * @return array of Model\FaxLineAreaCodeGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineAreaCodeGet. This method will eventually become unavailable
      */
     public function faxLineAreaCodeGetWithHttpInfo(string $country, string $state = null, string $province = null, string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
@@ -654,7 +635,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineAreaCodeGet. This method will eventually become unavailable
      */
     public function faxLineAreaCodeGetAsync(string $country, string $state = null, string $province = null, string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
@@ -679,7 +659,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineAreaCodeGet. This method will eventually become unavailable
      */
     public function faxLineAreaCodeGetAsyncWithHttpInfo(string $country, string $state = null, string $province = null, string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
@@ -733,7 +712,6 @@ class FaxLineApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineAreaCodeGet. This method will eventually become unavailable
      */
     public function faxLineAreaCodeGetRequest(string $country, string $state = null, string $province = null, string $city = null, string $contentType = self::contentTypes['faxLineAreaCodeGet'][0])
     {
@@ -789,7 +767,7 @@ class FaxLineApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -808,14 +786,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -858,14 +828,15 @@ class FaxLineApi
      * Purchase Fax Line
      *
      * @param Model\FaxLineCreateRequest $fax_line_create_request fax_line_create_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
      * @return Model\FaxLineResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineCreate(Model\FaxLineCreateRequest $fax_line_create_request)
+    public function faxLineCreate(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
-        list($response) = $this->faxLineCreateWithHttpInfo($fax_line_create_request);
+        list($response) = $this->faxLineCreateWithHttpInfo($fax_line_create_request, $contentType);
         return $response;
     }
 
@@ -880,7 +851,6 @@ class FaxLineApi
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
     public function faxLineCreateWithHttpInfo(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
@@ -1016,7 +986,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
     public function faxLineCreateAsync(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
@@ -1038,7 +1007,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
     public function faxLineCreateAsyncWithHttpInfo(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
@@ -1089,7 +1057,6 @@ class FaxLineApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
     public function faxLineCreateRequest(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
@@ -1107,20 +1074,14 @@ class FaxLineApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_line_create_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($fax_line_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_create_request));
@@ -1140,14 +1101,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $fax_line_create_request);
                 }
@@ -1193,13 +1146,14 @@ class FaxLineApi
      * Delete Fax Line
      *
      * @param Model\FaxLineDeleteRequest $fax_line_delete_request fax_line_delete_request (required)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineDelete(Model\FaxLineDeleteRequest $fax_line_delete_request)
+    public function faxLineDelete(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
-        $this->faxLineDeleteWithHttpInfo($fax_line_delete_request);
+        $this->faxLineDeleteWithHttpInfo($fax_line_delete_request, $contentType);
     }
 
     /**
@@ -1213,7 +1167,6 @@ class FaxLineApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineDelete. This method will eventually become unavailable
      */
     public function faxLineDeleteWithHttpInfo(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
@@ -1276,7 +1229,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineDelete. This method will eventually become unavailable
      */
     public function faxLineDeleteAsync(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
@@ -1298,7 +1250,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineDelete. This method will eventually become unavailable
      */
     public function faxLineDeleteAsyncWithHttpInfo(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
@@ -1336,7 +1287,6 @@ class FaxLineApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineDelete. This method will eventually become unavailable
      */
     public function faxLineDeleteRequest(Model\FaxLineDeleteRequest $fax_line_delete_request, string $contentType = self::contentTypes['faxLineDelete'][0])
     {
@@ -1354,20 +1304,14 @@ class FaxLineApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_line_delete_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($fax_line_delete_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_delete_request));
@@ -1387,14 +1331,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $fax_line_delete_request);
                 }
@@ -1439,15 +1375,16 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param string $number The Fax Line number (required)
+     * @param string $number      The Fax Line number (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
      * @return Model\FaxLineResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineGet(string $number)
+    public function faxLineGet(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
-        list($response) = $this->faxLineGetWithHttpInfo($number);
+        list($response) = $this->faxLineGetWithHttpInfo($number, $contentType);
         return $response;
     }
 
@@ -1462,7 +1399,6 @@ class FaxLineApi
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineGet. This method will eventually become unavailable
      */
     public function faxLineGetWithHttpInfo(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
@@ -1598,7 +1534,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineGet. This method will eventually become unavailable
      */
     public function faxLineGetAsync(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
@@ -1620,7 +1555,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineGet. This method will eventually become unavailable
      */
     public function faxLineGetAsyncWithHttpInfo(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
@@ -1671,7 +1605,6 @@ class FaxLineApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineGet. This method will eventually become unavailable
      */
     public function faxLineGetRequest(string $number, string $contentType = self::contentTypes['faxLineGet'][0])
     {
@@ -1700,7 +1633,7 @@ class FaxLineApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1719,14 +1652,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1772,14 +1697,15 @@ class FaxLineApi
      * @param int    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param bool   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
+     * @param string $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
      * @return Model\FaxLineListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineList(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null)
+    public function faxLineList(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
-        list($response) = $this->faxLineListWithHttpInfo($account_id, $page, $page_size, $show_team_lines);
+        list($response) = $this->faxLineListWithHttpInfo($account_id, $page, $page_size, $show_team_lines, $contentType);
         return $response;
     }
 
@@ -1797,7 +1723,6 @@ class FaxLineApi
      * @return array of Model\FaxLineListResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineList. This method will eventually become unavailable
      */
     public function faxLineListWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
@@ -1936,7 +1861,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineList. This method will eventually become unavailable
      */
     public function faxLineListAsync(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
@@ -1961,7 +1885,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineList. This method will eventually become unavailable
      */
     public function faxLineListAsyncWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
@@ -2015,7 +1938,6 @@ class FaxLineApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineList. This method will eventually become unavailable
      */
     public function faxLineListRequest(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null, string $contentType = self::contentTypes['faxLineList'][0])
     {
@@ -2064,7 +1986,7 @@ class FaxLineApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -2083,14 +2005,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2133,14 +2047,15 @@ class FaxLineApi
      * Remove Fax Line Access
      *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request fax_line_remove_user_request (required)
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
      * @return Model\FaxLineResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineRemoveUser(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request)
+    public function faxLineRemoveUser(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
-        list($response) = $this->faxLineRemoveUserWithHttpInfo($fax_line_remove_user_request);
+        list($response) = $this->faxLineRemoveUserWithHttpInfo($fax_line_remove_user_request, $contentType);
         return $response;
     }
 
@@ -2155,7 +2070,6 @@ class FaxLineApi
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
     public function faxLineRemoveUserWithHttpInfo(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
@@ -2291,7 +2205,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
     public function faxLineRemoveUserAsync(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
@@ -2313,7 +2226,6 @@ class FaxLineApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
     public function faxLineRemoveUserAsyncWithHttpInfo(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
@@ -2364,7 +2276,6 @@ class FaxLineApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
     public function faxLineRemoveUserRequest(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
@@ -2382,20 +2293,14 @@ class FaxLineApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_line_remove_user_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($fax_line_remove_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_remove_user_request));
@@ -2415,14 +2320,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $fax_line_remove_user_request);
                 }
