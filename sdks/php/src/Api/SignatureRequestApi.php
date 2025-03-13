@@ -69,39 +69,39 @@ class SignatureRequestApi
      */
     public const contentTypes = [
         'signatureRequestBulkCreateEmbeddedWithTemplate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestBulkSendWithTemplate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestCancel' => [
             'application/json',
         ],
         'signatureRequestCreateEmbedded' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestCreateEmbeddedWithTemplate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestEdit' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestEditEmbedded' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestEditEmbeddedWithTemplate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestEditWithTemplate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestFiles' => [
             'application/json',
@@ -128,12 +128,12 @@ class SignatureRequestApi
             'application/json',
         ],
         'signatureRequestSend' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestSendWithTemplate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'signatureRequestUpdate' => [
             'application/json',
@@ -162,7 +162,6 @@ class SignatureRequestApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -173,7 +172,6 @@ class SignatureRequestApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -202,14 +200,15 @@ class SignatureRequestApi
      * Embedded Bulk Send with Template
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Model\BulkSendJobSendResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplate(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request)
+    public function signatureRequestBulkCreateEmbeddedWithTemplate(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
-        list($response) = $this->signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo($signature_request_bulk_create_embedded_with_template_request);
+        list($response) = $this->signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo($signature_request_bulk_create_embedded_with_template_request, $contentType);
         return $response;
     }
 
@@ -224,7 +223,6 @@ class SignatureRequestApi
      * @return array of Model\BulkSendJobSendResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
@@ -360,7 +358,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestBulkCreateEmbeddedWithTemplateAsync(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
@@ -382,7 +379,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
@@ -433,7 +429,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestBulkCreateEmbeddedWithTemplateRequest(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
@@ -451,27 +446,19 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_bulk_create_embedded_with_template_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($signature_request_bulk_create_embedded_with_template_request !== null) {
+            $formParams['signature_request_bulk_create_embedded_with_template_request'] = ObjectSerializer::toFormValue($signature_request_bulk_create_embedded_with_template_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_bulk_create_embedded_with_template_request));
-            } else {
-                $httpBody = $signature_request_bulk_create_embedded_with_template_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -484,17 +471,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_bulk_create_embedded_with_template_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -537,14 +513,15 @@ class SignatureRequestApi
      * Bulk Send with Template
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request signature_request_bulk_send_with_template_request (required)
+     * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
      * @return Model\BulkSendJobSendResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestBulkSendWithTemplate(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request)
+    public function signatureRequestBulkSendWithTemplate(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
-        list($response) = $this->signatureRequestBulkSendWithTemplateWithHttpInfo($signature_request_bulk_send_with_template_request);
+        list($response) = $this->signatureRequestBulkSendWithTemplateWithHttpInfo($signature_request_bulk_send_with_template_request, $contentType);
         return $response;
     }
 
@@ -559,7 +536,6 @@ class SignatureRequestApi
      * @return array of Model\BulkSendJobSendResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestBulkSendWithTemplateWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
@@ -695,7 +671,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestBulkSendWithTemplateAsync(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
@@ -717,7 +692,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestBulkSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
@@ -768,7 +742,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestBulkSendWithTemplateRequest(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
@@ -786,27 +759,19 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_bulk_send_with_template_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($signature_request_bulk_send_with_template_request !== null) {
+            $formParams['signature_request_bulk_send_with_template_request'] = ObjectSerializer::toFormValue($signature_request_bulk_send_with_template_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_bulk_send_with_template_request));
-            } else {
-                $httpBody = $signature_request_bulk_send_with_template_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -819,17 +784,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_bulk_send_with_template_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -876,13 +830,14 @@ class SignatureRequestApi
      * Cancel Incomplete Signature Request
      *
      * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestCancel(string $signature_request_id)
+    public function signatureRequestCancel(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
-        $this->signatureRequestCancelWithHttpInfo($signature_request_id);
+        $this->signatureRequestCancelWithHttpInfo($signature_request_id, $contentType);
     }
 
     /**
@@ -896,7 +851,6 @@ class SignatureRequestApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
     public function signatureRequestCancelWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
@@ -959,7 +913,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
     public function signatureRequestCancelAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
@@ -981,7 +934,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
     public function signatureRequestCancelAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
@@ -1019,7 +971,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
     public function signatureRequestCancelRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
@@ -1047,7 +998,7 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1066,14 +1017,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1120,14 +1063,15 @@ class SignatureRequestApi
      * Create Embedded Signature Request
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request signature_request_create_embedded_request (required)
+     * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestCreateEmbedded(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request)
+    public function signatureRequestCreateEmbedded(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
-        list($response) = $this->signatureRequestCreateEmbeddedWithHttpInfo($signature_request_create_embedded_request);
+        list($response) = $this->signatureRequestCreateEmbeddedWithHttpInfo($signature_request_create_embedded_request, $contentType);
         return $response;
     }
 
@@ -1142,7 +1086,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
     public function signatureRequestCreateEmbeddedWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
@@ -1278,7 +1221,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
     public function signatureRequestCreateEmbeddedAsync(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
@@ -1300,7 +1242,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
     public function signatureRequestCreateEmbeddedAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
@@ -1351,7 +1292,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
     public function signatureRequestCreateEmbeddedRequest(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
@@ -1369,27 +1309,19 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_create_embedded_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($signature_request_create_embedded_request !== null) {
+            $formParams['signature_request_create_embedded_request'] = ObjectSerializer::toFormValue($signature_request_create_embedded_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_create_embedded_request));
-            } else {
-                $httpBody = $signature_request_create_embedded_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1402,17 +1334,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_create_embedded_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1459,14 +1380,15 @@ class SignatureRequestApi
      * Create Embedded Signature Request with Template
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request signature_request_create_embedded_with_template_request (required)
+     * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestCreateEmbeddedWithTemplate(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request)
+    public function signatureRequestCreateEmbeddedWithTemplate(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
-        list($response) = $this->signatureRequestCreateEmbeddedWithTemplateWithHttpInfo($signature_request_create_embedded_with_template_request);
+        list($response) = $this->signatureRequestCreateEmbeddedWithTemplateWithHttpInfo($signature_request_create_embedded_with_template_request, $contentType);
         return $response;
     }
 
@@ -1481,7 +1403,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestCreateEmbeddedWithTemplateWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
@@ -1617,7 +1538,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestCreateEmbeddedWithTemplateAsync(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
@@ -1639,7 +1559,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
@@ -1690,7 +1609,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestCreateEmbeddedWithTemplateRequest(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
@@ -1708,27 +1626,19 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_create_embedded_with_template_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($signature_request_create_embedded_with_template_request !== null) {
+            $formParams['signature_request_create_embedded_with_template_request'] = ObjectSerializer::toFormValue($signature_request_create_embedded_with_template_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_create_embedded_with_template_request));
-            } else {
-                $httpBody = $signature_request_create_embedded_with_template_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1741,17 +1651,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_create_embedded_with_template_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1799,14 +1698,15 @@ class SignatureRequestApi
      *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request signature_request_edit_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestEdit(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request)
+    public function signatureRequestEdit(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
-        list($response) = $this->signatureRequestEditWithHttpInfo($signature_request_id, $signature_request_edit_request);
+        list($response) = $this->signatureRequestEditWithHttpInfo($signature_request_id, $signature_request_edit_request, $contentType);
         return $response;
     }
 
@@ -1822,7 +1722,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
      */
     public function signatureRequestEditWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
@@ -1959,7 +1858,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
      */
     public function signatureRequestEditAsync(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
@@ -1982,7 +1880,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
      */
     public function signatureRequestEditAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
@@ -2034,7 +1931,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
      */
     public function signatureRequestEditRequest(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
@@ -2059,12 +1955,6 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_edit_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
@@ -2074,21 +1964,19 @@ class SignatureRequestApi
             );
         }
 
+        // form params
+        if ($signature_request_edit_request !== null) {
+            $formParams['signature_request_edit_request'] = ObjectSerializer::toFormValue($signature_request_edit_request);
+        }
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_request));
-            } else {
-                $httpBody = $signature_request_edit_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2101,17 +1989,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_edit_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2159,14 +2036,15 @@ class SignatureRequestApi
      *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request signature_request_edit_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestEditEmbedded(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request)
+    public function signatureRequestEditEmbedded(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
-        list($response) = $this->signatureRequestEditEmbeddedWithHttpInfo($signature_request_id, $signature_request_edit_embedded_request);
+        list($response) = $this->signatureRequestEditEmbeddedWithHttpInfo($signature_request_id, $signature_request_edit_embedded_request, $contentType);
         return $response;
     }
 
@@ -2182,7 +2060,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
      */
     public function signatureRequestEditEmbeddedWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
@@ -2319,7 +2196,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
      */
     public function signatureRequestEditEmbeddedAsync(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
@@ -2342,7 +2218,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
      */
     public function signatureRequestEditEmbeddedAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
@@ -2394,7 +2269,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
      */
     public function signatureRequestEditEmbeddedRequest(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
@@ -2419,12 +2293,6 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_edit_embedded_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
@@ -2434,21 +2302,19 @@ class SignatureRequestApi
             );
         }
 
+        // form params
+        if ($signature_request_edit_embedded_request !== null) {
+            $formParams['signature_request_edit_embedded_request'] = ObjectSerializer::toFormValue($signature_request_edit_embedded_request);
+        }
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_embedded_request));
-            } else {
-                $httpBody = $signature_request_edit_embedded_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2461,17 +2327,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_edit_embedded_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2519,14 +2374,15 @@ class SignatureRequestApi
      *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request signature_request_edit_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestEditEmbeddedWithTemplate(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request)
+    public function signatureRequestEditEmbeddedWithTemplate(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
-        list($response) = $this->signatureRequestEditEmbeddedWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_embedded_with_template_request);
+        list($response) = $this->signatureRequestEditEmbeddedWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_embedded_with_template_request, $contentType);
         return $response;
     }
 
@@ -2542,7 +2398,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestEditEmbeddedWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
@@ -2679,7 +2534,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestEditEmbeddedWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
@@ -2702,7 +2556,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
@@ -2754,7 +2607,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestEditEmbeddedWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
@@ -2779,12 +2631,6 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_edit_embedded_with_template_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
@@ -2794,21 +2640,19 @@ class SignatureRequestApi
             );
         }
 
+        // form params
+        if ($signature_request_edit_embedded_with_template_request !== null) {
+            $formParams['signature_request_edit_embedded_with_template_request'] = ObjectSerializer::toFormValue($signature_request_edit_embedded_with_template_request);
+        }
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_embedded_with_template_request));
-            } else {
-                $httpBody = $signature_request_edit_embedded_with_template_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2821,17 +2665,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_edit_embedded_with_template_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2879,14 +2712,15 @@ class SignatureRequestApi
      *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request signature_request_edit_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestEditWithTemplate(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request)
+    public function signatureRequestEditWithTemplate(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
-        list($response) = $this->signatureRequestEditWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request);
+        list($response) = $this->signatureRequestEditWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request, $contentType);
         return $response;
     }
 
@@ -2902,7 +2736,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestEditWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
@@ -3039,7 +2872,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestEditWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
@@ -3062,7 +2894,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestEditWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
@@ -3114,7 +2945,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestEditWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
@@ -3139,12 +2969,6 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_edit_with_template_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
@@ -3154,21 +2978,19 @@ class SignatureRequestApi
             );
         }
 
+        // form params
+        if ($signature_request_edit_with_template_request !== null) {
+            $formParams['signature_request_edit_with_template_request'] = ObjectSerializer::toFormValue($signature_request_edit_with_template_request);
+        }
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_with_template_request));
-            } else {
-                $httpBody = $signature_request_edit_with_template_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3181,17 +3003,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_edit_with_template_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -3239,14 +3050,15 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
      *
      * @return SplFileObject
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestFiles(string $signature_request_id, string $file_type = 'pdf')
+    public function signatureRequestFiles(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
-        list($response) = $this->signatureRequestFilesWithHttpInfo($signature_request_id, $file_type);
+        list($response) = $this->signatureRequestFilesWithHttpInfo($signature_request_id, $file_type, $contentType);
         return $response;
     }
 
@@ -3262,7 +3074,6 @@ class SignatureRequestApi
      * @return array of \SplFileObject|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFiles. This method will eventually become unavailable
      */
     public function signatureRequestFilesWithHttpInfo(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
@@ -3399,7 +3210,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFiles. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsync(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
@@ -3422,7 +3232,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFiles. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsyncWithHttpInfo(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
@@ -3474,7 +3283,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFiles. This method will eventually become unavailable
      */
     public function signatureRequestFilesRequest(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
@@ -3512,7 +3320,7 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/pdf', 'application/zip', 'application/json'],
+            ['application/pdf', 'application/zip', 'application/json'],
             $contentType,
             $multipart
         );
@@ -3531,14 +3339,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -3585,14 +3385,15 @@ class SignatureRequestApi
      * Download Files as Data Uri
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
      *
      * @return Model\FileResponseDataUri
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestFilesAsDataUri(string $signature_request_id)
+    public function signatureRequestFilesAsDataUri(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
-        list($response) = $this->signatureRequestFilesAsDataUriWithHttpInfo($signature_request_id);
+        list($response) = $this->signatureRequestFilesAsDataUriWithHttpInfo($signature_request_id, $contentType);
         return $response;
     }
 
@@ -3607,7 +3408,6 @@ class SignatureRequestApi
      * @return array of Model\FileResponseDataUri, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFilesAsDataUri. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsDataUriWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
@@ -3743,7 +3543,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFilesAsDataUri. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsDataUriAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
@@ -3765,7 +3564,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFilesAsDataUri. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsDataUriAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
@@ -3816,7 +3614,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFilesAsDataUri. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsDataUriRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
@@ -3844,7 +3641,7 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -3863,14 +3660,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -3918,14 +3707,15 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param int    $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
      *
      * @return Model\FileResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestFilesAsFileUrl(string $signature_request_id, int $force_download = 1)
+    public function signatureRequestFilesAsFileUrl(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
-        list($response) = $this->signatureRequestFilesAsFileUrlWithHttpInfo($signature_request_id, $force_download);
+        list($response) = $this->signatureRequestFilesAsFileUrlWithHttpInfo($signature_request_id, $force_download, $contentType);
         return $response;
     }
 
@@ -3941,7 +3731,6 @@ class SignatureRequestApi
      * @return array of Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFilesAsFileUrl. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsFileUrlWithHttpInfo(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
@@ -4078,7 +3867,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFilesAsFileUrl. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsFileUrlAsync(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
@@ -4101,7 +3889,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFilesAsFileUrl. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsFileUrlAsyncWithHttpInfo(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
@@ -4153,7 +3940,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestFilesAsFileUrl. This method will eventually become unavailable
      */
     public function signatureRequestFilesAsFileUrlRequest(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
@@ -4191,7 +3977,7 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -4210,14 +3996,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -4264,14 +4042,15 @@ class SignatureRequestApi
      * Get Signature Request
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestGet(string $signature_request_id)
+    public function signatureRequestGet(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
-        list($response) = $this->signatureRequestGetWithHttpInfo($signature_request_id);
+        list($response) = $this->signatureRequestGetWithHttpInfo($signature_request_id, $contentType);
         return $response;
     }
 
@@ -4286,7 +4065,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestGet. This method will eventually become unavailable
      */
     public function signatureRequestGetWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
@@ -4422,7 +4200,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestGet. This method will eventually become unavailable
      */
     public function signatureRequestGetAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
@@ -4444,7 +4221,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestGet. This method will eventually become unavailable
      */
     public function signatureRequestGetAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
@@ -4495,7 +4271,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestGet. This method will eventually become unavailable
      */
     public function signatureRequestGetRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
@@ -4523,7 +4298,7 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -4542,14 +4317,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -4595,18 +4362,19 @@ class SignatureRequestApi
      *
      * List Signature Requests
      *
-     * @param string $account_id Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param int    $page       Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size  Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $query      String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
+     * @param string $account_id  Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param int    $page        Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $query       String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestList(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null)
+    public function signatureRequestList(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
-        list($response) = $this->signatureRequestListWithHttpInfo($account_id, $page, $page_size, $query);
+        list($response) = $this->signatureRequestListWithHttpInfo($account_id, $page, $page_size, $query, $contentType);
         return $response;
     }
 
@@ -4624,7 +4392,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestListResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestList. This method will eventually become unavailable
      */
     public function signatureRequestListWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
@@ -4763,7 +4530,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestList. This method will eventually become unavailable
      */
     public function signatureRequestListAsync(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
@@ -4788,7 +4554,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestList. This method will eventually become unavailable
      */
     public function signatureRequestListAsyncWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
@@ -4842,7 +4607,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestList. This method will eventually become unavailable
      */
     public function signatureRequestListRequest(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
@@ -4891,7 +4655,7 @@ class SignatureRequestApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -4910,14 +4674,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -4964,14 +4720,15 @@ class SignatureRequestApi
      * Release On-Hold Signature Request
      *
      * @param string $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestReleaseHold(string $signature_request_id)
+    public function signatureRequestReleaseHold(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
-        list($response) = $this->signatureRequestReleaseHoldWithHttpInfo($signature_request_id);
+        list($response) = $this->signatureRequestReleaseHoldWithHttpInfo($signature_request_id, $contentType);
         return $response;
     }
 
@@ -4986,7 +4743,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
     public function signatureRequestReleaseHoldWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
@@ -5122,7 +4878,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
     public function signatureRequestReleaseHoldAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
@@ -5144,7 +4899,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
     public function signatureRequestReleaseHoldAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
@@ -5195,7 +4949,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
     public function signatureRequestReleaseHoldRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
@@ -5223,7 +4976,7 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -5242,14 +4995,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -5297,14 +5042,15 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request signature_request_remind_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestRemind(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request)
+    public function signatureRequestRemind(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
-        list($response) = $this->signatureRequestRemindWithHttpInfo($signature_request_id, $signature_request_remind_request);
+        list($response) = $this->signatureRequestRemindWithHttpInfo($signature_request_id, $signature_request_remind_request, $contentType);
         return $response;
     }
 
@@ -5320,7 +5066,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
     public function signatureRequestRemindWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
@@ -5457,7 +5202,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
     public function signatureRequestRemindAsync(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
@@ -5480,7 +5224,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
     public function signatureRequestRemindAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
@@ -5532,7 +5275,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
     public function signatureRequestRemindRequest(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
@@ -5557,12 +5299,6 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_remind_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
@@ -5573,13 +5309,13 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($signature_request_remind_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_remind_request));
@@ -5599,14 +5335,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $signature_request_remind_request);
                 }
@@ -5656,13 +5384,14 @@ class SignatureRequestApi
      * Remove Signature Request Access
      *
      * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestRemove(string $signature_request_id)
+    public function signatureRequestRemove(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
-        $this->signatureRequestRemoveWithHttpInfo($signature_request_id);
+        $this->signatureRequestRemoveWithHttpInfo($signature_request_id, $contentType);
     }
 
     /**
@@ -5676,7 +5405,6 @@ class SignatureRequestApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
     public function signatureRequestRemoveWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
@@ -5739,7 +5467,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
     public function signatureRequestRemoveAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
@@ -5761,7 +5488,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
     public function signatureRequestRemoveAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
@@ -5799,7 +5525,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
     public function signatureRequestRemoveRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
@@ -5827,7 +5552,7 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -5846,14 +5571,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -5896,14 +5613,15 @@ class SignatureRequestApi
      * Send Signature Request
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request signature_request_send_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestSend(Model\SignatureRequestSendRequest $signature_request_send_request)
+    public function signatureRequestSend(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
-        list($response) = $this->signatureRequestSendWithHttpInfo($signature_request_send_request);
+        list($response) = $this->signatureRequestSendWithHttpInfo($signature_request_send_request, $contentType);
         return $response;
     }
 
@@ -5918,7 +5636,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
     public function signatureRequestSendWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
@@ -6054,7 +5771,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
     public function signatureRequestSendAsync(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
@@ -6076,7 +5792,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
     public function signatureRequestSendAsyncWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
@@ -6127,7 +5842,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
     public function signatureRequestSendRequest(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
@@ -6145,27 +5859,19 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_send_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($signature_request_send_request !== null) {
+            $formParams['signature_request_send_request'] = ObjectSerializer::toFormValue($signature_request_send_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_send_request));
-            } else {
-                $httpBody = $signature_request_send_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6178,17 +5884,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_send_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -6235,14 +5930,15 @@ class SignatureRequestApi
      * Send with Template
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request signature_request_send_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestSendWithTemplate(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request)
+    public function signatureRequestSendWithTemplate(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
-        list($response) = $this->signatureRequestSendWithTemplateWithHttpInfo($signature_request_send_with_template_request);
+        list($response) = $this->signatureRequestSendWithTemplateWithHttpInfo($signature_request_send_with_template_request, $contentType);
         return $response;
     }
 
@@ -6257,7 +5953,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestSendWithTemplateWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
@@ -6393,7 +6088,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestSendWithTemplateAsync(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
@@ -6415,7 +6109,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
@@ -6466,7 +6159,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
     public function signatureRequestSendWithTemplateRequest(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
@@ -6484,27 +6176,19 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_send_with_template_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($signature_request_send_with_template_request !== null) {
+            $formParams['signature_request_send_with_template_request'] = ObjectSerializer::toFormValue($signature_request_send_with_template_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_send_with_template_request));
-            } else {
-                $httpBody = $signature_request_send_with_template_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6517,17 +6201,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $signature_request_send_with_template_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -6575,14 +6248,15 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request signature_request_update_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestUpdate(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request)
+    public function signatureRequestUpdate(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
-        list($response) = $this->signatureRequestUpdateWithHttpInfo($signature_request_id, $signature_request_update_request);
+        list($response) = $this->signatureRequestUpdateWithHttpInfo($signature_request_id, $signature_request_update_request, $contentType);
         return $response;
     }
 
@@ -6598,7 +6272,6 @@ class SignatureRequestApi
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
     public function signatureRequestUpdateWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
@@ -6735,7 +6408,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
     public function signatureRequestUpdateAsync(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
@@ -6758,7 +6430,6 @@ class SignatureRequestApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
     public function signatureRequestUpdateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
@@ -6810,7 +6481,6 @@ class SignatureRequestApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
     public function signatureRequestUpdateRequest(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
@@ -6835,12 +6505,6 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $signature_request_update_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
@@ -6851,13 +6515,13 @@ class SignatureRequestApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($signature_request_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_update_request));
@@ -6877,14 +6541,6 @@ class SignatureRequestApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $signature_request_update_request);
                 }

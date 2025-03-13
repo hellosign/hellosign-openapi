@@ -146,7 +146,7 @@ class Configuration
      *
      * @return $this
      */
-    protected function setApiKey(string $apiKeyIdentifier, string $key)
+    public function setApiKey(string $apiKeyIdentifier, string $key)
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
         return $this;
@@ -159,7 +159,7 @@ class Configuration
      *
      * @return string|null API key or token
      */
-    protected function getApiKey(string $apiKeyIdentifier)
+    public function getApiKey(string $apiKeyIdentifier)
     {
         return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
     }
@@ -172,7 +172,7 @@ class Configuration
      *
      * @return $this
      */
-    protected function setApiKeyPrefix(string $apiKeyIdentifier, string $prefix)
+    public function setApiKeyPrefix(string $apiKeyIdentifier, string $prefix)
     {
         $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
         return $this;
@@ -185,7 +185,7 @@ class Configuration
      *
      * @return string|null
      */
-    protected function getApiKeyPrefix(string $apiKeyIdentifier)
+    public function getApiKeyPrefix(string $apiKeyIdentifier)
     {
         return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
     }
@@ -220,7 +220,7 @@ class Configuration
      *
      * @return $this
      */
-    protected function setBooleanFormatForQueryString(string $booleanFormat)
+    public function setBooleanFormatForQueryString(string $booleanFormat)
     {
         $this->booleanFormatForQueryString = $booleanFormat;
 
@@ -267,7 +267,7 @@ class Configuration
      *
      * @return $this
      */
-    protected function setPassword(string $password)
+    public function setPassword(string $password)
     {
         $this->password = $password;
         return $this;
@@ -278,7 +278,7 @@ class Configuration
      *
      * @return string Password for HTTP basic authentication
      */
-    protected function getPassword()
+    public function getPassword()
     {
         return $this->password;
     }
@@ -451,7 +451,7 @@ class Configuration
      *
      * @return string|null API key with the prefix
      */
-    protected function getApiKeyWithPrefix(string $apiKeyIdentifier)
+    public function getApiKeyWithPrefix(string $apiKeyIdentifier)
     {
         $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
         $apiKey = $this->getApiKey($apiKeyIdentifier);

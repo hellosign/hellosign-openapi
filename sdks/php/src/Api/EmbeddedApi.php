@@ -97,7 +97,6 @@ class EmbeddedApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -108,7 +107,6 @@ class EmbeddedApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -138,14 +136,15 @@ class EmbeddedApi
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request embedded_edit_url_request (required)
+     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
      * @return Model\EmbeddedEditUrlResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function embeddedEditUrl(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request)
+    public function embeddedEditUrl(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
-        list($response) = $this->embeddedEditUrlWithHttpInfo($template_id, $embedded_edit_url_request);
+        list($response) = $this->embeddedEditUrlWithHttpInfo($template_id, $embedded_edit_url_request, $contentType);
         return $response;
     }
 
@@ -161,7 +160,6 @@ class EmbeddedApi
      * @return array of Model\EmbeddedEditUrlResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
     public function embeddedEditUrlWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
@@ -298,7 +296,6 @@ class EmbeddedApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
     public function embeddedEditUrlAsync(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
@@ -321,7 +318,6 @@ class EmbeddedApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
     public function embeddedEditUrlAsyncWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
@@ -373,7 +369,6 @@ class EmbeddedApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
     public function embeddedEditUrlRequest(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
@@ -398,12 +393,6 @@ class EmbeddedApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $embedded_edit_url_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
@@ -414,13 +403,13 @@ class EmbeddedApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($embedded_edit_url_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($embedded_edit_url_request));
@@ -440,14 +429,6 @@ class EmbeddedApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $embedded_edit_url_request);
                 }
@@ -497,14 +478,15 @@ class EmbeddedApi
      * Get Embedded Sign URL
      *
      * @param string $signature_id The id of the signature to get a signature url for. (required)
+     * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
      *
      * @return Model\EmbeddedSignUrlResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function embeddedSignUrl(string $signature_id)
+    public function embeddedSignUrl(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
-        list($response) = $this->embeddedSignUrlWithHttpInfo($signature_id);
+        list($response) = $this->embeddedSignUrlWithHttpInfo($signature_id, $contentType);
         return $response;
     }
 
@@ -519,7 +501,6 @@ class EmbeddedApi
      * @return array of Model\EmbeddedSignUrlResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
     public function embeddedSignUrlWithHttpInfo(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
@@ -655,7 +636,6 @@ class EmbeddedApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
     public function embeddedSignUrlAsync(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
@@ -677,7 +657,6 @@ class EmbeddedApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
     public function embeddedSignUrlAsyncWithHttpInfo(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
@@ -728,7 +707,6 @@ class EmbeddedApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
     public function embeddedSignUrlRequest(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
@@ -756,7 +734,7 @@ class EmbeddedApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -775,14 +753,6 @@ class EmbeddedApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

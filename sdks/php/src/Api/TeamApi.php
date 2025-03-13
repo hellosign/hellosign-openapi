@@ -121,7 +121,6 @@ class TeamApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -132,7 +131,6 @@ class TeamApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -162,14 +160,15 @@ class TeamApi
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request team_add_member_request (required)
      * @param string                     $team_id                 The id of the team. (optional)
+     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamAddMember(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null)
+    public function teamAddMember(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
-        list($response) = $this->teamAddMemberWithHttpInfo($team_add_member_request, $team_id);
+        list($response) = $this->teamAddMemberWithHttpInfo($team_add_member_request, $team_id, $contentType);
         return $response;
     }
 
@@ -185,7 +184,6 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
     public function teamAddMemberWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
@@ -322,7 +320,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
     public function teamAddMemberAsync(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
@@ -345,7 +342,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
     public function teamAddMemberAsyncWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
@@ -397,7 +393,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
     public function teamAddMemberRequest(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
@@ -415,11 +410,6 @@ class TeamApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $team_add_member_request
-        );
-
-        $multipart = !empty($formParams);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $team_id,
@@ -431,13 +421,13 @@ class TeamApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($team_add_member_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_add_member_request));
@@ -457,14 +447,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $team_add_member_request);
                 }
@@ -514,14 +496,15 @@ class TeamApi
      * Create Team
      *
      * @param Model\TeamCreateRequest $team_create_request team_create_request (required)
+     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamCreate(Model\TeamCreateRequest $team_create_request)
+    public function teamCreate(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
-        list($response) = $this->teamCreateWithHttpInfo($team_create_request);
+        list($response) = $this->teamCreateWithHttpInfo($team_create_request, $contentType);
         return $response;
     }
 
@@ -536,7 +519,6 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
     public function teamCreateWithHttpInfo(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
@@ -672,7 +654,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
     public function teamCreateAsync(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
@@ -694,7 +675,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
     public function teamCreateAsyncWithHttpInfo(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
@@ -745,7 +725,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
     public function teamCreateRequest(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
@@ -763,20 +742,14 @@ class TeamApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $team_create_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($team_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_create_request));
@@ -796,14 +769,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $team_create_request);
                 }
@@ -852,12 +817,14 @@ class TeamApi
      *
      * Delete Team
      *
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
+     *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamDelete()
+    public function teamDelete(string $contentType = self::contentTypes['teamDelete'][0])
     {
-        $this->teamDeleteWithHttpInfo();
+        $this->teamDeleteWithHttpInfo($contentType);
     }
 
     /**
@@ -870,7 +837,6 @@ class TeamApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteWithHttpInfo(string $contentType = self::contentTypes['teamDelete'][0])
     {
@@ -932,7 +898,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteAsync(string $contentType = self::contentTypes['teamDelete'][0])
     {
@@ -953,7 +918,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteAsyncWithHttpInfo(string $contentType = self::contentTypes['teamDelete'][0])
     {
@@ -990,7 +954,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteRequest(string $contentType = self::contentTypes['teamDelete'][0])
     {
@@ -1002,7 +965,7 @@ class TeamApi
         $multipart = false;
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1021,14 +984,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1074,13 +1029,15 @@ class TeamApi
      *
      * Get Team
      *
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
+     *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamGet()
+    public function teamGet(string $contentType = self::contentTypes['teamGet'][0])
     {
-        list($response) = $this->teamGetWithHttpInfo();
+        list($response) = $this->teamGetWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1094,7 +1051,6 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetWithHttpInfo(string $contentType = self::contentTypes['teamGet'][0])
     {
@@ -1229,7 +1185,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetAsync(string $contentType = self::contentTypes['teamGet'][0])
     {
@@ -1250,7 +1205,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetAsyncWithHttpInfo(string $contentType = self::contentTypes['teamGet'][0])
     {
@@ -1300,7 +1254,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetRequest(string $contentType = self::contentTypes['teamGet'][0])
     {
@@ -1312,7 +1265,7 @@ class TeamApi
         $multipart = false;
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1331,14 +1284,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1384,15 +1329,16 @@ class TeamApi
      *
      * Get Team Info
      *
-     * @param string $team_id The id of the team. (optional)
+     * @param string $team_id     The id of the team. (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
      *
      * @return Model\TeamGetInfoResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamInfo(string $team_id = null)
+    public function teamInfo(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
-        list($response) = $this->teamInfoWithHttpInfo($team_id);
+        list($response) = $this->teamInfoWithHttpInfo($team_id, $contentType);
         return $response;
     }
 
@@ -1407,7 +1353,6 @@ class TeamApi
      * @return array of Model\TeamGetInfoResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
     public function teamInfoWithHttpInfo(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
@@ -1543,7 +1488,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
     public function teamInfoAsync(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
@@ -1565,7 +1509,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
     public function teamInfoAsyncWithHttpInfo(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
@@ -1616,7 +1559,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
     public function teamInfoRequest(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
@@ -1638,7 +1580,7 @@ class TeamApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1657,14 +1599,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1711,14 +1645,15 @@ class TeamApi
      * List Team Invites
      *
      * @param string $email_address The email address for which to display the team invites. (optional)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
      *
      * @return Model\TeamInvitesResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamInvites(string $email_address = null)
+    public function teamInvites(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
-        list($response) = $this->teamInvitesWithHttpInfo($email_address);
+        list($response) = $this->teamInvitesWithHttpInfo($email_address, $contentType);
         return $response;
     }
 
@@ -1733,7 +1668,6 @@ class TeamApi
      * @return array of Model\TeamInvitesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
     public function teamInvitesWithHttpInfo(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
@@ -1869,7 +1803,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
     public function teamInvitesAsync(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
@@ -1891,7 +1824,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
     public function teamInvitesAsyncWithHttpInfo(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
@@ -1942,7 +1874,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
     public function teamInvitesRequest(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
@@ -1964,7 +1895,7 @@ class TeamApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1983,14 +1914,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2036,17 +1959,18 @@ class TeamApi
      *
      * List Team Members
      *
-     * @param string $team_id   The id of the team that a member list is being requested from. (required)
-     * @param int    $page      Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $team_id     The id of the team that a member list is being requested from. (required)
+     * @param int    $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
      *
      * @return Model\TeamMembersResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamMembers(string $team_id, int $page = 1, int $page_size = 20)
+    public function teamMembers(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
-        list($response) = $this->teamMembersWithHttpInfo($team_id, $page, $page_size);
+        list($response) = $this->teamMembersWithHttpInfo($team_id, $page, $page_size, $contentType);
         return $response;
     }
 
@@ -2063,7 +1987,6 @@ class TeamApi
      * @return array of Model\TeamMembersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
     public function teamMembersWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
@@ -2201,7 +2124,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
     public function teamMembersAsync(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
@@ -2225,7 +2147,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
     public function teamMembersAsyncWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
@@ -2278,7 +2199,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
     public function teamMembersRequest(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
@@ -2332,7 +2252,7 @@ class TeamApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -2351,14 +2271,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2405,14 +2317,15 @@ class TeamApi
      * Remove User from Team
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request team_remove_member_request (required)
+     * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamRemoveMember(Model\TeamRemoveMemberRequest $team_remove_member_request)
+    public function teamRemoveMember(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
-        list($response) = $this->teamRemoveMemberWithHttpInfo($team_remove_member_request);
+        list($response) = $this->teamRemoveMemberWithHttpInfo($team_remove_member_request, $contentType);
         return $response;
     }
 
@@ -2427,7 +2340,6 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
     public function teamRemoveMemberWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
@@ -2563,7 +2475,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
     public function teamRemoveMemberAsync(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
@@ -2585,7 +2496,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
     public function teamRemoveMemberAsyncWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
@@ -2636,7 +2546,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
     public function teamRemoveMemberRequest(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
@@ -2654,20 +2563,14 @@ class TeamApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $team_remove_member_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($team_remove_member_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_remove_member_request));
@@ -2687,14 +2590,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $team_remove_member_request);
                 }
@@ -2743,17 +2638,18 @@ class TeamApi
      *
      * List Sub Teams
      *
-     * @param string $team_id   The id of the parent Team. (required)
-     * @param int    $page      Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $team_id     The id of the parent Team. (required)
+     * @param int    $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
      *
      * @return Model\TeamSubTeamsResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamSubTeams(string $team_id, int $page = 1, int $page_size = 20)
+    public function teamSubTeams(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
-        list($response) = $this->teamSubTeamsWithHttpInfo($team_id, $page, $page_size);
+        list($response) = $this->teamSubTeamsWithHttpInfo($team_id, $page, $page_size, $contentType);
         return $response;
     }
 
@@ -2770,7 +2666,6 @@ class TeamApi
      * @return array of Model\TeamSubTeamsResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
     public function teamSubTeamsWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
@@ -2908,7 +2803,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
     public function teamSubTeamsAsync(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
@@ -2932,7 +2826,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
     public function teamSubTeamsAsyncWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
@@ -2985,7 +2878,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
     public function teamSubTeamsRequest(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
@@ -3039,7 +2931,7 @@ class TeamApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -3058,14 +2950,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -3112,14 +2996,15 @@ class TeamApi
      * Update Team
      *
      * @param Model\TeamUpdateRequest $team_update_request team_update_request (required)
+     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamUpdate(Model\TeamUpdateRequest $team_update_request)
+    public function teamUpdate(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
-        list($response) = $this->teamUpdateWithHttpInfo($team_update_request);
+        list($response) = $this->teamUpdateWithHttpInfo($team_update_request, $contentType);
         return $response;
     }
 
@@ -3134,7 +3019,6 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
     public function teamUpdateWithHttpInfo(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
@@ -3270,7 +3154,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
     public function teamUpdateAsync(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
@@ -3292,7 +3175,6 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
     public function teamUpdateAsyncWithHttpInfo(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
@@ -3343,7 +3225,6 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
     public function teamUpdateRequest(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
@@ -3361,20 +3242,14 @@ class TeamApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $team_update_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($team_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_update_request));
@@ -3394,14 +3269,6 @@ class TeamApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $team_update_request);
                 }

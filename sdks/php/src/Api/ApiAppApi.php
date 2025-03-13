@@ -68,8 +68,8 @@ class ApiAppApi
      */
     public const contentTypes = [
         'apiAppCreate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'apiAppDelete' => [
             'application/json',
@@ -81,8 +81,8 @@ class ApiAppApi
             'application/json',
         ],
         'apiAppUpdate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
     ];
 
@@ -108,7 +108,6 @@ class ApiAppApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -119,7 +118,6 @@ class ApiAppApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -148,14 +146,15 @@ class ApiAppApi
      * Create API App
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request api_app_create_request (required)
+     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
      * @return Model\ApiAppGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppCreate(Model\ApiAppCreateRequest $api_app_create_request)
+    public function apiAppCreate(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
-        list($response) = $this->apiAppCreateWithHttpInfo($api_app_create_request);
+        list($response) = $this->apiAppCreateWithHttpInfo($api_app_create_request, $contentType);
         return $response;
     }
 
@@ -170,7 +169,6 @@ class ApiAppApi
      * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
     public function apiAppCreateWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
@@ -306,7 +304,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
     public function apiAppCreateAsync(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
@@ -328,7 +325,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
     public function apiAppCreateAsyncWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
@@ -379,7 +375,6 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
     public function apiAppCreateRequest(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
@@ -397,27 +392,19 @@ class ApiAppApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $api_app_create_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($api_app_create_request !== null) {
+            $formParams['api_app_create_request'] = ObjectSerializer::toFormValue($api_app_create_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_app_create_request));
-            } else {
-                $httpBody = $api_app_create_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -430,17 +417,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $api_app_create_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -486,14 +462,15 @@ class ApiAppApi
      *
      * Delete API App
      *
-     * @param string $client_id The client id of the API App to delete. (required)
+     * @param string $client_id   The client id of the API App to delete. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppDelete(string $client_id)
+    public function apiAppDelete(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
-        $this->apiAppDeleteWithHttpInfo($client_id);
+        $this->apiAppDeleteWithHttpInfo($client_id, $contentType);
     }
 
     /**
@@ -507,7 +484,6 @@ class ApiAppApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
     public function apiAppDeleteWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
@@ -570,7 +546,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
     public function apiAppDeleteAsync(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
@@ -592,7 +567,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
     public function apiAppDeleteAsyncWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
@@ -630,7 +604,6 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
     public function apiAppDeleteRequest(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
@@ -658,7 +631,7 @@ class ApiAppApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -677,14 +650,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -730,15 +695,16 @@ class ApiAppApi
      *
      * Get API App
      *
-     * @param string $client_id The client id of the API App to retrieve. (required)
+     * @param string $client_id   The client id of the API App to retrieve. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
      *
      * @return Model\ApiAppGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppGet(string $client_id)
+    public function apiAppGet(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
-        list($response) = $this->apiAppGetWithHttpInfo($client_id);
+        list($response) = $this->apiAppGetWithHttpInfo($client_id, $contentType);
         return $response;
     }
 
@@ -753,7 +719,6 @@ class ApiAppApi
      * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
     public function apiAppGetWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
@@ -889,7 +854,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
     public function apiAppGetAsync(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
@@ -911,7 +875,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
     public function apiAppGetAsyncWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
@@ -962,7 +925,6 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
     public function apiAppGetRequest(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
@@ -990,7 +952,7 @@ class ApiAppApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1009,14 +971,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1062,16 +1016,17 @@ class ApiAppApi
      *
      * List API Apps
      *
-     * @param int $page      Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param int    $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
      *
      * @return Model\ApiAppListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppList(int $page = 1, int $page_size = 20)
+    public function apiAppList(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
-        list($response) = $this->apiAppListWithHttpInfo($page, $page_size);
+        list($response) = $this->apiAppListWithHttpInfo($page, $page_size, $contentType);
         return $response;
     }
 
@@ -1087,7 +1042,6 @@ class ApiAppApi
      * @return array of Model\ApiAppListResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
     public function apiAppListWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
@@ -1224,7 +1178,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
     public function apiAppListAsync(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
@@ -1247,7 +1200,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
     public function apiAppListAsyncWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
@@ -1299,7 +1251,6 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
     public function apiAppListRequest(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
@@ -1330,7 +1281,7 @@ class ApiAppApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1349,14 +1300,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1404,14 +1347,15 @@ class ApiAppApi
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request api_app_update_request (required)
+     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
      * @return Model\ApiAppGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppUpdate(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request)
+    public function apiAppUpdate(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
-        list($response) = $this->apiAppUpdateWithHttpInfo($client_id, $api_app_update_request);
+        list($response) = $this->apiAppUpdateWithHttpInfo($client_id, $api_app_update_request, $contentType);
         return $response;
     }
 
@@ -1427,7 +1371,6 @@ class ApiAppApi
      * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
     public function apiAppUpdateWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
@@ -1564,7 +1507,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
     public function apiAppUpdateAsync(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
@@ -1587,7 +1529,6 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
     public function apiAppUpdateAsyncWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
@@ -1639,7 +1580,6 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
     public function apiAppUpdateRequest(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
@@ -1664,12 +1604,6 @@ class ApiAppApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $api_app_update_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($client_id !== null) {
             $resourcePath = str_replace(
@@ -1679,21 +1613,19 @@ class ApiAppApi
             );
         }
 
+        // form params
+        if ($api_app_update_request !== null) {
+            $formParams['api_app_update_request'] = ObjectSerializer::toFormValue($api_app_update_request);
+        }
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_app_update_request));
-            } else {
-                $httpBody = $api_app_update_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1706,17 +1638,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $api_app_update_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

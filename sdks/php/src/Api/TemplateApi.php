@@ -72,12 +72,12 @@ class TemplateApi
             'application/json',
         ],
         'templateCreate' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'templateCreateEmbeddedDraft' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
         'templateDelete' => [
             'application/json',
@@ -101,8 +101,8 @@ class TemplateApi
             'application/json',
         ],
         'templateUpdateFiles' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
     ];
 
@@ -128,7 +128,6 @@ class TemplateApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -139,7 +138,6 @@ class TemplateApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -169,14 +167,15 @@ class TemplateApi
      *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request template_add_user_request (required)
+     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
      * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateAddUser(string $template_id, Model\TemplateAddUserRequest $template_add_user_request)
+    public function templateAddUser(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
-        list($response) = $this->templateAddUserWithHttpInfo($template_id, $template_add_user_request);
+        list($response) = $this->templateAddUserWithHttpInfo($template_id, $template_add_user_request, $contentType);
         return $response;
     }
 
@@ -192,7 +191,6 @@ class TemplateApi
      * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
     public function templateAddUserWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
@@ -329,7 +327,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
     public function templateAddUserAsync(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
@@ -352,7 +349,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
     public function templateAddUserAsyncWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
@@ -404,7 +400,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
     public function templateAddUserRequest(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
@@ -429,12 +424,6 @@ class TemplateApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $template_add_user_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
@@ -445,13 +434,13 @@ class TemplateApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($template_add_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_add_user_request));
@@ -471,14 +460,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $template_add_user_request);
                 }
@@ -528,14 +509,15 @@ class TemplateApi
      * Create Template
      *
      * @param Model\TemplateCreateRequest $template_create_request template_create_request (required)
+     * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
      * @return Model\TemplateCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateCreate(Model\TemplateCreateRequest $template_create_request)
+    public function templateCreate(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
-        list($response) = $this->templateCreateWithHttpInfo($template_create_request);
+        list($response) = $this->templateCreateWithHttpInfo($template_create_request, $contentType);
         return $response;
     }
 
@@ -550,7 +532,6 @@ class TemplateApi
      * @return array of Model\TemplateCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
     public function templateCreateWithHttpInfo(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
@@ -686,7 +667,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
     public function templateCreateAsync(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
@@ -708,7 +688,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
     public function templateCreateAsyncWithHttpInfo(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
@@ -759,7 +738,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
     public function templateCreateRequest(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
@@ -777,27 +755,19 @@ class TemplateApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $template_create_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($template_create_request !== null) {
+            $formParams['template_create_request'] = ObjectSerializer::toFormValue($template_create_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_create_request));
-            } else {
-                $httpBody = $template_create_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -810,17 +780,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $template_create_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -867,14 +826,15 @@ class TemplateApi
      * Create Embedded Template Draft
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request template_create_embedded_draft_request (required)
+     * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
      * @return Model\TemplateCreateEmbeddedDraftResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateCreateEmbeddedDraft(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request)
+    public function templateCreateEmbeddedDraft(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
-        list($response) = $this->templateCreateEmbeddedDraftWithHttpInfo($template_create_embedded_draft_request);
+        list($response) = $this->templateCreateEmbeddedDraftWithHttpInfo($template_create_embedded_draft_request, $contentType);
         return $response;
     }
 
@@ -889,7 +849,6 @@ class TemplateApi
      * @return array of Model\TemplateCreateEmbeddedDraftResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
     public function templateCreateEmbeddedDraftWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
@@ -1025,7 +984,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
     public function templateCreateEmbeddedDraftAsync(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
@@ -1047,7 +1005,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
     public function templateCreateEmbeddedDraftAsyncWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
@@ -1098,7 +1055,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
     public function templateCreateEmbeddedDraftRequest(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
@@ -1116,27 +1072,19 @@ class TemplateApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $template_create_embedded_draft_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($template_create_embedded_draft_request !== null) {
+            $formParams['template_create_embedded_draft_request'] = ObjectSerializer::toFormValue($template_create_embedded_draft_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_create_embedded_draft_request));
-            } else {
-                $httpBody = $template_create_embedded_draft_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1149,17 +1097,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $template_create_embedded_draft_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1206,13 +1143,14 @@ class TemplateApi
      * Delete Template
      *
      * @param string $template_id The id of the Template to delete. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateDelete(string $template_id)
+    public function templateDelete(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
-        $this->templateDeleteWithHttpInfo($template_id);
+        $this->templateDeleteWithHttpInfo($template_id, $contentType);
     }
 
     /**
@@ -1226,7 +1164,6 @@ class TemplateApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
     public function templateDeleteWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
@@ -1289,7 +1226,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
     public function templateDeleteAsync(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
@@ -1311,7 +1247,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
     public function templateDeleteAsyncWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
@@ -1349,7 +1284,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
     public function templateDeleteRequest(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
@@ -1377,7 +1311,7 @@ class TemplateApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1396,14 +1330,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1451,14 +1377,15 @@ class TemplateApi
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
      *
      * @return SplFileObject
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateFiles(string $template_id, string $file_type = null)
+    public function templateFiles(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
-        list($response) = $this->templateFilesWithHttpInfo($template_id, $file_type);
+        list($response) = $this->templateFilesWithHttpInfo($template_id, $file_type, $contentType);
         return $response;
     }
 
@@ -1474,7 +1401,6 @@ class TemplateApi
      * @return array of \SplFileObject|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFiles. This method will eventually become unavailable
      */
     public function templateFilesWithHttpInfo(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
@@ -1611,7 +1537,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFiles. This method will eventually become unavailable
      */
     public function templateFilesAsync(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
@@ -1634,7 +1559,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFiles. This method will eventually become unavailable
      */
     public function templateFilesAsyncWithHttpInfo(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
@@ -1686,7 +1610,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFiles. This method will eventually become unavailable
      */
     public function templateFilesRequest(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
@@ -1724,7 +1647,7 @@ class TemplateApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/pdf', 'application/zip', 'application/json'],
+            ['application/pdf', 'application/zip', 'application/json'],
             $contentType,
             $multipart
         );
@@ -1743,14 +1666,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1797,14 +1712,15 @@ class TemplateApi
      * Get Template Files as Data Uri
      *
      * @param string $template_id The id of the template files to retrieve. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
      *
      * @return Model\FileResponseDataUri
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateFilesAsDataUri(string $template_id)
+    public function templateFilesAsDataUri(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
-        list($response) = $this->templateFilesAsDataUriWithHttpInfo($template_id);
+        list($response) = $this->templateFilesAsDataUriWithHttpInfo($template_id, $contentType);
         return $response;
     }
 
@@ -1819,7 +1735,6 @@ class TemplateApi
      * @return array of Model\FileResponseDataUri, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFilesAsDataUri. This method will eventually become unavailable
      */
     public function templateFilesAsDataUriWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
@@ -1955,7 +1870,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFilesAsDataUri. This method will eventually become unavailable
      */
     public function templateFilesAsDataUriAsync(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
@@ -1977,7 +1891,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFilesAsDataUri. This method will eventually become unavailable
      */
     public function templateFilesAsDataUriAsyncWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
@@ -2028,7 +1941,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFilesAsDataUri. This method will eventually become unavailable
      */
     public function templateFilesAsDataUriRequest(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
@@ -2056,7 +1968,7 @@ class TemplateApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -2075,14 +1987,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2130,14 +2034,15 @@ class TemplateApi
      *
      * @param string $template_id    The id of the template files to retrieve. (required)
      * @param int    $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
      *
      * @return Model\FileResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateFilesAsFileUrl(string $template_id, int $force_download = 1)
+    public function templateFilesAsFileUrl(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
-        list($response) = $this->templateFilesAsFileUrlWithHttpInfo($template_id, $force_download);
+        list($response) = $this->templateFilesAsFileUrlWithHttpInfo($template_id, $force_download, $contentType);
         return $response;
     }
 
@@ -2153,7 +2058,6 @@ class TemplateApi
      * @return array of Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFilesAsFileUrl. This method will eventually become unavailable
      */
     public function templateFilesAsFileUrlWithHttpInfo(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
@@ -2290,7 +2194,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFilesAsFileUrl. This method will eventually become unavailable
      */
     public function templateFilesAsFileUrlAsync(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
@@ -2313,7 +2216,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFilesAsFileUrl. This method will eventually become unavailable
      */
     public function templateFilesAsFileUrlAsyncWithHttpInfo(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
@@ -2365,7 +2267,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateFilesAsFileUrl. This method will eventually become unavailable
      */
     public function templateFilesAsFileUrlRequest(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
@@ -2403,7 +2304,7 @@ class TemplateApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -2422,14 +2323,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2476,14 +2369,15 @@ class TemplateApi
      * Get Template
      *
      * @param string $template_id The id of the Template to retrieve. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
      * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateGet(string $template_id)
+    public function templateGet(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
-        list($response) = $this->templateGetWithHttpInfo($template_id);
+        list($response) = $this->templateGetWithHttpInfo($template_id, $contentType);
         return $response;
     }
 
@@ -2498,7 +2392,6 @@ class TemplateApi
      * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
     public function templateGetWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
@@ -2634,7 +2527,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
     public function templateGetAsync(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
@@ -2656,7 +2548,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
     public function templateGetAsyncWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
@@ -2707,7 +2598,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
     public function templateGetRequest(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
@@ -2735,7 +2625,7 @@ class TemplateApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -2754,14 +2644,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2807,18 +2689,19 @@ class TemplateApi
      *
      * List Templates
      *
-     * @param string $account_id Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param int    $page       Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size  Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $query      String that includes search terms and/or fields to be used to filter the Template objects. (optional)
+     * @param string $account_id  Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param int    $page        Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $query       String that includes search terms and/or fields to be used to filter the Template objects. (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
      *
      * @return Model\TemplateListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateList(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null)
+    public function templateList(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
-        list($response) = $this->templateListWithHttpInfo($account_id, $page, $page_size, $query);
+        list($response) = $this->templateListWithHttpInfo($account_id, $page, $page_size, $query, $contentType);
         return $response;
     }
 
@@ -2836,7 +2719,6 @@ class TemplateApi
      * @return array of Model\TemplateListResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateList. This method will eventually become unavailable
      */
     public function templateListWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
@@ -2975,7 +2857,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateList. This method will eventually become unavailable
      */
     public function templateListAsync(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
@@ -3000,7 +2881,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateList. This method will eventually become unavailable
      */
     public function templateListAsyncWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
@@ -3054,7 +2934,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateList. This method will eventually become unavailable
      */
     public function templateListRequest(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
@@ -3110,7 +2989,7 @@ class TemplateApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -3129,14 +3008,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -3184,14 +3055,15 @@ class TemplateApi
      *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request template_remove_user_request (required)
+     * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
      * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateRemoveUser(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request)
+    public function templateRemoveUser(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
-        list($response) = $this->templateRemoveUserWithHttpInfo($template_id, $template_remove_user_request);
+        list($response) = $this->templateRemoveUserWithHttpInfo($template_id, $template_remove_user_request, $contentType);
         return $response;
     }
 
@@ -3207,7 +3079,6 @@ class TemplateApi
      * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
     public function templateRemoveUserWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
@@ -3344,7 +3215,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
     public function templateRemoveUserAsync(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
@@ -3367,7 +3237,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
     public function templateRemoveUserAsyncWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
@@ -3419,7 +3288,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
     public function templateRemoveUserRequest(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
@@ -3444,12 +3312,6 @@ class TemplateApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $template_remove_user_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
@@ -3460,13 +3322,13 @@ class TemplateApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($template_remove_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_remove_user_request));
@@ -3486,14 +3348,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $template_remove_user_request);
                 }
@@ -3544,14 +3398,15 @@ class TemplateApi
      *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request template_update_files_request (required)
+     * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
      * @return Model\TemplateUpdateFilesResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateUpdateFiles(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request)
+    public function templateUpdateFiles(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
-        list($response) = $this->templateUpdateFilesWithHttpInfo($template_id, $template_update_files_request);
+        list($response) = $this->templateUpdateFilesWithHttpInfo($template_id, $template_update_files_request, $contentType);
         return $response;
     }
 
@@ -3567,7 +3422,6 @@ class TemplateApi
      * @return array of Model\TemplateUpdateFilesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
     public function templateUpdateFilesWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
@@ -3704,7 +3558,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
     public function templateUpdateFilesAsync(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
@@ -3727,7 +3580,6 @@ class TemplateApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
     public function templateUpdateFilesAsyncWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
@@ -3779,7 +3631,6 @@ class TemplateApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
     public function templateUpdateFilesRequest(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
@@ -3804,12 +3655,6 @@ class TemplateApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $template_update_files_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
@@ -3819,21 +3664,19 @@ class TemplateApi
             );
         }
 
+        // form params
+        if ($template_update_files_request !== null) {
+            $formParams['template_update_files_request'] = ObjectSerializer::toFormValue($template_update_files_request);
+        }
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_update_files_request));
-            } else {
-                $httpBody = $template_update_files_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3846,17 +3689,6 @@ class TemplateApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $template_update_files_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

@@ -97,7 +97,6 @@ class OAuthApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -108,7 +107,6 @@ class OAuthApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -141,14 +139,17 @@ class OAuthApi
      * URL: https://app.hellosign.com
      *
      * @param Model\OAuthTokenGenerateRequest $o_auth_token_generate_request o_auth_token_generate_request (required)
+     * @param int|null                        $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                           $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                          $contentType                   The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
      *
      * @return Model\OAuthTokenResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function oauthTokenGenerate(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request)
+    public function oauthTokenGenerate(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
-        list($response) = $this->oauthTokenGenerateWithHttpInfo($o_auth_token_generate_request);
+        list($response) = $this->oauthTokenGenerateWithHttpInfo($o_auth_token_generate_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -169,7 +170,6 @@ class OAuthApi
      * @return array of Model\OAuthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
     public function oauthTokenGenerateWithHttpInfo(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
@@ -311,7 +311,6 @@ class OAuthApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
     public function oauthTokenGenerateAsync(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
@@ -339,7 +338,6 @@ class OAuthApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
     public function oauthTokenGenerateAsyncWithHttpInfo(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
@@ -396,7 +394,6 @@ class OAuthApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
     public function oauthTokenGenerateRequest(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
@@ -414,20 +411,14 @@ class OAuthApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $o_auth_token_generate_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($o_auth_token_generate_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($o_auth_token_generate_request));
@@ -447,14 +438,6 @@ class OAuthApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $o_auth_token_generate_request);
                 }
@@ -524,14 +507,17 @@ class OAuthApi
      * URL: https://app.hellosign.com
      *
      * @param Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request o_auth_token_refresh_request (required)
+     * @param int|null                       $hostIndex                    Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                          $variables                    Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
      *
      * @return Model\OAuthTokenResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function oauthTokenRefresh(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request)
+    public function oauthTokenRefresh(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
-        list($response) = $this->oauthTokenRefreshWithHttpInfo($o_auth_token_refresh_request);
+        list($response) = $this->oauthTokenRefreshWithHttpInfo($o_auth_token_refresh_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -552,7 +538,6 @@ class OAuthApi
      * @return array of Model\OAuthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
     public function oauthTokenRefreshWithHttpInfo(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
@@ -694,7 +679,6 @@ class OAuthApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
     public function oauthTokenRefreshAsync(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
@@ -722,7 +706,6 @@ class OAuthApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
     public function oauthTokenRefreshAsyncWithHttpInfo(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
@@ -779,7 +762,6 @@ class OAuthApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
     public function oauthTokenRefreshRequest(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
@@ -797,20 +779,14 @@ class OAuthApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $o_auth_token_refresh_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($o_auth_token_refresh_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($o_auth_token_refresh_request));
@@ -830,14 +806,6 @@ class OAuthApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $o_auth_token_refresh_request);
                 }

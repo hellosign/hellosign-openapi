@@ -81,8 +81,8 @@ class FaxApi
             'application/json',
         ],
         'faxSend' => [
-            'application/json',
             'multipart/form-data',
+            'application/json',
         ],
     ];
 
@@ -108,7 +108,6 @@ class FaxApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -119,7 +118,6 @@ class FaxApi
      * Get the host index
      *
      * @return int Host index
-     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
@@ -147,14 +145,15 @@ class FaxApi
      *
      * Delete Fax
      *
-     * @param string $fax_id Fax ID (required)
+     * @param string $fax_id      Fax ID (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxDelete'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxDelete(string $fax_id)
+    public function faxDelete(string $fax_id, string $contentType = self::contentTypes['faxDelete'][0])
     {
-        $this->faxDeleteWithHttpInfo($fax_id);
+        $this->faxDeleteWithHttpInfo($fax_id, $contentType);
     }
 
     /**
@@ -168,7 +167,6 @@ class FaxApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxDelete. This method will eventually become unavailable
      */
     public function faxDeleteWithHttpInfo(string $fax_id, string $contentType = self::contentTypes['faxDelete'][0])
     {
@@ -231,7 +229,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxDelete. This method will eventually become unavailable
      */
     public function faxDeleteAsync(string $fax_id, string $contentType = self::contentTypes['faxDelete'][0])
     {
@@ -253,7 +250,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxDelete. This method will eventually become unavailable
      */
     public function faxDeleteAsyncWithHttpInfo(string $fax_id, string $contentType = self::contentTypes['faxDelete'][0])
     {
@@ -291,7 +287,6 @@ class FaxApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxDelete. This method will eventually become unavailable
      */
     public function faxDeleteRequest(string $fax_id, string $contentType = self::contentTypes['faxDelete'][0])
     {
@@ -319,7 +314,7 @@ class FaxApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -338,14 +333,6 @@ class FaxApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -387,15 +374,16 @@ class FaxApi
      *
      * Download Fax Files
      *
-     * @param string $fax_id Fax ID (required)
+     * @param string $fax_id      Fax ID (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxFiles'] to see the possible values for this operation
      *
      * @return SplFileObject
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxFiles(string $fax_id)
+    public function faxFiles(string $fax_id, string $contentType = self::contentTypes['faxFiles'][0])
     {
-        list($response) = $this->faxFilesWithHttpInfo($fax_id);
+        list($response) = $this->faxFilesWithHttpInfo($fax_id, $contentType);
         return $response;
     }
 
@@ -410,7 +398,6 @@ class FaxApi
      * @return array of \SplFileObject|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxFiles. This method will eventually become unavailable
      */
     public function faxFilesWithHttpInfo(string $fax_id, string $contentType = self::contentTypes['faxFiles'][0])
     {
@@ -546,7 +533,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxFiles. This method will eventually become unavailable
      */
     public function faxFilesAsync(string $fax_id, string $contentType = self::contentTypes['faxFiles'][0])
     {
@@ -568,7 +554,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxFiles. This method will eventually become unavailable
      */
     public function faxFilesAsyncWithHttpInfo(string $fax_id, string $contentType = self::contentTypes['faxFiles'][0])
     {
@@ -619,7 +604,6 @@ class FaxApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxFiles. This method will eventually become unavailable
      */
     public function faxFilesRequest(string $fax_id, string $contentType = self::contentTypes['faxFiles'][0])
     {
@@ -647,7 +631,7 @@ class FaxApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/pdf', 'application/json'],
+            ['application/pdf', 'application/json'],
             $contentType,
             $multipart
         );
@@ -666,14 +650,6 @@ class FaxApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -715,15 +691,16 @@ class FaxApi
      *
      * Get Fax
      *
-     * @param string $fax_id Fax ID (required)
+     * @param string $fax_id      Fax ID (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxGet'] to see the possible values for this operation
      *
      * @return Model\FaxGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxGet(string $fax_id)
+    public function faxGet(string $fax_id, string $contentType = self::contentTypes['faxGet'][0])
     {
-        list($response) = $this->faxGetWithHttpInfo($fax_id);
+        list($response) = $this->faxGetWithHttpInfo($fax_id, $contentType);
         return $response;
     }
 
@@ -738,7 +715,6 @@ class FaxApi
      * @return array of Model\FaxGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxGet. This method will eventually become unavailable
      */
     public function faxGetWithHttpInfo(string $fax_id, string $contentType = self::contentTypes['faxGet'][0])
     {
@@ -874,7 +850,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxGet. This method will eventually become unavailable
      */
     public function faxGetAsync(string $fax_id, string $contentType = self::contentTypes['faxGet'][0])
     {
@@ -896,7 +871,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxGet. This method will eventually become unavailable
      */
     public function faxGetAsyncWithHttpInfo(string $fax_id, string $contentType = self::contentTypes['faxGet'][0])
     {
@@ -947,7 +921,6 @@ class FaxApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxGet. This method will eventually become unavailable
      */
     public function faxGetRequest(string $fax_id, string $contentType = self::contentTypes['faxGet'][0])
     {
@@ -975,7 +948,7 @@ class FaxApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -994,14 +967,6 @@ class FaxApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1043,16 +1008,17 @@ class FaxApi
      *
      * Lists Faxes
      *
-     * @param int $page      Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param int    $page        Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxList'] to see the possible values for this operation
      *
      * @return Model\FaxListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxList(int $page = 1, int $page_size = 20)
+    public function faxList(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['faxList'][0])
     {
-        list($response) = $this->faxListWithHttpInfo($page, $page_size);
+        list($response) = $this->faxListWithHttpInfo($page, $page_size, $contentType);
         return $response;
     }
 
@@ -1068,7 +1034,6 @@ class FaxApi
      * @return array of Model\FaxListResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxList. This method will eventually become unavailable
      */
     public function faxListWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['faxList'][0])
     {
@@ -1205,7 +1170,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxList. This method will eventually become unavailable
      */
     public function faxListAsync(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['faxList'][0])
     {
@@ -1228,7 +1192,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxList. This method will eventually become unavailable
      */
     public function faxListAsyncWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['faxList'][0])
     {
@@ -1280,7 +1243,6 @@ class FaxApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxList. This method will eventually become unavailable
      */
     public function faxListRequest(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['faxList'][0])
     {
@@ -1322,7 +1284,7 @@ class FaxApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1341,14 +1303,6 @@ class FaxApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1391,14 +1345,15 @@ class FaxApi
      * Send Fax
      *
      * @param Model\FaxSendRequest $fax_send_request fax_send_request (required)
+     * @param string               $contentType      The value for the Content-Type header. Check self::contentTypes['faxSend'] to see the possible values for this operation
      *
      * @return Model\FaxGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxSend(Model\FaxSendRequest $fax_send_request)
+    public function faxSend(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
-        list($response) = $this->faxSendWithHttpInfo($fax_send_request);
+        list($response) = $this->faxSendWithHttpInfo($fax_send_request, $contentType);
         return $response;
     }
 
@@ -1413,7 +1368,6 @@ class FaxApi
      * @return array of Model\FaxGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxSend. This method will eventually become unavailable
      */
     public function faxSendWithHttpInfo(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
@@ -1549,7 +1503,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxSend. This method will eventually become unavailable
      */
     public function faxSendAsync(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
@@ -1571,7 +1524,6 @@ class FaxApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxSend. This method will eventually become unavailable
      */
     public function faxSendAsyncWithHttpInfo(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
@@ -1622,7 +1574,6 @@ class FaxApi
      *
      * @return Request
      * @throws InvalidArgumentException
-     * @deprecated Prefer to use ::faxSend. This method will eventually become unavailable
      */
     public function faxSendRequest(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
@@ -1640,27 +1591,19 @@ class FaxApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_send_request
-        );
-
-        $multipart = !empty($formParams);
+        // form params
+        if ($fax_send_request !== null) {
+            $formParams['fax_send_request'] = ObjectSerializer::toFormValue($fax_send_request);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_send_request));
-            } else {
-                $httpBody = $fax_send_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1673,17 +1616,6 @@ class FaxApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $fax_send_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
