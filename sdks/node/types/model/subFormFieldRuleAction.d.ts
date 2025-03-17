@@ -11,7 +11,7 @@ export declare class SubFormFieldRuleAction {
 }
 export declare namespace SubFormFieldRuleAction {
     enum TypeEnum {
-        FieldVisibility = "change-field-visibility",
-        GroupVisibility = "change-group-visibility"
+        ChangeFieldVisibility = "change-field-visibility",
+        ChangeGroupVisibility = "change-group-visibility"
     }
 }

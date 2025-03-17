@@ -21325,8 +21325,8 @@ SubFormFieldRuleAction.attributeTypeMap = [
 ((SubFormFieldRuleAction2) => {
   let TypeEnum;
   ((TypeEnum2) => {
-    TypeEnum2["FieldVisibility"] = "change-field-visibility";
-    TypeEnum2["GroupVisibility"] = "change-group-visibility";
+    TypeEnum2["ChangeFieldVisibility"] = "change-field-visibility";
+    TypeEnum2["ChangeGroupVisibility"] = "change-group-visibility";
   })(TypeEnum = SubFormFieldRuleAction2.TypeEnum || (SubFormFieldRuleAction2.TypeEnum = {}));
 })(SubFormFieldRuleAction || (SubFormFieldRuleAction = {}));
 
