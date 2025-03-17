@@ -33,3 +33,4 @@ files:
 globalProperties:
   apiTests: false
   modelTests: false
+  removeEnumValuePrefix: true
