@@ -23,11 +23,11 @@ from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.template_response_document_form_field_base import (
     TemplateResponseDocumentFormFieldBase,
 )
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class TemplateResponseDocumentFormFieldCheckbox(TemplateResponseDocumentFormFieldBase):

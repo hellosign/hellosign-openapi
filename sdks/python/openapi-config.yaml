@@ -2,10 +2,10 @@ generatorName: python
 typeMappings:
   "bytearray": "io.IOBase"
 additionalProperties:
-  generatorLanguageVersion: ">=3.7"
+  generatorLanguageVersion: ">=3.8"
   packageName: dropbox_sign
   projectName: dropbox-sign
-  packageVersion: 1.8-dev
+  packageVersion: 1.9.0-dev
   sortModelPropertiesByRequiredFlag: true
   legacyDiscriminatorBehavior: true
   packageAuthor: Dropbox Sign API Team

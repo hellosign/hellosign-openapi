@@ -23,11 +23,11 @@ from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.signature_request_response_data_base import (
     SignatureRequestResponseDataBase,
 )
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class SignatureRequestResponseDataValueInitials(SignatureRequestResponseDataBase):

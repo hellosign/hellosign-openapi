@@ -22,11 +22,11 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.fax_response import FaxResponse
 from dropbox_sign.models.warning_response import WarningResponse
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class FaxGetResponse(BaseModel):

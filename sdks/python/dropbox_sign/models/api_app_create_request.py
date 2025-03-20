@@ -19,16 +19,16 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from dropbox_sign.models.sub_o_auth import SubOAuth
 from dropbox_sign.models.sub_options import SubOptions
 from dropbox_sign.models.sub_white_labeling_options import SubWhiteLabelingOptions
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class ApiAppCreateRequest(BaseModel):
@@ -44,7 +44,9 @@ class ApiAppCreateRequest(BaseModel):
         default=None,
         description="The URL at which the ApiApp should receive event callbacks.",
     )
-    custom_logo_file: Optional[Union[StrictBytes, StrictStr, io.IOBase]] = Field(
+    custom_logo_file: Optional[
+        Union[StrictBytes, StrictStr, io.IOBase, Tuple[StrictStr, StrictBytes, io.IOBase]]
+    ] = Field(
         default=None,
         description="An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)",
     )

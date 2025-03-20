@@ -22,11 +22,11 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.sub_editor_options import SubEditorOptions
 from dropbox_sign.models.sub_merge_field import SubMergeField
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class EmbeddedEditUrlRequest(BaseModel):

@@ -24,11 +24,11 @@ from dropbox_sign.models.template_create_embedded_draft_response_template import
     TemplateCreateEmbeddedDraftResponseTemplate,
 )
 from dropbox_sign.models.warning_response import WarningResponse
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class TemplateCreateEmbeddedDraftResponse(BaseModel):

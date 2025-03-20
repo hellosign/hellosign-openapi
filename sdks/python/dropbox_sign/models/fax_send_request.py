@@ -19,12 +19,12 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from typing import Optional, Set, Tuple
+from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class FaxSendRequest(BaseModel):
@@ -38,7 +38,9 @@ class FaxSendRequest(BaseModel):
     sender: Optional[StrictStr] = Field(
         default=None, description="Fax Send From Sender (used only with fax number)"
     )
-    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(
+    files: Optional[
+        List[Union[StrictBytes, StrictStr, io.IOBase, Tuple[StrictStr, StrictBytes, io.IOBase]]]
+    ] = Field(
         default=None,
         description="Use `files[]` to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.",
     )

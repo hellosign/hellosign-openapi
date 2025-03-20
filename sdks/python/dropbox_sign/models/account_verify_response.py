@@ -24,11 +24,11 @@ from dropbox_sign.models.account_verify_response_account import (
     AccountVerifyResponseAccount,
 )
 from dropbox_sign.models.warning_response import WarningResponse
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class AccountVerifyResponse(BaseModel):

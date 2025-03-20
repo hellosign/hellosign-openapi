@@ -24,11 +24,11 @@ from dropbox_sign.models.account_response import AccountResponse
 from dropbox_sign.models.event_callback_request_event import EventCallbackRequestEvent
 from dropbox_sign.models.signature_request_response import SignatureRequestResponse
 from dropbox_sign.models.template_response import TemplateResponse
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class EventCallbackRequest(BaseModel):

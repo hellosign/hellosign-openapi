@@ -22,11 +22,11 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.account_response_quotas import AccountResponseQuotas
 from dropbox_sign.models.account_response_usage import AccountResponseUsage
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class AccountResponse(BaseModel):

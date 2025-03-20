@@ -23,11 +23,11 @@ from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.list_info_response import ListInfoResponse
 from dropbox_sign.models.signature_request_response import SignatureRequestResponse
 from dropbox_sign.models.warning_response import WarningResponse
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class SignatureRequestListResponse(BaseModel):

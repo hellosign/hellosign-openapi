@@ -23,11 +23,11 @@ from typing import Any, ClassVar, Dict, List
 from dropbox_sign.models.template_update_files_response_template import (
     TemplateUpdateFilesResponseTemplate,
 )
-from typing import Optional, Set, Tuple
+from typing import Optional, Set
 from typing_extensions import Self
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 
 
 class TemplateUpdateFilesResponse(BaseModel):
