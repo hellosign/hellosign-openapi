@@ -6,11 +6,12 @@ additionalProperties:
   packageCompany: Dropbox Sign API Team
   packageCopyright: Dropbox 2024
   packageDescription: Client library for using the Dropbox Sign API
-  packageVersion: 1.8-dev
+  packageVersion: 2.0-dev
   packageTitle: Dropbox Sign .Net SDK
   sortModelPropertiesByRequiredFlag: true
   optionalEmitDefaultValues: true
-  targetFramework: net6.0
+  targetFramework: net8.0
+  library: restsharp
   packageGuid: "{F8C8232D-7020-4603-8E04-18D060AE530B}"
   legacyDiscriminatorBehavior: true
   useCustomTemplateCode: true

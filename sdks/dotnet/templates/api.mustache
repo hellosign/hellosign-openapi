@@ -317,6 +317,7 @@ namespace {{packageName}}.{{apiPackage}}
 
 {{^useCustomTemplateCode}}
             var localVarContentType = {{packageName}}.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
 {{/useCustomTemplateCode}}
             if (localVarContentType != null)
             {
@@ -403,7 +404,7 @@ namespace {{packageName}}.{{apiPackage}}
             {{/isArray}}
             {{/isFile}}
             {{^isFile}}
-            localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.{{#isPrimitiveType}}ParameterToString{{/isPrimitiveType}}{{^isPrimitiveType}}Serialize{{/isPrimitiveType}}({{paramName}})); // form parameter
+            localVarRequestOptions.FormParameters.Add("{{baseName}}", {{#isPrimitiveType}}{{packageName}}.Client.ClientUtils.ParameterToString({{paramName}}){{/isPrimitiveType}}{{^isPrimitiveType}}localVarMultipartFormData ? {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}}) : {{packageName}}.Client.ClientUtils.Serialize({{paramName}}){{/isPrimitiveType}}); // form parameter
             {{/isFile}}
             {{/required}}
             {{^required}}
@@ -425,7 +426,7 @@ namespace {{packageName}}.{{apiPackage}}
                 {{/isArray}}
                 {{/isFile}}
                 {{^isFile}}
-                localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.{{#isPrimitiveType}}ParameterToString{{/isPrimitiveType}}{{^isPrimitiveType}}Serialize{{/isPrimitiveType}}({{paramName}})); // form parameter
+                localVarRequestOptions.FormParameters.Add("{{baseName}}", {{#isPrimitiveType}}{{packageName}}.Client.ClientUtils.ParameterToString({{paramName}}){{/isPrimitiveType}}{{^isPrimitiveType}}localVarMultipartFormData ? {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}}) : {{packageName}}.Client.ClientUtils.Serialize({{paramName}}){{/isPrimitiveType}}); // form parameter
                 {{/isFile}}
             }
             {{/required}}

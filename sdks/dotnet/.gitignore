@@ -361,6 +361,8 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+git_push.sh
+global.json
 vendor
 /api
 .openapi-generator

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>Dropbox.Sign</AssemblyName>
     <PackageId>Dropbox.Sign</PackageId>
     <OutputType>Library</OutputType>
@@ -12,7 +12,7 @@
     <Description>Client library for using the Dropbox Sign API</Description>
     <Copyright>Dropbox 2024</Copyright>
     <RootNamespace>Dropbox.Sign</RootNamespace>
-    <Version>1.8-dev</Version>
+    <Version>2.0-dev</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Dropbox.Sign.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/hellosign/dropbox-sign-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

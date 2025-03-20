@@ -40,16 +40,18 @@ namespace Dropbox.Sign.Model
         public enum TypeEnum
         {
             /// <summary>
-            /// Enum FieldVisibility for value: change-field-visibility
+            /// Enum ChangeFieldVisibility for value: change-field-visibility
             /// </summary>
             [EnumMember(Value = "change-field-visibility")]
-            FieldVisibility = 1,
+            ChangeFieldVisibility = 1,
+            FieldVisibility = ChangeFieldVisibility,
 
             /// <summary>
-            /// Enum GroupVisibility for value: change-group-visibility
+            /// Enum ChangeGroupVisibility for value: change-group-visibility
             /// </summary>
             [EnumMember(Value = "change-group-visibility")]
-            GroupVisibility = 2
+            ChangeGroupVisibility = 2,
+            GroupVisibility = ChangeGroupVisibility
         }
 
 
