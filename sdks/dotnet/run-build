@@ -46,6 +46,9 @@ docker run --rm \
   -w "${WORKING_DIR}" \
   perl bash ./bin/scan_for
 
+printf "Adding old-style constant names ...\n"
+bash "${DIR}/bin/php" ./bin/copy-constants.php
+
 # avoid docker messing with permissions
 if [[ -z "$GITHUB_ACTIONS" ]]; then
   chmod 644 "${DIR}/README.md"
