@@ -40,25 +40,26 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRuleTrigger.JSON_PROPERTY_VALUE,
   SubFormFieldRuleTrigger.JSON_PROPERTY_VALUES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFormFieldRuleTrigger {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private String id;
 
   /**
    * Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value
    */
   public enum OperatorEnum {
-    ANY("any"),
+    ANY(String.valueOf("any")),
     
-    IS("is"),
+    IS(String.valueOf("is")),
     
-    MATCH("match"),
+    MATCH(String.valueOf("match")),
     
-    NONE("none"),
+    NONE(String.valueOf("none")),
     
-    NOT("not");
+    NOT(String.valueOf("not"));
 
     private String value;
 
@@ -88,12 +89,15 @@ public class SubFormFieldRuleTrigger {
   }
 
   public static final String JSON_PROPERTY_OPERATOR = "operator";
+  @jakarta.annotation.Nonnull
   private OperatorEnum operator;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nullable
   private String value;
 
   public static final String JSON_PROPERTY_VALUES = "values";
+  @jakarta.annotation.Nullable
   private List<String> values = null;
 
   public SubFormFieldRuleTrigger() { 
@@ -114,7 +118,7 @@ public class SubFormFieldRuleTrigger {
     );
   }
 
-  public SubFormFieldRuleTrigger id(String id) {
+  public SubFormFieldRuleTrigger id(@jakarta.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
@@ -134,12 +138,12 @@ public class SubFormFieldRuleTrigger {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
+  public void setId(@jakarta.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public SubFormFieldRuleTrigger operator(OperatorEnum operator) {
+  public SubFormFieldRuleTrigger operator(@jakarta.annotation.Nonnull OperatorEnum operator) {
     this.operator = operator;
     return this;
   }
@@ -159,12 +163,12 @@ public class SubFormFieldRuleTrigger {
 
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOperator(OperatorEnum operator) {
+  public void setOperator(@jakarta.annotation.Nonnull OperatorEnum operator) {
     this.operator = operator;
   }
 
 
-  public SubFormFieldRuleTrigger value(String value) {
+  public SubFormFieldRuleTrigger value(@jakarta.annotation.Nullable String value) {
     this.value = value;
     return this;
   }
@@ -184,12 +188,12 @@ public class SubFormFieldRuleTrigger {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = value;
   }
 
 
-  public SubFormFieldRuleTrigger values(List<String> values) {
+  public SubFormFieldRuleTrigger values(@jakarta.annotation.Nullable List<String> values) {
     this.values = values;
     return this;
   }
@@ -217,7 +221,7 @@ public class SubFormFieldRuleTrigger {
 
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValues(List<String> values) {
+  public void setValues(@jakarta.annotation.Nullable List<String> values) {
     this.values = values;
   }
 

@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   TemplateCreateResponse.JSON_PROPERTY_TEMPLATE,
   TemplateCreateResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateCreateResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
+  @jakarta.annotation.Nonnull
   private TemplateCreateResponseTemplate template;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public TemplateCreateResponse() { 
@@ -67,7 +69,7 @@ public class TemplateCreateResponse {
     );
   }
 
-  public TemplateCreateResponse template(TemplateCreateResponseTemplate template) {
+  public TemplateCreateResponse template(@jakarta.annotation.Nonnull TemplateCreateResponseTemplate template) {
     this.template = template;
     return this;
   }
@@ -87,12 +89,12 @@ public class TemplateCreateResponse {
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplate(TemplateCreateResponseTemplate template) {
+  public void setTemplate(@jakarta.annotation.Nonnull TemplateCreateResponseTemplate template) {
     this.template = template;
   }
 
 
-  public TemplateCreateResponse warnings(List<WarningResponse> warnings) {
+  public TemplateCreateResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class TemplateCreateResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

@@ -41,19 +41,23 @@ import com.dropbox.sign.ApiException;
   FaxLineResponseFaxLine.JSON_PROPERTY_UPDATED_AT,
   FaxLineResponseFaxLine.JSON_PROPERTY_ACCOUNTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineResponseFaxLine {
   public static final String JSON_PROPERTY_NUMBER = "number";
+  @jakarta.annotation.Nullable
   private String number;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  @jakarta.annotation.Nullable
   private Integer createdAt;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
+  @jakarta.annotation.Nullable
   private Integer updatedAt;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
+  @jakarta.annotation.Nullable
   private List<AccountResponse> accounts = null;
 
   public FaxLineResponseFaxLine() { 
@@ -74,7 +78,7 @@ public class FaxLineResponseFaxLine {
     );
   }
 
-  public FaxLineResponseFaxLine number(String number) {
+  public FaxLineResponseFaxLine number(@jakarta.annotation.Nullable String number) {
     this.number = number;
     return this;
   }
@@ -94,12 +98,12 @@ public class FaxLineResponseFaxLine {
 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumber(String number) {
+  public void setNumber(@jakarta.annotation.Nullable String number) {
     this.number = number;
   }
 
 
-  public FaxLineResponseFaxLine createdAt(Integer createdAt) {
+  public FaxLineResponseFaxLine createdAt(@jakarta.annotation.Nullable Integer createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -119,12 +123,12 @@ public class FaxLineResponseFaxLine {
 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(Integer createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nullable Integer createdAt) {
     this.createdAt = createdAt;
   }
 
 
-  public FaxLineResponseFaxLine updatedAt(Integer updatedAt) {
+  public FaxLineResponseFaxLine updatedAt(@jakarta.annotation.Nullable Integer updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -144,12 +148,12 @@ public class FaxLineResponseFaxLine {
 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdatedAt(Integer updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable Integer updatedAt) {
     this.updatedAt = updatedAt;
   }
 
 
-  public FaxLineResponseFaxLine accounts(List<AccountResponse> accounts) {
+  public FaxLineResponseFaxLine accounts(@jakarta.annotation.Nullable List<AccountResponse> accounts) {
     this.accounts = accounts;
     return this;
   }
@@ -177,7 +181,7 @@ public class FaxLineResponseFaxLine {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccounts(List<AccountResponse> accounts) {
+  public void setAccounts(@jakarta.annotation.Nullable List<AccountResponse> accounts) {
     this.accounts = accounts;
   }
 

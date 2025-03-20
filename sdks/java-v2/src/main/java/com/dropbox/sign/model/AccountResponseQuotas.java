@@ -40,25 +40,31 @@ import com.dropbox.sign.ApiException;
   AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT,
   AccountResponseQuotas.JSON_PROPERTY_NUM_FAX_PAGES_LEFT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponseQuotas {
   public static final String JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT = "api_signature_requests_left";
+  @jakarta.annotation.Nullable
   private Integer apiSignatureRequestsLeft;
 
   public static final String JSON_PROPERTY_DOCUMENTS_LEFT = "documents_left";
+  @jakarta.annotation.Nullable
   private Integer documentsLeft;
 
   public static final String JSON_PROPERTY_TEMPLATES_TOTAL = "templates_total";
+  @jakarta.annotation.Nullable
   private Integer templatesTotal;
 
   public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
+  @jakarta.annotation.Nullable
   private Integer templatesLeft;
 
   public static final String JSON_PROPERTY_SMS_VERIFICATIONS_LEFT = "sms_verifications_left";
+  @jakarta.annotation.Nullable
   private Integer smsVerificationsLeft;
 
   public static final String JSON_PROPERTY_NUM_FAX_PAGES_LEFT = "num_fax_pages_left";
+  @jakarta.annotation.Nullable
   private Integer numFaxPagesLeft;
 
   public AccountResponseQuotas() { 
@@ -79,7 +85,7 @@ public class AccountResponseQuotas {
     );
   }
 
-  public AccountResponseQuotas apiSignatureRequestsLeft(Integer apiSignatureRequestsLeft) {
+  public AccountResponseQuotas apiSignatureRequestsLeft(@jakarta.annotation.Nullable Integer apiSignatureRequestsLeft) {
     this.apiSignatureRequestsLeft = apiSignatureRequestsLeft;
     return this;
   }
@@ -99,12 +105,12 @@ public class AccountResponseQuotas {
 
   @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setApiSignatureRequestsLeft(Integer apiSignatureRequestsLeft) {
+  public void setApiSignatureRequestsLeft(@jakarta.annotation.Nullable Integer apiSignatureRequestsLeft) {
     this.apiSignatureRequestsLeft = apiSignatureRequestsLeft;
   }
 
 
-  public AccountResponseQuotas documentsLeft(Integer documentsLeft) {
+  public AccountResponseQuotas documentsLeft(@jakarta.annotation.Nullable Integer documentsLeft) {
     this.documentsLeft = documentsLeft;
     return this;
   }
@@ -124,12 +130,12 @@ public class AccountResponseQuotas {
 
   @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocumentsLeft(Integer documentsLeft) {
+  public void setDocumentsLeft(@jakarta.annotation.Nullable Integer documentsLeft) {
     this.documentsLeft = documentsLeft;
   }
 
 
-  public AccountResponseQuotas templatesTotal(Integer templatesTotal) {
+  public AccountResponseQuotas templatesTotal(@jakarta.annotation.Nullable Integer templatesTotal) {
     this.templatesTotal = templatesTotal;
     return this;
   }
@@ -149,12 +155,12 @@ public class AccountResponseQuotas {
 
   @JsonProperty(JSON_PROPERTY_TEMPLATES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplatesTotal(Integer templatesTotal) {
+  public void setTemplatesTotal(@jakarta.annotation.Nullable Integer templatesTotal) {
     this.templatesTotal = templatesTotal;
   }
 
 
-  public AccountResponseQuotas templatesLeft(Integer templatesLeft) {
+  public AccountResponseQuotas templatesLeft(@jakarta.annotation.Nullable Integer templatesLeft) {
     this.templatesLeft = templatesLeft;
     return this;
   }
@@ -174,12 +180,12 @@ public class AccountResponseQuotas {
 
   @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplatesLeft(Integer templatesLeft) {
+  public void setTemplatesLeft(@jakarta.annotation.Nullable Integer templatesLeft) {
     this.templatesLeft = templatesLeft;
   }
 
 
-  public AccountResponseQuotas smsVerificationsLeft(Integer smsVerificationsLeft) {
+  public AccountResponseQuotas smsVerificationsLeft(@jakarta.annotation.Nullable Integer smsVerificationsLeft) {
     this.smsVerificationsLeft = smsVerificationsLeft;
     return this;
   }
@@ -199,12 +205,12 @@ public class AccountResponseQuotas {
 
   @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSmsVerificationsLeft(Integer smsVerificationsLeft) {
+  public void setSmsVerificationsLeft(@jakarta.annotation.Nullable Integer smsVerificationsLeft) {
     this.smsVerificationsLeft = smsVerificationsLeft;
   }
 
 
-  public AccountResponseQuotas numFaxPagesLeft(Integer numFaxPagesLeft) {
+  public AccountResponseQuotas numFaxPagesLeft(@jakarta.annotation.Nullable Integer numFaxPagesLeft) {
     this.numFaxPagesLeft = numFaxPagesLeft;
     return this;
   }
@@ -224,7 +230,7 @@ public class AccountResponseQuotas {
 
   @JsonProperty(JSON_PROPERTY_NUM_FAX_PAGES_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumFaxPagesLeft(Integer numFaxPagesLeft) {
+  public void setNumFaxPagesLeft(@jakarta.annotation.Nullable Integer numFaxPagesLeft) {
     this.numFaxPagesLeft = numFaxPagesLeft;
   }
 

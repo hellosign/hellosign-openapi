@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataValueSignature.JSON_PROPERTY_VALUE,
   SignatureRequestResponseDataValueSignature.JSON_PROPERTY_IS_SIGNED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -50,12 +50,15 @@ import com.dropbox.sign.ApiException;
 
 public class SignatureRequestResponseDataValueSignature extends SignatureRequestResponseDataBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nullable
   private String type = "signature";
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nullable
   private String value;
 
   public static final String JSON_PROPERTY_IS_SIGNED = "is_signed";
+  @jakarta.annotation.Nullable
   private Boolean isSigned;
 
   public SignatureRequestResponseDataValueSignature() { 
@@ -76,7 +79,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
     );
   }
 
-  public SignatureRequestResponseDataValueSignature type(String type) {
+  public SignatureRequestResponseDataValueSignature type(@jakarta.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
@@ -96,12 +99,12 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
   }
 
 
-  public SignatureRequestResponseDataValueSignature value(String value) {
+  public SignatureRequestResponseDataValueSignature value(@jakarta.annotation.Nullable String value) {
     this.value = value;
     return this;
   }
@@ -121,12 +124,12 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = value;
   }
 
 
-  public SignatureRequestResponseDataValueSignature isSigned(Boolean isSigned) {
+  public SignatureRequestResponseDataValueSignature isSigned(@jakarta.annotation.Nullable Boolean isSigned) {
     this.isSigned = isSigned;
     return this;
   }
@@ -146,7 +149,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
 
   @JsonProperty(JSON_PROPERTY_IS_SIGNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsSigned(Boolean isSigned) {
+  public void setIsSigned(@jakarta.annotation.Nullable Boolean isSigned) {
     this.isSigned = isSigned;
   }
 

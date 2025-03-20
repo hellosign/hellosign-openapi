@@ -42,19 +42,23 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRule.JSON_PROPERTY_TRIGGERS,
   SubFormFieldRule.JSON_PROPERTY_ACTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFormFieldRule {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private String id;
 
   public static final String JSON_PROPERTY_TRIGGER_OPERATOR = "trigger_operator";
+  @jakarta.annotation.Nonnull
   private String triggerOperator = "AND";
 
   public static final String JSON_PROPERTY_TRIGGERS = "triggers";
+  @jakarta.annotation.Nonnull
   private List<SubFormFieldRuleTrigger> triggers = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ACTIONS = "actions";
+  @jakarta.annotation.Nonnull
   private List<SubFormFieldRuleAction> actions = new ArrayList<>();
 
   public SubFormFieldRule() { 
@@ -75,7 +79,7 @@ public class SubFormFieldRule {
     );
   }
 
-  public SubFormFieldRule id(String id) {
+  public SubFormFieldRule id(@jakarta.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
@@ -95,12 +99,12 @@ public class SubFormFieldRule {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
+  public void setId(@jakarta.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public SubFormFieldRule triggerOperator(String triggerOperator) {
+  public SubFormFieldRule triggerOperator(@jakarta.annotation.Nonnull String triggerOperator) {
     this.triggerOperator = triggerOperator;
     return this;
   }
@@ -120,12 +124,12 @@ public class SubFormFieldRule {
 
   @JsonProperty(JSON_PROPERTY_TRIGGER_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTriggerOperator(String triggerOperator) {
+  public void setTriggerOperator(@jakarta.annotation.Nonnull String triggerOperator) {
     this.triggerOperator = triggerOperator;
   }
 
 
-  public SubFormFieldRule triggers(List<SubFormFieldRuleTrigger> triggers) {
+  public SubFormFieldRule triggers(@jakarta.annotation.Nonnull List<SubFormFieldRuleTrigger> triggers) {
     this.triggers = triggers;
     return this;
   }
@@ -153,12 +157,12 @@ public class SubFormFieldRule {
 
   @JsonProperty(JSON_PROPERTY_TRIGGERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTriggers(List<SubFormFieldRuleTrigger> triggers) {
+  public void setTriggers(@jakarta.annotation.Nonnull List<SubFormFieldRuleTrigger> triggers) {
     this.triggers = triggers;
   }
 
 
-  public SubFormFieldRule actions(List<SubFormFieldRuleAction> actions) {
+  public SubFormFieldRule actions(@jakarta.annotation.Nonnull List<SubFormFieldRuleAction> actions) {
     this.actions = actions;
     return this;
   }
@@ -186,7 +190,7 @@ public class SubFormFieldRule {
 
   @JsonProperty(JSON_PROPERTY_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setActions(List<SubFormFieldRuleAction> actions) {
+  public void setActions(@jakarta.annotation.Nonnull List<SubFormFieldRuleAction> actions) {
     this.actions = actions;
   }
 

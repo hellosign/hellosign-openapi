@@ -35,10 +35,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponseUsage {
   public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
+  @jakarta.annotation.Nullable
   private Integer faxPagesSent;
 
   public AccountResponseUsage() { 
@@ -59,7 +60,7 @@ public class AccountResponseUsage {
     );
   }
 
-  public AccountResponseUsage faxPagesSent(Integer faxPagesSent) {
+  public AccountResponseUsage faxPagesSent(@jakarta.annotation.Nullable Integer faxPagesSent) {
     this.faxPagesSent = faxPagesSent;
     return this;
   }
@@ -79,7 +80,7 @@ public class AccountResponseUsage {
 
   @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFaxPagesSent(Integer faxPagesSent) {
+  public void setFaxPagesSent(@jakarta.annotation.Nullable Integer faxPagesSent) {
     this.faxPagesSent = faxPagesSent;
   }
 

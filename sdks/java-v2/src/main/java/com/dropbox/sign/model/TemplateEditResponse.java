@@ -35,10 +35,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   TemplateEditResponse.JSON_PROPERTY_TEMPLATE_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateEditResponse {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
+  @jakarta.annotation.Nonnull
   private String templateId;
 
   public TemplateEditResponse() { 
@@ -59,7 +60,7 @@ public class TemplateEditResponse {
     );
   }
 
-  public TemplateEditResponse templateId(String templateId) {
+  public TemplateEditResponse templateId(@jakarta.annotation.Nonnull String templateId) {
     this.templateId = templateId;
     return this;
   }
@@ -79,7 +80,7 @@ public class TemplateEditResponse {
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplateId(String templateId) {
+  public void setTemplateId(@jakarta.annotation.Nonnull String templateId) {
     this.templateId = templateId;
   }
 

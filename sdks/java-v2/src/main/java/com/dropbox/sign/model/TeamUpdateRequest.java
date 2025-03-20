@@ -35,10 +35,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   TeamUpdateRequest.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamUpdateRequest {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public TeamUpdateRequest() { 
@@ -59,7 +60,7 @@ public class TeamUpdateRequest {
     );
   }
 
-  public TeamUpdateRequest name(String name) {
+  public TeamUpdateRequest name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -79,7 +80,7 @@ public class TeamUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 

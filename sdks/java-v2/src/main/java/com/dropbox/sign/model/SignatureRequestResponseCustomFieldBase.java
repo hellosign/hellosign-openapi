@@ -42,7 +42,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_API_ID,
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_EDITOR
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -55,18 +55,23 @@ import com.dropbox.sign.ApiException;
 
 public class SignatureRequestResponseCustomFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_REQUIRED = "required";
+  @jakarta.annotation.Nullable
   private Boolean required;
 
   public static final String JSON_PROPERTY_API_ID = "api_id";
+  @jakarta.annotation.Nullable
   private String apiId;
 
   public static final String JSON_PROPERTY_EDITOR = "editor";
+  @jakarta.annotation.Nullable
   private String editor;
 
   public SignatureRequestResponseCustomFieldBase() { 
@@ -87,7 +92,7 @@ public class SignatureRequestResponseCustomFieldBase {
     );
   }
 
-  public SignatureRequestResponseCustomFieldBase type(String type) {
+  public SignatureRequestResponseCustomFieldBase type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -107,12 +112,12 @@ public class SignatureRequestResponseCustomFieldBase {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public SignatureRequestResponseCustomFieldBase name(String name) {
+  public SignatureRequestResponseCustomFieldBase name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -132,12 +137,12 @@ public class SignatureRequestResponseCustomFieldBase {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SignatureRequestResponseCustomFieldBase required(Boolean required) {
+  public SignatureRequestResponseCustomFieldBase required(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
     return this;
   }
@@ -157,12 +162,12 @@ public class SignatureRequestResponseCustomFieldBase {
 
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequired(Boolean required) {
+  public void setRequired(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
   }
 
 
-  public SignatureRequestResponseCustomFieldBase apiId(String apiId) {
+  public SignatureRequestResponseCustomFieldBase apiId(@jakarta.annotation.Nullable String apiId) {
     this.apiId = apiId;
     return this;
   }
@@ -182,12 +187,12 @@ public class SignatureRequestResponseCustomFieldBase {
 
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setApiId(String apiId) {
+  public void setApiId(@jakarta.annotation.Nullable String apiId) {
     this.apiId = apiId;
   }
 
 
-  public SignatureRequestResponseCustomFieldBase editor(String editor) {
+  public SignatureRequestResponseCustomFieldBase editor(@jakarta.annotation.Nullable String editor) {
     this.editor = editor;
     return this;
   }
@@ -207,7 +212,7 @@ public class SignatureRequestResponseCustomFieldBase {
 
   @JsonProperty(JSON_PROPERTY_EDITOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEditor(String editor) {
+  public void setEditor(@jakarta.annotation.Nullable String editor) {
     this.editor = editor;
   }
 

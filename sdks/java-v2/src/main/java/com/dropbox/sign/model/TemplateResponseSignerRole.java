@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   TemplateResponseSignerRole.JSON_PROPERTY_NAME,
   TemplateResponseSignerRole.JSON_PROPERTY_ORDER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseSignerRole {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ORDER = "order";
+  @jakarta.annotation.Nullable
   private Integer order;
 
   public TemplateResponseSignerRole() { 
@@ -63,7 +65,7 @@ public class TemplateResponseSignerRole {
     );
   }
 
-  public TemplateResponseSignerRole name(String name) {
+  public TemplateResponseSignerRole name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -83,12 +85,12 @@ public class TemplateResponseSignerRole {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public TemplateResponseSignerRole order(Integer order) {
+  public TemplateResponseSignerRole order(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
     return this;
   }
@@ -108,7 +110,7 @@ public class TemplateResponseSignerRole {
 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOrder(Integer order) {
+  public void setOrder(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
   }
 

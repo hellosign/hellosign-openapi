@@ -50,37 +50,47 @@ import com.dropbox.sign.ApiException;
   ApiAppResponse.JSON_PROPERTY_OWNER_ACCOUNT,
   ApiAppResponse.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppResponse {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
+  @jakarta.annotation.Nullable
   private String callbackUrl;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @jakarta.annotation.Nullable
   private String clientId;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  @jakarta.annotation.Nullable
   private Integer createdAt;
 
   public static final String JSON_PROPERTY_DOMAINS = "domains";
+  @jakarta.annotation.Nullable
   private List<String> domains = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_IS_APPROVED = "is_approved";
+  @jakarta.annotation.Nullable
   private Boolean isApproved;
 
   public static final String JSON_PROPERTY_OAUTH = "oauth";
+  @jakarta.annotation.Nullable
   private ApiAppResponseOAuth oauth;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
+  @jakarta.annotation.Nullable
   private ApiAppResponseOptions options;
 
   public static final String JSON_PROPERTY_OWNER_ACCOUNT = "owner_account";
+  @jakarta.annotation.Nullable
   private ApiAppResponseOwnerAccount ownerAccount;
 
   public static final String JSON_PROPERTY_WHITE_LABELING_OPTIONS = "white_labeling_options";
+  @jakarta.annotation.Nullable
   private ApiAppResponseWhiteLabelingOptions whiteLabelingOptions;
 
   public ApiAppResponse() { 
@@ -101,7 +111,7 @@ public class ApiAppResponse {
     );
   }
 
-  public ApiAppResponse callbackUrl(String callbackUrl) {
+  public ApiAppResponse callbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
     return this;
   }
@@ -121,12 +131,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCallbackUrl(String callbackUrl) {
+  public void setCallbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
   }
 
 
-  public ApiAppResponse clientId(String clientId) {
+  public ApiAppResponse clientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
     return this;
   }
@@ -146,12 +156,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientId(String clientId) {
+  public void setClientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
   }
 
 
-  public ApiAppResponse createdAt(Integer createdAt) {
+  public ApiAppResponse createdAt(@jakarta.annotation.Nullable Integer createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -171,12 +181,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(Integer createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nullable Integer createdAt) {
     this.createdAt = createdAt;
   }
 
 
-  public ApiAppResponse domains(List<String> domains) {
+  public ApiAppResponse domains(@jakarta.annotation.Nullable List<String> domains) {
     this.domains = domains;
     return this;
   }
@@ -204,12 +214,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDomains(List<String> domains) {
+  public void setDomains(@jakarta.annotation.Nullable List<String> domains) {
     this.domains = domains;
   }
 
 
-  public ApiAppResponse name(String name) {
+  public ApiAppResponse name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -229,12 +239,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public ApiAppResponse isApproved(Boolean isApproved) {
+  public ApiAppResponse isApproved(@jakarta.annotation.Nullable Boolean isApproved) {
     this.isApproved = isApproved;
     return this;
   }
@@ -254,12 +264,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_IS_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsApproved(Boolean isApproved) {
+  public void setIsApproved(@jakarta.annotation.Nullable Boolean isApproved) {
     this.isApproved = isApproved;
   }
 
 
-  public ApiAppResponse oauth(ApiAppResponseOAuth oauth) {
+  public ApiAppResponse oauth(@jakarta.annotation.Nullable ApiAppResponseOAuth oauth) {
     this.oauth = oauth;
     return this;
   }
@@ -279,12 +289,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_OAUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOauth(ApiAppResponseOAuth oauth) {
+  public void setOauth(@jakarta.annotation.Nullable ApiAppResponseOAuth oauth) {
     this.oauth = oauth;
   }
 
 
-  public ApiAppResponse options(ApiAppResponseOptions options) {
+  public ApiAppResponse options(@jakarta.annotation.Nullable ApiAppResponseOptions options) {
     this.options = options;
     return this;
   }
@@ -304,12 +314,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOptions(ApiAppResponseOptions options) {
+  public void setOptions(@jakarta.annotation.Nullable ApiAppResponseOptions options) {
     this.options = options;
   }
 
 
-  public ApiAppResponse ownerAccount(ApiAppResponseOwnerAccount ownerAccount) {
+  public ApiAppResponse ownerAccount(@jakarta.annotation.Nullable ApiAppResponseOwnerAccount ownerAccount) {
     this.ownerAccount = ownerAccount;
     return this;
   }
@@ -329,12 +339,12 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOwnerAccount(ApiAppResponseOwnerAccount ownerAccount) {
+  public void setOwnerAccount(@jakarta.annotation.Nullable ApiAppResponseOwnerAccount ownerAccount) {
     this.ownerAccount = ownerAccount;
   }
 
 
-  public ApiAppResponse whiteLabelingOptions(ApiAppResponseWhiteLabelingOptions whiteLabelingOptions) {
+  public ApiAppResponse whiteLabelingOptions(@jakarta.annotation.Nullable ApiAppResponseWhiteLabelingOptions whiteLabelingOptions) {
     this.whiteLabelingOptions = whiteLabelingOptions;
     return this;
   }
@@ -354,7 +364,7 @@ public class ApiAppResponse {
 
   @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWhiteLabelingOptions(ApiAppResponseWhiteLabelingOptions whiteLabelingOptions) {
+  public void setWhiteLabelingOptions(@jakarta.annotation.Nullable ApiAppResponseWhiteLabelingOptions whiteLabelingOptions) {
     this.whiteLabelingOptions = whiteLabelingOptions;
   }
 

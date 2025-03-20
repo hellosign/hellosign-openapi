@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class OAuthApi {
   private ApiClient apiClient;
 
@@ -50,13 +50,14 @@ public class OAuthApi {
   }
 
   /**
-   * OAuth Token Generate.
+   * OAuth Token Generate
    * Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
    * @param oauthTokenGenerateRequest  (required)
    * @return OAuthTokenResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -68,13 +69,14 @@ public class OAuthApi {
 
 
   /**
-   * OAuth Token Generate.
+   * OAuth Token Generate
    * Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
    * @param oauthTokenGenerateRequest  (required)
    * @return ApiResponse&lt;OAuthTokenResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -110,13 +112,14 @@ public class OAuthApi {
     );
   }
   /**
-   * OAuth Token Refresh.
+   * OAuth Token Refresh
    * Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
    * @param oauthTokenRefreshRequest  (required)
    * @return OAuthTokenResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -128,13 +131,14 @@ public class OAuthApi {
 
 
   /**
-   * OAuth Token Refresh.
+   * OAuth Token Refresh
    * Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
    * @param oauthTokenRefreshRequest  (required)
    * @return ApiResponse&lt;OAuthTokenResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

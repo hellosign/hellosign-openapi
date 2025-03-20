@@ -39,61 +39,62 @@ import com.dropbox.sign.ApiException;
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_HASH,
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_METADATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EventCallbackRequestEvent {
   public static final String JSON_PROPERTY_EVENT_TIME = "event_time";
+  @jakarta.annotation.Nonnull
   private String eventTime;
 
   /**
    * Type of callback event that was triggered.
    */
   public enum EventTypeEnum {
-    ACCOUNT_CONFIRMED("account_confirmed"),
+    ACCOUNT_CONFIRMED(String.valueOf("account_confirmed")),
     
-    UNKNOWN_ERROR("unknown_error"),
+    UNKNOWN_ERROR(String.valueOf("unknown_error")),
     
-    FILE_ERROR("file_error"),
+    FILE_ERROR(String.valueOf("file_error")),
     
-    SIGN_URL_INVALID("sign_url_invalid"),
+    SIGN_URL_INVALID(String.valueOf("sign_url_invalid")),
     
-    SIGNATURE_REQUEST_VIEWED("signature_request_viewed"),
+    SIGNATURE_REQUEST_VIEWED(String.valueOf("signature_request_viewed")),
     
-    SIGNATURE_REQUEST_SIGNED("signature_request_signed"),
+    SIGNATURE_REQUEST_SIGNED(String.valueOf("signature_request_signed")),
     
-    SIGNATURE_REQUEST_SENT("signature_request_sent"),
+    SIGNATURE_REQUEST_SENT(String.valueOf("signature_request_sent")),
     
-    SIGNATURE_REQUEST_ALL_SIGNED("signature_request_all_signed"),
+    SIGNATURE_REQUEST_ALL_SIGNED(String.valueOf("signature_request_all_signed")),
     
-    SIGNATURE_REQUEST_EMAIL_BOUNCE("signature_request_email_bounce"),
+    SIGNATURE_REQUEST_EMAIL_BOUNCE(String.valueOf("signature_request_email_bounce")),
     
-    SIGNATURE_REQUEST_REMIND("signature_request_remind"),
+    SIGNATURE_REQUEST_REMIND(String.valueOf("signature_request_remind")),
     
-    SIGNATURE_REQUEST_INCOMPLETE_QES("signature_request_incomplete_qes"),
+    SIGNATURE_REQUEST_INCOMPLETE_QES(String.valueOf("signature_request_incomplete_qes")),
     
-    SIGNATURE_REQUEST_DESTROYED("signature_request_destroyed"),
+    SIGNATURE_REQUEST_DESTROYED(String.valueOf("signature_request_destroyed")),
     
-    SIGNATURE_REQUEST_CANCELED("signature_request_canceled"),
+    SIGNATURE_REQUEST_CANCELED(String.valueOf("signature_request_canceled")),
     
-    SIGNATURE_REQUEST_DOWNLOADABLE("signature_request_downloadable"),
+    SIGNATURE_REQUEST_DOWNLOADABLE(String.valueOf("signature_request_downloadable")),
     
-    SIGNATURE_REQUEST_DECLINED("signature_request_declined"),
+    SIGNATURE_REQUEST_DECLINED(String.valueOf("signature_request_declined")),
     
-    SIGNATURE_REQUEST_REASSIGNED("signature_request_reassigned"),
+    SIGNATURE_REQUEST_REASSIGNED(String.valueOf("signature_request_reassigned")),
     
-    SIGNATURE_REQUEST_INVALID("signature_request_invalid"),
+    SIGNATURE_REQUEST_INVALID(String.valueOf("signature_request_invalid")),
     
-    SIGNATURE_REQUEST_PREPARED("signature_request_prepared"),
+    SIGNATURE_REQUEST_PREPARED(String.valueOf("signature_request_prepared")),
     
-    SIGNATURE_REQUEST_EXPIRED("signature_request_expired"),
+    SIGNATURE_REQUEST_EXPIRED(String.valueOf("signature_request_expired")),
     
-    TEMPLATE_CREATED("template_created"),
+    TEMPLATE_CREATED(String.valueOf("template_created")),
     
-    TEMPLATE_ERROR("template_error"),
+    TEMPLATE_ERROR(String.valueOf("template_error")),
     
-    CALLBACK_TEST("callback_test"),
+    CALLBACK_TEST(String.valueOf("callback_test")),
     
-    SIGNATURE_REQUEST_SIGNER_REMOVED("signature_request_signer_removed");
+    SIGNATURE_REQUEST_SIGNER_REMOVED(String.valueOf("signature_request_signer_removed"));
 
     private String value;
 
@@ -123,12 +124,15 @@ public class EventCallbackRequestEvent {
   }
 
   public static final String JSON_PROPERTY_EVENT_TYPE = "event_type";
+  @jakarta.annotation.Nonnull
   private EventTypeEnum eventType;
 
   public static final String JSON_PROPERTY_EVENT_HASH = "event_hash";
+  @jakarta.annotation.Nonnull
   private String eventHash;
 
   public static final String JSON_PROPERTY_EVENT_METADATA = "event_metadata";
+  @jakarta.annotation.Nullable
   private EventCallbackRequestEventMetadata eventMetadata;
 
   public EventCallbackRequestEvent() { 
@@ -149,7 +153,7 @@ public class EventCallbackRequestEvent {
     );
   }
 
-  public EventCallbackRequestEvent eventTime(String eventTime) {
+  public EventCallbackRequestEvent eventTime(@jakarta.annotation.Nonnull String eventTime) {
     this.eventTime = eventTime;
     return this;
   }
@@ -169,12 +173,12 @@ public class EventCallbackRequestEvent {
 
   @JsonProperty(JSON_PROPERTY_EVENT_TIME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEventTime(String eventTime) {
+  public void setEventTime(@jakarta.annotation.Nonnull String eventTime) {
     this.eventTime = eventTime;
   }
 
 
-  public EventCallbackRequestEvent eventType(EventTypeEnum eventType) {
+  public EventCallbackRequestEvent eventType(@jakarta.annotation.Nonnull EventTypeEnum eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -194,12 +198,12 @@ public class EventCallbackRequestEvent {
 
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEventType(EventTypeEnum eventType) {
+  public void setEventType(@jakarta.annotation.Nonnull EventTypeEnum eventType) {
     this.eventType = eventType;
   }
 
 
-  public EventCallbackRequestEvent eventHash(String eventHash) {
+  public EventCallbackRequestEvent eventHash(@jakarta.annotation.Nonnull String eventHash) {
     this.eventHash = eventHash;
     return this;
   }
@@ -219,12 +223,12 @@ public class EventCallbackRequestEvent {
 
   @JsonProperty(JSON_PROPERTY_EVENT_HASH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEventHash(String eventHash) {
+  public void setEventHash(@jakarta.annotation.Nonnull String eventHash) {
     this.eventHash = eventHash;
   }
 
 
-  public EventCallbackRequestEvent eventMetadata(EventCallbackRequestEventMetadata eventMetadata) {
+  public EventCallbackRequestEvent eventMetadata(@jakarta.annotation.Nullable EventCallbackRequestEventMetadata eventMetadata) {
     this.eventMetadata = eventMetadata;
     return this;
   }
@@ -244,7 +248,7 @@ public class EventCallbackRequestEvent {
 
   @JsonProperty(JSON_PROPERTY_EVENT_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEventMetadata(EventCallbackRequestEventMetadata eventMetadata) {
+  public void setEventMetadata(@jakarta.annotation.Nullable EventCallbackRequestEventMetadata eventMetadata) {
     this.eventMetadata = eventMetadata;
   }
 

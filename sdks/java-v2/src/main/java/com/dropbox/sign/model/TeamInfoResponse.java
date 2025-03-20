@@ -40,22 +40,27 @@ import com.dropbox.sign.ApiException;
   TeamInfoResponse.JSON_PROPERTY_NUM_MEMBERS,
   TeamInfoResponse.JSON_PROPERTY_NUM_SUB_TEAMS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamInfoResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
+  @jakarta.annotation.Nullable
   private String teamId;
 
   public static final String JSON_PROPERTY_TEAM_PARENT = "team_parent";
+  @jakarta.annotation.Nullable
   private TeamParentResponse teamParent;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_NUM_MEMBERS = "num_members";
+  @jakarta.annotation.Nullable
   private Integer numMembers;
 
   public static final String JSON_PROPERTY_NUM_SUB_TEAMS = "num_sub_teams";
+  @jakarta.annotation.Nullable
   private Integer numSubTeams;
 
   public TeamInfoResponse() { 
@@ -76,7 +81,7 @@ public class TeamInfoResponse {
     );
   }
 
-  public TeamInfoResponse teamId(String teamId) {
+  public TeamInfoResponse teamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
     return this;
   }
@@ -96,12 +101,12 @@ public class TeamInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTeamId(String teamId) {
+  public void setTeamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
   }
 
 
-  public TeamInfoResponse teamParent(TeamParentResponse teamParent) {
+  public TeamInfoResponse teamParent(@jakarta.annotation.Nullable TeamParentResponse teamParent) {
     this.teamParent = teamParent;
     return this;
   }
@@ -121,12 +126,12 @@ public class TeamInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTeamParent(TeamParentResponse teamParent) {
+  public void setTeamParent(@jakarta.annotation.Nullable TeamParentResponse teamParent) {
     this.teamParent = teamParent;
   }
 
 
-  public TeamInfoResponse name(String name) {
+  public TeamInfoResponse name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -146,12 +151,12 @@ public class TeamInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public TeamInfoResponse numMembers(Integer numMembers) {
+  public TeamInfoResponse numMembers(@jakarta.annotation.Nullable Integer numMembers) {
     this.numMembers = numMembers;
     return this;
   }
@@ -171,12 +176,12 @@ public class TeamInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumMembers(Integer numMembers) {
+  public void setNumMembers(@jakarta.annotation.Nullable Integer numMembers) {
     this.numMembers = numMembers;
   }
 
 
-  public TeamInfoResponse numSubTeams(Integer numSubTeams) {
+  public TeamInfoResponse numSubTeams(@jakarta.annotation.Nullable Integer numSubTeams) {
     this.numSubTeams = numSubTeams;
     return this;
   }
@@ -196,7 +201,7 @@ public class TeamInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumSubTeams(Integer numSubTeams) {
+  public void setNumSubTeams(@jakarta.annotation.Nullable Integer numSubTeams) {
     this.numSubTeams = numSubTeams;
   }
 

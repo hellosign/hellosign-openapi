@@ -38,19 +38,23 @@ import com.dropbox.sign.ApiException;
   ListInfoResponse.JSON_PROPERTY_PAGE,
   ListInfoResponse.JSON_PROPERTY_PAGE_SIZE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ListInfoResponse {
   public static final String JSON_PROPERTY_NUM_PAGES = "num_pages";
+  @jakarta.annotation.Nullable
   private Integer numPages;
 
   public static final String JSON_PROPERTY_NUM_RESULTS = "num_results";
+  @jakarta.annotation.Nullable
   private Integer numResults;
 
   public static final String JSON_PROPERTY_PAGE = "page";
+  @jakarta.annotation.Nullable
   private Integer page;
 
   public static final String JSON_PROPERTY_PAGE_SIZE = "page_size";
+  @jakarta.annotation.Nullable
   private Integer pageSize;
 
   public ListInfoResponse() { 
@@ -71,7 +75,7 @@ public class ListInfoResponse {
     );
   }
 
-  public ListInfoResponse numPages(Integer numPages) {
+  public ListInfoResponse numPages(@jakarta.annotation.Nullable Integer numPages) {
     this.numPages = numPages;
     return this;
   }
@@ -91,12 +95,12 @@ public class ListInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_NUM_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumPages(Integer numPages) {
+  public void setNumPages(@jakarta.annotation.Nullable Integer numPages) {
     this.numPages = numPages;
   }
 
 
-  public ListInfoResponse numResults(Integer numResults) {
+  public ListInfoResponse numResults(@jakarta.annotation.Nullable Integer numResults) {
     this.numResults = numResults;
     return this;
   }
@@ -116,12 +120,12 @@ public class ListInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_NUM_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumResults(Integer numResults) {
+  public void setNumResults(@jakarta.annotation.Nullable Integer numResults) {
     this.numResults = numResults;
   }
 
 
-  public ListInfoResponse page(Integer page) {
+  public ListInfoResponse page(@jakarta.annotation.Nullable Integer page) {
     this.page = page;
     return this;
   }
@@ -141,12 +145,12 @@ public class ListInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPage(Integer page) {
+  public void setPage(@jakarta.annotation.Nullable Integer page) {
     this.page = page;
   }
 
 
-  public ListInfoResponse pageSize(Integer pageSize) {
+  public ListInfoResponse pageSize(@jakarta.annotation.Nullable Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -166,7 +170,7 @@ public class ListInfoResponse {
 
   @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPageSize(Integer pageSize) {
+  public void setPageSize(@jakarta.annotation.Nullable Integer pageSize) {
     this.pageSize = pageSize;
   }
 

@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   FileResponse.JSON_PROPERTY_FILE_URL,
   FileResponse.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FileResponse {
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
+  @jakarta.annotation.Nonnull
   private String fileUrl;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+  @jakarta.annotation.Nonnull
   private Integer expiresAt;
 
   public FileResponse() { 
@@ -63,7 +65,7 @@ public class FileResponse {
     );
   }
 
-  public FileResponse fileUrl(String fileUrl) {
+  public FileResponse fileUrl(@jakarta.annotation.Nonnull String fileUrl) {
     this.fileUrl = fileUrl;
     return this;
   }
@@ -83,12 +85,12 @@ public class FileResponse {
 
   @JsonProperty(JSON_PROPERTY_FILE_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFileUrl(String fileUrl) {
+  public void setFileUrl(@jakarta.annotation.Nonnull String fileUrl) {
     this.fileUrl = fileUrl;
   }
 
 
-  public FileResponse expiresAt(Integer expiresAt) {
+  public FileResponse expiresAt(@jakarta.annotation.Nonnull Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -108,7 +110,7 @@ public class FileResponse {
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExpiresAt(Integer expiresAt) {
+  public void setExpiresAt(@jakarta.annotation.Nonnull Integer expiresAt) {
     this.expiresAt = expiresAt;
   }
 

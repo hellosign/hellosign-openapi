@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   FaxGetResponse.JSON_PROPERTY_FAX,
   FaxGetResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxGetResponse {
   public static final String JSON_PROPERTY_FAX = "fax";
+  @jakarta.annotation.Nonnull
   private FaxResponse fax;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public FaxGetResponse() { 
@@ -67,7 +69,7 @@ public class FaxGetResponse {
     );
   }
 
-  public FaxGetResponse fax(FaxResponse fax) {
+  public FaxGetResponse fax(@jakarta.annotation.Nonnull FaxResponse fax) {
     this.fax = fax;
     return this;
   }
@@ -87,12 +89,12 @@ public class FaxGetResponse {
 
   @JsonProperty(JSON_PROPERTY_FAX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFax(FaxResponse fax) {
+  public void setFax(@jakarta.annotation.Nonnull FaxResponse fax) {
     this.fax = fax;
   }
 
 
-  public FaxGetResponse warnings(List<WarningResponse> warnings) {
+  public FaxGetResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class FaxGetResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   ReportCreateResponse.JSON_PROPERTY_REPORT,
   ReportCreateResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ReportCreateResponse {
   public static final String JSON_PROPERTY_REPORT = "report";
+  @jakarta.annotation.Nonnull
   private ReportResponse report;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public ReportCreateResponse() { 
@@ -67,7 +69,7 @@ public class ReportCreateResponse {
     );
   }
 
-  public ReportCreateResponse report(ReportResponse report) {
+  public ReportCreateResponse report(@jakarta.annotation.Nonnull ReportResponse report) {
     this.report = report;
     return this;
   }
@@ -87,12 +89,12 @@ public class ReportCreateResponse {
 
   @JsonProperty(JSON_PROPERTY_REPORT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setReport(ReportResponse report) {
+  public void setReport(@jakarta.annotation.Nonnull ReportResponse report) {
     this.report = report;
   }
 
 
-  public ReportCreateResponse warnings(List<WarningResponse> warnings) {
+  public ReportCreateResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class ReportCreateResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

@@ -39,22 +39,27 @@ import com.dropbox.sign.ApiException;
   OAuthTokenGenerateRequest.JSON_PROPERTY_GRANT_TYPE,
   OAuthTokenGenerateRequest.JSON_PROPERTY_STATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class OAuthTokenGenerateRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @jakarta.annotation.Nonnull
   private String clientId;
 
   public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
+  @jakarta.annotation.Nonnull
   private String clientSecret;
 
   public static final String JSON_PROPERTY_CODE = "code";
+  @jakarta.annotation.Nonnull
   private String code;
 
   public static final String JSON_PROPERTY_GRANT_TYPE = "grant_type";
+  @jakarta.annotation.Nonnull
   private String grantType = "authorization_code";
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @jakarta.annotation.Nonnull
   private String state;
 
   public OAuthTokenGenerateRequest() { 
@@ -75,7 +80,7 @@ public class OAuthTokenGenerateRequest {
     );
   }
 
-  public OAuthTokenGenerateRequest clientId(String clientId) {
+  public OAuthTokenGenerateRequest clientId(@jakarta.annotation.Nonnull String clientId) {
     this.clientId = clientId;
     return this;
   }
@@ -95,12 +100,12 @@ public class OAuthTokenGenerateRequest {
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setClientId(String clientId) {
+  public void setClientId(@jakarta.annotation.Nonnull String clientId) {
     this.clientId = clientId;
   }
 
 
-  public OAuthTokenGenerateRequest clientSecret(String clientSecret) {
+  public OAuthTokenGenerateRequest clientSecret(@jakarta.annotation.Nonnull String clientSecret) {
     this.clientSecret = clientSecret;
     return this;
   }
@@ -120,12 +125,12 @@ public class OAuthTokenGenerateRequest {
 
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setClientSecret(String clientSecret) {
+  public void setClientSecret(@jakarta.annotation.Nonnull String clientSecret) {
     this.clientSecret = clientSecret;
   }
 
 
-  public OAuthTokenGenerateRequest code(String code) {
+  public OAuthTokenGenerateRequest code(@jakarta.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
@@ -145,12 +150,12 @@ public class OAuthTokenGenerateRequest {
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCode(String code) {
+  public void setCode(@jakarta.annotation.Nonnull String code) {
     this.code = code;
   }
 
 
-  public OAuthTokenGenerateRequest grantType(String grantType) {
+  public OAuthTokenGenerateRequest grantType(@jakarta.annotation.Nonnull String grantType) {
     this.grantType = grantType;
     return this;
   }
@@ -170,12 +175,12 @@ public class OAuthTokenGenerateRequest {
 
   @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGrantType(String grantType) {
+  public void setGrantType(@jakarta.annotation.Nonnull String grantType) {
     this.grantType = grantType;
   }
 
 
-  public OAuthTokenGenerateRequest state(String state) {
+  public OAuthTokenGenerateRequest state(@jakarta.annotation.Nonnull String state) {
     this.state = state;
     return this;
   }
@@ -195,7 +200,7 @@ public class OAuthTokenGenerateRequest {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(String state) {
+  public void setState(@jakarta.annotation.Nonnull String state) {
     this.state = state;
   }
 

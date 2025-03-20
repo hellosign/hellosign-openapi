@@ -35,10 +35,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   AccountVerifyRequest.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountVerifyRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nonnull
   private String emailAddress;
 
   public AccountVerifyRequest() { 
@@ -59,7 +60,7 @@ public class AccountVerifyRequest {
     );
   }
 
-  public AccountVerifyRequest emailAddress(String emailAddress) {
+  public AccountVerifyRequest emailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -79,7 +80,7 @@ public class AccountVerifyRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
   }
 

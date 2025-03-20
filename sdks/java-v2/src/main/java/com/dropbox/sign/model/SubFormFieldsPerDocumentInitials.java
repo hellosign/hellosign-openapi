@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentInitials.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -48,6 +48,7 @@ import com.dropbox.sign.ApiException;
 
 public class SubFormFieldsPerDocumentInitials extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "initials";
 
   public SubFormFieldsPerDocumentInitials() { 
@@ -68,7 +69,7 @@ public class SubFormFieldsPerDocumentInitials extends SubFormFieldsPerDocumentBa
     );
   }
 
-  public SubFormFieldsPerDocumentInitials type(String type) {
+  public SubFormFieldsPerDocumentInitials type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -88,7 +89,7 @@ public class SubFormFieldsPerDocumentInitials extends SubFormFieldsPerDocumentBa
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 

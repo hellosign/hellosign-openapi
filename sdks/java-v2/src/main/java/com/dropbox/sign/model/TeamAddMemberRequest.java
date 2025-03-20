@@ -37,26 +37,28 @@ import com.dropbox.sign.ApiException;
   TeamAddMemberRequest.JSON_PROPERTY_EMAIL_ADDRESS,
   TeamAddMemberRequest.JSON_PROPERTY_ROLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamAddMemberRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  @jakarta.annotation.Nullable
   private String accountId;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nullable
   private String emailAddress;
 
   /**
    * A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.
    */
   public enum RoleEnum {
-    MEMBER("Member"),
+    MEMBER(String.valueOf("Member")),
     
-    DEVELOPER("Developer"),
+    DEVELOPER(String.valueOf("Developer")),
     
-    TEAM_MANAGER("Team Manager"),
+    TEAM_MANAGER(String.valueOf("Team Manager")),
     
-    ADMIN("Admin");
+    ADMIN(String.valueOf("Admin"));
 
     private String value;
 
@@ -86,6 +88,7 @@ public class TeamAddMemberRequest {
   }
 
   public static final String JSON_PROPERTY_ROLE = "role";
+  @jakarta.annotation.Nullable
   private RoleEnum role;
 
   public TeamAddMemberRequest() { 
@@ -106,7 +109,7 @@ public class TeamAddMemberRequest {
     );
   }
 
-  public TeamAddMemberRequest accountId(String accountId) {
+  public TeamAddMemberRequest accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -126,12 +129,12 @@ public class TeamAddMemberRequest {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountId(String accountId) {
+  public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
   }
 
 
-  public TeamAddMemberRequest emailAddress(String emailAddress) {
+  public TeamAddMemberRequest emailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -151,12 +154,12 @@ public class TeamAddMemberRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public TeamAddMemberRequest role(RoleEnum role) {
+  public TeamAddMemberRequest role(@jakarta.annotation.Nullable RoleEnum role) {
     this.role = role;
     return this;
   }
@@ -176,7 +179,7 @@ public class TeamAddMemberRequest {
 
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRole(RoleEnum role) {
+  public void setRole(@jakarta.annotation.Nullable RoleEnum role) {
     this.role = role;
   }
 

@@ -35,10 +35,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   ApiAppResponseOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppResponseOptions {
   public static final String JSON_PROPERTY_CAN_INSERT_EVERYWHERE = "can_insert_everywhere";
+  @jakarta.annotation.Nullable
   private Boolean canInsertEverywhere;
 
   public ApiAppResponseOptions() { 
@@ -59,7 +60,7 @@ public class ApiAppResponseOptions {
     );
   }
 
-  public ApiAppResponseOptions canInsertEverywhere(Boolean canInsertEverywhere) {
+  public ApiAppResponseOptions canInsertEverywhere(@jakarta.annotation.Nullable Boolean canInsertEverywhere) {
     this.canInsertEverywhere = canInsertEverywhere;
     return this;
   }
@@ -79,7 +80,7 @@ public class ApiAppResponseOptions {
 
   @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCanInsertEverywhere(Boolean canInsertEverywhere) {
+  public void setCanInsertEverywhere(@jakarta.annotation.Nullable Boolean canInsertEverywhere) {
     this.canInsertEverywhere = canInsertEverywhere;
   }
 
