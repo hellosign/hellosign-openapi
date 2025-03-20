@@ -536,11 +536,11 @@ class ApiClient:
             Union[
                 str,
                 bytes,
-                io.IOBase,
                 List[str],
                 List[bytes],
-                List[io.IOBase],
                 Tuple[str, bytes, io.IOBase],
+                io.IOBase,
+                List[io.IOBase],
             ],
         ],
     ):

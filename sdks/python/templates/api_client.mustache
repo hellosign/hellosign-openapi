@@ -552,7 +552,7 @@ class ApiClient:
         files: Dict[str, Union[str, bytes, List[str], List[bytes], Tuple[str, bytes]]],
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
-        files: Dict[str, Union[str, bytes, io.IOBase, List[str], List[bytes], List[io.IOBase], Tuple[str, bytes, io.IOBase]]],
+        files: Dict[str, Union[str, bytes, List[str], List[bytes], Tuple[str, bytes, io.IOBase], io.IOBase, List[io.IOBase]]],
 {{/useCustomTemplateCode}}
     ):
         """Builds form parameters.
