@@ -66,6 +66,8 @@ export class SignatureRequestSendWithTemplateRequest {
   "fileUrls"?: Array<string>;
   /**
    * Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer\'s identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.
+   *
+   * @deprecated
    */
   "isQualifiedSignature"?: boolean = false;
   /**
