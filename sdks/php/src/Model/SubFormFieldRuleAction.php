@@ -239,7 +239,9 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, JsonSeriali
     }
 
     public const TYPE_CHANGE_FIELD_VISIBILITY = 'change-field-visibility';
+    public const TYPE_FIELD_VISIBILITY = self::TYPE_CHANGE_FIELD_VISIBILITY;
     public const TYPE_CHANGE_GROUP_VISIBILITY = 'change-group-visibility';
+    public const TYPE_GROUP_VISIBILITY = self::TYPE_CHANGE_GROUP_VISIBILITY;
 
     /**
      * Gets allowable values of the enum
