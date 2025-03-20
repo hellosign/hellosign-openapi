@@ -56,7 +56,7 @@ public class TeamApi {
   }
 
   /**
-   * Add User to Team.
+   * Add User to Team
    * Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
    * @param teamAddMemberRequest  (required)
    * @param teamId The id of the team. (optional)
@@ -95,7 +95,7 @@ public class TeamApi {
 
 
   /**
-   * Add User to Team.
+   * Add User to Team
    * Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
    * @param teamAddMemberRequest  (required)
    * @param teamId The id of the team. (optional)
@@ -145,7 +145,7 @@ public class TeamApi {
     );
   }
   /**
-   * Create Team.
+   * Create Team
    * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
    * @param teamCreateRequest  (required)
    * @return TeamGetResponse
@@ -164,7 +164,7 @@ public class TeamApi {
 
 
   /**
-   * Create Team.
+   * Create Team
    * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
    * @param teamCreateRequest  (required)
    * @return ApiResponse&lt;TeamGetResponse&gt;
@@ -208,7 +208,7 @@ public class TeamApi {
     );
   }
   /**
-   * Delete Team.
+   * Delete Team
    * Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -225,7 +225,7 @@ public class TeamApi {
 
 
   /**
-   * Delete Team.
+   * Delete Team
    * Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -262,7 +262,7 @@ public class TeamApi {
     );
   }
   /**
-   * Get Team.
+   * Get Team
    * Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
    * @return TeamGetResponse
    * @throws ApiException if fails to make API call
@@ -280,7 +280,7 @@ public class TeamApi {
 
 
   /**
-   * Get Team.
+   * Get Team
    * Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
    * @return ApiResponse&lt;TeamGetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -318,7 +318,7 @@ public class TeamApi {
     );
   }
   /**
-   * Get Team Info.
+   * Get Team Info
    * Provides information about a team.
    * @param teamId The id of the team. (optional)
    * @return TeamGetInfoResponse
@@ -356,7 +356,7 @@ public class TeamApi {
 
 
   /**
-   * Get Team Info.
+   * Get Team Info
    * Provides information about a team.
    * @param teamId The id of the team. (optional)
    * @return ApiResponse&lt;TeamGetInfoResponse&gt;
@@ -400,7 +400,7 @@ public class TeamApi {
     );
   }
   /**
-   * List Team Invites.
+   * List Team Invites
    * Provides a list of team invites (and their roles).
    * @param emailAddress The email address for which to display the team invites. (optional)
    * @return TeamInvitesResponse
@@ -438,7 +438,7 @@ public class TeamApi {
 
 
   /**
-   * List Team Invites.
+   * List Team Invites
    * Provides a list of team invites (and their roles).
    * @param emailAddress The email address for which to display the team invites. (optional)
    * @return ApiResponse&lt;TeamInvitesResponse&gt;
@@ -482,7 +482,7 @@ public class TeamApi {
     );
   }
   /**
-   * List Team Members.
+   * List Team Members
    * Provides a paginated list of members (and their roles) that belong to a given team.
    * @param teamId The id of the team that a member list is being requested from. (required)
    * @param page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -542,7 +542,7 @@ public class TeamApi {
 
 
   /**
-   * List Team Members.
+   * List Team Members
    * Provides a paginated list of members (and their roles) that belong to a given team.
    * @param teamId The id of the team that a member list is being requested from. (required)
    * @param page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -604,7 +604,7 @@ public class TeamApi {
     );
   }
   /**
-   * Remove User from Team.
+   * Remove User from Team
    * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
    * @param teamRemoveMemberRequest  (required)
    * @return TeamGetResponse
@@ -623,7 +623,7 @@ public class TeamApi {
 
 
   /**
-   * Remove User from Team.
+   * Remove User from Team
    * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
    * @param teamRemoveMemberRequest  (required)
    * @return ApiResponse&lt;TeamGetResponse&gt;
@@ -667,7 +667,7 @@ public class TeamApi {
     );
   }
   /**
-   * List Sub Teams.
+   * List Sub Teams
    * Provides a paginated list of sub teams that belong to a given team.
    * @param teamId The id of the parent Team. (required)
    * @param page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -727,7 +727,7 @@ public class TeamApi {
 
 
   /**
-   * List Sub Teams.
+   * List Sub Teams
    * Provides a paginated list of sub teams that belong to a given team.
    * @param teamId The id of the parent Team. (required)
    * @param page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -789,7 +789,7 @@ public class TeamApi {
     );
   }
   /**
-   * Update Team.
+   * Update Team
    * Updates the name of your Team.
    * @param teamUpdateRequest  (required)
    * @return TeamGetResponse
@@ -808,7 +808,7 @@ public class TeamApi {
 
 
   /**
-   * Update Team.
+   * Update Team
    * Updates the name of your Team.
    * @param teamUpdateRequest  (required)
    * @return ApiResponse&lt;TeamGetResponse&gt;

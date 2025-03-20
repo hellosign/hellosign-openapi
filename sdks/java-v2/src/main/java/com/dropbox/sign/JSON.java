@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.dropbox.sign.model.*;
 
 import java.text.DateFormat;
 import java.util.HashMap;

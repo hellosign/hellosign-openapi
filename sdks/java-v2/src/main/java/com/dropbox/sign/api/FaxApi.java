@@ -51,7 +51,7 @@ public class FaxApi {
   }
 
   /**
-   * Delete Fax.
+   * Delete Fax
    * Deletes the specified Fax from the system
    * @param faxId Fax ID (required)
    * @throws ApiException if fails to make API call
@@ -69,7 +69,7 @@ public class FaxApi {
 
 
   /**
-   * Delete Fax.
+   * Delete Fax
    * Deletes the specified Fax from the system
    * @param faxId Fax ID (required)
    * @return ApiResponse&lt;Void&gt;
@@ -116,7 +116,7 @@ public class FaxApi {
     );
   }
   /**
-   * Download Fax Files.
+   * Download Fax Files
    * Downloads files associated with a Fax
    * @param faxId Fax ID (required)
    * @return File
@@ -135,7 +135,7 @@ public class FaxApi {
 
 
   /**
-   * Download Fax Files.
+   * Download Fax Files
    * Downloads files associated with a Fax
    * @param faxId Fax ID (required)
    * @return ApiResponse&lt;File&gt;
@@ -183,7 +183,7 @@ public class FaxApi {
     );
   }
   /**
-   * Get Fax.
+   * Get Fax
    * Returns information about a Fax
    * @param faxId Fax ID (required)
    * @return FaxGetResponse
@@ -202,7 +202,7 @@ public class FaxApi {
 
 
   /**
-   * Get Fax.
+   * Get Fax
    * Returns information about a Fax
    * @param faxId Fax ID (required)
    * @return ApiResponse&lt;FaxGetResponse&gt;
@@ -250,7 +250,7 @@ public class FaxApi {
     );
   }
   /**
-   * Lists Faxes.
+   * Lists Faxes
    * Returns properties of multiple Faxes
    * @param page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -309,7 +309,7 @@ public class FaxApi {
 
 
   /**
-   * Lists Faxes.
+   * Lists Faxes
    * Returns properties of multiple Faxes
    * @param page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -361,7 +361,7 @@ public class FaxApi {
     );
   }
   /**
-   * Send Fax.
+   * Send Fax
    * Creates and sends a new Fax with the submitted file(s)
    * @param faxSendRequest  (required)
    * @return FaxGetResponse
@@ -380,7 +380,7 @@ public class FaxApi {
 
 
   /**
-   * Send Fax.
+   * Send Fax
    * Creates and sends a new Fax with the submitted file(s)
    * @param faxSendRequest  (required)
    * @return ApiResponse&lt;FaxGetResponse&gt;

@@ -42,7 +42,6 @@ public class JSON implements ContextResolver<ObjectMapper> {
             {{#openApiNullable}}
             .addModule(new JsonNullableModule())
             {{/openApiNullable}}
-            .addModule(new RFC3339JavaTimeModule())
             .build();
   }
 

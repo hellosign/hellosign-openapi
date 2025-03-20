@@ -51,7 +51,7 @@ public class ApiAppApi {
   }
 
   /**
-   * Create API App.
+   * Create API App
    * Creates a new API App.
    * @param apiAppCreateRequest  (required)
    * @return ApiAppGetResponse
@@ -70,7 +70,7 @@ public class ApiAppApi {
 
 
   /**
-   * Create API App.
+   * Create API App
    * Creates a new API App.
    * @param apiAppCreateRequest  (required)
    * @return ApiResponse&lt;ApiAppGetResponse&gt;
@@ -114,7 +114,7 @@ public class ApiAppApi {
     );
   }
   /**
-   * Delete API App.
+   * Delete API App
    * Deletes an API App. Can only be invoked for apps you own.
    * @param clientId The client id of the API App to delete. (required)
    * @throws ApiException if fails to make API call
@@ -132,7 +132,7 @@ public class ApiAppApi {
 
 
   /**
-   * Delete API App.
+   * Delete API App
    * Deletes an API App. Can only be invoked for apps you own.
    * @param clientId The client id of the API App to delete. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -179,7 +179,7 @@ public class ApiAppApi {
     );
   }
   /**
-   * Get API App.
+   * Get API App
    * Returns an object with information about an API App.
    * @param clientId The client id of the API App to retrieve. (required)
    * @return ApiAppGetResponse
@@ -198,7 +198,7 @@ public class ApiAppApi {
 
 
   /**
-   * Get API App.
+   * Get API App
    * Returns an object with information about an API App.
    * @param clientId The client id of the API App to retrieve. (required)
    * @return ApiResponse&lt;ApiAppGetResponse&gt;
@@ -246,7 +246,7 @@ public class ApiAppApi {
     );
   }
   /**
-   * List API Apps.
+   * List API Apps
    * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
    * @param page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -305,7 +305,7 @@ public class ApiAppApi {
 
 
   /**
-   * List API Apps.
+   * List API Apps
    * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
    * @param page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -357,7 +357,7 @@ public class ApiAppApi {
     );
   }
   /**
-   * Update API App.
+   * Update API App
    * Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
    * @param clientId The client id of the API App to update. (required)
    * @param apiAppUpdateRequest  (required)
@@ -377,7 +377,7 @@ public class ApiAppApi {
 
 
   /**
-   * Update API App.
+   * Update API App
    * Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
    * @param clientId The client id of the API App to update. (required)
    * @param apiAppUpdateRequest  (required)

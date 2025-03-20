@@ -130,9 +130,9 @@ dependencies {
     implementation "io.github.openfeign:feign-okhttp:$feign_version"
     implementation "io.github.openfeign.form:feign-form:$feign_form_version"
     {{#jackson}}
-        {{#joda}}
+    {{#joda}}
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-joda:$jackson_version"
-        {{/joda}}
+    {{/joda}}
     implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
     implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
     implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_databind_version"

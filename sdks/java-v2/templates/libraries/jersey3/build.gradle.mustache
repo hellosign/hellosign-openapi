@@ -229,6 +229,9 @@ ext {
     {{#hasHttpSignatureMethods}}
     tomitribe_http_signatures_version = "1.7"
     {{/hasHttpSignatureMethods}}
+    {{#useReflectionEqualsHashCode}}
+    commons_lang3_version = "3.17.0"
+    {{/useReflectionEqualsHashCode}}
 {{#useCustomTemplateCode}}
     mockito_version = "3.12.4"
 {{/useCustomTemplateCode}}
