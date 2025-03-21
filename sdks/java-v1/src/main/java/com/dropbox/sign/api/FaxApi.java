@@ -54,7 +54,8 @@ public class FaxApi {
      * @param faxId Fax ID (required)
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -71,7 +72,8 @@ public class FaxApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -119,7 +121,8 @@ public class FaxApi {
      * @return File
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -136,7 +139,8 @@ public class FaxApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -186,7 +190,8 @@ public class FaxApi {
      * @return FaxGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -203,7 +208,8 @@ public class FaxApi {
      * @return ApiResponse&lt;FaxGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -255,7 +261,8 @@ public class FaxApi {
      * @return FaxListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -313,7 +320,8 @@ public class FaxApi {
      * @return ApiResponse&lt;FaxListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -364,7 +372,8 @@ public class FaxApi {
      * @return FaxGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -381,7 +390,8 @@ public class FaxApi {
      * @return ApiResponse&lt;FaxGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

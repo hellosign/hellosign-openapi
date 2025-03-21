@@ -44,31 +44,31 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxSendRequest {
     public static final String JSON_PROPERTY_RECIPIENT = "recipient";
-    private String recipient;
+    @javax.annotation.Nonnull private String recipient;
 
     public static final String JSON_PROPERTY_SENDER = "sender";
-    private String sender;
+    @javax.annotation.Nullable private String sender;
 
     public static final String JSON_PROPERTY_FILES = "files";
-    private List<File> files = null;
+    @javax.annotation.Nullable private List<File> files = null;
 
     public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-    private List<String> fileUrls = null;
+    @javax.annotation.Nullable private List<String> fileUrls = null;
 
     public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    private Boolean testMode = false;
+    @javax.annotation.Nullable private Boolean testMode = false;
 
     public static final String JSON_PROPERTY_COVER_PAGE_TO = "cover_page_to";
-    private String coverPageTo;
+    @javax.annotation.Nullable private String coverPageTo;
 
     public static final String JSON_PROPERTY_COVER_PAGE_FROM = "cover_page_from";
-    private String coverPageFrom;
+    @javax.annotation.Nullable private String coverPageFrom;
 
     public static final String JSON_PROPERTY_COVER_PAGE_MESSAGE = "cover_page_message";
-    private String coverPageMessage;
+    @javax.annotation.Nullable private String coverPageMessage;
 
     public static final String JSON_PROPERTY_TITLE = "title";
-    private String title;
+    @javax.annotation.Nullable private String title;
 
     public FaxSendRequest() {}
 
@@ -86,7 +86,7 @@ public class FaxSendRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxSendRequest.class);
     }
 
-    public FaxSendRequest recipient(String recipient) {
+    public FaxSendRequest recipient(@javax.annotation.Nonnull String recipient) {
         this.recipient = recipient;
         return this;
     }
@@ -105,11 +105,11 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_RECIPIENT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setRecipient(String recipient) {
+    public void setRecipient(@javax.annotation.Nonnull String recipient) {
         this.recipient = recipient;
     }
 
-    public FaxSendRequest sender(String sender) {
+    public FaxSendRequest sender(@javax.annotation.Nullable String sender) {
         this.sender = sender;
         return this;
     }
@@ -127,11 +127,11 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_SENDER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSender(String sender) {
+    public void setSender(@javax.annotation.Nullable String sender) {
         this.sender = sender;
     }
 
-    public FaxSendRequest files(List<File> files) {
+    public FaxSendRequest files(@javax.annotation.Nullable List<File> files) {
         this.files = files;
         return this;
     }
@@ -158,11 +158,11 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_FILES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFiles(List<File> files) {
+    public void setFiles(@javax.annotation.Nullable List<File> files) {
         this.files = files;
     }
 
-    public FaxSendRequest fileUrls(List<String> fileUrls) {
+    public FaxSendRequest fileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
         return this;
     }
@@ -189,11 +189,11 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_FILE_URLS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFileUrls(List<String> fileUrls) {
+    public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
     }
 
-    public FaxSendRequest testMode(Boolean testMode) {
+    public FaxSendRequest testMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
         return this;
     }
@@ -211,11 +211,11 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_TEST_MODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(Boolean testMode) {
+    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
     }
 
-    public FaxSendRequest coverPageTo(String coverPageTo) {
+    public FaxSendRequest coverPageTo(@javax.annotation.Nullable String coverPageTo) {
         this.coverPageTo = coverPageTo;
         return this;
     }
@@ -233,11 +233,11 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_COVER_PAGE_TO)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCoverPageTo(String coverPageTo) {
+    public void setCoverPageTo(@javax.annotation.Nullable String coverPageTo) {
         this.coverPageTo = coverPageTo;
     }
 
-    public FaxSendRequest coverPageFrom(String coverPageFrom) {
+    public FaxSendRequest coverPageFrom(@javax.annotation.Nullable String coverPageFrom) {
         this.coverPageFrom = coverPageFrom;
         return this;
     }
@@ -255,11 +255,11 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_COVER_PAGE_FROM)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCoverPageFrom(String coverPageFrom) {
+    public void setCoverPageFrom(@javax.annotation.Nullable String coverPageFrom) {
         this.coverPageFrom = coverPageFrom;
     }
 
-    public FaxSendRequest coverPageMessage(String coverPageMessage) {
+    public FaxSendRequest coverPageMessage(@javax.annotation.Nullable String coverPageMessage) {
         this.coverPageMessage = coverPageMessage;
         return this;
     }
@@ -277,11 +277,11 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_COVER_PAGE_MESSAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCoverPageMessage(String coverPageMessage) {
+    public void setCoverPageMessage(@javax.annotation.Nullable String coverPageMessage) {
         this.coverPageMessage = coverPageMessage;
     }
 
-    public FaxSendRequest title(String title) {
+    public FaxSendRequest title(@javax.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -299,7 +299,7 @@ public class FaxSendRequest {
 
     @JsonProperty(JSON_PROPERTY_TITLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTitle(String title) {
+    public void setTitle(@javax.annotation.Nullable String title) {
         this.title = title;
     }
 

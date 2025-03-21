@@ -31,7 +31,7 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountResponseUsage {
     public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
-    private Integer faxPagesSent;
+    @javax.annotation.Nullable private Integer faxPagesSent;
 
     public AccountResponseUsage() {}
 
@@ -49,7 +49,7 @@ public class AccountResponseUsage {
                 .readValue(new ObjectMapper().writeValueAsString(data), AccountResponseUsage.class);
     }
 
-    public AccountResponseUsage faxPagesSent(Integer faxPagesSent) {
+    public AccountResponseUsage faxPagesSent(@javax.annotation.Nullable Integer faxPagesSent) {
         this.faxPagesSent = faxPagesSent;
         return this;
     }
@@ -67,7 +67,7 @@ public class AccountResponseUsage {
 
     @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFaxPagesSent(Integer faxPagesSent) {
+    public void setFaxPagesSent(@javax.annotation.Nullable Integer faxPagesSent) {
         this.faxPagesSent = faxPagesSent;
     }
 

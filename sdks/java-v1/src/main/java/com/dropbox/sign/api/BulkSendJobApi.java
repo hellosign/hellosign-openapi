@@ -58,7 +58,8 @@ public class BulkSendJobApi {
      * @return BulkSendJobGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -122,7 +123,8 @@ public class BulkSendJobApi {
      * @return ApiResponse&lt;BulkSendJobGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -191,7 +193,8 @@ public class BulkSendJobApi {
      * @return BulkSendJobListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -251,7 +254,8 @@ public class BulkSendJobApi {
      * @return ApiResponse&lt;BulkSendJobListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

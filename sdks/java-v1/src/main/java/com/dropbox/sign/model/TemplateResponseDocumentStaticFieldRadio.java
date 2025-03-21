@@ -40,7 +40,7 @@ import java.util.Objects;
 public class TemplateResponseDocumentStaticFieldRadio
         extends TemplateResponseDocumentStaticFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "radio";
+    @javax.annotation.Nonnull private String type = "radio";
 
     public TemplateResponseDocumentStaticFieldRadio() {}
 
@@ -61,7 +61,7 @@ public class TemplateResponseDocumentStaticFieldRadio
                         TemplateResponseDocumentStaticFieldRadio.class);
     }
 
-    public TemplateResponseDocumentStaticFieldRadio type(String type) {
+    public TemplateResponseDocumentStaticFieldRadio type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -88,7 +88,7 @@ public class TemplateResponseDocumentStaticFieldRadio
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 

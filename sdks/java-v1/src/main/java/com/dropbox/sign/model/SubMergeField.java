@@ -33,13 +33,13 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubMergeField {
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nonnull private String name;
 
     /** The type of merge field. */
     public enum TypeEnum {
-        TEXT("text"),
+        TEXT(String.valueOf("text")),
 
-        CHECKBOX("checkbox");
+        CHECKBOX(String.valueOf("checkbox"));
 
         private String value;
 
@@ -69,7 +69,7 @@ public class SubMergeField {
     }
 
     public static final String JSON_PROPERTY_TYPE = "type";
-    private TypeEnum type;
+    @javax.annotation.Nonnull private TypeEnum type;
 
     public SubMergeField() {}
 
@@ -87,7 +87,7 @@ public class SubMergeField {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubMergeField.class);
     }
 
-    public SubMergeField name(String name) {
+    public SubMergeField name(@javax.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -106,11 +106,11 @@ public class SubMergeField {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public SubMergeField type(TypeEnum type) {
+    public SubMergeField type(@javax.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -129,7 +129,7 @@ public class SubMergeField {
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(TypeEnum type) {
+    public void setType(@javax.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 

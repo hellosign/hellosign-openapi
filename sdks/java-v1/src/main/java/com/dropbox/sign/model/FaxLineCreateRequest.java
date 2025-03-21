@@ -38,15 +38,15 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineCreateRequest {
     public static final String JSON_PROPERTY_AREA_CODE = "area_code";
-    private Integer areaCode;
+    @javax.annotation.Nonnull private Integer areaCode;
 
     /** Country of the area code */
     public enum CountryEnum {
-        CA("CA"),
+        CA(String.valueOf("CA")),
 
-        US("US"),
+        US(String.valueOf("US")),
 
-        UK("UK");
+        UK(String.valueOf("UK"));
 
         private String value;
 
@@ -76,13 +76,13 @@ public class FaxLineCreateRequest {
     }
 
     public static final String JSON_PROPERTY_COUNTRY = "country";
-    private CountryEnum country;
+    @javax.annotation.Nonnull private CountryEnum country;
 
     public static final String JSON_PROPERTY_CITY = "city";
-    private String city;
+    @javax.annotation.Nullable private String city;
 
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+    @javax.annotation.Nullable private String accountId;
 
     public FaxLineCreateRequest() {}
 
@@ -100,7 +100,7 @@ public class FaxLineCreateRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxLineCreateRequest.class);
     }
 
-    public FaxLineCreateRequest areaCode(Integer areaCode) {
+    public FaxLineCreateRequest areaCode(@javax.annotation.Nonnull Integer areaCode) {
         this.areaCode = areaCode;
         return this;
     }
@@ -119,11 +119,11 @@ public class FaxLineCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_AREA_CODE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setAreaCode(Integer areaCode) {
+    public void setAreaCode(@javax.annotation.Nonnull Integer areaCode) {
         this.areaCode = areaCode;
     }
 
-    public FaxLineCreateRequest country(CountryEnum country) {
+    public FaxLineCreateRequest country(@javax.annotation.Nonnull CountryEnum country) {
         this.country = country;
         return this;
     }
@@ -142,11 +142,11 @@ public class FaxLineCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_COUNTRY)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setCountry(CountryEnum country) {
+    public void setCountry(@javax.annotation.Nonnull CountryEnum country) {
         this.country = country;
     }
 
-    public FaxLineCreateRequest city(String city) {
+    public FaxLineCreateRequest city(@javax.annotation.Nullable String city) {
         this.city = city;
         return this;
     }
@@ -164,11 +164,11 @@ public class FaxLineCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_CITY)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCity(String city) {
+    public void setCity(@javax.annotation.Nullable String city) {
         this.city = city;
     }
 
-    public FaxLineCreateRequest accountId(String accountId) {
+    public FaxLineCreateRequest accountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -186,7 +186,7 @@ public class FaxLineCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccountId(String accountId) {
+    public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 

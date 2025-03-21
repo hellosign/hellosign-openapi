@@ -43,10 +43,10 @@ import java.util.Objects;
 public class SignatureRequestResponseCustomFieldCheckbox
         extends SignatureRequestResponseCustomFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "checkbox";
+    @javax.annotation.Nonnull private String type = "checkbox";
 
     public static final String JSON_PROPERTY_VALUE = "value";
-    private Boolean value;
+    @javax.annotation.Nullable private Boolean value;
 
     public SignatureRequestResponseCustomFieldCheckbox() {}
 
@@ -68,7 +68,7 @@ public class SignatureRequestResponseCustomFieldCheckbox
                         SignatureRequestResponseCustomFieldCheckbox.class);
     }
 
-    public SignatureRequestResponseCustomFieldCheckbox type(String type) {
+    public SignatureRequestResponseCustomFieldCheckbox type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -88,11 +88,12 @@ public class SignatureRequestResponseCustomFieldCheckbox
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public SignatureRequestResponseCustomFieldCheckbox value(Boolean value) {
+    public SignatureRequestResponseCustomFieldCheckbox value(
+            @javax.annotation.Nullable Boolean value) {
         this.value = value;
         return this;
     }
@@ -110,7 +111,7 @@ public class SignatureRequestResponseCustomFieldCheckbox
 
     @JsonProperty(JSON_PROPERTY_VALUE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValue(Boolean value) {
+    public void setValue(@javax.annotation.Nullable Boolean value) {
         this.value = value;
     }
 

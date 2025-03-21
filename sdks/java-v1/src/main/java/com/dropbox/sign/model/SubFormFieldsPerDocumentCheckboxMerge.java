@@ -39,7 +39,7 @@ import java.util.Objects;
         visible = true)
 public class SubFormFieldsPerDocumentCheckboxMerge extends SubFormFieldsPerDocumentBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "checkbox-merge";
+    @javax.annotation.Nonnull private String type = "checkbox-merge";
 
     public SubFormFieldsPerDocumentCheckboxMerge() {}
 
@@ -59,7 +59,7 @@ public class SubFormFieldsPerDocumentCheckboxMerge extends SubFormFieldsPerDocum
                         SubFormFieldsPerDocumentCheckboxMerge.class);
     }
 
-    public SubFormFieldsPerDocumentCheckboxMerge type(String type) {
+    public SubFormFieldsPerDocumentCheckboxMerge type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -79,7 +79,7 @@ public class SubFormFieldsPerDocumentCheckboxMerge extends SubFormFieldsPerDocum
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 

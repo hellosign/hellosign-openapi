@@ -31,7 +31,7 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountVerifyRequest {
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nonnull private String emailAddress;
 
     public AccountVerifyRequest() {}
 
@@ -49,7 +49,7 @@ public class AccountVerifyRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), AccountVerifyRequest.class);
     }
 
-    public AccountVerifyRequest emailAddress(String emailAddress) {
+    public AccountVerifyRequest emailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -68,7 +68,7 @@ public class AccountVerifyRequest {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
     }
 

@@ -31,7 +31,7 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseCCRole {
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public TemplateResponseCCRole() {}
 
@@ -50,7 +50,7 @@ public class TemplateResponseCCRole {
                         new ObjectMapper().writeValueAsString(data), TemplateResponseCCRole.class);
     }
 
-    public TemplateResponseCCRole name(String name) {
+    public TemplateResponseCCRole name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -68,7 +68,7 @@ public class TemplateResponseCCRole {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 

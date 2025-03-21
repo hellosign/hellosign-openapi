@@ -35,13 +35,13 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineRemoveUserRequest {
     public static final String JSON_PROPERTY_NUMBER = "number";
-    private String number;
+    @javax.annotation.Nonnull private String number;
 
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+    @javax.annotation.Nullable private String accountId;
 
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nullable private String emailAddress;
 
     public FaxLineRemoveUserRequest() {}
 
@@ -61,7 +61,7 @@ public class FaxLineRemoveUserRequest {
                         FaxLineRemoveUserRequest.class);
     }
 
-    public FaxLineRemoveUserRequest number(String number) {
+    public FaxLineRemoveUserRequest number(@javax.annotation.Nonnull String number) {
         this.number = number;
         return this;
     }
@@ -80,11 +80,11 @@ public class FaxLineRemoveUserRequest {
 
     @JsonProperty(JSON_PROPERTY_NUMBER)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNumber(String number) {
+    public void setNumber(@javax.annotation.Nonnull String number) {
         this.number = number;
     }
 
-    public FaxLineRemoveUserRequest accountId(String accountId) {
+    public FaxLineRemoveUserRequest accountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -102,11 +102,11 @@ public class FaxLineRemoveUserRequest {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccountId(String accountId) {
+    public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public FaxLineRemoveUserRequest emailAddress(String emailAddress) {
+    public FaxLineRemoveUserRequest emailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -124,7 +124,7 @@ public class FaxLineRemoveUserRequest {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
     }
 

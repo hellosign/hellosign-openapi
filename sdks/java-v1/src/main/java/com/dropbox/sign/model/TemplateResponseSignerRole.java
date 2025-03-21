@@ -34,10 +34,10 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseSignerRole {
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public static final String JSON_PROPERTY_ORDER = "order";
-    private Integer order;
+    @javax.annotation.Nullable private Integer order;
 
     public TemplateResponseSignerRole() {}
 
@@ -57,7 +57,7 @@ public class TemplateResponseSignerRole {
                         TemplateResponseSignerRole.class);
     }
 
-    public TemplateResponseSignerRole name(String name) {
+    public TemplateResponseSignerRole name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -75,11 +75,11 @@ public class TemplateResponseSignerRole {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public TemplateResponseSignerRole order(Integer order) {
+    public TemplateResponseSignerRole order(@javax.annotation.Nullable Integer order) {
         this.order = order;
         return this;
     }
@@ -97,7 +97,7 @@ public class TemplateResponseSignerRole {
 
     @JsonProperty(JSON_PROPERTY_ORDER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOrder(Integer order) {
+    public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
     }
 

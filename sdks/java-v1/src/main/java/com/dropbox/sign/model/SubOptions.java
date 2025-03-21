@@ -31,7 +31,7 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubOptions {
     public static final String JSON_PROPERTY_CAN_INSERT_EVERYWHERE = "can_insert_everywhere";
-    private Boolean canInsertEverywhere = false;
+    @javax.annotation.Nullable private Boolean canInsertEverywhere = false;
 
     public SubOptions() {}
 
@@ -49,7 +49,7 @@ public class SubOptions {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubOptions.class);
     }
 
-    public SubOptions canInsertEverywhere(Boolean canInsertEverywhere) {
+    public SubOptions canInsertEverywhere(@javax.annotation.Nullable Boolean canInsertEverywhere) {
         this.canInsertEverywhere = canInsertEverywhere;
         return this;
     }
@@ -67,7 +67,7 @@ public class SubOptions {
 
     @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCanInsertEverywhere(Boolean canInsertEverywhere) {
+    public void setCanInsertEverywhere(@javax.annotation.Nullable Boolean canInsertEverywhere) {
         this.canInsertEverywhere = canInsertEverywhere;
     }
 

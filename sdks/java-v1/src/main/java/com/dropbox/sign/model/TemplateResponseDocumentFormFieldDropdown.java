@@ -43,10 +43,10 @@ import java.util.Objects;
 public class TemplateResponseDocumentFormFieldDropdown
         extends TemplateResponseDocumentFormFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "dropdown";
+    @javax.annotation.Nonnull private String type = "dropdown";
 
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nullable private String group;
 
     public TemplateResponseDocumentFormFieldDropdown() {}
 
@@ -67,7 +67,7 @@ public class TemplateResponseDocumentFormFieldDropdown
                         TemplateResponseDocumentFormFieldDropdown.class);
     }
 
-    public TemplateResponseDocumentFormFieldDropdown type(String type) {
+    public TemplateResponseDocumentFormFieldDropdown type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -94,11 +94,12 @@ public class TemplateResponseDocumentFormFieldDropdown
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public TemplateResponseDocumentFormFieldDropdown group(String group) {
+    public TemplateResponseDocumentFormFieldDropdown group(
+            @javax.annotation.Nullable String group) {
         this.group = group;
         return this;
     }
@@ -117,7 +118,7 @@ public class TemplateResponseDocumentFormFieldDropdown
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
     }
 

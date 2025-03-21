@@ -39,7 +39,7 @@ import java.util.Objects;
         visible = true)
 public class SubFormFieldsPerDocumentSignature extends SubFormFieldsPerDocumentBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "signature";
+    @javax.annotation.Nonnull private String type = "signature";
 
     public SubFormFieldsPerDocumentSignature() {}
 
@@ -59,7 +59,7 @@ public class SubFormFieldsPerDocumentSignature extends SubFormFieldsPerDocumentB
                         SubFormFieldsPerDocumentSignature.class);
     }
 
-    public SubFormFieldsPerDocumentSignature type(String type) {
+    public SubFormFieldsPerDocumentSignature type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -78,7 +78,7 @@ public class SubFormFieldsPerDocumentSignature extends SubFormFieldsPerDocumentB
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 

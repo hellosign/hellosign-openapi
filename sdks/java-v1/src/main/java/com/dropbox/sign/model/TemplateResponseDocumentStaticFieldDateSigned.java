@@ -40,7 +40,7 @@ import java.util.Objects;
 public class TemplateResponseDocumentStaticFieldDateSigned
         extends TemplateResponseDocumentStaticFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "date_signed";
+    @javax.annotation.Nonnull private String type = "date_signed";
 
     public TemplateResponseDocumentStaticFieldDateSigned() {}
 
@@ -63,7 +63,8 @@ public class TemplateResponseDocumentStaticFieldDateSigned
                         TemplateResponseDocumentStaticFieldDateSigned.class);
     }
 
-    public TemplateResponseDocumentStaticFieldDateSigned type(String type) {
+    public TemplateResponseDocumentStaticFieldDateSigned type(
+            @javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -90,7 +91,7 @@ public class TemplateResponseDocumentStaticFieldDateSigned
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 

@@ -40,7 +40,7 @@ import java.util.Objects;
 public class TemplateResponseDocumentStaticFieldText
         extends TemplateResponseDocumentStaticFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "text";
+    @javax.annotation.Nonnull private String type = "text";
 
     public TemplateResponseDocumentStaticFieldText() {}
 
@@ -61,7 +61,7 @@ public class TemplateResponseDocumentStaticFieldText
                         TemplateResponseDocumentStaticFieldText.class);
     }
 
-    public TemplateResponseDocumentStaticFieldText type(String type) {
+    public TemplateResponseDocumentStaticFieldText type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -88,7 +88,7 @@ public class TemplateResponseDocumentStaticFieldText
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 

@@ -43,10 +43,10 @@ import java.util.Objects;
 public class TemplateResponseDocumentFormFieldInitials
         extends TemplateResponseDocumentFormFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "initials";
+    @javax.annotation.Nonnull private String type = "initials";
 
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nullable private String group;
 
     public TemplateResponseDocumentFormFieldInitials() {}
 
@@ -67,7 +67,7 @@ public class TemplateResponseDocumentFormFieldInitials
                         TemplateResponseDocumentFormFieldInitials.class);
     }
 
-    public TemplateResponseDocumentFormFieldInitials type(String type) {
+    public TemplateResponseDocumentFormFieldInitials type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -94,11 +94,12 @@ public class TemplateResponseDocumentFormFieldInitials
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public TemplateResponseDocumentFormFieldInitials group(String group) {
+    public TemplateResponseDocumentFormFieldInitials group(
+            @javax.annotation.Nullable String group) {
         this.group = group;
         return this;
     }
@@ -117,7 +118,7 @@ public class TemplateResponseDocumentFormFieldInitials
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
     }
 

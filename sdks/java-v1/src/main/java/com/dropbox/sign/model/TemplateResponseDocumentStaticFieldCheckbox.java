@@ -40,7 +40,7 @@ import java.util.Objects;
 public class TemplateResponseDocumentStaticFieldCheckbox
         extends TemplateResponseDocumentStaticFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "checkbox";
+    @javax.annotation.Nonnull private String type = "checkbox";
 
     public TemplateResponseDocumentStaticFieldCheckbox() {}
 
@@ -62,7 +62,7 @@ public class TemplateResponseDocumentStaticFieldCheckbox
                         TemplateResponseDocumentStaticFieldCheckbox.class);
     }
 
-    public TemplateResponseDocumentStaticFieldCheckbox type(String type) {
+    public TemplateResponseDocumentStaticFieldCheckbox type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -89,7 +89,7 @@ public class TemplateResponseDocumentStaticFieldCheckbox
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
