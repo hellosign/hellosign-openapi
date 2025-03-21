@@ -181,12 +181,6 @@ public class {{classname}} {
 
         {{/isQueryParam}}
         {{/constantParams}}
-        {{#headerParams}}
-        if ({{paramName}} != null) {
-            localVarHeaderParams.put("{{baseName}}", localVarApiClient.parameterToString({{paramName}}));
-        }
-
-        {{/headerParams}}
         {{#constantParams}}
         {{#isHeaderParam}}
         // Set client side default value of Header Param "{{baseName}}".

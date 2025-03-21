@@ -82,7 +82,11 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   @Deprecated
   {{/deprecated}}
   {{>nullable_var_annotations}}
+<<<<<<< HEAD
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
+=======
+    private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
+>>>>>>> java-v1-openapi-generator-upgrade-2
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
 
   {{/vars}}

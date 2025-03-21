@@ -115,8 +115,16 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
         this.objectMapper = mapper.copy();
         this.restClient = Optional.ofNullable(restClient).orElseGet(() -> buildRestClient(this.objectMapper));
         this.dateFormat = format;
+<<<<<<< HEAD
         this.objectMapper = createDefaultObjectMapper(format);
         this.init();
+=======
+        this.init();
+    }
+
+    private ApiClient(RestClient restClient, DateFormat format) {
+        this(restClient, createDefaultObjectMapper(format), format);
+>>>>>>> java-v1-openapi-generator-upgrade-2
     }
 
     private ApiClient(RestClient restClient, DateFormat format) {

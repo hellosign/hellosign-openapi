@@ -352,12 +352,6 @@
             <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit-platform-runner.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -367,12 +361,6 @@
         {{#swagger2AnnotationLibrary}}
         <swagger-annotations-version>2.2.15</swagger-annotations-version>
         {{/swagger2AnnotationLibrary}}
-        {{#useJakartaEe}}
-        <spring-web-version>6.1.5</spring-web-version>
-        {{/useJakartaEe}}
-        {{^useJakartaEe}}
-        <spring-web-version>5.3.33</spring-web-version>
-        {{/useJakartaEe}}
         <jackson-version>2.17.1</jackson-version>
         <jackson-databind-version>2.17.1</jackson-databind-version>
         {{#openApiNullable}}
@@ -391,13 +379,9 @@
         {{#joda}}
         <jodatime-version>2.9.9</jodatime-version>
         {{/joda}}
-        {{#useBeanValidation}}
-        <beanvalidation-version>3.0.2</beanvalidation-version>
-        {{/useBeanValidation}}
         {{#performBeanValidation}}
         <hibernate-validator-version>5.4.3.Final</hibernate-validator-version>
         {{/performBeanValidation}}
         <junit-version>5.10.2</junit-version>
-        <junit-platform-runner.version>1.10.0</junit-platform-runner.version>
     </properties>
 </project>
