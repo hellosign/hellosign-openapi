@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({SubTemplateRole.JSON_PROPERTY_NAME, SubTemplateRole.JSON_PROPERTY_ORDER})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubTemplateRole {
     public static final String JSON_PROPERTY_NAME = "name";

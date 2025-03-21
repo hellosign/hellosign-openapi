@@ -29,7 +29,7 @@ import java.util.Objects;
 @JsonPropertyOrder({SubFieldOptions.JSON_PROPERTY_DATE_FORMAT})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubFieldOptions {
     /**

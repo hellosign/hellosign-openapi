@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubFormFieldRuleAction {
     public static final String JSON_PROPERTY_HIDDEN = "hidden";
@@ -42,9 +42,9 @@ public class SubFormFieldRuleAction {
 
     /** Gets or Sets type */
     public enum TypeEnum {
-        FIELD_VISIBILITY(String.valueOf("change-field-visibility")),
+        CHANGE_FIELD_VISIBILITY(String.valueOf("change-field-visibility")),
 
-        GROUP_VISIBILITY(String.valueOf("change-group-visibility"));
+        CHANGE_GROUP_VISIBILITY(String.valueOf("change-group-visibility"));
 
         private String value;
 

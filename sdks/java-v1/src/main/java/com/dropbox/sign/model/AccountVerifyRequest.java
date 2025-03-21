@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({AccountVerifyRequest.JSON_PROPERTY_EMAIL_ADDRESS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountVerifyRequest {
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
