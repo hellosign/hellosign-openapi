@@ -29,14 +29,14 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxGetResponse.JSON_PROPERTY_FAX, FaxGetResponse.JSON_PROPERTY_WARNINGS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxGetResponse {
     public static final String JSON_PROPERTY_FAX = "fax";
-    private FaxResponse fax;
+    @javax.annotation.Nonnull private FaxResponse fax;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public FaxGetResponse() {}
 
@@ -54,7 +54,7 @@ public class FaxGetResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxGetResponse.class);
     }
 
-    public FaxGetResponse fax(FaxResponse fax) {
+    public FaxGetResponse fax(@javax.annotation.Nonnull FaxResponse fax) {
         this.fax = fax;
         return this;
     }
@@ -73,11 +73,11 @@ public class FaxGetResponse {
 
     @JsonProperty(JSON_PROPERTY_FAX)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFax(FaxResponse fax) {
+    public void setFax(@javax.annotation.Nonnull FaxResponse fax) {
         this.fax = fax;
     }
 
-    public FaxGetResponse warnings(List<WarningResponse> warnings) {
+    public FaxGetResponse warnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -103,7 +103,7 @@ public class FaxGetResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

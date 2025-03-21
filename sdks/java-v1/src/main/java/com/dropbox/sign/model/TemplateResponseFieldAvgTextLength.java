@@ -30,14 +30,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseFieldAvgTextLength {
     public static final String JSON_PROPERTY_NUM_LINES = "num_lines";
-    private Integer numLines;
+    @javax.annotation.Nullable private Integer numLines;
 
     public static final String JSON_PROPERTY_NUM_CHARS_PER_LINE = "num_chars_per_line";
-    private Integer numCharsPerLine;
+    @javax.annotation.Nullable private Integer numCharsPerLine;
 
     public TemplateResponseFieldAvgTextLength() {}
 
@@ -57,7 +57,8 @@ public class TemplateResponseFieldAvgTextLength {
                         TemplateResponseFieldAvgTextLength.class);
     }
 
-    public TemplateResponseFieldAvgTextLength numLines(Integer numLines) {
+    public TemplateResponseFieldAvgTextLength numLines(
+            @javax.annotation.Nullable Integer numLines) {
         this.numLines = numLines;
         return this;
     }
@@ -75,11 +76,12 @@ public class TemplateResponseFieldAvgTextLength {
 
     @JsonProperty(JSON_PROPERTY_NUM_LINES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setNumLines(Integer numLines) {
+    public void setNumLines(@javax.annotation.Nullable Integer numLines) {
         this.numLines = numLines;
     }
 
-    public TemplateResponseFieldAvgTextLength numCharsPerLine(Integer numCharsPerLine) {
+    public TemplateResponseFieldAvgTextLength numCharsPerLine(
+            @javax.annotation.Nullable Integer numCharsPerLine) {
         this.numCharsPerLine = numCharsPerLine;
         return this;
     }
@@ -97,7 +99,7 @@ public class TemplateResponseFieldAvgTextLength {
 
     @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setNumCharsPerLine(Integer numCharsPerLine) {
+    public void setNumCharsPerLine(@javax.annotation.Nullable Integer numCharsPerLine) {
         this.numCharsPerLine = numCharsPerLine;
     }
 

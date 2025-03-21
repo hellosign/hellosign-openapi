@@ -27,14 +27,14 @@ import java.util.Objects;
 @JsonPropertyOrder({SubCC.JSON_PROPERTY_ROLE, SubCC.JSON_PROPERTY_EMAIL_ADDRESS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubCC {
     public static final String JSON_PROPERTY_ROLE = "role";
-    private String role;
+    @javax.annotation.Nonnull private String role;
 
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nonnull private String emailAddress;
 
     public SubCC() {}
 
@@ -52,7 +52,7 @@ public class SubCC {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubCC.class);
     }
 
-    public SubCC role(String role) {
+    public SubCC role(@javax.annotation.Nonnull String role) {
         this.role = role;
         return this;
     }
@@ -72,11 +72,11 @@ public class SubCC {
 
     @JsonProperty(JSON_PROPERTY_ROLE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setRole(String role) {
+    public void setRole(@javax.annotation.Nonnull String role) {
         this.role = role;
     }
 
-    public SubCC emailAddress(String emailAddress) {
+    public SubCC emailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -95,7 +95,7 @@ public class SubCC {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
     }
 

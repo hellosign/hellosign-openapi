@@ -49,17 +49,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubWhiteLabelingOptions {
     public static final String JSON_PROPERTY_HEADER_BACKGROUND_COLOR = "header_background_color";
-    private String headerBackgroundColor = "#1a1a1a";
+    @javax.annotation.Nullable private String headerBackgroundColor = "#1a1a1a";
 
     /** Gets or Sets legalVersion */
     public enum LegalVersionEnum {
-        TERMS1("terms1"),
+        TERMS1(String.valueOf("terms1")),
 
-        TERMS2("terms2");
+        TERMS2(String.valueOf("terms2"));
 
         private String value;
 
@@ -89,52 +89,52 @@ public class SubWhiteLabelingOptions {
     }
 
     public static final String JSON_PROPERTY_LEGAL_VERSION = "legal_version";
-    private LegalVersionEnum legalVersion = LegalVersionEnum.TERMS1;
+    @javax.annotation.Nullable private LegalVersionEnum legalVersion = LegalVersionEnum.TERMS1;
 
     public static final String JSON_PROPERTY_LINK_COLOR = "link_color";
-    private String linkColor = "#0061FE";
+    @javax.annotation.Nullable private String linkColor = "#0061FE";
 
     public static final String JSON_PROPERTY_PAGE_BACKGROUND_COLOR = "page_background_color";
-    private String pageBackgroundColor = "#f7f8f9";
+    @javax.annotation.Nullable private String pageBackgroundColor = "#f7f8f9";
 
     public static final String JSON_PROPERTY_PRIMARY_BUTTON_COLOR = "primary_button_color";
-    private String primaryButtonColor = "#0061FE";
+    @javax.annotation.Nullable private String primaryButtonColor = "#0061FE";
 
     public static final String JSON_PROPERTY_PRIMARY_BUTTON_COLOR_HOVER =
             "primary_button_color_hover";
-    private String primaryButtonColorHover = "#0061FE";
+    @javax.annotation.Nullable private String primaryButtonColorHover = "#0061FE";
 
     public static final String JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR =
             "primary_button_text_color";
-    private String primaryButtonTextColor = "#ffffff";
+    @javax.annotation.Nullable private String primaryButtonTextColor = "#ffffff";
 
     public static final String JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR_HOVER =
             "primary_button_text_color_hover";
-    private String primaryButtonTextColorHover = "#ffffff";
+    @javax.annotation.Nullable private String primaryButtonTextColorHover = "#ffffff";
 
     public static final String JSON_PROPERTY_SECONDARY_BUTTON_COLOR = "secondary_button_color";
-    private String secondaryButtonColor = "#ffffff";
+    @javax.annotation.Nullable private String secondaryButtonColor = "#ffffff";
 
     public static final String JSON_PROPERTY_SECONDARY_BUTTON_COLOR_HOVER =
             "secondary_button_color_hover";
-    private String secondaryButtonColorHover = "#ffffff";
+    @javax.annotation.Nullable private String secondaryButtonColorHover = "#ffffff";
 
     public static final String JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR =
             "secondary_button_text_color";
-    private String secondaryButtonTextColor = "#0061FE";
+    @javax.annotation.Nullable private String secondaryButtonTextColor = "#0061FE";
 
     public static final String JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR_HOVER =
             "secondary_button_text_color_hover";
-    private String secondaryButtonTextColorHover = "#0061FE";
+    @javax.annotation.Nullable private String secondaryButtonTextColorHover = "#0061FE";
 
     public static final String JSON_PROPERTY_TEXT_COLOR1 = "text_color1";
-    private String textColor1 = "#808080";
+    @javax.annotation.Nullable private String textColor1 = "#808080";
 
     public static final String JSON_PROPERTY_TEXT_COLOR2 = "text_color2";
-    private String textColor2 = "#ffffff";
+    @javax.annotation.Nullable private String textColor2 = "#ffffff";
 
     public static final String JSON_PROPERTY_RESET_TO_DEFAULT = "reset_to_default";
-    private Boolean resetToDefault;
+    @javax.annotation.Nullable private Boolean resetToDefault;
 
     public SubWhiteLabelingOptions() {}
 
@@ -153,7 +153,8 @@ public class SubWhiteLabelingOptions {
                         new ObjectMapper().writeValueAsString(data), SubWhiteLabelingOptions.class);
     }
 
-    public SubWhiteLabelingOptions headerBackgroundColor(String headerBackgroundColor) {
+    public SubWhiteLabelingOptions headerBackgroundColor(
+            @javax.annotation.Nullable String headerBackgroundColor) {
         this.headerBackgroundColor = headerBackgroundColor;
         return this;
     }
@@ -171,11 +172,12 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_HEADER_BACKGROUND_COLOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setHeaderBackgroundColor(String headerBackgroundColor) {
+    public void setHeaderBackgroundColor(@javax.annotation.Nullable String headerBackgroundColor) {
         this.headerBackgroundColor = headerBackgroundColor;
     }
 
-    public SubWhiteLabelingOptions legalVersion(LegalVersionEnum legalVersion) {
+    public SubWhiteLabelingOptions legalVersion(
+            @javax.annotation.Nullable LegalVersionEnum legalVersion) {
         this.legalVersion = legalVersion;
         return this;
     }
@@ -193,11 +195,11 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_LEGAL_VERSION)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLegalVersion(LegalVersionEnum legalVersion) {
+    public void setLegalVersion(@javax.annotation.Nullable LegalVersionEnum legalVersion) {
         this.legalVersion = legalVersion;
     }
 
-    public SubWhiteLabelingOptions linkColor(String linkColor) {
+    public SubWhiteLabelingOptions linkColor(@javax.annotation.Nullable String linkColor) {
         this.linkColor = linkColor;
         return this;
     }
@@ -215,11 +217,12 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_LINK_COLOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLinkColor(String linkColor) {
+    public void setLinkColor(@javax.annotation.Nullable String linkColor) {
         this.linkColor = linkColor;
     }
 
-    public SubWhiteLabelingOptions pageBackgroundColor(String pageBackgroundColor) {
+    public SubWhiteLabelingOptions pageBackgroundColor(
+            @javax.annotation.Nullable String pageBackgroundColor) {
         this.pageBackgroundColor = pageBackgroundColor;
         return this;
     }
@@ -237,11 +240,12 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_PAGE_BACKGROUND_COLOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPageBackgroundColor(String pageBackgroundColor) {
+    public void setPageBackgroundColor(@javax.annotation.Nullable String pageBackgroundColor) {
         this.pageBackgroundColor = pageBackgroundColor;
     }
 
-    public SubWhiteLabelingOptions primaryButtonColor(String primaryButtonColor) {
+    public SubWhiteLabelingOptions primaryButtonColor(
+            @javax.annotation.Nullable String primaryButtonColor) {
         this.primaryButtonColor = primaryButtonColor;
         return this;
     }
@@ -259,11 +263,12 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPrimaryButtonColor(String primaryButtonColor) {
+    public void setPrimaryButtonColor(@javax.annotation.Nullable String primaryButtonColor) {
         this.primaryButtonColor = primaryButtonColor;
     }
 
-    public SubWhiteLabelingOptions primaryButtonColorHover(String primaryButtonColorHover) {
+    public SubWhiteLabelingOptions primaryButtonColorHover(
+            @javax.annotation.Nullable String primaryButtonColorHover) {
         this.primaryButtonColorHover = primaryButtonColorHover;
         return this;
     }
@@ -281,11 +286,13 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR_HOVER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPrimaryButtonColorHover(String primaryButtonColorHover) {
+    public void setPrimaryButtonColorHover(
+            @javax.annotation.Nullable String primaryButtonColorHover) {
         this.primaryButtonColorHover = primaryButtonColorHover;
     }
 
-    public SubWhiteLabelingOptions primaryButtonTextColor(String primaryButtonTextColor) {
+    public SubWhiteLabelingOptions primaryButtonTextColor(
+            @javax.annotation.Nullable String primaryButtonTextColor) {
         this.primaryButtonTextColor = primaryButtonTextColor;
         return this;
     }
@@ -303,11 +310,13 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPrimaryButtonTextColor(String primaryButtonTextColor) {
+    public void setPrimaryButtonTextColor(
+            @javax.annotation.Nullable String primaryButtonTextColor) {
         this.primaryButtonTextColor = primaryButtonTextColor;
     }
 
-    public SubWhiteLabelingOptions primaryButtonTextColorHover(String primaryButtonTextColorHover) {
+    public SubWhiteLabelingOptions primaryButtonTextColorHover(
+            @javax.annotation.Nullable String primaryButtonTextColorHover) {
         this.primaryButtonTextColorHover = primaryButtonTextColorHover;
         return this;
     }
@@ -325,11 +334,13 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR_HOVER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPrimaryButtonTextColorHover(String primaryButtonTextColorHover) {
+    public void setPrimaryButtonTextColorHover(
+            @javax.annotation.Nullable String primaryButtonTextColorHover) {
         this.primaryButtonTextColorHover = primaryButtonTextColorHover;
     }
 
-    public SubWhiteLabelingOptions secondaryButtonColor(String secondaryButtonColor) {
+    public SubWhiteLabelingOptions secondaryButtonColor(
+            @javax.annotation.Nullable String secondaryButtonColor) {
         this.secondaryButtonColor = secondaryButtonColor;
         return this;
     }
@@ -347,11 +358,12 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSecondaryButtonColor(String secondaryButtonColor) {
+    public void setSecondaryButtonColor(@javax.annotation.Nullable String secondaryButtonColor) {
         this.secondaryButtonColor = secondaryButtonColor;
     }
 
-    public SubWhiteLabelingOptions secondaryButtonColorHover(String secondaryButtonColorHover) {
+    public SubWhiteLabelingOptions secondaryButtonColorHover(
+            @javax.annotation.Nullable String secondaryButtonColorHover) {
         this.secondaryButtonColorHover = secondaryButtonColorHover;
         return this;
     }
@@ -369,11 +381,13 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR_HOVER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSecondaryButtonColorHover(String secondaryButtonColorHover) {
+    public void setSecondaryButtonColorHover(
+            @javax.annotation.Nullable String secondaryButtonColorHover) {
         this.secondaryButtonColorHover = secondaryButtonColorHover;
     }
 
-    public SubWhiteLabelingOptions secondaryButtonTextColor(String secondaryButtonTextColor) {
+    public SubWhiteLabelingOptions secondaryButtonTextColor(
+            @javax.annotation.Nullable String secondaryButtonTextColor) {
         this.secondaryButtonTextColor = secondaryButtonTextColor;
         return this;
     }
@@ -391,12 +405,13 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSecondaryButtonTextColor(String secondaryButtonTextColor) {
+    public void setSecondaryButtonTextColor(
+            @javax.annotation.Nullable String secondaryButtonTextColor) {
         this.secondaryButtonTextColor = secondaryButtonTextColor;
     }
 
     public SubWhiteLabelingOptions secondaryButtonTextColorHover(
-            String secondaryButtonTextColorHover) {
+            @javax.annotation.Nullable String secondaryButtonTextColorHover) {
         this.secondaryButtonTextColorHover = secondaryButtonTextColorHover;
         return this;
     }
@@ -414,11 +429,12 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR_HOVER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSecondaryButtonTextColorHover(String secondaryButtonTextColorHover) {
+    public void setSecondaryButtonTextColorHover(
+            @javax.annotation.Nullable String secondaryButtonTextColorHover) {
         this.secondaryButtonTextColorHover = secondaryButtonTextColorHover;
     }
 
-    public SubWhiteLabelingOptions textColor1(String textColor1) {
+    public SubWhiteLabelingOptions textColor1(@javax.annotation.Nullable String textColor1) {
         this.textColor1 = textColor1;
         return this;
     }
@@ -436,11 +452,11 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_TEXT_COLOR1)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTextColor1(String textColor1) {
+    public void setTextColor1(@javax.annotation.Nullable String textColor1) {
         this.textColor1 = textColor1;
     }
 
-    public SubWhiteLabelingOptions textColor2(String textColor2) {
+    public SubWhiteLabelingOptions textColor2(@javax.annotation.Nullable String textColor2) {
         this.textColor2 = textColor2;
         return this;
     }
@@ -458,11 +474,12 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_TEXT_COLOR2)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTextColor2(String textColor2) {
+    public void setTextColor2(@javax.annotation.Nullable String textColor2) {
         this.textColor2 = textColor2;
     }
 
-    public SubWhiteLabelingOptions resetToDefault(Boolean resetToDefault) {
+    public SubWhiteLabelingOptions resetToDefault(
+            @javax.annotation.Nullable Boolean resetToDefault) {
         this.resetToDefault = resetToDefault;
         return this;
     }
@@ -480,7 +497,7 @@ public class SubWhiteLabelingOptions {
 
     @JsonProperty(JSON_PROPERTY_RESET_TO_DEFAULT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setResetToDefault(Boolean resetToDefault) {
+    public void setResetToDefault(@javax.annotation.Nullable Boolean resetToDefault) {
         this.resetToDefault = resetToDefault;
     }
 

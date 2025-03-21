@@ -29,11 +29,11 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxLineAreaCodeGetResponse.JSON_PROPERTY_AREA_CODES})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineAreaCodeGetResponse {
     public static final String JSON_PROPERTY_AREA_CODES = "area_codes";
-    private List<Integer> areaCodes = new ArrayList<>();
+    @javax.annotation.Nonnull private List<Integer> areaCodes = new ArrayList<>();
 
     public FaxLineAreaCodeGetResponse() {}
 
@@ -53,7 +53,7 @@ public class FaxLineAreaCodeGetResponse {
                         FaxLineAreaCodeGetResponse.class);
     }
 
-    public FaxLineAreaCodeGetResponse areaCodes(List<Integer> areaCodes) {
+    public FaxLineAreaCodeGetResponse areaCodes(@javax.annotation.Nonnull List<Integer> areaCodes) {
         this.areaCodes = areaCodes;
         return this;
     }
@@ -80,7 +80,7 @@ public class FaxLineAreaCodeGetResponse {
 
     @JsonProperty(JSON_PROPERTY_AREA_CODES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setAreaCodes(List<Integer> areaCodes) {
+    public void setAreaCodes(@javax.annotation.Nonnull List<Integer> areaCodes) {
         this.areaCodes = areaCodes;
     }
 

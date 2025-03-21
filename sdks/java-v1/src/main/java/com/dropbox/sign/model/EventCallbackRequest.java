@@ -32,20 +32,20 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EventCallbackRequest {
     public static final String JSON_PROPERTY_EVENT = "event";
-    private EventCallbackRequestEvent event;
+    @javax.annotation.Nonnull private EventCallbackRequestEvent event;
 
     public static final String JSON_PROPERTY_ACCOUNT = "account";
-    private AccountResponse account;
+    @javax.annotation.Nullable private AccountResponse account;
 
     public static final String JSON_PROPERTY_SIGNATURE_REQUEST = "signature_request";
-    private SignatureRequestResponse signatureRequest;
+    @javax.annotation.Nullable private SignatureRequestResponse signatureRequest;
 
     public static final String JSON_PROPERTY_TEMPLATE = "template";
-    private TemplateResponse template;
+    @javax.annotation.Nullable private TemplateResponse template;
 
     public EventCallbackRequest() {}
 
@@ -63,7 +63,7 @@ public class EventCallbackRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), EventCallbackRequest.class);
     }
 
-    public EventCallbackRequest event(EventCallbackRequestEvent event) {
+    public EventCallbackRequest event(@javax.annotation.Nonnull EventCallbackRequestEvent event) {
         this.event = event;
         return this;
     }
@@ -82,11 +82,11 @@ public class EventCallbackRequest {
 
     @JsonProperty(JSON_PROPERTY_EVENT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEvent(EventCallbackRequestEvent event) {
+    public void setEvent(@javax.annotation.Nonnull EventCallbackRequestEvent event) {
         this.event = event;
     }
 
-    public EventCallbackRequest account(AccountResponse account) {
+    public EventCallbackRequest account(@javax.annotation.Nullable AccountResponse account) {
         this.account = account;
         return this;
     }
@@ -104,11 +104,12 @@ public class EventCallbackRequest {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccount(AccountResponse account) {
+    public void setAccount(@javax.annotation.Nullable AccountResponse account) {
         this.account = account;
     }
 
-    public EventCallbackRequest signatureRequest(SignatureRequestResponse signatureRequest) {
+    public EventCallbackRequest signatureRequest(
+            @javax.annotation.Nullable SignatureRequestResponse signatureRequest) {
         this.signatureRequest = signatureRequest;
         return this;
     }
@@ -126,11 +127,12 @@ public class EventCallbackRequest {
 
     @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignatureRequest(SignatureRequestResponse signatureRequest) {
+    public void setSignatureRequest(
+            @javax.annotation.Nullable SignatureRequestResponse signatureRequest) {
         this.signatureRequest = signatureRequest;
     }
 
-    public EventCallbackRequest template(TemplateResponse template) {
+    public EventCallbackRequest template(@javax.annotation.Nullable TemplateResponse template) {
         this.template = template;
         return this;
     }
@@ -148,7 +150,7 @@ public class EventCallbackRequest {
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTemplate(TemplateResponse template) {
+    public void setTemplate(@javax.annotation.Nullable TemplateResponse template) {
         this.template = template;
     }
 

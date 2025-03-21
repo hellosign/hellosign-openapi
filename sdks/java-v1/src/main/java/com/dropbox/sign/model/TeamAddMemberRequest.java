@@ -33,27 +33,27 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamAddMemberRequest {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+    @javax.annotation.Nullable private String accountId;
 
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nullable private String emailAddress;
 
     /**
      * A role member will take in a new Team. **NOTE:** This parameter is used only if
      * &#x60;team_id&#x60; is provided.
      */
     public enum RoleEnum {
-        MEMBER("Member"),
+        MEMBER(String.valueOf("Member")),
 
-        DEVELOPER("Developer"),
+        DEVELOPER(String.valueOf("Developer")),
 
-        TEAM_MANAGER("Team Manager"),
+        TEAM_MANAGER(String.valueOf("Team Manager")),
 
-        ADMIN("Admin");
+        ADMIN(String.valueOf("Admin"));
 
         private String value;
 
@@ -83,7 +83,7 @@ public class TeamAddMemberRequest {
     }
 
     public static final String JSON_PROPERTY_ROLE = "role";
-    private RoleEnum role;
+    @javax.annotation.Nullable private RoleEnum role;
 
     public TeamAddMemberRequest() {}
 
@@ -101,7 +101,7 @@ public class TeamAddMemberRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), TeamAddMemberRequest.class);
     }
 
-    public TeamAddMemberRequest accountId(String accountId) {
+    public TeamAddMemberRequest accountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -120,11 +120,11 @@ public class TeamAddMemberRequest {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccountId(String accountId) {
+    public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public TeamAddMemberRequest emailAddress(String emailAddress) {
+    public TeamAddMemberRequest emailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -143,11 +143,11 @@ public class TeamAddMemberRequest {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public TeamAddMemberRequest role(RoleEnum role) {
+    public TeamAddMemberRequest role(@javax.annotation.Nullable RoleEnum role) {
         this.role = role;
         return this;
     }
@@ -166,7 +166,7 @@ public class TeamAddMemberRequest {
 
     @JsonProperty(JSON_PROPERTY_ROLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRole(RoleEnum role) {
+    public void setRole(@javax.annotation.Nullable RoleEnum role) {
         this.role = role;
     }
 

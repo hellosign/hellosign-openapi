@@ -29,14 +29,14 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxListResponse.JSON_PROPERTY_FAXES, FaxListResponse.JSON_PROPERTY_LIST_INFO})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxListResponse {
     public static final String JSON_PROPERTY_FAXES = "faxes";
-    private List<FaxResponse> faxes = new ArrayList<>();
+    @javax.annotation.Nonnull private List<FaxResponse> faxes = new ArrayList<>();
 
     public static final String JSON_PROPERTY_LIST_INFO = "list_info";
-    private ListInfoResponse listInfo;
+    @javax.annotation.Nonnull private ListInfoResponse listInfo;
 
     public FaxListResponse() {}
 
@@ -54,7 +54,7 @@ public class FaxListResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxListResponse.class);
     }
 
-    public FaxListResponse faxes(List<FaxResponse> faxes) {
+    public FaxListResponse faxes(@javax.annotation.Nonnull List<FaxResponse> faxes) {
         this.faxes = faxes;
         return this;
     }
@@ -81,11 +81,11 @@ public class FaxListResponse {
 
     @JsonProperty(JSON_PROPERTY_FAXES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFaxes(List<FaxResponse> faxes) {
+    public void setFaxes(@javax.annotation.Nonnull List<FaxResponse> faxes) {
         this.faxes = faxes;
     }
 
-    public FaxListResponse listInfo(ListInfoResponse listInfo) {
+    public FaxListResponse listInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
         return this;
     }
@@ -104,7 +104,7 @@ public class FaxListResponse {
 
     @JsonProperty(JSON_PROPERTY_LIST_INFO)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setListInfo(ListInfoResponse listInfo) {
+    public void setListInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
     }
 

@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -42,10 +42,10 @@ import java.util.Objects;
         visible = true)
 public class SignatureRequestResponseDataValueRadio extends SignatureRequestResponseDataBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "radio";
+    @javax.annotation.Nullable private String type = "radio";
 
     public static final String JSON_PROPERTY_VALUE = "value";
-    private Boolean value;
+    @javax.annotation.Nullable private Boolean value;
 
     public SignatureRequestResponseDataValueRadio() {}
 
@@ -65,7 +65,7 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
                         SignatureRequestResponseDataValueRadio.class);
     }
 
-    public SignatureRequestResponseDataValueRadio type(String type) {
+    public SignatureRequestResponseDataValueRadio type(@javax.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -83,11 +83,11 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public SignatureRequestResponseDataValueRadio value(Boolean value) {
+    public SignatureRequestResponseDataValueRadio value(@javax.annotation.Nullable Boolean value) {
         this.value = value;
         return this;
     }
@@ -105,7 +105,7 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
 
     @JsonProperty(JSON_PROPERTY_VALUE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValue(Boolean value) {
+    public void setValue(@javax.annotation.Nullable Boolean value) {
         this.value = value;
     }
 

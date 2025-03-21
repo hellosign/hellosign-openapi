@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubBulkSignerList {
     public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-    private List<SubBulkSignerListCustomField> customFields = null;
+    @javax.annotation.Nullable private List<SubBulkSignerListCustomField> customFields = null;
 
     public static final String JSON_PROPERTY_SIGNERS = "signers";
-    private List<SubSignatureRequestTemplateSigner> signers = null;
+    @javax.annotation.Nullable private List<SubSignatureRequestTemplateSigner> signers = null;
 
     public SubBulkSignerList() {}
 
@@ -57,7 +57,8 @@ public class SubBulkSignerList {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubBulkSignerList.class);
     }
 
-    public SubBulkSignerList customFields(List<SubBulkSignerListCustomField> customFields) {
+    public SubBulkSignerList customFields(
+            @javax.annotation.Nullable List<SubBulkSignerListCustomField> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -83,11 +84,13 @@ public class SubBulkSignerList {
 
     @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCustomFields(List<SubBulkSignerListCustomField> customFields) {
+    public void setCustomFields(
+            @javax.annotation.Nullable List<SubBulkSignerListCustomField> customFields) {
         this.customFields = customFields;
     }
 
-    public SubBulkSignerList signers(List<SubSignatureRequestTemplateSigner> signers) {
+    public SubBulkSignerList signers(
+            @javax.annotation.Nullable List<SubSignatureRequestTemplateSigner> signers) {
         this.signers = signers;
         return this;
     }
@@ -115,7 +118,8 @@ public class SubBulkSignerList {
 
     @JsonProperty(JSON_PROPERTY_SIGNERS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigners(List<SubSignatureRequestTemplateSigner> signers) {
+    public void setSigners(
+            @javax.annotation.Nullable List<SubSignatureRequestTemplateSigner> signers) {
         this.signers = signers;
     }
 

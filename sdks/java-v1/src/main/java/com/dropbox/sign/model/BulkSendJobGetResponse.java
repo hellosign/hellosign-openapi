@@ -34,20 +34,22 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BulkSendJobGetResponse {
     public static final String JSON_PROPERTY_BULK_SEND_JOB = "bulk_send_job";
-    private BulkSendJobResponse bulkSendJob;
+    @javax.annotation.Nonnull private BulkSendJobResponse bulkSendJob;
 
     public static final String JSON_PROPERTY_LIST_INFO = "list_info";
-    private ListInfoResponse listInfo;
+    @javax.annotation.Nonnull private ListInfoResponse listInfo;
 
     public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";
+
+    @javax.annotation.Nonnull
     private List<BulkSendJobGetResponseSignatureRequests> signatureRequests = new ArrayList<>();
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public BulkSendJobGetResponse() {}
 
@@ -66,7 +68,8 @@ public class BulkSendJobGetResponse {
                         new ObjectMapper().writeValueAsString(data), BulkSendJobGetResponse.class);
     }
 
-    public BulkSendJobGetResponse bulkSendJob(BulkSendJobResponse bulkSendJob) {
+    public BulkSendJobGetResponse bulkSendJob(
+            @javax.annotation.Nonnull BulkSendJobResponse bulkSendJob) {
         this.bulkSendJob = bulkSendJob;
         return this;
     }
@@ -85,11 +88,11 @@ public class BulkSendJobGetResponse {
 
     @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setBulkSendJob(BulkSendJobResponse bulkSendJob) {
+    public void setBulkSendJob(@javax.annotation.Nonnull BulkSendJobResponse bulkSendJob) {
         this.bulkSendJob = bulkSendJob;
     }
 
-    public BulkSendJobGetResponse listInfo(ListInfoResponse listInfo) {
+    public BulkSendJobGetResponse listInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
         return this;
     }
@@ -108,12 +111,13 @@ public class BulkSendJobGetResponse {
 
     @JsonProperty(JSON_PROPERTY_LIST_INFO)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setListInfo(ListInfoResponse listInfo) {
+    public void setListInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
     }
 
     public BulkSendJobGetResponse signatureRequests(
-            List<BulkSendJobGetResponseSignatureRequests> signatureRequests) {
+            @javax.annotation.Nonnull
+                    List<BulkSendJobGetResponseSignatureRequests> signatureRequests) {
         this.signatureRequests = signatureRequests;
         return this;
     }
@@ -142,11 +146,13 @@ public class BulkSendJobGetResponse {
     @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSignatureRequests(
-            List<BulkSendJobGetResponseSignatureRequests> signatureRequests) {
+            @javax.annotation.Nonnull
+                    List<BulkSendJobGetResponseSignatureRequests> signatureRequests) {
         this.signatureRequests = signatureRequests;
     }
 
-    public BulkSendJobGetResponse warnings(List<WarningResponse> warnings) {
+    public BulkSendJobGetResponse warnings(
+            @javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -172,7 +178,7 @@ public class BulkSendJobGetResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

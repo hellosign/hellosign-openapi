@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestGetResponse {
     public static final String JSON_PROPERTY_SIGNATURE_REQUEST = "signature_request";
-    private SignatureRequestResponse signatureRequest;
+    @javax.annotation.Nonnull private SignatureRequestResponse signatureRequest;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public SignatureRequestGetResponse() {}
 
@@ -59,7 +59,8 @@ public class SignatureRequestGetResponse {
                         SignatureRequestGetResponse.class);
     }
 
-    public SignatureRequestGetResponse signatureRequest(SignatureRequestResponse signatureRequest) {
+    public SignatureRequestGetResponse signatureRequest(
+            @javax.annotation.Nonnull SignatureRequestResponse signatureRequest) {
         this.signatureRequest = signatureRequest;
         return this;
     }
@@ -78,11 +79,13 @@ public class SignatureRequestGetResponse {
 
     @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setSignatureRequest(SignatureRequestResponse signatureRequest) {
+    public void setSignatureRequest(
+            @javax.annotation.Nonnull SignatureRequestResponse signatureRequest) {
         this.signatureRequest = signatureRequest;
     }
 
-    public SignatureRequestGetResponse warnings(List<WarningResponse> warnings) {
+    public SignatureRequestGetResponse warnings(
+            @javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -108,7 +111,7 @@ public class SignatureRequestGetResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

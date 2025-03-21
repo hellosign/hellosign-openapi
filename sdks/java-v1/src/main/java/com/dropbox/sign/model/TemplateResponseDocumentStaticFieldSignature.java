@@ -28,7 +28,7 @@ import java.util.Objects;
 @JsonPropertyOrder({TemplateResponseDocumentStaticFieldSignature.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -40,7 +40,7 @@ import java.util.Objects;
 public class TemplateResponseDocumentStaticFieldSignature
         extends TemplateResponseDocumentStaticFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "signature";
+    @javax.annotation.Nonnull private String type = "signature";
 
     public TemplateResponseDocumentStaticFieldSignature() {}
 
@@ -62,7 +62,8 @@ public class TemplateResponseDocumentStaticFieldSignature
                         TemplateResponseDocumentStaticFieldSignature.class);
     }
 
-    public TemplateResponseDocumentStaticFieldSignature type(String type) {
+    public TemplateResponseDocumentStaticFieldSignature type(
+            @javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -89,7 +90,7 @@ public class TemplateResponseDocumentStaticFieldSignature
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 

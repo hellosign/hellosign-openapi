@@ -31,17 +31,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorResponseError {
     public static final String JSON_PROPERTY_ERROR_MSG = "error_msg";
-    private String errorMsg;
+    @javax.annotation.Nonnull private String errorMsg;
 
     public static final String JSON_PROPERTY_ERROR_NAME = "error_name";
-    private String errorName;
+    @javax.annotation.Nonnull private String errorName;
 
     public static final String JSON_PROPERTY_ERROR_PATH = "error_path";
-    private String errorPath;
+    @javax.annotation.Nullable private String errorPath;
 
     public ErrorResponseError() {}
 
@@ -59,7 +59,7 @@ public class ErrorResponseError {
                 .readValue(new ObjectMapper().writeValueAsString(data), ErrorResponseError.class);
     }
 
-    public ErrorResponseError errorMsg(String errorMsg) {
+    public ErrorResponseError errorMsg(@javax.annotation.Nonnull String errorMsg) {
         this.errorMsg = errorMsg;
         return this;
     }
@@ -78,11 +78,11 @@ public class ErrorResponseError {
 
     @JsonProperty(JSON_PROPERTY_ERROR_MSG)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setErrorMsg(String errorMsg) {
+    public void setErrorMsg(@javax.annotation.Nonnull String errorMsg) {
         this.errorMsg = errorMsg;
     }
 
-    public ErrorResponseError errorName(String errorName) {
+    public ErrorResponseError errorName(@javax.annotation.Nonnull String errorName) {
         this.errorName = errorName;
         return this;
     }
@@ -101,11 +101,11 @@ public class ErrorResponseError {
 
     @JsonProperty(JSON_PROPERTY_ERROR_NAME)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setErrorName(String errorName) {
+    public void setErrorName(@javax.annotation.Nonnull String errorName) {
         this.errorName = errorName;
     }
 
-    public ErrorResponseError errorPath(String errorPath) {
+    public ErrorResponseError errorPath(@javax.annotation.Nullable String errorPath) {
         this.errorPath = errorPath;
         return this;
     }
@@ -123,7 +123,7 @@ public class ErrorResponseError {
 
     @JsonProperty(JSON_PROPERTY_ERROR_PATH)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setErrorPath(String errorPath) {
+    public void setErrorPath(@javax.annotation.Nullable String errorPath) {
         this.errorPath = errorPath;
     }
 

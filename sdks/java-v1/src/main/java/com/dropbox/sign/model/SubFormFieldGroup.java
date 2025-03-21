@@ -31,17 +31,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubFormFieldGroup {
     public static final String JSON_PROPERTY_GROUP_ID = "group_id";
-    private String groupId;
+    @javax.annotation.Nonnull private String groupId;
 
     public static final String JSON_PROPERTY_GROUP_LABEL = "group_label";
-    private String groupLabel;
+    @javax.annotation.Nonnull private String groupLabel;
 
     public static final String JSON_PROPERTY_REQUIREMENT = "requirement";
-    private String requirement;
+    @javax.annotation.Nonnull private String requirement;
 
     public SubFormFieldGroup() {}
 
@@ -59,7 +59,7 @@ public class SubFormFieldGroup {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubFormFieldGroup.class);
     }
 
-    public SubFormFieldGroup groupId(String groupId) {
+    public SubFormFieldGroup groupId(@javax.annotation.Nonnull String groupId) {
         this.groupId = groupId;
         return this;
     }
@@ -79,11 +79,11 @@ public class SubFormFieldGroup {
 
     @JsonProperty(JSON_PROPERTY_GROUP_ID)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGroupId(String groupId) {
+    public void setGroupId(@javax.annotation.Nonnull String groupId) {
         this.groupId = groupId;
     }
 
-    public SubFormFieldGroup groupLabel(String groupLabel) {
+    public SubFormFieldGroup groupLabel(@javax.annotation.Nonnull String groupLabel) {
         this.groupLabel = groupLabel;
         return this;
     }
@@ -102,11 +102,11 @@ public class SubFormFieldGroup {
 
     @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGroupLabel(String groupLabel) {
+    public void setGroupLabel(@javax.annotation.Nonnull String groupLabel) {
         this.groupLabel = groupLabel;
     }
 
-    public SubFormFieldGroup requirement(String requirement) {
+    public SubFormFieldGroup requirement(@javax.annotation.Nonnull String requirement) {
         this.requirement = requirement;
         return this;
     }
@@ -130,7 +130,7 @@ public class SubFormFieldGroup {
 
     @JsonProperty(JSON_PROPERTY_REQUIREMENT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setRequirement(String requirement) {
+    public void setRequirement(@javax.annotation.Nonnull String requirement) {
         this.requirement = requirement;
     }
 

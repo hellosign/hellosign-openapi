@@ -27,11 +27,11 @@ import java.util.Objects;
 @JsonPropertyOrder({TeamCreateRequest.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamCreateRequest {
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name = "Untitled Team";
+    @javax.annotation.Nullable private String name = "Untitled Team";
 
     public TeamCreateRequest() {}
 
@@ -49,7 +49,7 @@ public class TeamCreateRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), TeamCreateRequest.class);
     }
 
-    public TeamCreateRequest name(String name) {
+    public TeamCreateRequest name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -67,7 +67,7 @@ public class TeamCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 

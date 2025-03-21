@@ -36,23 +36,23 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubSignatureRequestSigner {
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nonnull private String name;
 
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nonnull private String emailAddress;
 
     public static final String JSON_PROPERTY_ORDER = "order";
-    private Integer order;
+    @javax.annotation.Nullable private Integer order;
 
     public static final String JSON_PROPERTY_PIN = "pin";
-    private String pin;
+    @javax.annotation.Nullable private String pin;
 
     public static final String JSON_PROPERTY_SMS_PHONE_NUMBER = "sms_phone_number";
-    private String smsPhoneNumber;
+    @javax.annotation.Nullable private String smsPhoneNumber;
 
     /**
      * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default
@@ -61,9 +61,9 @@ public class SubSignatureRequestSigner {
      * the signature request is delivered via SMS (_and_ email).
      */
     public enum SmsPhoneNumberTypeEnum {
-        AUTHENTICATION("authentication"),
+        AUTHENTICATION(String.valueOf("authentication")),
 
-        DELIVERY("delivery");
+        DELIVERY(String.valueOf("delivery"));
 
         private String value;
 
@@ -93,7 +93,7 @@ public class SubSignatureRequestSigner {
     }
 
     public static final String JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE = "sms_phone_number_type";
-    private SmsPhoneNumberTypeEnum smsPhoneNumberType;
+    @javax.annotation.Nullable private SmsPhoneNumberTypeEnum smsPhoneNumberType;
 
     public SubSignatureRequestSigner() {}
 
@@ -113,7 +113,7 @@ public class SubSignatureRequestSigner {
                         SubSignatureRequestSigner.class);
     }
 
-    public SubSignatureRequestSigner name(String name) {
+    public SubSignatureRequestSigner name(@javax.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -132,11 +132,11 @@ public class SubSignatureRequestSigner {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public SubSignatureRequestSigner emailAddress(String emailAddress) {
+    public SubSignatureRequestSigner emailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -155,11 +155,11 @@ public class SubSignatureRequestSigner {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public SubSignatureRequestSigner order(Integer order) {
+    public SubSignatureRequestSigner order(@javax.annotation.Nullable Integer order) {
         this.order = order;
         return this;
     }
@@ -177,11 +177,11 @@ public class SubSignatureRequestSigner {
 
     @JsonProperty(JSON_PROPERTY_ORDER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOrder(Integer order) {
+    public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
     }
 
-    public SubSignatureRequestSigner pin(String pin) {
+    public SubSignatureRequestSigner pin(@javax.annotation.Nullable String pin) {
         this.pin = pin;
         return this;
     }
@@ -199,11 +199,12 @@ public class SubSignatureRequestSigner {
 
     @JsonProperty(JSON_PROPERTY_PIN)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPin(String pin) {
+    public void setPin(@javax.annotation.Nullable String pin) {
         this.pin = pin;
     }
 
-    public SubSignatureRequestSigner smsPhoneNumber(String smsPhoneNumber) {
+    public SubSignatureRequestSigner smsPhoneNumber(
+            @javax.annotation.Nullable String smsPhoneNumber) {
         this.smsPhoneNumber = smsPhoneNumber;
         return this;
     }
@@ -226,11 +227,12 @@ public class SubSignatureRequestSigner {
 
     @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSmsPhoneNumber(String smsPhoneNumber) {
+    public void setSmsPhoneNumber(@javax.annotation.Nullable String smsPhoneNumber) {
         this.smsPhoneNumber = smsPhoneNumber;
     }
 
-    public SubSignatureRequestSigner smsPhoneNumberType(SmsPhoneNumberTypeEnum smsPhoneNumberType) {
+    public SubSignatureRequestSigner smsPhoneNumberType(
+            @javax.annotation.Nullable SmsPhoneNumberTypeEnum smsPhoneNumberType) {
         this.smsPhoneNumberType = smsPhoneNumberType;
         return this;
     }
@@ -251,7 +253,8 @@ public class SubSignatureRequestSigner {
 
     @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSmsPhoneNumberType(SmsPhoneNumberTypeEnum smsPhoneNumberType) {
+    public void setSmsPhoneNumberType(
+            @javax.annotation.Nullable SmsPhoneNumberTypeEnum smsPhoneNumberType) {
         this.smsPhoneNumberType = smsPhoneNumberType;
     }
 

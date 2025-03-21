@@ -41,41 +41,43 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxResponse {
     public static final String JSON_PROPERTY_FAX_ID = "fax_id";
-    private String faxId;
+    @javax.annotation.Nonnull private String faxId;
 
     public static final String JSON_PROPERTY_TITLE = "title";
-    private String title;
+    @javax.annotation.Nonnull private String title;
 
     public static final String JSON_PROPERTY_ORIGINAL_TITLE = "original_title";
-    private String originalTitle;
+    @javax.annotation.Nonnull private String originalTitle;
 
     public static final String JSON_PROPERTY_METADATA = "metadata";
-    private Map<String, Object> metadata = new HashMap<>();
+    @javax.annotation.Nonnull private Map<String, Object> metadata = new HashMap<>();
 
     public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-    private Integer createdAt;
+    @javax.annotation.Nonnull private Integer createdAt;
 
     public static final String JSON_PROPERTY_SENDER = "sender";
-    private String sender;
+    @javax.annotation.Nonnull private String sender;
 
     public static final String JSON_PROPERTY_FILES_URL = "files_url";
-    private String filesUrl;
+    @javax.annotation.Nonnull private String filesUrl;
 
     public static final String JSON_PROPERTY_TRANSMISSIONS = "transmissions";
+
+    @javax.annotation.Nonnull
     private List<FaxResponseTransmission> transmissions = new ArrayList<>();
 
     public static final String JSON_PROPERTY_SUBJECT = "subject";
-    private String subject;
+    @javax.annotation.Nullable private String subject;
 
     public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+    @javax.annotation.Nullable private String message;
 
     public static final String JSON_PROPERTY_FINAL_COPY_URI = "final_copy_uri";
-    private String finalCopyUri;
+    @javax.annotation.Nullable private String finalCopyUri;
 
     public FaxResponse() {}
 
@@ -93,7 +95,7 @@ public class FaxResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxResponse.class);
     }
 
-    public FaxResponse faxId(String faxId) {
+    public FaxResponse faxId(@javax.annotation.Nonnull String faxId) {
         this.faxId = faxId;
         return this;
     }
@@ -112,11 +114,11 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_FAX_ID)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFaxId(String faxId) {
+    public void setFaxId(@javax.annotation.Nonnull String faxId) {
         this.faxId = faxId;
     }
 
-    public FaxResponse title(String title) {
+    public FaxResponse title(@javax.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -135,11 +137,11 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_TITLE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setTitle(String title) {
+    public void setTitle(@javax.annotation.Nonnull String title) {
         this.title = title;
     }
 
-    public FaxResponse originalTitle(String originalTitle) {
+    public FaxResponse originalTitle(@javax.annotation.Nonnull String originalTitle) {
         this.originalTitle = originalTitle;
         return this;
     }
@@ -158,11 +160,11 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setOriginalTitle(String originalTitle) {
+    public void setOriginalTitle(@javax.annotation.Nonnull String originalTitle) {
         this.originalTitle = originalTitle;
     }
 
-    public FaxResponse metadata(Map<String, Object> metadata) {
+    public FaxResponse metadata(@javax.annotation.Nonnull Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -189,11 +191,11 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_METADATA)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-    public void setMetadata(Map<String, Object> metadata) {
+    public void setMetadata(@javax.annotation.Nonnull Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
-    public FaxResponse createdAt(Integer createdAt) {
+    public FaxResponse createdAt(@javax.annotation.Nonnull Integer createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -212,11 +214,11 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_CREATED_AT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setCreatedAt(Integer createdAt) {
+    public void setCreatedAt(@javax.annotation.Nonnull Integer createdAt) {
         this.createdAt = createdAt;
     }
 
-    public FaxResponse sender(String sender) {
+    public FaxResponse sender(@javax.annotation.Nonnull String sender) {
         this.sender = sender;
         return this;
     }
@@ -235,11 +237,11 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_SENDER)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setSender(String sender) {
+    public void setSender(@javax.annotation.Nonnull String sender) {
         this.sender = sender;
     }
 
-    public FaxResponse filesUrl(String filesUrl) {
+    public FaxResponse filesUrl(@javax.annotation.Nonnull String filesUrl) {
         this.filesUrl = filesUrl;
         return this;
     }
@@ -258,11 +260,12 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_FILES_URL)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFilesUrl(String filesUrl) {
+    public void setFilesUrl(@javax.annotation.Nonnull String filesUrl) {
         this.filesUrl = filesUrl;
     }
 
-    public FaxResponse transmissions(List<FaxResponseTransmission> transmissions) {
+    public FaxResponse transmissions(
+            @javax.annotation.Nonnull List<FaxResponseTransmission> transmissions) {
         this.transmissions = transmissions;
         return this;
     }
@@ -289,11 +292,12 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setTransmissions(List<FaxResponseTransmission> transmissions) {
+    public void setTransmissions(
+            @javax.annotation.Nonnull List<FaxResponseTransmission> transmissions) {
         this.transmissions = transmissions;
     }
 
-    public FaxResponse subject(String subject) {
+    public FaxResponse subject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
         return this;
     }
@@ -311,11 +315,11 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_SUBJECT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSubject(String subject) {
+    public void setSubject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
     }
 
-    public FaxResponse message(String message) {
+    public FaxResponse message(@javax.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -333,11 +337,11 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_MESSAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMessage(String message) {
+    public void setMessage(@javax.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public FaxResponse finalCopyUri(String finalCopyUri) {
+    public FaxResponse finalCopyUri(@javax.annotation.Nullable String finalCopyUri) {
         this.finalCopyUri = finalCopyUri;
         return this;
     }
@@ -355,7 +359,7 @@ public class FaxResponse {
 
     @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFinalCopyUri(String finalCopyUri) {
+    public void setFinalCopyUri(@javax.annotation.Nullable String finalCopyUri) {
         this.finalCopyUri = finalCopyUri;
     }
 

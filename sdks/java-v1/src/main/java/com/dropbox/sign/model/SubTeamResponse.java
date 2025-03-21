@@ -27,14 +27,14 @@ import java.util.Objects;
 @JsonPropertyOrder({SubTeamResponse.JSON_PROPERTY_TEAM_ID, SubTeamResponse.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubTeamResponse {
     public static final String JSON_PROPERTY_TEAM_ID = "team_id";
-    private String teamId;
+    @javax.annotation.Nullable private String teamId;
 
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public SubTeamResponse() {}
 
@@ -52,7 +52,7 @@ public class SubTeamResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubTeamResponse.class);
     }
 
-    public SubTeamResponse teamId(String teamId) {
+    public SubTeamResponse teamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
         return this;
     }
@@ -70,11 +70,11 @@ public class SubTeamResponse {
 
     @JsonProperty(JSON_PROPERTY_TEAM_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTeamId(String teamId) {
+    public void setTeamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
     }
 
-    public SubTeamResponse name(String name) {
+    public SubTeamResponse name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -92,7 +92,7 @@ public class SubTeamResponse {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 

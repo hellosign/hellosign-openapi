@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -45,41 +45,41 @@ import java.util.Objects;
         visible = true)
 public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "date_signed";
+    @javax.annotation.Nonnull private String type = "date_signed";
 
     /** Font family for the field. */
     public enum FontFamilyEnum {
-        HELVETICA("helvetica"),
+        HELVETICA(String.valueOf("helvetica")),
 
-        ARIAL("arial"),
+        ARIAL(String.valueOf("arial")),
 
-        COURIER("courier"),
+        COURIER(String.valueOf("courier")),
 
-        CALIBRI("calibri"),
+        CALIBRI(String.valueOf("calibri")),
 
-        CAMBRIA("cambria"),
+        CAMBRIA(String.valueOf("cambria")),
 
-        GEORGIA("georgia"),
+        GEORGIA(String.valueOf("georgia")),
 
-        TIMES("times"),
+        TIMES(String.valueOf("times")),
 
-        TREBUCHET("trebuchet"),
+        TREBUCHET(String.valueOf("trebuchet")),
 
-        VERDANA("verdana"),
+        VERDANA(String.valueOf("verdana")),
 
-        ROBOTO("roboto"),
+        ROBOTO(String.valueOf("roboto")),
 
-        ROBOTO_MONO("robotoMono"),
+        ROBOTO_MONO(String.valueOf("robotoMono")),
 
-        NOTO_SANS("notoSans"),
+        NOTO_SANS(String.valueOf("notoSans")),
 
-        NOTO_SERIF("notoSerif"),
+        NOTO_SERIF(String.valueOf("notoSerif")),
 
-        NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
+        NOTO_CJK_JP_REGULAR(String.valueOf("notoCJK-JP-Regular")),
 
-        NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
+        NOTO_HEBREW_REGULAR(String.valueOf("notoHebrew-Regular")),
 
-        NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
+        NOTO_SAN_THAI_MERGED(String.valueOf("notoSanThaiMerged"));
 
         private String value;
 
@@ -109,10 +109,10 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     }
 
     public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
-    private FontFamilyEnum fontFamily;
+    @javax.annotation.Nullable private FontFamilyEnum fontFamily;
 
     public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
-    private Integer fontSize = 12;
+    @javax.annotation.Nullable private Integer fontSize = 12;
 
     public SubFormFieldsPerDocumentDateSigned() {}
 
@@ -132,7 +132,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
                         SubFormFieldsPerDocumentDateSigned.class);
     }
 
-    public SubFormFieldsPerDocumentDateSigned type(String type) {
+    public SubFormFieldsPerDocumentDateSigned type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -151,11 +151,12 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public SubFormFieldsPerDocumentDateSigned fontFamily(FontFamilyEnum fontFamily) {
+    public SubFormFieldsPerDocumentDateSigned fontFamily(
+            @javax.annotation.Nullable FontFamilyEnum fontFamily) {
         this.fontFamily = fontFamily;
         return this;
     }
@@ -173,11 +174,12 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
 
     @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFontFamily(FontFamilyEnum fontFamily) {
+    public void setFontFamily(@javax.annotation.Nullable FontFamilyEnum fontFamily) {
         this.fontFamily = fontFamily;
     }
 
-    public SubFormFieldsPerDocumentDateSigned fontSize(Integer fontSize) {
+    public SubFormFieldsPerDocumentDateSigned fontSize(
+            @javax.annotation.Nullable Integer fontSize) {
         this.fontSize = fontSize;
         return this;
     }
@@ -197,7 +199,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
 
     @JsonProperty(JSON_PROPERTY_FONT_SIZE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFontSize(Integer fontSize) {
+    public void setFontSize(@javax.annotation.Nullable Integer fontSize) {
         this.fontSize = fontSize;
     }
 

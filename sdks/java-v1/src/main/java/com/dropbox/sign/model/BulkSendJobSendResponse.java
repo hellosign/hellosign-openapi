@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BulkSendJobSendResponse {
     public static final String JSON_PROPERTY_BULK_SEND_JOB = "bulk_send_job";
-    private BulkSendJobResponse bulkSendJob;
+    @javax.annotation.Nonnull private BulkSendJobResponse bulkSendJob;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public BulkSendJobSendResponse() {}
 
@@ -58,7 +58,8 @@ public class BulkSendJobSendResponse {
                         new ObjectMapper().writeValueAsString(data), BulkSendJobSendResponse.class);
     }
 
-    public BulkSendJobSendResponse bulkSendJob(BulkSendJobResponse bulkSendJob) {
+    public BulkSendJobSendResponse bulkSendJob(
+            @javax.annotation.Nonnull BulkSendJobResponse bulkSendJob) {
         this.bulkSendJob = bulkSendJob;
         return this;
     }
@@ -77,11 +78,12 @@ public class BulkSendJobSendResponse {
 
     @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setBulkSendJob(BulkSendJobResponse bulkSendJob) {
+    public void setBulkSendJob(@javax.annotation.Nonnull BulkSendJobResponse bulkSendJob) {
         this.bulkSendJob = bulkSendJob;
     }
 
-    public BulkSendJobSendResponse warnings(List<WarningResponse> warnings) {
+    public BulkSendJobSendResponse warnings(
+            @javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -107,7 +109,7 @@ public class BulkSendJobSendResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

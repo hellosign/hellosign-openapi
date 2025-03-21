@@ -34,26 +34,26 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamInviteResponse {
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nullable private String emailAddress;
 
     public static final String JSON_PROPERTY_TEAM_ID = "team_id";
-    private String teamId;
+    @javax.annotation.Nullable private String teamId;
 
     public static final String JSON_PROPERTY_ROLE = "role";
-    private String role;
+    @javax.annotation.Nullable private String role;
 
     public static final String JSON_PROPERTY_SENT_AT = "sent_at";
-    private Integer sentAt;
+    @javax.annotation.Nullable private Integer sentAt;
 
     public static final String JSON_PROPERTY_REDEEMED_AT = "redeemed_at";
-    private Integer redeemedAt;
+    @javax.annotation.Nullable private Integer redeemedAt;
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-    private Integer expiresAt;
+    @javax.annotation.Nullable private Integer expiresAt;
 
     public TeamInviteResponse() {}
 
@@ -71,7 +71,7 @@ public class TeamInviteResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), TeamInviteResponse.class);
     }
 
-    public TeamInviteResponse emailAddress(String emailAddress) {
+    public TeamInviteResponse emailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -89,11 +89,11 @@ public class TeamInviteResponse {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public TeamInviteResponse teamId(String teamId) {
+    public TeamInviteResponse teamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
         return this;
     }
@@ -111,11 +111,11 @@ public class TeamInviteResponse {
 
     @JsonProperty(JSON_PROPERTY_TEAM_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTeamId(String teamId) {
+    public void setTeamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
     }
 
-    public TeamInviteResponse role(String role) {
+    public TeamInviteResponse role(@javax.annotation.Nullable String role) {
         this.role = role;
         return this;
     }
@@ -133,11 +133,11 @@ public class TeamInviteResponse {
 
     @JsonProperty(JSON_PROPERTY_ROLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRole(String role) {
+    public void setRole(@javax.annotation.Nullable String role) {
         this.role = role;
     }
 
-    public TeamInviteResponse sentAt(Integer sentAt) {
+    public TeamInviteResponse sentAt(@javax.annotation.Nullable Integer sentAt) {
         this.sentAt = sentAt;
         return this;
     }
@@ -155,11 +155,11 @@ public class TeamInviteResponse {
 
     @JsonProperty(JSON_PROPERTY_SENT_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSentAt(Integer sentAt) {
+    public void setSentAt(@javax.annotation.Nullable Integer sentAt) {
         this.sentAt = sentAt;
     }
 
-    public TeamInviteResponse redeemedAt(Integer redeemedAt) {
+    public TeamInviteResponse redeemedAt(@javax.annotation.Nullable Integer redeemedAt) {
         this.redeemedAt = redeemedAt;
         return this;
     }
@@ -177,11 +177,11 @@ public class TeamInviteResponse {
 
     @JsonProperty(JSON_PROPERTY_REDEEMED_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRedeemedAt(Integer redeemedAt) {
+    public void setRedeemedAt(@javax.annotation.Nullable Integer redeemedAt) {
         this.redeemedAt = redeemedAt;
     }
 
-    public TeamInviteResponse expiresAt(Integer expiresAt) {
+    public TeamInviteResponse expiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -199,7 +199,7 @@ public class TeamInviteResponse {
 
     @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setExpiresAt(Integer expiresAt) {
+    public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
     }
 

@@ -33,17 +33,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiAppListResponse {
     public static final String JSON_PROPERTY_API_APPS = "api_apps";
-    private List<ApiAppResponse> apiApps = new ArrayList<>();
+    @javax.annotation.Nonnull private List<ApiAppResponse> apiApps = new ArrayList<>();
 
     public static final String JSON_PROPERTY_LIST_INFO = "list_info";
-    private ListInfoResponse listInfo;
+    @javax.annotation.Nonnull private ListInfoResponse listInfo;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public ApiAppListResponse() {}
 
@@ -61,7 +61,7 @@ public class ApiAppListResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), ApiAppListResponse.class);
     }
 
-    public ApiAppListResponse apiApps(List<ApiAppResponse> apiApps) {
+    public ApiAppListResponse apiApps(@javax.annotation.Nonnull List<ApiAppResponse> apiApps) {
         this.apiApps = apiApps;
         return this;
     }
@@ -88,11 +88,11 @@ public class ApiAppListResponse {
 
     @JsonProperty(JSON_PROPERTY_API_APPS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setApiApps(List<ApiAppResponse> apiApps) {
+    public void setApiApps(@javax.annotation.Nonnull List<ApiAppResponse> apiApps) {
         this.apiApps = apiApps;
     }
 
-    public ApiAppListResponse listInfo(ListInfoResponse listInfo) {
+    public ApiAppListResponse listInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
         return this;
     }
@@ -111,11 +111,11 @@ public class ApiAppListResponse {
 
     @JsonProperty(JSON_PROPERTY_LIST_INFO)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setListInfo(ListInfoResponse listInfo) {
+    public void setListInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
     }
 
-    public ApiAppListResponse warnings(List<WarningResponse> warnings) {
+    public ApiAppListResponse warnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -141,7 +141,7 @@ public class ApiAppListResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

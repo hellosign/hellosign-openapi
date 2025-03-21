@@ -39,7 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -56,19 +56,19 @@ import java.util.Objects;
 })
 public class SignatureRequestResponseCustomFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
+    @javax.annotation.Nonnull private String type;
 
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nonnull private String name;
 
     public static final String JSON_PROPERTY_REQUIRED = "required";
-    private Boolean required;
+    @javax.annotation.Nullable private Boolean required;
 
     public static final String JSON_PROPERTY_API_ID = "api_id";
-    private String apiId;
+    @javax.annotation.Nullable private String apiId;
 
     public static final String JSON_PROPERTY_EDITOR = "editor";
-    private String editor;
+    @javax.annotation.Nullable private String editor;
 
     public SignatureRequestResponseCustomFieldBase() {}
 
@@ -89,7 +89,7 @@ public class SignatureRequestResponseCustomFieldBase {
                         SignatureRequestResponseCustomFieldBase.class);
     }
 
-    public SignatureRequestResponseCustomFieldBase type(String type) {
+    public SignatureRequestResponseCustomFieldBase type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -109,11 +109,11 @@ public class SignatureRequestResponseCustomFieldBase {
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public SignatureRequestResponseCustomFieldBase name(String name) {
+    public SignatureRequestResponseCustomFieldBase name(@javax.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -132,11 +132,12 @@ public class SignatureRequestResponseCustomFieldBase {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public SignatureRequestResponseCustomFieldBase required(Boolean required) {
+    public SignatureRequestResponseCustomFieldBase required(
+            @javax.annotation.Nullable Boolean required) {
         this.required = required;
         return this;
     }
@@ -154,11 +155,11 @@ public class SignatureRequestResponseCustomFieldBase {
 
     @JsonProperty(JSON_PROPERTY_REQUIRED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequired(Boolean required) {
+    public void setRequired(@javax.annotation.Nullable Boolean required) {
         this.required = required;
     }
 
-    public SignatureRequestResponseCustomFieldBase apiId(String apiId) {
+    public SignatureRequestResponseCustomFieldBase apiId(@javax.annotation.Nullable String apiId) {
         this.apiId = apiId;
         return this;
     }
@@ -176,11 +177,12 @@ public class SignatureRequestResponseCustomFieldBase {
 
     @JsonProperty(JSON_PROPERTY_API_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setApiId(String apiId) {
+    public void setApiId(@javax.annotation.Nullable String apiId) {
         this.apiId = apiId;
     }
 
-    public SignatureRequestResponseCustomFieldBase editor(String editor) {
+    public SignatureRequestResponseCustomFieldBase editor(
+            @javax.annotation.Nullable String editor) {
         this.editor = editor;
         return this;
     }
@@ -198,7 +200,7 @@ public class SignatureRequestResponseCustomFieldBase {
 
     @JsonProperty(JSON_PROPERTY_EDITOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEditor(String editor) {
+    public void setEditor(@javax.annotation.Nullable String editor) {
         this.editor = editor;
     }
 

@@ -48,59 +48,61 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestSendWithTemplateRequest {
     public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
-    private List<String> templateIds = new ArrayList<>();
+    @javax.annotation.Nonnull private List<String> templateIds = new ArrayList<>();
 
     public static final String JSON_PROPERTY_SIGNERS = "signers";
+
+    @javax.annotation.Nonnull
     private List<SubSignatureRequestTemplateSigner> signers = new ArrayList<>();
 
     public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
-    private Boolean allowDecline = false;
+    @javax.annotation.Nullable private Boolean allowDecline = false;
 
     public static final String JSON_PROPERTY_CCS = "ccs";
-    private List<SubCC> ccs = null;
+    @javax.annotation.Nullable private List<SubCC> ccs = null;
 
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    private String clientId;
+    @javax.annotation.Nullable private String clientId;
 
     public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-    private List<SubCustomField> customFields = null;
+    @javax.annotation.Nullable private List<SubCustomField> customFields = null;
 
     public static final String JSON_PROPERTY_FILES = "files";
-    private List<File> files = null;
+    @javax.annotation.Nullable private List<File> files = null;
 
     public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-    private List<String> fileUrls = null;
+    @javax.annotation.Nullable private List<String> fileUrls = null;
 
     public static final String JSON_PROPERTY_IS_QUALIFIED_SIGNATURE = "is_qualified_signature";
-    @Deprecated private Boolean isQualifiedSignature = false;
+    @Deprecated @javax.annotation.Nullable private Boolean isQualifiedSignature = false;
 
     public static final String JSON_PROPERTY_IS_EID = "is_eid";
-    private Boolean isEid = false;
+    @javax.annotation.Nullable private Boolean isEid = false;
 
     public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+    @javax.annotation.Nullable private String message;
 
     public static final String JSON_PROPERTY_METADATA = "metadata";
-    private Map<String, Object> metadata = null;
+    @javax.annotation.Nullable private Map<String, Object> metadata = null;
 
     public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
-    private SubSigningOptions signingOptions;
+    @javax.annotation.Nullable private SubSigningOptions signingOptions;
 
     public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
-    private String signingRedirectUrl;
+    @javax.annotation.Nullable private String signingRedirectUrl;
 
     public static final String JSON_PROPERTY_SUBJECT = "subject";
-    private String subject;
+    @javax.annotation.Nullable private String subject;
 
     public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    private Boolean testMode = false;
+    @javax.annotation.Nullable private Boolean testMode = false;
 
     public static final String JSON_PROPERTY_TITLE = "title";
-    private String title;
+    @javax.annotation.Nullable private String title;
 
     public SignatureRequestSendWithTemplateRequest() {}
 
@@ -121,7 +123,8 @@ public class SignatureRequestSendWithTemplateRequest {
                         SignatureRequestSendWithTemplateRequest.class);
     }
 
-    public SignatureRequestSendWithTemplateRequest templateIds(List<String> templateIds) {
+    public SignatureRequestSendWithTemplateRequest templateIds(
+            @javax.annotation.Nonnull List<String> templateIds) {
         this.templateIds = templateIds;
         return this;
     }
@@ -149,12 +152,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setTemplateIds(List<String> templateIds) {
+    public void setTemplateIds(@javax.annotation.Nonnull List<String> templateIds) {
         this.templateIds = templateIds;
     }
 
     public SignatureRequestSendWithTemplateRequest signers(
-            List<SubSignatureRequestTemplateSigner> signers) {
+            @javax.annotation.Nonnull List<SubSignatureRequestTemplateSigner> signers) {
         this.signers = signers;
         return this;
     }
@@ -182,11 +185,13 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_SIGNERS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setSigners(List<SubSignatureRequestTemplateSigner> signers) {
+    public void setSigners(
+            @javax.annotation.Nonnull List<SubSignatureRequestTemplateSigner> signers) {
         this.signers = signers;
     }
 
-    public SignatureRequestSendWithTemplateRequest allowDecline(Boolean allowDecline) {
+    public SignatureRequestSendWithTemplateRequest allowDecline(
+            @javax.annotation.Nullable Boolean allowDecline) {
         this.allowDecline = allowDecline;
         return this;
     }
@@ -205,11 +210,11 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowDecline(Boolean allowDecline) {
+    public void setAllowDecline(@javax.annotation.Nullable Boolean allowDecline) {
         this.allowDecline = allowDecline;
     }
 
-    public SignatureRequestSendWithTemplateRequest ccs(List<SubCC> ccs) {
+    public SignatureRequestSendWithTemplateRequest ccs(@javax.annotation.Nullable List<SubCC> ccs) {
         this.ccs = ccs;
         return this;
     }
@@ -235,11 +240,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_CCS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCcs(List<SubCC> ccs) {
+    public void setCcs(@javax.annotation.Nullable List<SubCC> ccs) {
         this.ccs = ccs;
     }
 
-    public SignatureRequestSendWithTemplateRequest clientId(String clientId) {
+    public SignatureRequestSendWithTemplateRequest clientId(
+            @javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -258,11 +264,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setClientId(String clientId) {
+    public void setClientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
     }
 
-    public SignatureRequestSendWithTemplateRequest customFields(List<SubCustomField> customFields) {
+    public SignatureRequestSendWithTemplateRequest customFields(
+            @javax.annotation.Nullable List<SubCustomField> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -290,11 +297,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCustomFields(List<SubCustomField> customFields) {
+    public void setCustomFields(@javax.annotation.Nullable List<SubCustomField> customFields) {
         this.customFields = customFields;
     }
 
-    public SignatureRequestSendWithTemplateRequest files(List<File> files) {
+    public SignatureRequestSendWithTemplateRequest files(
+            @javax.annotation.Nullable List<File> files) {
         this.files = files;
         return this;
     }
@@ -321,11 +329,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_FILES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFiles(List<File> files) {
+    public void setFiles(@javax.annotation.Nullable List<File> files) {
         this.files = files;
     }
 
-    public SignatureRequestSendWithTemplateRequest fileUrls(List<String> fileUrls) {
+    public SignatureRequestSendWithTemplateRequest fileUrls(
+            @javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
         return this;
     }
@@ -352,13 +361,13 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_FILE_URLS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFileUrls(List<String> fileUrls) {
+    public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
     }
 
     @Deprecated
     public SignatureRequestSendWithTemplateRequest isQualifiedSignature(
-            Boolean isQualifiedSignature) {
+            @javax.annotation.Nullable Boolean isQualifiedSignature) {
         this.isQualifiedSignature = isQualifiedSignature;
         return this;
     }
@@ -383,11 +392,11 @@ public class SignatureRequestSendWithTemplateRequest {
     @Deprecated
     @JsonProperty(JSON_PROPERTY_IS_QUALIFIED_SIGNATURE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsQualifiedSignature(Boolean isQualifiedSignature) {
+    public void setIsQualifiedSignature(@javax.annotation.Nullable Boolean isQualifiedSignature) {
         this.isQualifiedSignature = isQualifiedSignature;
     }
 
-    public SignatureRequestSendWithTemplateRequest isEid(Boolean isEid) {
+    public SignatureRequestSendWithTemplateRequest isEid(@javax.annotation.Nullable Boolean isEid) {
         this.isEid = isEid;
         return this;
     }
@@ -409,11 +418,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_IS_EID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsEid(Boolean isEid) {
+    public void setIsEid(@javax.annotation.Nullable Boolean isEid) {
         this.isEid = isEid;
     }
 
-    public SignatureRequestSendWithTemplateRequest message(String message) {
+    public SignatureRequestSendWithTemplateRequest message(
+            @javax.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -431,11 +441,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_MESSAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMessage(String message) {
+    public void setMessage(@javax.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public SignatureRequestSendWithTemplateRequest metadata(Map<String, Object> metadata) {
+    public SignatureRequestSendWithTemplateRequest metadata(
+            @javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -466,12 +477,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_METADATA)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMetadata(Map<String, Object> metadata) {
+    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
     public SignatureRequestSendWithTemplateRequest signingOptions(
-            SubSigningOptions signingOptions) {
+            @javax.annotation.Nullable SubSigningOptions signingOptions) {
         this.signingOptions = signingOptions;
         return this;
     }
@@ -489,11 +500,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigningOptions(SubSigningOptions signingOptions) {
+    public void setSigningOptions(@javax.annotation.Nullable SubSigningOptions signingOptions) {
         this.signingOptions = signingOptions;
     }
 
-    public SignatureRequestSendWithTemplateRequest signingRedirectUrl(String signingRedirectUrl) {
+    public SignatureRequestSendWithTemplateRequest signingRedirectUrl(
+            @javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
         return this;
     }
@@ -511,11 +523,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigningRedirectUrl(String signingRedirectUrl) {
+    public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
     }
 
-    public SignatureRequestSendWithTemplateRequest subject(String subject) {
+    public SignatureRequestSendWithTemplateRequest subject(
+            @javax.annotation.Nullable String subject) {
         this.subject = subject;
         return this;
     }
@@ -533,11 +546,12 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_SUBJECT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSubject(String subject) {
+    public void setSubject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
     }
 
-    public SignatureRequestSendWithTemplateRequest testMode(Boolean testMode) {
+    public SignatureRequestSendWithTemplateRequest testMode(
+            @javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
         return this;
     }
@@ -556,11 +570,11 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_TEST_MODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(Boolean testMode) {
+    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
     }
 
-    public SignatureRequestSendWithTemplateRequest title(String title) {
+    public SignatureRequestSendWithTemplateRequest title(@javax.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -578,7 +592,7 @@ public class SignatureRequestSendWithTemplateRequest {
 
     @JsonProperty(JSON_PROPERTY_TITLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTitle(String title) {
+    public void setTitle(@javax.annotation.Nullable String title) {
         this.title = title;
     }
 

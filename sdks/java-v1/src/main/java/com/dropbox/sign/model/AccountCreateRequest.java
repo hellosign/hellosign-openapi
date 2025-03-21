@@ -32,20 +32,20 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountCreateRequest {
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nonnull private String emailAddress;
 
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    private String clientId;
+    @javax.annotation.Nullable private String clientId;
 
     public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
-    private String clientSecret;
+    @javax.annotation.Nullable private String clientSecret;
 
     public static final String JSON_PROPERTY_LOCALE = "locale";
-    private String locale;
+    @javax.annotation.Nullable private String locale;
 
     public AccountCreateRequest() {}
 
@@ -63,7 +63,7 @@ public class AccountCreateRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), AccountCreateRequest.class);
     }
 
-    public AccountCreateRequest emailAddress(String emailAddress) {
+    public AccountCreateRequest emailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -82,11 +82,11 @@ public class AccountCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public AccountCreateRequest clientId(String clientId) {
+    public AccountCreateRequest clientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -105,11 +105,11 @@ public class AccountCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setClientId(String clientId) {
+    public void setClientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
     }
 
-    public AccountCreateRequest clientSecret(String clientSecret) {
+    public AccountCreateRequest clientSecret(@javax.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
         return this;
     }
@@ -128,11 +128,11 @@ public class AccountCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setClientSecret(String clientSecret) {
+    public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
     }
 
-    public AccountCreateRequest locale(String locale) {
+    public AccountCreateRequest locale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
         return this;
     }
@@ -152,7 +152,7 @@ public class AccountCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_LOCALE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLocale(String locale) {
+    public void setLocale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
     }
 

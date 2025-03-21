@@ -37,20 +37,20 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiAppResponseOAuth {
     public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
-    private String callbackUrl;
+    @javax.annotation.Nullable private String callbackUrl;
 
     public static final String JSON_PROPERTY_SECRET = "secret";
-    private String secret;
+    @javax.annotation.Nullable private String secret;
 
     public static final String JSON_PROPERTY_SCOPES = "scopes";
-    private List<String> scopes = null;
+    @javax.annotation.Nullable private List<String> scopes = null;
 
     public static final String JSON_PROPERTY_CHARGES_USERS = "charges_users";
-    private Boolean chargesUsers;
+    @javax.annotation.Nullable private Boolean chargesUsers;
 
     public ApiAppResponseOAuth() {}
 
@@ -68,7 +68,7 @@ public class ApiAppResponseOAuth {
                 .readValue(new ObjectMapper().writeValueAsString(data), ApiAppResponseOAuth.class);
     }
 
-    public ApiAppResponseOAuth callbackUrl(String callbackUrl) {
+    public ApiAppResponseOAuth callbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
         return this;
     }
@@ -86,11 +86,11 @@ public class ApiAppResponseOAuth {
 
     @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCallbackUrl(String callbackUrl) {
+    public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
     }
 
-    public ApiAppResponseOAuth secret(String secret) {
+    public ApiAppResponseOAuth secret(@javax.annotation.Nullable String secret) {
         this.secret = secret;
         return this;
     }
@@ -108,11 +108,11 @@ public class ApiAppResponseOAuth {
 
     @JsonProperty(JSON_PROPERTY_SECRET)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSecret(String secret) {
+    public void setSecret(@javax.annotation.Nullable String secret) {
         this.secret = secret;
     }
 
-    public ApiAppResponseOAuth scopes(List<String> scopes) {
+    public ApiAppResponseOAuth scopes(@javax.annotation.Nullable List<String> scopes) {
         this.scopes = scopes;
         return this;
     }
@@ -138,11 +138,11 @@ public class ApiAppResponseOAuth {
 
     @JsonProperty(JSON_PROPERTY_SCOPES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setScopes(List<String> scopes) {
+    public void setScopes(@javax.annotation.Nullable List<String> scopes) {
         this.scopes = scopes;
     }
 
-    public ApiAppResponseOAuth chargesUsers(Boolean chargesUsers) {
+    public ApiAppResponseOAuth chargesUsers(@javax.annotation.Nullable Boolean chargesUsers) {
         this.chargesUsers = chargesUsers;
         return this;
     }
@@ -161,7 +161,7 @@ public class ApiAppResponseOAuth {
 
     @JsonProperty(JSON_PROPERTY_CHARGES_USERS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setChargesUsers(Boolean chargesUsers) {
+    public void setChargesUsers(@javax.annotation.Nullable Boolean chargesUsers) {
         this.chargesUsers = chargesUsers;
     }
 

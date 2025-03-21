@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -43,10 +43,10 @@ import java.util.Objects;
 public class TemplateResponseDocumentFormFieldCheckbox
         extends TemplateResponseDocumentFormFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "checkbox";
+    @javax.annotation.Nonnull private String type = "checkbox";
 
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nullable private String group;
 
     public TemplateResponseDocumentFormFieldCheckbox() {}
 
@@ -67,7 +67,7 @@ public class TemplateResponseDocumentFormFieldCheckbox
                         TemplateResponseDocumentFormFieldCheckbox.class);
     }
 
-    public TemplateResponseDocumentFormFieldCheckbox type(String type) {
+    public TemplateResponseDocumentFormFieldCheckbox type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -94,11 +94,12 @@ public class TemplateResponseDocumentFormFieldCheckbox
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public TemplateResponseDocumentFormFieldCheckbox group(String group) {
+    public TemplateResponseDocumentFormFieldCheckbox group(
+            @javax.annotation.Nullable String group) {
         this.group = group;
         return this;
     }
@@ -117,7 +118,7 @@ public class TemplateResponseDocumentFormFieldCheckbox
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
     }
 

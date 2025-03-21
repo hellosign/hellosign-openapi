@@ -27,14 +27,14 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxLineResponse.JSON_PROPERTY_FAX_LINE, FaxLineResponse.JSON_PROPERTY_WARNINGS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineResponse {
     public static final String JSON_PROPERTY_FAX_LINE = "fax_line";
-    private FaxLineResponseFaxLine faxLine;
+    @javax.annotation.Nonnull private FaxLineResponseFaxLine faxLine;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private WarningResponse warnings;
+    @javax.annotation.Nullable private WarningResponse warnings;
 
     public FaxLineResponse() {}
 
@@ -52,7 +52,7 @@ public class FaxLineResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxLineResponse.class);
     }
 
-    public FaxLineResponse faxLine(FaxLineResponseFaxLine faxLine) {
+    public FaxLineResponse faxLine(@javax.annotation.Nonnull FaxLineResponseFaxLine faxLine) {
         this.faxLine = faxLine;
         return this;
     }
@@ -71,11 +71,11 @@ public class FaxLineResponse {
 
     @JsonProperty(JSON_PROPERTY_FAX_LINE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFaxLine(FaxLineResponseFaxLine faxLine) {
+    public void setFaxLine(@javax.annotation.Nonnull FaxLineResponseFaxLine faxLine) {
         this.faxLine = faxLine;
     }
 
-    public FaxLineResponse warnings(WarningResponse warnings) {
+    public FaxLineResponse warnings(@javax.annotation.Nullable WarningResponse warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -93,7 +93,7 @@ public class FaxLineResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(WarningResponse warnings) {
+    public void setWarnings(@javax.annotation.Nullable WarningResponse warnings) {
         this.warnings = warnings;
     }
 

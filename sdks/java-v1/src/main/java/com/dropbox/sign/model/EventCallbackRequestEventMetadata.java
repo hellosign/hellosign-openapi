@@ -32,20 +32,20 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EventCallbackRequestEventMetadata {
     public static final String JSON_PROPERTY_RELATED_SIGNATURE_ID = "related_signature_id";
-    private String relatedSignatureId;
+    @javax.annotation.Nullable private String relatedSignatureId;
 
     public static final String JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID = "reported_for_account_id";
-    private String reportedForAccountId;
+    @javax.annotation.Nullable private String reportedForAccountId;
 
     public static final String JSON_PROPERTY_REPORTED_FOR_APP_ID = "reported_for_app_id";
-    private String reportedForAppId;
+    @javax.annotation.Nullable private String reportedForAppId;
 
     public static final String JSON_PROPERTY_EVENT_MESSAGE = "event_message";
-    private String eventMessage;
+    @javax.annotation.Nullable private String eventMessage;
 
     public EventCallbackRequestEventMetadata() {}
 
@@ -65,7 +65,8 @@ public class EventCallbackRequestEventMetadata {
                         EventCallbackRequestEventMetadata.class);
     }
 
-    public EventCallbackRequestEventMetadata relatedSignatureId(String relatedSignatureId) {
+    public EventCallbackRequestEventMetadata relatedSignatureId(
+            @javax.annotation.Nullable String relatedSignatureId) {
         this.relatedSignatureId = relatedSignatureId;
         return this;
     }
@@ -84,11 +85,12 @@ public class EventCallbackRequestEventMetadata {
 
     @JsonProperty(JSON_PROPERTY_RELATED_SIGNATURE_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRelatedSignatureId(String relatedSignatureId) {
+    public void setRelatedSignatureId(@javax.annotation.Nullable String relatedSignatureId) {
         this.relatedSignatureId = relatedSignatureId;
     }
 
-    public EventCallbackRequestEventMetadata reportedForAccountId(String reportedForAccountId) {
+    public EventCallbackRequestEventMetadata reportedForAccountId(
+            @javax.annotation.Nullable String reportedForAccountId) {
         this.reportedForAccountId = reportedForAccountId;
         return this;
     }
@@ -106,11 +108,12 @@ public class EventCallbackRequestEventMetadata {
 
     @JsonProperty(JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setReportedForAccountId(String reportedForAccountId) {
+    public void setReportedForAccountId(@javax.annotation.Nullable String reportedForAccountId) {
         this.reportedForAccountId = reportedForAccountId;
     }
 
-    public EventCallbackRequestEventMetadata reportedForAppId(String reportedForAppId) {
+    public EventCallbackRequestEventMetadata reportedForAppId(
+            @javax.annotation.Nullable String reportedForAppId) {
         this.reportedForAppId = reportedForAppId;
         return this;
     }
@@ -128,11 +131,12 @@ public class EventCallbackRequestEventMetadata {
 
     @JsonProperty(JSON_PROPERTY_REPORTED_FOR_APP_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setReportedForAppId(String reportedForAppId) {
+    public void setReportedForAppId(@javax.annotation.Nullable String reportedForAppId) {
         this.reportedForAppId = reportedForAppId;
     }
 
-    public EventCallbackRequestEventMetadata eventMessage(String eventMessage) {
+    public EventCallbackRequestEventMetadata eventMessage(
+            @javax.annotation.Nullable String eventMessage) {
         this.eventMessage = eventMessage;
         return this;
     }
@@ -150,7 +154,7 @@ public class EventCallbackRequestEventMetadata {
 
     @JsonProperty(JSON_PROPERTY_EVENT_MESSAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEventMessage(String eventMessage) {
+    public void setEventMessage(@javax.annotation.Nullable String eventMessage) {
         this.eventMessage = eventMessage;
     }
 

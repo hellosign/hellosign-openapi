@@ -41,20 +41,20 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubCustomField {
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nonnull private String name;
 
     public static final String JSON_PROPERTY_EDITOR = "editor";
-    private String editor;
+    @javax.annotation.Nullable private String editor;
 
     public static final String JSON_PROPERTY_REQUIRED = "required";
-    private Boolean required = false;
+    @javax.annotation.Nullable private Boolean required = false;
 
     public static final String JSON_PROPERTY_VALUE = "value";
-    private String value;
+    @javax.annotation.Nullable private String value;
 
     public SubCustomField() {}
 
@@ -72,7 +72,7 @@ public class SubCustomField {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubCustomField.class);
     }
 
-    public SubCustomField name(String name) {
+    public SubCustomField name(@javax.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -93,11 +93,11 @@ public class SubCustomField {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public SubCustomField editor(String editor) {
+    public SubCustomField editor(@javax.annotation.Nullable String editor) {
         this.editor = editor;
         return this;
     }
@@ -121,11 +121,11 @@ public class SubCustomField {
 
     @JsonProperty(JSON_PROPERTY_EDITOR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEditor(String editor) {
+    public void setEditor(@javax.annotation.Nullable String editor) {
         this.editor = editor;
     }
 
-    public SubCustomField required(Boolean required) {
+    public SubCustomField required(@javax.annotation.Nullable Boolean required) {
         this.required = required;
         return this;
     }
@@ -144,11 +144,11 @@ public class SubCustomField {
 
     @JsonProperty(JSON_PROPERTY_REQUIRED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequired(Boolean required) {
+    public void setRequired(@javax.annotation.Nullable Boolean required) {
         this.required = required;
     }
 
-    public SubCustomField value(String value) {
+    public SubCustomField value(@javax.annotation.Nullable String value) {
         this.value = value;
         return this;
     }
@@ -167,7 +167,7 @@ public class SubCustomField {
 
     @JsonProperty(JSON_PROPERTY_VALUE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValue(String value) {
+    public void setValue(@javax.annotation.Nullable String value) {
         this.value = value;
     }
 

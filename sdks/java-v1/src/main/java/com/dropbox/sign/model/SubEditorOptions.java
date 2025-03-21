@@ -30,14 +30,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubEditorOptions {
     public static final String JSON_PROPERTY_ALLOW_EDIT_SIGNERS = "allow_edit_signers";
-    private Boolean allowEditSigners = false;
+    @javax.annotation.Nullable private Boolean allowEditSigners = false;
 
     public static final String JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS = "allow_edit_documents";
-    private Boolean allowEditDocuments = false;
+    @javax.annotation.Nullable private Boolean allowEditDocuments = false;
 
     public SubEditorOptions() {}
 
@@ -55,7 +55,7 @@ public class SubEditorOptions {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubEditorOptions.class);
     }
 
-    public SubEditorOptions allowEditSigners(Boolean allowEditSigners) {
+    public SubEditorOptions allowEditSigners(@javax.annotation.Nullable Boolean allowEditSigners) {
         this.allowEditSigners = allowEditSigners;
         return this;
     }
@@ -73,11 +73,12 @@ public class SubEditorOptions {
 
     @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowEditSigners(Boolean allowEditSigners) {
+    public void setAllowEditSigners(@javax.annotation.Nullable Boolean allowEditSigners) {
         this.allowEditSigners = allowEditSigners;
     }
 
-    public SubEditorOptions allowEditDocuments(Boolean allowEditDocuments) {
+    public SubEditorOptions allowEditDocuments(
+            @javax.annotation.Nullable Boolean allowEditDocuments) {
         this.allowEditDocuments = allowEditDocuments;
         return this;
     }
@@ -95,7 +96,7 @@ public class SubEditorOptions {
 
     @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowEditDocuments(Boolean allowEditDocuments) {
+    public void setAllowEditDocuments(@javax.annotation.Nullable Boolean allowEditDocuments) {
         this.allowEditDocuments = allowEditDocuments;
     }
 

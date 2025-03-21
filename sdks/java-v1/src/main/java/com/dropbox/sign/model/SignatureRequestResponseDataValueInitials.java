@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -43,13 +43,13 @@ import java.util.Objects;
         visible = true)
 public class SignatureRequestResponseDataValueInitials extends SignatureRequestResponseDataBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "initials";
+    @javax.annotation.Nullable private String type = "initials";
 
     public static final String JSON_PROPERTY_VALUE = "value";
-    private String value;
+    @javax.annotation.Nullable private String value;
 
     public static final String JSON_PROPERTY_IS_SIGNED = "is_signed";
-    private Boolean isSigned;
+    @javax.annotation.Nullable private Boolean isSigned;
 
     public SignatureRequestResponseDataValueInitials() {}
 
@@ -70,7 +70,7 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
                         SignatureRequestResponseDataValueInitials.class);
     }
 
-    public SignatureRequestResponseDataValueInitials type(String type) {
+    public SignatureRequestResponseDataValueInitials type(@javax.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -88,11 +88,12 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public SignatureRequestResponseDataValueInitials value(String value) {
+    public SignatureRequestResponseDataValueInitials value(
+            @javax.annotation.Nullable String value) {
         this.value = value;
         return this;
     }
@@ -110,11 +111,12 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
 
     @JsonProperty(JSON_PROPERTY_VALUE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValue(String value) {
+    public void setValue(@javax.annotation.Nullable String value) {
         this.value = value;
     }
 
-    public SignatureRequestResponseDataValueInitials isSigned(Boolean isSigned) {
+    public SignatureRequestResponseDataValueInitials isSigned(
+            @javax.annotation.Nullable Boolean isSigned) {
         this.isSigned = isSigned;
         return this;
     }
@@ -132,7 +134,7 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
 
     @JsonProperty(JSON_PROPERTY_IS_SIGNED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsSigned(Boolean isSigned) {
+    public void setIsSigned(@javax.annotation.Nullable Boolean isSigned) {
         this.isSigned = isSigned;
     }
 

@@ -34,26 +34,26 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestResponseAttachment {
     public static final String JSON_PROPERTY_ID = "id";
-    private String id;
+    @javax.annotation.Nonnull private String id;
 
     public static final String JSON_PROPERTY_SIGNER = "signer";
-    private String signer;
+    @javax.annotation.Nonnull private String signer;
 
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nonnull private String name;
 
     public static final String JSON_PROPERTY_REQUIRED = "required";
-    private Boolean required;
+    @javax.annotation.Nonnull private Boolean required;
 
     public static final String JSON_PROPERTY_INSTRUCTIONS = "instructions";
-    private String instructions;
+    @javax.annotation.Nullable private String instructions;
 
     public static final String JSON_PROPERTY_UPLOADED_AT = "uploaded_at";
-    private Integer uploadedAt;
+    @javax.annotation.Nullable private Integer uploadedAt;
 
     public SignatureRequestResponseAttachment() {}
 
@@ -73,7 +73,7 @@ public class SignatureRequestResponseAttachment {
                         SignatureRequestResponseAttachment.class);
     }
 
-    public SignatureRequestResponseAttachment id(String id) {
+    public SignatureRequestResponseAttachment id(@javax.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -92,11 +92,11 @@ public class SignatureRequestResponseAttachment {
 
     @JsonProperty(JSON_PROPERTY_ID)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setId(String id) {
+    public void setId(@javax.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public SignatureRequestResponseAttachment signer(String signer) {
+    public SignatureRequestResponseAttachment signer(@javax.annotation.Nonnull String signer) {
         this.signer = signer;
         return this;
     }
@@ -120,7 +120,7 @@ public class SignatureRequestResponseAttachment {
 
     @JsonProperty(JSON_PROPERTY_SIGNER)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setSigner(String signer) {
+    public void setSigner(@javax.annotation.Nonnull String signer) {
         this.signer = signer;
     }
 
@@ -128,7 +128,7 @@ public class SignatureRequestResponseAttachment {
         this.signer = String.valueOf(signer);
     }
 
-    public SignatureRequestResponseAttachment name(String name) {
+    public SignatureRequestResponseAttachment name(@javax.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -147,11 +147,11 @@ public class SignatureRequestResponseAttachment {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public SignatureRequestResponseAttachment required(Boolean required) {
+    public SignatureRequestResponseAttachment required(@javax.annotation.Nonnull Boolean required) {
         this.required = required;
         return this;
     }
@@ -170,11 +170,12 @@ public class SignatureRequestResponseAttachment {
 
     @JsonProperty(JSON_PROPERTY_REQUIRED)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setRequired(Boolean required) {
+    public void setRequired(@javax.annotation.Nonnull Boolean required) {
         this.required = required;
     }
 
-    public SignatureRequestResponseAttachment instructions(String instructions) {
+    public SignatureRequestResponseAttachment instructions(
+            @javax.annotation.Nullable String instructions) {
         this.instructions = instructions;
         return this;
     }
@@ -192,11 +193,12 @@ public class SignatureRequestResponseAttachment {
 
     @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setInstructions(String instructions) {
+    public void setInstructions(@javax.annotation.Nullable String instructions) {
         this.instructions = instructions;
     }
 
-    public SignatureRequestResponseAttachment uploadedAt(Integer uploadedAt) {
+    public SignatureRequestResponseAttachment uploadedAt(
+            @javax.annotation.Nullable Integer uploadedAt) {
         this.uploadedAt = uploadedAt;
         return this;
     }
@@ -214,7 +216,7 @@ public class SignatureRequestResponseAttachment {
 
     @JsonProperty(JSON_PROPERTY_UPLOADED_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setUploadedAt(Integer uploadedAt) {
+    public void setUploadedAt(@javax.annotation.Nullable Integer uploadedAt) {
         this.uploadedAt = uploadedAt;
     }
 

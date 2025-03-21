@@ -32,20 +32,20 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OAuthTokenRefreshRequest {
     public static final String JSON_PROPERTY_GRANT_TYPE = "grant_type";
-    private String grantType = "refresh_token";
+    @javax.annotation.Nonnull private String grantType = "refresh_token";
 
     public static final String JSON_PROPERTY_REFRESH_TOKEN = "refresh_token";
-    private String refreshToken;
+    @javax.annotation.Nonnull private String refreshToken;
 
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    private String clientId;
+    @javax.annotation.Nullable private String clientId;
 
     public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
-    private String clientSecret;
+    @javax.annotation.Nullable private String clientSecret;
 
     public OAuthTokenRefreshRequest() {}
 
@@ -65,7 +65,7 @@ public class OAuthTokenRefreshRequest {
                         OAuthTokenRefreshRequest.class);
     }
 
-    public OAuthTokenRefreshRequest grantType(String grantType) {
+    public OAuthTokenRefreshRequest grantType(@javax.annotation.Nonnull String grantType) {
         this.grantType = grantType;
         return this;
     }
@@ -84,11 +84,11 @@ public class OAuthTokenRefreshRequest {
 
     @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGrantType(String grantType) {
+    public void setGrantType(@javax.annotation.Nonnull String grantType) {
         this.grantType = grantType;
     }
 
-    public OAuthTokenRefreshRequest refreshToken(String refreshToken) {
+    public OAuthTokenRefreshRequest refreshToken(@javax.annotation.Nonnull String refreshToken) {
         this.refreshToken = refreshToken;
         return this;
     }
@@ -107,11 +107,11 @@ public class OAuthTokenRefreshRequest {
 
     @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setRefreshToken(String refreshToken) {
+    public void setRefreshToken(@javax.annotation.Nonnull String refreshToken) {
         this.refreshToken = refreshToken;
     }
 
-    public OAuthTokenRefreshRequest clientId(String clientId) {
+    public OAuthTokenRefreshRequest clientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -131,11 +131,11 @@ public class OAuthTokenRefreshRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setClientId(String clientId) {
+    public void setClientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
     }
 
-    public OAuthTokenRefreshRequest clientSecret(String clientSecret) {
+    public OAuthTokenRefreshRequest clientSecret(@javax.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
         return this;
     }
@@ -155,7 +155,7 @@ public class OAuthTokenRefreshRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setClientSecret(String clientSecret) {
+    public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
     }
 

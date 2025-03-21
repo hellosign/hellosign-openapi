@@ -28,7 +28,7 @@ import java.util.Objects;
 @JsonPropertyOrder({TemplateResponseDocumentStaticFieldHyperlink.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -40,7 +40,7 @@ import java.util.Objects;
 public class TemplateResponseDocumentStaticFieldHyperlink
         extends TemplateResponseDocumentStaticFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "hyperlink";
+    @javax.annotation.Nonnull private String type = "hyperlink";
 
     public TemplateResponseDocumentStaticFieldHyperlink() {}
 
@@ -62,7 +62,8 @@ public class TemplateResponseDocumentStaticFieldHyperlink
                         TemplateResponseDocumentStaticFieldHyperlink.class);
     }
 
-    public TemplateResponseDocumentStaticFieldHyperlink type(String type) {
+    public TemplateResponseDocumentStaticFieldHyperlink type(
+            @javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -89,7 +90,7 @@ public class TemplateResponseDocumentStaticFieldHyperlink
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 

@@ -38,7 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -68,19 +68,19 @@ import java.util.Objects;
 })
 public class SignatureRequestResponseDataBase {
     public static final String JSON_PROPERTY_API_ID = "api_id";
-    private String apiId;
+    @javax.annotation.Nullable private String apiId;
 
     public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
-    private String signatureId;
+    @javax.annotation.Nullable private String signatureId;
 
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public static final String JSON_PROPERTY_REQUIRED = "required";
-    private Boolean required;
+    @javax.annotation.Nullable private Boolean required;
 
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
+    @javax.annotation.Nullable private String type;
 
     public SignatureRequestResponseDataBase() {}
 
@@ -100,7 +100,7 @@ public class SignatureRequestResponseDataBase {
                         SignatureRequestResponseDataBase.class);
     }
 
-    public SignatureRequestResponseDataBase apiId(String apiId) {
+    public SignatureRequestResponseDataBase apiId(@javax.annotation.Nullable String apiId) {
         this.apiId = apiId;
         return this;
     }
@@ -118,11 +118,12 @@ public class SignatureRequestResponseDataBase {
 
     @JsonProperty(JSON_PROPERTY_API_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setApiId(String apiId) {
+    public void setApiId(@javax.annotation.Nullable String apiId) {
         this.apiId = apiId;
     }
 
-    public SignatureRequestResponseDataBase signatureId(String signatureId) {
+    public SignatureRequestResponseDataBase signatureId(
+            @javax.annotation.Nullable String signatureId) {
         this.signatureId = signatureId;
         return this;
     }
@@ -140,11 +141,11 @@ public class SignatureRequestResponseDataBase {
 
     @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignatureId(String signatureId) {
+    public void setSignatureId(@javax.annotation.Nullable String signatureId) {
         this.signatureId = signatureId;
     }
 
-    public SignatureRequestResponseDataBase name(String name) {
+    public SignatureRequestResponseDataBase name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -162,11 +163,11 @@ public class SignatureRequestResponseDataBase {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public SignatureRequestResponseDataBase required(Boolean required) {
+    public SignatureRequestResponseDataBase required(@javax.annotation.Nullable Boolean required) {
         this.required = required;
         return this;
     }
@@ -184,11 +185,11 @@ public class SignatureRequestResponseDataBase {
 
     @JsonProperty(JSON_PROPERTY_REQUIRED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequired(Boolean required) {
+    public void setRequired(@javax.annotation.Nullable Boolean required) {
         this.required = required;
     }
 
-    public SignatureRequestResponseDataBase type(String type) {
+    public SignatureRequestResponseDataBase type(@javax.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -206,7 +207,7 @@ public class SignatureRequestResponseDataBase {
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nullable String type) {
         this.type = type;
     }
 

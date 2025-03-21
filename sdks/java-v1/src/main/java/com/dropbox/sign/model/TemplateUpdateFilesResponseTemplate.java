@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateUpdateFilesResponseTemplate {
     public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
-    private String templateId;
+    @javax.annotation.Nullable private String templateId;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    @Deprecated private List<WarningResponse> warnings = null;
+    @Deprecated @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public TemplateUpdateFilesResponseTemplate() {}
 
@@ -59,7 +59,8 @@ public class TemplateUpdateFilesResponseTemplate {
                         TemplateUpdateFilesResponseTemplate.class);
     }
 
-    public TemplateUpdateFilesResponseTemplate templateId(String templateId) {
+    public TemplateUpdateFilesResponseTemplate templateId(
+            @javax.annotation.Nullable String templateId) {
         this.templateId = templateId;
         return this;
     }
@@ -77,12 +78,13 @@ public class TemplateUpdateFilesResponseTemplate {
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTemplateId(String templateId) {
+    public void setTemplateId(@javax.annotation.Nullable String templateId) {
         this.templateId = templateId;
     }
 
     @Deprecated
-    public TemplateUpdateFilesResponseTemplate warnings(List<WarningResponse> warnings) {
+    public TemplateUpdateFilesResponseTemplate warnings(
+            @javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -111,7 +113,7 @@ public class TemplateUpdateFilesResponseTemplate {
     @Deprecated
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

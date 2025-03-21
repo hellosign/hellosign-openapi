@@ -35,7 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -47,22 +47,22 @@ import java.util.Objects;
 public class TemplateResponseDocumentFormFieldHyperlink
         extends TemplateResponseDocumentFormFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "hyperlink";
+    @javax.annotation.Nonnull private String type = "hyperlink";
 
     public static final String JSON_PROPERTY_AVG_TEXT_LENGTH = "avg_text_length";
-    private TemplateResponseFieldAvgTextLength avgTextLength;
+    @javax.annotation.Nullable private TemplateResponseFieldAvgTextLength avgTextLength;
 
     public static final String JSON_PROPERTY_IS_MULTILINE = "isMultiline";
-    private Boolean isMultiline;
+    @javax.annotation.Nullable private Boolean isMultiline;
 
     public static final String JSON_PROPERTY_ORIGINAL_FONT_SIZE = "originalFontSize";
-    private Integer originalFontSize;
+    @javax.annotation.Nullable private Integer originalFontSize;
 
     public static final String JSON_PROPERTY_FONT_FAMILY = "fontFamily";
-    private String fontFamily;
+    @javax.annotation.Nullable private String fontFamily;
 
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nullable private String group;
 
     public TemplateResponseDocumentFormFieldHyperlink() {}
 
@@ -84,7 +84,7 @@ public class TemplateResponseDocumentFormFieldHyperlink
                         TemplateResponseDocumentFormFieldHyperlink.class);
     }
 
-    public TemplateResponseDocumentFormFieldHyperlink type(String type) {
+    public TemplateResponseDocumentFormFieldHyperlink type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -111,12 +111,12 @@ public class TemplateResponseDocumentFormFieldHyperlink
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
     public TemplateResponseDocumentFormFieldHyperlink avgTextLength(
-            TemplateResponseFieldAvgTextLength avgTextLength) {
+            @javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
         this.avgTextLength = avgTextLength;
         return this;
     }
@@ -134,11 +134,13 @@ public class TemplateResponseDocumentFormFieldHyperlink
 
     @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAvgTextLength(TemplateResponseFieldAvgTextLength avgTextLength) {
+    public void setAvgTextLength(
+            @javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
         this.avgTextLength = avgTextLength;
     }
 
-    public TemplateResponseDocumentFormFieldHyperlink isMultiline(Boolean isMultiline) {
+    public TemplateResponseDocumentFormFieldHyperlink isMultiline(
+            @javax.annotation.Nullable Boolean isMultiline) {
         this.isMultiline = isMultiline;
         return this;
     }
@@ -156,11 +158,12 @@ public class TemplateResponseDocumentFormFieldHyperlink
 
     @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsMultiline(Boolean isMultiline) {
+    public void setIsMultiline(@javax.annotation.Nullable Boolean isMultiline) {
         this.isMultiline = isMultiline;
     }
 
-    public TemplateResponseDocumentFormFieldHyperlink originalFontSize(Integer originalFontSize) {
+    public TemplateResponseDocumentFormFieldHyperlink originalFontSize(
+            @javax.annotation.Nullable Integer originalFontSize) {
         this.originalFontSize = originalFontSize;
         return this;
     }
@@ -178,11 +181,12 @@ public class TemplateResponseDocumentFormFieldHyperlink
 
     @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOriginalFontSize(Integer originalFontSize) {
+    public void setOriginalFontSize(@javax.annotation.Nullable Integer originalFontSize) {
         this.originalFontSize = originalFontSize;
     }
 
-    public TemplateResponseDocumentFormFieldHyperlink fontFamily(String fontFamily) {
+    public TemplateResponseDocumentFormFieldHyperlink fontFamily(
+            @javax.annotation.Nullable String fontFamily) {
         this.fontFamily = fontFamily;
         return this;
     }
@@ -200,11 +204,12 @@ public class TemplateResponseDocumentFormFieldHyperlink
 
     @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFontFamily(String fontFamily) {
+    public void setFontFamily(@javax.annotation.Nullable String fontFamily) {
         this.fontFamily = fontFamily;
     }
 
-    public TemplateResponseDocumentFormFieldHyperlink group(String group) {
+    public TemplateResponseDocumentFormFieldHyperlink group(
+            @javax.annotation.Nullable String group) {
         this.group = group;
         return this;
     }
@@ -223,7 +228,7 @@ public class TemplateResponseDocumentFormFieldHyperlink
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
     }
 

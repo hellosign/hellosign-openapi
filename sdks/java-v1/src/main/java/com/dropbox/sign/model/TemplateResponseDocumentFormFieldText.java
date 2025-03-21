@@ -38,7 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -49,19 +49,19 @@ import java.util.Objects;
         visible = true)
 public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentFormFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "text";
+    @javax.annotation.Nonnull private String type = "text";
 
     public static final String JSON_PROPERTY_AVG_TEXT_LENGTH = "avg_text_length";
-    private TemplateResponseFieldAvgTextLength avgTextLength;
+    @javax.annotation.Nullable private TemplateResponseFieldAvgTextLength avgTextLength;
 
     public static final String JSON_PROPERTY_IS_MULTILINE = "isMultiline";
-    private Boolean isMultiline;
+    @javax.annotation.Nullable private Boolean isMultiline;
 
     public static final String JSON_PROPERTY_ORIGINAL_FONT_SIZE = "originalFontSize";
-    private Integer originalFontSize;
+    @javax.annotation.Nullable private Integer originalFontSize;
 
     public static final String JSON_PROPERTY_FONT_FAMILY = "fontFamily";
-    private String fontFamily;
+    @javax.annotation.Nullable private String fontFamily;
 
     /**
      * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of
@@ -69,25 +69,25 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      * the possible values.
      */
     public enum ValidationTypeEnum {
-        NUMBERS_ONLY("numbers_only"),
+        NUMBERS_ONLY(String.valueOf("numbers_only")),
 
-        LETTERS_ONLY("letters_only"),
+        LETTERS_ONLY(String.valueOf("letters_only")),
 
-        PHONE_NUMBER("phone_number"),
+        PHONE_NUMBER(String.valueOf("phone_number")),
 
-        BANK_ROUTING_NUMBER("bank_routing_number"),
+        BANK_ROUTING_NUMBER(String.valueOf("bank_routing_number")),
 
-        BANK_ACCOUNT_NUMBER("bank_account_number"),
+        BANK_ACCOUNT_NUMBER(String.valueOf("bank_account_number")),
 
-        EMAIL_ADDRESS("email_address"),
+        EMAIL_ADDRESS(String.valueOf("email_address")),
 
-        ZIP_CODE("zip_code"),
+        ZIP_CODE(String.valueOf("zip_code")),
 
-        SOCIAL_SECURITY_NUMBER("social_security_number"),
+        SOCIAL_SECURITY_NUMBER(String.valueOf("social_security_number")),
 
-        EMPLOYER_IDENTIFICATION_NUMBER("employer_identification_number"),
+        EMPLOYER_IDENTIFICATION_NUMBER(String.valueOf("employer_identification_number")),
 
-        CUSTOM_REGEX("custom_regex");
+        CUSTOM_REGEX(String.valueOf("custom_regex"));
 
         private String value;
 
@@ -117,10 +117,10 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
     }
 
     public static final String JSON_PROPERTY_VALIDATION_TYPE = "validation_type";
-    private ValidationTypeEnum validationType;
+    @javax.annotation.Nullable private ValidationTypeEnum validationType;
 
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nullable private String group;
 
     public TemplateResponseDocumentFormFieldText() {}
 
@@ -140,7 +140,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
                         TemplateResponseDocumentFormFieldText.class);
     }
 
-    public TemplateResponseDocumentFormFieldText type(String type) {
+    public TemplateResponseDocumentFormFieldText type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -167,12 +167,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
     public TemplateResponseDocumentFormFieldText avgTextLength(
-            TemplateResponseFieldAvgTextLength avgTextLength) {
+            @javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
         this.avgTextLength = avgTextLength;
         return this;
     }
@@ -190,11 +190,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
     @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAvgTextLength(TemplateResponseFieldAvgTextLength avgTextLength) {
+    public void setAvgTextLength(
+            @javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
         this.avgTextLength = avgTextLength;
     }
 
-    public TemplateResponseDocumentFormFieldText isMultiline(Boolean isMultiline) {
+    public TemplateResponseDocumentFormFieldText isMultiline(
+            @javax.annotation.Nullable Boolean isMultiline) {
         this.isMultiline = isMultiline;
         return this;
     }
@@ -212,11 +214,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
     @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsMultiline(Boolean isMultiline) {
+    public void setIsMultiline(@javax.annotation.Nullable Boolean isMultiline) {
         this.isMultiline = isMultiline;
     }
 
-    public TemplateResponseDocumentFormFieldText originalFontSize(Integer originalFontSize) {
+    public TemplateResponseDocumentFormFieldText originalFontSize(
+            @javax.annotation.Nullable Integer originalFontSize) {
         this.originalFontSize = originalFontSize;
         return this;
     }
@@ -234,11 +237,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
     @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOriginalFontSize(Integer originalFontSize) {
+    public void setOriginalFontSize(@javax.annotation.Nullable Integer originalFontSize) {
         this.originalFontSize = originalFontSize;
     }
 
-    public TemplateResponseDocumentFormFieldText fontFamily(String fontFamily) {
+    public TemplateResponseDocumentFormFieldText fontFamily(
+            @javax.annotation.Nullable String fontFamily) {
         this.fontFamily = fontFamily;
         return this;
     }
@@ -256,11 +260,12 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
     @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFontFamily(String fontFamily) {
+    public void setFontFamily(@javax.annotation.Nullable String fontFamily) {
         this.fontFamily = fontFamily;
     }
 
-    public TemplateResponseDocumentFormFieldText validationType(ValidationTypeEnum validationType) {
+    public TemplateResponseDocumentFormFieldText validationType(
+            @javax.annotation.Nullable ValidationTypeEnum validationType) {
         this.validationType = validationType;
         return this;
     }
@@ -280,11 +285,11 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
     @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValidationType(ValidationTypeEnum validationType) {
+    public void setValidationType(@javax.annotation.Nullable ValidationTypeEnum validationType) {
         this.validationType = validationType;
     }
 
-    public TemplateResponseDocumentFormFieldText group(String group) {
+    public TemplateResponseDocumentFormFieldText group(@javax.annotation.Nullable String group) {
         this.group = group;
         return this;
     }
@@ -303,7 +308,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
     }
 
