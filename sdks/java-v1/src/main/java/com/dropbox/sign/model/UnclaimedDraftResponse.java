@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftResponse {
     public static final String JSON_PROPERTY_SIGNATURE_REQUEST_ID = "signature_request_id";

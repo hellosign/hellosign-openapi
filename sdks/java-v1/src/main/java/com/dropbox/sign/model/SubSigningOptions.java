@@ -39,7 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubSigningOptions {
     /** The default type shown (limited to the listed types) */

@@ -27,7 +27,7 @@ import javax.ws.rs.ext.ContextResolver;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class JSON implements ContextResolver<ObjectMapper> {
     private ObjectMapper mapper;
 
