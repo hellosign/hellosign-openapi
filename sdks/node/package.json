@@ -18,7 +18,7 @@
     },
     "author": "Dropbox Sign",
     "dependencies": {
-        "axios": "^1.7.0",
+        "axios": "^1.8.2",
         "bluebird": "^3.7.2",
         "form-data": "^4.0.0",
         "qs": "^6.10.3"
@@ -30,7 +30,7 @@
         "@types/node": "^20.8.10",
         "@types/qs": "^6.9.15",
         "axios-mock-adapter": "^1.20.0",
-        "esbuild": "^0.14.54",
+        "esbuild": "^0.25.1",
         "jest": "^29.7.0",
         "json-diff": "^0.7.1",
         "prettier": "2.5.1",
