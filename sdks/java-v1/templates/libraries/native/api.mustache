@@ -284,13 +284,8 @@ public class {{classname}} {
         {{! This fix does make it unsuitable for large amounts of data because `InputStream.readAllbytes` is not meant for it, but a synchronous client is already not the right tool for that.}}
         if (localVarResponse.body() == null) {
           return new ApiResponse<{{{returnType}}}>(
-<<<<<<< HEAD
-              localVarResponse.statusCode(),
-              localVarResponse.headers().map(),
-=======
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
->>>>>>> java-v1-openapi-generator-upgrade-2
               null
           );
         }
@@ -302,17 +297,6 @@ public class {{classname}} {
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
             responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<{{{returnType}}}>() {})
-<<<<<<< HEAD
-        );
-        {{/returnType}}
-        {{^returnType}}
-        return new ApiResponse<{{{returnType}}}>(
-            localVarResponse.statusCode(),
-            localVarResponse.headers().map(),
-            null
-        );
-        {{/returnType}}
-=======
         );
           {{/returnType}}
           {{^returnType}}
@@ -322,7 +306,6 @@ public class {{classname}} {
           null
         );
         {{/returnType}}
->>>>>>> java-v1-openapi-generator-upgrade-2
         {{/vendorExtensions.x-java-text-plain-string}}
       } finally {
         {{^returnType}}

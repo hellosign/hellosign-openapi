@@ -92,8 +92,6 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   @Deprecated
   {{/deprecated}}
   {{>nullable_var_annotations}}
-<<<<<<< HEAD
-=======
 {{^useCustomTemplateCode}}
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
 {{/useCustomTemplateCode}}
@@ -102,7 +100,6 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   private {{{datatypeWithEnum}}} {{name}}{{#required}}{{#defaultValue}} = {{{.}}}{{/defaultValue}}{{/required}}{{^required}} = null{{/required}};
   {{/isContainer}}
   {{^isContainer}}
->>>>>>> java-v1-openapi-generator-upgrade-2
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
   {{/isContainer}}
 {{/useCustomTemplateCode}}
