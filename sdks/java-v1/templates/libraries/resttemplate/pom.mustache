@@ -73,7 +73,7 @@
                     </systemPropertyVariables>
                     <argLine>-Xms512m -Xmx1500m</argLine>
                     <parallel>methods</parallel>
-                    <forkMode>pertest</forkMode>
+                    <reuseForks>false</reuseForks>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
                 <dependencies>
@@ -379,10 +379,14 @@
         <jackson-databind-nullable-version>0.2.6</jackson-databind-nullable-version>
         {{/openApiNullable}}
         {{#useJakartaEe}}
+        <spring-web-version>6.1.14</spring-web-version>
         <jakarta-annotation-version>2.1.1</jakarta-annotation-version>
+        <beanvalidation-version>3.0.2</beanvalidation-version>
         {{/useJakartaEe}}
         {{^useJakartaEe}}
+        <spring-web-version>5.3.33</spring-web-version>
         <jakarta-annotation-version>1.3.5</jakarta-annotation-version>
+        <beanvalidation-version>2.0.2</beanvalidation-version>
         {{/useJakartaEe}}
         {{#joda}}
         <jodatime-version>2.9.9</jodatime-version>
