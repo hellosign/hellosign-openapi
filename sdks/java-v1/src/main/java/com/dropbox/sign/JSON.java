@@ -12,7 +12,6 @@
 
 package com.dropbox.sign;
 
-import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;

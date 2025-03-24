@@ -58,7 +58,7 @@ public class TemplateApi {
     }
 
     /**
-     * Add User to Template. Gives the specified Account access to the specified Template. The
+     * Add User to Template Gives the specified Account access to the specified Template. The
      * specified Account must be a part of your Team.
      *
      * @param templateId The id of the Template to give the Account access to. (required)
@@ -79,7 +79,7 @@ public class TemplateApi {
     }
 
     /**
-     * Add User to Template. Gives the specified Account access to the specified Template. The
+     * Add User to Template Gives the specified Account access to the specified Template. The
      * specified Account must be a part of your Team.
      *
      * @param templateId The id of the Template to give the Account access to. (required)
@@ -144,7 +144,7 @@ public class TemplateApi {
     }
 
     /**
-     * Create Template. Creates a template that can then be used.
+     * Create Template Creates a template that can then be used.
      *
      * @param templateCreateRequest (required)
      * @return TemplateCreateResponse
@@ -163,7 +163,7 @@ public class TemplateApi {
     }
 
     /**
-     * Create Template. Creates a template that can then be used.
+     * Create Template Creates a template that can then be used.
      *
      * @param templateCreateRequest (required)
      * @return ApiResponse&lt;TemplateCreateResponse&gt;
@@ -216,7 +216,7 @@ public class TemplateApi {
     }
 
     /**
-     * Create Embedded Template Draft. The first step in an embedded template workflow. Creates a
+     * Create Embedded Template Draft The first step in an embedded template workflow. Creates a
      * draft template that can then be further set up in the template &#39;edit&#39; stage.
      *
      * @param templateCreateEmbeddedDraftRequest (required)
@@ -238,7 +238,7 @@ public class TemplateApi {
     }
 
     /**
-     * Create Embedded Template Draft. The first step in an embedded template workflow. Creates a
+     * Create Embedded Template Draft The first step in an embedded template workflow. Creates a
      * draft template that can then be further set up in the template &#39;edit&#39; stage.
      *
      * @param templateCreateEmbeddedDraftRequest (required)
@@ -293,7 +293,7 @@ public class TemplateApi {
     }
 
     /**
-     * Delete Template. Completely deletes the template specified from the account.
+     * Delete Template Completely deletes the template specified from the account.
      *
      * @param templateId The id of the Template to delete. (required)
      * @throws ApiException if fails to make API call
@@ -310,7 +310,7 @@ public class TemplateApi {
     }
 
     /**
-     * Delete Template. Completely deletes the template specified from the account.
+     * Delete Template Completely deletes the template specified from the account.
      *
      * @param templateId The id of the Template to delete. (required)
      * @return ApiResponse&lt;Void&gt;
@@ -361,7 +361,7 @@ public class TemplateApi {
     }
 
     /**
-     * Get Template Files. Obtain a copy of the current documents specified by the
+     * Get Template Files Obtain a copy of the current documents specified by the
      * &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file. If the files are currently
      * being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case
      * please wait for the &#x60;template_created&#x60; callback event.
@@ -402,7 +402,7 @@ public class TemplateApi {
     }
 
     /**
-     * Get Template Files. Obtain a copy of the current documents specified by the
+     * Get Template Files Obtain a copy of the current documents specified by the
      * &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file. If the files are currently
      * being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case
      * please wait for the &#x60;template_created&#x60; callback event.
@@ -466,7 +466,7 @@ public class TemplateApi {
     }
 
     /**
-     * Get Template Files as Data Uri. Obtain a copy of the current documents specified by the
+     * Get Template Files as Data Uri Obtain a copy of the current documents specified by the
      * &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60;
      * representing the base64 encoded file (PDFs only). If the files are currently being prepared,
      * a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the
@@ -488,7 +488,7 @@ public class TemplateApi {
     }
 
     /**
-     * Get Template Files as Data Uri. Obtain a copy of the current documents specified by the
+     * Get Template Files as Data Uri Obtain a copy of the current documents specified by the
      * &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60;
      * representing the base64 encoded file (PDFs only). If the files are currently being prepared,
      * a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the
@@ -548,7 +548,7 @@ public class TemplateApi {
     }
 
     /**
-     * Get Template Files as File Url. Obtain a copy of the current documents specified by the
+     * Get Template Files as File Url Obtain a copy of the current documents specified by the
      * &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).
      * If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned
      * instead. In this case please wait for the &#x60;template_created&#x60; callback event.
@@ -592,7 +592,7 @@ public class TemplateApi {
     }
 
     /**
-     * Get Template Files as File Url. Obtain a copy of the current documents specified by the
+     * Get Template Files as File Url Obtain a copy of the current documents specified by the
      * &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).
      * If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned
      * instead. In this case please wait for the &#x60;template_created&#x60; callback event.
@@ -660,7 +660,7 @@ public class TemplateApi {
     }
 
     /**
-     * Get Template. Returns the Template specified by the &#x60;template_id&#x60; parameter.
+     * Get Template Returns the Template specified by the &#x60;template_id&#x60; parameter.
      *
      * @param templateId The id of the Template to retrieve. (required)
      * @return TemplateGetResponse
@@ -678,7 +678,7 @@ public class TemplateApi {
     }
 
     /**
-     * Get Template. Returns the Template specified by the &#x60;template_id&#x60; parameter.
+     * Get Template Returns the Template specified by the &#x60;template_id&#x60; parameter.
      *
      * @param templateId The id of the Template to retrieve. (required)
      * @return ApiResponse&lt;TemplateGetResponse&gt;
@@ -732,8 +732,8 @@ public class TemplateApi {
     }
 
     /**
-     * List Templates. Returns a list of the Templates that are accessible by you. Take a look at
-     * our [search guide](/api/reference/search/) to learn more about querying templates.
+     * List Templates Returns a list of the Templates that are accessible by you. Take a look at our
+     * [search guide](/api/reference/search/) to learn more about querying templates.
      *
      * @param accountId Which account to return Templates for. Must be a team member. Use
      *     &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
@@ -847,8 +847,8 @@ public class TemplateApi {
     }
 
     /**
-     * List Templates. Returns a list of the Templates that are accessible by you. Take a look at
-     * our [search guide](/api/reference/search/) to learn more about querying templates.
+     * List Templates Returns a list of the Templates that are accessible by you. Take a look at our
+     * [search guide](/api/reference/search/) to learn more about querying templates.
      *
      * @param accountId Which account to return Templates for. Must be a team member. Use
      *     &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
@@ -910,7 +910,7 @@ public class TemplateApi {
     }
 
     /**
-     * Remove User from Template. Removes the specified Account&#39;s access to the specified
+     * Remove User from Template Removes the specified Account&#39;s access to the specified
      * Template.
      *
      * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
@@ -932,7 +932,7 @@ public class TemplateApi {
     }
 
     /**
-     * Remove User from Template. Removes the specified Account&#39;s access to the specified
+     * Remove User from Template Removes the specified Account&#39;s access to the specified
      * Template.
      *
      * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
@@ -998,7 +998,7 @@ public class TemplateApi {
     }
 
     /**
-     * Update Template Files. Overlays a new file with the overlay of an existing template. The new
+     * Update Template Files Overlays a new file with the overlay of an existing template. The new
      * file(s) must: 1. have the same or higher page count 2. the same orientation as the file(s)
      * being replaced. This will not overwrite or in any way affect the existing template. Both the
      * existing template and new template will be available for use after executing this endpoint.
@@ -1032,7 +1032,7 @@ public class TemplateApi {
     }
 
     /**
-     * Update Template Files. Overlays a new file with the overlay of an existing template. The new
+     * Update Template Files Overlays a new file with the overlay of an existing template. The new
      * file(s) must: 1. have the same or higher page count 2. the same orientation as the file(s)
      * being replaced. This will not overwrite or in any way affect the existing template. Both the
      * existing template and new template will be available for use after executing this endpoint.

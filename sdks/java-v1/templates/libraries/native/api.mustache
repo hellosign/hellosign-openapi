@@ -284,8 +284,8 @@ public class {{classname}} {
         {{! This fix does make it unsuitable for large amounts of data because `InputStream.readAllbytes` is not meant for it, but a synchronous client is already not the right tool for that.}}
         if (localVarResponse.body() == null) {
           return new ApiResponse<{{{returnType}}}>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
               null
           );
         }
@@ -298,12 +298,12 @@ public class {{classname}} {
             localVarResponse.headers().map(),
             responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<{{{returnType}}}>() {})
         );
-          {{/returnType}}
-          {{^returnType}}
+        {{/returnType}}
+        {{^returnType}}
         return new ApiResponse<{{{returnType}}}>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-          null
+            null
         );
         {{/returnType}}
         {{/vendorExtensions.x-java-text-plain-string}}

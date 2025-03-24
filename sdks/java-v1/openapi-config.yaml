@@ -26,6 +26,7 @@ additionalProperties:
   licenseUrl: https://www.opensource.org/licenses/mit-license.php
   useCustomTemplateCode: true
   licenseCopyrightYear: 2024
+  failOnUnknownProperties: false
 files:
   dropbox-EventCallbackHelper.mustache:
     templateType: SupportingFiles

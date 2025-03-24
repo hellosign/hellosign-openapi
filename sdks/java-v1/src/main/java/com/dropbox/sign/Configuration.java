@@ -12,18 +12,13 @@
 
 package com.dropbox.sign;
 
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Supplier;
-
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.12.0")
 public class Configuration {
     public static final String VERSION = "1.8.1-dev";
 
-    private static final AtomicReference<ApiClient> defaultApiClient = new AtomicReference<>();
-    private static volatile Supplier<ApiClient> apiClientFactory = ApiClient::new;
+    private static volatile ApiClient defaultApiClient = new ApiClient();
 
     /**
      * Get the default API client, which would be used when creating API instances without providing
@@ -32,18 +27,7 @@ public class Configuration {
      * @return Default API client
      */
     public static ApiClient getDefaultApiClient() {
-        ApiClient client = defaultApiClient.get();
-        if (client == null) {
-            client =
-                    defaultApiClient.updateAndGet(
-                            val -> {
-                                if (val != null) { // changed by another thread
-                                    return val;
-                                }
-                                return apiClientFactory.get();
-                            });
-        }
-        return client;
+        return defaultApiClient;
     }
 
     /**
@@ -53,13 +37,6 @@ public class Configuration {
      * @param apiClient API client
      */
     public static void setDefaultApiClient(ApiClient apiClient) {
-        defaultApiClient.set(apiClient);
+        defaultApiClient = apiClient;
     }
-
-    /** set the callback used to create new ApiClient objects */
-    public static void setApiClientFactory(Supplier<ApiClient> factory) {
-        apiClientFactory = Objects.requireNonNull(factory);
-    }
-
-    private Configuration() {}
 }

@@ -47,7 +47,7 @@ public class BulkSendJobApi {
     }
 
     /**
-     * Get Bulk Send Job. Returns the status of the BulkSendJob and its SignatureRequests specified
+     * Get Bulk Send Job Returns the status of the BulkSendJob and its SignatureRequests specified
      * by the &#x60;bulk_send_job_id&#x60; parameter.
      *
      * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
@@ -112,7 +112,7 @@ public class BulkSendJobApi {
     }
 
     /**
-     * Get Bulk Send Job. Returns the status of the BulkSendJob and its SignatureRequests specified
+     * Get Bulk Send Job Returns the status of the BulkSendJob and its SignatureRequests specified
      * by the &#x60;bulk_send_job_id&#x60; parameter.
      *
      * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
@@ -184,7 +184,7 @@ public class BulkSendJobApi {
     }
 
     /**
-     * List Bulk Send Jobs. Returns a list of BulkSendJob that you can access.
+     * List Bulk Send Jobs Returns a list of BulkSendJob that you can access.
      *
      * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;.
      *     (optional, default to 1)
@@ -245,7 +245,7 @@ public class BulkSendJobApi {
     }
 
     /**
-     * List Bulk Send Jobs. Returns a list of BulkSendJob that you can access.
+     * List Bulk Send Jobs Returns a list of BulkSendJob that you can access.
      *
      * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;.
      *     (optional, default to 1)
