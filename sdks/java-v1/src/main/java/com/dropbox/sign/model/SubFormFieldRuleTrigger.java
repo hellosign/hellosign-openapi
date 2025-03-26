@@ -36,11 +36,11 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubFormFieldRuleTrigger {
     public static final String JSON_PROPERTY_ID = "id";
-    private String id;
+    @javax.annotation.Nonnull private String id;
 
     /**
      * Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:
@@ -53,15 +53,15 @@ public class SubFormFieldRuleTrigger {
      * match, single value
      */
     public enum OperatorEnum {
-        ANY("any"),
+        ANY(String.valueOf("any")),
 
-        IS("is"),
+        IS(String.valueOf("is")),
 
-        MATCH("match"),
+        MATCH(String.valueOf("match")),
 
-        NONE("none"),
+        NONE(String.valueOf("none")),
 
-        NOT("not");
+        NOT(String.valueOf("not"));
 
         private String value;
 
@@ -91,13 +91,13 @@ public class SubFormFieldRuleTrigger {
     }
 
     public static final String JSON_PROPERTY_OPERATOR = "operator";
-    private OperatorEnum operator;
+    @javax.annotation.Nonnull private OperatorEnum operator;
 
     public static final String JSON_PROPERTY_VALUE = "value";
-    private String value;
+    @javax.annotation.Nullable private String value;
 
     public static final String JSON_PROPERTY_VALUES = "values";
-    private List<String> values = null;
+    @javax.annotation.Nullable private List<String> values = null;
 
     public SubFormFieldRuleTrigger() {}
 
@@ -116,7 +116,7 @@ public class SubFormFieldRuleTrigger {
                         new ObjectMapper().writeValueAsString(data), SubFormFieldRuleTrigger.class);
     }
 
-    public SubFormFieldRuleTrigger id(String id) {
+    public SubFormFieldRuleTrigger id(@javax.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -137,11 +137,11 @@ public class SubFormFieldRuleTrigger {
 
     @JsonProperty(JSON_PROPERTY_ID)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setId(String id) {
+    public void setId(@javax.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public SubFormFieldRuleTrigger operator(OperatorEnum operator) {
+    public SubFormFieldRuleTrigger operator(@javax.annotation.Nonnull OperatorEnum operator) {
         this.operator = operator;
         return this;
     }
@@ -167,11 +167,11 @@ public class SubFormFieldRuleTrigger {
 
     @JsonProperty(JSON_PROPERTY_OPERATOR)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setOperator(OperatorEnum operator) {
+    public void setOperator(@javax.annotation.Nonnull OperatorEnum operator) {
         this.operator = operator;
     }
 
-    public SubFormFieldRuleTrigger value(String value) {
+    public SubFormFieldRuleTrigger value(@javax.annotation.Nullable String value) {
         this.value = value;
         return this;
     }
@@ -193,11 +193,11 @@ public class SubFormFieldRuleTrigger {
 
     @JsonProperty(JSON_PROPERTY_VALUE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValue(String value) {
+    public void setValue(@javax.annotation.Nullable String value) {
         this.value = value;
     }
 
-    public SubFormFieldRuleTrigger values(List<String> values) {
+    public SubFormFieldRuleTrigger values(@javax.annotation.Nullable List<String> values) {
         this.values = values;
         return this;
     }
@@ -224,7 +224,7 @@ public class SubFormFieldRuleTrigger {
 
     @JsonProperty(JSON_PROPERTY_VALUES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValues(List<String> values) {
+    public void setValues(@javax.annotation.Nullable List<String> values) {
         this.values = values;
     }
 

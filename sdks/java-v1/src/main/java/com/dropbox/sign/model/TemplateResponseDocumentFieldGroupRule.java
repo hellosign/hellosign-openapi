@@ -33,14 +33,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseDocumentFieldGroupRule {
     public static final String JSON_PROPERTY_REQUIREMENT = "requirement";
-    private String requirement;
+    @javax.annotation.Nullable private String requirement;
 
     public static final String JSON_PROPERTY_GROUP_LABEL = "groupLabel";
-    private String groupLabel;
+    @javax.annotation.Nullable private String groupLabel;
 
     public TemplateResponseDocumentFieldGroupRule() {}
 
@@ -60,7 +60,8 @@ public class TemplateResponseDocumentFieldGroupRule {
                         TemplateResponseDocumentFieldGroupRule.class);
     }
 
-    public TemplateResponseDocumentFieldGroupRule requirement(String requirement) {
+    public TemplateResponseDocumentFieldGroupRule requirement(
+            @javax.annotation.Nullable String requirement) {
         this.requirement = requirement;
         return this;
     }
@@ -83,11 +84,12 @@ public class TemplateResponseDocumentFieldGroupRule {
 
     @JsonProperty(JSON_PROPERTY_REQUIREMENT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequirement(String requirement) {
+    public void setRequirement(@javax.annotation.Nullable String requirement) {
         this.requirement = requirement;
     }
 
-    public TemplateResponseDocumentFieldGroupRule groupLabel(String groupLabel) {
+    public TemplateResponseDocumentFieldGroupRule groupLabel(
+            @javax.annotation.Nullable String groupLabel) {
         this.groupLabel = groupLabel;
         return this;
     }
@@ -105,7 +107,7 @@ public class TemplateResponseDocumentFieldGroupRule {
 
     @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroupLabel(String groupLabel) {
+    public void setGroupLabel(@javax.annotation.Nullable String groupLabel) {
         this.groupLabel = groupLabel;
     }
 

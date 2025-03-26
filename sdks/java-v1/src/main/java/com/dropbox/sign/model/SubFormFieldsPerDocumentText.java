@@ -42,7 +42,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -53,19 +53,19 @@ import java.util.Objects;
         visible = true)
 public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "text";
+    @javax.annotation.Nonnull private String type = "text";
 
     public static final String JSON_PROPERTY_PLACEHOLDER = "placeholder";
-    private String placeholder;
+    @javax.annotation.Nullable private String placeholder;
 
     public static final String JSON_PROPERTY_AUTO_FILL_TYPE = "auto_fill_type";
-    private String autoFillType;
+    @javax.annotation.Nullable private String autoFillType;
 
     public static final String JSON_PROPERTY_LINK_ID = "link_id";
-    private String linkId;
+    @javax.annotation.Nullable private String linkId;
 
     public static final String JSON_PROPERTY_MASKED = "masked";
-    private Boolean masked;
+    @javax.annotation.Nullable private Boolean masked;
 
     /**
      * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of
@@ -76,25 +76,25 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      * case of an invalid value.
      */
     public enum ValidationTypeEnum {
-        NUMBERS_ONLY("numbers_only"),
+        NUMBERS_ONLY(String.valueOf("numbers_only")),
 
-        LETTERS_ONLY("letters_only"),
+        LETTERS_ONLY(String.valueOf("letters_only")),
 
-        PHONE_NUMBER("phone_number"),
+        PHONE_NUMBER(String.valueOf("phone_number")),
 
-        BANK_ROUTING_NUMBER("bank_routing_number"),
+        BANK_ROUTING_NUMBER(String.valueOf("bank_routing_number")),
 
-        BANK_ACCOUNT_NUMBER("bank_account_number"),
+        BANK_ACCOUNT_NUMBER(String.valueOf("bank_account_number")),
 
-        EMAIL_ADDRESS("email_address"),
+        EMAIL_ADDRESS(String.valueOf("email_address")),
 
-        ZIP_CODE("zip_code"),
+        ZIP_CODE(String.valueOf("zip_code")),
 
-        SOCIAL_SECURITY_NUMBER("social_security_number"),
+        SOCIAL_SECURITY_NUMBER(String.valueOf("social_security_number")),
 
-        EMPLOYER_IDENTIFICATION_NUMBER("employer_identification_number"),
+        EMPLOYER_IDENTIFICATION_NUMBER(String.valueOf("employer_identification_number")),
 
-        CUSTOM_REGEX("custom_regex");
+        CUSTOM_REGEX(String.valueOf("custom_regex"));
 
         private String value;
 
@@ -124,51 +124,51 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     }
 
     public static final String JSON_PROPERTY_VALIDATION_TYPE = "validation_type";
-    private ValidationTypeEnum validationType;
+    @javax.annotation.Nullable private ValidationTypeEnum validationType;
 
     public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX = "validation_custom_regex";
-    private String validationCustomRegex;
+    @javax.annotation.Nullable private String validationCustomRegex;
 
     public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL =
             "validation_custom_regex_format_label";
-    private String validationCustomRegexFormatLabel;
+    @javax.annotation.Nullable private String validationCustomRegexFormatLabel;
 
     public static final String JSON_PROPERTY_CONTENT = "content";
-    private String content;
+    @javax.annotation.Nullable private String content;
 
     /** Font family for the field. */
     public enum FontFamilyEnum {
-        HELVETICA("helvetica"),
+        HELVETICA(String.valueOf("helvetica")),
 
-        ARIAL("arial"),
+        ARIAL(String.valueOf("arial")),
 
-        COURIER("courier"),
+        COURIER(String.valueOf("courier")),
 
-        CALIBRI("calibri"),
+        CALIBRI(String.valueOf("calibri")),
 
-        CAMBRIA("cambria"),
+        CAMBRIA(String.valueOf("cambria")),
 
-        GEORGIA("georgia"),
+        GEORGIA(String.valueOf("georgia")),
 
-        TIMES("times"),
+        TIMES(String.valueOf("times")),
 
-        TREBUCHET("trebuchet"),
+        TREBUCHET(String.valueOf("trebuchet")),
 
-        VERDANA("verdana"),
+        VERDANA(String.valueOf("verdana")),
 
-        ROBOTO("roboto"),
+        ROBOTO(String.valueOf("roboto")),
 
-        ROBOTO_MONO("robotoMono"),
+        ROBOTO_MONO(String.valueOf("robotoMono")),
 
-        NOTO_SANS("notoSans"),
+        NOTO_SANS(String.valueOf("notoSans")),
 
-        NOTO_SERIF("notoSerif"),
+        NOTO_SERIF(String.valueOf("notoSerif")),
 
-        NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
+        NOTO_CJK_JP_REGULAR(String.valueOf("notoCJK-JP-Regular")),
 
-        NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
+        NOTO_HEBREW_REGULAR(String.valueOf("notoHebrew-Regular")),
 
-        NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
+        NOTO_SAN_THAI_MERGED(String.valueOf("notoSanThaiMerged"));
 
         private String value;
 
@@ -198,10 +198,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     }
 
     public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
-    private FontFamilyEnum fontFamily;
+    @javax.annotation.Nullable private FontFamilyEnum fontFamily;
 
     public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
-    private Integer fontSize = 12;
+    @javax.annotation.Nullable private Integer fontSize = 12;
 
     public SubFormFieldsPerDocumentText() {}
 
@@ -221,7 +221,7 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
                         SubFormFieldsPerDocumentText.class);
     }
 
-    public SubFormFieldsPerDocumentText type(String type) {
+    public SubFormFieldsPerDocumentText type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -240,11 +240,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public SubFormFieldsPerDocumentText placeholder(String placeholder) {
+    public SubFormFieldsPerDocumentText placeholder(@javax.annotation.Nullable String placeholder) {
         this.placeholder = placeholder;
         return this;
     }
@@ -262,11 +262,12 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_PLACEHOLDER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPlaceholder(String placeholder) {
+    public void setPlaceholder(@javax.annotation.Nullable String placeholder) {
         this.placeholder = placeholder;
     }
 
-    public SubFormFieldsPerDocumentText autoFillType(String autoFillType) {
+    public SubFormFieldsPerDocumentText autoFillType(
+            @javax.annotation.Nullable String autoFillType) {
         this.autoFillType = autoFillType;
         return this;
     }
@@ -285,11 +286,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_AUTO_FILL_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAutoFillType(String autoFillType) {
+    public void setAutoFillType(@javax.annotation.Nullable String autoFillType) {
         this.autoFillType = autoFillType;
     }
 
-    public SubFormFieldsPerDocumentText linkId(String linkId) {
+    public SubFormFieldsPerDocumentText linkId(@javax.annotation.Nullable String linkId) {
         this.linkId = linkId;
         return this;
     }
@@ -308,11 +309,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_LINK_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLinkId(String linkId) {
+    public void setLinkId(@javax.annotation.Nullable String linkId) {
         this.linkId = linkId;
     }
 
-    public SubFormFieldsPerDocumentText masked(Boolean masked) {
+    public SubFormFieldsPerDocumentText masked(@javax.annotation.Nullable Boolean masked) {
         this.masked = masked;
         return this;
     }
@@ -332,11 +333,12 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_MASKED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMasked(Boolean masked) {
+    public void setMasked(@javax.annotation.Nullable Boolean masked) {
         this.masked = masked;
     }
 
-    public SubFormFieldsPerDocumentText validationType(ValidationTypeEnum validationType) {
+    public SubFormFieldsPerDocumentText validationType(
+            @javax.annotation.Nullable ValidationTypeEnum validationType) {
         this.validationType = validationType;
         return this;
     }
@@ -359,11 +361,12 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValidationType(ValidationTypeEnum validationType) {
+    public void setValidationType(@javax.annotation.Nullable ValidationTypeEnum validationType) {
         this.validationType = validationType;
     }
 
-    public SubFormFieldsPerDocumentText validationCustomRegex(String validationCustomRegex) {
+    public SubFormFieldsPerDocumentText validationCustomRegex(
+            @javax.annotation.Nullable String validationCustomRegex) {
         this.validationCustomRegex = validationCustomRegex;
         return this;
     }
@@ -381,12 +384,12 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValidationCustomRegex(String validationCustomRegex) {
+    public void setValidationCustomRegex(@javax.annotation.Nullable String validationCustomRegex) {
         this.validationCustomRegex = validationCustomRegex;
     }
 
     public SubFormFieldsPerDocumentText validationCustomRegexFormatLabel(
-            String validationCustomRegexFormatLabel) {
+            @javax.annotation.Nullable String validationCustomRegexFormatLabel) {
         this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
         return this;
     }
@@ -404,11 +407,12 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValidationCustomRegexFormatLabel(String validationCustomRegexFormatLabel) {
+    public void setValidationCustomRegexFormatLabel(
+            @javax.annotation.Nullable String validationCustomRegexFormatLabel) {
         this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
     }
 
-    public SubFormFieldsPerDocumentText content(String content) {
+    public SubFormFieldsPerDocumentText content(@javax.annotation.Nullable String content) {
         this.content = content;
         return this;
     }
@@ -426,11 +430,12 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_CONTENT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setContent(String content) {
+    public void setContent(@javax.annotation.Nullable String content) {
         this.content = content;
     }
 
-    public SubFormFieldsPerDocumentText fontFamily(FontFamilyEnum fontFamily) {
+    public SubFormFieldsPerDocumentText fontFamily(
+            @javax.annotation.Nullable FontFamilyEnum fontFamily) {
         this.fontFamily = fontFamily;
         return this;
     }
@@ -448,11 +453,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFontFamily(FontFamilyEnum fontFamily) {
+    public void setFontFamily(@javax.annotation.Nullable FontFamilyEnum fontFamily) {
         this.fontFamily = fontFamily;
     }
 
-    public SubFormFieldsPerDocumentText fontSize(Integer fontSize) {
+    public SubFormFieldsPerDocumentText fontSize(@javax.annotation.Nullable Integer fontSize) {
         this.fontSize = fontSize;
         return this;
     }
@@ -472,7 +477,7 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_FONT_SIZE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFontSize(Integer fontSize) {
+    public void setFontSize(@javax.annotation.Nullable Integer fontSize) {
         this.fontSize = fontSize;
     }
 

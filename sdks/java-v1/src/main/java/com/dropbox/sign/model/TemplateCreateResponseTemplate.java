@@ -27,11 +27,11 @@ import java.util.Objects;
 @JsonPropertyOrder({TemplateCreateResponseTemplate.JSON_PROPERTY_TEMPLATE_ID})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateCreateResponseTemplate {
     public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
-    private String templateId;
+    @javax.annotation.Nullable private String templateId;
 
     public TemplateCreateResponseTemplate() {}
 
@@ -51,7 +51,7 @@ public class TemplateCreateResponseTemplate {
                         TemplateCreateResponseTemplate.class);
     }
 
-    public TemplateCreateResponseTemplate templateId(String templateId) {
+    public TemplateCreateResponseTemplate templateId(@javax.annotation.Nullable String templateId) {
         this.templateId = templateId;
         return this;
     }
@@ -69,7 +69,7 @@ public class TemplateCreateResponseTemplate {
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTemplateId(String templateId) {
+    public void setTemplateId(@javax.annotation.Nullable String templateId) {
         this.templateId = templateId;
     }
 

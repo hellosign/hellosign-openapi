@@ -32,7 +32,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class SignatureRequestApi {
     private ApiClient apiClient;
 
@@ -63,7 +63,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Embedded Bulk Send with Template. Creates BulkSendJob which sends up to 250 SignatureRequests
+     * Embedded Bulk Send with Template Creates BulkSendJob which sends up to 250 SignatureRequests
      * in bulk based off of the provided Template(s) specified with the &#x60;template_ids&#x60;
      * parameter to be signed in an embedded iFrame. These embedded signature requests can only be
      * signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox
@@ -73,7 +73,8 @@ public class SignatureRequestApi {
      * @return BulkSendJobSendResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -89,7 +90,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Embedded Bulk Send with Template. Creates BulkSendJob which sends up to 250 SignatureRequests
+     * Embedded Bulk Send with Template Creates BulkSendJob which sends up to 250 SignatureRequests
      * in bulk based off of the provided Template(s) specified with the &#x60;template_ids&#x60;
      * parameter to be signed in an embedded iFrame. These embedded signature requests can only be
      * signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox
@@ -99,7 +100,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;BulkSendJobSendResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -149,7 +151,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Bulk Send with Template. Creates BulkSendJob which sends up to 250 SignatureRequests in bulk
+     * Bulk Send with Template Creates BulkSendJob which sends up to 250 SignatureRequests in bulk
      * based off of the provided Template(s) specified with the &#x60;template_ids&#x60; parameter.
      * **NOTE:** Only available for Standard plan and higher.
      *
@@ -157,7 +159,8 @@ public class SignatureRequestApi {
      * @return BulkSendJobSendResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -172,7 +175,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Bulk Send with Template. Creates BulkSendJob which sends up to 250 SignatureRequests in bulk
+     * Bulk Send with Template Creates BulkSendJob which sends up to 250 SignatureRequests in bulk
      * based off of the provided Template(s) specified with the &#x60;template_ids&#x60; parameter.
      * **NOTE:** Only available for Standard plan and higher.
      *
@@ -180,7 +183,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;BulkSendJobSendResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -227,7 +231,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Cancel Incomplete Signature Request. Cancels an incomplete signature request. This action is
+     * Cancel Incomplete Signature Request Cancels an incomplete signature request. This action is
      * **not reversible**. The request will be canceled and signers will no longer be able to sign.
      * If they try to access the signature request they will receive a HTTP 410 status code
      * indicating that the resource has been deleted. Cancelation is asynchronous and a successful
@@ -249,7 +253,8 @@ public class SignatureRequestApi {
      * @param signatureRequestId The id of the incomplete SignatureRequest to cancel. (required)
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -260,7 +265,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Cancel Incomplete Signature Request. Cancels an incomplete signature request. This action is
+     * Cancel Incomplete Signature Request Cancels an incomplete signature request. This action is
      * **not reversible**. The request will be canceled and signers will no longer be able to sign.
      * If they try to access the signature request they will receive a HTTP 410 status code
      * indicating that the resource has been deleted. Cancelation is asynchronous and a successful
@@ -283,7 +288,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -331,18 +337,19 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Create Embedded Signature Request. Creates a new SignatureRequest with the submitted
-     * documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a
-     * signature page will be affixed where all signers will be required to add their signature,
-     * signifying their agreement to all contained documents. Note that embedded signature requests
-     * can only be signed in embedded iFrames whereas normal signature requests can only be signed
-     * on Dropbox Sign.
+     * Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents
+     * to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature
+     * page will be affixed where all signers will be required to add their signature, signifying
+     * their agreement to all contained documents. Note that embedded signature requests can only be
+     * signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox
+     * Sign.
      *
      * @param signatureRequestCreateEmbeddedRequest (required)
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -356,18 +363,19 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Create Embedded Signature Request. Creates a new SignatureRequest with the submitted
-     * documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a
-     * signature page will be affixed where all signers will be required to add their signature,
-     * signifying their agreement to all contained documents. Note that embedded signature requests
-     * can only be signed in embedded iFrames whereas normal signature requests can only be signed
-     * on Dropbox Sign.
+     * Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents
+     * to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature
+     * page will be affixed where all signers will be required to add their signature, signifying
+     * their agreement to all contained documents. Note that embedded signature requests can only be
+     * signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox
+     * Sign.
      *
      * @param signatureRequestCreateEmbeddedRequest (required)
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -414,7 +422,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Create Embedded Signature Request with Template. Creates a new SignatureRequest based on the
+     * Create Embedded Signature Request with Template Creates a new SignatureRequest based on the
      * given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests
      * can only be signed in embedded iFrames whereas normal signature requests can only be signed
      * on Dropbox Sign.
@@ -423,7 +431,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -439,7 +448,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Create Embedded Signature Request with Template. Creates a new SignatureRequest based on the
+     * Create Embedded Signature Request with Template Creates a new SignatureRequest based on the
      * given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests
      * can only be signed in embedded iFrames whereas normal signature requests can only be signed
      * on Dropbox Sign.
@@ -448,7 +457,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -498,7 +508,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Edit Signature Request. Edits and sends a SignatureRequest with the submitted documents. If
+     * Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If
      * &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where
      * all signers will be required to add their signature, signifying their agreement to all
      * contained documents. **NOTE:** Edit and resend will not deduct your signature request quota.
@@ -508,7 +518,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -522,7 +533,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Edit Signature Request. Edits and sends a SignatureRequest with the submitted documents. If
+     * Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If
      * &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where
      * all signers will be required to add their signature, signifying their agreement to all
      * contained documents. **NOTE:** Edit and resend will not deduct your signature request quota.
@@ -532,7 +543,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -592,7 +604,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Edit Embedded Signature Request. Edits a SignatureRequest with the submitted documents to be
+     * Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be
      * signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page
      * will be affixed where all signers will be required to add their signature, signifying their
      * agreement to all contained documents. Note that embedded signature requests can only be
@@ -604,7 +616,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -620,7 +633,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Edit Embedded Signature Request. Edits a SignatureRequest with the submitted documents to be
+     * Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be
      * signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page
      * will be affixed where all signers will be required to add their signature, signifying their
      * agreement to all contained documents. Note that embedded signature requests can only be
@@ -632,7 +645,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -693,7 +707,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Edit Embedded Signature Request with Template. Edits a SignatureRequest based on the given
+     * Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given
      * Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can
      * only be signed in embedded iFrames whereas normal signature requests can only be signed on
      * Dropbox Sign.
@@ -703,7 +717,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -720,7 +735,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Edit Embedded Signature Request with Template. Edits a SignatureRequest based on the given
+     * Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given
      * Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can
      * only be signed in embedded iFrames whereas normal signature requests can only be signed on
      * Dropbox Sign.
@@ -730,7 +745,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -794,7 +810,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Edit Signature Request With Template. Edits and sends a SignatureRequest based off of the
+     * Edit Signature Request With Template Edits and sends a SignatureRequest based off of the
      * Template(s) specified with the template_ids parameter. **NOTE:** Edit and resend will not
      * deduct your signature request quota.
      *
@@ -803,7 +819,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -819,7 +836,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Edit Signature Request With Template. Edits and sends a SignatureRequest based off of the
+     * Edit Signature Request With Template Edits and sends a SignatureRequest based off of the
      * Template(s) specified with the template_ids parameter. **NOTE:** Edit and resend will not
      * deduct your signature request quota.
      *
@@ -828,7 +845,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -889,7 +907,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Download Files. Obtain a copy of the current documents specified by the
+     * Download Files Obtain a copy of the current documents specified by the
      * &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file. If the files are
      * currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
      *
@@ -899,7 +917,8 @@ public class SignatureRequestApi {
      * @return File
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -930,7 +949,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Download Files. Obtain a copy of the current documents specified by the
+     * Download Files Obtain a copy of the current documents specified by the
      * &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file. If the files are
      * currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
      *
@@ -940,7 +959,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -998,7 +1018,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Download Files as Data Uri. Obtain a copy of the current documents specified by the
+     * Download Files as Data Uri Obtain a copy of the current documents specified by the
      * &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60;
      * representing the base64 encoded file (PDFs only). If the files are currently being prepared,
      * a status code of &#x60;409&#x60; will be returned instead.
@@ -1007,7 +1027,8 @@ public class SignatureRequestApi {
      * @return FileResponseDataUri
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1019,7 +1040,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Download Files as Data Uri. Obtain a copy of the current documents specified by the
+     * Download Files as Data Uri Obtain a copy of the current documents specified by the
      * &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60;
      * representing the base64 encoded file (PDFs only). If the files are currently being prepared,
      * a status code of &#x60;409&#x60; will be returned instead.
@@ -1028,7 +1049,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;FileResponseDataUri&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1078,7 +1100,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Download Files as File Url. Obtain a copy of the current documents specified by the
+     * Download Files as File Url Obtain a copy of the current documents specified by the
      * &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file
      * (PDFs only). If the files are currently being prepared, a status code of &#x60;409&#x60; will
      * be returned instead.
@@ -1090,7 +1112,8 @@ public class SignatureRequestApi {
      * @return FileResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1124,7 +1147,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Download Files as File Url. Obtain a copy of the current documents specified by the
+     * Download Files as File Url Obtain a copy of the current documents specified by the
      * &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file
      * (PDFs only). If the files are currently being prepared, a status code of &#x60;409&#x60; will
      * be returned instead.
@@ -1136,7 +1159,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;FileResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1192,14 +1216,15 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Get Signature Request. Returns the status of the SignatureRequest specified by the
+     * Get Signature Request Returns the status of the SignatureRequest specified by the
      * &#x60;signature_request_id&#x60; parameter.
      *
      * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1211,14 +1236,15 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Get Signature Request. Returns the status of the SignatureRequest specified by the
+     * Get Signature Request Returns the status of the SignatureRequest specified by the
      * &#x60;signature_request_id&#x60; parameter.
      *
      * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1268,7 +1294,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * List Signature Requests. Returns a list of SignatureRequests that you can access. This
+     * List Signature Requests Returns a list of SignatureRequests that you can access. This
      * includes SignatureRequests you have sent as well as received, but not ones that you have been
      * CCed on. Take a look at our [search guide](/api/reference/search/) to learn more about
      * querying signature requests.
@@ -1284,7 +1310,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1386,7 +1413,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * List Signature Requests. Returns a list of SignatureRequests that you can access. This
+     * List Signature Requests Returns a list of SignatureRequests that you can access. This
      * includes SignatureRequests you have sent as well as received, but not ones that you have been
      * CCed on. Take a look at our [search guide](/api/reference/search/) to learn more about
      * querying signature requests.
@@ -1402,7 +1429,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1450,7 +1478,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Release On-Hold Signature Request. Releases a held SignatureRequest that was claimed and
+     * Release On-Hold Signature Request Releases a held SignatureRequest that was claimed and
      * prepared from an [UnclaimedDraft](/api/reference/tag/Unclaimed-Draft). The owner of the Draft
      * must indicate at Draft creation that the SignatureRequest created from the Draft should be
      * held. Releasing the SignatureRequest will send requests to all signers.
@@ -1459,7 +1487,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1471,7 +1500,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Release On-Hold Signature Request. Releases a held SignatureRequest that was claimed and
+     * Release On-Hold Signature Request Releases a held SignatureRequest that was claimed and
      * prepared from an [UnclaimedDraft](/api/reference/tag/Unclaimed-Draft). The owner of the Draft
      * must indicate at Draft creation that the SignatureRequest created from the Draft should be
      * held. Releasing the SignatureRequest will send requests to all signers.
@@ -1480,7 +1509,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1530,7 +1560,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Send Request Reminder. Sends an email to the signer reminding them to sign the signature
+     * Send Request Reminder Sends an email to the signer reminding them to sign the signature
      * request. You cannot send a reminder within 1 hour of the last reminder that was sent. This
      * includes manual AND automatic reminders. **NOTE:** This action can **not** be used with
      * embedded signature requests.
@@ -1540,7 +1570,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1554,7 +1585,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Send Request Reminder. Sends an email to the signer reminding them to sign the signature
+     * Send Request Reminder Sends an email to the signer reminding them to sign the signature
      * request. You cannot send a reminder within 1 hour of the last reminder that was sent. This
      * includes manual AND automatic reminders. **NOTE:** This action can **not** be used with
      * embedded signature requests.
@@ -1564,7 +1595,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1623,7 +1655,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Remove Signature Request Access. Removes your access to a completed signature request. This
+     * Remove Signature Request Access Removes your access to a completed signature request. This
      * action is **not reversible**. The signature request must be fully executed by all parties
      * (signed or declined to sign). Other parties will continue to maintain access to the completed
      * signature request document(s). Unlike /signature_request/cancel, this endpoint is synchronous
@@ -1633,7 +1665,8 @@ public class SignatureRequestApi {
      * @param signatureRequestId The id of the SignatureRequest to remove. (required)
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1644,7 +1677,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Remove Signature Request Access. Removes your access to a completed signature request. This
+     * Remove Signature Request Access Removes your access to a completed signature request. This
      * action is **not reversible**. The signature request must be fully executed by all parties
      * (signed or declined to sign). Other parties will continue to maintain access to the completed
      * signature request document(s). Unlike /signature_request/cancel, this endpoint is synchronous
@@ -1655,7 +1688,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1703,16 +1737,17 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Send Signature Request. Creates and sends a new SignatureRequest with the submitted
-     * documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be
-     * affixed where all signers will be required to add their signature, signifying their agreement
-     * to all contained documents.
+     * Send Signature Request Creates and sends a new SignatureRequest with the submitted documents.
+     * If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed
+     * where all signers will be required to add their signature, signifying their agreement to all
+     * contained documents.
      *
      * @param signatureRequestSendRequest (required)
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1724,16 +1759,17 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Send Signature Request. Creates and sends a new SignatureRequest with the submitted
-     * documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be
-     * affixed where all signers will be required to add their signature, signifying their agreement
-     * to all contained documents.
+     * Send Signature Request Creates and sends a new SignatureRequest with the submitted documents.
+     * If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed
+     * where all signers will be required to add their signature, signifying their agreement to all
+     * contained documents.
      *
      * @param signatureRequestSendRequest (required)
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1779,14 +1815,15 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Send with Template. Creates and sends a new SignatureRequest based off of the Template(s)
+     * Send with Template Creates and sends a new SignatureRequest based off of the Template(s)
      * specified with the &#x60;template_ids&#x60; parameter.
      *
      * @param signatureRequestSendWithTemplateRequest (required)
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1800,14 +1837,15 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Send with Template. Creates and sends a new SignatureRequest based off of the Template(s)
+     * Send with Template Creates and sends a new SignatureRequest based off of the Template(s)
      * specified with the &#x60;template_ids&#x60; parameter.
      *
      * @param signatureRequestSendWithTemplateRequest (required)
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1854,7 +1892,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Update Signature Request. Updates the email address and/or the name for a given signer on a
+     * Update Signature Request Updates the email address and/or the name for a given signer on a
      * signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on
      * your app or account to detect bounced emails, and respond with this method. Updating the
      * email address of a signer will generate a new &#x60;signature_id&#x60; value. **NOTE:** This
@@ -1865,7 +1903,8 @@ public class SignatureRequestApi {
      * @return SignatureRequestGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -1879,7 +1918,7 @@ public class SignatureRequestApi {
     }
 
     /**
-     * Update Signature Request. Updates the email address and/or the name for a given signer on a
+     * Update Signature Request Updates the email address and/or the name for a given signer on a
      * signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on
      * your app or account to detect bounced emails, and respond with this method. Updating the
      * email address of a signer will generate a new &#x60;signature_id&#x60; value. **NOTE:** This
@@ -1890,7 +1929,8 @@ public class SignatureRequestApi {
      * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

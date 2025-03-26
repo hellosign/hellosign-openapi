@@ -27,14 +27,14 @@ import java.util.Objects;
 @JsonPropertyOrder({SubTemplateRole.JSON_PROPERTY_NAME, SubTemplateRole.JSON_PROPERTY_ORDER})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubTemplateRole {
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public static final String JSON_PROPERTY_ORDER = "order";
-    private Integer order;
+    @javax.annotation.Nullable private Integer order;
 
     public SubTemplateRole() {}
 
@@ -52,7 +52,7 @@ public class SubTemplateRole {
                 .readValue(new ObjectMapper().writeValueAsString(data), SubTemplateRole.class);
     }
 
-    public SubTemplateRole name(String name) {
+    public SubTemplateRole name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -71,11 +71,11 @@ public class SubTemplateRole {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public SubTemplateRole order(Integer order) {
+    public SubTemplateRole order(@javax.annotation.Nullable Integer order) {
         this.order = order;
         return this;
     }
@@ -93,7 +93,7 @@ public class SubTemplateRole {
 
     @JsonProperty(JSON_PROPERTY_ORDER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOrder(Integer order) {
+    public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
     }
 

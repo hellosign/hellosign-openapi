@@ -39,41 +39,41 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountResponse {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+    @javax.annotation.Nullable private String accountId;
 
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nullable private String emailAddress;
 
     public static final String JSON_PROPERTY_IS_LOCKED = "is_locked";
-    private Boolean isLocked;
+    @javax.annotation.Nullable private Boolean isLocked;
 
     public static final String JSON_PROPERTY_IS_PAID_HS = "is_paid_hs";
-    private Boolean isPaidHs;
+    @javax.annotation.Nullable private Boolean isPaidHs;
 
     public static final String JSON_PROPERTY_IS_PAID_HF = "is_paid_hf";
-    private Boolean isPaidHf;
+    @javax.annotation.Nullable private Boolean isPaidHf;
 
     public static final String JSON_PROPERTY_QUOTAS = "quotas";
-    private AccountResponseQuotas quotas;
+    @javax.annotation.Nullable private AccountResponseQuotas quotas;
 
     public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
-    private String callbackUrl;
+    @javax.annotation.Nullable private String callbackUrl;
 
     public static final String JSON_PROPERTY_ROLE_CODE = "role_code";
-    private String roleCode;
+    @javax.annotation.Nullable private String roleCode;
 
     public static final String JSON_PROPERTY_TEAM_ID = "team_id";
-    private String teamId;
+    @javax.annotation.Nullable private String teamId;
 
     public static final String JSON_PROPERTY_LOCALE = "locale";
-    private String locale;
+    @javax.annotation.Nullable private String locale;
 
     public static final String JSON_PROPERTY_USAGE = "usage";
-    private AccountResponseUsage usage;
+    @javax.annotation.Nullable private AccountResponseUsage usage;
 
     public AccountResponse() {}
 
@@ -91,7 +91,7 @@ public class AccountResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), AccountResponse.class);
     }
 
-    public AccountResponse accountId(String accountId) {
+    public AccountResponse accountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -109,11 +109,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccountId(String accountId) {
+    public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public AccountResponse emailAddress(String emailAddress) {
+    public AccountResponse emailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -131,11 +131,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public AccountResponse isLocked(Boolean isLocked) {
+    public AccountResponse isLocked(@javax.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
         return this;
     }
@@ -153,11 +153,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_IS_LOCKED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsLocked(Boolean isLocked) {
+    public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
     }
 
-    public AccountResponse isPaidHs(Boolean isPaidHs) {
+    public AccountResponse isPaidHs(@javax.annotation.Nullable Boolean isPaidHs) {
         this.isPaidHs = isPaidHs;
         return this;
     }
@@ -175,11 +175,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsPaidHs(Boolean isPaidHs) {
+    public void setIsPaidHs(@javax.annotation.Nullable Boolean isPaidHs) {
         this.isPaidHs = isPaidHs;
     }
 
-    public AccountResponse isPaidHf(Boolean isPaidHf) {
+    public AccountResponse isPaidHf(@javax.annotation.Nullable Boolean isPaidHf) {
         this.isPaidHf = isPaidHf;
         return this;
     }
@@ -197,11 +197,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsPaidHf(Boolean isPaidHf) {
+    public void setIsPaidHf(@javax.annotation.Nullable Boolean isPaidHf) {
         this.isPaidHf = isPaidHf;
     }
 
-    public AccountResponse quotas(AccountResponseQuotas quotas) {
+    public AccountResponse quotas(@javax.annotation.Nullable AccountResponseQuotas quotas) {
         this.quotas = quotas;
         return this;
     }
@@ -219,11 +219,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_QUOTAS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setQuotas(AccountResponseQuotas quotas) {
+    public void setQuotas(@javax.annotation.Nullable AccountResponseQuotas quotas) {
         this.quotas = quotas;
     }
 
-    public AccountResponse callbackUrl(String callbackUrl) {
+    public AccountResponse callbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
         return this;
     }
@@ -241,11 +241,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCallbackUrl(String callbackUrl) {
+    public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
     }
 
-    public AccountResponse roleCode(String roleCode) {
+    public AccountResponse roleCode(@javax.annotation.Nullable String roleCode) {
         this.roleCode = roleCode;
         return this;
     }
@@ -263,11 +263,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_ROLE_CODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRoleCode(String roleCode) {
+    public void setRoleCode(@javax.annotation.Nullable String roleCode) {
         this.roleCode = roleCode;
     }
 
-    public AccountResponse teamId(String teamId) {
+    public AccountResponse teamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
         return this;
     }
@@ -285,11 +285,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_TEAM_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTeamId(String teamId) {
+    public void setTeamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
     }
 
-    public AccountResponse locale(String locale) {
+    public AccountResponse locale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
         return this;
     }
@@ -309,11 +309,11 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_LOCALE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLocale(String locale) {
+    public void setLocale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
     }
 
-    public AccountResponse usage(AccountResponseUsage usage) {
+    public AccountResponse usage(@javax.annotation.Nullable AccountResponseUsage usage) {
         this.usage = usage;
         return this;
     }
@@ -331,7 +331,7 @@ public class AccountResponse {
 
     @JsonProperty(JSON_PROPERTY_USAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setUsage(AccountResponseUsage usage) {
+    public void setUsage(@javax.annotation.Nullable AccountResponseUsage usage) {
         this.usage = usage;
     }
 

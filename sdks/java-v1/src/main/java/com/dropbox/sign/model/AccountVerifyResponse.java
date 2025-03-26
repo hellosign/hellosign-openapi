@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountVerifyResponse {
     public static final String JSON_PROPERTY_ACCOUNT = "account";
-    private AccountVerifyResponseAccount account;
+    @javax.annotation.Nullable private AccountVerifyResponseAccount account;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public AccountVerifyResponse() {}
 
@@ -58,7 +58,8 @@ public class AccountVerifyResponse {
                         new ObjectMapper().writeValueAsString(data), AccountVerifyResponse.class);
     }
 
-    public AccountVerifyResponse account(AccountVerifyResponseAccount account) {
+    public AccountVerifyResponse account(
+            @javax.annotation.Nullable AccountVerifyResponseAccount account) {
         this.account = account;
         return this;
     }
@@ -76,11 +77,12 @@ public class AccountVerifyResponse {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccount(AccountVerifyResponseAccount account) {
+    public void setAccount(@javax.annotation.Nullable AccountVerifyResponseAccount account) {
         this.account = account;
     }
 
-    public AccountVerifyResponse warnings(List<WarningResponse> warnings) {
+    public AccountVerifyResponse warnings(
+            @javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -106,7 +108,7 @@ public class AccountVerifyResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

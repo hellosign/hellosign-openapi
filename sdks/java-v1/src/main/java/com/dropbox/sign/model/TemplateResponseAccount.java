@@ -34,26 +34,26 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseAccount {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+    @javax.annotation.Nullable private String accountId;
 
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nullable private String emailAddress;
 
     public static final String JSON_PROPERTY_IS_LOCKED = "is_locked";
-    private Boolean isLocked;
+    @javax.annotation.Nullable private Boolean isLocked;
 
     public static final String JSON_PROPERTY_IS_PAID_HS = "is_paid_hs";
-    private Boolean isPaidHs;
+    @javax.annotation.Nullable private Boolean isPaidHs;
 
     public static final String JSON_PROPERTY_IS_PAID_HF = "is_paid_hf";
-    private Boolean isPaidHf;
+    @javax.annotation.Nullable private Boolean isPaidHf;
 
     public static final String JSON_PROPERTY_QUOTAS = "quotas";
-    private TemplateResponseAccountQuota quotas;
+    @javax.annotation.Nullable private TemplateResponseAccountQuota quotas;
 
     public TemplateResponseAccount() {}
 
@@ -72,7 +72,7 @@ public class TemplateResponseAccount {
                         new ObjectMapper().writeValueAsString(data), TemplateResponseAccount.class);
     }
 
-    public TemplateResponseAccount accountId(String accountId) {
+    public TemplateResponseAccount accountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -90,11 +90,11 @@ public class TemplateResponseAccount {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccountId(String accountId) {
+    public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public TemplateResponseAccount emailAddress(String emailAddress) {
+    public TemplateResponseAccount emailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -112,11 +112,11 @@ public class TemplateResponseAccount {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public TemplateResponseAccount isLocked(Boolean isLocked) {
+    public TemplateResponseAccount isLocked(@javax.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
         return this;
     }
@@ -134,11 +134,11 @@ public class TemplateResponseAccount {
 
     @JsonProperty(JSON_PROPERTY_IS_LOCKED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsLocked(Boolean isLocked) {
+    public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
     }
 
-    public TemplateResponseAccount isPaidHs(Boolean isPaidHs) {
+    public TemplateResponseAccount isPaidHs(@javax.annotation.Nullable Boolean isPaidHs) {
         this.isPaidHs = isPaidHs;
         return this;
     }
@@ -156,11 +156,11 @@ public class TemplateResponseAccount {
 
     @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsPaidHs(Boolean isPaidHs) {
+    public void setIsPaidHs(@javax.annotation.Nullable Boolean isPaidHs) {
         this.isPaidHs = isPaidHs;
     }
 
-    public TemplateResponseAccount isPaidHf(Boolean isPaidHf) {
+    public TemplateResponseAccount isPaidHf(@javax.annotation.Nullable Boolean isPaidHf) {
         this.isPaidHf = isPaidHf;
         return this;
     }
@@ -178,11 +178,12 @@ public class TemplateResponseAccount {
 
     @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsPaidHf(Boolean isPaidHf) {
+    public void setIsPaidHf(@javax.annotation.Nullable Boolean isPaidHf) {
         this.isPaidHf = isPaidHf;
     }
 
-    public TemplateResponseAccount quotas(TemplateResponseAccountQuota quotas) {
+    public TemplateResponseAccount quotas(
+            @javax.annotation.Nullable TemplateResponseAccountQuota quotas) {
         this.quotas = quotas;
         return this;
     }
@@ -200,7 +201,7 @@ public class TemplateResponseAccount {
 
     @JsonProperty(JSON_PROPERTY_QUOTAS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setQuotas(TemplateResponseAccountQuota quotas) {
+    public void setQuotas(@javax.annotation.Nullable TemplateResponseAccountQuota quotas) {
         this.quotas = quotas;
     }
 

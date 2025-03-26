@@ -36,32 +36,32 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftEditAndResendRequest {
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    private String clientId;
+    @javax.annotation.Nonnull private String clientId;
 
     public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
-    private SubEditorOptions editorOptions;
+    @javax.annotation.Nullable private SubEditorOptions editorOptions;
 
     public static final String JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING = "is_for_embedded_signing";
-    private Boolean isForEmbeddedSigning;
+    @javax.annotation.Nullable private Boolean isForEmbeddedSigning;
 
     public static final String JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS = "requester_email_address";
-    private String requesterEmailAddress;
+    @javax.annotation.Nullable private String requesterEmailAddress;
 
     public static final String JSON_PROPERTY_REQUESTING_REDIRECT_URL = "requesting_redirect_url";
-    private String requestingRedirectUrl;
+    @javax.annotation.Nullable private String requestingRedirectUrl;
 
     public static final String JSON_PROPERTY_SHOW_PROGRESS_STEPPER = "show_progress_stepper";
-    private Boolean showProgressStepper = true;
+    @javax.annotation.Nullable private Boolean showProgressStepper = true;
 
     public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
-    private String signingRedirectUrl;
+    @javax.annotation.Nullable private String signingRedirectUrl;
 
     public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    private Boolean testMode = false;
+    @javax.annotation.Nullable private Boolean testMode = false;
 
     public UnclaimedDraftEditAndResendRequest() {}
 
@@ -81,7 +81,7 @@ public class UnclaimedDraftEditAndResendRequest {
                         UnclaimedDraftEditAndResendRequest.class);
     }
 
-    public UnclaimedDraftEditAndResendRequest clientId(String clientId) {
+    public UnclaimedDraftEditAndResendRequest clientId(@javax.annotation.Nonnull String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -101,11 +101,12 @@ public class UnclaimedDraftEditAndResendRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_ID)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setClientId(String clientId) {
+    public void setClientId(@javax.annotation.Nonnull String clientId) {
         this.clientId = clientId;
     }
 
-    public UnclaimedDraftEditAndResendRequest editorOptions(SubEditorOptions editorOptions) {
+    public UnclaimedDraftEditAndResendRequest editorOptions(
+            @javax.annotation.Nullable SubEditorOptions editorOptions) {
         this.editorOptions = editorOptions;
         return this;
     }
@@ -123,11 +124,12 @@ public class UnclaimedDraftEditAndResendRequest {
 
     @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEditorOptions(SubEditorOptions editorOptions) {
+    public void setEditorOptions(@javax.annotation.Nullable SubEditorOptions editorOptions) {
         this.editorOptions = editorOptions;
     }
 
-    public UnclaimedDraftEditAndResendRequest isForEmbeddedSigning(Boolean isForEmbeddedSigning) {
+    public UnclaimedDraftEditAndResendRequest isForEmbeddedSigning(
+            @javax.annotation.Nullable Boolean isForEmbeddedSigning) {
         this.isForEmbeddedSigning = isForEmbeddedSigning;
         return this;
     }
@@ -146,11 +148,12 @@ public class UnclaimedDraftEditAndResendRequest {
 
     @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsForEmbeddedSigning(Boolean isForEmbeddedSigning) {
+    public void setIsForEmbeddedSigning(@javax.annotation.Nullable Boolean isForEmbeddedSigning) {
         this.isForEmbeddedSigning = isForEmbeddedSigning;
     }
 
-    public UnclaimedDraftEditAndResendRequest requesterEmailAddress(String requesterEmailAddress) {
+    public UnclaimedDraftEditAndResendRequest requesterEmailAddress(
+            @javax.annotation.Nullable String requesterEmailAddress) {
         this.requesterEmailAddress = requesterEmailAddress;
         return this;
     }
@@ -169,11 +172,12 @@ public class UnclaimedDraftEditAndResendRequest {
 
     @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequesterEmailAddress(String requesterEmailAddress) {
+    public void setRequesterEmailAddress(@javax.annotation.Nullable String requesterEmailAddress) {
         this.requesterEmailAddress = requesterEmailAddress;
     }
 
-    public UnclaimedDraftEditAndResendRequest requestingRedirectUrl(String requestingRedirectUrl) {
+    public UnclaimedDraftEditAndResendRequest requestingRedirectUrl(
+            @javax.annotation.Nullable String requestingRedirectUrl) {
         this.requestingRedirectUrl = requestingRedirectUrl;
         return this;
     }
@@ -191,11 +195,12 @@ public class UnclaimedDraftEditAndResendRequest {
 
     @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequestingRedirectUrl(String requestingRedirectUrl) {
+    public void setRequestingRedirectUrl(@javax.annotation.Nullable String requestingRedirectUrl) {
         this.requestingRedirectUrl = requestingRedirectUrl;
     }
 
-    public UnclaimedDraftEditAndResendRequest showProgressStepper(Boolean showProgressStepper) {
+    public UnclaimedDraftEditAndResendRequest showProgressStepper(
+            @javax.annotation.Nullable Boolean showProgressStepper) {
         this.showProgressStepper = showProgressStepper;
         return this;
     }
@@ -214,11 +219,12 @@ public class UnclaimedDraftEditAndResendRequest {
 
     @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setShowProgressStepper(Boolean showProgressStepper) {
+    public void setShowProgressStepper(@javax.annotation.Nullable Boolean showProgressStepper) {
         this.showProgressStepper = showProgressStepper;
     }
 
-    public UnclaimedDraftEditAndResendRequest signingRedirectUrl(String signingRedirectUrl) {
+    public UnclaimedDraftEditAndResendRequest signingRedirectUrl(
+            @javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
         return this;
     }
@@ -236,11 +242,12 @@ public class UnclaimedDraftEditAndResendRequest {
 
     @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigningRedirectUrl(String signingRedirectUrl) {
+    public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
     }
 
-    public UnclaimedDraftEditAndResendRequest testMode(Boolean testMode) {
+    public UnclaimedDraftEditAndResendRequest testMode(
+            @javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
         return this;
     }
@@ -259,7 +266,7 @@ public class UnclaimedDraftEditAndResendRequest {
 
     @JsonProperty(JSON_PROPERTY_TEST_MODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(Boolean testMode) {
+    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
     }
 

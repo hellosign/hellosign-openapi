@@ -33,23 +33,23 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OAuthTokenGenerateRequest {
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    private String clientId;
+    @javax.annotation.Nonnull private String clientId;
 
     public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
-    private String clientSecret;
+    @javax.annotation.Nonnull private String clientSecret;
 
     public static final String JSON_PROPERTY_CODE = "code";
-    private String code;
+    @javax.annotation.Nonnull private String code;
 
     public static final String JSON_PROPERTY_GRANT_TYPE = "grant_type";
-    private String grantType = "authorization_code";
+    @javax.annotation.Nonnull private String grantType = "authorization_code";
 
     public static final String JSON_PROPERTY_STATE = "state";
-    private String state;
+    @javax.annotation.Nonnull private String state;
 
     public OAuthTokenGenerateRequest() {}
 
@@ -69,7 +69,7 @@ public class OAuthTokenGenerateRequest {
                         OAuthTokenGenerateRequest.class);
     }
 
-    public OAuthTokenGenerateRequest clientId(String clientId) {
+    public OAuthTokenGenerateRequest clientId(@javax.annotation.Nonnull String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -88,11 +88,11 @@ public class OAuthTokenGenerateRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_ID)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setClientId(String clientId) {
+    public void setClientId(@javax.annotation.Nonnull String clientId) {
         this.clientId = clientId;
     }
 
-    public OAuthTokenGenerateRequest clientSecret(String clientSecret) {
+    public OAuthTokenGenerateRequest clientSecret(@javax.annotation.Nonnull String clientSecret) {
         this.clientSecret = clientSecret;
         return this;
     }
@@ -111,11 +111,11 @@ public class OAuthTokenGenerateRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setClientSecret(String clientSecret) {
+    public void setClientSecret(@javax.annotation.Nonnull String clientSecret) {
         this.clientSecret = clientSecret;
     }
 
-    public OAuthTokenGenerateRequest code(String code) {
+    public OAuthTokenGenerateRequest code(@javax.annotation.Nonnull String code) {
         this.code = code;
         return this;
     }
@@ -134,11 +134,11 @@ public class OAuthTokenGenerateRequest {
 
     @JsonProperty(JSON_PROPERTY_CODE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setCode(String code) {
+    public void setCode(@javax.annotation.Nonnull String code) {
         this.code = code;
     }
 
-    public OAuthTokenGenerateRequest grantType(String grantType) {
+    public OAuthTokenGenerateRequest grantType(@javax.annotation.Nonnull String grantType) {
         this.grantType = grantType;
         return this;
     }
@@ -157,11 +157,11 @@ public class OAuthTokenGenerateRequest {
 
     @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGrantType(String grantType) {
+    public void setGrantType(@javax.annotation.Nonnull String grantType) {
         this.grantType = grantType;
     }
 
-    public OAuthTokenGenerateRequest state(String state) {
+    public OAuthTokenGenerateRequest state(@javax.annotation.Nonnull String state) {
         this.state = state;
         return this;
     }
@@ -180,7 +180,7 @@ public class OAuthTokenGenerateRequest {
 
     @JsonProperty(JSON_PROPERTY_STATE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setState(String state) {
+    public void setState(@javax.annotation.Nonnull String state) {
         this.state = state;
     }
 

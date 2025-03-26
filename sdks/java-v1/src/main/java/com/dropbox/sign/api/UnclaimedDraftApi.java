@@ -16,7 +16,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class UnclaimedDraftApi {
     private ApiClient apiClient;
 
@@ -47,8 +47,8 @@ public class UnclaimedDraftApi {
     }
 
     /**
-     * Create Unclaimed Draft. Creates a new Draft that can be claimed using the claim URL. The
-     * first authenticated user to access the URL will claim the Draft and will be shown either the
+     * Create Unclaimed Draft Creates a new Draft that can be claimed using the claim URL. The first
+     * authenticated user to access the URL will claim the Draft and will be shown either the
      * \&quot;Sign and send\&quot; or the \&quot;Request signature\&quot; page with the Draft
      * loaded. Subsequent access to the claim URL will result in a 404.
      *
@@ -56,7 +56,8 @@ public class UnclaimedDraftApi {
      * @return UnclaimedDraftCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -68,8 +69,8 @@ public class UnclaimedDraftApi {
     }
 
     /**
-     * Create Unclaimed Draft. Creates a new Draft that can be claimed using the claim URL. The
-     * first authenticated user to access the URL will claim the Draft and will be shown either the
+     * Create Unclaimed Draft Creates a new Draft that can be claimed using the claim URL. The first
+     * authenticated user to access the URL will claim the Draft and will be shown either the
      * \&quot;Sign and send\&quot; or the \&quot;Request signature\&quot; page with the Draft
      * loaded. Subsequent access to the claim URL will result in a 404.
      *
@@ -77,7 +78,8 @@ public class UnclaimedDraftApi {
      * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -123,7 +125,7 @@ public class UnclaimedDraftApi {
     }
 
     /**
-     * Create Embedded Unclaimed Draft. Creates a new Draft that can be claimed and used in an
+     * Create Embedded Unclaimed Draft Creates a new Draft that can be claimed and used in an
      * embedded iFrame. The first authenticated user to access the URL will claim the Draft and will
      * be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to
      * the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the
@@ -135,7 +137,8 @@ public class UnclaimedDraftApi {
      * @return UnclaimedDraftCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -149,7 +152,7 @@ public class UnclaimedDraftApi {
     }
 
     /**
-     * Create Embedded Unclaimed Draft. Creates a new Draft that can be claimed and used in an
+     * Create Embedded Unclaimed Draft Creates a new Draft that can be claimed and used in an
      * embedded iFrame. The first authenticated user to access the URL will claim the Draft and will
      * be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to
      * the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the
@@ -161,7 +164,8 @@ public class UnclaimedDraftApi {
      * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -208,7 +212,7 @@ public class UnclaimedDraftApi {
     }
 
     /**
-     * Create Embedded Unclaimed Draft with Template. Creates a new Draft with a previously saved
+     * Create Embedded Unclaimed Draft with Template Creates a new Draft with a previously saved
      * template(s) that can be claimed and used in an embedded iFrame. The first authenticated user
      * to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot;
      * page with the Draft loaded. Subsequent access to the claim URL will result in a
@@ -220,7 +224,8 @@ public class UnclaimedDraftApi {
      * @return UnclaimedDraftCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -236,7 +241,7 @@ public class UnclaimedDraftApi {
     }
 
     /**
-     * Create Embedded Unclaimed Draft with Template. Creates a new Draft with a previously saved
+     * Create Embedded Unclaimed Draft with Template Creates a new Draft with a previously saved
      * template(s) that can be claimed and used in an embedded iFrame. The first authenticated user
      * to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot;
      * page with the Draft loaded. Subsequent access to the claim URL will result in a
@@ -248,7 +253,8 @@ public class UnclaimedDraftApi {
      * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -298,9 +304,9 @@ public class UnclaimedDraftApi {
     }
 
     /**
-     * Edit and Resend Unclaimed Draft. Creates a new signature request from an embedded request
-     * that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can
-     * be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email
+     * Edit and Resend Unclaimed Draft Creates a new signature request from an embedded request that
+     * can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be
+     * edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email
      * address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.
      * **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal
      * drafts can be used and accessed on Dropbox Sign.
@@ -310,7 +316,8 @@ public class UnclaimedDraftApi {
      * @return UnclaimedDraftCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -326,9 +333,9 @@ public class UnclaimedDraftApi {
     }
 
     /**
-     * Edit and Resend Unclaimed Draft. Creates a new signature request from an embedded request
-     * that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can
-     * be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email
+     * Edit and Resend Unclaimed Draft Creates a new signature request from an embedded request that
+     * can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be
+     * edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email
      * address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.
      * **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal
      * drafts can be used and accessed on Dropbox Sign.
@@ -338,7 +345,8 @@ public class UnclaimedDraftApi {
      * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

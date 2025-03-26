@@ -12,7 +12,6 @@
 
 package com.dropbox.sign;
 
-import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
@@ -27,7 +26,7 @@ import javax.ws.rs.ext.ContextResolver;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class JSON implements ContextResolver<ObjectMapper> {
     private ObjectMapper mapper;
 

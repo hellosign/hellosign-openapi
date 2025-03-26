@@ -33,17 +33,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubSignatureRequestGroupedSigners {
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nonnull private String group;
 
     public static final String JSON_PROPERTY_SIGNERS = "signers";
-    private List<SubSignatureRequestSigner> signers = new ArrayList<>();
+    @javax.annotation.Nonnull private List<SubSignatureRequestSigner> signers = new ArrayList<>();
 
     public static final String JSON_PROPERTY_ORDER = "order";
-    private Integer order;
+    @javax.annotation.Nullable private Integer order;
 
     public SubSignatureRequestGroupedSigners() {}
 
@@ -63,7 +63,7 @@ public class SubSignatureRequestGroupedSigners {
                         SubSignatureRequestGroupedSigners.class);
     }
 
-    public SubSignatureRequestGroupedSigners group(String group) {
+    public SubSignatureRequestGroupedSigners group(@javax.annotation.Nonnull String group) {
         this.group = group;
         return this;
     }
@@ -82,11 +82,12 @@ public class SubSignatureRequestGroupedSigners {
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nonnull String group) {
         this.group = group;
     }
 
-    public SubSignatureRequestGroupedSigners signers(List<SubSignatureRequestSigner> signers) {
+    public SubSignatureRequestGroupedSigners signers(
+            @javax.annotation.Nonnull List<SubSignatureRequestSigner> signers) {
         this.signers = signers;
         return this;
     }
@@ -115,11 +116,11 @@ public class SubSignatureRequestGroupedSigners {
 
     @JsonProperty(JSON_PROPERTY_SIGNERS)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setSigners(List<SubSignatureRequestSigner> signers) {
+    public void setSigners(@javax.annotation.Nonnull List<SubSignatureRequestSigner> signers) {
         this.signers = signers;
     }
 
-    public SubSignatureRequestGroupedSigners order(Integer order) {
+    public SubSignatureRequestGroupedSigners order(@javax.annotation.Nullable Integer order) {
         this.order = order;
         return this;
     }
@@ -138,7 +139,7 @@ public class SubSignatureRequestGroupedSigners {
 
     @JsonProperty(JSON_PROPERTY_ORDER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOrder(Integer order) {
+    public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
     }
 

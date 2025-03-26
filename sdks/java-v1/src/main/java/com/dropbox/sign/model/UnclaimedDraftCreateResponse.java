@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftCreateResponse {
     public static final String JSON_PROPERTY_UNCLAIMED_DRAFT = "unclaimed_draft";
-    private UnclaimedDraftResponse unclaimedDraft;
+    @javax.annotation.Nonnull private UnclaimedDraftResponse unclaimedDraft;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public UnclaimedDraftCreateResponse() {}
 
@@ -59,7 +59,8 @@ public class UnclaimedDraftCreateResponse {
                         UnclaimedDraftCreateResponse.class);
     }
 
-    public UnclaimedDraftCreateResponse unclaimedDraft(UnclaimedDraftResponse unclaimedDraft) {
+    public UnclaimedDraftCreateResponse unclaimedDraft(
+            @javax.annotation.Nonnull UnclaimedDraftResponse unclaimedDraft) {
         this.unclaimedDraft = unclaimedDraft;
         return this;
     }
@@ -78,11 +79,12 @@ public class UnclaimedDraftCreateResponse {
 
     @JsonProperty(JSON_PROPERTY_UNCLAIMED_DRAFT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setUnclaimedDraft(UnclaimedDraftResponse unclaimedDraft) {
+    public void setUnclaimedDraft(@javax.annotation.Nonnull UnclaimedDraftResponse unclaimedDraft) {
         this.unclaimedDraft = unclaimedDraft;
     }
 
-    public UnclaimedDraftCreateResponse warnings(List<WarningResponse> warnings) {
+    public UnclaimedDraftCreateResponse warnings(
+            @javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -108,7 +110,7 @@ public class UnclaimedDraftCreateResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

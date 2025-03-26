@@ -30,14 +30,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmbeddedEditUrlResponseEmbedded {
     public static final String JSON_PROPERTY_EDIT_URL = "edit_url";
-    private String editUrl;
+    @javax.annotation.Nullable private String editUrl;
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-    private Integer expiresAt;
+    @javax.annotation.Nullable private Integer expiresAt;
 
     public EmbeddedEditUrlResponseEmbedded() {}
 
@@ -57,7 +57,7 @@ public class EmbeddedEditUrlResponseEmbedded {
                         EmbeddedEditUrlResponseEmbedded.class);
     }
 
-    public EmbeddedEditUrlResponseEmbedded editUrl(String editUrl) {
+    public EmbeddedEditUrlResponseEmbedded editUrl(@javax.annotation.Nullable String editUrl) {
         this.editUrl = editUrl;
         return this;
     }
@@ -75,11 +75,11 @@ public class EmbeddedEditUrlResponseEmbedded {
 
     @JsonProperty(JSON_PROPERTY_EDIT_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEditUrl(String editUrl) {
+    public void setEditUrl(@javax.annotation.Nullable String editUrl) {
         this.editUrl = editUrl;
     }
 
-    public EmbeddedEditUrlResponseEmbedded expiresAt(Integer expiresAt) {
+    public EmbeddedEditUrlResponseEmbedded expiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -97,7 +97,7 @@ public class EmbeddedEditUrlResponseEmbedded {
 
     @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setExpiresAt(Integer expiresAt) {
+    public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
     }
 

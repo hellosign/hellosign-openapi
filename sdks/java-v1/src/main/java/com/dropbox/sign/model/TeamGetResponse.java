@@ -29,14 +29,14 @@ import java.util.Objects;
 @JsonPropertyOrder({TeamGetResponse.JSON_PROPERTY_TEAM, TeamGetResponse.JSON_PROPERTY_WARNINGS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamGetResponse {
     public static final String JSON_PROPERTY_TEAM = "team";
-    private TeamResponse team;
+    @javax.annotation.Nonnull private TeamResponse team;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public TeamGetResponse() {}
 
@@ -54,7 +54,7 @@ public class TeamGetResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), TeamGetResponse.class);
     }
 
-    public TeamGetResponse team(TeamResponse team) {
+    public TeamGetResponse team(@javax.annotation.Nonnull TeamResponse team) {
         this.team = team;
         return this;
     }
@@ -73,11 +73,11 @@ public class TeamGetResponse {
 
     @JsonProperty(JSON_PROPERTY_TEAM)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setTeam(TeamResponse team) {
+    public void setTeam(@javax.annotation.Nonnull TeamResponse team) {
         this.team = team;
     }
 
-    public TeamGetResponse warnings(List<WarningResponse> warnings) {
+    public TeamGetResponse warnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -103,7 +103,7 @@ public class TeamGetResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

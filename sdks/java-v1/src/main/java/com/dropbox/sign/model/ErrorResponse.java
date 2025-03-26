@@ -27,11 +27,11 @@ import java.util.Objects;
 @JsonPropertyOrder({ErrorResponse.JSON_PROPERTY_ERROR})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorResponse {
     public static final String JSON_PROPERTY_ERROR = "error";
-    private ErrorResponseError error;
+    @javax.annotation.Nonnull private ErrorResponseError error;
 
     public ErrorResponse() {}
 
@@ -49,7 +49,7 @@ public class ErrorResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), ErrorResponse.class);
     }
 
-    public ErrorResponse error(ErrorResponseError error) {
+    public ErrorResponse error(@javax.annotation.Nonnull ErrorResponseError error) {
         this.error = error;
         return this;
     }
@@ -68,7 +68,7 @@ public class ErrorResponse {
 
     @JsonProperty(JSON_PROPERTY_ERROR)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setError(ErrorResponseError error) {
+    public void setError(@javax.annotation.Nonnull ErrorResponseError error) {
         this.error = error;
     }
 

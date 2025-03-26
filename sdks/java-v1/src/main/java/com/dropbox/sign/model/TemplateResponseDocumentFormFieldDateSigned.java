@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -43,10 +43,10 @@ import java.util.Objects;
 public class TemplateResponseDocumentFormFieldDateSigned
         extends TemplateResponseDocumentFormFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "date_signed";
+    @javax.annotation.Nonnull private String type = "date_signed";
 
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nullable private String group;
 
     public TemplateResponseDocumentFormFieldDateSigned() {}
 
@@ -68,7 +68,7 @@ public class TemplateResponseDocumentFormFieldDateSigned
                         TemplateResponseDocumentFormFieldDateSigned.class);
     }
 
-    public TemplateResponseDocumentFormFieldDateSigned type(String type) {
+    public TemplateResponseDocumentFormFieldDateSigned type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -95,11 +95,12 @@ public class TemplateResponseDocumentFormFieldDateSigned
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public TemplateResponseDocumentFormFieldDateSigned group(String group) {
+    public TemplateResponseDocumentFormFieldDateSigned group(
+            @javax.annotation.Nullable String group) {
         this.group = group;
         return this;
     }
@@ -118,7 +119,7 @@ public class TemplateResponseDocumentFormFieldDateSigned
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
     }
 

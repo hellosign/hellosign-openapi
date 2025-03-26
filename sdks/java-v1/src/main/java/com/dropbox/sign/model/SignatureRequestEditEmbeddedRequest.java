@@ -55,81 +55,83 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestEditEmbeddedRequest {
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    private String clientId;
+    @javax.annotation.Nonnull private String clientId;
 
     public static final String JSON_PROPERTY_FILES = "files";
-    private List<File> files = null;
+    @javax.annotation.Nullable private List<File> files = null;
 
     public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-    private List<String> fileUrls = null;
+    @javax.annotation.Nullable private List<String> fileUrls = null;
 
     public static final String JSON_PROPERTY_SIGNERS = "signers";
-    private List<SubSignatureRequestSigner> signers = null;
+    @javax.annotation.Nullable private List<SubSignatureRequestSigner> signers = null;
 
     public static final String JSON_PROPERTY_GROUPED_SIGNERS = "grouped_signers";
-    private List<SubSignatureRequestGroupedSigners> groupedSigners = null;
+
+    @javax.annotation.Nullable private List<SubSignatureRequestGroupedSigners> groupedSigners = null;
 
     public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
-    private Boolean allowDecline = false;
+    @javax.annotation.Nullable private Boolean allowDecline = false;
 
     public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
-    private Boolean allowReassign = false;
+    @javax.annotation.Nullable private Boolean allowReassign = false;
 
     public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-    private List<SubAttachment> attachments = null;
+    @javax.annotation.Nullable private List<SubAttachment> attachments = null;
 
     public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
-    private List<String> ccEmailAddresses = null;
+    @javax.annotation.Nullable private List<String> ccEmailAddresses = null;
 
     public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-    private List<SubCustomField> customFields = null;
+    @javax.annotation.Nullable private List<SubCustomField> customFields = null;
 
     public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
-    private SubFieldOptions fieldOptions;
+    @javax.annotation.Nullable private SubFieldOptions fieldOptions;
 
     public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
-    private List<SubFormFieldGroup> formFieldGroups = null;
+    @javax.annotation.Nullable private List<SubFormFieldGroup> formFieldGroups = null;
 
     public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
-    private List<SubFormFieldRule> formFieldRules = null;
+    @javax.annotation.Nullable private List<SubFormFieldRule> formFieldRules = null;
 
     public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
-    private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
+
+    @javax.annotation.Nullable private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
 
     public static final String JSON_PROPERTY_HIDE_TEXT_TAGS = "hide_text_tags";
-    private Boolean hideTextTags = false;
+    @javax.annotation.Nullable private Boolean hideTextTags = false;
 
     public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+    @javax.annotation.Nullable private String message;
 
     public static final String JSON_PROPERTY_METADATA = "metadata";
-    private Map<String, Object> metadata = null;
+    @javax.annotation.Nullable private Map<String, Object> metadata = null;
 
     public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
-    private SubSigningOptions signingOptions;
+    @javax.annotation.Nullable private SubSigningOptions signingOptions;
 
     public static final String JSON_PROPERTY_SUBJECT = "subject";
-    private String subject;
+    @javax.annotation.Nullable private String subject;
 
     public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    private Boolean testMode = false;
+    @javax.annotation.Nullable private Boolean testMode = false;
 
     public static final String JSON_PROPERTY_TITLE = "title";
-    private String title;
+    @javax.annotation.Nullable private String title;
 
     public static final String JSON_PROPERTY_USE_TEXT_TAGS = "use_text_tags";
-    private Boolean useTextTags = false;
+    @javax.annotation.Nullable private Boolean useTextTags = false;
 
     public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS =
             "populate_auto_fill_fields";
-    private Boolean populateAutoFillFields = false;
+    @javax.annotation.Nullable private Boolean populateAutoFillFields = false;
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-    private Integer expiresAt;
+    @javax.annotation.Nullable private Integer expiresAt;
 
     public SignatureRequestEditEmbeddedRequest() {}
 
@@ -149,7 +151,7 @@ public class SignatureRequestEditEmbeddedRequest {
                         SignatureRequestEditEmbeddedRequest.class);
     }
 
-    public SignatureRequestEditEmbeddedRequest clientId(String clientId) {
+    public SignatureRequestEditEmbeddedRequest clientId(@javax.annotation.Nonnull String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -169,11 +171,11 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_ID)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setClientId(String clientId) {
+    public void setClientId(@javax.annotation.Nonnull String clientId) {
         this.clientId = clientId;
     }
 
-    public SignatureRequestEditEmbeddedRequest files(List<File> files) {
+    public SignatureRequestEditEmbeddedRequest files(@javax.annotation.Nullable List<File> files) {
         this.files = files;
         return this;
     }
@@ -200,11 +202,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_FILES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFiles(List<File> files) {
+    public void setFiles(@javax.annotation.Nullable List<File> files) {
         this.files = files;
     }
 
-    public SignatureRequestEditEmbeddedRequest fileUrls(List<String> fileUrls) {
+    public SignatureRequestEditEmbeddedRequest fileUrls(
+            @javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
         return this;
     }
@@ -231,11 +234,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_FILE_URLS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFileUrls(List<String> fileUrls) {
+    public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
     }
 
-    public SignatureRequestEditEmbeddedRequest signers(List<SubSignatureRequestSigner> signers) {
+    public SignatureRequestEditEmbeddedRequest signers(
+            @javax.annotation.Nullable List<SubSignatureRequestSigner> signers) {
         this.signers = signers;
         return this;
     }
@@ -263,12 +267,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_SIGNERS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigners(List<SubSignatureRequestSigner> signers) {
+    public void setSigners(@javax.annotation.Nullable List<SubSignatureRequestSigner> signers) {
         this.signers = signers;
     }
 
     public SignatureRequestEditEmbeddedRequest groupedSigners(
-            List<SubSignatureRequestGroupedSigners> groupedSigners) {
+            @javax.annotation.Nullable List<SubSignatureRequestGroupedSigners> groupedSigners) {
         this.groupedSigners = groupedSigners;
         return this;
     }
@@ -296,11 +300,13 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_GROUPED_SIGNERS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroupedSigners(List<SubSignatureRequestGroupedSigners> groupedSigners) {
+    public void setGroupedSigners(
+            @javax.annotation.Nullable List<SubSignatureRequestGroupedSigners> groupedSigners) {
         this.groupedSigners = groupedSigners;
     }
 
-    public SignatureRequestEditEmbeddedRequest allowDecline(Boolean allowDecline) {
+    public SignatureRequestEditEmbeddedRequest allowDecline(
+            @javax.annotation.Nullable Boolean allowDecline) {
         this.allowDecline = allowDecline;
         return this;
     }
@@ -319,11 +325,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowDecline(Boolean allowDecline) {
+    public void setAllowDecline(@javax.annotation.Nullable Boolean allowDecline) {
         this.allowDecline = allowDecline;
     }
 
-    public SignatureRequestEditEmbeddedRequest allowReassign(Boolean allowReassign) {
+    public SignatureRequestEditEmbeddedRequest allowReassign(
+            @javax.annotation.Nullable Boolean allowReassign) {
         this.allowReassign = allowReassign;
         return this;
     }
@@ -342,11 +349,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowReassign(Boolean allowReassign) {
+    public void setAllowReassign(@javax.annotation.Nullable Boolean allowReassign) {
         this.allowReassign = allowReassign;
     }
 
-    public SignatureRequestEditEmbeddedRequest attachments(List<SubAttachment> attachments) {
+    public SignatureRequestEditEmbeddedRequest attachments(
+            @javax.annotation.Nullable List<SubAttachment> attachments) {
         this.attachments = attachments;
         return this;
     }
@@ -372,11 +380,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAttachments(List<SubAttachment> attachments) {
+    public void setAttachments(@javax.annotation.Nullable List<SubAttachment> attachments) {
         this.attachments = attachments;
     }
 
-    public SignatureRequestEditEmbeddedRequest ccEmailAddresses(List<String> ccEmailAddresses) {
+    public SignatureRequestEditEmbeddedRequest ccEmailAddresses(
+            @javax.annotation.Nullable List<String> ccEmailAddresses) {
         this.ccEmailAddresses = ccEmailAddresses;
         return this;
     }
@@ -403,11 +412,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCcEmailAddresses(List<String> ccEmailAddresses) {
+    public void setCcEmailAddresses(@javax.annotation.Nullable List<String> ccEmailAddresses) {
         this.ccEmailAddresses = ccEmailAddresses;
     }
 
-    public SignatureRequestEditEmbeddedRequest customFields(List<SubCustomField> customFields) {
+    public SignatureRequestEditEmbeddedRequest customFields(
+            @javax.annotation.Nullable List<SubCustomField> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -444,11 +454,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCustomFields(List<SubCustomField> customFields) {
+    public void setCustomFields(@javax.annotation.Nullable List<SubCustomField> customFields) {
         this.customFields = customFields;
     }
 
-    public SignatureRequestEditEmbeddedRequest fieldOptions(SubFieldOptions fieldOptions) {
+    public SignatureRequestEditEmbeddedRequest fieldOptions(
+            @javax.annotation.Nullable SubFieldOptions fieldOptions) {
         this.fieldOptions = fieldOptions;
         return this;
     }
@@ -466,12 +477,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFieldOptions(SubFieldOptions fieldOptions) {
+    public void setFieldOptions(@javax.annotation.Nullable SubFieldOptions fieldOptions) {
         this.fieldOptions = fieldOptions;
     }
 
     public SignatureRequestEditEmbeddedRequest formFieldGroups(
-            List<SubFormFieldGroup> formFieldGroups) {
+            @javax.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
         this.formFieldGroups = formFieldGroups;
         return this;
     }
@@ -501,12 +512,13 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFormFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
+    public void setFormFieldGroups(
+            @javax.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
         this.formFieldGroups = formFieldGroups;
     }
 
     public SignatureRequestEditEmbeddedRequest formFieldRules(
-            List<SubFormFieldRule> formFieldRules) {
+            @javax.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
         this.formFieldRules = formFieldRules;
         return this;
     }
@@ -533,12 +545,13 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFormFieldRules(List<SubFormFieldRule> formFieldRules) {
+    public void setFormFieldRules(
+            @javax.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
         this.formFieldRules = formFieldRules;
     }
 
     public SignatureRequestEditEmbeddedRequest formFieldsPerDocument(
-            List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+            @javax.annotation.Nullable List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
         this.formFieldsPerDocument = formFieldsPerDocument;
         return this;
     }
@@ -580,11 +593,13 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFormFieldsPerDocument(List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+    public void setFormFieldsPerDocument(
+            @javax.annotation.Nullable List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
         this.formFieldsPerDocument = formFieldsPerDocument;
     }
 
-    public SignatureRequestEditEmbeddedRequest hideTextTags(Boolean hideTextTags) {
+    public SignatureRequestEditEmbeddedRequest hideTextTags(
+            @javax.annotation.Nullable Boolean hideTextTags) {
         this.hideTextTags = hideTextTags;
         return this;
     }
@@ -606,11 +621,11 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setHideTextTags(Boolean hideTextTags) {
+    public void setHideTextTags(@javax.annotation.Nullable Boolean hideTextTags) {
         this.hideTextTags = hideTextTags;
     }
 
-    public SignatureRequestEditEmbeddedRequest message(String message) {
+    public SignatureRequestEditEmbeddedRequest message(@javax.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -628,11 +643,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_MESSAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMessage(String message) {
+    public void setMessage(@javax.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public SignatureRequestEditEmbeddedRequest metadata(Map<String, Object> metadata) {
+    public SignatureRequestEditEmbeddedRequest metadata(
+            @javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -662,11 +678,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_METADATA)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMetadata(Map<String, Object> metadata) {
+    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
-    public SignatureRequestEditEmbeddedRequest signingOptions(SubSigningOptions signingOptions) {
+    public SignatureRequestEditEmbeddedRequest signingOptions(
+            @javax.annotation.Nullable SubSigningOptions signingOptions) {
         this.signingOptions = signingOptions;
         return this;
     }
@@ -684,11 +701,11 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigningOptions(SubSigningOptions signingOptions) {
+    public void setSigningOptions(@javax.annotation.Nullable SubSigningOptions signingOptions) {
         this.signingOptions = signingOptions;
     }
 
-    public SignatureRequestEditEmbeddedRequest subject(String subject) {
+    public SignatureRequestEditEmbeddedRequest subject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
         return this;
     }
@@ -706,11 +723,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_SUBJECT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSubject(String subject) {
+    public void setSubject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
     }
 
-    public SignatureRequestEditEmbeddedRequest testMode(Boolean testMode) {
+    public SignatureRequestEditEmbeddedRequest testMode(
+            @javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
         return this;
     }
@@ -729,11 +747,11 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_TEST_MODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(Boolean testMode) {
+    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
     }
 
-    public SignatureRequestEditEmbeddedRequest title(String title) {
+    public SignatureRequestEditEmbeddedRequest title(@javax.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -751,11 +769,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_TITLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTitle(String title) {
+    public void setTitle(@javax.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public SignatureRequestEditEmbeddedRequest useTextTags(Boolean useTextTags) {
+    public SignatureRequestEditEmbeddedRequest useTextTags(
+            @javax.annotation.Nullable Boolean useTextTags) {
         this.useTextTags = useTextTags;
         return this;
     }
@@ -775,12 +794,12 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setUseTextTags(Boolean useTextTags) {
+    public void setUseTextTags(@javax.annotation.Nullable Boolean useTextTags) {
         this.useTextTags = useTextTags;
     }
 
     public SignatureRequestEditEmbeddedRequest populateAutoFillFields(
-            Boolean populateAutoFillFields) {
+            @javax.annotation.Nullable Boolean populateAutoFillFields) {
         this.populateAutoFillFields = populateAutoFillFields;
         return this;
     }
@@ -802,11 +821,13 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPopulateAutoFillFields(Boolean populateAutoFillFields) {
+    public void setPopulateAutoFillFields(
+            @javax.annotation.Nullable Boolean populateAutoFillFields) {
         this.populateAutoFillFields = populateAutoFillFields;
     }
 
-    public SignatureRequestEditEmbeddedRequest expiresAt(Integer expiresAt) {
+    public SignatureRequestEditEmbeddedRequest expiresAt(
+            @javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -826,7 +847,7 @@ public class SignatureRequestEditEmbeddedRequest {
 
     @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setExpiresAt(Integer expiresAt) {
+    public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
     }
 

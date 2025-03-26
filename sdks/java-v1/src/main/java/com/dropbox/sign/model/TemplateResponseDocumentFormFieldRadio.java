@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -42,10 +42,10 @@ import java.util.Objects;
         visible = true)
 public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFormFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "radio";
+    @javax.annotation.Nonnull private String type = "radio";
 
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nonnull private String group;
 
     public TemplateResponseDocumentFormFieldRadio() {}
 
@@ -65,7 +65,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
                         TemplateResponseDocumentFormFieldRadio.class);
     }
 
-    public TemplateResponseDocumentFormFieldRadio type(String type) {
+    public TemplateResponseDocumentFormFieldRadio type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -92,11 +92,11 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public TemplateResponseDocumentFormFieldRadio group(String group) {
+    public TemplateResponseDocumentFormFieldRadio group(@javax.annotation.Nonnull String group) {
         this.group = group;
         return this;
     }
@@ -116,7 +116,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nonnull String group) {
         this.group = group;
     }
 

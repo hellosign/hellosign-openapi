@@ -37,26 +37,26 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateUpdateFilesRequest {
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    private String clientId;
+    @javax.annotation.Nullable private String clientId;
 
     public static final String JSON_PROPERTY_FILES = "files";
-    private List<File> files = null;
+    @javax.annotation.Nullable private List<File> files = null;
 
     public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-    private List<String> fileUrls = null;
+    @javax.annotation.Nullable private List<String> fileUrls = null;
 
     public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+    @javax.annotation.Nullable private String message;
 
     public static final String JSON_PROPERTY_SUBJECT = "subject";
-    private String subject;
+    @javax.annotation.Nullable private String subject;
 
     public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    private Boolean testMode = false;
+    @javax.annotation.Nullable private Boolean testMode = false;
 
     public TemplateUpdateFilesRequest() {}
 
@@ -76,7 +76,7 @@ public class TemplateUpdateFilesRequest {
                         TemplateUpdateFilesRequest.class);
     }
 
-    public TemplateUpdateFilesRequest clientId(String clientId) {
+    public TemplateUpdateFilesRequest clientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -94,11 +94,11 @@ public class TemplateUpdateFilesRequest {
 
     @JsonProperty(JSON_PROPERTY_CLIENT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setClientId(String clientId) {
+    public void setClientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
     }
 
-    public TemplateUpdateFilesRequest files(List<File> files) {
+    public TemplateUpdateFilesRequest files(@javax.annotation.Nullable List<File> files) {
         this.files = files;
         return this;
     }
@@ -125,11 +125,11 @@ public class TemplateUpdateFilesRequest {
 
     @JsonProperty(JSON_PROPERTY_FILES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFiles(List<File> files) {
+    public void setFiles(@javax.annotation.Nullable List<File> files) {
         this.files = files;
     }
 
-    public TemplateUpdateFilesRequest fileUrls(List<String> fileUrls) {
+    public TemplateUpdateFilesRequest fileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
         return this;
     }
@@ -156,11 +156,11 @@ public class TemplateUpdateFilesRequest {
 
     @JsonProperty(JSON_PROPERTY_FILE_URLS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFileUrls(List<String> fileUrls) {
+    public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
     }
 
-    public TemplateUpdateFilesRequest message(String message) {
+    public TemplateUpdateFilesRequest message(@javax.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -178,11 +178,11 @@ public class TemplateUpdateFilesRequest {
 
     @JsonProperty(JSON_PROPERTY_MESSAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMessage(String message) {
+    public void setMessage(@javax.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public TemplateUpdateFilesRequest subject(String subject) {
+    public TemplateUpdateFilesRequest subject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
         return this;
     }
@@ -200,11 +200,11 @@ public class TemplateUpdateFilesRequest {
 
     @JsonProperty(JSON_PROPERTY_SUBJECT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSubject(String subject) {
+    public void setSubject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
     }
 
-    public TemplateUpdateFilesRequest testMode(Boolean testMode) {
+    public TemplateUpdateFilesRequest testMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
         return this;
     }
@@ -223,7 +223,7 @@ public class TemplateUpdateFilesRequest {
 
     @JsonProperty(JSON_PROPERTY_TEST_MODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(Boolean testMode) {
+    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
     }
 

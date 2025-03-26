@@ -27,11 +27,11 @@ import java.util.Objects;
 @JsonPropertyOrder({TemplateUpdateFilesResponse.JSON_PROPERTY_TEMPLATE})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateUpdateFilesResponse {
     public static final String JSON_PROPERTY_TEMPLATE = "template";
-    private TemplateUpdateFilesResponseTemplate template;
+    @javax.annotation.Nonnull private TemplateUpdateFilesResponseTemplate template;
 
     public TemplateUpdateFilesResponse() {}
 
@@ -51,7 +51,8 @@ public class TemplateUpdateFilesResponse {
                         TemplateUpdateFilesResponse.class);
     }
 
-    public TemplateUpdateFilesResponse template(TemplateUpdateFilesResponseTemplate template) {
+    public TemplateUpdateFilesResponse template(
+            @javax.annotation.Nonnull TemplateUpdateFilesResponseTemplate template) {
         this.template = template;
         return this;
     }
@@ -70,7 +71,8 @@ public class TemplateUpdateFilesResponse {
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setTemplate(TemplateUpdateFilesResponseTemplate template) {
+    public void setTemplate(
+            @javax.annotation.Nonnull TemplateUpdateFilesResponseTemplate template) {
         this.template = template;
     }
 

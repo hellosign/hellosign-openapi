@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReportCreateResponse {
     public static final String JSON_PROPERTY_REPORT = "report";
-    private ReportResponse report;
+    @javax.annotation.Nonnull private ReportResponse report;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public ReportCreateResponse() {}
 
@@ -57,7 +57,7 @@ public class ReportCreateResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), ReportCreateResponse.class);
     }
 
-    public ReportCreateResponse report(ReportResponse report) {
+    public ReportCreateResponse report(@javax.annotation.Nonnull ReportResponse report) {
         this.report = report;
         return this;
     }
@@ -76,11 +76,12 @@ public class ReportCreateResponse {
 
     @JsonProperty(JSON_PROPERTY_REPORT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setReport(ReportResponse report) {
+    public void setReport(@javax.annotation.Nonnull ReportResponse report) {
         this.report = report;
     }
 
-    public ReportCreateResponse warnings(List<WarningResponse> warnings) {
+    public ReportCreateResponse warnings(
+            @javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -106,7 +107,7 @@ public class ReportCreateResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

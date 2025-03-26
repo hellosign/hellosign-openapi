@@ -27,11 +27,11 @@ import java.util.Objects;
 @JsonPropertyOrder({FileResponseDataUri.JSON_PROPERTY_DATA_URI})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FileResponseDataUri {
     public static final String JSON_PROPERTY_DATA_URI = "data_uri";
-    private String dataUri;
+    @javax.annotation.Nonnull private String dataUri;
 
     public FileResponseDataUri() {}
 
@@ -49,7 +49,7 @@ public class FileResponseDataUri {
                 .readValue(new ObjectMapper().writeValueAsString(data), FileResponseDataUri.class);
     }
 
-    public FileResponseDataUri dataUri(String dataUri) {
+    public FileResponseDataUri dataUri(@javax.annotation.Nonnull String dataUri) {
         this.dataUri = dataUri;
         return this;
     }
@@ -68,7 +68,7 @@ public class FileResponseDataUri {
 
     @JsonProperty(JSON_PROPERTY_DATA_URI)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDataUri(String dataUri) {
+    public void setDataUri(@javax.annotation.Nonnull String dataUri) {
         this.dataUri = dataUri;
     }
 

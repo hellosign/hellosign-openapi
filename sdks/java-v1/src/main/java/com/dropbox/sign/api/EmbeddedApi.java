@@ -15,7 +15,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class EmbeddedApi {
     private ApiClient apiClient;
 
@@ -46,7 +46,7 @@ public class EmbeddedApi {
     }
 
     /**
-     * Get Embedded Template Edit URL. Retrieves an embedded object containing a template url that
+     * Get Embedded Template Edit URL Retrieves an embedded object containing a template url that
      * can be opened in an iFrame. Note that only templates created via the embedded template
      * process are available to be edited with this endpoint.
      *
@@ -55,7 +55,8 @@ public class EmbeddedApi {
      * @return EmbeddedEditUrlResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -67,7 +68,7 @@ public class EmbeddedApi {
     }
 
     /**
-     * Get Embedded Template Edit URL. Retrieves an embedded object containing a template url that
+     * Get Embedded Template Edit URL Retrieves an embedded object containing a template url that
      * can be opened in an iFrame. Note that only templates created via the embedded template
      * process are available to be edited with this endpoint.
      *
@@ -76,7 +77,8 @@ public class EmbeddedApi {
      * @return ApiResponse&lt;EmbeddedEditUrlResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -132,7 +134,7 @@ public class EmbeddedApi {
     }
 
     /**
-     * Get Embedded Sign URL. Retrieves an embedded object containing a signature url that can be
+     * Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be
      * opened in an iFrame. Note that templates created via the embedded template process will only
      * be accessible through the API.
      *
@@ -140,7 +142,8 @@ public class EmbeddedApi {
      * @return EmbeddedSignUrlResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -151,7 +154,7 @@ public class EmbeddedApi {
     }
 
     /**
-     * Get Embedded Sign URL. Retrieves an embedded object containing a signature url that can be
+     * Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be
      * opened in an iFrame. Note that templates created via the embedded template process will only
      * be accessible through the API.
      *
@@ -159,7 +162,8 @@ public class EmbeddedApi {
      * @return ApiResponse&lt;EmbeddedSignUrlResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
