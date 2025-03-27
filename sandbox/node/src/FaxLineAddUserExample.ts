@@ -5,9 +5,10 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxLineAddUserRequest = new models.FaxLineAddUserRequest();
-faxLineAddUserRequest.number = "[FAX_NUMBER]";
-faxLineAddUserRequest.emailAddress = "member@dropboxsign.com";
+const faxLineAddUserRequest: models.FaxLineAddUserRequest = {
+  number: "[FAX_NUMBER]",
+  emailAddress: "member@dropboxsign.com",
+};
 
 apiCaller.faxLineAddUser(
   faxLineAddUserRequest,

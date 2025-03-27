@@ -6,8 +6,9 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const teamRemoveMemberRequest = new models.TeamRemoveMemberRequest();
-teamRemoveMemberRequest.accountId = "f57db65d3f933b5316d398057a36176831451a35";
+const teamRemoveMemberRequest: models.TeamRemoveMemberRequest = {
+  accountId: "f57db65d3f933b5316d398057a36176831451a35",
+};
 
 apiCaller.teamRemoveMember(
   teamRemoveMemberRequest,

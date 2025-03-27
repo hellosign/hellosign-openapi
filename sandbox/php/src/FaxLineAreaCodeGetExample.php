@@ -13,9 +13,6 @@ $config->setUsername("YOUR_API_KEY");
 try {
     $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineAreaCodeGet(
         country: "US",
-        state: null,
-        province: null,
-        city: null,
     );
 
     print_r($response);

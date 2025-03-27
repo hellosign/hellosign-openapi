@@ -6,8 +6,9 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const teamUpdateRequest = new models.TeamUpdateRequest();
-teamUpdateRequest.name = "New Team Name";
+const teamUpdateRequest: models.TeamUpdateRequest = {
+  name: "New Team Name",
+};
 
 apiCaller.teamUpdate(
   teamUpdateRequest,

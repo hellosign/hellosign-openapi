@@ -6,9 +6,10 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const teamRemoveMemberRequest = new models.TeamRemoveMemberRequest();
-teamRemoveMemberRequest.emailAddress = "teammate@dropboxsign.com";
-teamRemoveMemberRequest.newOwnerEmailAddress = "new_teammate@dropboxsign.com";
+const teamRemoveMemberRequest: models.TeamRemoveMemberRequest = {
+  emailAddress: "teammate@dropboxsign.com",
+  newOwnerEmailAddress: "new_teammate@dropboxsign.com",
+};
 
 apiCaller.teamRemoveMember(
   teamRemoveMemberRequest,

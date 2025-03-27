@@ -5,9 +5,10 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxLineRemoveUserRequest = new models.FaxLineRemoveUserRequest();
-faxLineRemoveUserRequest.number = "[FAX_NUMBER]";
-faxLineRemoveUserRequest.emailAddress = "member@dropboxsign.com";
+const faxLineRemoveUserRequest: models.FaxLineRemoveUserRequest = {
+  number: "[FAX_NUMBER]",
+  emailAddress: "member@dropboxsign.com",
+};
 
 apiCaller.faxLineRemoveUser(
   faxLineRemoveUserRequest,
