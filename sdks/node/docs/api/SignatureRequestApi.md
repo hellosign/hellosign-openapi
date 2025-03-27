@@ -46,73 +46,81 @@ import models from "@dropbox/sign"
 const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const signerList2CustomFields1 = new models.SubBulkSignerListCustomField();
-signerList2CustomFields1.name = "company";
-signerList2CustomFields1.value = "123 LLC";
+const signerList2CustomFields1: models.SubBulkSignerListCustomField = {
+  name: "company",
+  value: "123 LLC",
+};
 
 const signerList2CustomFields = [
   signerList2CustomFields1,
 ];
 
-const signerList2Signers1 = new models.SubSignatureRequestTemplateSigner();
-signerList2Signers1.role = "Client";
-signerList2Signers1.name = "Mary";
-signerList2Signers1.emailAddress = "mary@example.com";
-signerList2Signers1.pin = "gd9as5b";
+const signerList2Signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "Mary",
+  emailAddress: "mary@example.com",
+  pin: "gd9as5b",
+};
 
 const signerList2Signers = [
   signerList2Signers1,
 ];
 
-const signerList1CustomFields1 = new models.SubBulkSignerListCustomField();
-signerList1CustomFields1.name = "company";
-signerList1CustomFields1.value = "ABC Corp";
+const signerList1CustomFields1: models.SubBulkSignerListCustomField = {
+  name: "company",
+  value: "ABC Corp",
+};
 
 const signerList1CustomFields = [
   signerList1CustomFields1,
 ];
 
-const signerList1Signers1 = new models.SubSignatureRequestTemplateSigner();
-signerList1Signers1.role = "Client";
-signerList1Signers1.name = "George";
-signerList1Signers1.emailAddress = "george@example.com";
-signerList1Signers1.pin = "d79a3td";
+const signerList1Signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+  pin: "d79a3td",
+};
 
 const signerList1Signers = [
   signerList1Signers1,
 ];
 
-const signerList1 = new models.SubBulkSignerList();
-signerList1.customFields = signerList1CustomFields;
-signerList1.signers = signerList1Signers;
+const signerList1: models.SubBulkSignerList = {
+  customFields: signerList1CustomFields,
+  signers: signerList1Signers,
+};
 
-const signerList2 = new models.SubBulkSignerList();
-signerList2.customFields = signerList2CustomFields;
-signerList2.signers = signerList2Signers;
+const signerList2: models.SubBulkSignerList = {
+  customFields: signerList2CustomFields,
+  signers: signerList2Signers,
+};
 
 const signerList = [
   signerList1,
   signerList2,
 ];
 
-const ccs1 = new models.SubCC();
-ccs1.role = "Accounting";
-ccs1.emailAddress = "accounting@example.com";
+const ccs1: models.SubCC = {
+  role: "Accounting",
+  emailAddress: "accounting@example.com",
+};
 
 const ccs = [
   ccs1,
 ];
 
-const signatureRequestBulkCreateEmbeddedWithTemplateRequest = new models.SignatureRequestBulkCreateEmbeddedWithTemplateRequest();
-signatureRequestBulkCreateEmbeddedWithTemplateRequest.clientId = "1a659d9ad95bccd307ecad78d72192f8";
-signatureRequestBulkCreateEmbeddedWithTemplateRequest.templateIds = [
-  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
-];
-signatureRequestBulkCreateEmbeddedWithTemplateRequest.message = "Glad we could come to an agreement.";
-signatureRequestBulkCreateEmbeddedWithTemplateRequest.subject = "Purchase Order";
-signatureRequestBulkCreateEmbeddedWithTemplateRequest.testMode = true;
-signatureRequestBulkCreateEmbeddedWithTemplateRequest.signerList = signerList;
-signatureRequestBulkCreateEmbeddedWithTemplateRequest.ccs = ccs;
+const signatureRequestBulkCreateEmbeddedWithTemplateRequest: models.SignatureRequestBulkCreateEmbeddedWithTemplateRequest = {
+  clientId: "1a659d9ad95bccd307ecad78d72192f8",
+  templateIds: [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  ],
+  message: "Glad we could come to an agreement.",
+  subject: "Purchase Order",
+  testMode: true,
+  signerList: signerList,
+  ccs: ccs,
+};
 
 apiCaller.signatureRequestBulkCreateEmbeddedWithTemplate(
   signatureRequestBulkCreateEmbeddedWithTemplateRequest,
@@ -169,72 +177,80 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signerList2CustomFields1 = new models.SubBulkSignerListCustomField();
-signerList2CustomFields1.name = "company";
-signerList2CustomFields1.value = "123 LLC";
+const signerList2CustomFields1: models.SubBulkSignerListCustomField = {
+  name: "company",
+  value: "123 LLC",
+};
 
 const signerList2CustomFields = [
   signerList2CustomFields1,
 ];
 
-const signerList2Signers1 = new models.SubSignatureRequestTemplateSigner();
-signerList2Signers1.role = "Client";
-signerList2Signers1.name = "Mary";
-signerList2Signers1.emailAddress = "mary@example.com";
-signerList2Signers1.pin = "gd9as5b";
+const signerList2Signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "Mary",
+  emailAddress: "mary@example.com",
+  pin: "gd9as5b",
+};
 
 const signerList2Signers = [
   signerList2Signers1,
 ];
 
-const signerList1CustomFields1 = new models.SubBulkSignerListCustomField();
-signerList1CustomFields1.name = "company";
-signerList1CustomFields1.value = "ABC Corp";
+const signerList1CustomFields1: models.SubBulkSignerListCustomField = {
+  name: "company",
+  value: "ABC Corp",
+};
 
 const signerList1CustomFields = [
   signerList1CustomFields1,
 ];
 
-const signerList1Signers1 = new models.SubSignatureRequestTemplateSigner();
-signerList1Signers1.role = "Client";
-signerList1Signers1.name = "George";
-signerList1Signers1.emailAddress = "george@example.com";
-signerList1Signers1.pin = "d79a3td";
+const signerList1Signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+  pin: "d79a3td",
+};
 
 const signerList1Signers = [
   signerList1Signers1,
 ];
 
-const signerList1 = new models.SubBulkSignerList();
-signerList1.customFields = signerList1CustomFields;
-signerList1.signers = signerList1Signers;
+const signerList1: models.SubBulkSignerList = {
+  customFields: signerList1CustomFields,
+  signers: signerList1Signers,
+};
 
-const signerList2 = new models.SubBulkSignerList();
-signerList2.customFields = signerList2CustomFields;
-signerList2.signers = signerList2Signers;
+const signerList2: models.SubBulkSignerList = {
+  customFields: signerList2CustomFields,
+  signers: signerList2Signers,
+};
 
 const signerList = [
   signerList1,
   signerList2,
 ];
 
-const ccs1 = new models.SubCC();
-ccs1.role = "Accounting";
-ccs1.emailAddress = "accounting@example.com";
+const ccs1: models.SubCC = {
+  role: "Accounting",
+  emailAddress: "accounting@example.com",
+};
 
 const ccs = [
   ccs1,
 ];
 
-const signatureRequestBulkSendWithTemplateRequest = new models.SignatureRequestBulkSendWithTemplateRequest();
-signatureRequestBulkSendWithTemplateRequest.templateIds = [
-  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
-];
-signatureRequestBulkSendWithTemplateRequest.message = "Glad we could come to an agreement.";
-signatureRequestBulkSendWithTemplateRequest.subject = "Purchase Order";
-signatureRequestBulkSendWithTemplateRequest.testMode = true;
-signatureRequestBulkSendWithTemplateRequest.signerList = signerList;
-signatureRequestBulkSendWithTemplateRequest.ccs = ccs;
+const signatureRequestBulkSendWithTemplateRequest: models.SignatureRequestBulkSendWithTemplateRequest = {
+  templateIds: [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  ],
+  message: "Glad we could come to an agreement.",
+  subject: "Purchase Order",
+  testMode: true,
+  signerList: signerList,
+  ccs: ccs,
+};
 
 apiCaller.signatureRequestBulkSendWithTemplate(
   signatureRequestBulkSendWithTemplateRequest,
@@ -344,43 +360,47 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signers1 = new models.SubSignatureRequestSigner();
-signers1.name = "Jack";
-signers1.emailAddress = "jack@example.com";
-signers1.order = 0;
+const signers1: models.SubSignatureRequestSigner = {
+  name: "Jack",
+  emailAddress: "jack@example.com",
+  order: 0,
+};
 
-const signers2 = new models.SubSignatureRequestSigner();
-signers2.name = "Jill";
-signers2.emailAddress = "jill@example.com";
-signers2.order = 1;
+const signers2: models.SubSignatureRequestSigner = {
+  name: "Jill",
+  emailAddress: "jill@example.com",
+  order: 1,
+};
 
 const signers = [
   signers1,
   signers2,
 ];
 
-const signatureRequestCreateEmbeddedRequest = new models.SignatureRequestCreateEmbeddedRequest();
-signatureRequestCreateEmbeddedRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
-signatureRequestCreateEmbeddedRequest.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.";
-signatureRequestCreateEmbeddedRequest.subject = "The NDA we talked about";
-signatureRequestCreateEmbeddedRequest.testMode = true;
-signatureRequestCreateEmbeddedRequest.title = "NDA with Acme Co.";
-signatureRequestCreateEmbeddedRequest.ccEmailAddresses = [
-  "lawyer1@dropboxsign.com",
-  "lawyer2@dropboxsign.com",
-];
-signatureRequestCreateEmbeddedRequest.files = [
-  fs.createReadStream("./example_signature_request.pdf"),
-];
-signatureRequestCreateEmbeddedRequest.signingOptions = signingOptions;
-signatureRequestCreateEmbeddedRequest.signers = signers;
+const signatureRequestCreateEmbeddedRequest: models.SignatureRequestCreateEmbeddedRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  subject: "The NDA we talked about",
+  testMode: true,
+  title: "NDA with Acme Co.",
+  ccEmailAddresses: [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  signingOptions: signingOptions,
+  signers: signers,
+};
 
 apiCaller.signatureRequestCreateEmbedded(
   signatureRequestCreateEmbeddedRequest,
@@ -437,32 +457,35 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signers1 = new models.SubSignatureRequestTemplateSigner();
-signers1.role = "Client";
-signers1.name = "George";
-signers1.emailAddress = "george@example.com";
+const signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+};
 
 const signers = [
   signers1,
 ];
 
-const signatureRequestCreateEmbeddedWithTemplateRequest = new models.SignatureRequestCreateEmbeddedWithTemplateRequest();
-signatureRequestCreateEmbeddedWithTemplateRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
-signatureRequestCreateEmbeddedWithTemplateRequest.templateIds = [
-  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
-];
-signatureRequestCreateEmbeddedWithTemplateRequest.message = "Glad we could come to an agreement.";
-signatureRequestCreateEmbeddedWithTemplateRequest.subject = "Purchase Order";
-signatureRequestCreateEmbeddedWithTemplateRequest.testMode = true;
-signatureRequestCreateEmbeddedWithTemplateRequest.signingOptions = signingOptions;
-signatureRequestCreateEmbeddedWithTemplateRequest.signers = signers;
+const signatureRequestCreateEmbeddedWithTemplateRequest: models.SignatureRequestCreateEmbeddedWithTemplateRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  templateIds: [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  ],
+  message: "Glad we could come to an agreement.",
+  subject: "Purchase Order",
+  testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
+};
 
 apiCaller.signatureRequestCreateEmbeddedWithTemplate(
   signatureRequestCreateEmbeddedWithTemplateRequest,
@@ -519,50 +542,55 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const fieldOptions = new models.SubFieldOptions();
-fieldOptions.dateFormat = models.SubFieldOptions.DateFormatEnum.DD_MM_YYYY;
+const fieldOptions: models.SubFieldOptions = {
+  dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
+};
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signers1 = new models.SubSignatureRequestSigner();
-signers1.name = "Jack";
-signers1.emailAddress = "jack@example.com";
-signers1.order = 0;
+const signers1: models.SubSignatureRequestSigner = {
+  name: "Jack",
+  emailAddress: "jack@example.com",
+  order: 0,
+};
 
-const signers2 = new models.SubSignatureRequestSigner();
-signers2.name = "Jill";
-signers2.emailAddress = "jill@example.com";
-signers2.order = 1;
+const signers2: models.SubSignatureRequestSigner = {
+  name: "Jill",
+  emailAddress: "jill@example.com",
+  order: 1,
+};
 
 const signers = [
   signers1,
   signers2,
 ];
 
-const signatureRequestEditRequest = new models.SignatureRequestEditRequest();
-signatureRequestEditRequest.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.";
-signatureRequestEditRequest.subject = "The NDA we talked about";
-signatureRequestEditRequest.testMode = true;
-signatureRequestEditRequest.title = "NDA with Acme Co.";
-signatureRequestEditRequest.ccEmailAddresses = [
-  "lawyer1@dropboxsign.com",
-  "lawyer2@dropboxsign.com",
-];
-signatureRequestEditRequest.files = [
-  fs.createReadStream("./example_signature_request.pdf"),
-];
-signatureRequestEditRequest.metadata =   {
-  "custom_id": 1234,
-  "custom_text": "NDA #9"
+const signatureRequestEditRequest: models.SignatureRequestEditRequest = {
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  subject: "The NDA we talked about",
+  testMode: true,
+  title: "NDA with Acme Co.",
+  ccEmailAddresses: [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  metadata: {
+    "custom_id": 1234,
+    "custom_text": "NDA #9"
+  },
+  fieldOptions: fieldOptions,
+  signingOptions: signingOptions,
+  signers: signers,
 };
-signatureRequestEditRequest.fieldOptions = fieldOptions;
-signatureRequestEditRequest.signingOptions = signingOptions;
-signatureRequestEditRequest.signers = signers;
 
 apiCaller.signatureRequestEdit(
   "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
@@ -621,43 +649,47 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signers1 = new models.SubSignatureRequestSigner();
-signers1.name = "Jack";
-signers1.emailAddress = "jack@example.com";
-signers1.order = 0;
+const signers1: models.SubSignatureRequestSigner = {
+  name: "Jack",
+  emailAddress: "jack@example.com",
+  order: 0,
+};
 
-const signers2 = new models.SubSignatureRequestSigner();
-signers2.name = "Jill";
-signers2.emailAddress = "jill@example.com";
-signers2.order = 1;
+const signers2: models.SubSignatureRequestSigner = {
+  name: "Jill",
+  emailAddress: "jill@example.com",
+  order: 1,
+};
 
 const signers = [
   signers1,
   signers2,
 ];
 
-const signatureRequestEditEmbeddedRequest = new models.SignatureRequestEditEmbeddedRequest();
-signatureRequestEditEmbeddedRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
-signatureRequestEditEmbeddedRequest.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.";
-signatureRequestEditEmbeddedRequest.subject = "The NDA we talked about";
-signatureRequestEditEmbeddedRequest.testMode = true;
-signatureRequestEditEmbeddedRequest.title = "NDA with Acme Co.";
-signatureRequestEditEmbeddedRequest.ccEmailAddresses = [
-  "lawyer1@dropboxsign.com",
-  "lawyer2@dropboxsign.com",
-];
-signatureRequestEditEmbeddedRequest.files = [
-  fs.createReadStream("./example_signature_request.pdf"),
-];
-signatureRequestEditEmbeddedRequest.signingOptions = signingOptions;
-signatureRequestEditEmbeddedRequest.signers = signers;
+const signatureRequestEditEmbeddedRequest: models.SignatureRequestEditEmbeddedRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  subject: "The NDA we talked about",
+  testMode: true,
+  title: "NDA with Acme Co.",
+  ccEmailAddresses: [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  signingOptions: signingOptions,
+  signers: signers,
+};
 
 apiCaller.signatureRequestEditEmbedded(
   "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
@@ -716,32 +748,35 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signers1 = new models.SubSignatureRequestTemplateSigner();
-signers1.role = "Client";
-signers1.name = "George";
-signers1.emailAddress = "george@example.com";
+const signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+};
 
 const signers = [
   signers1,
 ];
 
-const signatureRequestEditEmbeddedWithTemplateRequest = new models.SignatureRequestEditEmbeddedWithTemplateRequest();
-signatureRequestEditEmbeddedWithTemplateRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
-signatureRequestEditEmbeddedWithTemplateRequest.templateIds = [
-  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
-];
-signatureRequestEditEmbeddedWithTemplateRequest.message = "Glad we could come to an agreement.";
-signatureRequestEditEmbeddedWithTemplateRequest.subject = "Purchase Order";
-signatureRequestEditEmbeddedWithTemplateRequest.testMode = true;
-signatureRequestEditEmbeddedWithTemplateRequest.signingOptions = signingOptions;
-signatureRequestEditEmbeddedWithTemplateRequest.signers = signers;
+const signatureRequestEditEmbeddedWithTemplateRequest: models.SignatureRequestEditEmbeddedWithTemplateRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  templateIds: [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  ],
+  message: "Glad we could come to an agreement.",
+  subject: "Purchase Order",
+  testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
+};
 
 apiCaller.signatureRequestEditEmbeddedWithTemplate(
   "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
@@ -800,51 +835,56 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signers1 = new models.SubSignatureRequestTemplateSigner();
-signers1.role = "Client";
-signers1.name = "George";
-signers1.emailAddress = "george@example.com";
+const signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+};
 
 const signers = [
   signers1,
 ];
 
-const ccs1 = new models.SubCC();
-ccs1.role = "Accounting";
-ccs1.emailAddress = "accounting@example.com";
+const ccs1: models.SubCC = {
+  role: "Accounting",
+  emailAddress: "accounting@example.com",
+};
 
 const ccs = [
   ccs1,
 ];
 
-const customFields1 = new models.SubCustomField();
-customFields1.name = "Cost";
-customFields1.editor = "Client";
-customFields1.required = true;
-customFields1.value = "$20,000";
+const customFields1: models.SubCustomField = {
+  name: "Cost",
+  editor: "Client",
+  required: true,
+  value: "$20,000",
+};
 
 const customFields = [
   customFields1,
 ];
 
-const signatureRequestEditWithTemplateRequest = new models.SignatureRequestEditWithTemplateRequest();
-signatureRequestEditWithTemplateRequest.templateIds = [
-  "61a832ff0d8423f91d503e76bfbcc750f7417c78",
-];
-signatureRequestEditWithTemplateRequest.message = "Glad we could come to an agreement.";
-signatureRequestEditWithTemplateRequest.subject = "Purchase Order";
-signatureRequestEditWithTemplateRequest.testMode = true;
-signatureRequestEditWithTemplateRequest.signingOptions = signingOptions;
-signatureRequestEditWithTemplateRequest.signers = signers;
-signatureRequestEditWithTemplateRequest.ccs = ccs;
-signatureRequestEditWithTemplateRequest.customFields = customFields;
+const signatureRequestEditWithTemplateRequest: models.SignatureRequestEditWithTemplateRequest = {
+  templateIds: [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  ],
+  message: "Glad we could come to an agreement.",
+  subject: "Purchase Order",
+  testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
+  ccs: ccs,
+  customFields: customFields,
+};
 
 apiCaller.signatureRequestEditWithTemplate(
   "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
@@ -1243,8 +1283,9 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestRemindRequest = new models.SignatureRequestRemindRequest();
-signatureRequestRemindRequest.emailAddress = "john@example.com";
+const signatureRequestRemindRequest: models.SignatureRequestRemindRequest = {
+  emailAddress: "john@example.com",
+};
 
 apiCaller.signatureRequestRemind(
   "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
@@ -1355,50 +1396,55 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const fieldOptions = new models.SubFieldOptions();
-fieldOptions.dateFormat = models.SubFieldOptions.DateFormatEnum.DD_MM_YYYY;
+const fieldOptions: models.SubFieldOptions = {
+  dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
+};
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signers1 = new models.SubSignatureRequestSigner();
-signers1.name = "Jack";
-signers1.emailAddress = "jack@example.com";
-signers1.order = 0;
+const signers1: models.SubSignatureRequestSigner = {
+  name: "Jack",
+  emailAddress: "jack@example.com",
+  order: 0,
+};
 
-const signers2 = new models.SubSignatureRequestSigner();
-signers2.name = "Jill";
-signers2.emailAddress = "jill@example.com";
-signers2.order = 1;
+const signers2: models.SubSignatureRequestSigner = {
+  name: "Jill",
+  emailAddress: "jill@example.com",
+  order: 1,
+};
 
 const signers = [
   signers1,
   signers2,
 ];
 
-const signatureRequestSendRequest = new models.SignatureRequestSendRequest();
-signatureRequestSendRequest.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.";
-signatureRequestSendRequest.subject = "The NDA we talked about";
-signatureRequestSendRequest.testMode = true;
-signatureRequestSendRequest.title = "NDA with Acme Co.";
-signatureRequestSendRequest.ccEmailAddresses = [
-  "lawyer1@dropboxsign.com",
-  "lawyer2@dropboxsign.com",
-];
-signatureRequestSendRequest.files = [
-  fs.createReadStream("./example_signature_request.pdf"),
-];
-signatureRequestSendRequest.metadata =   {
-  "custom_id": 1234,
-  "custom_text": "NDA #9"
+const signatureRequestSendRequest: models.SignatureRequestSendRequest = {
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  subject: "The NDA we talked about",
+  testMode: true,
+  title: "NDA with Acme Co.",
+  ccEmailAddresses: [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  metadata: {
+    "custom_id": 1234,
+    "custom_text": "NDA #9"
+  },
+  fieldOptions: fieldOptions,
+  signingOptions: signingOptions,
+  signers: signers,
 };
-signatureRequestSendRequest.fieldOptions = fieldOptions;
-signatureRequestSendRequest.signingOptions = signingOptions;
-signatureRequestSendRequest.signers = signers;
 
 apiCaller.signatureRequestSend(
   signatureRequestSendRequest,
@@ -1455,51 +1501,56 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signers1 = new models.SubSignatureRequestTemplateSigner();
-signers1.role = "Client";
-signers1.name = "George";
-signers1.emailAddress = "george@example.com";
+const signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+};
 
 const signers = [
   signers1,
 ];
 
-const ccs1 = new models.SubCC();
-ccs1.role = "Accounting";
-ccs1.emailAddress = "accounting@example.com";
+const ccs1: models.SubCC = {
+  role: "Accounting",
+  emailAddress: "accounting@example.com",
+};
 
 const ccs = [
   ccs1,
 ];
 
-const customFields1 = new models.SubCustomField();
-customFields1.name = "Cost";
-customFields1.editor = "Client";
-customFields1.required = true;
-customFields1.value = "$20,000";
+const customFields1: models.SubCustomField = {
+  name: "Cost",
+  editor: "Client",
+  required: true,
+  value: "$20,000",
+};
 
 const customFields = [
   customFields1,
 ];
 
-const signatureRequestSendWithTemplateRequest = new models.SignatureRequestSendWithTemplateRequest();
-signatureRequestSendWithTemplateRequest.templateIds = [
-  "61a832ff0d8423f91d503e76bfbcc750f7417c78",
-];
-signatureRequestSendWithTemplateRequest.message = "Glad we could come to an agreement.";
-signatureRequestSendWithTemplateRequest.subject = "Purchase Order";
-signatureRequestSendWithTemplateRequest.testMode = true;
-signatureRequestSendWithTemplateRequest.signingOptions = signingOptions;
-signatureRequestSendWithTemplateRequest.signers = signers;
-signatureRequestSendWithTemplateRequest.ccs = ccs;
-signatureRequestSendWithTemplateRequest.customFields = customFields;
+const signatureRequestSendWithTemplateRequest: models.SignatureRequestSendWithTemplateRequest = {
+  templateIds: [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  ],
+  message: "Glad we could come to an agreement.",
+  subject: "Purchase Order",
+  testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
+  ccs: ccs,
+  customFields: customFields,
+};
 
 apiCaller.signatureRequestSendWithTemplate(
   signatureRequestSendWithTemplateRequest,
@@ -1556,9 +1607,10 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestUpdateRequest = new models.SignatureRequestUpdateRequest();
-signatureRequestUpdateRequest.signatureId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-signatureRequestUpdateRequest.emailAddress = "john@example.com";
+const signatureRequestUpdateRequest: models.SignatureRequestUpdateRequest = {
+  signatureId: "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f",
+  emailAddress: "john@example.com",
+};
 
 apiCaller.signatureRequestUpdate(
   "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId

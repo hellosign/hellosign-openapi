@@ -39,6 +39,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -50,8 +51,8 @@ public class TemplateAddUserExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var templateAddUserRequest = new TemplateAddUserRequest();
         templateAddUserRequest.emailAddress("george@dropboxsign.com");
@@ -125,6 +126,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -136,8 +138,8 @@ public class TemplateCreateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
@@ -285,6 +287,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -296,8 +299,8 @@ public class TemplateCreateEmbeddedDraftExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
@@ -411,6 +414,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -422,8 +426,8 @@ public class TemplateDeleteExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -492,6 +496,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -503,8 +508,8 @@ public class TemplateFilesExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -576,6 +581,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -587,8 +593,8 @@ public class TemplateFilesAsDataUriExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -659,6 +665,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -670,8 +677,8 @@ public class TemplateFilesAsFileUrlExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -742,6 +749,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -753,8 +761,8 @@ public class TemplateGetExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -825,6 +833,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -836,8 +845,8 @@ public class TemplateListExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -912,6 +921,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -923,8 +933,8 @@ public class TemplateRemoveUserExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var templateRemoveUserRequest = new TemplateRemoveUserRequest();
         templateRemoveUserRequest.emailAddress("george@dropboxsign.com");
@@ -1009,6 +1019,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1020,8 +1031,8 @@ public class TemplateUpdateFilesExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var templateUpdateFilesRequest = new TemplateUpdateFilesRequest();
         templateUpdateFilesRequest.files(List.of (

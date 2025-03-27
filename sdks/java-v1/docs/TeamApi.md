@@ -38,6 +38,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -49,8 +50,8 @@ public class TeamAddMemberExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var teamAddMemberRequest = new TeamAddMemberRequest();
         teamAddMemberRequest.emailAddress("george@example.com");
@@ -124,6 +125,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -135,8 +137,8 @@ public class TeamCreateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var teamCreateRequest = new TeamCreateRequest();
         teamCreateRequest.name("New Team Name");
@@ -208,6 +210,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -219,8 +222,8 @@ public class TeamDeleteExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -282,6 +285,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -293,8 +297,8 @@ public class TeamGetExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -358,6 +362,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -369,8 +374,8 @@ public class TeamInfoExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -439,6 +444,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -450,12 +456,14 @@ public class TeamInvitesExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
-            var response = new TeamApi(config).teamInvites();
+            var response = new TeamApi(config).teamInvites(
+                null // emailAddress
+            );
 
             System.out.println(response);
         } catch (ApiException e) {
@@ -518,6 +526,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -529,8 +538,8 @@ public class TeamMembersExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -603,6 +612,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -614,8 +624,8 @@ public class TeamRemoveMemberExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var teamRemoveMemberRequest = new TeamRemoveMemberRequest();
         teamRemoveMemberRequest.emailAddress("teammate@dropboxsign.com");
@@ -688,6 +698,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -699,8 +710,8 @@ public class TeamSubTeamsExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -773,6 +784,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -784,8 +796,8 @@ public class TeamUpdateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var teamUpdateRequest = new TeamUpdateRequest();
         teamUpdateRequest.name("New Team Name");

@@ -106,9 +106,6 @@ with ApiClient(configuration) as api_client:
     try:
         response = api.FaxLineApi(api_client).fax_line_area_code_get(
             country="US",
-            state=None,
-            province=None,
-            city=None,
         )
 
         pprint(response)
@@ -369,7 +366,6 @@ with ApiClient(configuration) as api_client:
             account_id="ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97",
             page=1,
             page_size=20,
-            show_team_lines=None,
         )
 
         pprint(response)

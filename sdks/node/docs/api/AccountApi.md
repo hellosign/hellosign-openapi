@@ -31,8 +31,9 @@ const apiCaller = new api.AccountApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const accountCreateRequest = new models.AccountCreateRequest();
-accountCreateRequest.emailAddress = "newuser@dropboxsign.com";
+const accountCreateRequest: models.AccountCreateRequest = {
+  emailAddress: "newuser@dropboxsign.com",
+};
 
 apiCaller.accountCreate(
   accountCreateRequest,
@@ -143,9 +144,10 @@ const apiCaller = new api.AccountApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const accountUpdateRequest = new models.AccountUpdateRequest();
-accountUpdateRequest.callbackUrl = "https://www.example.com/callback";
-accountUpdateRequest.locale = "en-US";
+const accountUpdateRequest: models.AccountUpdateRequest = {
+  callbackUrl: "https://www.example.com/callback",
+  locale: "en-US",
+};
 
 apiCaller.accountUpdate(
   accountUpdateRequest,
@@ -202,8 +204,9 @@ const apiCaller = new api.AccountApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const accountVerifyRequest = new models.AccountVerifyRequest();
-accountVerifyRequest.emailAddress = "some_user@dropboxsign.com";
+const accountVerifyRequest: models.AccountVerifyRequest = {
+  emailAddress: "some_user@dropboxsign.com",
+};
 
 apiCaller.accountVerify(
   accountVerifyRequest,

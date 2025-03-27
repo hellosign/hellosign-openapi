@@ -27,13 +27,14 @@ import models from "@dropbox/sign"
 const apiCaller = new api.ReportApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const reportCreateRequest = new models.ReportCreateRequest();
-reportCreateRequest.startDate = "09/01/2020";
-reportCreateRequest.endDate = "09/01/2020";
-reportCreateRequest.reportType = [
-  models.ReportCreateRequest.ReportTypeEnum.UserActivity,
-  models.ReportCreateRequest.ReportTypeEnum.DocumentStatus,
-];
+const reportCreateRequest: models.ReportCreateRequest = {
+  startDate: "09/01/2020",
+  endDate: "09/01/2020",
+  reportType: [
+    models.ReportCreateRequest.ReportTypeEnum.UserActivity,
+    models.ReportCreateRequest.ReportTypeEnum.DocumentStatus,
+  ],
+};
 
 apiCaller.reportCreate(
   reportCreateRequest,
