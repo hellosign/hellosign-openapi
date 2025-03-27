@@ -50,6 +50,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         var signerList2CustomFields1 = new SubBulkSignerListCustomField();
         signerList2CustomFields1.name("company");
@@ -200,6 +201,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -211,8 +213,8 @@ public class SignatureRequestBulkSendWithTemplateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signerList2CustomFields1 = new SubBulkSignerListCustomField();
         signerList2CustomFields1.name("company");
@@ -356,6 +358,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -367,8 +370,8 @@ public class SignatureRequestCancelExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -435,6 +438,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -446,8 +450,8 @@ public class SignatureRequestCreateEmbeddedExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signingOptions = new SubSigningOptions();
         signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
@@ -554,6 +558,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -565,8 +570,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signingOptions = new SubSigningOptions();
         signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
@@ -664,6 +669,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -675,8 +681,8 @@ public class SignatureRequestEditExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
@@ -794,6 +800,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -805,8 +812,8 @@ public class SignatureRequestEditEmbeddedExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signingOptions = new SubSigningOptions();
         signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
@@ -915,6 +922,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -926,8 +934,8 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signingOptions = new SubSigningOptions();
         signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
@@ -1027,6 +1035,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1038,8 +1047,8 @@ public class SignatureRequestEditWithTemplateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signingOptions = new SubSigningOptions();
         signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
@@ -1158,6 +1167,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1169,8 +1179,8 @@ public class SignatureRequestFilesExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -1242,6 +1252,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1253,8 +1264,8 @@ public class SignatureRequestFilesAsDataUriExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -1325,6 +1336,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1336,8 +1348,8 @@ public class SignatureRequestFilesAsFileUrlExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -1408,6 +1420,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1419,8 +1432,8 @@ public class SignatureRequestGetExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -1491,6 +1504,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1502,8 +1516,8 @@ public class SignatureRequestListExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -1578,6 +1592,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1589,8 +1604,8 @@ public class SignatureRequestReleaseHoldExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         try
         {
@@ -1661,6 +1676,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1672,8 +1688,8 @@ public class SignatureRequestRemindExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signatureRequestRemindRequest = new SignatureRequestRemindRequest();
         signatureRequestRemindRequest.emailAddress("john@example.com");
@@ -1751,6 +1767,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1762,7 +1779,7 @@ public class SignatureRequestRemoveExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         try
         {
@@ -1829,6 +1846,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1840,8 +1858,8 @@ public class SignatureRequestSendExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
@@ -1957,6 +1975,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -1968,8 +1987,8 @@ public class SignatureRequestSendWithTemplateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signingOptions = new SubSigningOptions();
         signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
@@ -2088,6 +2107,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -2099,8 +2119,8 @@ public class SignatureRequestUpdateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signatureRequestUpdateRequest = new SignatureRequestUpdateRequest();
         signatureRequestUpdateRequest.signatureId("2f9781e1a8e2045224d808c153c2e1d3df6f8f2f");

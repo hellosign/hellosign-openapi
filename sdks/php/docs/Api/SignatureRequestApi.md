@@ -871,7 +871,7 @@ $custom_fields_1 = (new Dropbox\Sign\Model\SubCustomField())
     ->setName("Cost")
     ->setEditor("Client")
     ->setRequired(true)
-    ->setValue('$20,000');
+    ->setValue("\$20,000");
 
 $custom_fields = [
     $custom_fields_1,
@@ -1197,10 +1197,8 @@ $config->setUsername("YOUR_API_KEY");
 
 try {
     $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestList(
-        account_id: null,
         page: 1,
         page_size: 20,
-        query: null,
     );
 
     print_r($response);
@@ -1577,7 +1575,7 @@ $custom_fields_1 = (new Dropbox\Sign\Model\SubCustomField())
     ->setName("Cost")
     ->setEditor("Client")
     ->setRequired(true)
-    ->setValue('$20,000');
+    ->setValue("\$20,000");
 
 $custom_fields = [
     $custom_fields_1,

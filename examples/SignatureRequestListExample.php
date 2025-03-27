@@ -13,10 +13,8 @@ $config->setUsername("YOUR_API_KEY");
 
 try {
     $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestList(
-        account_id: null,
         page: 1,
         page_size: 20,
-        query: null,
     );
 
     print_r($response);

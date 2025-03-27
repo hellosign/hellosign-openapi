@@ -143,10 +143,7 @@ public class FaxLineAreaCodeGetExample
         try
         {
             var response = new FaxLineApi(config).FaxLineAreaCodeGet(
-                country: "US",
-                state: null,
-                province: null,
-                city: null
+                country: "US"
             );
 
             Console.WriteLine(response);
@@ -535,8 +532,7 @@ public class FaxLineListExample
             var response = new FaxLineApi(config).FaxLineList(
                 accountId: "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97",
                 page: 1,
-                pageSize: 20,
-                showTeamLines: null
+                pageSize: 20
             );
 
             Console.WriteLine(response);

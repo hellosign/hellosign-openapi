@@ -31,22 +31,24 @@ const apiCaller = new api.UnclaimedDraftApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signers1 = new models.SubUnclaimedDraftSigner();
-signers1.name = "Jack";
-signers1.emailAddress = "jack@example.com";
-signers1.order = 0;
+const signers1: models.SubUnclaimedDraftSigner = {
+  name: "Jack",
+  emailAddress: "jack@example.com",
+  order: 0,
+};
 
 const signers = [
   signers1,
 ];
 
-const unclaimedDraftCreateRequest = new models.UnclaimedDraftCreateRequest();
-unclaimedDraftCreateRequest.type = models.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature;
-unclaimedDraftCreateRequest.testMode = true;
-unclaimedDraftCreateRequest.files = [
-  fs.createReadStream("./example_signature_request.pdf"),
-];
-unclaimedDraftCreateRequest.signers = signers;
+const unclaimedDraftCreateRequest: models.UnclaimedDraftCreateRequest = {
+  type: models.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
+  testMode: true,
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  signers: signers,
+};
 
 apiCaller.unclaimedDraftCreate(
   unclaimedDraftCreateRequest,
@@ -103,13 +105,14 @@ const apiCaller = new api.UnclaimedDraftApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const unclaimedDraftCreateEmbeddedRequest = new models.UnclaimedDraftCreateEmbeddedRequest();
-unclaimedDraftCreateEmbeddedRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
-unclaimedDraftCreateEmbeddedRequest.requesterEmailAddress = "jack@dropboxsign.com";
-unclaimedDraftCreateEmbeddedRequest.testMode = true;
-unclaimedDraftCreateEmbeddedRequest.files = [
-  fs.createReadStream("./example_signature_request.pdf"),
-];
+const unclaimedDraftCreateEmbeddedRequest: models.UnclaimedDraftCreateEmbeddedRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  requesterEmailAddress: "jack@dropboxsign.com",
+  testMode: true,
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+};
 
 apiCaller.unclaimedDraftCreateEmbedded(
   unclaimedDraftCreateEmbeddedRequest,
@@ -166,32 +169,35 @@ const apiCaller = new api.UnclaimedDraftApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const ccs1 = new models.SubCC();
-ccs1.role = "Accounting";
-ccs1.emailAddress = "accounting@dropboxsign.com";
+const ccs1: models.SubCC = {
+  role: "Accounting",
+  emailAddress: "accounting@dropboxsign.com",
+};
 
 const ccs = [
   ccs1,
 ];
 
-const signers1 = new models.SubUnclaimedDraftTemplateSigner();
-signers1.role = "Client";
-signers1.name = "George";
-signers1.emailAddress = "george@example.com";
+const signers1: models.SubUnclaimedDraftTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+};
 
 const signers = [
   signers1,
 ];
 
-const unclaimedDraftCreateEmbeddedWithTemplateRequest = new models.UnclaimedDraftCreateEmbeddedWithTemplateRequest();
-unclaimedDraftCreateEmbeddedWithTemplateRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
-unclaimedDraftCreateEmbeddedWithTemplateRequest.requesterEmailAddress = "jack@dropboxsign.com";
-unclaimedDraftCreateEmbeddedWithTemplateRequest.templateIds = [
-  "61a832ff0d8423f91d503e76bfbcc750f7417c78",
-];
-unclaimedDraftCreateEmbeddedWithTemplateRequest.testMode = false;
-unclaimedDraftCreateEmbeddedWithTemplateRequest.ccs = ccs;
-unclaimedDraftCreateEmbeddedWithTemplateRequest.signers = signers;
+const unclaimedDraftCreateEmbeddedWithTemplateRequest: models.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  requesterEmailAddress: "jack@dropboxsign.com",
+  templateIds: [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  ],
+  testMode: false,
+  ccs: ccs,
+  signers: signers,
+};
 
 apiCaller.unclaimedDraftCreateEmbeddedWithTemplate(
   unclaimedDraftCreateEmbeddedWithTemplateRequest,
@@ -248,9 +254,10 @@ const apiCaller = new api.UnclaimedDraftApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const unclaimedDraftEditAndResendRequest = new models.UnclaimedDraftEditAndResendRequest();
-unclaimedDraftEditAndResendRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
-unclaimedDraftEditAndResendRequest.testMode = false;
+const unclaimedDraftEditAndResendRequest: models.UnclaimedDraftEditAndResendRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  testMode: false,
+};
 
 apiCaller.unclaimedDraftEditAndResend(
   "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId

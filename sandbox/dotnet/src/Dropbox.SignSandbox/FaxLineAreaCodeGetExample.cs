@@ -19,10 +19,7 @@ public class FaxLineAreaCodeGetExample
         try
         {
             var response = new FaxLineApi(config).FaxLineAreaCodeGet(
-                country: "US",
-                state: null,
-                province: null,
-                city: null
+                country: "US"
             );
 
             Console.WriteLine(response);

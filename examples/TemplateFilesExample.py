@@ -13,7 +13,6 @@ with ApiClient(configuration) as api_client:
     try:
         response = api.TemplateApi(api_client).template_files(
             template_id="f57db65d3f933b5316d398057a36176831451a35",
-            file_type=None,
         )
 
         open("./file_response", "wb").write(response.read())

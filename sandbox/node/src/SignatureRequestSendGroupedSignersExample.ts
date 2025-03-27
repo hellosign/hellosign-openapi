@@ -6,76 +6,85 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const groupedSigners2Signers1 = new models.SubSignatureRequestSigner();
-groupedSigners2Signers1.name = "Bob";
-groupedSigners2Signers1.emailAddress = "bob@example.com";
+const groupedSigners2Signers1: models.SubSignatureRequestSigner = {
+  name: "Bob",
+  emailAddress: "bob@example.com",
+};
 
-const groupedSigners2Signers2 = new models.SubSignatureRequestSigner();
-groupedSigners2Signers2.name = "Charlie";
-groupedSigners2Signers2.emailAddress = "charlie@example.com";
+const groupedSigners2Signers2: models.SubSignatureRequestSigner = {
+  name: "Charlie",
+  emailAddress: "charlie@example.com",
+};
 
 const groupedSigners2Signers = [
   groupedSigners2Signers1,
   groupedSigners2Signers2,
 ];
 
-const groupedSigners1Signers1 = new models.SubSignatureRequestSigner();
-groupedSigners1Signers1.name = "Jack";
-groupedSigners1Signers1.emailAddress = "jack@example.com";
+const groupedSigners1Signers1: models.SubSignatureRequestSigner = {
+  name: "Jack",
+  emailAddress: "jack@example.com",
+};
 
-const groupedSigners1Signers2 = new models.SubSignatureRequestSigner();
-groupedSigners1Signers2.name = "Jill";
-groupedSigners1Signers2.emailAddress = "jill@example.com";
+const groupedSigners1Signers2: models.SubSignatureRequestSigner = {
+  name: "Jill",
+  emailAddress: "jill@example.com",
+};
 
 const groupedSigners1Signers = [
   groupedSigners1Signers1,
   groupedSigners1Signers2,
 ];
 
-const fieldOptions = new models.SubFieldOptions();
-fieldOptions.dateFormat = models.SubFieldOptions.DateFormatEnum.DD_MM_YYYY;
+const fieldOptions: models.SubFieldOptions = {
+  dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
+};
 
-const signingOptions = new models.SubSigningOptions();
-signingOptions.defaultType = models.SubSigningOptions.DefaultTypeEnum.Draw;
-signingOptions.draw = true;
-signingOptions.phone = false;
-signingOptions.type = true;
-signingOptions.upload = true;
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const groupedSigners1 = new models.SubSignatureRequestGroupedSigners();
-groupedSigners1.group = "Group #1";
-groupedSigners1.order = 0;
-groupedSigners1.signers = groupedSigners1Signers;
+const groupedSigners1: models.SubSignatureRequestGroupedSigners = {
+  group: "Group #1",
+  order: 0,
+  signers: groupedSigners1Signers,
+};
 
-const groupedSigners2 = new models.SubSignatureRequestGroupedSigners();
-groupedSigners2.group = "Group #2";
-groupedSigners2.order = 1;
-groupedSigners2.signers = groupedSigners2Signers;
+const groupedSigners2: models.SubSignatureRequestGroupedSigners = {
+  group: "Group #2",
+  order: 1,
+  signers: groupedSigners2Signers,
+};
 
 const groupedSigners = [
   groupedSigners1,
   groupedSigners2,
 ];
 
-const signatureRequestSendRequest = new models.SignatureRequestSendRequest();
-signatureRequestSendRequest.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.";
-signatureRequestSendRequest.subject = "The NDA we talked about";
-signatureRequestSendRequest.testMode = true;
-signatureRequestSendRequest.title = "NDA with Acme Co.";
-signatureRequestSendRequest.fileUrls = [
-  "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
-];
-signatureRequestSendRequest.ccEmailAddresses = [
-  "lawyer1@dropboxsign.com",
-  "lawyer2@dropboxsign.com",
-];
-signatureRequestSendRequest.metadata =   {
-  "custom_id": 1234,
-  "custom_text": "NDA #9"
+const signatureRequestSendRequest: models.SignatureRequestSendRequest = {
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  subject: "The NDA we talked about",
+  testMode: true,
+  title: "NDA with Acme Co.",
+  fileUrls: [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+  ],
+  ccEmailAddresses: [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+  ],
+  metadata: {
+    "custom_id": 1234,
+    "custom_text": "NDA #9"
+  },
+  fieldOptions: fieldOptions,
+  signingOptions: signingOptions,
+  groupedSigners: groupedSigners,
 };
-signatureRequestSendRequest.fieldOptions = fieldOptions;
-signatureRequestSendRequest.signingOptions = signingOptions;
-signatureRequestSendRequest.groupedSigners = groupedSigners;
 
 apiCaller.signatureRequestSend(
   signatureRequestSendRequest,

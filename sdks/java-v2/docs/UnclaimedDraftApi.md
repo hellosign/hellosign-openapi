@@ -32,6 +32,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -43,8 +44,8 @@ public class UnclaimedDraftCreateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var signers1 = new SubUnclaimedDraftSigner();
         signers1.name("Jack");
@@ -132,6 +133,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -143,8 +145,8 @@ public class UnclaimedDraftCreateEmbeddedExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var unclaimedDraftCreateEmbeddedRequest = new UnclaimedDraftCreateEmbeddedRequest();
         unclaimedDraftCreateEmbeddedRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");
@@ -223,6 +225,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -234,8 +237,8 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var ccs1 = new SubCC();
         ccs1.role("Accounting");
@@ -333,6 +336,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -344,8 +348,8 @@ public class UnclaimedDraftEditAndResendExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
-        // config.setAccessToken("YOUR_ACCESS_TOKEN");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var unclaimedDraftEditAndResendRequest = new UnclaimedDraftEditAndResendRequest();
         unclaimedDraftEditAndResendRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");

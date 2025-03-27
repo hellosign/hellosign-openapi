@@ -35,6 +35,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class FaxLineAddUserExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         var faxLineAddUserRequest = new FaxLineAddUserRequest();
         faxLineAddUserRequest.number("[FAX_NUMBER]");
@@ -119,6 +120,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -130,7 +132,7 @@ public class FaxLineAreaCodeGetExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         try
         {
@@ -205,6 +207,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -216,7 +219,7 @@ public class FaxLineCreateExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         var faxLineCreateRequest = new FaxLineCreateRequest();
         faxLineCreateRequest.areaCode(209);
@@ -289,6 +292,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -300,7 +304,7 @@ public class FaxLineDeleteExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         var faxLineDeleteRequest = new FaxLineDeleteRequest();
         faxLineDeleteRequest.number("[FAX_NUMBER]");
@@ -370,6 +374,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -381,7 +386,7 @@ public class FaxLineGetExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         try
         {
@@ -450,6 +455,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -461,7 +467,7 @@ public class FaxLineListExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         try
         {
@@ -536,6 +542,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -547,7 +554,7 @@ public class FaxLineRemoveUserExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
-        config.setUsername("YOUR_API_KEY");
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
         var faxLineRemoveUserRequest = new FaxLineRemoveUserRequest();
         faxLineRemoveUserRequest.number("[FAX_NUMBER]");

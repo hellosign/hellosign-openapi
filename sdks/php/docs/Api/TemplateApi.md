@@ -410,7 +410,6 @@ $config->setUsername("YOUR_API_KEY");
 try {
     $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateFiles(
         template_id: "f57db65d3f933b5316d398057a36176831451a35",
-        file_type: null,
     );
 
     copy($response->getRealPath(), __DIR__ . '/file_response');
@@ -653,10 +652,8 @@ $config->setUsername("YOUR_API_KEY");
 
 try {
     $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateList(
-        account_id: null,
         page: 1,
         page_size: 20,
-        query: null,
     );
 
     print_r($response);

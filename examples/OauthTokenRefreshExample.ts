@@ -4,9 +4,10 @@ import models from "@dropbox/sign"
 
 const apiCaller = new api.OAuthApi();
 
-const oAuthTokenRefreshRequest = new models.OAuthTokenRefreshRequest();
-oAuthTokenRefreshRequest.grantType = "refresh_token";
-oAuthTokenRefreshRequest.refreshToken = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3";
+const oAuthTokenRefreshRequest: models.OAuthTokenRefreshRequest = {
+  grantType: "refresh_token",
+  refreshToken: "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3",
+};
 
 apiCaller.oauthTokenRefresh(
   oAuthTokenRefreshRequest,

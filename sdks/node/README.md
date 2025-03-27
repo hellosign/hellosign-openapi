@@ -55,8 +55,9 @@ const apiCaller = new api.AccountApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const accountCreateRequest = new models.AccountCreateRequest();
-accountCreateRequest.emailAddress = "newuser@dropboxsign.com";
+const accountCreateRequest: models.AccountCreateRequest = {
+  emailAddress: "newuser@dropboxsign.com",
+};
 
 apiCaller.accountCreate(
   accountCreateRequest,

@@ -33,9 +33,10 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxLineAddUserRequest = new models.FaxLineAddUserRequest();
-faxLineAddUserRequest.number = "[FAX_NUMBER]";
-faxLineAddUserRequest.emailAddress = "member@dropboxsign.com";
+const faxLineAddUserRequest: models.FaxLineAddUserRequest = {
+  number: "[FAX_NUMBER]",
+  emailAddress: "member@dropboxsign.com",
+};
 
 apiCaller.faxLineAddUser(
   faxLineAddUserRequest,
@@ -151,9 +152,10 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxLineCreateRequest = new models.FaxLineCreateRequest();
-faxLineCreateRequest.areaCode = 209;
-faxLineCreateRequest.country = models.FaxLineCreateRequest.CountryEnum.Us;
+const faxLineCreateRequest: models.FaxLineCreateRequest = {
+  areaCode: 209,
+  country: models.FaxLineCreateRequest.CountryEnum.Us,
+};
 
 apiCaller.faxLineCreate(
   faxLineCreateRequest,
@@ -209,8 +211,9 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxLineDeleteRequest = new models.FaxLineDeleteRequest();
-faxLineDeleteRequest.number = "[FAX_NUMBER]";
+const faxLineDeleteRequest: models.FaxLineDeleteRequest = {
+  number: "[FAX_NUMBER]",
+};
 
 apiCaller.faxLineDelete(
   faxLineDeleteRequest,
@@ -378,9 +381,10 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const faxLineRemoveUserRequest = new models.FaxLineRemoveUserRequest();
-faxLineRemoveUserRequest.number = "[FAX_NUMBER]";
-faxLineRemoveUserRequest.emailAddress = "member@dropboxsign.com";
+const faxLineRemoveUserRequest: models.FaxLineRemoveUserRequest = {
+  number: "[FAX_NUMBER]",
+  emailAddress: "member@dropboxsign.com",
+};
 
 apiCaller.faxLineRemoveUser(
   faxLineRemoveUserRequest,

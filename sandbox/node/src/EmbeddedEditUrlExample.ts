@@ -9,11 +9,12 @@ apiCaller.username = "YOUR_API_KEY";
 const mergeFields = [
 ];
 
-const embeddedEditUrlRequest = new models.EmbeddedEditUrlRequest();
-embeddedEditUrlRequest.ccRoles = [
-  "",
-];
-embeddedEditUrlRequest.mergeFields = mergeFields;
+const embeddedEditUrlRequest: models.EmbeddedEditUrlRequest = {
+  ccRoles: [
+    "",
+  ],
+  mergeFields: mergeFields,
+};
 
 apiCaller.embeddedEditUrl(
   "f57db65d3f933b5316d398057a36176831451a35", // templateId

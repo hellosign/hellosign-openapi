@@ -20,10 +20,8 @@ public class SignatureRequestListExample
         try
         {
             var response = new SignatureRequestApi(config).SignatureRequestList(
-                accountId: null,
                 page: 1,
-                pageSize: 20,
-                query: null
+                pageSize: 20
             );
 
             Console.WriteLine(response);

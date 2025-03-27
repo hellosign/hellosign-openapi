@@ -8,6 +8,7 @@ import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
