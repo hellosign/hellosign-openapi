@@ -6,13 +6,14 @@ const apiCaller = new api.UnclaimedDraftApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const unclaimedDraftCreateEmbeddedRequest = new models.UnclaimedDraftCreateEmbeddedRequest();
-unclaimedDraftCreateEmbeddedRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
-unclaimedDraftCreateEmbeddedRequest.requesterEmailAddress = "jack@dropboxsign.com";
-unclaimedDraftCreateEmbeddedRequest.testMode = true;
-unclaimedDraftCreateEmbeddedRequest.files = [
-  fs.createReadStream("./example_signature_request.pdf"),
-];
+const unclaimedDraftCreateEmbeddedRequest: models.UnclaimedDraftCreateEmbeddedRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  requesterEmailAddress: "jack@dropboxsign.com",
+  testMode: true,
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+};
 
 apiCaller.unclaimedDraftCreateEmbedded(
   unclaimedDraftCreateEmbeddedRequest,

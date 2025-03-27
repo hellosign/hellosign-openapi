@@ -6,50 +6,56 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const fieldOptions = new models.SubFieldOptions();
-fieldOptions.dateFormat = models.SubFieldOptions.DateFormatEnum.DD_MM_YYYY;
+const fieldOptions: models.SubFieldOptions = {
+  dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
+};
 
-const mergeFields1 = new models.SubMergeField();
-mergeFields1.name = "Full Name";
-mergeFields1.type = models.SubMergeField.TypeEnum.Text;
+const mergeFields1: models.SubMergeField = {
+  name: "Full Name",
+  type: models.SubMergeField.TypeEnum.Text,
+};
 
-const mergeFields2 = new models.SubMergeField();
-mergeFields2.name = "Is Registered?";
-mergeFields2.type = models.SubMergeField.TypeEnum.Checkbox;
+const mergeFields2: models.SubMergeField = {
+  name: "Is Registered?",
+  type: models.SubMergeField.TypeEnum.Checkbox,
+};
 
 const mergeFields = [
   mergeFields1,
   mergeFields2,
 ];
 
-const signerRoles1 = new models.SubTemplateRole();
-signerRoles1.name = "Client";
-signerRoles1.order = 0;
+const signerRoles1: models.SubTemplateRole = {
+  name: "Client",
+  order: 0,
+};
 
-const signerRoles2 = new models.SubTemplateRole();
-signerRoles2.name = "Witness";
-signerRoles2.order = 1;
+const signerRoles2: models.SubTemplateRole = {
+  name: "Witness",
+  order: 1,
+};
 
 const signerRoles = [
   signerRoles1,
   signerRoles2,
 ];
 
-const templateCreateEmbeddedDraftRequest = new models.TemplateCreateEmbeddedDraftRequest();
-templateCreateEmbeddedDraftRequest.clientId = "37dee8d8440c66d54cfa05d92c160882";
-templateCreateEmbeddedDraftRequest.message = "For your approval";
-templateCreateEmbeddedDraftRequest.subject = "Please sign this document";
-templateCreateEmbeddedDraftRequest.testMode = true;
-templateCreateEmbeddedDraftRequest.title = "Test Template";
-templateCreateEmbeddedDraftRequest.ccRoles = [
-  "Manager",
-];
-templateCreateEmbeddedDraftRequest.files = [
-  fs.createReadStream("./example_signature_request.pdf"),
-];
-templateCreateEmbeddedDraftRequest.fieldOptions = fieldOptions;
-templateCreateEmbeddedDraftRequest.mergeFields = mergeFields;
-templateCreateEmbeddedDraftRequest.signerRoles = signerRoles;
+const templateCreateEmbeddedDraftRequest: models.TemplateCreateEmbeddedDraftRequest = {
+  clientId: "37dee8d8440c66d54cfa05d92c160882",
+  message: "For your approval",
+  subject: "Please sign this document",
+  testMode: true,
+  title: "Test Template",
+  ccRoles: [
+    "Manager",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  fieldOptions: fieldOptions,
+  mergeFields: mergeFields,
+  signerRoles: signerRoles,
+};
 
 apiCaller.templateCreateEmbeddedDraft(
   templateCreateEmbeddedDraftRequest,

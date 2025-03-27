@@ -20,8 +20,7 @@ public class TemplateFilesExample
         try
         {
             var response = new TemplateApi(config).TemplateFiles(
-                templateId: "f57db65d3f933b5316d398057a36176831451a35",
-                fileType: null
+                templateId: "f57db65d3f933b5316d398057a36176831451a35"
             );
             var fileStream = File.Create("./file_response");
             response.Seek(0, SeekOrigin.Begin);

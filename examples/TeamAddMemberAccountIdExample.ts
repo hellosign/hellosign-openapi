@@ -6,8 +6,9 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const teamAddMemberRequest = new models.TeamAddMemberRequest();
-teamAddMemberRequest.accountId = "f57db65d3f933b5316d398057a36176831451a35";
+const teamAddMemberRequest: models.TeamAddMemberRequest = {
+  accountId: "f57db65d3f933b5316d398057a36176831451a35",
+};
 
 apiCaller.teamAddMember(
   teamAddMemberRequest,

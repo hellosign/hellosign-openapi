@@ -20,10 +20,8 @@ public class TemplateListExample
         try
         {
             var response = new TemplateApi(config).TemplateList(
-                accountId: null,
                 page: 1,
-                pageSize: 20,
-                query: null
+                pageSize: 20
             );
 
             Console.WriteLine(response);

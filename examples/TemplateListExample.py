@@ -12,10 +12,8 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     try:
         response = api.TemplateApi(api_client).template_list(
-            account_id=None,
             page=1,
             page_size=20,
-            query=None,
         )
 
         pprint(response)
