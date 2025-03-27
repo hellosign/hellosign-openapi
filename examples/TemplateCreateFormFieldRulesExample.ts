@@ -18,7 +18,7 @@ const formFieldRules1Triggers = [
 
 const formFieldRules1Actions1: models.SubFormFieldRuleAction = {
   hidden: true,
-  type: models.SubFormFieldRuleAction.TypeEnum.FieldVisibility,
+  type: models.SubFormFieldRuleAction.TypeEnum.ChangeFieldVisibility,
   fieldId: "uniqueIdHere_2",
 };
 
