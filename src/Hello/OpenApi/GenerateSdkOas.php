@@ -37,21 +37,24 @@ class GenerateSdkOas
                 if (
                     empty($operation['requestBody'])
                     || empty($operation['requestBody']['content'])
+                    || empty($operation['requestBody']['content']['multipart/form-data'])
                 ) {
                     continue;
                 }
 
                 $content = $operation['requestBody']['content'];
+                $json_examples = [];
 
-                if (empty($content['multipart/form-data'])) {
-                    continue;
+                if (!empty($content['application/json']['examples'])) {
+                    $json_examples = $content['application/json']['examples'];
                 }
 
-                $json_examples = $content['application/json']['examples'] ?? [];
                 unset($content['application/json']);
-                $content['multipart/form-data']['examples'] = $json_examples;
 
-                $operation['requestBody']['content'] = $content;
+                if (empty($content['multipart/form-data']['examples'])) {
+                    $content['multipart/form-data']['examples'] = $json_examples;
+                }
+
                 $paths[$path][$method]['requestBody']['content'] = $content;
             }
         }
