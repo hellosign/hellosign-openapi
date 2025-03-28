@@ -30,7 +30,7 @@ public class TemplateCreateFormFieldRulesExample
 
         var formFieldRules1Actions1 = new SubFormFieldRuleAction(
             hidden: true,
-            type: SubFormFieldRuleAction.TypeEnum.FieldVisibility,
+            type: SubFormFieldRuleAction.TypeEnum.ChangeFieldVisibility,
             fieldId: "uniqueIdHere_2"
         );
 

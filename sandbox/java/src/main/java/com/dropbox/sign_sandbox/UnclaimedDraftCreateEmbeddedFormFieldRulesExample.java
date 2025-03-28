@@ -34,7 +34,7 @@ public class UnclaimedDraftCreateEmbeddedFormFieldRulesExample
 
         var formFieldRules1Actions1 = new SubFormFieldRuleAction();
         formFieldRules1Actions1.hidden(true);
-        formFieldRules1Actions1.type(SubFormFieldRuleAction.TypeEnum.FIELD_VISIBILITY);
+        formFieldRules1Actions1.type(SubFormFieldRuleAction.TypeEnum.CHANGE_FIELD_VISIBILITY);
         formFieldRules1Actions1.fieldId("uniqueIdHere_2");
 
         var formFieldRules1Actions = new ArrayList<SubFormFieldRuleAction>(List.of (

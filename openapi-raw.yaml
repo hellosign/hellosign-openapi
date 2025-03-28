@@ -7892,15 +7892,6 @@ components:
             - CA
             - US
             - UK
-          x-enum-varnames-override:
-            csharp:
-              - CA
-              - US
-              - UK
-            typescript-node:
-              - Ca
-              - Us
-              - Uk
         city:
           description: '_t__FaxLineCreate::CITY'
           type: string
@@ -9114,19 +9105,6 @@ components:
           enum:
             - change-field-visibility
             - change-group-visibility
-          x-enum-varnames-override:
-            csharp:
-              - FieldVisibility
-              - GroupVisibility
-            java:
-              - FIELD_VISIBILITY
-              - GROUP_VISIBILITY
-            php:
-              - TYPE_FIELD_VISIBILITY
-              - TYPE_GROUP_VISIBILITY
-            typescript-node:
-              - FieldVisibility
-              - GroupVisibility
       type: object
     SubFormFieldRuleTrigger:
       required:

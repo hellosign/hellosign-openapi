@@ -14,6 +14,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dropbox.Sign" Version="1.9.0-dev" />
+    <PackageReference Include="Dropbox.Sign" Version="2.0.0-dev" />
   </ItemGroup>
 </Project>

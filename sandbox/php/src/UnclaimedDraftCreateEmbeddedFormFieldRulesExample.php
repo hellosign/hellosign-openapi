@@ -22,7 +22,7 @@ $form_field_rules_1_triggers = [
 
 $form_field_rules_1_actions_1 = (new Dropbox\Sign\Model\SubFormFieldRuleAction())
     ->setHidden(true)
-    ->setType(Dropbox\Sign\Model\SubFormFieldRuleAction::TYPE_FIELD_VISIBILITY)
+    ->setType(Dropbox\Sign\Model\SubFormFieldRuleAction::TYPE_CHANGE_FIELD_VISIBILITY)
     ->setFieldId("uniqueIdHere_2");
 
 $form_field_rules_1_actions = [
