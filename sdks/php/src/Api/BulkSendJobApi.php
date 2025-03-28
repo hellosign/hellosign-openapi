@@ -425,7 +425,7 @@ class BulkSendJobApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -444,14 +444,6 @@ class BulkSendJobApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -765,7 +757,7 @@ class BulkSendJobApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -784,14 +776,6 @@ class BulkSendJobApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

@@ -146,7 +146,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -273,7 +273,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -428,7 +428,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -515,7 +515,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -623,7 +623,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -722,7 +722,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -811,7 +811,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -919,7 +919,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1515,7 +1515,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1621,7 +1621,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `multipart/form-data`
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

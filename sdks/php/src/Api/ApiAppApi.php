@@ -68,7 +68,6 @@ class ApiAppApi
      */
     public const contentTypes = [
         'apiAppCreate' => [
-            'application/json',
             'multipart/form-data',
         ],
         'apiAppDelete' => [
@@ -81,7 +80,6 @@ class ApiAppApi
             'application/json',
         ],
         'apiAppUpdate' => [
-            'application/json',
             'multipart/form-data',
         ],
     ];
@@ -397,27 +395,20 @@ class ApiAppApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $api_app_create_request
-        );
+        // form params
+        if ($api_app_create_request !== null) {
+            $formParams['api_app_create_request'] = ObjectSerializer::toFormValue($api_app_create_request);
+        }
 
-        $multipart = !empty($formParams);
-
+        $multipart = true;
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_app_create_request));
-            } else {
-                $httpBody = $api_app_create_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -430,17 +421,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $api_app_create_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -645,7 +625,7 @@ class ApiAppApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -664,14 +644,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -977,7 +949,7 @@ class ApiAppApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -996,14 +968,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1317,7 +1281,7 @@ class ApiAppApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1336,14 +1300,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1651,12 +1607,6 @@ class ApiAppApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $api_app_update_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($client_id !== null) {
             $resourcePath = str_replace(
@@ -1666,21 +1616,20 @@ class ApiAppApi
             );
         }
 
+        // form params
+        if ($api_app_update_request !== null) {
+            $formParams['api_app_update_request'] = ObjectSerializer::toFormValue($api_app_update_request);
+        }
+
+        $multipart = true;
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_app_update_request));
-            } else {
-                $httpBody = $api_app_update_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1693,17 +1642,6 @@ class ApiAppApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $api_app_update_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

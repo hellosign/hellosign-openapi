@@ -414,20 +414,14 @@ class OAuthApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $o_auth_token_generate_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($o_auth_token_generate_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($o_auth_token_generate_request));
@@ -447,17 +441,6 @@ class OAuthApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $o_auth_token_generate_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -797,20 +780,14 @@ class OAuthApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $o_auth_token_refresh_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($o_auth_token_refresh_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($o_auth_token_refresh_request));
@@ -830,17 +807,6 @@ class OAuthApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $o_auth_token_refresh_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

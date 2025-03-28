@@ -401,20 +401,14 @@ class FaxLineApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_line_add_user_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($fax_line_add_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_add_user_request));
@@ -434,17 +428,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $fax_line_add_user_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -789,7 +772,7 @@ class FaxLineApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -808,14 +791,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1107,20 +1082,14 @@ class FaxLineApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_line_create_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($fax_line_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_create_request));
@@ -1140,17 +1109,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $fax_line_create_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1341,20 +1299,14 @@ class FaxLineApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_line_delete_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($fax_line_delete_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_delete_request));
@@ -1374,17 +1326,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $fax_line_delete_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1687,7 +1628,7 @@ class FaxLineApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1706,14 +1647,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2051,7 +1984,7 @@ class FaxLineApi
         ) ?? []);
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -2070,14 +2003,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2369,20 +2294,14 @@ class FaxLineApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $fax_line_remove_user_request
-        );
-
-        $multipart = !empty($formParams);
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($fax_line_remove_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fax_line_remove_user_request));
@@ -2402,17 +2321,6 @@ class FaxLineApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $fax_line_remove_user_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

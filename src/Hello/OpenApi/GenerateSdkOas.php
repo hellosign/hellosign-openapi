@@ -21,9 +21,41 @@ class GenerateSdkOas
         );
 
         $data = $raw_file->getData();
+        $data['paths'] = $this->removeApplicationJsonFromFormDataOperations(
+            $data['paths'],
+        );
         unset($data['tags']);
         $raw_file->setData($data);
 
         $raw_file->saveFile(self::ROOT_DIR . '/openapi-sdk.yaml');
+    }
+
+    private function removeApplicationJsonFromFormDataOperations(array $paths): array
+    {
+        foreach ($paths as $path => $methods) {
+            foreach ($methods as $method => $operation) {
+                if (
+                    empty($operation['requestBody'])
+                    || empty($operation['requestBody']['content'])
+                ) {
+                    continue;
+                }
+
+                $content = $operation['requestBody']['content'];
+
+                if (empty($content['multipart/form-data'])) {
+                    continue;
+                }
+
+                $json_examples = $content['application/json']['examples'] ?? [];
+                unset($content['application/json']);
+                $content['multipart/form-data']['examples'] = $json_examples;
+
+                $operation['requestBody']['content'] = $content;
+                $paths[$path][$method]['requestBody']['content'] = $content;
+            }
+        }
+
+        return $paths;
     }
 }
