@@ -22,25 +22,30 @@ Once you have retrieved the code from the user callback, you will need to exchan
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
 
-$oauthApi = new Dropbox\Sign\Api\OAuthApi(
-    Dropbox\Sign\Configuration::getDefaultConfiguration()
-);
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$data = new Dropbox\Sign\Model\OAuthTokenGenerateRequest();
-$data->setState("900e06e2")
-    ->setCode("1b0d28d90c86c141")
+use SplFileObject;
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+$o_auth_token_generate_request = (new Dropbox\Sign\Model\OAuthTokenGenerateRequest())
     ->setClientId("cc91c61d00f8bb2ece1428035716b")
-    ->setClientSecret("1d14434088507ffa390e6f5528465");
+    ->setClientSecret("1d14434088507ffa390e6f5528465")
+    ->setCode("1b0d28d90c86c141")
+    ->setState("900e06e2")
+    ->setGrantType("authorization_code");
 
 try {
-    $result = $oauthApi->oauthTokenGenerate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\OAuthApi(config: $config))->oauthTokenGenerate(
+        o_auth_token_generate_request: $o_auth_token_generate_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling OAuthApi#oauthTokenGenerate: {$e->getMessage()}";
 }
 
 ```
@@ -82,22 +87,27 @@ Access tokens are only valid for a given period of time (typically one hour) for
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
 
-$oauthApi = new Dropbox\Sign\Api\OAuthApi(
-    Dropbox\Sign\Configuration::getDefaultConfiguration()
-);
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$data = new Dropbox\Sign\Model\OAuthTokenRefreshRequest();
-$data->setRefreshToken("hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3");
+use SplFileObject;
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+$o_auth_token_refresh_request = (new Dropbox\Sign\Model\OAuthTokenRefreshRequest())
+    ->setGrantType("refresh_token")
+    ->setRefreshToken("hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3");
 
 try {
-    $result = $oauthApi->oauthTokenRefresh($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\OAuthApi(config: $config))->oauthTokenRefresh(
+        o_auth_token_refresh_request: $o_auth_token_refresh_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling OAuthApi#oauthTokenRefresh: {$e->getMessage()}";
 }
 
 ```

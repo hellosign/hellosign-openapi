@@ -38,29 +38,29 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiAppUpdateRequest {
     public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
-    private String callbackUrl;
+    @javax.annotation.Nullable private String callbackUrl;
 
     public static final String JSON_PROPERTY_CUSTOM_LOGO_FILE = "custom_logo_file";
-    private File customLogoFile;
+    @javax.annotation.Nullable private File customLogoFile;
 
     public static final String JSON_PROPERTY_DOMAINS = "domains";
-    private List<String> domains = null;
+    @javax.annotation.Nullable private List<String> domains = null;
 
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public static final String JSON_PROPERTY_OAUTH = "oauth";
-    private SubOAuth oauth;
+    @javax.annotation.Nullable private SubOAuth oauth;
 
     public static final String JSON_PROPERTY_OPTIONS = "options";
-    private SubOptions options;
+    @javax.annotation.Nullable private SubOptions options;
 
     public static final String JSON_PROPERTY_WHITE_LABELING_OPTIONS = "white_labeling_options";
-    private SubWhiteLabelingOptions whiteLabelingOptions;
+    @javax.annotation.Nullable private SubWhiteLabelingOptions whiteLabelingOptions;
 
     public ApiAppUpdateRequest() {}
 
@@ -78,7 +78,7 @@ public class ApiAppUpdateRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), ApiAppUpdateRequest.class);
     }
 
-    public ApiAppUpdateRequest callbackUrl(String callbackUrl) {
+    public ApiAppUpdateRequest callbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
         return this;
     }
@@ -96,11 +96,11 @@ public class ApiAppUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCallbackUrl(String callbackUrl) {
+    public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
     }
 
-    public ApiAppUpdateRequest customLogoFile(File customLogoFile) {
+    public ApiAppUpdateRequest customLogoFile(@javax.annotation.Nullable File customLogoFile) {
         this.customLogoFile = customLogoFile;
         return this;
     }
@@ -118,11 +118,11 @@ public class ApiAppUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_CUSTOM_LOGO_FILE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCustomLogoFile(File customLogoFile) {
+    public void setCustomLogoFile(@javax.annotation.Nullable File customLogoFile) {
         this.customLogoFile = customLogoFile;
     }
 
-    public ApiAppUpdateRequest domains(List<String> domains) {
+    public ApiAppUpdateRequest domains(@javax.annotation.Nullable List<String> domains) {
         this.domains = domains;
         return this;
     }
@@ -148,11 +148,11 @@ public class ApiAppUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_DOMAINS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setDomains(List<String> domains) {
+    public void setDomains(@javax.annotation.Nullable List<String> domains) {
         this.domains = domains;
     }
 
-    public ApiAppUpdateRequest name(String name) {
+    public ApiAppUpdateRequest name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -170,11 +170,11 @@ public class ApiAppUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public ApiAppUpdateRequest oauth(SubOAuth oauth) {
+    public ApiAppUpdateRequest oauth(@javax.annotation.Nullable SubOAuth oauth) {
         this.oauth = oauth;
         return this;
     }
@@ -192,11 +192,11 @@ public class ApiAppUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_OAUTH)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOauth(SubOAuth oauth) {
+    public void setOauth(@javax.annotation.Nullable SubOAuth oauth) {
         this.oauth = oauth;
     }
 
-    public ApiAppUpdateRequest options(SubOptions options) {
+    public ApiAppUpdateRequest options(@javax.annotation.Nullable SubOptions options) {
         this.options = options;
         return this;
     }
@@ -214,11 +214,12 @@ public class ApiAppUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_OPTIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOptions(SubOptions options) {
+    public void setOptions(@javax.annotation.Nullable SubOptions options) {
         this.options = options;
     }
 
-    public ApiAppUpdateRequest whiteLabelingOptions(SubWhiteLabelingOptions whiteLabelingOptions) {
+    public ApiAppUpdateRequest whiteLabelingOptions(
+            @javax.annotation.Nullable SubWhiteLabelingOptions whiteLabelingOptions) {
         this.whiteLabelingOptions = whiteLabelingOptions;
         return this;
     }
@@ -236,7 +237,8 @@ public class ApiAppUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWhiteLabelingOptions(SubWhiteLabelingOptions whiteLabelingOptions) {
+    public void setWhiteLabelingOptions(
+            @javax.annotation.Nullable SubWhiteLabelingOptions whiteLabelingOptions) {
         this.whiteLabelingOptions = whiteLabelingOptions;
     }
 

@@ -27,11 +27,11 @@ import java.util.Objects;
 @JsonPropertyOrder({TeamUpdateRequest.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamUpdateRequest {
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public TeamUpdateRequest() {}
 
@@ -49,7 +49,7 @@ public class TeamUpdateRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), TeamUpdateRequest.class);
     }
 
-    public TeamUpdateRequest name(String name) {
+    public TeamUpdateRequest name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -67,7 +67,7 @@ public class TeamUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 

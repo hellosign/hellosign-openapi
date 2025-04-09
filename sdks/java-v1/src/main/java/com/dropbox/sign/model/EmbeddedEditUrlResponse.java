@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmbeddedEditUrlResponse {
     public static final String JSON_PROPERTY_EMBEDDED = "embedded";
-    private EmbeddedEditUrlResponseEmbedded embedded;
+    @javax.annotation.Nonnull private EmbeddedEditUrlResponseEmbedded embedded;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public EmbeddedEditUrlResponse() {}
 
@@ -58,7 +58,8 @@ public class EmbeddedEditUrlResponse {
                         new ObjectMapper().writeValueAsString(data), EmbeddedEditUrlResponse.class);
     }
 
-    public EmbeddedEditUrlResponse embedded(EmbeddedEditUrlResponseEmbedded embedded) {
+    public EmbeddedEditUrlResponse embedded(
+            @javax.annotation.Nonnull EmbeddedEditUrlResponseEmbedded embedded) {
         this.embedded = embedded;
         return this;
     }
@@ -77,11 +78,12 @@ public class EmbeddedEditUrlResponse {
 
     @JsonProperty(JSON_PROPERTY_EMBEDDED)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEmbedded(EmbeddedEditUrlResponseEmbedded embedded) {
+    public void setEmbedded(@javax.annotation.Nonnull EmbeddedEditUrlResponseEmbedded embedded) {
         this.embedded = embedded;
     }
 
-    public EmbeddedEditUrlResponse warnings(List<WarningResponse> warnings) {
+    public EmbeddedEditUrlResponse warnings(
+            @javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -107,7 +109,7 @@ public class EmbeddedEditUrlResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

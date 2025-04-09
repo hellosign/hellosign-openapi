@@ -20,56 +20,28 @@ Request the creation of one or more report(s).  When the report(s) have been gen
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const reportApi = new DropboxSign.ReportApi();
+const apiCaller = new api.ReportApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-reportApi.username = "YOUR_API_KEY";
-
-const data: DropboxSign.ReportCreateRequest = {
+const reportCreateRequest: models.ReportCreateRequest = {
   startDate: "09/01/2020",
   endDate: "09/01/2020",
   reportType: [
-    DropboxSign.ReportCreateRequest.ReportTypeEnum.UserActivity,
-    DropboxSign.ReportCreateRequest.ReportTypeEnum.DocumentStatus,
-  ]
+    models.ReportCreateRequest.ReportTypeEnum.UserActivity,
+    models.ReportCreateRequest.ReportTypeEnum.DocumentStatus,
+  ],
 };
 
-const result = reportApi.reportCreate(data);
-result.then(response => {
+apiCaller.reportCreate(
+  reportCreateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const reportApi = new DropboxSign.ReportApi();
-
-// Configure HTTP basic authorization: api_key
-reportApi.username = "YOUR_API_KEY";
-
-const data = {
-  startDate: "09/01/2020",
-  endDate: "09/01/2020",
-  reportType: [
-    "user_activity",
-    "document_status",
-  ]
-};
-
-const result = reportApi.reportCreate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling ReportApi#reportCreate:");
   console.log(error.body);
 });
 

@@ -12,4 +12,4 @@ docker run --rm \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   -u root:root \
-  mcr.microsoft.com/dotnet/sdk:6.0 "$@"
+  mcr.microsoft.com/dotnet/sdk:8.0 "$@"

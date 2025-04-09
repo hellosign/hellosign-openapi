@@ -22,40 +22,42 @@ Creates a new API App.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = Dropbox::Sign::ApiAppApi.new
-
 oauth = Dropbox::Sign::SubOAuth.new
 oauth.callback_url = "https://example.com/oauth"
-oauth.scopes = %w[basic_account_info request_signature]
+oauth.scopes = [
+    "basic_account_info",
+    "request_signature",
+]
 
 white_labeling_options = Dropbox::Sign::SubWhiteLabelingOptions.new
 white_labeling_options.primary_button_color = "#00b3e6"
 white_labeling_options.primary_button_text_color = "#ffffff"
 
-custom_logo_file = File.new('./CustomLogoFile.png')
-
-data = Dropbox::Sign::ApiAppCreateRequest.new
-data.name = "My Production App"
-data.domains = ["example.com"]
-data.oauth = oauth
-data.white_labeling_options = white_labeling_options
-data.custom_logo_file = custom_logo_file
+api_app_create_request = Dropbox::Sign::ApiAppCreateRequest.new
+api_app_create_request.name = "My Production App"
+api_app_create_request.domains = [
+    "example.com",
+]
+api_app_create_request.custom_logo_file = File.new("CustomLogoFile.png", "r")
+api_app_create_request.oauth = oauth
+api_app_create_request.white_labeling_options = white_labeling_options
 
 begin
-  result = api_app_api.api_app_create(data)
-  p result
+  response = Dropbox::Sign::ApiAppApi.new.api_app_create(
+    api_app_create_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling ApiAppApi#api_app_create: #{e}"
 end
 
 ```
@@ -109,25 +111,20 @@ Deletes an API App. Can only be invoked for apps you own.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = Dropbox::Sign::ApiAppApi.new
-
-client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
-
 begin
-  result = api_app_api.api_app_delete(client_id)
-  p result
+  Dropbox::Sign::ApiAppApi.new.api_app_delete(
+    "0dd3b823a682527788c4e40cb7b6f7e9", # client_id
+  )
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling ApiAppApi#api_app_delete: #{e}"
 end
 
 ```
@@ -181,25 +178,22 @@ Returns an object with information about an API App.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = Dropbox::Sign::ApiAppApi.new
-
-client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
-
 begin
-  result = api_app_api.api_app_get(client_id)
-  p result
+  response = Dropbox::Sign::ApiAppApi.new.api_app_get(
+    "0dd3b823a682527788c4e40cb7b6f7e9", # client_id
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling ApiAppApi#api_app_get: #{e}"
 end
 
 ```
@@ -253,26 +247,25 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = Dropbox::Sign::ApiAppApi.new
-
-page = 1
-page_size = 2
-
 begin
-  result = api_app_api.api_app_list({ page: page, page_size: page_size })
-  p result
+  response = Dropbox::Sign::ApiAppApi.new.api_app_list(
+    {
+          page: 1,
+          page_size: 20,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling ApiAppApi#api_app_list: #{e}"
 end
 
 ```
@@ -327,37 +320,44 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = Dropbox::Sign::ApiAppApi.new
+oauth = Dropbox::Sign::SubOAuth.new
+oauth.callback_url = "https://example.com/oauth"
+oauth.scopes = [
+    "basic_account_info",
+    "request_signature",
+]
 
 white_labeling_options = Dropbox::Sign::SubWhiteLabelingOptions.new
 white_labeling_options.primary_button_color = "#00b3e6"
 white_labeling_options.primary_button_text_color = "#ffffff"
 
-custom_logo_file = File.new('./CustomLogoFile.png')
-
-data = Dropbox::Sign::ApiAppUpdateRequest.new
-data.name = "New Name"
-data.callback_url = "http://example.com/dropboxsign"
-data.white_labeling_options = white_labeling_options
-data.custom_logo_file = custom_logo_file
-
-client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
+api_app_update_request = Dropbox::Sign::ApiAppUpdateRequest.new
+api_app_update_request.callback_url = "https://example.com/dropboxsign"
+api_app_update_request.name = "New Name"
+api_app_update_request.domains = [
+    "example.com",
+]
+api_app_update_request.custom_logo_file = File.new("CustomLogoFile.png", "r")
+api_app_update_request.oauth = oauth
+api_app_update_request.white_labeling_options = white_labeling_options
 
 begin
-  result = api_app_api.api_app_update(client_id, data)
-  p result
+  response = Dropbox::Sign::ApiAppApi.new.api_app_update(
+    "0dd3b823a682527788c4e40cb7b6f7e9", # client_id
+      api_app_update_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling ApiAppApi#api_app_update: #{e}"
 end
 
 ```

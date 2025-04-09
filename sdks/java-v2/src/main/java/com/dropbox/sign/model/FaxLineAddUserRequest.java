@@ -37,16 +37,19 @@ import com.dropbox.sign.ApiException;
   FaxLineAddUserRequest.JSON_PROPERTY_ACCOUNT_ID,
   FaxLineAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineAddUserRequest {
   public static final String JSON_PROPERTY_NUMBER = "number";
+  @jakarta.annotation.Nonnull
   private String number;
 
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  @jakarta.annotation.Nullable
   private String accountId;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nullable
   private String emailAddress;
 
   public FaxLineAddUserRequest() { 
@@ -67,13 +70,13 @@ public class FaxLineAddUserRequest {
     );
   }
 
-  public FaxLineAddUserRequest number(String number) {
+  public FaxLineAddUserRequest number(@jakarta.annotation.Nonnull String number) {
     this.number = number;
     return this;
   }
 
   /**
-   * The Fax Line number.
+   * The Fax Line number
    * @return number
    */
   @jakarta.annotation.Nonnull
@@ -87,12 +90,12 @@ public class FaxLineAddUserRequest {
 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNumber(String number) {
+  public void setNumber(@jakarta.annotation.Nonnull String number) {
     this.number = number;
   }
 
 
-  public FaxLineAddUserRequest accountId(String accountId) {
+  public FaxLineAddUserRequest accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -112,12 +115,12 @@ public class FaxLineAddUserRequest {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountId(String accountId) {
+  public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
   }
 
 
-  public FaxLineAddUserRequest emailAddress(String emailAddress) {
+  public FaxLineAddUserRequest emailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -137,7 +140,7 @@ public class FaxLineAddUserRequest {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 

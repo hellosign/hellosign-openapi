@@ -5,7 +5,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**faxDelete()**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax |
-| [**faxFiles()**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| [**faxFiles()**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | [**faxGet()**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax |
 | [**faxList()**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes |
 | [**faxSend()**](FaxApi.md#faxSend) | **POST** /fax/send | Send Fax |
@@ -18,28 +18,29 @@ faxDelete($fax_id)
 ```
 Delete Fax
 
-Deletes the specified Fax from the system.
+Deletes the specified Fax from the system
 
 ### Example
 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxApi = new Dropbox\Sign\Api\FaxApi($config);
-
 try {
-    $faxApi->faxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
+    (new Dropbox\Sign\Api\FaxApi(config: $config))->faxDelete(
+        fax_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    );
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxApi#faxDelete: {$e->getMessage()}";
 }
 
 ```
@@ -72,33 +73,33 @@ void (empty response body)
 ```php
 faxFiles($fax_id): \SplFileObject
 ```
-List Fax Files
+Download Fax Files
 
-Returns list of fax files
+Downloads files associated with a Fax
 
 ### Example
 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxApi = new Dropbox\Sign\Api\FaxApi($config);
-
-$faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 try {
-    $result = $faxApi->faxFiles($faxId);
-    copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
+    $response = (new Dropbox\Sign\Api\FaxApi(config: $config))->faxFiles(
+        fax_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    );
+
+    copy($response->getRealPath(), __DIR__ . '/file_response');
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxApi#faxFiles: {$e->getMessage()}";
 }
 
 ```
@@ -133,31 +134,31 @@ faxGet($fax_id): \Dropbox\Sign\Model\FaxGetResponse
 ```
 Get Fax
 
-Returns information about fax
+Returns information about a Fax
 
 ### Example
 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxApi = new Dropbox\Sign\Api\FaxApi($config);
-
-$faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 try {
-    $result = $faxApi->faxGet($faxId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxApi(config: $config))->faxGet(
+        fax_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxApi#faxGet: {$e->getMessage()}";
 }
 
 ```
@@ -192,32 +193,32 @@ faxList($page, $page_size): \Dropbox\Sign\Model\FaxListResponse
 ```
 Lists Faxes
 
-Returns properties of multiple faxes
+Returns properties of multiple Faxes
 
 ### Example
 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxApi = new Dropbox\Sign\Api\FaxApi($config);
-
-$page = 1;
-$pageSize = 2;
-
 try {
-    $result = $faxApi->faxList($page, $pageSize);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxApi(config: $config))->faxList(
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxApi#faxList: {$e->getMessage()}";
 }
 
 ```
@@ -226,8 +227,8 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Page | [optional] [default to 1] |
-| **page_size** | **int**| Page size | [optional] [default to 20] |
+| **page** | **int**| Which page number of the Fax List to return. Defaults to `1`. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
 
 ### Return type
 
@@ -253,39 +254,42 @@ faxSend($fax_send_request): \Dropbox\Sign\Model\FaxGetResponse
 ```
 Send Fax
 
-Action to prepare and send a fax
+Creates and sends a new Fax with the submitted file(s)
 
 ### Example
 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxApi = new Dropbox\Sign\Api\FaxApi($config);
-
-$data = new Dropbox\Sign\Model\FaxSendRequest();
-$data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setTestMode(true)
+$fax_send_request = (new Dropbox\Sign\Model\FaxSendRequest())
     ->setRecipient("16690000001")
     ->setSender("16690000000")
+    ->setTestMode(true)
     ->setCoverPageTo("Jill Fax")
-    ->setCoverPageMessage("I'm sending you a fax!")
     ->setCoverPageFrom("Faxer Faxerson")
-    ->setTitle("This is what the fax is about!");
+    ->setCoverPageMessage("I'm sending you a fax!")
+    ->setTitle("This is what the fax is about!")
+    ->setFiles([
+    ]);
 
 try {
-    $result = $faxApi->faxSend($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxApi(config: $config))->faxSend(
+        fax_send_request: $fax_send_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxApi#faxSend: {$e->getMessage()}";
 }
 
 ```

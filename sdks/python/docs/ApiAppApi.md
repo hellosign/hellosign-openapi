@@ -24,23 +24,24 @@ Creates a new API App.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    api_app_api = apis.ApiAppApi(api_client)
-
     oauth = models.SubOAuth(
         callback_url="https://example.com/oauth",
-        scopes=["basic_account_info" "request_signature"],
+        scopes=[
+            "basic_account_info",
+            "request_signature",
+        ],
     )
 
     white_labeling_options = models.SubWhiteLabelingOptions(
@@ -48,21 +49,24 @@ with ApiClient(configuration) as api_client:
         primary_button_text_color="#ffffff",
     )
 
-    custom_logo_file = open("./CustomLogoFile.png", "rb")
-
-    data = models.ApiAppCreateRequest(
+    api_app_create_request = models.ApiAppCreateRequest(
         name="My Production App",
-        domains=["example.com"],
+        domains=[
+            "example.com",
+        ],
+        custom_logo_file=open("CustomLogoFile.png", "rb").read(),
         oauth=oauth,
         white_labeling_options=white_labeling_options,
-        custom_logo_file=custom_logo_file,
     )
 
     try:
-        response = api_app_api.api_app_create(data)
+        response = api.ApiAppApi(api_client).api_app_create(
+            api_app_create_request=api_app_create_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_create: %s\n" % e)
 
 ```
 ```
@@ -107,24 +111,24 @@ Deletes an API App. Can only be invoked for apps you own.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+import json
+from datetime import date, datetime
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    api_app_api = apis.ApiAppApi(api_client)
-
-    client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
-
     try:
-        api_app_api.api_app_delete(client_id)
+        api.ApiAppApi(api_client).api_app_delete(
+            client_id="0dd3b823a682527788c4e40cb7b6f7e9",
+        )
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_delete: %s\n" % e)
 
 ```
 ```
@@ -169,27 +173,26 @@ Returns an object with information about an API App.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    api_app_api = apis.ApiAppApi(api_client)
-
-    client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
-
     try:
-        response = api_app_api.api_app_get(client_id)
+        response = api.ApiAppApi(api_client).api_app_get(
+            client_id="0dd3b823a682527788c4e40cb7b6f7e9",
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_get: %s\n" % e)
 
 ```
 ```
@@ -234,31 +237,27 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    api_app_api = apis.ApiAppApi(api_client)
-
-    page = 1
-    page_size = 2
-
     try:
-        response = api_app_api.api_app_list(
-            page=page,
-            page_size=page_size,
+        response = api.ApiAppApi(api_client).api_app_list(
+            page=1,
+            page_size=20,
         )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_list: %s\n" % e)
 
 ```
 ```
@@ -304,41 +303,51 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    api_app_api = apis.ApiAppApi(api_client)
+    oauth = models.SubOAuth(
+        callback_url="https://example.com/oauth",
+        scopes=[
+            "basic_account_info",
+            "request_signature",
+        ],
+    )
 
     white_labeling_options = models.SubWhiteLabelingOptions(
         primary_button_color="#00b3e6",
         primary_button_text_color="#ffffff",
     )
 
-    custom_logo_file = open("./CustomLogoFile.png", "rb")
-
-    data = models.ApiAppUpdateRequest(
+    api_app_update_request = models.ApiAppUpdateRequest(
+        callback_url="https://example.com/dropboxsign",
         name="New Name",
-        callback_url="http://example.com/dropboxsign",
+        domains=[
+            "example.com",
+        ],
+        custom_logo_file=open("CustomLogoFile.png", "rb").read(),
+        oauth=oauth,
         white_labeling_options=white_labeling_options,
-        custom_logo_file=custom_logo_file,
     )
 
-    client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
-
     try:
-        response = api_app_api.api_app_update(client_id, data)
+        response = api.ApiAppApi(api_client).api_app_update(
+            client_id="0dd3b823a682527788c4e40cb7b6f7e9",
+            api_app_update_request=api_app_update_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_update: %s\n" % e)
 
 ```
 ```

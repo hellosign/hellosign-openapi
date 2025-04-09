@@ -16,7 +16,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class BulkSendJobApi {
     private ApiClient apiClient;
 
@@ -47,7 +47,7 @@ public class BulkSendJobApi {
     }
 
     /**
-     * Get Bulk Send Job. Returns the status of the BulkSendJob and its SignatureRequests specified
+     * Get Bulk Send Job Returns the status of the BulkSendJob and its SignatureRequests specified
      * by the &#x60;bulk_send_job_id&#x60; parameter.
      *
      * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
@@ -58,7 +58,8 @@ public class BulkSendJobApi {
      * @return BulkSendJobGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -111,7 +112,7 @@ public class BulkSendJobApi {
     }
 
     /**
-     * Get Bulk Send Job. Returns the status of the BulkSendJob and its SignatureRequests specified
+     * Get Bulk Send Job Returns the status of the BulkSendJob and its SignatureRequests specified
      * by the &#x60;bulk_send_job_id&#x60; parameter.
      *
      * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
@@ -122,7 +123,8 @@ public class BulkSendJobApi {
      * @return ApiResponse&lt;BulkSendJobGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -182,7 +184,7 @@ public class BulkSendJobApi {
     }
 
     /**
-     * List Bulk Send Jobs. Returns a list of BulkSendJob that you can access.
+     * List Bulk Send Jobs Returns a list of BulkSendJob that you can access.
      *
      * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;.
      *     (optional, default to 1)
@@ -191,7 +193,8 @@ public class BulkSendJobApi {
      * @return BulkSendJobListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -242,7 +245,7 @@ public class BulkSendJobApi {
     }
 
     /**
-     * List Bulk Send Jobs. Returns a list of BulkSendJob that you can access.
+     * List Bulk Send Jobs Returns a list of BulkSendJob that you can access.
      *
      * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;.
      *     (optional, default to 1)
@@ -251,7 +254,8 @@ public class BulkSendJobApi {
      * @return ApiResponse&lt;BulkSendJobListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

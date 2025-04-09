@@ -47,65 +47,65 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestResponseSignatures {
     public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
-    private String signatureId;
+    @javax.annotation.Nullable private String signatureId;
 
     public static final String JSON_PROPERTY_SIGNER_GROUP_GUID = "signer_group_guid";
-    private String signerGroupGuid;
+    @javax.annotation.Nullable private String signerGroupGuid;
 
     public static final String JSON_PROPERTY_SIGNER_EMAIL_ADDRESS = "signer_email_address";
-    private String signerEmailAddress;
+    @javax.annotation.Nullable private String signerEmailAddress;
 
     public static final String JSON_PROPERTY_SIGNER_NAME = "signer_name";
-    private String signerName;
+    @javax.annotation.Nullable private String signerName;
 
     public static final String JSON_PROPERTY_SIGNER_ROLE = "signer_role";
-    private String signerRole;
+    @javax.annotation.Nullable private String signerRole;
 
     public static final String JSON_PROPERTY_ORDER = "order";
-    private Integer order;
+    @javax.annotation.Nullable private Integer order;
 
     public static final String JSON_PROPERTY_STATUS_CODE = "status_code";
-    private String statusCode;
+    @javax.annotation.Nullable private String statusCode;
 
     public static final String JSON_PROPERTY_DECLINE_REASON = "decline_reason";
-    private String declineReason;
+    @javax.annotation.Nullable private String declineReason;
 
     public static final String JSON_PROPERTY_SIGNED_AT = "signed_at";
-    private Integer signedAt;
+    @javax.annotation.Nullable private Integer signedAt;
 
     public static final String JSON_PROPERTY_LAST_VIEWED_AT = "last_viewed_at";
-    private Integer lastViewedAt;
+    @javax.annotation.Nullable private Integer lastViewedAt;
 
     public static final String JSON_PROPERTY_LAST_REMINDED_AT = "last_reminded_at";
-    private Integer lastRemindedAt;
+    @javax.annotation.Nullable private Integer lastRemindedAt;
 
     public static final String JSON_PROPERTY_HAS_PIN = "has_pin";
-    private Boolean hasPin;
+    @javax.annotation.Nullable private Boolean hasPin;
 
     public static final String JSON_PROPERTY_HAS_SMS_AUTH = "has_sms_auth";
-    private Boolean hasSmsAuth;
+    @javax.annotation.Nullable private Boolean hasSmsAuth;
 
     public static final String JSON_PROPERTY_HAS_SMS_DELIVERY = "has_sms_delivery";
-    private Boolean hasSmsDelivery;
+    @javax.annotation.Nullable private Boolean hasSmsDelivery;
 
     public static final String JSON_PROPERTY_SMS_PHONE_NUMBER = "sms_phone_number";
-    private String smsPhoneNumber;
+    @javax.annotation.Nullable private String smsPhoneNumber;
 
     public static final String JSON_PROPERTY_REASSIGNED_BY = "reassigned_by";
-    private String reassignedBy;
+    @javax.annotation.Nullable private String reassignedBy;
 
     public static final String JSON_PROPERTY_REASSIGNMENT_REASON = "reassignment_reason";
-    private String reassignmentReason;
+    @javax.annotation.Nullable private String reassignmentReason;
 
     public static final String JSON_PROPERTY_REASSIGNED_FROM = "reassigned_from";
-    private String reassignedFrom;
+    @javax.annotation.Nullable private String reassignedFrom;
 
     public static final String JSON_PROPERTY_ERROR = "error";
-    private String error;
+    @javax.annotation.Nullable private String error;
 
     public SignatureRequestResponseSignatures() {}
 
@@ -125,7 +125,8 @@ public class SignatureRequestResponseSignatures {
                         SignatureRequestResponseSignatures.class);
     }
 
-    public SignatureRequestResponseSignatures signatureId(String signatureId) {
+    public SignatureRequestResponseSignatures signatureId(
+            @javax.annotation.Nullable String signatureId) {
         this.signatureId = signatureId;
         return this;
     }
@@ -143,11 +144,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignatureId(String signatureId) {
+    public void setSignatureId(@javax.annotation.Nullable String signatureId) {
         this.signatureId = signatureId;
     }
 
-    public SignatureRequestResponseSignatures signerGroupGuid(String signerGroupGuid) {
+    public SignatureRequestResponseSignatures signerGroupGuid(
+            @javax.annotation.Nullable String signerGroupGuid) {
         this.signerGroupGuid = signerGroupGuid;
         return this;
     }
@@ -165,11 +167,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_SIGNER_GROUP_GUID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignerGroupGuid(String signerGroupGuid) {
+    public void setSignerGroupGuid(@javax.annotation.Nullable String signerGroupGuid) {
         this.signerGroupGuid = signerGroupGuid;
     }
 
-    public SignatureRequestResponseSignatures signerEmailAddress(String signerEmailAddress) {
+    public SignatureRequestResponseSignatures signerEmailAddress(
+            @javax.annotation.Nullable String signerEmailAddress) {
         this.signerEmailAddress = signerEmailAddress;
         return this;
     }
@@ -187,11 +190,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_SIGNER_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignerEmailAddress(String signerEmailAddress) {
+    public void setSignerEmailAddress(@javax.annotation.Nullable String signerEmailAddress) {
         this.signerEmailAddress = signerEmailAddress;
     }
 
-    public SignatureRequestResponseSignatures signerName(String signerName) {
+    public SignatureRequestResponseSignatures signerName(
+            @javax.annotation.Nullable String signerName) {
         this.signerName = signerName;
         return this;
     }
@@ -209,11 +213,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_SIGNER_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignerName(String signerName) {
+    public void setSignerName(@javax.annotation.Nullable String signerName) {
         this.signerName = signerName;
     }
 
-    public SignatureRequestResponseSignatures signerRole(String signerRole) {
+    public SignatureRequestResponseSignatures signerRole(
+            @javax.annotation.Nullable String signerRole) {
         this.signerRole = signerRole;
         return this;
     }
@@ -231,11 +236,11 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_SIGNER_ROLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignerRole(String signerRole) {
+    public void setSignerRole(@javax.annotation.Nullable String signerRole) {
         this.signerRole = signerRole;
     }
 
-    public SignatureRequestResponseSignatures order(Integer order) {
+    public SignatureRequestResponseSignatures order(@javax.annotation.Nullable Integer order) {
         this.order = order;
         return this;
     }
@@ -253,11 +258,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_ORDER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOrder(Integer order) {
+    public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
     }
 
-    public SignatureRequestResponseSignatures statusCode(String statusCode) {
+    public SignatureRequestResponseSignatures statusCode(
+            @javax.annotation.Nullable String statusCode) {
         this.statusCode = statusCode;
         return this;
     }
@@ -275,11 +281,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_STATUS_CODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setStatusCode(String statusCode) {
+    public void setStatusCode(@javax.annotation.Nullable String statusCode) {
         this.statusCode = statusCode;
     }
 
-    public SignatureRequestResponseSignatures declineReason(String declineReason) {
+    public SignatureRequestResponseSignatures declineReason(
+            @javax.annotation.Nullable String declineReason) {
         this.declineReason = declineReason;
         return this;
     }
@@ -297,11 +304,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_DECLINE_REASON)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setDeclineReason(String declineReason) {
+    public void setDeclineReason(@javax.annotation.Nullable String declineReason) {
         this.declineReason = declineReason;
     }
 
-    public SignatureRequestResponseSignatures signedAt(Integer signedAt) {
+    public SignatureRequestResponseSignatures signedAt(
+            @javax.annotation.Nullable Integer signedAt) {
         this.signedAt = signedAt;
         return this;
     }
@@ -319,11 +327,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_SIGNED_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignedAt(Integer signedAt) {
+    public void setSignedAt(@javax.annotation.Nullable Integer signedAt) {
         this.signedAt = signedAt;
     }
 
-    public SignatureRequestResponseSignatures lastViewedAt(Integer lastViewedAt) {
+    public SignatureRequestResponseSignatures lastViewedAt(
+            @javax.annotation.Nullable Integer lastViewedAt) {
         this.lastViewedAt = lastViewedAt;
         return this;
     }
@@ -341,11 +350,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_LAST_VIEWED_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLastViewedAt(Integer lastViewedAt) {
+    public void setLastViewedAt(@javax.annotation.Nullable Integer lastViewedAt) {
         this.lastViewedAt = lastViewedAt;
     }
 
-    public SignatureRequestResponseSignatures lastRemindedAt(Integer lastRemindedAt) {
+    public SignatureRequestResponseSignatures lastRemindedAt(
+            @javax.annotation.Nullable Integer lastRemindedAt) {
         this.lastRemindedAt = lastRemindedAt;
         return this;
     }
@@ -363,11 +373,11 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_LAST_REMINDED_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLastRemindedAt(Integer lastRemindedAt) {
+    public void setLastRemindedAt(@javax.annotation.Nullable Integer lastRemindedAt) {
         this.lastRemindedAt = lastRemindedAt;
     }
 
-    public SignatureRequestResponseSignatures hasPin(Boolean hasPin) {
+    public SignatureRequestResponseSignatures hasPin(@javax.annotation.Nullable Boolean hasPin) {
         this.hasPin = hasPin;
         return this;
     }
@@ -385,11 +395,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_HAS_PIN)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setHasPin(Boolean hasPin) {
+    public void setHasPin(@javax.annotation.Nullable Boolean hasPin) {
         this.hasPin = hasPin;
     }
 
-    public SignatureRequestResponseSignatures hasSmsAuth(Boolean hasSmsAuth) {
+    public SignatureRequestResponseSignatures hasSmsAuth(
+            @javax.annotation.Nullable Boolean hasSmsAuth) {
         this.hasSmsAuth = hasSmsAuth;
         return this;
     }
@@ -407,11 +418,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_HAS_SMS_AUTH)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setHasSmsAuth(Boolean hasSmsAuth) {
+    public void setHasSmsAuth(@javax.annotation.Nullable Boolean hasSmsAuth) {
         this.hasSmsAuth = hasSmsAuth;
     }
 
-    public SignatureRequestResponseSignatures hasSmsDelivery(Boolean hasSmsDelivery) {
+    public SignatureRequestResponseSignatures hasSmsDelivery(
+            @javax.annotation.Nullable Boolean hasSmsDelivery) {
         this.hasSmsDelivery = hasSmsDelivery;
         return this;
     }
@@ -429,11 +441,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_HAS_SMS_DELIVERY)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setHasSmsDelivery(Boolean hasSmsDelivery) {
+    public void setHasSmsDelivery(@javax.annotation.Nullable Boolean hasSmsDelivery) {
         this.hasSmsDelivery = hasSmsDelivery;
     }
 
-    public SignatureRequestResponseSignatures smsPhoneNumber(String smsPhoneNumber) {
+    public SignatureRequestResponseSignatures smsPhoneNumber(
+            @javax.annotation.Nullable String smsPhoneNumber) {
         this.smsPhoneNumber = smsPhoneNumber;
         return this;
     }
@@ -451,11 +464,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSmsPhoneNumber(String smsPhoneNumber) {
+    public void setSmsPhoneNumber(@javax.annotation.Nullable String smsPhoneNumber) {
         this.smsPhoneNumber = smsPhoneNumber;
     }
 
-    public SignatureRequestResponseSignatures reassignedBy(String reassignedBy) {
+    public SignatureRequestResponseSignatures reassignedBy(
+            @javax.annotation.Nullable String reassignedBy) {
         this.reassignedBy = reassignedBy;
         return this;
     }
@@ -473,11 +487,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_REASSIGNED_BY)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setReassignedBy(String reassignedBy) {
+    public void setReassignedBy(@javax.annotation.Nullable String reassignedBy) {
         this.reassignedBy = reassignedBy;
     }
 
-    public SignatureRequestResponseSignatures reassignmentReason(String reassignmentReason) {
+    public SignatureRequestResponseSignatures reassignmentReason(
+            @javax.annotation.Nullable String reassignmentReason) {
         this.reassignmentReason = reassignmentReason;
         return this;
     }
@@ -495,11 +510,12 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_REASSIGNMENT_REASON)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setReassignmentReason(String reassignmentReason) {
+    public void setReassignmentReason(@javax.annotation.Nullable String reassignmentReason) {
         this.reassignmentReason = reassignmentReason;
     }
 
-    public SignatureRequestResponseSignatures reassignedFrom(String reassignedFrom) {
+    public SignatureRequestResponseSignatures reassignedFrom(
+            @javax.annotation.Nullable String reassignedFrom) {
         this.reassignedFrom = reassignedFrom;
         return this;
     }
@@ -517,11 +533,11 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_REASSIGNED_FROM)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setReassignedFrom(String reassignedFrom) {
+    public void setReassignedFrom(@javax.annotation.Nullable String reassignedFrom) {
         this.reassignedFrom = reassignedFrom;
     }
 
-    public SignatureRequestResponseSignatures error(String error) {
+    public SignatureRequestResponseSignatures error(@javax.annotation.Nullable String error) {
         this.error = error;
         return this;
     }
@@ -539,7 +555,7 @@ public class SignatureRequestResponseSignatures {
 
     @JsonProperty(JSON_PROPERTY_ERROR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setError(String error) {
+    public void setError(@javax.annotation.Nullable String error) {
         this.error = error;
     }
 

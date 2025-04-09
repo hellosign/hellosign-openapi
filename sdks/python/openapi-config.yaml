@@ -2,10 +2,10 @@ generatorName: python
 typeMappings:
   "bytearray": "io.IOBase"
 additionalProperties:
-  generatorLanguageVersion: ">=3.7"
+  generatorLanguageVersion: ">=3.8"
   packageName: dropbox_sign
   projectName: dropbox-sign
-  packageVersion: 1.8-dev
+  packageVersion: 1.9.0-dev
   sortModelPropertiesByRequiredFlag: true
   legacyDiscriminatorBehavior: true
   packageAuthor: Dropbox Sign API Team
@@ -13,6 +13,9 @@ additionalProperties:
   infoName: Official Python SDK for the Dropbox Sign API
   useCustomTemplateCode: true
   licenseCopyrightYear: 2024
+  oseg.propertyNamingConvention: snake_case
+  oseg.security.api_key.username: YOUR_API_KEY
+  oseg.security.oauth2.access_token: YOUR_ACCESS_TOKEN
 files:
   dropbox-__init__apis.mustache:
     templateType: SupportingFiles

@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataValueRadio.JSON_PROPERTY_TYPE,
   SignatureRequestResponseDataValueRadio.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -49,9 +49,11 @@ import com.dropbox.sign.ApiException;
 
 public class SignatureRequestResponseDataValueRadio extends SignatureRequestResponseDataBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nullable
   private String type = "radio";
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nullable
   private Boolean value;
 
   public SignatureRequestResponseDataValueRadio() { 
@@ -72,7 +74,7 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
     );
   }
 
-  public SignatureRequestResponseDataValueRadio type(String type) {
+  public SignatureRequestResponseDataValueRadio type(@jakarta.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
@@ -92,12 +94,12 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
   }
 
 
-  public SignatureRequestResponseDataValueRadio value(Boolean value) {
+  public SignatureRequestResponseDataValueRadio value(@jakarta.annotation.Nullable Boolean value) {
     this.value = value;
     return this;
   }
@@ -117,7 +119,7 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(Boolean value) {
+  public void setValue(@jakarta.annotation.Nullable Boolean value) {
     this.value = value;
   }
 

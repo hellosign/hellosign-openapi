@@ -27,14 +27,14 @@ import java.util.Objects;
 @JsonPropertyOrder({FileResponse.JSON_PROPERTY_FILE_URL, FileResponse.JSON_PROPERTY_EXPIRES_AT})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FileResponse {
     public static final String JSON_PROPERTY_FILE_URL = "file_url";
-    private String fileUrl;
+    @javax.annotation.Nonnull private String fileUrl;
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-    private Integer expiresAt;
+    @javax.annotation.Nonnull private Integer expiresAt;
 
     public FileResponse() {}
 
@@ -52,7 +52,7 @@ public class FileResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), FileResponse.class);
     }
 
-    public FileResponse fileUrl(String fileUrl) {
+    public FileResponse fileUrl(@javax.annotation.Nonnull String fileUrl) {
         this.fileUrl = fileUrl;
         return this;
     }
@@ -71,11 +71,11 @@ public class FileResponse {
 
     @JsonProperty(JSON_PROPERTY_FILE_URL)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFileUrl(String fileUrl) {
+    public void setFileUrl(@javax.annotation.Nonnull String fileUrl) {
         this.fileUrl = fileUrl;
     }
 
-    public FileResponse expiresAt(Integer expiresAt) {
+    public FileResponse expiresAt(@javax.annotation.Nonnull Integer expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -94,7 +94,7 @@ public class FileResponse {
 
     @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setExpiresAt(Integer expiresAt) {
+    public void setExpiresAt(@javax.annotation.Nonnull Integer expiresAt) {
         this.expiresAt = expiresAt;
     }
 

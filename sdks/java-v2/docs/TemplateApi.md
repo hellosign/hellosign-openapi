@@ -29,35 +29,44 @@ Gives the specified Account access to the specified Template. The specified Acco
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class TemplateAddUserExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var templateApi = new TemplateApi(apiClient);
+        var templateAddUserRequest = new TemplateAddUserRequest();
+        templateAddUserRequest.emailAddress("george@dropboxsign.com");
 
-        var data = new TemplateAddUserRequest()
-            .emailAddress("george@dropboxsign.com");
+        try
+        {
+            var response = new TemplateApi(config).templateAddUser(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                templateAddUserRequest
+            );
 
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-        try {
-            TemplateGetResponse result = templateApi.templateAddUser(templateId, data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateAddUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -107,64 +116,119 @@ Creates a template that can then be used.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class TemplateCreateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var fieldOptions = new SubFieldOptions();
+        fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
-        var templateApi = new TemplateApi(apiClient);
+        var signerRoles1 = new SubTemplateRole();
+        signerRoles1.name("Client");
+        signerRoles1.order(0);
 
-        var role1 = new SubTemplateRole()
-            .name("Client")
-            .order(0);
+        var signerRoles2 = new SubTemplateRole();
+        signerRoles2.name("Witness");
+        signerRoles2.order(1);
 
-        var role2 = new SubTemplateRole()
-            .name("Witness")
-            .order(1);
+        var signerRoles = new ArrayList<SubTemplateRole>(List.of (
+            signerRoles1,
+            signerRoles2
+        ));
 
-        var mergeField1 = new SubMergeField()
-            .name("Full Name")
-            .type(SubMergeField.TypeEnum.TEXT);
+        var formFieldsPerDocument1 = new SubFormFieldsPerDocumentText();
+        formFieldsPerDocument1.documentIndex(0);
+        formFieldsPerDocument1.apiId("uniqueIdHere_1");
+        formFieldsPerDocument1.type("text");
+        formFieldsPerDocument1.required(true);
+        formFieldsPerDocument1.signer("1");
+        formFieldsPerDocument1.width(100);
+        formFieldsPerDocument1.height(16);
+        formFieldsPerDocument1.x(112);
+        formFieldsPerDocument1.y(328);
+        formFieldsPerDocument1.name("");
+        formFieldsPerDocument1.page(1);
+        formFieldsPerDocument1.placeholder("");
+        formFieldsPerDocument1.validationType(SubFormFieldsPerDocumentText.ValidationTypeEnum.NUMBERS_ONLY);
 
-        var mergeField2 = new SubMergeField()
-            .name("Is Registered?")
-            .type(SubMergeField.TypeEnum.CHECKBOX);
+        var formFieldsPerDocument2 = new SubFormFieldsPerDocumentSignature();
+        formFieldsPerDocument2.documentIndex(0);
+        formFieldsPerDocument2.apiId("uniqueIdHere_2");
+        formFieldsPerDocument2.type("signature");
+        formFieldsPerDocument2.required(true);
+        formFieldsPerDocument2.signer("0");
+        formFieldsPerDocument2.width(120);
+        formFieldsPerDocument2.height(30);
+        formFieldsPerDocument2.x(530);
+        formFieldsPerDocument2.y(415);
+        formFieldsPerDocument2.name("");
+        formFieldsPerDocument2.page(1);
 
-        var subFieldOptions = new SubFieldOptions()
-            .dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
+        var formFieldsPerDocument = new ArrayList<SubFormFieldsPerDocumentBase>(List.of (
+            formFieldsPerDocument1,
+            formFieldsPerDocument2
+        ));
 
-        var data = new TemplateCreateRequest()
-            .clientId("37dee8d8440c66d54cfa05d92c160882")
-            .addFilesItem(new File("example_signature_request.pdf"))
-            .title("Test Template")
-            .subject("Please sign this document")
-            .message("For your approval")
-            .signerRoles(List.of(role1, role2))
-            .ccRoles(List.of("Manager"))
-            .mergeFields(List.of(mergeField1, mergeField2))
-            .fieldOptions(subFieldOptions)
-            .testMode(true);
+        var mergeFields1 = new SubMergeField();
+        mergeFields1.name("Full Name");
+        mergeFields1.type(SubMergeField.TypeEnum.TEXT);
 
-        try {
-            TemplateCreateResponse result = templateApi.templateCreate(data);
-            System.out.println(result);
+        var mergeFields2 = new SubMergeField();
+        mergeFields2.name("Is Registered?");
+        mergeFields2.type(SubMergeField.TypeEnum.CHECKBOX);
+
+        var mergeFields = new ArrayList<SubMergeField>(List.of (
+            mergeFields1,
+            mergeFields2
+        ));
+
+        var templateCreateRequest = new TemplateCreateRequest();
+        templateCreateRequest.clientId("37dee8d8440c66d54cfa05d92c160882");
+        templateCreateRequest.message("For your approval");
+        templateCreateRequest.subject("Please sign this document");
+        templateCreateRequest.testMode(true);
+        templateCreateRequest.title("Test Template");
+        templateCreateRequest.ccRoles(List.of (
+            "Manager"
+        ));
+        templateCreateRequest.files(List.of (
+            new File("./example_signature_request.pdf")
+        ));
+        templateCreateRequest.fieldOptions(fieldOptions);
+        templateCreateRequest.signerRoles(signerRoles);
+        templateCreateRequest.formFieldsPerDocument(formFieldsPerDocument);
+        templateCreateRequest.mergeFields(mergeFields);
+
+        try
+        {
+            var response = new TemplateApi(config).templateCreate(
+                templateCreateRequest
+            );
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -213,64 +277,85 @@ The first step in an embedded template workflow. Creates a draft template that c
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class TemplateCreateEmbeddedDraftExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var fieldOptions = new SubFieldOptions();
+        fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
-        var templateApi = new TemplateApi(apiClient);
+        var mergeFields1 = new SubMergeField();
+        mergeFields1.name("Full Name");
+        mergeFields1.type(SubMergeField.TypeEnum.TEXT);
 
-        var role1 = new SubTemplateRole()
-            .name("Client")
-            .order(0);
+        var mergeFields2 = new SubMergeField();
+        mergeFields2.name("Is Registered?");
+        mergeFields2.type(SubMergeField.TypeEnum.CHECKBOX);
 
-        var role2 = new SubTemplateRole()
-            .name("Witness")
-            .order(1);
+        var mergeFields = new ArrayList<SubMergeField>(List.of (
+            mergeFields1,
+            mergeFields2
+        ));
 
-        var mergeField1 = new SubMergeField()
-            .name("Full Name")
-            .type(SubMergeField.TypeEnum.TEXT);
+        var signerRoles1 = new SubTemplateRole();
+        signerRoles1.name("Client");
+        signerRoles1.order(0);
 
-        var mergeField2 = new SubMergeField()
-            .name("Is Registered?")
-            .type(SubMergeField.TypeEnum.CHECKBOX);
+        var signerRoles2 = new SubTemplateRole();
+        signerRoles2.name("Witness");
+        signerRoles2.order(1);
 
-        var subFieldOptions = new SubFieldOptions()
-            .dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
+        var signerRoles = new ArrayList<SubTemplateRole>(List.of (
+            signerRoles1,
+            signerRoles2
+        ));
 
-        var data = new TemplateCreateEmbeddedDraftRequest()
-            .clientId("37dee8d8440c66d54cfa05d92c160882")
-            .addFilesItem(new File("example_signature_request.pdf"))
-            .title("Test Template")
-            .subject("Please sign this document")
-            .message("For your approval")
-            .signerRoles(List.of(role1, role2))
-            .ccRoles(List.of("Manager"))
-            .mergeFields(List.of(mergeField1, mergeField2))
-            .fieldOptions(subFieldOptions)
-            .testMode(true);
+        var templateCreateEmbeddedDraftRequest = new TemplateCreateEmbeddedDraftRequest();
+        templateCreateEmbeddedDraftRequest.clientId("37dee8d8440c66d54cfa05d92c160882");
+        templateCreateEmbeddedDraftRequest.message("For your approval");
+        templateCreateEmbeddedDraftRequest.subject("Please sign this document");
+        templateCreateEmbeddedDraftRequest.testMode(true);
+        templateCreateEmbeddedDraftRequest.title("Test Template");
+        templateCreateEmbeddedDraftRequest.ccRoles(List.of (
+            "Manager"
+        ));
+        templateCreateEmbeddedDraftRequest.files(List.of (
+            new File("./example_signature_request.pdf")
+        ));
+        templateCreateEmbeddedDraftRequest.fieldOptions(fieldOptions);
+        templateCreateEmbeddedDraftRequest.mergeFields(mergeFields);
+        templateCreateEmbeddedDraftRequest.signerRoles(signerRoles);
 
-        try {
-            TemplateCreateEmbeddedDraftResponse result = templateApi.templateCreateEmbeddedDraft(data);
-            System.out.println(result);
+        try
+        {
+            var response = new TemplateApi(config).templateCreateEmbeddedDraft(
+                templateCreateEmbeddedDraftRequest
+            );
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateCreateEmbeddedDraft");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -319,30 +404,38 @@ Completely deletes the template specified from the account.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
+import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class TemplateDeleteExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var templateApi = new TemplateApi(apiClient);
-
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-        try {
-            templateApi.templateDelete(templateId);
+        try
+        {
+            new TemplateApi(config).templateDelete(
+                "f57db65d3f933b5316d398057a36176831451a35" // templateId
+            );
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -393,33 +486,40 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
+import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class TemplateFilesExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
-
-        var templateApi = new TemplateApi(apiClient);
-
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-        try {
-            File result = templateApi.templateFiles(templateId, "pdf");
-            result.renameTo(new File("file_response.pdf"));
+        try
+        {
+            var response = new TemplateApi(config).templateFiles(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                null // fileType
+            );
+            response.renameTo(new File("./file_response"));
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateFiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -471,32 +571,40 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class TemplateFilesAsDataUriExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var templateApi = new TemplateApi(apiClient);
+        try
+        {
+            var response = new TemplateApi(config).templateFilesAsDataUri(
+                "f57db65d3f933b5316d398057a36176831451a35" // templateId
+            );
 
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-        try {
-            FileResponseDataUri result = templateApi.templateFilesAsDataUri(templateId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateFilesAsDataUri");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -547,32 +655,41 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class TemplateFilesAsFileUrlExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var templateApi = new TemplateApi(apiClient);
+        try
+        {
+            var response = new TemplateApi(config).templateFilesAsFileUrl(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                1 // forceDownload
+            );
 
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-        try {
-            FileResponse result = templateApi.templateFilesAsFileUrl(templateId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateFilesAsFileUrl");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -622,32 +739,40 @@ Returns the Template specified by the `template_id` parameter.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class TemplateGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var templateApi = new TemplateApi(apiClient);
+        try
+        {
+            var response = new TemplateApi(config).templateGet(
+                "f57db65d3f933b5316d398057a36176831451a35" // templateId
+            );
 
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-        try {
-            TemplateGetResponse result = templateApi.templateGet(templateId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -698,35 +823,43 @@ Take a look at our [search guide](/api/reference/search/) to learn more about qu
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class TemplateListExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var templateApi = new TemplateApi(apiClient);
+        try
+        {
+            var response = new TemplateApi(config).templateList(
+                null, // accountId
+                1, // page
+                20, // pageSize
+                null // query
+            );
 
-        var accountId = "f57db65d3f933b5316d398057a36176831451a35";
-        var page = 1;
-        var pageSize = 20;
-        String query = null;
-
-        try {
-            TemplateListResponse result = templateApi.templateList(accountId, page, pageSize, query);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -778,35 +911,44 @@ Removes the specified Account's access to the specified Template.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class TemplateRemoveUserExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var templateApi = new TemplateApi(apiClient);
+        var templateRemoveUserRequest = new TemplateRemoveUserRequest();
+        templateRemoveUserRequest.emailAddress("george@dropboxsign.com");
 
-        var data = new TemplateRemoveUserRequest()
-            .emailAddress("george@dropboxsign.com");
+        try
+        {
+            var response = new TemplateApi(config).templateRemoveUser(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                templateRemoveUserRequest
+            );
 
-        var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
-
-        try {
-            TemplateGetResponse result = templateApi.templateRemoveUser(templateId, data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateRemoveUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -867,37 +1009,46 @@ If the page orientation or page count is different from the original template do
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class TemplateUpdateFilesExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var templateUpdateFilesRequest = new TemplateUpdateFilesRequest();
+        templateUpdateFilesRequest.files(List.of (
+            new File("./example_signature_request.pdf")
+        ));
 
-        var templateApi = new TemplateApi(apiClient);
+        try
+        {
+            var response = new TemplateApi(config).templateUpdateFiles(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                templateUpdateFilesRequest
+            );
 
-        var data = new TemplateUpdateFilesRequest()
-            .addFilesItem(new File("example_signature_request.pdf"));
-
-        var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
-
-        try {
-            TemplateUpdateFilesResponse result = templateApi.templateUpdateFiles(templateId, data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TemplateApi#templateUpdateFiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

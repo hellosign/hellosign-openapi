@@ -24,88 +24,43 @@ Creates a new API App.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const apiAppApi = new DropboxSign.ApiAppApi();
+const apiCaller = new api.ApiAppApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const oauth: DropboxSign.SubOAuth = {
+const oauth: models.SubOAuth = {
   callbackUrl: "https://example.com/oauth",
   scopes: [
-    DropboxSign.SubOAuth.ScopesEnum.BasicAccountInfo,
-    DropboxSign.SubOAuth.ScopesEnum.RequestSignature,
+    models.SubOAuth.ScopesEnum.BasicAccountInfo,
+    models.SubOAuth.ScopesEnum.RequestSignature,
   ],
 };
 
-const whiteLabelingOptions: DropboxSign.SubWhiteLabelingOptions = {
+const whiteLabelingOptions: models.SubWhiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",
   primaryButtonTextColor: "#ffffff",
 };
 
-const data: DropboxSign.ApiAppCreateRequest = {
+const apiAppCreateRequest: models.ApiAppCreateRequest = {
   name: "My Production App",
-  domains: ["example.com"],
-  customLogoFile: fs.createReadStream("CustomLogoFile.png"),
-  oauth,
-  whiteLabelingOptions,
-};
-
-const result = apiAppApi.apiAppCreate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const apiAppApi = new DropboxSign.ApiAppApi();
-
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const oauth = {
-  callbackUrl: "https://example.com/oauth",
-  scopes: [
-    "basic_account_info",
-    "request_signature",
+  domains: [
+    "example.com",
   ],
-};
-
-const whiteLabelingOptions = {
-  primaryButtonColor: "#00b3e6",
-  primaryButtonTextColor: "#ffffff",
-};
-
-const data = {
-  name: "My Production App",
-  domains: ["example.com"],
   customLogoFile: fs.createReadStream("CustomLogoFile.png"),
-  oauth,
-  whiteLabelingOptions,
+  oauth: oauth,
+  whiteLabelingOptions: whiteLabelingOptions,
 };
 
-const result = apiAppApi.apiAppCreate(data);
-result.then(response => {
+apiCaller.apiAppCreate(
+  apiAppCreateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling ApiAppApi#apiAppCreate:");
   console.log(error.body);
 });
 
@@ -147,48 +102,18 @@ Deletes an API App. Can only be invoked for apps you own.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const apiAppApi = new DropboxSign.ApiAppApi();
+const apiCaller = new api.ApiAppApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-const result = apiAppApi.apiAppDelete(clientId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const apiAppApi = new DropboxSign.ApiAppApi();
-
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-const result = apiAppApi.apiAppDelete(clientId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+apiCaller.apiAppDelete(
+  "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
+).catch(error => {
+  console.log("Exception when calling ApiAppApi#apiAppDelete:");
   console.log(error.body);
 });
 
@@ -230,48 +155,20 @@ Returns an object with information about an API App.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const apiAppApi = new DropboxSign.ApiAppApi();
+const apiCaller = new api.ApiAppApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-const result = apiAppApi.apiAppGet(clientId);
-result.then(response => {
+apiCaller.apiAppGet(
+  "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const apiAppApi = new DropboxSign.ApiAppApi();
-
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-const result = apiAppApi.apiAppGet(clientId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling ApiAppApi#apiAppGet:");
   console.log(error.body);
 });
 
@@ -313,50 +210,21 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const apiAppApi = new DropboxSign.ApiAppApi();
+const apiCaller = new api.ApiAppApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const page = 1;
-const pageSize = 2;
-
-const result = apiAppApi.apiAppList(page, pageSize);
-result.then(response => {
+apiCaller.apiAppList(
+  1, // page
+  20, // pageSize
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const apiAppApi = new DropboxSign.ApiAppApi();
-
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const page = 1;
-const pageSize = 2;
-
-const result = apiAppApi.apiAppList(page, pageSize);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling ApiAppApi#apiAppList:");
   console.log(error.body);
 });
 
@@ -399,74 +267,45 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const apiAppApi = new DropboxSign.ApiAppApi();
+const apiCaller = new api.ApiAppApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
+const oauth: models.SubOAuth = {
+  callbackUrl: "https://example.com/oauth",
+  scopes: [
+    models.SubOAuth.ScopesEnum.BasicAccountInfo,
+    models.SubOAuth.ScopesEnum.RequestSignature,
+  ],
+};
 
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const whiteLabelingOptions: DropboxSign.SubWhiteLabelingOptions = {
+const whiteLabelingOptions: models.SubWhiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",
   primaryButtonTextColor: "#ffffff",
 };
 
-const data: DropboxSign.ApiAppUpdateRequest = {
+const apiAppUpdateRequest: models.ApiAppUpdateRequest = {
+  callbackUrl: "https://example.com/dropboxsign",
   name: "New Name",
-  callbackUrl: "http://example.com/dropboxsign",
+  domains: [
+    "example.com",
+  ],
   customLogoFile: fs.createReadStream("CustomLogoFile.png"),
-  whiteLabelingOptions,
+  oauth: oauth,
+  whiteLabelingOptions: whiteLabelingOptions,
 };
 
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-const result = apiAppApi.apiAppUpdate(clientId, data);
-result.then(response => {
+apiCaller.apiAppUpdate(
+  "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
+  apiAppUpdateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const apiAppApi = new DropboxSign.ApiAppApi();
-
-// Configure HTTP basic authorization: api_key
-apiAppApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const whiteLabelingOptions = {
-  primaryButtonColor: "#00b3e6",
-  primaryButtonTextColor: "#ffffff",
-};
-
-const data = {
-  name: "New Name",
-  callbackUrl: "http://example.com/dropboxsign",
-  customLogoFile: fs.createReadStream("CustomLogoFile.png"),
-  whiteLabelingOptions,
-};
-
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-const result = apiAppApi.apiAppUpdate(clientId, data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling ApiAppApi#apiAppUpdate:");
   console.log(error.body);
 });
 

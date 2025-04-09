@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   ApiAppGetResponse.JSON_PROPERTY_API_APP,
   ApiAppGetResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppGetResponse {
   public static final String JSON_PROPERTY_API_APP = "api_app";
+  @jakarta.annotation.Nonnull
   private ApiAppResponse apiApp;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public ApiAppGetResponse() { 
@@ -67,7 +69,7 @@ public class ApiAppGetResponse {
     );
   }
 
-  public ApiAppGetResponse apiApp(ApiAppResponse apiApp) {
+  public ApiAppGetResponse apiApp(@jakarta.annotation.Nonnull ApiAppResponse apiApp) {
     this.apiApp = apiApp;
     return this;
   }
@@ -87,12 +89,12 @@ public class ApiAppGetResponse {
 
   @JsonProperty(JSON_PROPERTY_API_APP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setApiApp(ApiAppResponse apiApp) {
+  public void setApiApp(@jakarta.annotation.Nonnull ApiAppResponse apiApp) {
     this.apiApp = apiApp;
   }
 
 
-  public ApiAppGetResponse warnings(List<WarningResponse> warnings) {
+  public ApiAppGetResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class ApiAppGetResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

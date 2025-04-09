@@ -37,16 +37,19 @@ import com.dropbox.sign.ApiException;
   AccountUpdateRequest.JSON_PROPERTY_CALLBACK_URL,
   AccountUpdateRequest.JSON_PROPERTY_LOCALE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountUpdateRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  @jakarta.annotation.Nullable
   private String accountId;
 
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
+  @jakarta.annotation.Nullable
   private String callbackUrl;
 
   public static final String JSON_PROPERTY_LOCALE = "locale";
+  @jakarta.annotation.Nullable
   private String locale;
 
   public AccountUpdateRequest() { 
@@ -67,7 +70,7 @@ public class AccountUpdateRequest {
     );
   }
 
-  public AccountUpdateRequest accountId(String accountId) {
+  public AccountUpdateRequest accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -87,12 +90,12 @@ public class AccountUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountId(String accountId) {
+  public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
   }
 
 
-  public AccountUpdateRequest callbackUrl(String callbackUrl) {
+  public AccountUpdateRequest callbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
     return this;
   }
@@ -112,12 +115,12 @@ public class AccountUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCallbackUrl(String callbackUrl) {
+  public void setCallbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
   }
 
 
-  public AccountUpdateRequest locale(String locale) {
+  public AccountUpdateRequest locale(@jakarta.annotation.Nullable String locale) {
     this.locale = locale;
     return this;
   }
@@ -137,7 +140,7 @@ public class AccountUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLocale(String locale) {
+  public void setLocale(@jakarta.annotation.Nullable String locale) {
     this.locale = locale;
   }
 

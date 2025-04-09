@@ -36,13 +36,15 @@ import com.dropbox.sign.ApiException;
   SubBulkSignerListCustomField.JSON_PROPERTY_NAME,
   SubBulkSignerListCustomField.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubBulkSignerListCustomField {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private String value;
 
   public SubBulkSignerListCustomField() { 
@@ -63,7 +65,7 @@ public class SubBulkSignerListCustomField {
     );
   }
 
-  public SubBulkSignerListCustomField name(String name) {
+  public SubBulkSignerListCustomField name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -83,12 +85,12 @@ public class SubBulkSignerListCustomField {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SubBulkSignerListCustomField value(String value) {
+  public SubBulkSignerListCustomField value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
@@ -108,7 +110,7 @@ public class SubBulkSignerListCustomField {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 

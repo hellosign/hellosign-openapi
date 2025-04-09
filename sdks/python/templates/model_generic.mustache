@@ -9,17 +9,12 @@ import json
 {{#vendorExtensions.x-py-model-imports}}
 {{{.}}}
 {{/vendorExtensions.x-py-model-imports}}
-{{^useCustomTemplateCode}}
 from typing import Optional, Set
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-from typing import Optional, Set, Tuple
-{{/useCustomTemplateCode}}
 from typing_extensions import Self
 {{#useCustomTemplateCode}}
+from typing import Tuple, Union
 import io
 from pydantic import StrictBool
-from typing import Union
 {{/useCustomTemplateCode}}
 
 {{#hasChildren}}
@@ -28,7 +23,7 @@ from typing import Union
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
 {{#mappedModels}}
-    from {{packageName}}.models.{{model.classVarName}} import {{modelName}}
+    from {{packageName}}.models.{{model.classFilename}} import {{modelName}}
 {{/mappedModels}}
 
 {{/discriminator}}
@@ -88,15 +83,22 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
 
         {{/isNullable}}
         {{/required}}
+        {{#isContainer}}
         {{#isArray}}
         for i in value:
             if i not in set([{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}]):
                 raise ValueError("each list item must be one of ({{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}})")
         {{/isArray}}
-        {{^isArray}}
+        {{#isMap}}
+        for i in value.values():
+            if i not in set([{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}]):
+                raise ValueError("dict values must be one of enum values ({{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}})")
+        {{/isMap}}
+        {{/isContainer}}
+        {{^isContainer}}
         if value not in set([{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}]):
             raise ValueError("must be one of enum values ({{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}})")
-        {{/isArray}}
+        {{/isContainer}}
         return value
     {{/isEnum}}
 {{/vars}}
@@ -159,12 +161,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
         """Create an instance of {{{classname}}} from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-{{^useCustomTemplateCode}}
-    def to_dict(self) -> Dict[str, Any]:
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-    def to_dict(self, excluded_fields: Set[str] = None) -> Dict[str, Any]:
-{{/useCustomTemplateCode}}
+    def to_dict(self{{#useCustomTemplateCode}}, excluded_fields: Set[str] = None{{/useCustomTemplateCode}}) -> Dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -294,7 +291,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
         object_type = cls.get_discriminator_value(obj)
         {{#mappedModels}}
         if object_type ==  '{{{modelName}}}':
-            return import_module("{{packageName}}.models.{{model.classVarName}}").{{modelName}}.from_dict(obj)
+            return import_module("{{packageName}}.models.{{model.classFilename}}").{{modelName}}.from_dict(obj)
         {{/mappedModels}}
 
         raise ValueError("{{{classname}}} failed to lookup discriminator value from " +
@@ -389,7 +386,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
             {{/items.isContainer}}
             {{/items.isEnumOrRef}}
             {{#items.isEnumOrRef}}
-            "{{{baseName}}}": dict((_k, _v) for _k, _v in obj.get("{{{baseName}}}").items()){{^-last}},{{/-last}}
+            "{{{baseName}}}": dict((_k, _v) for _k, _v in obj.get("{{{baseName}}}").items()) if obj.get("{{{baseName}}}") is not None else None{{^-last}},{{/-last}}
             {{/items.isEnumOrRef}}
             {{/items.isPrimitiveType}}
             {{#items.isPrimitiveType}}

@@ -32,12 +32,7 @@
 
             <dependency id="Newtonsoft.Json" version="13.0.3" />
             {{#useRestSharp}}
-{{^useCustomTemplateCode}}
-            <dependency id="RestSharp" version="110.2.0" />
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
             <dependency id="RestSharp" version="112.0.0" />
-{{/useCustomTemplateCode}}
             {{/useRestSharp}}
             {{#useCompareNetObjects}}
             <dependency id="CompareNETObjects" version="4.61.0" />

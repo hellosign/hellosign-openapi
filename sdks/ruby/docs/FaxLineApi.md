@@ -24,24 +24,25 @@ Grants a user access to the specified Fax Line.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_line_api = Dropbox::Sign::FaxLineApi.new
-
-data = Dropbox::Sign::FaxLineAddUserRequest.new
-data.number = "[FAX_NUMBER]"
-data.email_address = "member@dropboxsign.com"
+fax_line_add_user_request = Dropbox::Sign::FaxLineAddUserRequest.new
+fax_line_add_user_request.number = "[FAX_NUMBER]"
+fax_line_add_user_request.email_address = "member@dropboxsign.com"
 
 begin
-  result = fax_line_api.fax_line_add_user(data)
-  p result
+  response = Dropbox::Sign::FaxLineApi.new.fax_line_add_user(
+    fax_line_add_user_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling FaxLineApi#fax_line_add_user: #{e}"
 end
 
 ```
@@ -90,25 +91,26 @@ end
 
 Get Available Fax Line Area Codes
 
-Returns a response with the area codes available for a given state/provice and city.
+Returns a list of available area codes for a given state/province and city
 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_line_api = Dropbox::Sign::FaxLineApi.new
-
 begin
-  result = fax_line_api.fax_line_area_code_get("US", "CA")
-  p result
+  response = Dropbox::Sign::FaxLineApi.new.fax_line_area_code_get(
+    "US", # country
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling FaxLineApi#fax_line_area_code_get: #{e}"
 end
 
 ```
@@ -135,10 +137,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `country` | **String** | Filter area codes by country. |  |
-| `state` | **String** | Filter area codes by state. | [optional] |
-| `province` | **String** | Filter area codes by province. | [optional] |
-| `city` | **String** | Filter area codes by city. | [optional] |
+| `country` | **String** | Filter area codes by country |  |
+| `state` | **String** | Filter area codes by state | [optional] |
+| `province` | **String** | Filter area codes by province | [optional] |
+| `city` | **String** | Filter area codes by city | [optional] |
 
 ### Return type
 
@@ -160,29 +162,30 @@ end
 
 Purchase Fax Line
 
-Purchases a new Fax Line.
+Purchases a new Fax Line
 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_line_api = Dropbox::Sign::FaxLineApi.new
-
-data = Dropbox::Sign::FaxLineCreateRequest.new
-data.area_code = 209
-data.country = "US"
+fax_line_create_request = Dropbox::Sign::FaxLineCreateRequest.new
+fax_line_create_request.area_code = 209
+fax_line_create_request.country = "US"
 
 begin
-  result = fax_line_api.fax_line_create(data)
-  p result
+  response = Dropbox::Sign::FaxLineApi.new.fax_line_create(
+    fax_line_create_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling FaxLineApi#fax_line_create: #{e}"
 end
 
 ```
@@ -236,22 +239,22 @@ Deletes the specified Fax Line from the subscription.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_line_api = Dropbox::Sign::FaxLineApi.new
-
-data = Dropbox::Sign::FaxLineDeleteRequest.new
-data.number = "[FAX_NUMBER]"
+fax_line_delete_request = Dropbox::Sign::FaxLineDeleteRequest.new
+fax_line_delete_request.number = "[FAX_NUMBER]"
 
 begin
-  fax_line_api.fax_line_delete(data)
+  Dropbox::Sign::FaxLineApi.new.fax_line_delete(
+    fax_line_delete_request,
+  )
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling FaxLineApi#fax_line_delete: #{e}"
 end
 
 ```
@@ -305,20 +308,21 @@ Returns the properties and settings of a Fax Line.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_line_api = Dropbox::Sign::FaxLineApi.new
-
 begin
-  result = fax_line_api.fax_line_get("[NUMBER]")
-  p result
+  response = Dropbox::Sign::FaxLineApi.new.fax_line_get(
+    "123-123-1234", # number
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling FaxLineApi#fax_line_get: #{e}"
 end
 
 ```
@@ -345,7 +349,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `number` | **String** | The Fax Line number. |  |
+| `number` | **String** | The Fax Line number |  |
 
 ### Return type
 
@@ -372,20 +376,26 @@ Returns the properties and settings of multiple Fax Lines.
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_line_api = Dropbox::Sign::FaxLineApi.new
-
 begin
-  result = fax_line_api.fax_line_list()
-  p result
+  response = Dropbox::Sign::FaxLineApi.new.fax_line_list(
+    {
+          account_id: "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97",
+          page: 1,
+          page_size: 20,
+          show_team_lines: nil,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling FaxLineApi#fax_line_list: #{e}"
 end
 
 ```
@@ -413,9 +423,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **String** | Account ID | [optional] |
-| `page` | **Integer** | Page | [optional][default to 1] |
-| `page_size` | **Integer** | Page size | [optional][default to 20] |
-| `show_team_lines` | **Boolean** | Show team lines | [optional] |
+| `page` | **Integer** | Which page number of the Fax Line List to return. Defaults to `1`. | [optional][default to 1] |
+| `page_size` | **Integer** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional][default to 20] |
+| `show_team_lines` | **Boolean** | Include Fax Lines belonging to team members in the list | [optional] |
 
 ### Return type
 
@@ -437,29 +447,30 @@ end
 
 Remove Fax Line Access
 
-Removes a user's access to the specified Fax Line.
+Removes a user's access to the specified Fax Line
 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_line_api = Dropbox::Sign::FaxLineApi.new
-
-data = Dropbox::Sign::FaxLineRemoveUserRequest.new
-data.number = "[FAX_NUMBER]"
-data.email_address = "member@dropboxsign.com"
+fax_line_remove_user_request = Dropbox::Sign::FaxLineRemoveUserRequest.new
+fax_line_remove_user_request.number = "[FAX_NUMBER]"
+fax_line_remove_user_request.email_address = "member@dropboxsign.com"
 
 begin
-  result = fax_line_api.fax_line_remove_user(data)
-  p result
+  response = Dropbox::Sign::FaxLineApi.new.fax_line_remove_user(
+    fax_line_remove_user_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling FaxLineApi#fax_line_remove_user: #{e}"
 end
 
 ```

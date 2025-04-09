@@ -57,7 +57,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -82,37 +82,37 @@ import java.util.Objects;
 })
 public class SubFormFieldsPerDocumentBase {
     public static final String JSON_PROPERTY_DOCUMENT_INDEX = "document_index";
-    private Integer documentIndex;
+    @javax.annotation.Nonnull private Integer documentIndex;
 
     public static final String JSON_PROPERTY_API_ID = "api_id";
-    private String apiId;
+    @javax.annotation.Nonnull private String apiId;
 
     public static final String JSON_PROPERTY_HEIGHT = "height";
-    private Integer height;
+    @javax.annotation.Nonnull private Integer height;
 
     public static final String JSON_PROPERTY_REQUIRED = "required";
-    private Boolean required;
+    @javax.annotation.Nonnull private Boolean required;
 
     public static final String JSON_PROPERTY_SIGNER = "signer";
-    private String signer;
+    @javax.annotation.Nonnull private String signer;
 
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
+    @javax.annotation.Nonnull private String type;
 
     public static final String JSON_PROPERTY_WIDTH = "width";
-    private Integer width;
+    @javax.annotation.Nonnull private Integer width;
 
     public static final String JSON_PROPERTY_X = "x";
-    private Integer x;
+    @javax.annotation.Nonnull private Integer x;
 
     public static final String JSON_PROPERTY_Y = "y";
-    private Integer y;
+    @javax.annotation.Nonnull private Integer y;
 
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public static final String JSON_PROPERTY_PAGE = "page";
-    private Integer page;
+    @javax.annotation.Nullable private Integer page;
 
     public SubFormFieldsPerDocumentBase() {}
 
@@ -132,7 +132,8 @@ public class SubFormFieldsPerDocumentBase {
                         SubFormFieldsPerDocumentBase.class);
     }
 
-    public SubFormFieldsPerDocumentBase documentIndex(Integer documentIndex) {
+    public SubFormFieldsPerDocumentBase documentIndex(
+            @javax.annotation.Nonnull Integer documentIndex) {
         this.documentIndex = documentIndex;
         return this;
     }
@@ -152,11 +153,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_DOCUMENT_INDEX)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDocumentIndex(Integer documentIndex) {
+    public void setDocumentIndex(@javax.annotation.Nonnull Integer documentIndex) {
         this.documentIndex = documentIndex;
     }
 
-    public SubFormFieldsPerDocumentBase apiId(String apiId) {
+    public SubFormFieldsPerDocumentBase apiId(@javax.annotation.Nonnull String apiId) {
         this.apiId = apiId;
         return this;
     }
@@ -175,11 +176,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_API_ID)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setApiId(String apiId) {
+    public void setApiId(@javax.annotation.Nonnull String apiId) {
         this.apiId = apiId;
     }
 
-    public SubFormFieldsPerDocumentBase height(Integer height) {
+    public SubFormFieldsPerDocumentBase height(@javax.annotation.Nonnull Integer height) {
         this.height = height;
         return this;
     }
@@ -198,11 +199,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_HEIGHT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setHeight(Integer height) {
+    public void setHeight(@javax.annotation.Nonnull Integer height) {
         this.height = height;
     }
 
-    public SubFormFieldsPerDocumentBase required(Boolean required) {
+    public SubFormFieldsPerDocumentBase required(@javax.annotation.Nonnull Boolean required) {
         this.required = required;
         return this;
     }
@@ -221,11 +222,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_REQUIRED)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setRequired(Boolean required) {
+    public void setRequired(@javax.annotation.Nonnull Boolean required) {
         this.required = required;
     }
 
-    public SubFormFieldsPerDocumentBase signer(String signer) {
+    public SubFormFieldsPerDocumentBase signer(@javax.annotation.Nonnull String signer) {
         this.signer = signer;
         return this;
     }
@@ -252,7 +253,7 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_SIGNER)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setSigner(String signer) {
+    public void setSigner(@javax.annotation.Nonnull String signer) {
         this.signer = signer;
     }
 
@@ -260,7 +261,7 @@ public class SubFormFieldsPerDocumentBase {
         this.signer = String.valueOf(signer);
     }
 
-    public SubFormFieldsPerDocumentBase type(String type) {
+    public SubFormFieldsPerDocumentBase type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -279,11 +280,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public SubFormFieldsPerDocumentBase width(Integer width) {
+    public SubFormFieldsPerDocumentBase width(@javax.annotation.Nonnull Integer width) {
         this.width = width;
         return this;
     }
@@ -302,11 +303,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_WIDTH)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setWidth(Integer width) {
+    public void setWidth(@javax.annotation.Nonnull Integer width) {
         this.width = width;
     }
 
-    public SubFormFieldsPerDocumentBase x(Integer x) {
+    public SubFormFieldsPerDocumentBase x(@javax.annotation.Nonnull Integer x) {
         this.x = x;
         return this;
     }
@@ -325,11 +326,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_X)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setX(Integer x) {
+    public void setX(@javax.annotation.Nonnull Integer x) {
         this.x = x;
     }
 
-    public SubFormFieldsPerDocumentBase y(Integer y) {
+    public SubFormFieldsPerDocumentBase y(@javax.annotation.Nonnull Integer y) {
         this.y = y;
         return this;
     }
@@ -348,11 +349,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_Y)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setY(Integer y) {
+    public void setY(@javax.annotation.Nonnull Integer y) {
         this.y = y;
     }
 
-    public SubFormFieldsPerDocumentBase name(String name) {
+    public SubFormFieldsPerDocumentBase name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -370,11 +371,11 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public SubFormFieldsPerDocumentBase page(Integer page) {
+    public SubFormFieldsPerDocumentBase page(@javax.annotation.Nullable Integer page) {
         this.page = page;
         return this;
     }
@@ -395,7 +396,7 @@ public class SubFormFieldsPerDocumentBase {
 
     @JsonProperty(JSON_PROPERTY_PAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPage(Integer page) {
+    public void setPage(@javax.annotation.Nullable Integer page) {
         this.page = page;
     }
 

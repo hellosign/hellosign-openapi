@@ -46,34 +46,43 @@ import com.dropbox.sign.ApiException;
   FaxSendRequest.JSON_PROPERTY_COVER_PAGE_MESSAGE,
   FaxSendRequest.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxSendRequest {
   public static final String JSON_PROPERTY_RECIPIENT = "recipient";
+  @jakarta.annotation.Nonnull
   private String recipient;
 
   public static final String JSON_PROPERTY_SENDER = "sender";
+  @jakarta.annotation.Nullable
   private String sender;
 
   public static final String JSON_PROPERTY_FILES = "files";
+  @jakarta.annotation.Nullable
   private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  @jakarta.annotation.Nullable
   private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+  @jakarta.annotation.Nullable
   private Boolean testMode = false;
 
   public static final String JSON_PROPERTY_COVER_PAGE_TO = "cover_page_to";
+  @jakarta.annotation.Nullable
   private String coverPageTo;
 
   public static final String JSON_PROPERTY_COVER_PAGE_FROM = "cover_page_from";
+  @jakarta.annotation.Nullable
   private String coverPageFrom;
 
   public static final String JSON_PROPERTY_COVER_PAGE_MESSAGE = "cover_page_message";
+  @jakarta.annotation.Nullable
   private String coverPageMessage;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nullable
   private String title;
 
   public FaxSendRequest() { 
@@ -94,13 +103,13 @@ public class FaxSendRequest {
     );
   }
 
-  public FaxSendRequest recipient(String recipient) {
+  public FaxSendRequest recipient(@jakarta.annotation.Nonnull String recipient) {
     this.recipient = recipient;
     return this;
   }
 
   /**
-   * Fax Send To Recipient
+   * Recipient of the fax  Can be a phone number in E.164 format or email address
    * @return recipient
    */
   @jakarta.annotation.Nonnull
@@ -114,12 +123,12 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_RECIPIENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRecipient(String recipient) {
+  public void setRecipient(@jakarta.annotation.Nonnull String recipient) {
     this.recipient = recipient;
   }
 
 
-  public FaxSendRequest sender(String sender) {
+  public FaxSendRequest sender(@jakarta.annotation.Nullable String sender) {
     this.sender = sender;
     return this;
   }
@@ -139,12 +148,12 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_SENDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSender(String sender) {
+  public void setSender(@jakarta.annotation.Nullable String sender) {
     this.sender = sender;
   }
 
 
-  public FaxSendRequest files(List<File> files) {
+  public FaxSendRequest files(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
     return this;
   }
@@ -158,7 +167,7 @@ public class FaxSendRequest {
   }
 
   /**
-   * Fax File to Send
+   * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return files
    */
   @jakarta.annotation.Nullable
@@ -172,12 +181,12 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiles(List<File> files) {
+  public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
   }
 
 
-  public FaxSendRequest fileUrls(List<String> fileUrls) {
+  public FaxSendRequest fileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
     return this;
   }
@@ -191,7 +200,7 @@ public class FaxSendRequest {
   }
 
   /**
-   * Fax File URL to Send
+   * Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
@@ -205,12 +214,12 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrls(List<String> fileUrls) {
+  public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
   }
 
 
-  public FaxSendRequest testMode(Boolean testMode) {
+  public FaxSendRequest testMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
     return this;
   }
@@ -230,18 +239,18 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTestMode(Boolean testMode) {
+  public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
   }
 
 
-  public FaxSendRequest coverPageTo(String coverPageTo) {
+  public FaxSendRequest coverPageTo(@jakarta.annotation.Nullable String coverPageTo) {
     this.coverPageTo = coverPageTo;
     return this;
   }
 
   /**
-   * Fax Cover Page for Recipient
+   * Fax cover page recipient information
    * @return coverPageTo
    */
   @jakarta.annotation.Nullable
@@ -255,18 +264,18 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_COVER_PAGE_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCoverPageTo(String coverPageTo) {
+  public void setCoverPageTo(@jakarta.annotation.Nullable String coverPageTo) {
     this.coverPageTo = coverPageTo;
   }
 
 
-  public FaxSendRequest coverPageFrom(String coverPageFrom) {
+  public FaxSendRequest coverPageFrom(@jakarta.annotation.Nullable String coverPageFrom) {
     this.coverPageFrom = coverPageFrom;
     return this;
   }
 
   /**
-   * Fax Cover Page for Sender
+   * Fax cover page sender information
    * @return coverPageFrom
    */
   @jakarta.annotation.Nullable
@@ -280,12 +289,12 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_COVER_PAGE_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCoverPageFrom(String coverPageFrom) {
+  public void setCoverPageFrom(@jakarta.annotation.Nullable String coverPageFrom) {
     this.coverPageFrom = coverPageFrom;
   }
 
 
-  public FaxSendRequest coverPageMessage(String coverPageMessage) {
+  public FaxSendRequest coverPageMessage(@jakarta.annotation.Nullable String coverPageMessage) {
     this.coverPageMessage = coverPageMessage;
     return this;
   }
@@ -305,12 +314,12 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_COVER_PAGE_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCoverPageMessage(String coverPageMessage) {
+  public void setCoverPageMessage(@jakarta.annotation.Nullable String coverPageMessage) {
     this.coverPageMessage = coverPageMessage;
   }
 
 
-  public FaxSendRequest title(String title) {
+  public FaxSendRequest title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -330,7 +339,7 @@ public class FaxSendRequest {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 

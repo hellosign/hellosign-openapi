@@ -22,31 +22,35 @@ Retrieves an embedded object containing a template url that can be opened in an 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$embeddedApi = new Dropbox\Sign\Api\EmbeddedApi($config);
+$merge_fields = [
+];
 
-$data = new Dropbox\Sign\Model\EmbeddedEditUrlRequest();
-$data->setCcRoles([""])
-    ->setMergeFields([]);
-
-$templateId = "5de8179668f2033afac48da1868d0093bf133266";
+$embedded_edit_url_request = (new Dropbox\Sign\Model\EmbeddedEditUrlRequest())
+    ->setCcRoles([
+        "",
+    ])
+    ->setMergeFields($merge_fields);
 
 try {
-    $result = $embeddedApi->embeddedEditUrl($templateId, $data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\EmbeddedApi(config: $config))->embeddedEditUrl(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+        embedded_edit_url_request: $embedded_edit_url_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling EmbeddedApi#embeddedEditUrl: {$e->getMessage()}";
 }
 
 ```
@@ -89,27 +93,25 @@ Retrieves an embedded object containing a signature url that can be opened in an
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$embeddedApi = new Dropbox\Sign\Api\EmbeddedApi($config);
-
-$signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
-
 try {
-    $result = $embeddedApi->embeddedSignUrl($signatureId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\EmbeddedApi(config: $config))->embeddedSignUrl(
+        signature_id: "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling EmbeddedApi#embeddedSignUrl: {$e->getMessage()}";
 }
 
 ```

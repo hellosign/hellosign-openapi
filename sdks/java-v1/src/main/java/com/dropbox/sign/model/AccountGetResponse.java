@@ -32,14 +32,14 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountGetResponse {
     public static final String JSON_PROPERTY_ACCOUNT = "account";
-    private AccountResponse account;
+    @javax.annotation.Nonnull private AccountResponse account;
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    @javax.annotation.Nullable private List<WarningResponse> warnings = null;
 
     public AccountGetResponse() {}
 
@@ -57,7 +57,7 @@ public class AccountGetResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), AccountGetResponse.class);
     }
 
-    public AccountGetResponse account(AccountResponse account) {
+    public AccountGetResponse account(@javax.annotation.Nonnull AccountResponse account) {
         this.account = account;
         return this;
     }
@@ -76,11 +76,11 @@ public class AccountGetResponse {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setAccount(AccountResponse account) {
+    public void setAccount(@javax.annotation.Nonnull AccountResponse account) {
         this.account = account;
     }
 
-    public AccountGetResponse warnings(List<WarningResponse> warnings) {
+    public AccountGetResponse warnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -106,7 +106,7 @@ public class AccountGetResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
+    public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
     }
 

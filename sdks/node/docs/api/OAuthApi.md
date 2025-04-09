@@ -21,44 +21,26 @@ Once you have retrieved the code from the user callback, you will need to exchan
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const oAuthApi = new DropboxSign.OAuthApi();
+const apiCaller = new api.OAuthApi();
 
-const data = new DropboxSign.OAuthTokenGenerateRequest();
-data.state = "900e06e2";
-data.code = "1b0d28d90c86c141";
-data.clientId = "cc91c61d00f8bb2ece1428035716b";
-data.clientSecret = "1d14434088507ffa390e6f5528465";
+const oAuthTokenGenerateRequest: models.OAuthTokenGenerateRequest = {
+  clientId: "cc91c61d00f8bb2ece1428035716b",
+  clientSecret: "1d14434088507ffa390e6f5528465",
+  code: "1b0d28d90c86c141",
+  state: "900e06e2",
+  grantType: "authorization_code",
+};
 
-const result = oAuthApi.oauthTokenGenerate(data);
-result.then(response => {
+apiCaller.oauthTokenGenerate(
+  oAuthTokenGenerateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const oAuthApi = new DropboxSign.OAuthApi();
-
-const data = new DropboxSign.OAuthTokenGenerateRequest();
-data.state = "900e06e2";
-data.code = "1b0d28d90c86c141";
-data.clientId = "cc91c61d00f8bb2ece1428035716b";
-data.clientSecret = "1d14434088507ffa390e6f5528465";
-
-const result = oAuthApi.oauthTokenGenerate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling OAuthApi#oauthTokenGenerate:");
   console.log(error.body);
 });
 
@@ -100,38 +82,23 @@ Access tokens are only valid for a given period of time (typically one hour) for
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const oAuthApi = new DropboxSign.OAuthApi();
+const apiCaller = new api.OAuthApi();
 
-const data = new DropboxSign.OAuthTokenRefreshRequest();
-data.refreshToken = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3";
+const oAuthTokenRefreshRequest: models.OAuthTokenRefreshRequest = {
+  grantType: "refresh_token",
+  refreshToken: "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3",
+};
 
-const result = oAuthApi.oauthTokenRefresh(data);
-result.then(response => {
+apiCaller.oauthTokenRefresh(
+  oAuthTokenRefreshRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const oAuthApi = new DropboxSign.OAuthApi();
-
-const data = new DropboxSign.OAuthTokenRefreshRequest();
-data.refreshToken = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3";
-
-const result = oAuthApi.oauthTokenRefresh(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling OAuthApi#oauthTokenRefresh:");
   console.log(error.body);
 });
 

@@ -18,7 +18,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class ApiAppApi {
     private ApiClient apiClient;
 
@@ -49,13 +49,14 @@ public class ApiAppApi {
     }
 
     /**
-     * Create API App. Creates a new API App.
+     * Create API App Creates a new API App.
      *
      * @param apiAppCreateRequest (required)
      * @return ApiAppGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -67,13 +68,14 @@ public class ApiAppApi {
     }
 
     /**
-     * Create API App. Creates a new API App.
+     * Create API App Creates a new API App.
      *
      * @param apiAppCreateRequest (required)
      * @return ApiResponse&lt;ApiAppGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -118,12 +120,13 @@ public class ApiAppApi {
     }
 
     /**
-     * Delete API App. Deletes an API App. Can only be invoked for apps you own.
+     * Delete API App Deletes an API App. Can only be invoked for apps you own.
      *
      * @param clientId The client id of the API App to delete. (required)
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -134,13 +137,14 @@ public class ApiAppApi {
     }
 
     /**
-     * Delete API App. Deletes an API App. Can only be invoked for apps you own.
+     * Delete API App Deletes an API App. Can only be invoked for apps you own.
      *
      * @param clientId The client id of the API App to delete. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -183,13 +187,14 @@ public class ApiAppApi {
     }
 
     /**
-     * Get API App. Returns an object with information about an API App.
+     * Get API App Returns an object with information about an API App.
      *
      * @param clientId The client id of the API App to retrieve. (required)
      * @return ApiAppGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -200,13 +205,14 @@ public class ApiAppApi {
     }
 
     /**
-     * Get API App. Returns an object with information about an API App.
+     * Get API App Returns an object with information about an API App.
      *
      * @param clientId The client id of the API App to retrieve. (required)
      * @return ApiResponse&lt;ApiAppGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -251,7 +257,7 @@ public class ApiAppApi {
     }
 
     /**
-     * List API Apps. Returns a list of API Apps that are accessible by you. If you are on a team
+     * List API Apps Returns a list of API Apps that are accessible by you. If you are on a team
      * with an Admin or Developer role, this list will include apps owned by teammates.
      *
      * @param page Which page number of the API App List to return. Defaults to &#x60;1&#x60;.
@@ -261,7 +267,8 @@ public class ApiAppApi {
      * @return ApiAppListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -311,7 +318,7 @@ public class ApiAppApi {
     }
 
     /**
-     * List API Apps. Returns a list of API Apps that are accessible by you. If you are on a team
+     * List API Apps Returns a list of API Apps that are accessible by you. If you are on a team
      * with an Admin or Developer role, this list will include apps owned by teammates.
      *
      * @param page Which page number of the API App List to return. Defaults to &#x60;1&#x60;.
@@ -321,7 +328,8 @@ public class ApiAppApi {
      * @return ApiResponse&lt;ApiAppListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -367,7 +375,7 @@ public class ApiAppApi {
     }
 
     /**
-     * Update API App. Updates an existing API App. Can only be invoked for apps you own. Only the
+     * Update API App Updates an existing API App. Can only be invoked for apps you own. Only the
      * fields you provide will be updated. If you wish to clear an existing optional field, provide
      * an empty string.
      *
@@ -376,7 +384,8 @@ public class ApiAppApi {
      * @return ApiAppGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -388,7 +397,7 @@ public class ApiAppApi {
     }
 
     /**
-     * Update API App. Updates an existing API App. Can only be invoked for apps you own. Only the
+     * Update API App Updates an existing API App. Can only be invoked for apps you own. Only the
      * fields you provide will be updated. If you wish to clear an existing optional field, provide
      * an empty string.
      *
@@ -397,7 +406,8 @@ public class ApiAppApi {
      * @return ApiResponse&lt;ApiAppGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

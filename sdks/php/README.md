@@ -75,28 +75,28 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$accountApi = new Dropbox\Sign\Api\AccountApi($config);
-
-$data = new Dropbox\Sign\Model\AccountCreateRequest();
-$data->setEmailAddress("newuser@dropboxsign.com");
+$account_create_request = (new Dropbox\Sign\Model\AccountCreateRequest())
+    ->setEmailAddress("newuser@dropboxsign.com");
 
 try {
-    $result = $accountApi->accountCreate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\AccountApi(config: $config))->accountCreate(
+        account_create_request: $account_create_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling AccountApi#accountCreate: {$e->getMessage()}";
 }
 
 ```
@@ -161,7 +161,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *EmbeddedApi* | [**embeddedEditUrl**](docs/Api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](docs/Api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 | *FaxApi* | [**faxDelete**](docs/Api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
-| *FaxApi* | [**faxFiles**](docs/Api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| *FaxApi* | [**faxFiles**](docs/Api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | *FaxApi* | [**faxGet**](docs/Api/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | *FaxApi* | [**faxList**](docs/Api/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
 | *FaxApi* | [**faxSend**](docs/Api/FaxApi.md#faxsend) | **POST** /fax/send | Send Fax |
@@ -180,6 +180,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *SignatureRequestApi* | [**signatureRequestCancel**](docs/Api/SignatureRequestApi.md#signaturerequestcancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request |
 | *SignatureRequestApi* | [**signatureRequestCreateEmbedded**](docs/Api/SignatureRequestApi.md#signaturerequestcreateembedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | *SignatureRequestApi* | [**signatureRequestCreateEmbeddedWithTemplate**](docs/Api/SignatureRequestApi.md#signaturerequestcreateembeddedwithtemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
+| *SignatureRequestApi* | [**signatureRequestEdit**](docs/Api/SignatureRequestApi.md#signaturerequestedit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+| *SignatureRequestApi* | [**signatureRequestEditEmbedded**](docs/Api/SignatureRequestApi.md#signaturerequesteditembedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request |
+| *SignatureRequestApi* | [**signatureRequestEditEmbeddedWithTemplate**](docs/Api/SignatureRequestApi.md#signaturerequesteditembeddedwithtemplate) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template |
+| *SignatureRequestApi* | [**signatureRequestEditWithTemplate**](docs/Api/SignatureRequestApi.md#signaturerequesteditwithtemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 | *SignatureRequestApi* | [**signatureRequestFiles**](docs/Api/SignatureRequestApi.md#signaturerequestfiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | *SignatureRequestApi* | [**signatureRequestFilesAsDataUri**](docs/Api/SignatureRequestApi.md#signaturerequestfilesasdatauri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
 | *SignatureRequestApi* | [**signatureRequestFilesAsFileUrl**](docs/Api/SignatureRequestApi.md#signaturerequestfilesasfileurl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url |
@@ -283,6 +287,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SignatureRequestBulkSendWithTemplateRequest](docs/Model/SignatureRequestBulkSendWithTemplateRequest.md)
 - [SignatureRequestCreateEmbeddedRequest](docs/Model/SignatureRequestCreateEmbeddedRequest.md)
 - [SignatureRequestCreateEmbeddedWithTemplateRequest](docs/Model/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+- [SignatureRequestEditEmbeddedRequest](docs/Model/SignatureRequestEditEmbeddedRequest.md)
+- [SignatureRequestEditEmbeddedWithTemplateRequest](docs/Model/SignatureRequestEditEmbeddedWithTemplateRequest.md)
+- [SignatureRequestEditRequest](docs/Model/SignatureRequestEditRequest.md)
+- [SignatureRequestEditWithTemplateRequest](docs/Model/SignatureRequestEditWithTemplateRequest.md)
 - [SignatureRequestGetResponse](docs/Model/SignatureRequestGetResponse.md)
 - [SignatureRequestListResponse](docs/Model/SignatureRequestListResponse.md)
 - [SignatureRequestRemindRequest](docs/Model/SignatureRequestRemindRequest.md)
@@ -439,6 +447,6 @@ apisupport@hellosign.com
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `3.0.0`
-    - Package version: `1.8-dev`
-    - Generator version: `7.8.0`
+    - Package version: `1.8.1-dev`
+    - Generator version: `7.12.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

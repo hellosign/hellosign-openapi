@@ -31,17 +31,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamMemberResponse {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+    @javax.annotation.Nullable private String accountId;
 
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-    private String emailAddress;
+    @javax.annotation.Nullable private String emailAddress;
 
     public static final String JSON_PROPERTY_ROLE = "role";
-    private String role;
+    @javax.annotation.Nullable private String role;
 
     public TeamMemberResponse() {}
 
@@ -59,7 +59,7 @@ public class TeamMemberResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), TeamMemberResponse.class);
     }
 
-    public TeamMemberResponse accountId(String accountId) {
+    public TeamMemberResponse accountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -77,11 +77,11 @@ public class TeamMemberResponse {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccountId(String accountId) {
+    public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public TeamMemberResponse emailAddress(String emailAddress) {
+    public TeamMemberResponse emailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -99,11 +99,11 @@ public class TeamMemberResponse {
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public TeamMemberResponse role(String role) {
+    public TeamMemberResponse role(@javax.annotation.Nullable String role) {
         this.role = role;
         return this;
     }
@@ -121,7 +121,7 @@ public class TeamMemberResponse {
 
     @JsonProperty(JSON_PROPERTY_ROLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRole(String role) {
+    public void setRole(@javax.annotation.Nullable String role) {
         this.role = role;
     }
 

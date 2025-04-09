@@ -38,21 +38,22 @@ import com.dropbox.sign.ApiException;
   FaxLineCreateRequest.JSON_PROPERTY_CITY,
   FaxLineCreateRequest.JSON_PROPERTY_ACCOUNT_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineCreateRequest {
   public static final String JSON_PROPERTY_AREA_CODE = "area_code";
+  @jakarta.annotation.Nonnull
   private Integer areaCode;
 
   /**
-   * Country
+   * Country of the area code
    */
   public enum CountryEnum {
-    CA("CA"),
+    CA(String.valueOf("CA")),
     
-    US("US"),
+    US(String.valueOf("US")),
     
-    UK("UK");
+    UK(String.valueOf("UK"));
 
     private String value;
 
@@ -82,12 +83,15 @@ public class FaxLineCreateRequest {
   }
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
+  @jakarta.annotation.Nonnull
   private CountryEnum country;
 
   public static final String JSON_PROPERTY_CITY = "city";
+  @jakarta.annotation.Nullable
   private String city;
 
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  @jakarta.annotation.Nullable
   private String accountId;
 
   public FaxLineCreateRequest() { 
@@ -108,13 +112,13 @@ public class FaxLineCreateRequest {
     );
   }
 
-  public FaxLineCreateRequest areaCode(Integer areaCode) {
+  public FaxLineCreateRequest areaCode(@jakarta.annotation.Nonnull Integer areaCode) {
     this.areaCode = areaCode;
     return this;
   }
 
   /**
-   * Area code
+   * Area code of the new Fax Line
    * @return areaCode
    */
   @jakarta.annotation.Nonnull
@@ -128,18 +132,18 @@ public class FaxLineCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_AREA_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAreaCode(Integer areaCode) {
+  public void setAreaCode(@jakarta.annotation.Nonnull Integer areaCode) {
     this.areaCode = areaCode;
   }
 
 
-  public FaxLineCreateRequest country(CountryEnum country) {
+  public FaxLineCreateRequest country(@jakarta.annotation.Nonnull CountryEnum country) {
     this.country = country;
     return this;
   }
 
   /**
-   * Country
+   * Country of the area code
    * @return country
    */
   @jakarta.annotation.Nonnull
@@ -153,18 +157,18 @@ public class FaxLineCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountry(CountryEnum country) {
+  public void setCountry(@jakarta.annotation.Nonnull CountryEnum country) {
     this.country = country;
   }
 
 
-  public FaxLineCreateRequest city(String city) {
+  public FaxLineCreateRequest city(@jakarta.annotation.Nullable String city) {
     this.city = city;
     return this;
   }
 
   /**
-   * City
+   * City of the area code
    * @return city
    */
   @jakarta.annotation.Nullable
@@ -178,18 +182,18 @@ public class FaxLineCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCity(String city) {
+  public void setCity(@jakarta.annotation.Nullable String city) {
     this.city = city;
   }
 
 
-  public FaxLineCreateRequest accountId(String accountId) {
+  public FaxLineCreateRequest accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
   }
 
   /**
-   * Account ID
+   * Account ID of the account that will be assigned this new Fax Line
    * @return accountId
    */
   @jakarta.annotation.Nullable
@@ -203,7 +207,7 @@ public class FaxLineCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountId(String accountId) {
+  public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
   }
 

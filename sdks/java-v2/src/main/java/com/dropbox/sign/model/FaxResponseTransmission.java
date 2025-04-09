@@ -37,31 +37,32 @@ import com.dropbox.sign.ApiException;
   FaxResponseTransmission.JSON_PROPERTY_STATUS_CODE,
   FaxResponseTransmission.JSON_PROPERTY_SENT_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxResponseTransmission {
   public static final String JSON_PROPERTY_RECIPIENT = "recipient";
+  @jakarta.annotation.Nonnull
   private String recipient;
 
   /**
    * Fax Transmission Status Code
    */
   public enum StatusCodeEnum {
-    SUCCESS("success"),
+    SUCCESS(String.valueOf("success")),
     
-    TRANSMITTING("transmitting"),
+    TRANSMITTING(String.valueOf("transmitting")),
     
-    ERROR_COULD_NOT_FAX("error_could_not_fax"),
+    ERROR_COULD_NOT_FAX(String.valueOf("error_could_not_fax")),
     
-    ERROR_UNKNOWN("error_unknown"),
+    ERROR_UNKNOWN(String.valueOf("error_unknown")),
     
-    ERROR_BUSY("error_busy"),
+    ERROR_BUSY(String.valueOf("error_busy")),
     
-    ERROR_NO_ANSWER("error_no_answer"),
+    ERROR_NO_ANSWER(String.valueOf("error_no_answer")),
     
-    ERROR_DISCONNECTED("error_disconnected"),
+    ERROR_DISCONNECTED(String.valueOf("error_disconnected")),
     
-    ERROR_BAD_DESTINATION("error_bad_destination");
+    ERROR_BAD_DESTINATION(String.valueOf("error_bad_destination"));
 
     private String value;
 
@@ -91,9 +92,11 @@ public class FaxResponseTransmission {
   }
 
   public static final String JSON_PROPERTY_STATUS_CODE = "status_code";
+  @jakarta.annotation.Nonnull
   private StatusCodeEnum statusCode;
 
   public static final String JSON_PROPERTY_SENT_AT = "sent_at";
+  @jakarta.annotation.Nullable
   private Integer sentAt;
 
   public FaxResponseTransmission() { 
@@ -114,7 +117,7 @@ public class FaxResponseTransmission {
     );
   }
 
-  public FaxResponseTransmission recipient(String recipient) {
+  public FaxResponseTransmission recipient(@jakarta.annotation.Nonnull String recipient) {
     this.recipient = recipient;
     return this;
   }
@@ -134,12 +137,12 @@ public class FaxResponseTransmission {
 
   @JsonProperty(JSON_PROPERTY_RECIPIENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRecipient(String recipient) {
+  public void setRecipient(@jakarta.annotation.Nonnull String recipient) {
     this.recipient = recipient;
   }
 
 
-  public FaxResponseTransmission statusCode(StatusCodeEnum statusCode) {
+  public FaxResponseTransmission statusCode(@jakarta.annotation.Nonnull StatusCodeEnum statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -159,12 +162,12 @@ public class FaxResponseTransmission {
 
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusCode(StatusCodeEnum statusCode) {
+  public void setStatusCode(@jakarta.annotation.Nonnull StatusCodeEnum statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public FaxResponseTransmission sentAt(Integer sentAt) {
+  public FaxResponseTransmission sentAt(@jakarta.annotation.Nullable Integer sentAt) {
     this.sentAt = sentAt;
     return this;
   }
@@ -184,7 +187,7 @@ public class FaxResponseTransmission {
 
   @JsonProperty(JSON_PROPERTY_SENT_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSentAt(Integer sentAt) {
+  public void setSentAt(@jakarta.annotation.Nullable Integer sentAt) {
     this.sentAt = sentAt;
   }
 

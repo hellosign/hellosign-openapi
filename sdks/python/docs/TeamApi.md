@@ -29,29 +29,31 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
-    data = models.TeamAddMemberRequest(
+    team_add_member_request = models.TeamAddMemberRequest(
         email_address="george@example.com",
     )
 
     try:
-        response = team_api.team_add_member(data)
+        response = api.TeamApi(api_client).team_add_member(
+            team_add_member_request=team_add_member_request,
+            team_id="4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_add_member: %s\n" % e)
 
 ```
 ```
@@ -97,29 +99,30 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
-    data = models.TeamCreateRequest(
+    team_create_request = models.TeamCreateRequest(
         name="New Team Name",
     )
 
     try:
-        response = team_api.team_create(data)
+        response = api.TeamApi(api_client).team_create(
+            team_create_request=team_create_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_create: %s\n" % e)
 
 ```
 ```
@@ -164,22 +167,22 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+import json
+from datetime import date, datetime
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
     try:
-        team_api.team_delete()
+        api.TeamApi(api_client).team_delete()
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_delete: %s\n" % e)
 
 ```
 ```
@@ -214,7 +217,7 @@ void (empty response body)
 
 Get Team
 
-Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
+Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of "not_found" will be returned.
 
 ### Example
 
@@ -222,25 +225,24 @@ Returns information about your Team as well as a list of its members. If you do 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
     try:
-        response = team_api.team_get()
+        response = api.TeamApi(api_client).team_get()
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_get: %s\n" % e)
 
 ```
 ```
@@ -283,25 +285,26 @@ Provides information about a team.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
     try:
-        response = team_api.team_info()
+        response = api.TeamApi(api_client).team_info(
+            team_id="4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_info: %s\n" % e)
 
 ```
 ```
@@ -346,27 +349,24 @@ Provides a list of team invites (and their roles).
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
-    email_address = "user@dropboxsign.com"
-
     try:
-        response = team_api.team_invites(email_address=email_address)
+        response = api.TeamApi(api_client).team_invites()
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_invites: %s\n" % e)
 
 ```
 ```
@@ -411,27 +411,28 @@ Provides a paginated list of members (and their roles) that belong to a given te
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
-    team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
-
     try:
-        response = team_api.team_members(team_id)
+        response = api.TeamApi(api_client).team_members(
+            team_id="4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+            page=1,
+            page_size=20,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_members: %s\n" % e)
 
 ```
 ```
@@ -478,30 +479,31 @@ Removes the provided user Account from your Team. If the Account had an outstand
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
-    data = models.TeamRemoveMemberRequest(
+    team_remove_member_request = models.TeamRemoveMemberRequest(
         email_address="teammate@dropboxsign.com",
         new_owner_email_address="new_teammate@dropboxsign.com",
     )
 
     try:
-        response = team_api.team_remove_member(data)
+        response = api.TeamApi(api_client).team_remove_member(
+            team_remove_member_request=team_remove_member_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_remove_member: %s\n" % e)
 
 ```
 ```
@@ -546,27 +548,28 @@ Provides a paginated list of sub teams that belong to a given team.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
-    team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
-
     try:
-        response = team_api.team_sub_teams(team_id)
+        response = api.TeamApi(api_client).team_sub_teams(
+            team_id="4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+            page=1,
+            page_size=20,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_sub_teams: %s\n" % e)
 
 ```
 ```
@@ -613,29 +616,30 @@ Updates the name of your Team.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    team_api = apis.TeamApi(api_client)
-
-    data = models.TeamUpdateRequest(
+    team_update_request = models.TeamUpdateRequest(
         name="New Team Name",
     )
 
     try:
-        response = team_api.team_update(data)
+        response = api.TeamApi(api_client).team_update(
+            team_update_request=team_update_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling TeamApi#team_update: %s\n" % e)
 
 ```
 ```

@@ -119,7 +119,7 @@ export class FaxApi {
   }
 
   /**
-   * Deletes the specified Fax from the system.
+   * Deletes the specified Fax from the system
    * @summary Delete Fax
    * @param faxId Fax ID
    * @param options
@@ -220,8 +220,8 @@ export class FaxApi {
     });
   }
   /**
-   * Returns list of fax files
-   * @summary List Fax Files
+   * Downloads files associated with a Fax
+   * @summary Download Fax Files
    * @param faxId Fax ID
    * @param options
    */
@@ -337,7 +337,7 @@ export class FaxApi {
     });
   }
   /**
-   * Returns information about fax
+   * Returns information about a Fax
    * @summary Get Fax
    * @param faxId Fax ID
    * @param options
@@ -454,10 +454,10 @@ export class FaxApi {
     });
   }
   /**
-   * Returns properties of multiple faxes
+   * Returns properties of multiple Faxes
    * @summary Lists Faxes
-   * @param page Page
-   * @param pageSize Page size
+   * @param page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;.
+   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
    * @param options
    */
   public async faxList(
@@ -575,7 +575,7 @@ export class FaxApi {
     });
   }
   /**
-   * Action to prepare and send a fax
+   * Creates and sends a new Fax with the submitted file(s)
    * @summary Send Fax
    * @param faxSendRequest
    * @param options

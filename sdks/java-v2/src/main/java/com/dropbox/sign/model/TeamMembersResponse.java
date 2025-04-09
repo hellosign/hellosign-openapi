@@ -42,16 +42,19 @@ import com.dropbox.sign.ApiException;
   TeamMembersResponse.JSON_PROPERTY_LIST_INFO,
   TeamMembersResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamMembersResponse {
   public static final String JSON_PROPERTY_TEAM_MEMBERS = "team_members";
+  @jakarta.annotation.Nonnull
   private List<TeamMemberResponse> teamMembers = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
+  @jakarta.annotation.Nonnull
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public TeamMembersResponse() { 
@@ -72,7 +75,7 @@ public class TeamMembersResponse {
     );
   }
 
-  public TeamMembersResponse teamMembers(List<TeamMemberResponse> teamMembers) {
+  public TeamMembersResponse teamMembers(@jakarta.annotation.Nonnull List<TeamMemberResponse> teamMembers) {
     this.teamMembers = teamMembers;
     return this;
   }
@@ -100,12 +103,12 @@ public class TeamMembersResponse {
 
   @JsonProperty(JSON_PROPERTY_TEAM_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTeamMembers(List<TeamMemberResponse> teamMembers) {
+  public void setTeamMembers(@jakarta.annotation.Nonnull List<TeamMemberResponse> teamMembers) {
     this.teamMembers = teamMembers;
   }
 
 
-  public TeamMembersResponse listInfo(ListInfoResponse listInfo) {
+  public TeamMembersResponse listInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
     return this;
   }
@@ -125,12 +128,12 @@ public class TeamMembersResponse {
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setListInfo(ListInfoResponse listInfo) {
+  public void setListInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }
 
 
-  public TeamMembersResponse warnings(List<WarningResponse> warnings) {
+  public TeamMembersResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -158,7 +161,7 @@ public class TeamMembersResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

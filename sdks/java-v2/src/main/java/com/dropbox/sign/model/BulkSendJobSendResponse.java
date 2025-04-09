@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   BulkSendJobSendResponse.JSON_PROPERTY_BULK_SEND_JOB,
   BulkSendJobSendResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class BulkSendJobSendResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB = "bulk_send_job";
+  @jakarta.annotation.Nonnull
   private BulkSendJobResponse bulkSendJob;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public BulkSendJobSendResponse() { 
@@ -67,7 +69,7 @@ public class BulkSendJobSendResponse {
     );
   }
 
-  public BulkSendJobSendResponse bulkSendJob(BulkSendJobResponse bulkSendJob) {
+  public BulkSendJobSendResponse bulkSendJob(@jakarta.annotation.Nonnull BulkSendJobResponse bulkSendJob) {
     this.bulkSendJob = bulkSendJob;
     return this;
   }
@@ -87,12 +89,12 @@ public class BulkSendJobSendResponse {
 
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBulkSendJob(BulkSendJobResponse bulkSendJob) {
+  public void setBulkSendJob(@jakarta.annotation.Nonnull BulkSendJobResponse bulkSendJob) {
     this.bulkSendJob = bulkSendJob;
   }
 
 
-  public BulkSendJobSendResponse warnings(List<WarningResponse> warnings) {
+  public BulkSendJobSendResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class BulkSendJobSendResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

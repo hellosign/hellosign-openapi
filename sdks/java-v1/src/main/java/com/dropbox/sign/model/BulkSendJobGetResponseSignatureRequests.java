@@ -55,83 +55,84 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BulkSendJobGetResponseSignatureRequests {
     public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    private Boolean testMode = false;
+    @javax.annotation.Nullable private Boolean testMode = false;
 
     public static final String JSON_PROPERTY_SIGNATURE_REQUEST_ID = "signature_request_id";
-    private String signatureRequestId;
+    @javax.annotation.Nullable private String signatureRequestId;
 
     public static final String JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS = "requester_email_address";
-    private String requesterEmailAddress;
+    @javax.annotation.Nullable private String requesterEmailAddress;
 
     public static final String JSON_PROPERTY_TITLE = "title";
-    private String title;
+    @javax.annotation.Nullable private String title;
 
     public static final String JSON_PROPERTY_ORIGINAL_TITLE = "original_title";
-    private String originalTitle;
+    @javax.annotation.Nullable private String originalTitle;
 
     public static final String JSON_PROPERTY_SUBJECT = "subject";
-    private String subject;
+    @javax.annotation.Nullable private String subject;
 
     public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+    @javax.annotation.Nullable private String message;
 
     public static final String JSON_PROPERTY_METADATA = "metadata";
-    private Map<String, Object> metadata = null;
+    @javax.annotation.Nullable private Map<String, Object> metadata = null;
 
     public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-    private Integer createdAt;
+    @javax.annotation.Nullable private Integer createdAt;
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-    private Integer expiresAt;
+    @javax.annotation.Nullable private Integer expiresAt;
 
     public static final String JSON_PROPERTY_IS_COMPLETE = "is_complete";
-    private Boolean isComplete;
+    @javax.annotation.Nullable private Boolean isComplete;
 
     public static final String JSON_PROPERTY_IS_DECLINED = "is_declined";
-    private Boolean isDeclined;
+    @javax.annotation.Nullable private Boolean isDeclined;
 
     public static final String JSON_PROPERTY_HAS_ERROR = "has_error";
-    private Boolean hasError;
+    @javax.annotation.Nullable private Boolean hasError;
 
     public static final String JSON_PROPERTY_FILES_URL = "files_url";
-    private String filesUrl;
+    @javax.annotation.Nullable private String filesUrl;
 
     public static final String JSON_PROPERTY_SIGNING_URL = "signing_url";
-    private String signingUrl;
+    @javax.annotation.Nullable private String signingUrl;
 
     public static final String JSON_PROPERTY_DETAILS_URL = "details_url";
-    private String detailsUrl;
+    @javax.annotation.Nullable private String detailsUrl;
 
     public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
-    private List<String> ccEmailAddresses = null;
+    @javax.annotation.Nullable private List<String> ccEmailAddresses = null;
 
     public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
-    private String signingRedirectUrl;
+    @javax.annotation.Nullable private String signingRedirectUrl;
 
     public static final String JSON_PROPERTY_FINAL_COPY_URI = "final_copy_uri";
-    private String finalCopyUri;
+    @javax.annotation.Nullable private String finalCopyUri;
 
     public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
-    private List<String> templateIds = null;
+    @javax.annotation.Nullable private List<String> templateIds = null;
 
     public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-    private List<SignatureRequestResponseCustomFieldBase> customFields = null;
+
+    @javax.annotation.Nullable private List<SignatureRequestResponseCustomFieldBase> customFields = null;
 
     public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-    private List<SignatureRequestResponseAttachment> attachments = null;
+    @javax.annotation.Nullable private List<SignatureRequestResponseAttachment> attachments = null;
 
     public static final String JSON_PROPERTY_RESPONSE_DATA = "response_data";
-    private List<SignatureRequestResponseDataBase> responseData = null;
+    @javax.annotation.Nullable private List<SignatureRequestResponseDataBase> responseData = null;
 
     public static final String JSON_PROPERTY_SIGNATURES = "signatures";
-    private List<SignatureRequestResponseSignatures> signatures = null;
+    @javax.annotation.Nullable private List<SignatureRequestResponseSignatures> signatures = null;
 
     public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
-    private String bulkSendJobId;
+    @javax.annotation.Nullable private String bulkSendJobId;
 
     public BulkSendJobGetResponseSignatureRequests() {}
 
@@ -152,7 +153,8 @@ public class BulkSendJobGetResponseSignatureRequests {
                         BulkSendJobGetResponseSignatureRequests.class);
     }
 
-    public BulkSendJobGetResponseSignatureRequests testMode(Boolean testMode) {
+    public BulkSendJobGetResponseSignatureRequests testMode(
+            @javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
         return this;
     }
@@ -171,11 +173,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_TEST_MODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(Boolean testMode) {
+    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
     }
 
-    public BulkSendJobGetResponseSignatureRequests signatureRequestId(String signatureRequestId) {
+    public BulkSendJobGetResponseSignatureRequests signatureRequestId(
+            @javax.annotation.Nullable String signatureRequestId) {
         this.signatureRequestId = signatureRequestId;
         return this;
     }
@@ -193,12 +196,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignatureRequestId(String signatureRequestId) {
+    public void setSignatureRequestId(@javax.annotation.Nullable String signatureRequestId) {
         this.signatureRequestId = signatureRequestId;
     }
 
     public BulkSendJobGetResponseSignatureRequests requesterEmailAddress(
-            String requesterEmailAddress) {
+            @javax.annotation.Nullable String requesterEmailAddress) {
         this.requesterEmailAddress = requesterEmailAddress;
         return this;
     }
@@ -216,11 +219,11 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequesterEmailAddress(String requesterEmailAddress) {
+    public void setRequesterEmailAddress(@javax.annotation.Nullable String requesterEmailAddress) {
         this.requesterEmailAddress = requesterEmailAddress;
     }
 
-    public BulkSendJobGetResponseSignatureRequests title(String title) {
+    public BulkSendJobGetResponseSignatureRequests title(@javax.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -238,11 +241,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_TITLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTitle(String title) {
+    public void setTitle(@javax.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public BulkSendJobGetResponseSignatureRequests originalTitle(String originalTitle) {
+    public BulkSendJobGetResponseSignatureRequests originalTitle(
+            @javax.annotation.Nullable String originalTitle) {
         this.originalTitle = originalTitle;
         return this;
     }
@@ -260,11 +264,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOriginalTitle(String originalTitle) {
+    public void setOriginalTitle(@javax.annotation.Nullable String originalTitle) {
         this.originalTitle = originalTitle;
     }
 
-    public BulkSendJobGetResponseSignatureRequests subject(String subject) {
+    public BulkSendJobGetResponseSignatureRequests subject(
+            @javax.annotation.Nullable String subject) {
         this.subject = subject;
         return this;
     }
@@ -282,11 +287,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_SUBJECT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSubject(String subject) {
+    public void setSubject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
     }
 
-    public BulkSendJobGetResponseSignatureRequests message(String message) {
+    public BulkSendJobGetResponseSignatureRequests message(
+            @javax.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -304,11 +310,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_MESSAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMessage(String message) {
+    public void setMessage(@javax.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public BulkSendJobGetResponseSignatureRequests metadata(Map<String, Object> metadata) {
+    public BulkSendJobGetResponseSignatureRequests metadata(
+            @javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -335,11 +342,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_METADATA)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMetadata(Map<String, Object> metadata) {
+    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
-    public BulkSendJobGetResponseSignatureRequests createdAt(Integer createdAt) {
+    public BulkSendJobGetResponseSignatureRequests createdAt(
+            @javax.annotation.Nullable Integer createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -357,11 +365,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_CREATED_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCreatedAt(Integer createdAt) {
+    public void setCreatedAt(@javax.annotation.Nullable Integer createdAt) {
         this.createdAt = createdAt;
     }
 
-    public BulkSendJobGetResponseSignatureRequests expiresAt(Integer expiresAt) {
+    public BulkSendJobGetResponseSignatureRequests expiresAt(
+            @javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -381,11 +390,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setExpiresAt(Integer expiresAt) {
+    public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
     }
 
-    public BulkSendJobGetResponseSignatureRequests isComplete(Boolean isComplete) {
+    public BulkSendJobGetResponseSignatureRequests isComplete(
+            @javax.annotation.Nullable Boolean isComplete) {
         this.isComplete = isComplete;
         return this;
     }
@@ -403,11 +413,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_IS_COMPLETE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsComplete(Boolean isComplete) {
+    public void setIsComplete(@javax.annotation.Nullable Boolean isComplete) {
         this.isComplete = isComplete;
     }
 
-    public BulkSendJobGetResponseSignatureRequests isDeclined(Boolean isDeclined) {
+    public BulkSendJobGetResponseSignatureRequests isDeclined(
+            @javax.annotation.Nullable Boolean isDeclined) {
         this.isDeclined = isDeclined;
         return this;
     }
@@ -425,11 +436,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_IS_DECLINED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsDeclined(Boolean isDeclined) {
+    public void setIsDeclined(@javax.annotation.Nullable Boolean isDeclined) {
         this.isDeclined = isDeclined;
     }
 
-    public BulkSendJobGetResponseSignatureRequests hasError(Boolean hasError) {
+    public BulkSendJobGetResponseSignatureRequests hasError(
+            @javax.annotation.Nullable Boolean hasError) {
         this.hasError = hasError;
         return this;
     }
@@ -448,11 +460,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_HAS_ERROR)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setHasError(Boolean hasError) {
+    public void setHasError(@javax.annotation.Nullable Boolean hasError) {
         this.hasError = hasError;
     }
 
-    public BulkSendJobGetResponseSignatureRequests filesUrl(String filesUrl) {
+    public BulkSendJobGetResponseSignatureRequests filesUrl(
+            @javax.annotation.Nullable String filesUrl) {
         this.filesUrl = filesUrl;
         return this;
     }
@@ -470,11 +483,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_FILES_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFilesUrl(String filesUrl) {
+    public void setFilesUrl(@javax.annotation.Nullable String filesUrl) {
         this.filesUrl = filesUrl;
     }
 
-    public BulkSendJobGetResponseSignatureRequests signingUrl(String signingUrl) {
+    public BulkSendJobGetResponseSignatureRequests signingUrl(
+            @javax.annotation.Nullable String signingUrl) {
         this.signingUrl = signingUrl;
         return this;
     }
@@ -494,11 +508,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_SIGNING_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigningUrl(String signingUrl) {
+    public void setSigningUrl(@javax.annotation.Nullable String signingUrl) {
         this.signingUrl = signingUrl;
     }
 
-    public BulkSendJobGetResponseSignatureRequests detailsUrl(String detailsUrl) {
+    public BulkSendJobGetResponseSignatureRequests detailsUrl(
+            @javax.annotation.Nullable String detailsUrl) {
         this.detailsUrl = detailsUrl;
         return this;
     }
@@ -517,11 +532,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_DETAILS_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setDetailsUrl(String detailsUrl) {
+    public void setDetailsUrl(@javax.annotation.Nullable String detailsUrl) {
         this.detailsUrl = detailsUrl;
     }
 
-    public BulkSendJobGetResponseSignatureRequests ccEmailAddresses(List<String> ccEmailAddresses) {
+    public BulkSendJobGetResponseSignatureRequests ccEmailAddresses(
+            @javax.annotation.Nullable List<String> ccEmailAddresses) {
         this.ccEmailAddresses = ccEmailAddresses;
         return this;
     }
@@ -549,11 +565,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCcEmailAddresses(List<String> ccEmailAddresses) {
+    public void setCcEmailAddresses(@javax.annotation.Nullable List<String> ccEmailAddresses) {
         this.ccEmailAddresses = ccEmailAddresses;
     }
 
-    public BulkSendJobGetResponseSignatureRequests signingRedirectUrl(String signingRedirectUrl) {
+    public BulkSendJobGetResponseSignatureRequests signingRedirectUrl(
+            @javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
         return this;
     }
@@ -571,11 +588,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigningRedirectUrl(String signingRedirectUrl) {
+    public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
     }
 
-    public BulkSendJobGetResponseSignatureRequests finalCopyUri(String finalCopyUri) {
+    public BulkSendJobGetResponseSignatureRequests finalCopyUri(
+            @javax.annotation.Nullable String finalCopyUri) {
         this.finalCopyUri = finalCopyUri;
         return this;
     }
@@ -593,11 +611,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFinalCopyUri(String finalCopyUri) {
+    public void setFinalCopyUri(@javax.annotation.Nullable String finalCopyUri) {
         this.finalCopyUri = finalCopyUri;
     }
 
-    public BulkSendJobGetResponseSignatureRequests templateIds(List<String> templateIds) {
+    public BulkSendJobGetResponseSignatureRequests templateIds(
+            @javax.annotation.Nullable List<String> templateIds) {
         this.templateIds = templateIds;
         return this;
     }
@@ -623,12 +642,12 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTemplateIds(List<String> templateIds) {
+    public void setTemplateIds(@javax.annotation.Nullable List<String> templateIds) {
         this.templateIds = templateIds;
     }
 
     public BulkSendJobGetResponseSignatureRequests customFields(
-            List<SignatureRequestResponseCustomFieldBase> customFields) {
+            @javax.annotation.Nullable List<SignatureRequestResponseCustomFieldBase> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -657,12 +676,13 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCustomFields(List<SignatureRequestResponseCustomFieldBase> customFields) {
+    public void setCustomFields(
+            @javax.annotation.Nullable List<SignatureRequestResponseCustomFieldBase> customFields) {
         this.customFields = customFields;
     }
 
     public BulkSendJobGetResponseSignatureRequests attachments(
-            List<SignatureRequestResponseAttachment> attachments) {
+            @javax.annotation.Nullable List<SignatureRequestResponseAttachment> attachments) {
         this.attachments = attachments;
         return this;
     }
@@ -689,12 +709,13 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAttachments(List<SignatureRequestResponseAttachment> attachments) {
+    public void setAttachments(
+            @javax.annotation.Nullable List<SignatureRequestResponseAttachment> attachments) {
         this.attachments = attachments;
     }
 
     public BulkSendJobGetResponseSignatureRequests responseData(
-            List<SignatureRequestResponseDataBase> responseData) {
+            @javax.annotation.Nullable List<SignatureRequestResponseDataBase> responseData) {
         this.responseData = responseData;
         return this;
     }
@@ -722,12 +743,13 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_RESPONSE_DATA)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setResponseData(List<SignatureRequestResponseDataBase> responseData) {
+    public void setResponseData(
+            @javax.annotation.Nullable List<SignatureRequestResponseDataBase> responseData) {
         this.responseData = responseData;
     }
 
     public BulkSendJobGetResponseSignatureRequests signatures(
-            List<SignatureRequestResponseSignatures> signatures) {
+            @javax.annotation.Nullable List<SignatureRequestResponseSignatures> signatures) {
         this.signatures = signatures;
         return this;
     }
@@ -754,11 +776,13 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_SIGNATURES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignatures(List<SignatureRequestResponseSignatures> signatures) {
+    public void setSignatures(
+            @javax.annotation.Nullable List<SignatureRequestResponseSignatures> signatures) {
         this.signatures = signatures;
     }
 
-    public BulkSendJobGetResponseSignatureRequests bulkSendJobId(String bulkSendJobId) {
+    public BulkSendJobGetResponseSignatureRequests bulkSendJobId(
+            @javax.annotation.Nullable String bulkSendJobId) {
         this.bulkSendJobId = bulkSendJobId;
         return this;
     }
@@ -776,7 +800,7 @@ public class BulkSendJobGetResponseSignatureRequests {
 
     @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setBulkSendJobId(String bulkSendJobId) {
+    public void setBulkSendJobId(@javax.annotation.Nullable String bulkSendJobId) {
         this.bulkSendJobId = bulkSendJobId;
     }
 

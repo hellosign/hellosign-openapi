@@ -33,17 +33,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineListResponse {
     public static final String JSON_PROPERTY_LIST_INFO = "list_info";
-    private ListInfoResponse listInfo;
+    @javax.annotation.Nonnull private ListInfoResponse listInfo;
 
     public static final String JSON_PROPERTY_FAX_LINES = "fax_lines";
-    private List<FaxLineResponseFaxLine> faxLines = new ArrayList<>();
+    @javax.annotation.Nonnull private List<FaxLineResponseFaxLine> faxLines = new ArrayList<>();
 
     public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private WarningResponse warnings;
+    @javax.annotation.Nullable private WarningResponse warnings;
 
     public FaxLineListResponse() {}
 
@@ -61,7 +61,7 @@ public class FaxLineListResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxLineListResponse.class);
     }
 
-    public FaxLineListResponse listInfo(ListInfoResponse listInfo) {
+    public FaxLineListResponse listInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
         return this;
     }
@@ -80,11 +80,12 @@ public class FaxLineListResponse {
 
     @JsonProperty(JSON_PROPERTY_LIST_INFO)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setListInfo(ListInfoResponse listInfo) {
+    public void setListInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
     }
 
-    public FaxLineListResponse faxLines(List<FaxLineResponseFaxLine> faxLines) {
+    public FaxLineListResponse faxLines(
+            @javax.annotation.Nonnull List<FaxLineResponseFaxLine> faxLines) {
         this.faxLines = faxLines;
         return this;
     }
@@ -111,11 +112,11 @@ public class FaxLineListResponse {
 
     @JsonProperty(JSON_PROPERTY_FAX_LINES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFaxLines(List<FaxLineResponseFaxLine> faxLines) {
+    public void setFaxLines(@javax.annotation.Nonnull List<FaxLineResponseFaxLine> faxLines) {
         this.faxLines = faxLines;
     }
 
-    public FaxLineListResponse warnings(WarningResponse warnings) {
+    public FaxLineListResponse warnings(@javax.annotation.Nullable WarningResponse warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -133,7 +134,7 @@ public class FaxLineListResponse {
 
     @JsonProperty(JSON_PROPERTY_WARNINGS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(WarningResponse warnings) {
+    public void setWarnings(@javax.annotation.Nullable WarningResponse warnings) {
         this.warnings = warnings;
     }
 

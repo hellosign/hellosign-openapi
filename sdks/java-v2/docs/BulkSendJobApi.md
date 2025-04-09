@@ -20,32 +20,42 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class BulkSendJobGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var bulkSendJobApi = new BulkSendJobApi(apiClient);
+        try
+        {
+            var response = new BulkSendJobApi(config).bulkSendJobGet(
+                "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174", // bulkSendJobId
+                1, // page
+                20 // pageSize
+            );
 
-        var bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-
-        try {
-            BulkSendJobGetResponse result = bulkSendJobApi.bulkSendJobGet(bulkSendJobId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling BulkSendJobApi#bulkSendJobGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -96,33 +106,41 @@ Returns a list of BulkSendJob that you can access.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class BulkSendJobListExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var bulkSendJobApi = new BulkSendJobApi(apiClient);
+        try
+        {
+            var response = new BulkSendJobApi(config).bulkSendJobList(
+                1, // page
+                20 // pageSize
+            );
 
-        var page = 1;
-        var pageSize = 20;
-
-        try {
-            BulkSendJobListResponse result = bulkSendJobApi.bulkSendJobList(page, pageSize);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling BulkSendJobApi#bulkSendJobList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

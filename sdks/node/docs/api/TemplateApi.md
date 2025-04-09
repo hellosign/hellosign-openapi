@@ -30,56 +30,25 @@ Gives the specified Account access to the specified Template. The specified Acco
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.TemplateAddUserRequest = {
+const templateAddUserRequest: models.TemplateAddUserRequest = {
   emailAddress: "george@dropboxsign.com",
 };
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-const result = templateApi.templateAddUser(templateId, data);
-result.then(response => {
+apiCaller.templateAddUser(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateAddUserRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "george@dropboxsign.com",
-};
-
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-const result = templateApi.templateAddUser(templateId, data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateAddUser:");
   console.log(error.body);
 });
 
@@ -122,132 +91,107 @@ Creates a template that can then be used.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
+const fieldOptions: models.SubFieldOptions = {
+  dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
+};
 
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const role1: DropboxSign.SubTemplateRole = {
+const signerRoles1: models.SubTemplateRole = {
   name: "Client",
   order: 0,
 };
 
-const role2: DropboxSign.SubTemplateRole = {
+const signerRoles2: models.SubTemplateRole = {
   name: "Witness",
   order: 1,
 };
 
-const mergeField1: DropboxSign.SubMergeField = {
-  name: "Full Name",
-  type: DropboxSign.SubMergeField.TypeEnum.Text,
-};
+const signerRoles = [
+  signerRoles1,
+  signerRoles2,
+];
 
-const mergeField2: DropboxSign.SubMergeField = {
-  name: "Is Registered?",
-  type: DropboxSign.SubMergeField.TypeEnum.Checkbox,
-};
-
-const fieldOptions: DropboxSign.SubFieldOptions = {
-  dateFormat: DropboxSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
-};
-
-const data: DropboxSign.TemplateCreateRequest = {
-  clientId: "37dee8d8440c66d54cfa05d92c160882",
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  title: "Test Template",
-  subject: "Please sign this document",
-  message: "For your approval",
-  signerRoles: [
-    role1,
-    role2,
-  ],
-  ccRoles: ["Manager"],
-  mergeFields: [
-    mergeField1,
-    mergeField2,
-  ],
-  fieldOptions,
-  testMode: true,
-};
-
-const result = templateApi.templateCreate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const role1 = {
-  name: "Client",
-  order: 0,
-};
-
-const role2 = {
-  name: "Witness",
-  order: 1,
-};
-
-const mergeField1 = {
-  name: "Full Name",
+const formFieldsPerDocument1: models.SubFormFieldsPerDocumentText = {
+  documentIndex: 0,
+  apiId: "uniqueIdHere_1",
   type: "text",
+  required: true,
+  signer: "1",
+  width: 100,
+  height: 16,
+  x: 112,
+  y: 328,
+  name: "",
+  page: 1,
+  placeholder: "",
+  validationType: models.SubFormFieldsPerDocumentText.ValidationTypeEnum.NumbersOnly,
 };
 
-const mergeField2 = {
+const formFieldsPerDocument2: models.SubFormFieldsPerDocumentSignature = {
+  documentIndex: 0,
+  apiId: "uniqueIdHere_2",
+  type: "signature",
+  required: true,
+  signer: "0",
+  width: 120,
+  height: 30,
+  x: 530,
+  y: 415,
+  name: "",
+  page: 1,
+};
+
+const formFieldsPerDocument = [
+  formFieldsPerDocument1,
+  formFieldsPerDocument2,
+];
+
+const mergeFields1: models.SubMergeField = {
+  name: "Full Name",
+  type: models.SubMergeField.TypeEnum.Text,
+};
+
+const mergeFields2: models.SubMergeField = {
   name: "Is Registered?",
-  type: "checkbox",
+  type: models.SubMergeField.TypeEnum.Checkbox,
 };
 
-const fieldOptions = {
-  dateFormat: "DD - MM - YYYY",
-};
+const mergeFields = [
+  mergeFields1,
+  mergeFields2,
+];
 
-const data = {
+const templateCreateRequest: models.TemplateCreateRequest = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  title: "Test Template",
-  subject: "Please sign this document",
   message: "For your approval",
-  signerRoles: [
-    role1,
-    role2,
-  ],
-  ccRoles: ["Manager"],
-  mergeFields: [
-    mergeField1,
-    mergeField2,
-  ],
-  fieldOptions,
+  subject: "Please sign this document",
   testMode: true,
+  title: "Test Template",
+  ccRoles: [
+    "Manager",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  fieldOptions: fieldOptions,
+  signerRoles: signerRoles,
+  formFieldsPerDocument: formFieldsPerDocument,
+  mergeFields: mergeFields,
 };
 
-const result = templateApi.templateCreate(data);
-result.then(response => {
+apiCaller.templateCreate(
+  templateCreateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateCreate:");
   console.log(error.body);
 });
 
@@ -289,132 +233,71 @@ The first step in an embedded template workflow. Creates a draft template that c
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
+const fieldOptions: models.SubFieldOptions = {
+  dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
+};
 
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
+const mergeFields1: models.SubMergeField = {
+  name: "Full Name",
+  type: models.SubMergeField.TypeEnum.Text,
+};
 
-const role1: DropboxSign.SubTemplateRole = {
+const mergeFields2: models.SubMergeField = {
+  name: "Is Registered?",
+  type: models.SubMergeField.TypeEnum.Checkbox,
+};
+
+const mergeFields = [
+  mergeFields1,
+  mergeFields2,
+];
+
+const signerRoles1: models.SubTemplateRole = {
   name: "Client",
   order: 0,
 };
 
-const role2: DropboxSign.SubTemplateRole = {
+const signerRoles2: models.SubTemplateRole = {
   name: "Witness",
   order: 1,
 };
 
-const mergeField1: DropboxSign.SubMergeField = {
-  name: "Full Name",
-  type: DropboxSign.SubMergeField.TypeEnum.Text,
-};
+const signerRoles = [
+  signerRoles1,
+  signerRoles2,
+];
 
-const mergeField2: DropboxSign.SubMergeField = {
-  name: "Is Registered?",
-  type: DropboxSign.SubMergeField.TypeEnum.Checkbox,
-};
-
-const fieldOptions: DropboxSign.SubFieldOptions = {
-  dateFormat: DropboxSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
-};
-
-const data: DropboxSign.TemplateCreateEmbeddedDraftRequest = {
+const templateCreateEmbeddedDraftRequest: models.TemplateCreateEmbeddedDraftRequest = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  title: "Test Template",
-  subject: "Please sign this document",
   message: "For your approval",
-  signerRoles: [
-    role1,
-    role2,
-  ],
-  ccRoles: ["Manager"],
-  mergeFields: [
-    mergeField1,
-    mergeField2,
-  ],
-  fieldOptions,
+  subject: "Please sign this document",
   testMode: true,
+  title: "Test Template",
+  ccRoles: [
+    "Manager",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  fieldOptions: fieldOptions,
+  mergeFields: mergeFields,
+  signerRoles: signerRoles,
 };
 
-const result = templateApi.templateCreateEmbeddedDraft(data);
-result.then(response => {
+apiCaller.templateCreateEmbeddedDraft(
+  templateCreateEmbeddedDraftRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const role1 = {
-  name: "Client",
-  order: 0,
-};
-
-const role2 = {
-  name: "Witness",
-  order: 1,
-};
-
-const mergeField1 = {
-  name: "Full Name",
-  type: "text",
-};
-
-const mergeField2 = {
-  name: "Is Registered?",
-  type: "checkbox",
-};
-
-const fieldOptions = {
-  dateFormat: "DD - MM - YYYY",
-};
-
-const data = {
-  clientId: "37dee8d8440c66d54cfa05d92c160882",
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  title: "Test Template",
-  subject: "Please sign this document",
-  message: "For your approval",
-  signerRoles: [
-    role1,
-    role2,
-  ],
-  ccRoles: ["Manager"],
-  mergeFields: [
-    mergeField1,
-    mergeField2,
-  ],
-  fieldOptions,
-  testMode: true,
-};
-
-const result = templateApi.templateCreateEmbeddedDraft(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateCreateEmbeddedDraft:");
   console.log(error.body);
 });
 
@@ -456,48 +339,18 @@ Completely deletes the template specified from the account.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = templateApi.templateDelete(templateId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = templateApi.templateDelete(templateId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+apiCaller.templateDelete(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+).catch(error => {
+  console.log("Exception when calling TemplateApi#templateDelete:");
   console.log(error.body);
 });
 
@@ -539,52 +392,21 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-const fileType = "pdf";
-
-const result = templateApi.templateFiles(templateId, fileType);
-result.then(response => {
-  fs.createWriteStream('file_response.pdf').write(response.body);
+apiCaller.templateFiles(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  undefined, // fileType
+).then(response => {
+  fs.createWriteStream('./file_response').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-const fileType = "pdf";
-
-const result = templateApi.templateFiles(templateId, fileType);
-result.then(response => {
-  fs.createWriteStream('file_response.pdf').write(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateFiles:");
   console.log(error.body);
 });
 
@@ -627,48 +449,20 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = templateApi.templateFilesAsDataUri(templateId);
-result.then(response => {
+apiCaller.templateFilesAsDataUri(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = templateApi.templateFilesAsDataUri(templateId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateFilesAsDataUri:");
   console.log(error.body);
 });
 
@@ -710,48 +504,21 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = templateApi.templateFilesAsFileUrl(templateId);
-result.then(response => {
+apiCaller.templateFilesAsFileUrl(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  1, // forceDownload
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = templateApi.templateFilesAsFileUrl(templateId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateFilesAsFileUrl:");
   console.log(error.body);
 });
 
@@ -794,48 +561,20 @@ Returns the Template specified by the `template_id` parameter.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-const result = templateApi.templateGet(templateId);
-result.then(response => {
+apiCaller.templateGet(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-const result = templateApi.templateGet(templateId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateGet:");
   console.log(error.body);
 });
 
@@ -877,48 +616,23 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const accountId = "f57db65d3f933b5316d398057a36176831451a35";
-
-const result = templateApi.templateList(accountId);
-result.then(response => {
+apiCaller.templateList(
+  undefined, // accountId
+  1, // page
+  20, // pageSize
+  undefined, // query
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const accountId = "f57db65d3f933b5316d398057a36176831451a35";
-
-const result = templateApi.templateList(accountId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateList:");
   console.log(error.body);
 });
 
@@ -963,56 +677,25 @@ Removes the specified Account\'s access to the specified Template.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.TemplateRemoveUserRequest = {
+const templateRemoveUserRequest: models.TemplateRemoveUserRequest = {
   emailAddress: "george@dropboxsign.com",
 };
 
-const templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
-
-const result = templateApi.templateRemoveUser(templateId, data);
-result.then(response => {
+apiCaller.templateRemoveUser(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateRemoveUserRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "george@dropboxsign.com",
-};
-
-const templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
-
-const result = templateApi.templateRemoveUser(templateId, data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateRemoveUser:");
   console.log(error.body);
 });
 
@@ -1055,58 +738,27 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
-import fs from "fs";
-
-const templateApi = new DropboxSign.TemplateApi();
-
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.TemplateUpdateFilesRequest = {
-  files: [fs.createReadStream("example_signature_request.pdf")],
-};
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = templateApi.templateUpdateFiles(templateId, data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const templateApi = new DropboxSign.TemplateApi();
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-templateApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  files: [fs.createReadStream("example_signature_request.pdf")],
+const templateUpdateFilesRequest: models.TemplateUpdateFilesRequest = {
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
 };
 
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = templateApi.templateUpdateFiles(templateId, data);
-result.then(response => {
+apiCaller.templateUpdateFiles(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateUpdateFilesRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling TemplateApi#templateUpdateFiles:");
   console.log(error.body);
 });
 

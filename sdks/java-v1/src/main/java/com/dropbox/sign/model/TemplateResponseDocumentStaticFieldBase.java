@@ -42,7 +42,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -75,34 +75,34 @@ import java.util.Objects;
 })
 public class TemplateResponseDocumentStaticFieldBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
+    @javax.annotation.Nonnull private String type;
 
     public static final String JSON_PROPERTY_API_ID = "api_id";
-    private String apiId;
+    @javax.annotation.Nullable private String apiId;
 
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public static final String JSON_PROPERTY_SIGNER = "signer";
-    private String signer = "me_now";
+    @javax.annotation.Nullable private String signer = "me_now";
 
     public static final String JSON_PROPERTY_X = "x";
-    private Integer x;
+    @javax.annotation.Nullable private Integer x;
 
     public static final String JSON_PROPERTY_Y = "y";
-    private Integer y;
+    @javax.annotation.Nullable private Integer y;
 
     public static final String JSON_PROPERTY_WIDTH = "width";
-    private Integer width;
+    @javax.annotation.Nullable private Integer width;
 
     public static final String JSON_PROPERTY_HEIGHT = "height";
-    private Integer height;
+    @javax.annotation.Nullable private Integer height;
 
     public static final String JSON_PROPERTY_REQUIRED = "required";
-    private Boolean required;
+    @javax.annotation.Nullable private Boolean required;
 
     public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+    @javax.annotation.Nullable private String group;
 
     public TemplateResponseDocumentStaticFieldBase() {}
 
@@ -123,7 +123,7 @@ public class TemplateResponseDocumentStaticFieldBase {
                         TemplateResponseDocumentStaticFieldBase.class);
     }
 
-    public TemplateResponseDocumentStaticFieldBase type(String type) {
+    public TemplateResponseDocumentStaticFieldBase type(@javax.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -142,11 +142,11 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public TemplateResponseDocumentStaticFieldBase apiId(String apiId) {
+    public TemplateResponseDocumentStaticFieldBase apiId(@javax.annotation.Nullable String apiId) {
         this.apiId = apiId;
         return this;
     }
@@ -164,11 +164,11 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_API_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setApiId(String apiId) {
+    public void setApiId(@javax.annotation.Nullable String apiId) {
         this.apiId = apiId;
     }
 
-    public TemplateResponseDocumentStaticFieldBase name(String name) {
+    public TemplateResponseDocumentStaticFieldBase name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -186,11 +186,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public TemplateResponseDocumentStaticFieldBase signer(String signer) {
+    public TemplateResponseDocumentStaticFieldBase signer(
+            @javax.annotation.Nullable String signer) {
         this.signer = signer;
         return this;
     }
@@ -208,11 +209,11 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_SIGNER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigner(String signer) {
+    public void setSigner(@javax.annotation.Nullable String signer) {
         this.signer = signer;
     }
 
-    public TemplateResponseDocumentStaticFieldBase x(Integer x) {
+    public TemplateResponseDocumentStaticFieldBase x(@javax.annotation.Nullable Integer x) {
         this.x = x;
         return this;
     }
@@ -230,11 +231,11 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_X)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setX(Integer x) {
+    public void setX(@javax.annotation.Nullable Integer x) {
         this.x = x;
     }
 
-    public TemplateResponseDocumentStaticFieldBase y(Integer y) {
+    public TemplateResponseDocumentStaticFieldBase y(@javax.annotation.Nullable Integer y) {
         this.y = y;
         return this;
     }
@@ -252,11 +253,11 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_Y)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setY(Integer y) {
+    public void setY(@javax.annotation.Nullable Integer y) {
         this.y = y;
     }
 
-    public TemplateResponseDocumentStaticFieldBase width(Integer width) {
+    public TemplateResponseDocumentStaticFieldBase width(@javax.annotation.Nullable Integer width) {
         this.width = width;
         return this;
     }
@@ -274,11 +275,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_WIDTH)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWidth(Integer width) {
+    public void setWidth(@javax.annotation.Nullable Integer width) {
         this.width = width;
     }
 
-    public TemplateResponseDocumentStaticFieldBase height(Integer height) {
+    public TemplateResponseDocumentStaticFieldBase height(
+            @javax.annotation.Nullable Integer height) {
         this.height = height;
         return this;
     }
@@ -296,11 +298,12 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_HEIGHT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setHeight(Integer height) {
+    public void setHeight(@javax.annotation.Nullable Integer height) {
         this.height = height;
     }
 
-    public TemplateResponseDocumentStaticFieldBase required(Boolean required) {
+    public TemplateResponseDocumentStaticFieldBase required(
+            @javax.annotation.Nullable Boolean required) {
         this.required = required;
         return this;
     }
@@ -318,11 +321,11 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_REQUIRED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequired(Boolean required) {
+    public void setRequired(@javax.annotation.Nullable Boolean required) {
         this.required = required;
     }
 
-    public TemplateResponseDocumentStaticFieldBase group(String group) {
+    public TemplateResponseDocumentStaticFieldBase group(@javax.annotation.Nullable String group) {
         this.group = group;
         return this;
     }
@@ -341,7 +344,7 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @JsonProperty(JSON_PROPERTY_GROUP)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroup(String group) {
+    public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
     }
 

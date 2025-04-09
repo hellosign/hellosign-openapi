@@ -18,7 +18,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class FaxApi {
     private ApiClient apiClient;
 
@@ -49,12 +49,13 @@ public class FaxApi {
     }
 
     /**
-     * Delete Fax. Deletes the specified Fax from the system.
+     * Delete Fax Deletes the specified Fax from the system
      *
      * @param faxId Fax ID (required)
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -65,13 +66,14 @@ public class FaxApi {
     }
 
     /**
-     * Delete Fax. Deletes the specified Fax from the system.
+     * Delete Fax Deletes the specified Fax from the system
      *
      * @param faxId Fax ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -113,13 +115,14 @@ public class FaxApi {
     }
 
     /**
-     * List Fax Files. Returns list of fax files
+     * Download Fax Files Downloads files associated with a Fax
      *
      * @param faxId Fax ID (required)
      * @return File
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -130,13 +133,14 @@ public class FaxApi {
     }
 
     /**
-     * List Fax Files. Returns list of fax files
+     * Download Fax Files Downloads files associated with a Fax
      *
      * @param faxId Fax ID (required)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -180,13 +184,14 @@ public class FaxApi {
     }
 
     /**
-     * Get Fax. Returns information about fax
+     * Get Fax Returns information about a Fax
      *
      * @param faxId Fax ID (required)
      * @return FaxGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -197,13 +202,14 @@ public class FaxApi {
     }
 
     /**
-     * Get Fax. Returns information about fax
+     * Get Fax Returns information about a Fax
      *
      * @param faxId Fax ID (required)
      * @return ApiResponse&lt;FaxGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -246,14 +252,17 @@ public class FaxApi {
     }
 
     /**
-     * Lists Faxes. Returns properties of multiple faxes
+     * Lists Faxes Returns properties of multiple Faxes
      *
-     * @param page Page (optional, default to 1)
-     * @param pageSize Page size (optional, default to 20)
+     * @param page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;.
+     *     (optional, default to 1)
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and
+     *     &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @return FaxListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -302,14 +311,17 @@ public class FaxApi {
     }
 
     /**
-     * Lists Faxes. Returns properties of multiple faxes
+     * Lists Faxes Returns properties of multiple Faxes
      *
-     * @param page Page (optional, default to 1)
-     * @param pageSize Page size (optional, default to 20)
+     * @param page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;.
+     *     (optional, default to 1)
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and
+     *     &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @return ApiResponse&lt;FaxListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -354,13 +366,14 @@ public class FaxApi {
     }
 
     /**
-     * Send Fax. Action to prepare and send a fax
+     * Send Fax Creates and sends a new Fax with the submitted file(s)
      *
      * @param faxSendRequest (required)
      * @return FaxGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -371,13 +384,14 @@ public class FaxApi {
     }
 
     /**
-     * Send Fax. Action to prepare and send a fax
+     * Send Fax Creates and sends a new Fax with the submitted file(s)
      *
      * @param faxSendRequest (required)
      * @return ApiResponse&lt;FaxGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

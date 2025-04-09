@@ -261,12 +261,12 @@ export class FaxLineApi {
     });
   }
   /**
-   * Returns a response with the area codes available for a given state/provice and city.
+   * Returns a list of available area codes for a given state/province and city
    * @summary Get Available Fax Line Area Codes
-   * @param country Filter area codes by country.
-   * @param state Filter area codes by state.
-   * @param province Filter area codes by province.
-   * @param city Filter area codes by city.
+   * @param country Filter area codes by country
+   * @param state Filter area codes by state
+   * @param province Filter area codes by province
+   * @param city Filter area codes by city
    * @param options
    */
   public async faxLineAreaCodeGet(
@@ -473,7 +473,7 @@ export class FaxLineApi {
     });
   }
   /**
-   * Purchases a new Fax Line.
+   * Purchases a new Fax Line
    * @summary Purchase Fax Line
    * @param faxLineCreateRequest
    * @param options
@@ -735,7 +735,7 @@ export class FaxLineApi {
   /**
    * Returns the properties and settings of a Fax Line.
    * @summary Get Fax Line
-   * @param number The Fax Line number.
+   * @param number The Fax Line number
    * @param options
    */
   public async faxLineGet(
@@ -855,9 +855,9 @@ export class FaxLineApi {
    * Returns the properties and settings of multiple Fax Lines.
    * @summary List Fax Lines
    * @param accountId Account ID
-   * @param page Page
-   * @param pageSize Page size
-   * @param showTeamLines Show team lines
+   * @param page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;.
+   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
+   * @param showTeamLines Include Fax Lines belonging to team members in the list
    * @param options
    */
   public async faxLineList(
@@ -993,7 +993,7 @@ export class FaxLineApi {
     });
   }
   /**
-   * Removes a user\'s access to the specified Fax Line.
+   * Removes a user\'s access to the specified Fax Line
    * @summary Remove Fax Line Access
    * @param faxLineRemoveUserRequest
    * @param options

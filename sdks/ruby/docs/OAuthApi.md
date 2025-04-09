@@ -19,21 +19,27 @@ Once you have retrieved the code from the user callback, you will need to exchan
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
-oauth_api = Dropbox::Sign::OAuthApi.new
+Dropbox::Sign.configure do |config|
+end
 
-data = Dropbox::Sign::OAuthTokenGenerateRequest.new
-data.state = "900e06e2"
-data.code = "1b0d28d90c86c141"
-data.client_id = "cc91c61d00f8bb2ece1428035716b"
-data.client_secret = "1d14434088507ffa390e6f5528465"
+o_auth_token_generate_request = Dropbox::Sign::OAuthTokenGenerateRequest.new
+o_auth_token_generate_request.client_id = "cc91c61d00f8bb2ece1428035716b"
+o_auth_token_generate_request.client_secret = "1d14434088507ffa390e6f5528465"
+o_auth_token_generate_request.code = "1b0d28d90c86c141"
+o_auth_token_generate_request.state = "900e06e2"
+o_auth_token_generate_request.grant_type = "authorization_code"
 
 begin
-  result = oauth_api.oauth_token_generate(data)
-  p result
+  response = Dropbox::Sign::OAuthApi.new.oauth_token_generate(
+    o_auth_token_generate_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling OAuthApi#oauth_token_generate: #{e}"
 end
 
 ```
@@ -87,18 +93,24 @@ Access tokens are only valid for a given period of time (typically one hour) for
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
-oauth_api = Dropbox::Sign::OAuthApi.new
+Dropbox::Sign.configure do |config|
+end
 
-data = Dropbox::Sign::OAuthTokenRefreshRequest.new
-data.refresh_token = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3"
+o_auth_token_refresh_request = Dropbox::Sign::OAuthTokenRefreshRequest.new
+o_auth_token_refresh_request.grant_type = "refresh_token"
+o_auth_token_refresh_request.refresh_token = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3"
 
 begin
-  result = oauth_api.oauth_token_refresh(data)
-  p result
+  response = Dropbox::Sign::OAuthApi.new.oauth_token_refresh(
+    o_auth_token_refresh_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling OAuthApi#oauth_token_refresh: #{e}"
 end
 
 ```

@@ -50,40 +50,51 @@ import com.dropbox.sign.ApiException;
   FaxResponse.JSON_PROPERTY_MESSAGE,
   FaxResponse.JSON_PROPERTY_FINAL_COPY_URI
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxResponse {
   public static final String JSON_PROPERTY_FAX_ID = "fax_id";
+  @jakarta.annotation.Nonnull
   private String faxId;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_ORIGINAL_TITLE = "original_title";
+  @jakarta.annotation.Nonnull
   private String originalTitle;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
+  @jakarta.annotation.Nonnull
   private Map<String, Object> metadata = new HashMap<>();
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  @jakarta.annotation.Nonnull
   private Integer createdAt;
 
   public static final String JSON_PROPERTY_SENDER = "sender";
+  @jakarta.annotation.Nonnull
   private String sender;
 
   public static final String JSON_PROPERTY_FILES_URL = "files_url";
+  @jakarta.annotation.Nonnull
   private String filesUrl;
 
   public static final String JSON_PROPERTY_TRANSMISSIONS = "transmissions";
+  @jakarta.annotation.Nonnull
   private List<FaxResponseTransmission> transmissions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SUBJECT = "subject";
+  @jakarta.annotation.Nullable
   private String subject;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String JSON_PROPERTY_FINAL_COPY_URI = "final_copy_uri";
+  @jakarta.annotation.Nullable
   private String finalCopyUri;
 
   public FaxResponse() { 
@@ -104,7 +115,7 @@ public class FaxResponse {
     );
   }
 
-  public FaxResponse faxId(String faxId) {
+  public FaxResponse faxId(@jakarta.annotation.Nonnull String faxId) {
     this.faxId = faxId;
     return this;
   }
@@ -124,12 +135,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_FAX_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFaxId(String faxId) {
+  public void setFaxId(@jakarta.annotation.Nonnull String faxId) {
     this.faxId = faxId;
   }
 
 
-  public FaxResponse title(String title) {
+  public FaxResponse title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -149,12 +160,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public FaxResponse originalTitle(String originalTitle) {
+  public FaxResponse originalTitle(@jakarta.annotation.Nonnull String originalTitle) {
     this.originalTitle = originalTitle;
     return this;
   }
@@ -174,12 +185,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOriginalTitle(String originalTitle) {
+  public void setOriginalTitle(@jakarta.annotation.Nonnull String originalTitle) {
     this.originalTitle = originalTitle;
   }
 
 
-  public FaxResponse metadata(Map<String, Object> metadata) {
+  public FaxResponse metadata(@jakarta.annotation.Nonnull Map<String, Object> metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -207,12 +218,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setMetadata(Map<String, Object> metadata) {
+  public void setMetadata(@jakarta.annotation.Nonnull Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 
 
-  public FaxResponse createdAt(Integer createdAt) {
+  public FaxResponse createdAt(@jakarta.annotation.Nonnull Integer createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -232,12 +243,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedAt(Integer createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nonnull Integer createdAt) {
     this.createdAt = createdAt;
   }
 
 
-  public FaxResponse sender(String sender) {
+  public FaxResponse sender(@jakarta.annotation.Nonnull String sender) {
     this.sender = sender;
     return this;
   }
@@ -257,12 +268,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_SENDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSender(String sender) {
+  public void setSender(@jakarta.annotation.Nonnull String sender) {
     this.sender = sender;
   }
 
 
-  public FaxResponse filesUrl(String filesUrl) {
+  public FaxResponse filesUrl(@jakarta.annotation.Nonnull String filesUrl) {
     this.filesUrl = filesUrl;
     return this;
   }
@@ -282,12 +293,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_FILES_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilesUrl(String filesUrl) {
+  public void setFilesUrl(@jakarta.annotation.Nonnull String filesUrl) {
     this.filesUrl = filesUrl;
   }
 
 
-  public FaxResponse transmissions(List<FaxResponseTransmission> transmissions) {
+  public FaxResponse transmissions(@jakarta.annotation.Nonnull List<FaxResponseTransmission> transmissions) {
     this.transmissions = transmissions;
     return this;
   }
@@ -315,12 +326,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTransmissions(List<FaxResponseTransmission> transmissions) {
+  public void setTransmissions(@jakarta.annotation.Nonnull List<FaxResponseTransmission> transmissions) {
     this.transmissions = transmissions;
   }
 
 
-  public FaxResponse subject(String subject) {
+  public FaxResponse subject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
     return this;
   }
@@ -340,12 +351,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubject(String subject) {
+  public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
   }
 
 
-  public FaxResponse message(String message) {
+  public FaxResponse message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -365,12 +376,12 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public FaxResponse finalCopyUri(String finalCopyUri) {
+  public FaxResponse finalCopyUri(@jakarta.annotation.Nullable String finalCopyUri) {
     this.finalCopyUri = finalCopyUri;
     return this;
   }
@@ -390,7 +401,7 @@ public class FaxResponse {
 
   @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFinalCopyUri(String finalCopyUri) {
+  public void setFinalCopyUri(@jakarta.annotation.Nullable String finalCopyUri) {
     this.finalCopyUri = finalCopyUri;
   }
 

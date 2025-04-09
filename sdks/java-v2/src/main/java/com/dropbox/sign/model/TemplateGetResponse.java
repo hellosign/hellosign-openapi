@@ -40,13 +40,15 @@ import com.dropbox.sign.ApiException;
   TemplateGetResponse.JSON_PROPERTY_TEMPLATE,
   TemplateGetResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateGetResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
+  @jakarta.annotation.Nonnull
   private TemplateResponse template;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
   public TemplateGetResponse() { 
@@ -67,7 +69,7 @@ public class TemplateGetResponse {
     );
   }
 
-  public TemplateGetResponse template(TemplateResponse template) {
+  public TemplateGetResponse template(@jakarta.annotation.Nonnull TemplateResponse template) {
     this.template = template;
     return this;
   }
@@ -87,12 +89,12 @@ public class TemplateGetResponse {
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplate(TemplateResponse template) {
+  public void setTemplate(@jakarta.annotation.Nonnull TemplateResponse template) {
     this.template = template;
   }
 
 
-  public TemplateGetResponse warnings(List<WarningResponse> warnings) {
+  public TemplateGetResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -120,7 +122,7 @@ public class TemplateGetResponse {
 
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
   }
 

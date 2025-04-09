@@ -21,58 +21,31 @@ Retrieves an embedded object containing a template url that can be opened in an 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const embeddedApi = new DropboxSign.EmbeddedApi();
+const apiCaller = new api.EmbeddedApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-embeddedApi.username = "YOUR_API_KEY";
+const mergeFields = [
+];
 
-// or, configure Bearer (JWT) authorization: oauth2
-// embeddedApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.EmbeddedEditUrlRequest = {
-  ccRoles: [""],
-  mergeFields: [],
+const embeddedEditUrlRequest: models.EmbeddedEditUrlRequest = {
+  ccRoles: [
+    "",
+  ],
+  mergeFields: mergeFields,
 };
 
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = embeddedApi.embeddedEditUrl(templateId, data);
-result.then(response => {
+apiCaller.embeddedEditUrl(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  embeddedEditUrlRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const embeddedApi = new DropboxSign.EmbeddedApi();
-
-// Configure HTTP basic authorization: api_key
-embeddedApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// embeddedApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  ccRoles: [""],
-  mergeFields: [],
-};
-
-const templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-const result = embeddedApi.embeddedEditUrl(templateId, data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling EmbeddedApi#embeddedEditUrl:");
   console.log(error.body);
 });
 
@@ -115,48 +88,20 @@ Retrieves an embedded object containing a signature url that can be opened in an
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const embeddedApi = new DropboxSign.EmbeddedApi();
+const apiCaller = new api.EmbeddedApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-embeddedApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// embeddedApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
-
-const result = embeddedApi.embeddedSignUrl(signatureId);
-result.then(response => {
+apiCaller.embeddedSignUrl(
+  "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b", // signatureId
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const embeddedApi = new DropboxSign.EmbeddedApi();
-
-// Configure HTTP basic authorization: api_key
-embeddedApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// embeddedApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
-
-const result = embeddedApi.embeddedSignUrl(signatureId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling EmbeddedApi#embeddedSignUrl:");
   console.log(error.body);
 });
 

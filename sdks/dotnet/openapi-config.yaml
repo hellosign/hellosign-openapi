@@ -6,15 +6,20 @@ additionalProperties:
   packageCompany: Dropbox Sign API Team
   packageCopyright: Dropbox 2024
   packageDescription: Client library for using the Dropbox Sign API
-  packageVersion: 1.8-dev
+  packageVersion: 2.0-dev
   packageTitle: Dropbox Sign .Net SDK
   sortModelPropertiesByRequiredFlag: true
   optionalEmitDefaultValues: true
-  targetFramework: net6.0
+  targetFramework: net8.0
+  library: restsharp
   packageGuid: "{F8C8232D-7020-4603-8E04-18D060AE530B}"
   legacyDiscriminatorBehavior: true
   useCustomTemplateCode: true
   licenseCopyrightYear: 2024
+  oseg.namespace: Dropbox.SignSandbox
+  oseg.packageGuid: "{7045D429-F203-4317-A29F-FB9FD34B7FF9}"
+  oseg.security.api_key.username: YOUR_API_KEY
+  oseg.security.oauth2.access_token: YOUR_ACCESS_TOKEN
 files:
   dropbox-EventCallbackHelper.cs:
     templateType: SupportingFiles

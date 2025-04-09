@@ -35,10 +35,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FaxLineDeleteRequest.JSON_PROPERTY_NUMBER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineDeleteRequest {
   public static final String JSON_PROPERTY_NUMBER = "number";
+  @jakarta.annotation.Nonnull
   private String number;
 
   public FaxLineDeleteRequest() { 
@@ -59,13 +60,13 @@ public class FaxLineDeleteRequest {
     );
   }
 
-  public FaxLineDeleteRequest number(String number) {
+  public FaxLineDeleteRequest number(@jakarta.annotation.Nonnull String number) {
     this.number = number;
     return this;
   }
 
   /**
-   * The Fax Line number.
+   * The Fax Line number
    * @return number
    */
   @jakarta.annotation.Nonnull
@@ -79,7 +80,7 @@ public class FaxLineDeleteRequest {
 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNumber(String number) {
+  public void setNumber(@jakarta.annotation.Nonnull String number) {
     this.number = number;
   }
 

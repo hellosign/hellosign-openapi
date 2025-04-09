@@ -22,31 +22,41 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class AccountCreateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var accountApi = new AccountApi(apiClient);
+        var accountCreateRequest = new AccountCreateRequest();
+        accountCreateRequest.emailAddress("newuser@dropboxsign.com");
 
-        var data = new AccountCreateRequest()
-            .emailAddress("newuser@dropboxsign.com");
+        try
+        {
+            var response = new AccountApi(config).accountCreate(
+                accountCreateRequest
+            );
 
-        try {
-            AccountCreateResponse result = accountApi.accountCreate(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
             System.err.println("Status code: " + e.getCode());
@@ -97,30 +107,41 @@ Returns the properties and settings of your Account.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class AccountGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var accountApi = new AccountApi(apiClient);
+        try
+        {
+            var response = new AccountApi(config).accountGet(
+                null, // accountId
+                null // emailAddress
+            );
 
-        try {
-            AccountGetResponse result = accountApi.accountGet(null, "jack@example.com");
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling AccountApi#accountGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -170,33 +191,44 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class AccountUpdateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var accountApi = new AccountApi(apiClient);
+        var accountUpdateRequest = new AccountUpdateRequest();
+        accountUpdateRequest.callbackUrl("https://www.example.com/callback");
+        accountUpdateRequest.locale("en-US");
 
-        var data = new AccountUpdateRequest()
-            .callbackUrl("https://www.example.com/callback");
+        try
+        {
+            var response = new AccountApi(config).accountUpdate(
+                accountUpdateRequest
+            );
 
-        try {
-            AccountGetResponse result = accountApi.accountUpdate(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling AccountApi#accountUpdate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -245,33 +277,43 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class AccountVerifyExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var accountApi = new AccountApi(apiClient);
+        var accountVerifyRequest = new AccountVerifyRequest();
+        accountVerifyRequest.emailAddress("some_user@dropboxsign.com");
 
-        var data = new AccountVerifyRequest()
-            .emailAddress("some_user@dropboxsign.com");
+        try
+        {
+            var response = new AccountApi(config).accountVerify(
+                accountVerifyRequest
+            );
 
-        try {
-            AccountVerifyResponse result = accountApi.accountVerify(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling AccountApi#accountVerify");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

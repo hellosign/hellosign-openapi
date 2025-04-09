@@ -35,17 +35,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReportCreateRequest {
     public static final String JSON_PROPERTY_END_DATE = "end_date";
-    private String endDate;
+    @javax.annotation.Nonnull private String endDate;
 
     /** Gets or Sets reportType */
     public enum ReportTypeEnum {
-        USER_ACTIVITY("user_activity"),
+        USER_ACTIVITY(String.valueOf("user_activity")),
 
-        DOCUMENT_STATUS("document_status");
+        DOCUMENT_STATUS(String.valueOf("document_status"));
 
         private String value;
 
@@ -75,10 +75,10 @@ public class ReportCreateRequest {
     }
 
     public static final String JSON_PROPERTY_REPORT_TYPE = "report_type";
-    private List<ReportTypeEnum> reportType = new ArrayList<>();
+    @javax.annotation.Nonnull private List<ReportTypeEnum> reportType = new ArrayList<>();
 
     public static final String JSON_PROPERTY_START_DATE = "start_date";
-    private String startDate;
+    @javax.annotation.Nonnull private String startDate;
 
     public ReportCreateRequest() {}
 
@@ -96,7 +96,7 @@ public class ReportCreateRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), ReportCreateRequest.class);
     }
 
-    public ReportCreateRequest endDate(String endDate) {
+    public ReportCreateRequest endDate(@javax.annotation.Nonnull String endDate) {
         this.endDate = endDate;
         return this;
     }
@@ -115,11 +115,12 @@ public class ReportCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_END_DATE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setEndDate(String endDate) {
+    public void setEndDate(@javax.annotation.Nonnull String endDate) {
         this.endDate = endDate;
     }
 
-    public ReportCreateRequest reportType(List<ReportTypeEnum> reportType) {
+    public ReportCreateRequest reportType(
+            @javax.annotation.Nonnull List<ReportTypeEnum> reportType) {
         this.reportType = reportType;
         return this;
     }
@@ -149,11 +150,11 @@ public class ReportCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setReportType(List<ReportTypeEnum> reportType) {
+    public void setReportType(@javax.annotation.Nonnull List<ReportTypeEnum> reportType) {
         this.reportType = reportType;
     }
 
-    public ReportCreateRequest startDate(String startDate) {
+    public ReportCreateRequest startDate(@javax.annotation.Nonnull String startDate) {
         this.startDate = startDate;
         return this;
     }
@@ -172,7 +173,7 @@ public class ReportCreateRequest {
 
     @JsonProperty(JSON_PROPERTY_START_DATE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setStartDate(String startDate) {
+    public void setStartDate(@javax.annotation.Nonnull String startDate) {
         this.startDate = startDate;
     }
 

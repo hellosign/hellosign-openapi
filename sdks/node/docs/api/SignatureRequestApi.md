@@ -9,6 +9,10 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**signatureRequestCancel()**](SignatureRequestApi.md#signatureRequestCancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request |
 | [**signatureRequestCreateEmbedded()**](SignatureRequestApi.md#signatureRequestCreateEmbedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | [**signatureRequestCreateEmbeddedWithTemplate()**](SignatureRequestApi.md#signatureRequestCreateEmbeddedWithTemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
+| [**signatureRequestEdit()**](SignatureRequestApi.md#signatureRequestEdit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+| [**signatureRequestEditEmbedded()**](SignatureRequestApi.md#signatureRequestEditEmbedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request |
+| [**signatureRequestEditEmbeddedWithTemplate()**](SignatureRequestApi.md#signatureRequestEditEmbeddedWithTemplate) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template |
+| [**signatureRequestEditWithTemplate()**](SignatureRequestApi.md#signatureRequestEditWithTemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 | [**signatureRequestFiles()**](SignatureRequestApi.md#signatureRequestFiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | [**signatureRequestFilesAsDataUri()**](SignatureRequestApi.md#signatureRequestFilesAsDataUri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
 | [**signatureRequestFilesAsFileUrl()**](SignatureRequestApi.md#signatureRequestFilesAsFileUrl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url |
@@ -35,139 +39,95 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-const signerList1Signer: DropboxSign.SubSignatureRequestTemplateSigner = {
-  role: "Client",
-  name: "George",
-  emailAddress: "george@example.com",
-  pin: "d79a3td",
-};
-
-const signerList1CustomFields: DropboxSign.SubBulkSignerListCustomField = {
+const signerList2CustomFields1: models.SubBulkSignerListCustomField = {
   name: "company",
-  value: "ABC Corp",
+  value: "123 LLC",
 };
 
-const signerList1: DropboxSign.SubBulkSignerList = {
-  signers: [ signerList1Signer ],
-  customFields: [ signerList1CustomFields ],
-};
+const signerList2CustomFields = [
+  signerList2CustomFields1,
+];
 
-const signerList2Signer: DropboxSign.SubSignatureRequestTemplateSigner = {
+const signerList2Signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "Mary",
   emailAddress: "mary@example.com",
   pin: "gd9as5b",
 };
 
-const signerList2CustomFields: DropboxSign.SubBulkSignerListCustomField = {
+const signerList2Signers = [
+  signerList2Signers1,
+];
+
+const signerList1CustomFields1: models.SubBulkSignerListCustomField = {
   name: "company",
-  value: "123 LLC",
+  value: "ABC Corp",
 };
 
-const signerList2: DropboxSign.SubBulkSignerList = {
-  signers: [ signerList2Signer ],
-  customFields: [ signerList2CustomFields ],
-};
+const signerList1CustomFields = [
+  signerList1CustomFields1,
+];
 
-const cc1: DropboxSign.SubCC = {
-  role: "Accounting",
-  emailAddress: "accounting@example.com",
-};
-
-const data: DropboxSign.SignatureRequestBulkCreateEmbeddedWithTemplateRequest = {
-  clientId: "1a659d9ad95bccd307ecad78d72192f8",
-  templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
-  subject: "Purchase Order",
-  message: "Glad we could come to an agreement.",
-  signerList: [ signerList1, signerList2 ],
-  ccs: [ cc1 ],
-  testMode: true,
-};
-
-const result = signatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signerList1Signer = {
+const signerList1Signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "George",
   emailAddress: "george@example.com",
   pin: "d79a3td",
 };
 
-const signerList1CustomFields = {
-  name: "company",
-  value: "ABC Corp",
+const signerList1Signers = [
+  signerList1Signers1,
+];
+
+const signerList1: models.SubBulkSignerList = {
+  customFields: signerList1CustomFields,
+  signers: signerList1Signers,
 };
 
-const signerList1 = {
-  signers: [ signerList1Signer ],
-  customFields: [ signerList1CustomFields ],
+const signerList2: models.SubBulkSignerList = {
+  customFields: signerList2CustomFields,
+  signers: signerList2Signers,
 };
 
-const signerList2Signer = {
-  role: "Client",
-  name: "Mary",
-  emailAddress: "mary@example.com",
-  pin: "gd9as5b",
-};
+const signerList = [
+  signerList1,
+  signerList2,
+];
 
-const signerList2CustomFields = {
-  name: "company",
-  value: "123 LLC",
-};
-
-const signerList2 = {
-  signers: [ signerList2Signer ],
-  customFields: [ signerList2CustomFields ],
-};
-
-const cc1 = {
+const ccs1: models.SubCC = {
   role: "Accounting",
   emailAddress: "accounting@example.com",
 };
 
-const data = {
+const ccs = [
+  ccs1,
+];
+
+const signatureRequestBulkCreateEmbeddedWithTemplateRequest: models.SignatureRequestBulkCreateEmbeddedWithTemplateRequest = {
   clientId: "1a659d9ad95bccd307ecad78d72192f8",
-  templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
-  subject: "Purchase Order",
+  templateIds: [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  ],
   message: "Glad we could come to an agreement.",
-  signerList: [ signerList1, signerList2 ],
-  ccs: [ cc1 ],
+  subject: "Purchase Order",
   testMode: true,
+  signerList: signerList,
+  ccs: ccs,
 };
 
-const result = signatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate(data);
-result.then(response => {
+apiCaller.signatureRequestBulkCreateEmbeddedWithTemplate(
+  signatureRequestBulkCreateEmbeddedWithTemplateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestBulkCreateEmbeddedWithTemplate:");
   console.log(error.body);
 });
 
@@ -209,140 +169,95 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signerList1Signer: DropboxSign.SubSignatureRequestTemplateSigner = {
-  role: "Client",
-  name: "George",
-  emailAddress: "george@example.com",
-  pin: "d79a3td",
-};
-
-const signerList1CustomFields: DropboxSign.SubBulkSignerListCustomField = {
+const signerList2CustomFields1: models.SubBulkSignerListCustomField = {
   name: "company",
-  value: "ABC Corp",
+  value: "123 LLC",
 };
 
-const signerList1: DropboxSign.SubBulkSignerList = {
-  signers: [ signerList1Signer ],
-  customFields: [ signerList1CustomFields ],
-};
+const signerList2CustomFields = [
+  signerList2CustomFields1,
+];
 
-const signerList2Signer: DropboxSign.SubSignatureRequestTemplateSigner = {
+const signerList2Signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "Mary",
   emailAddress: "mary@example.com",
   pin: "gd9as5b",
 };
 
-const signerList2CustomFields: DropboxSign.SubBulkSignerListCustomField = {
+const signerList2Signers = [
+  signerList2Signers1,
+];
+
+const signerList1CustomFields1: models.SubBulkSignerListCustomField = {
   name: "company",
-  value: "123 LLC",
+  value: "ABC Corp",
 };
 
-const signerList2: DropboxSign.SubBulkSignerList = {
-  signers: [ signerList2Signer ],
-  customFields: [ signerList2CustomFields ],
-};
+const signerList1CustomFields = [
+  signerList1CustomFields1,
+];
 
-const cc1: DropboxSign.SubCC = {
-  role: "Accounting",
-  emailAddress: "accounting@example.com",
-};
-
-const data: DropboxSign.SignatureRequestBulkSendWithTemplateRequest = {
-  templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
-  subject: "Purchase Order",
-  message: "Glad we could come to an agreement.",
-  signerList: [ signerList1, signerList2 ],
-  ccs: [ cc1 ],
-  testMode: true,
-};
-
-const result = signatureRequestApi.signatureRequestBulkSendWithTemplate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signerList1Signer = {
+const signerList1Signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "George",
   emailAddress: "george@example.com",
   pin: "d79a3td",
 };
 
-const signerList1CustomFields = {
-  name: "company",
-  value: "ABC Corp",
+const signerList1Signers = [
+  signerList1Signers1,
+];
+
+const signerList1: models.SubBulkSignerList = {
+  customFields: signerList1CustomFields,
+  signers: signerList1Signers,
 };
 
-const signerList1 = {
-  signers: [ signerList1Signer ],
-  customFields: [ signerList1CustomFields ],
+const signerList2: models.SubBulkSignerList = {
+  customFields: signerList2CustomFields,
+  signers: signerList2Signers,
 };
 
-const signerList2Signer = {
-  role: "Client",
-  name: "Mary",
-  emailAddress: "mary@example.com",
-  pin: "gd9as5b",
-};
+const signerList = [
+  signerList1,
+  signerList2,
+];
 
-const signerList2CustomFields = {
-  name: "company",
-  value: "123 LLC",
-};
-
-const signerList2 = {
-  signers: [ signerList2Signer ],
-  customFields: [ signerList2CustomFields ],
-};
-
-const cc1 = {
+const ccs1: models.SubCC = {
   role: "Accounting",
   emailAddress: "accounting@example.com",
 };
 
-const data = {
-  templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
-  subject: "Purchase Order",
+const ccs = [
+  ccs1,
+];
+
+const signatureRequestBulkSendWithTemplateRequest: models.SignatureRequestBulkSendWithTemplateRequest = {
+  templateIds: [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  ],
   message: "Glad we could come to an agreement.",
-  signerList: [ signerList1, signerList2 ],
-  ccs: [ cc1 ],
+  subject: "Purchase Order",
   testMode: true,
+  signerList: signerList,
+  ccs: ccs,
 };
 
-const result = signatureRequestApi.signatureRequestBulkSendWithTemplate(data);
-result.then(response => {
+apiCaller.signatureRequestBulkSendWithTemplate(
+  signatureRequestBulkSendWithTemplateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestBulkSendWithTemplate:");
   console.log(error.body);
 });
 
@@ -384,48 +299,18 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestCancel(signatureRequestId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestCancel(signatureRequestId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+apiCaller.signatureRequestCancel(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+).catch(error => {
+  console.log("Exception when calling SignatureRequestApi#signatureRequestCancel:");
   console.log(error.body);
 });
 
@@ -467,116 +352,62 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1: DropboxSign.SubSignatureRequestSigner = {
-  emailAddress: "jack@example.com",
+const signers1: models.SubSignatureRequestSigner = {
   name: "Jack",
+  emailAddress: "jack@example.com",
   order: 0,
 };
 
-const signer2: DropboxSign.SubSignatureRequestSigner = {
-  emailAddress: "jill@example.com",
+const signers2: models.SubSignatureRequestSigner = {
   name: "Jill",
+  emailAddress: "jill@example.com",
   order: 1,
 };
 
-const signingOptions: DropboxSign.SubSigningOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: true,
-  defaultType: DropboxSign.SubSigningOptions.DefaultTypeEnum.Draw,
-};
+const signers = [
+  signers1,
+  signers2,
+];
 
-const data: DropboxSign.SignatureRequestCreateEmbeddedRequest = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  title: "NDA with Acme Co.",
+const signatureRequestCreateEmbeddedRequest: models.SignatureRequestCreateEmbeddedRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
   subject: "The NDA we talked about",
-  message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-  signers: [ signer1, signer2 ],
+  testMode: true,
+  title: "NDA with Acme Co.",
   ccEmailAddresses: [
     "lawyer1@dropboxsign.com",
     "lawyer2@dropboxsign.com",
   ],
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  signingOptions,
-  testMode: true,
-};
-
-const result = signatureRequestApi.signatureRequestCreateEmbedded(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1 = {
-  emailAddress: "jack@example.com",
-  name: "Jack",
-  order: 0,
-};
-
-const signer2 = {
-  emailAddress: "jill@example.com",
-  name: "Jill",
-  order: 1,
-};
-
-const signingOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: true,
-  defaultType: "draw",
-};
-
-const data = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  title: "NDA with Acme Co.",
-  subject: "The NDA we talked about",
-  message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-  signers: [ signer1, signer2 ],
-  ccEmailAddresses: [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@example.com",
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
   ],
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  signingOptions,
-  testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
 };
 
-const result = signatureRequestApi.signatureRequestCreateEmbedded(data);
-result.then(response => {
+apiCaller.signatureRequestCreateEmbedded(
+  signatureRequestCreateEmbeddedRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestCreateEmbedded:");
   console.log(error.body);
 });
 
@@ -618,92 +449,50 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1: DropboxSign.SubSignatureRequestTemplateSigner = {
-  role: "Client",
-  emailAddress: "george@example.com",
-  name: "George",
-};
-
-const signingOptions: DropboxSign.SubSigningOptions = {
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
   draw: true,
+  phone: false,
   type: true,
   upload: true,
-  phone: false,
-  defaultType: DropboxSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const data: DropboxSign.SignatureRequestCreateEmbeddedWithTemplateRequest = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
-  subject: "Purchase Order",
-  message: "Glad we could come to an agreement.",
-  signers: [ signer1 ],
-  signingOptions,
-  testMode: true,
-};
-
-const result = signatureRequestApi.signatureRequestCreateEmbeddedWithTemplate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1 = {
+const signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
-  emailAddress: "george@example.com",
   name: "George",
+  emailAddress: "george@example.com",
 };
 
-const signingOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: false,
-  defaultType: "draw",
-};
+const signers = [
+  signers1,
+];
 
-const data = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
-  subject: "Purchase Order",
+const signatureRequestCreateEmbeddedWithTemplateRequest: models.SignatureRequestCreateEmbeddedWithTemplateRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  templateIds: [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  ],
   message: "Glad we could come to an agreement.",
-  signers: [ signer1 ],
-  signingOptions,
+  subject: "Purchase Order",
   testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
 };
 
-const result = signatureRequestApi.signatureRequestCreateEmbeddedWithTemplate(data);
-result.then(response => {
+apiCaller.signatureRequestCreateEmbeddedWithTemplate(
+  signatureRequestCreateEmbeddedWithTemplateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestCreateEmbeddedWithTemplate:");
   console.log(error.body);
 });
 
@@ -714,6 +503,407 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestCreateEmbeddedWithTemplateRequest** | [**SignatureRequestCreateEmbeddedWithTemplateRequest**](../model/SignatureRequestCreateEmbeddedWithTemplateRequest.md)|  | |
+
+### Return type
+
+[**SignatureRequestGetResponse**](../model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEdit()`
+
+```typescript
+signatureRequestEdit(signatureRequestId: string, signatureRequestEditRequest: SignatureRequestEditRequest): SignatureRequestGetResponse
+```
+
+Edit Signature Request
+
+Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+
+### TypeScript Example
+
+```typescript
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+const fieldOptions: models.SubFieldOptions = {
+  dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
+};
+
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
+
+const signers1: models.SubSignatureRequestSigner = {
+  name: "Jack",
+  emailAddress: "jack@example.com",
+  order: 0,
+};
+
+const signers2: models.SubSignatureRequestSigner = {
+  name: "Jill",
+  emailAddress: "jill@example.com",
+  order: 1,
+};
+
+const signers = [
+  signers1,
+  signers2,
+];
+
+const signatureRequestEditRequest: models.SignatureRequestEditRequest = {
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  subject: "The NDA we talked about",
+  testMode: true,
+  title: "NDA with Acme Co.",
+  ccEmailAddresses: [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  metadata: {
+    "custom_id": 1234,
+    "custom_text": "NDA #9"
+  },
+  fieldOptions: fieldOptions,
+  signingOptions: signingOptions,
+  signers: signers,
+};
+
+apiCaller.signatureRequestEdit(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEdit:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signatureRequestId** | **string**| The id of the SignatureRequest to edit. | |
+| **signatureRequestEditRequest** | [**SignatureRequestEditRequest**](../model/SignatureRequestEditRequest.md)|  | |
+
+### Return type
+
+[**SignatureRequestGetResponse**](../model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEditEmbedded()`
+
+```typescript
+signatureRequestEditEmbedded(signatureRequestId: string, signatureRequestEditEmbeddedRequest: SignatureRequestEditEmbeddedRequest): SignatureRequestGetResponse
+```
+
+Edit Embedded Signature Request
+
+Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### TypeScript Example
+
+```typescript
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
+
+const signers1: models.SubSignatureRequestSigner = {
+  name: "Jack",
+  emailAddress: "jack@example.com",
+  order: 0,
+};
+
+const signers2: models.SubSignatureRequestSigner = {
+  name: "Jill",
+  emailAddress: "jill@example.com",
+  order: 1,
+};
+
+const signers = [
+  signers1,
+  signers2,
+];
+
+const signatureRequestEditEmbeddedRequest: models.SignatureRequestEditEmbeddedRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  subject: "The NDA we talked about",
+  testMode: true,
+  title: "NDA with Acme Co.",
+  ccEmailAddresses: [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+  ],
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  signingOptions: signingOptions,
+  signers: signers,
+};
+
+apiCaller.signatureRequestEditEmbedded(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditEmbeddedRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEditEmbedded:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signatureRequestId** | **string**| The id of the SignatureRequest to edit. | |
+| **signatureRequestEditEmbeddedRequest** | [**SignatureRequestEditEmbeddedRequest**](../model/SignatureRequestEditEmbeddedRequest.md)|  | |
+
+### Return type
+
+[**SignatureRequestGetResponse**](../model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEditEmbeddedWithTemplate()`
+
+```typescript
+signatureRequestEditEmbeddedWithTemplate(signatureRequestId: string, signatureRequestEditEmbeddedWithTemplateRequest: SignatureRequestEditEmbeddedWithTemplateRequest): SignatureRequestGetResponse
+```
+
+Edit Embedded Signature Request with Template
+
+Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### TypeScript Example
+
+```typescript
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
+
+const signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+};
+
+const signers = [
+  signers1,
+];
+
+const signatureRequestEditEmbeddedWithTemplateRequest: models.SignatureRequestEditEmbeddedWithTemplateRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  templateIds: [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  ],
+  message: "Glad we could come to an agreement.",
+  subject: "Purchase Order",
+  testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
+};
+
+apiCaller.signatureRequestEditEmbeddedWithTemplate(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditEmbeddedWithTemplateRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEditEmbeddedWithTemplate:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signatureRequestId** | **string**| The id of the SignatureRequest to edit. | |
+| **signatureRequestEditEmbeddedWithTemplateRequest** | [**SignatureRequestEditEmbeddedWithTemplateRequest**](../model/SignatureRequestEditEmbeddedWithTemplateRequest.md)|  | |
+
+### Return type
+
+[**SignatureRequestGetResponse**](../model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEditWithTemplate()`
+
+```typescript
+signatureRequestEditWithTemplate(signatureRequestId: string, signatureRequestEditWithTemplateRequest: SignatureRequestEditWithTemplateRequest): SignatureRequestGetResponse
+```
+
+Edit Signature Request With Template
+
+Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+
+### TypeScript Example
+
+```typescript
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
+
+const signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+};
+
+const signers = [
+  signers1,
+];
+
+const ccs1: models.SubCC = {
+  role: "Accounting",
+  emailAddress: "accounting@example.com",
+};
+
+const ccs = [
+  ccs1,
+];
+
+const customFields1: models.SubCustomField = {
+  name: "Cost",
+  editor: "Client",
+  required: true,
+  value: "$20,000",
+};
+
+const customFields = [
+  customFields1,
+];
+
+const signatureRequestEditWithTemplateRequest: models.SignatureRequestEditWithTemplateRequest = {
+  templateIds: [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  ],
+  message: "Glad we could come to an agreement.",
+  subject: "Purchase Order",
+  testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
+  ccs: ccs,
+  customFields: customFields,
+};
+
+apiCaller.signatureRequestEditWithTemplate(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditWithTemplateRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEditWithTemplate:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signatureRequestId** | **string**| The id of the SignatureRequest to edit. | |
+| **signatureRequestEditWithTemplateRequest** | [**SignatureRequestEditWithTemplateRequest**](../model/SignatureRequestEditWithTemplateRequest.md)|  | |
 
 ### Return type
 
@@ -745,54 +935,21 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-const fileType = "pdf";
-
-const result = signatureRequestApi.signatureRequestFiles(signatureRequestId, fileType);
-
-result.then(response => {
-  fs.createWriteStream('file_response.pdf').write(response.body);
+apiCaller.signatureRequestFiles(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  "pdf", // fileType
+).then(response => {
+  fs.createWriteStream('./file_response').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-const fileType = "pdf";
-
-const result = signatureRequestApi.signatureRequestFiles(signatureRequestId, fileType);
-
-result.then(response => {
-  fs.createWriteStream('file_response.pdf').write(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestFiles:");
   console.log(error.body);
 });
 
@@ -835,48 +992,20 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-const result = signatureRequestApi.signatureRequestFilesAsDataUri(signatureRequestId);
-result.then(response => {
+apiCaller.signatureRequestFilesAsDataUri(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-const result = signatureRequestApi.signatureRequestFilesAsDataUri(signatureRequestId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestFilesAsDataUri:");
   console.log(error.body);
 });
 
@@ -918,48 +1047,21 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-const result = signatureRequestApi.signatureRequestFilesAsFileUrl(signatureRequestId);
-result.then(response => {
+apiCaller.signatureRequestFilesAsFileUrl(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  1, // forceDownload
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-const result = signatureRequestApi.signatureRequestFilesAsFileUrl(signatureRequestId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestFilesAsFileUrl:");
   console.log(error.body);
 });
 
@@ -1002,48 +1104,20 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-const result = signatureRequestApi.signatureRequestGet(signatureRequestId);
-result.then(response => {
+apiCaller.signatureRequestGet(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-const result = signatureRequestApi.signatureRequestGet(signatureRequestId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestGet:");
   console.log(error.body);
 });
 
@@ -1085,50 +1159,23 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const accountId = null;
-const page = 1;
-
-const result = signatureRequestApi.signatureRequestList(accountId, page);
-result.then(response => {
+apiCaller.signatureRequestList(
+  undefined, // accountId
+  1, // page
+  20, // pageSize
+  undefined, // query
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const accountId = null;
-const page = 1;
-
-const result = signatureRequestApi.signatureRequestList(accountId, page);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestList:");
   console.log(error.body);
 });
 
@@ -1173,48 +1220,20 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestReleaseHold(signatureRequestId);
-result.then(response => {
+apiCaller.signatureRequestReleaseHold(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestReleaseHold(signatureRequestId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestReleaseHold:");
   console.log(error.body);
 });
 
@@ -1256,56 +1275,25 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.SignatureRequestRemindRequest = {
+const signatureRequestRemindRequest: models.SignatureRequestRemindRequest = {
   emailAddress: "john@example.com",
 };
 
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestRemind(signatureRequestId, data);
-result.then(response => {
+apiCaller.signatureRequestRemind(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestRemindRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "john@example.com",
-};
-
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestRemind(signatureRequestId, data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestRemind:");
   console.log(error.body);
 });
 
@@ -1348,48 +1336,17 @@ Removes your access to a completed signature request. This action is **not rever
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestRemove(signatureRequestId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestRemove(signatureRequestId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+apiCaller.signatureRequestRemove(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+).catch(error => {
+  console.log("Exception when calling SignatureRequestApi#signatureRequestRemove:");
   console.log(error.body);
 });
 
@@ -1431,174 +1388,70 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
+const fieldOptions: models.SubFieldOptions = {
+  dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
+};
 
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
+};
 
-const signer1: DropboxSign.SubSignatureRequestSigner = {
-  emailAddress: "jack@example.com",
+const signers1: models.SubSignatureRequestSigner = {
   name: "Jack",
+  emailAddress: "jack@example.com",
   order: 0,
 };
 
-const signer2: DropboxSign.SubSignatureRequestSigner = {
-  emailAddress: "jill@example.com",
+const signers2: models.SubSignatureRequestSigner = {
   name: "Jill",
+  emailAddress: "jill@example.com",
   order: 1,
 };
 
-const signingOptions: DropboxSign.SubSigningOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: false,
-  defaultType: DropboxSign.SubSigningOptions.DefaultTypeEnum.Draw,
-};
+const signers = [
+  signers1,
+  signers2,
+];
 
-const fieldOptions: DropboxSign.SubFieldOptions = {
-  dateFormat: DropboxSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
-};
-
-// Upload a local file
-const file = fs.createReadStream("example_signature_request.pdf");
-
-// or, upload from buffer
-const fileBuffer: DropboxSign.RequestDetailedFile = {
-  value: fs.readFileSync("example_signature_request.pdf"),
-  options: {
-    filename: "example_signature_request.pdf",
-    contentType: "application/pdf",
-  },
-};
-
-// or, upload from buffer alternative
-const fileBufferAlt: DropboxSign.RequestDetailedFile = {
-  value: Buffer.from("abc-123"),
-  options: {
-    filename: "txt-sample.txt",
-    contentType: "text/plain",
-  },
-};
-
-const data: DropboxSign.SignatureRequestSendRequest = {
-  title: "NDA with Acme Co.",
+const signatureRequestSendRequest: models.SignatureRequestSendRequest = {
+  message: "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
   subject: "The NDA we talked about",
-  message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-  signers: [ signer1, signer2 ],
+  testMode: true,
+  title: "NDA with Acme Co.",
   ccEmailAddresses: [
     "lawyer1@dropboxsign.com",
     "lawyer2@dropboxsign.com",
   ],
-  files: [ file, fileBuffer, fileBufferAlt ],
-  metadata: {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
-  },
-  signingOptions,
-  fieldOptions,
-  testMode: true,
-};
-
-const result = signatureRequestApi.signatureRequestSend(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1 = {
-  emailAddress: "jack@example.com",
-  name: "Jack",
-  order: 0,
-};
-
-const signer2 = {
-  emailAddress: "jill@example.com",
-  name: "Jill",
-  order: 1,
-};
-
-const signingOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: false,
-  defaultType: "draw",
-};
-
-const fieldOptions = {
-  dateFormat: "DD - MM - YYYY",
-};
-
-// Upload a local file
-const file = fs.createReadStream("example_signature_request.pdf");
-
-// or, upload from buffer
-const fileBuffer = {
-  value: fs.readFileSync("example_signature_request.pdf"),
-  options: {
-    filename: "example_signature_request.pdf",
-    contentType: "application/pdf",
-  },
-};
-
-// or, upload from buffer alternative
-const fileBufferAlt = {
-  value: Buffer.from("abc-123"),
-  options: {
-    filename: "txt-sample.txt",
-    contentType: "text/plain",
-  },
-};
-
-const data = {
-  title: "NDA with Acme Co.",
-  subject: "The NDA we talked about",
-  message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-  signers: [ signer1, signer2 ],
-  ccEmailAddresses: [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@example.com",
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
   ],
-  files: [ file, fileBuffer, fileBufferAlt ],
   metadata: {
     "custom_id": 1234,
-    "custom_text": "NDA #9",
+    "custom_text": "NDA #9"
   },
-  signingOptions,
-  fieldOptions,
-  testMode: true,
+  fieldOptions: fieldOptions,
+  signingOptions: signingOptions,
+  signers: signers,
 };
 
-const result = signatureRequestApi.signatureRequestSend(data);
-result.then(response => {
+apiCaller.signatureRequestSend(
+  signatureRequestSendRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestSend:");
   console.log(error.body);
 });
 
@@ -1640,118 +1493,71 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1: DropboxSign.SubSignatureRequestTemplateSigner = {
-  role: "Client",
-  emailAddress: "george@example.com",
-  name: "George",
+const signingOptions: models.SubSigningOptions = {
+  defaultType: models.SubSigningOptions.DefaultTypeEnum.Draw,
+  draw: true,
+  phone: false,
+  type: true,
+  upload: true,
 };
 
-const cc1: DropboxSign.SubCC = {
+const signers1: models.SubSignatureRequestTemplateSigner = {
+  role: "Client",
+  name: "George",
+  emailAddress: "george@example.com",
+};
+
+const signers = [
+  signers1,
+];
+
+const ccs1: models.SubCC = {
   role: "Accounting",
   emailAddress: "accounting@example.com",
 };
 
-const customField1: DropboxSign.SubCustomField = {
+const ccs = [
+  ccs1,
+];
+
+const customFields1: models.SubCustomField = {
   name: "Cost",
-  value: "$20,000",
   editor: "Client",
   required: true,
-};
-
-const signingOptions: DropboxSign.SubSigningOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: false,
-  defaultType: DropboxSign.SubSigningOptions.DefaultTypeEnum.Draw,
-};
-
-const data: DropboxSign.SignatureRequestSendWithTemplateRequest = {
-  templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
-  subject: "Purchase Order",
-  message: "Glad we could come to an agreement.",
-  signers: [ signer1 ],
-  ccs: [ cc1 ],
-  customFields: [ customField1 ],
-  signingOptions,
-  testMode: true,
-};
-
-const result = signatureRequestApi.signatureRequestSendWithTemplate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1 = {
-  role: "Client",
-  emailAddress: "george@example.com",
-  name: "George",
-};
-
-const cc1 = {
-  role: "Accounting",
-  emailAddress: "accounting@example.com",
-};
-
-const customField1 = {
-  name: "Cost",
   value: "$20,000",
-  editor: "Client",
-  required: true,
 };
 
-const signingOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: false,
-  defaultType: "draw",
-};
+const customFields = [
+  customFields1,
+];
 
-const data = {
-  templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
-  subject: "Purchase Order",
+const signatureRequestSendWithTemplateRequest: models.SignatureRequestSendWithTemplateRequest = {
+  templateIds: [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  ],
   message: "Glad we could come to an agreement.",
-  signers: [ signer1 ],
-  ccs: [ cc1 ],
-  customFields: [ customField1 ],
-  signingOptions,
+  subject: "Purchase Order",
   testMode: true,
+  signingOptions: signingOptions,
+  signers: signers,
+  ccs: ccs,
+  customFields: customFields,
 };
 
-const result = signatureRequestApi.signatureRequestSendWithTemplate(data);
-result.then(response => {
+apiCaller.signatureRequestSendWithTemplate(
+  signatureRequestSendWithTemplateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestSendWithTemplate:");
   console.log(error.body);
 });
 
@@ -1793,58 +1599,26 @@ Updates the email address and/or the name for a given signer on a signature requ
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
+const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.SignatureRequestUpdateRequest = {
+const signatureRequestUpdateRequest: models.SignatureRequestUpdateRequest = {
+  signatureId: "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f",
   emailAddress: "john@example.com",
-  signatureId: "78caf2a1d01cd39cea2bc1cbb340dac3",
 };
 
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestUpdate(signatureRequestId, data);
-result.then(response => {
+apiCaller.signatureRequestUpdate(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestUpdateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const signatureRequestApi = new DropboxSign.SignatureRequestApi();
-
-// Configure HTTP basic authorization: api_key
-signatureRequestApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "john@example.com",
-  signatureId: "78caf2a1d01cd39cea2bc1cbb340dac3",
-};
-
-const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-const result = signatureRequestApi.signatureRequestUpdate(signatureRequestId, data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestUpdate:");
   console.log(error.body);
 });
 

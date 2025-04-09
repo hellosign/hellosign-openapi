@@ -42,14 +42,14 @@ this command.
 
 ### Requirements.
 
-Python 3.7+
+Python 3.8+
 
 ### pip
 
 Install using `pip`:
 
 ```shell
-python3 -m pip install dropbox-sign==1.8-dev
+python3 -m pip install dropbox-sign==1.9.0-dev
 ```
 
 Alternatively:
@@ -69,29 +69,30 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 
 ```python
+import json
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    account_api = apis.AccountApi(api_client)
-
-    data = models.AccountCreateRequest(
+    account_create_request = models.AccountCreateRequest(
         email_address="newuser@dropboxsign.com",
     )
 
     try:
-        response = account_api.account_create(data)
+        response = api.AccountApi(api_client).account_create(
+            account_create_request=account_create_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling AccountApi#account_create: %s\n" % e)
 
 ```
 
@@ -116,7 +117,7 @@ Class | Method | HTTP request | Description
 |```EmbeddedApi``` | [```embedded_edit_url```](docs/EmbeddedApi.md#embedded_edit_url) | ```POST /embedded/edit_url/{template_id}``` | Get Embedded Template Edit URL|
 ```EmbeddedApi``` | [```embedded_sign_url```](docs/EmbeddedApi.md#embedded_sign_url) | ```GET /embedded/sign_url/{signature_id}``` | Get Embedded Sign URL|
 |```FaxApi``` | [```fax_delete```](docs/FaxApi.md#fax_delete) | ```DELETE /fax/{fax_id}``` | Delete Fax|
-```FaxApi``` | [```fax_files```](docs/FaxApi.md#fax_files) | ```GET /fax/files/{fax_id}``` | List Fax Files|
+```FaxApi``` | [```fax_files```](docs/FaxApi.md#fax_files) | ```GET /fax/files/{fax_id}``` | Download Fax Files|
 ```FaxApi``` | [```fax_get```](docs/FaxApi.md#fax_get) | ```GET /fax/{fax_id}``` | Get Fax|
 ```FaxApi``` | [```fax_list```](docs/FaxApi.md#fax_list) | ```GET /fax/list``` | Lists Faxes|
 ```FaxApi``` | [```fax_send```](docs/FaxApi.md#fax_send) | ```POST /fax/send``` | Send Fax|
@@ -135,6 +136,10 @@ Class | Method | HTTP request | Description
 ```SignatureRequestApi``` | [```signature_request_cancel```](docs/SignatureRequestApi.md#signature_request_cancel) | ```POST /signature_request/cancel/{signature_request_id}``` | Cancel Incomplete Signature Request|
 ```SignatureRequestApi``` | [```signature_request_create_embedded```](docs/SignatureRequestApi.md#signature_request_create_embedded) | ```POST /signature_request/create_embedded``` | Create Embedded Signature Request|
 ```SignatureRequestApi``` | [```signature_request_create_embedded_with_template```](docs/SignatureRequestApi.md#signature_request_create_embedded_with_template) | ```POST /signature_request/create_embedded_with_template``` | Create Embedded Signature Request with Template|
+```SignatureRequestApi``` | [```signature_request_edit```](docs/SignatureRequestApi.md#signature_request_edit) | ```PUT /signature_request/edit/{signature_request_id}``` | Edit Signature Request|
+```SignatureRequestApi``` | [```signature_request_edit_embedded```](docs/SignatureRequestApi.md#signature_request_edit_embedded) | ```PUT /signature_request/edit_embedded/{signature_request_id}``` | Edit Embedded Signature Request|
+```SignatureRequestApi``` | [```signature_request_edit_embedded_with_template```](docs/SignatureRequestApi.md#signature_request_edit_embedded_with_template) | ```PUT /signature_request/edit_embedded_with_template/{signature_request_id}``` | Edit Embedded Signature Request with Template|
+```SignatureRequestApi``` | [```signature_request_edit_with_template```](docs/SignatureRequestApi.md#signature_request_edit_with_template) | ```PUT /signature_request/edit_with_template/{signature_request_id}``` | Edit Signature Request With Template|
 ```SignatureRequestApi``` | [```signature_request_files```](docs/SignatureRequestApi.md#signature_request_files) | ```GET /signature_request/files/{signature_request_id}``` | Download Files|
 ```SignatureRequestApi``` | [```signature_request_files_as_data_uri```](docs/SignatureRequestApi.md#signature_request_files_as_data_uri) | ```GET /signature_request/files_as_data_uri/{signature_request_id}``` | Download Files as Data Uri|
 ```SignatureRequestApi``` | [```signature_request_files_as_file_url```](docs/SignatureRequestApi.md#signature_request_files_as_file_url) | ```GET /signature_request/files_as_file_url/{signature_request_id}``` | Download Files as File Url|
@@ -238,6 +243,10 @@ Class | Method | HTTP request | Description
  - [SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
  - [SignatureRequestCreateEmbeddedWithTemplateRequest](docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+ - [SignatureRequestEditEmbeddedRequest](docs/SignatureRequestEditEmbeddedRequest.md)
+ - [SignatureRequestEditEmbeddedWithTemplateRequest](docs/SignatureRequestEditEmbeddedWithTemplateRequest.md)
+ - [SignatureRequestEditRequest](docs/SignatureRequestEditRequest.md)
+ - [SignatureRequestEditWithTemplateRequest](docs/SignatureRequestEditWithTemplateRequest.md)
  - [SignatureRequestGetResponse](docs/SignatureRequestGetResponse.md)
  - [SignatureRequestListResponse](docs/SignatureRequestListResponse.md)
  - [SignatureRequestRemindRequest](docs/SignatureRequestRemindRequest.md)
@@ -391,6 +400,6 @@ apisupport@hellosign.com
 This Python package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: 3.0.0
-- Package version: 1.8-dev
+- Package version: 1.9.0-dev
 - Build package: org.openapitools.codegen.languages.PythonClientCodegen
 

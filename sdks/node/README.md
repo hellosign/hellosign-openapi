@@ -47,55 +47,27 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const accountApi = new DropboxSign.AccountApi();
+const apiCaller = new api.AccountApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.AccountCreateRequest = {
+const accountCreateRequest: models.AccountCreateRequest = {
   emailAddress: "newuser@dropboxsign.com",
 };
 
-const result = accountApi.accountCreate(data);
-result.then(response => {
+apiCaller.accountCreate(
+  accountCreateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling AccountApi#accountCreate:");
   console.log(error.body);
 });
 
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const accountApi = new DropboxSign.AccountApi();
-
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "newuser@dropboxsign.com",
-};
-
-const result = accountApi.accountCreate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
 
 ```
 
@@ -121,7 +93,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *EmbeddedApi* | [**embeddedEditUrl**](./docs/api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](./docs/api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 | *FaxApi* | [**faxDelete**](./docs/api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
-| *FaxApi* | [**faxFiles**](./docs/api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| *FaxApi* | [**faxFiles**](./docs/api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | *FaxApi* | [**faxGet**](./docs/api/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | *FaxApi* | [**faxList**](./docs/api/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
 | *FaxApi* | [**faxSend**](./docs/api/FaxApi.md#faxsend) | **POST** /fax/send | Send Fax |
@@ -140,6 +112,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *SignatureRequestApi* | [**signatureRequestCancel**](./docs/api/SignatureRequestApi.md#signaturerequestcancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request |
 | *SignatureRequestApi* | [**signatureRequestCreateEmbedded**](./docs/api/SignatureRequestApi.md#signaturerequestcreateembedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | *SignatureRequestApi* | [**signatureRequestCreateEmbeddedWithTemplate**](./docs/api/SignatureRequestApi.md#signaturerequestcreateembeddedwithtemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
+| *SignatureRequestApi* | [**signatureRequestEdit**](./docs/api/SignatureRequestApi.md#signaturerequestedit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+| *SignatureRequestApi* | [**signatureRequestEditEmbedded**](./docs/api/SignatureRequestApi.md#signaturerequesteditembedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request |
+| *SignatureRequestApi* | [**signatureRequestEditEmbeddedWithTemplate**](./docs/api/SignatureRequestApi.md#signaturerequesteditembeddedwithtemplate) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template |
+| *SignatureRequestApi* | [**signatureRequestEditWithTemplate**](./docs/api/SignatureRequestApi.md#signaturerequesteditwithtemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 | *SignatureRequestApi* | [**signatureRequestFiles**](./docs/api/SignatureRequestApi.md#signaturerequestfiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | *SignatureRequestApi* | [**signatureRequestFilesAsDataUri**](./docs/api/SignatureRequestApi.md#signaturerequestfilesasdatauri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
 | *SignatureRequestApi* | [**signatureRequestFilesAsFileUrl**](./docs/api/SignatureRequestApi.md#signaturerequestfilesasfileurl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url |
@@ -242,6 +218,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SignatureRequestBulkSendWithTemplateRequest](./docs/model/SignatureRequestBulkSendWithTemplateRequest.md)
 - [SignatureRequestCreateEmbeddedRequest](./docs/model/SignatureRequestCreateEmbeddedRequest.md)
 - [SignatureRequestCreateEmbeddedWithTemplateRequest](./docs/model/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+- [SignatureRequestEditEmbeddedRequest](./docs/model/SignatureRequestEditEmbeddedRequest.md)
+- [SignatureRequestEditEmbeddedWithTemplateRequest](./docs/model/SignatureRequestEditEmbeddedWithTemplateRequest.md)
+- [SignatureRequestEditRequest](./docs/model/SignatureRequestEditRequest.md)
+- [SignatureRequestEditWithTemplateRequest](./docs/model/SignatureRequestEditWithTemplateRequest.md)
 - [SignatureRequestGetResponse](./docs/model/SignatureRequestGetResponse.md)
 - [SignatureRequestListResponse](./docs/model/SignatureRequestListResponse.md)
 - [SignatureRequestRemindRequest](./docs/model/SignatureRequestRemindRequest.md)

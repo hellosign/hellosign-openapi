@@ -5,7 +5,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**faxDelete()**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax |
-| [**faxFiles()**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| [**faxFiles()**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | [**faxGet()**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax |
 | [**faxList()**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes |
 | [**faxSend()**](FaxApi.md#faxSend) | **POST** /fax/send | Send Fax |
@@ -19,41 +19,22 @@ faxDelete(faxId: string)
 
 Delete Fax
 
-Deletes the specified Fax from the system.
+Deletes the specified Fax from the system
 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxApi = new DropboxSign.FaxApi();
+const apiCaller = new api.FaxApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const result = faxApi.faxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
-
-result.catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxApi = new DropboxSign.FaxApi();
-
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const result = faxApi.faxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
-
-result.catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+apiCaller.faxDelete(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // faxId
+).catch(error => {
+  console.log("Exception when calling FaxApi#faxDelete:");
   console.log(error.body);
 });
 
@@ -88,51 +69,26 @@ void (empty response body)
 faxFiles(faxId: string): Buffer
 ```
 
-List Fax Files
+Download Fax Files
 
-Returns list of fax files
+Downloads files associated with a Fax
 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxApi = new DropboxSign.FaxApi();
+const apiCaller = new api.FaxApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-const result = faxApi.faxFiles(faxId);
-result.then(response => {
-  fs.createWriteStream('file_response.pdf').write(response.body);
+apiCaller.faxFiles(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // faxId
+).then(response => {
+  fs.createWriteStream('./file_response').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const faxApi = new DropboxSign.FaxApi();
-
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-const result = faxApi.faxFiles(faxId);
-result.then(response => {
-  fs.createWriteStream('file_response.pdf').write(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxApi#faxFiles:");
   console.log(error.body);
 });
 
@@ -169,47 +125,24 @@ faxGet(faxId: string): FaxGetResponse
 
 Get Fax
 
-Returns information about fax
+Returns information about a Fax
 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxApi = new DropboxSign.ApiAppApi();
+const apiCaller = new api.FaxApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
-const result = faxApi.faxGet(faxId);
-result.then(response => {
+apiCaller.faxGet(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // faxId
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxApi = new DropboxSign.FaxApi();
-
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
-const result = faxApi.faxGet(faxId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxApi#faxGet:");
   console.log(error.body);
 });
 
@@ -246,49 +179,25 @@ faxList(page: number, pageSize: number): FaxListResponse
 
 Lists Faxes
 
-Returns properties of multiple faxes
+Returns properties of multiple Faxes
 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxApi = new DropboxSign.FaxApi();
+const apiCaller = new api.FaxApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const page = 1;
-const pageSize = 2;
-
-const result = faxApi.faxList(page, pageSize);
-result.then(response => {
+apiCaller.faxList(
+  1, // page
+  20, // pageSize
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxApi = new DropboxSign.FaxApi();
-
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const page = 1;
-const pageSize = 2;
-
-const result = faxApi.faxList(page, pageSize);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxApi#faxList:");
   console.log(error.body);
 });
 
@@ -298,8 +207,8 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **number**| Page | [optional] [default to 1] |
-| **pageSize** | **number**| Page size | [optional] [default to 20] |
+| **page** | **number**| Which page number of the Fax List to return. Defaults to `1`. | [optional] [default to 1] |
+| **pageSize** | **number**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
 
 ### Return type
 
@@ -326,109 +235,37 @@ faxSend(faxSendRequest: FaxSendRequest): FaxGetResponse
 
 Send Fax
 
-Action to prepare and send a fax
+Creates and sends a new Fax with the submitted file(s)
 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxApi = new DropboxSign.FaxApi();
+const apiCaller = new api.FaxApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-// Upload a local file
-const file = fs.createReadStream("example_signature_request.pdf");
-
-// or, upload from buffer
-const fileBuffer: DropboxSign.RequestDetailedFile = {
-  value: fs.readFileSync("example_signature_request.pdf"),
-  options: {
-    filename: "example_signature_request.pdf",
-    contentType: "application/pdf",
-  },
-};
-
-// or, upload from buffer alternative
-const fileBufferAlt: DropboxSign.RequestDetailedFile = {
-  value: Buffer.from("abc-123"),
-  options: {
-    filename: "txt-sample.txt",
-    contentType: "text/plain",
-  },
-};
-
-const data: DropboxSign.FaxSendRequest = {
-  files: [ file, fileBuffer, fileBufferAlt ],
-  testMode: true,
+const faxSendRequest: models.FaxSendRequest = {
   recipient: "16690000001",
   sender: "16690000000",
-  coverPageTo: "Jill Fax",
-  coverPageMessage: "I'm sending you a fax!",
-  coverPageFrom: "Faxer Faxerson",
-  title: "This is what the fax is about!",
-};
-
-const result = faxApi.faxSend(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const faxApi = new DropboxSign.FaxApi();
-
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-// Upload a local file
-const file = fs.createReadStream("example_signature_request.pdf");
-
-// or, upload from buffer
-const fileBuffer = {
-  value: fs.readFileSync("example_signature_request.pdf"),
-  options: {
-    filename: "example_signature_request.pdf",
-    contentType: "application/pdf",
-  },
-};
-
-// or, upload from buffer alternative
-const fileBufferAlt = {
-  value: Buffer.from("abc-123"),
-  options: {
-    filename: "txt-sample.txt",
-    contentType: "text/plain",
-  },
-};
-
-const data = {
-  files: [ file, fileBuffer, fileBufferAlt ],
   testMode: true,
-  recipient: "16690000001",
-  sender: "16690000000",
   coverPageTo: "Jill Fax",
-  coverPageMessage: "I'm sending you a fax!",
   coverPageFrom: "Faxer Faxerson",
+  coverPageMessage: "I'm sending you a fax!",
   title: "This is what the fax is about!",
+  files: [
+    fs.createReadStream("./example_fax.pdf"),
+  ],
 };
 
-const result = faxApi.faxSend(data);
-result.then(response => {
+apiCaller.faxSend(
+  faxSendRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxApi#faxSend:");
   console.log(error.body);
 });
 

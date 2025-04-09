@@ -23,50 +23,60 @@ Creates a new API App.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class ApiAppCreateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var oauth = new SubOAuth();
+        oauth.callbackUrl("https://example.com/oauth");
+        oauth.scopes(List.of (
+            SubOAuth.ScopesEnum.BASIC_ACCOUNT_INFO,
+            SubOAuth.ScopesEnum.REQUEST_SIGNATURE
+        ));
 
-        var apiAppApi = new ApiAppApi(apiClient);
+        var whiteLabelingOptions = new SubWhiteLabelingOptions();
+        whiteLabelingOptions.primaryButtonColor("#00b3e6");
+        whiteLabelingOptions.primaryButtonTextColor("#ffffff");
 
-        var oauth = new SubOAuth()
-            .callbackUrl("https://example.com/oauth")
-            .scopes(List.of((SubOAuth.ScopesEnum.BASIC_ACCOUNT_INFO, SubOAuth.ScopesEnum.REQUEST_SIGNATURE));
+        var apiAppCreateRequest = new ApiAppCreateRequest();
+        apiAppCreateRequest.name("My Production App");
+        apiAppCreateRequest.domains(List.of (
+            "example.com"
+        ));
+        apiAppCreateRequest.customLogoFile(new File("CustomLogoFile.png"));
+        apiAppCreateRequest.oauth(oauth);
+        apiAppCreateRequest.whiteLabelingOptions(whiteLabelingOptions);
 
-        var whiteLabelingOptions = new SubWhiteLabelingOptions()
-            .primaryButtonColor("#00b3e6")
-            .primaryButtonTextColor("#ffffff");
+        try
+        {
+            var response = new ApiAppApi(config).apiAppCreate(
+                apiAppCreateRequest
+            );
 
-        var customLogoFile = new File("CustomLogoFile.png");
-
-        var data = new ApiAppCreateRequest()
-            .name("My Production App")
-            .domains(List.of("example.com"))
-            .oauth(oauth)
-            .whiteLabelingOptions(whiteLabelingOptions)
-            .customLogoFile(customLogoFile);
-
-        try {
-            ApiAppGetResponse result = apiAppApi.apiAppCreate(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling ApiAppApi#apiAppCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -115,30 +125,38 @@ Deletes an API App. Can only be invoked for apps you own.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
+import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class ApiAppDeleteExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var apiAppApi = new ApiAppApi(apiClient);
-
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-        try {
-            apiAppApi.apiAppDelete(clientId);
+        try
+        {
+            new ApiAppApi(config).apiAppDelete(
+                "0dd3b823a682527788c4e40cb7b6f7e9" // clientId
+            );
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling ApiAppApi#apiAppDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -187,32 +205,40 @@ Returns an object with information about an API App.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class ApiAppGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var apiAppApi = new ApiAppApi(apiClient);
+        try
+        {
+            var response = new ApiAppApi(config).apiAppGet(
+                "0dd3b823a682527788c4e40cb7b6f7e9" // clientId
+            );
 
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-        try {
-            ApiAppGetResponse result = apiAppApi.apiAppGet(clientId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling ApiAppApi#apiAppGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -261,33 +287,41 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class ApiAppListExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var apiAppApi = new ApiAppApi(apiClient);
+        try
+        {
+            var response = new ApiAppApi(config).apiAppList(
+                1, // page
+                20 // pageSize
+            );
 
-        var page = 1;
-        var pageSize = 2;
-
-        try {
-            ApiAppListResponse result = apiAppApi.apiAppList(page, pageSize);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling ApiAppApi#apiAppList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -337,52 +371,62 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class ApiAppUpdateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var oauth = new SubOAuth();
+        oauth.callbackUrl("https://example.com/oauth");
+        oauth.scopes(List.of (
+            SubOAuth.ScopesEnum.BASIC_ACCOUNT_INFO,
+            SubOAuth.ScopesEnum.REQUEST_SIGNATURE
+        ));
 
-        var apiAppApi = new ApiAppApi(apiClient);
+        var whiteLabelingOptions = new SubWhiteLabelingOptions();
+        whiteLabelingOptions.primaryButtonColor("#00b3e6");
+        whiteLabelingOptions.primaryButtonTextColor("#ffffff");
 
-        var oauth = new SubOAuth()
-            .callbackUrl("https://example.com/oauth")
-            .scopes(List.of(SubOAuth.ScopesEnum.BASIC_ACCOUNT_INFO, SubOAuth.ScopesEnum.REQUEST_SIGNATURE));
+        var apiAppUpdateRequest = new ApiAppUpdateRequest();
+        apiAppUpdateRequest.callbackUrl("https://example.com/dropboxsign");
+        apiAppUpdateRequest.name("New Name");
+        apiAppUpdateRequest.domains(List.of (
+            "example.com"
+        ));
+        apiAppUpdateRequest.customLogoFile(new File("CustomLogoFile.png"));
+        apiAppUpdateRequest.oauth(oauth);
+        apiAppUpdateRequest.whiteLabelingOptions(whiteLabelingOptions);
 
-        var whiteLabelingOptions = new SubWhiteLabelingOptions()
-            .primaryButtonColor("#00b3e6")
-            .primaryButtonTextColor("#ffffff");
+        try
+        {
+            var response = new ApiAppApi(config).apiAppUpdate(
+                "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
+                apiAppUpdateRequest
+            );
 
-        var customLogoFile = new File("CustomLogoFile.png");
-
-        var data = new ApiAppUpdateRequest()
-            .name("My Production App")
-            .domains(List.of("example.com"))
-            .oauth(oauth)
-            .whiteLabelingOptions(whiteLabelingOptions)
-            .customLogoFile(customLogoFile);
-
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-        try {
-            ApiAppGetResponse result = apiAppApi.apiAppUpdate(clientId, data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling ApiAppApi#apiAppUpdate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

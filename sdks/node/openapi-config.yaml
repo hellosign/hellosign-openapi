@@ -2,13 +2,17 @@ generatorName: typescript-node
 typeMappings: {}
 additionalProperties:
   npmName: "@dropbox/sign"
-  npmVersion: 1.8-dev
+  npmVersion: 1.8.1-dev
   supportsES6: true
   apiDocPath: ./docs/api
   modelDocPath: ./docs/model
   sortModelPropertiesByRequiredFlag: true
   useCustomTemplateCode: true
   licenseCopyrightYear: 2024
+  oseg.npmName: "@dropbox/sign-sandbox"
+  oseg.printApiCallProperty: true
+  oseg.security.api_key.username: YOUR_API_KEY
+  oseg.security.oauth2.access_token: YOUR_ACCESS_TOKEN
 files:
   dropbox-npmignore:
     templateType: SupportingFiles

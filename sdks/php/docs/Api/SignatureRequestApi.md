@@ -9,6 +9,10 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**signatureRequestCancel()**](SignatureRequestApi.md#signatureRequestCancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request |
 | [**signatureRequestCreateEmbedded()**](SignatureRequestApi.md#signatureRequestCreateEmbedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | [**signatureRequestCreateEmbeddedWithTemplate()**](SignatureRequestApi.md#signatureRequestCreateEmbeddedWithTemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
+| [**signatureRequestEdit()**](SignatureRequestApi.md#signatureRequestEdit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+| [**signatureRequestEditEmbedded()**](SignatureRequestApi.md#signatureRequestEditEmbedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request |
+| [**signatureRequestEditEmbeddedWithTemplate()**](SignatureRequestApi.md#signatureRequestEditEmbeddedWithTemplate) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template |
+| [**signatureRequestEditWithTemplate()**](SignatureRequestApi.md#signatureRequestEditWithTemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 | [**signatureRequestFiles()**](SignatureRequestApi.md#signatureRequestFiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | [**signatureRequestFilesAsDataUri()**](SignatureRequestApi.md#signatureRequestFilesAsDataUri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
 | [**signatureRequestFilesAsFileUrl()**](SignatureRequestApi.md#signatureRequestFilesAsFileUrl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url |
@@ -36,63 +40,92 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
+$signer_list_2_custom_fields_1 = (new Dropbox\Sign\Model\SubBulkSignerListCustomField())
+    ->setName("company")
+    ->setValue("123 LLC");
 
-$signerList1Signer = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signerList1Signer->setRole("Client")
-    ->setName("George")
-    ->setEmailAddress("george@example.com")
-    ->setPin("d79a3td");
+$signer_list_2_custom_fields = [
+    $signer_list_2_custom_fields_1,
+];
 
-$signerList1CustomFields = new Dropbox\Sign\Model\SubBulkSignerListCustomField();
-$signerList1CustomFields->setName("company")
-    ->setValue("ABC Corp");
-
-$signerList1 = new Dropbox\Sign\Model\SubBulkSignerList();
-$signerList1->setSigners([$signerList1Signer])
-    ->setCustomFields([$signerList1CustomFields]);
-
-$signerList2Signer = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signerList2Signer->setRole("Client")
+$signer_list_2_signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
+    ->setRole("Client")
     ->setName("Mary")
     ->setEmailAddress("mary@example.com")
     ->setPin("gd9as5b");
 
-$signerList2CustomFields = new Dropbox\Sign\Model\SubBulkSignerListCustomField();
-$signerList2CustomFields->setName("company")
-    ->setValue("123 LLC");
+$signer_list_2_signers = [
+    $signer_list_2_signers_1,
+];
 
-$signerList2 = new Dropbox\Sign\Model\SubBulkSignerList();
-$signerList2->setSigners([$signerList2Signer])
-    ->setCustomFields([$signerList2CustomFields]);
+$signer_list_1_custom_fields_1 = (new Dropbox\Sign\Model\SubBulkSignerListCustomField())
+    ->setName("company")
+    ->setValue("ABC Corp");
 
-$cc1 = new Dropbox\Sign\Model\SubCC();
-$cc1->setRole("Accounting")
+$signer_list_1_custom_fields = [
+    $signer_list_1_custom_fields_1,
+];
+
+$signer_list_1_signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
+    ->setRole("Client")
+    ->setName("George")
+    ->setEmailAddress("george@example.com")
+    ->setPin("d79a3td");
+
+$signer_list_1_signers = [
+    $signer_list_1_signers_1,
+];
+
+$signer_list_1 = (new Dropbox\Sign\Model\SubBulkSignerList())
+    ->setCustomFields($signer_list_1_custom_fields)
+    ->setSigners($signer_list_1_signers);
+
+$signer_list_2 = (new Dropbox\Sign\Model\SubBulkSignerList())
+    ->setCustomFields($signer_list_2_custom_fields)
+    ->setSigners($signer_list_2_signers);
+
+$signer_list = [
+    $signer_list_1,
+    $signer_list_2,
+];
+
+$ccs_1 = (new Dropbox\Sign\Model\SubCC())
+    ->setRole("Accounting")
     ->setEmailAddress("accounting@example.com");
 
-$data = new Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest();
-$data->setClientId("1a659d9ad95bccd307ecad78d72192f8")
-    ->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
-    ->setSubject("Purchase Order")
+$ccs = [
+    $ccs_1,
+];
+
+$signature_request_bulk_create_embedded_with_template_request = (new Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest())
+    ->setClientId("1a659d9ad95bccd307ecad78d72192f8")
+    ->setTemplateIds([
+        "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+    ])
     ->setMessage("Glad we could come to an agreement.")
-    ->setSignerList([$signerList1, $signerList2])
-    ->setCcs([$cc1])
-    ->setTestMode(true);
+    ->setSubject("Purchase Order")
+    ->setTestMode(true)
+    ->setSignerList($signer_list)
+    ->setCcs($ccs);
 
 try {
-    $result = $signatureRequestApi->signatureRequestBulkCreateEmbeddedWithTemplate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestBulkCreateEmbeddedWithTemplate(
+        signature_request_bulk_create_embedded_with_template_request: $signature_request_bulk_create_embedded_with_template_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestBulkCreateEmbeddedWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -134,65 +167,92 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
+$signer_list_2_custom_fields_1 = (new Dropbox\Sign\Model\SubBulkSignerListCustomField())
+    ->setName("company")
+    ->setValue("123 LLC");
 
-$signerList1Signer = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signerList1Signer->setRole("Client")
-    ->setName("George")
-    ->setEmailAddress("george@example.com")
-    ->setPin("d79a3td");
+$signer_list_2_custom_fields = [
+    $signer_list_2_custom_fields_1,
+];
 
-$signerList1CustomFields = new Dropbox\Sign\Model\SubBulkSignerListCustomField();
-$signerList1CustomFields->setName("company")
-    ->setValue("ABC Corp");
-
-$signerList1 = new Dropbox\Sign\Model\SubBulkSignerList();
-$signerList1->setSigners([$signerList1Signer])
-    ->setCustomFields([$signerList1CustomFields]);
-
-$signerList2Signer = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signerList2Signer->setRole("Client")
+$signer_list_2_signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
+    ->setRole("Client")
     ->setName("Mary")
     ->setEmailAddress("mary@example.com")
     ->setPin("gd9as5b");
 
-$signerList2CustomFields = new Dropbox\Sign\Model\SubBulkSignerListCustomField();
-$signerList2CustomFields->setName("company")
-    ->setValue("123 LLC");
+$signer_list_2_signers = [
+    $signer_list_2_signers_1,
+];
 
-$signerList2 = new Dropbox\Sign\Model\SubBulkSignerList();
-$signerList2->setSigners([$signerList2Signer])
-    ->setCustomFields([$signerList2CustomFields]);
+$signer_list_1_custom_fields_1 = (new Dropbox\Sign\Model\SubBulkSignerListCustomField())
+    ->setName("company")
+    ->setValue("ABC Corp");
 
-$cc1 = new Dropbox\Sign\Model\SubCC();
-$cc1->setRole("Accounting")
+$signer_list_1_custom_fields = [
+    $signer_list_1_custom_fields_1,
+];
+
+$signer_list_1_signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
+    ->setRole("Client")
+    ->setName("George")
+    ->setEmailAddress("george@example.com")
+    ->setPin("d79a3td");
+
+$signer_list_1_signers = [
+    $signer_list_1_signers_1,
+];
+
+$signer_list_1 = (new Dropbox\Sign\Model\SubBulkSignerList())
+    ->setCustomFields($signer_list_1_custom_fields)
+    ->setSigners($signer_list_1_signers);
+
+$signer_list_2 = (new Dropbox\Sign\Model\SubBulkSignerList())
+    ->setCustomFields($signer_list_2_custom_fields)
+    ->setSigners($signer_list_2_signers);
+
+$signer_list = [
+    $signer_list_1,
+    $signer_list_2,
+];
+
+$ccs_1 = (new Dropbox\Sign\Model\SubCC())
+    ->setRole("Accounting")
     ->setEmailAddress("accounting@example.com");
 
-$data = new Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest();
-$data->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
-    ->setSubject("Purchase Order")
+$ccs = [
+    $ccs_1,
+];
+
+$signature_request_bulk_send_with_template_request = (new Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest())
+    ->setTemplateIds([
+        "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+    ])
     ->setMessage("Glad we could come to an agreement.")
-    ->setSignerList([$signerList1, $signerList2])
-    ->setCcs([$cc1])
-    ->setTestMode(true);
+    ->setSubject("Purchase Order")
+    ->setTestMode(true)
+    ->setSignerList($signer_list)
+    ->setCcs($ccs);
 
 try {
-    $result = $signatureRequestApi->signatureRequestBulkSendWithTemplate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestBulkSendWithTemplate(
+        signature_request_bulk_send_with_template_request: $signature_request_bulk_send_with_template_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestBulkSendWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -234,26 +294,23 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
 try {
-    $signatureRequestApi->signatureRequestCancel($signatureRequestId);
+    (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestCancel(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    );
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestCancel: {$e->getMessage()}";
 }
 
 ```
@@ -295,56 +352,62 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
+$signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW)
+    ->setDraw(true)
+    ->setPhone(false)
+    ->setType(true)
+    ->setUpload(true);
 
-$signer1 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
-$signer1->setEmailAddress("jack@example.com")
+$signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
+    ->setEmailAddress("jack@example.com")
     ->setOrder(0);
 
-$signer2 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
-$signer2->setEmailAddress("jill@example.com")
+$signers_2 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jill")
+    ->setEmailAddress("jill@example.com")
     ->setOrder(1);
 
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
-    ->setPhone(true)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+$signers = [
+    $signers_1,
+    $signers_2,
+];
 
-$data = new Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest();
-$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
-    ->setTitle("NDA with Acme Co.")
+$signature_request_create_embedded_request = (new Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest())
+    ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
+    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.")
     ->setSubject("The NDA we talked about")
-    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-    ->setSigners([$signer1, $signer2])
+    ->setTestMode(true)
+    ->setTitle("NDA with Acme Co.")
     ->setCcEmailAddresses([
         "lawyer1@dropboxsign.com",
         "lawyer2@dropboxsign.com",
     ])
-    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setSigningOptions($signingOptions)
-    ->setTestMode(true);
+    ->setFiles([
+    ])
+    ->setSigningOptions($signing_options)
+    ->setSigners($signers);
 
 try {
-    $result = $signatureRequestApi->signatureRequestCreateEmbedded($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestCreateEmbedded(
+        signature_request_create_embedded_request: $signature_request_create_embedded_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestCreateEmbedded: {$e->getMessage()}";
 }
 
 ```
@@ -386,46 +449,52 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signer1 = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signer1->setRole("Client")
-    ->setEmailAddress("george@example.com")
-    ->setName("George");
-
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
+$signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW)
+    ->setDraw(true)
     ->setPhone(false)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+    ->setType(true)
+    ->setUpload(true);
 
-$data = new Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest();
-$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
-    ->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
-    ->setSubject("Purchase Order")
+$signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
+    ->setRole("Client")
+    ->setName("George")
+    ->setEmailAddress("george@example.com");
+
+$signers = [
+    $signers_1,
+];
+
+$signature_request_create_embedded_with_template_request = (new Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest())
+    ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
+    ->setTemplateIds([
+        "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+    ])
     ->setMessage("Glad we could come to an agreement.")
-    ->setSigners([$signer1])
-    ->setSigningOptions($signingOptions)
-    ->setTestMode(true);
+    ->setSubject("Purchase Order")
+    ->setTestMode(true)
+    ->setSigningOptions($signing_options)
+    ->setSigners($signers);
 
 try {
-    $result = $signatureRequestApi->signatureRequestCreateEmbeddedWithTemplate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestCreateEmbeddedWithTemplate(
+        signature_request_create_embedded_with_template_request: $signature_request_create_embedded_with_template_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestCreateEmbeddedWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -435,6 +504,410 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_create_embedded_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest**](../Model/SignatureRequestCreateEmbeddedWithTemplateRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\SignatureRequestGetResponse**](../Model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEdit()`
+
+```php
+signatureRequestEdit($signature_request_id, $signature_request_edit_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+```
+Edit Signature Request
+
+Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+
+### Example
+
+```php
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$field_options = (new Dropbox\Sign\Model\SubFieldOptions())
+    ->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+
+$signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW)
+    ->setDraw(true)
+    ->setPhone(false)
+    ->setType(true)
+    ->setUpload(true);
+
+$signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
+    ->setName("Jack")
+    ->setEmailAddress("jack@example.com")
+    ->setOrder(0);
+
+$signers_2 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
+    ->setName("Jill")
+    ->setEmailAddress("jill@example.com")
+    ->setOrder(1);
+
+$signers = [
+    $signers_1,
+    $signers_2,
+];
+
+$signature_request_edit_request = (new Dropbox\Sign\Model\SignatureRequestEditRequest())
+    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.")
+    ->setSubject("The NDA we talked about")
+    ->setTestMode(true)
+    ->setTitle("NDA with Acme Co.")
+    ->setCcEmailAddresses([
+        "lawyer1@dropboxsign.com",
+        "lawyer2@dropboxsign.com",
+    ])
+    ->setFiles([
+    ])
+    ->setMetadata(json_decode(<<<'EOD'
+        {
+            "custom_id": 1234,
+            "custom_text": "NDA #9"
+        }
+    EOD, true))
+    ->setFieldOptions($field_options)
+    ->setSigningOptions($signing_options)
+    ->setSigners($signers);
+
+try {
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestEdit(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        signature_request_edit_request: $signature_request_edit_request,
+    );
+
+    print_r($response);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling SignatureRequestApi#signatureRequestEdit: {$e->getMessage()}";
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
+| **signature_request_edit_request** | [**\Dropbox\Sign\Model\SignatureRequestEditRequest**](../Model/SignatureRequestEditRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\SignatureRequestGetResponse**](../Model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEditEmbedded()`
+
+```php
+signatureRequestEditEmbedded($signature_request_id, $signature_request_edit_embedded_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+```
+Edit Embedded Signature Request
+
+Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### Example
+
+```php
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW)
+    ->setDraw(true)
+    ->setPhone(false)
+    ->setType(true)
+    ->setUpload(true);
+
+$signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
+    ->setName("Jack")
+    ->setEmailAddress("jack@example.com")
+    ->setOrder(0);
+
+$signers_2 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
+    ->setName("Jill")
+    ->setEmailAddress("jill@example.com")
+    ->setOrder(1);
+
+$signers = [
+    $signers_1,
+    $signers_2,
+];
+
+$signature_request_edit_embedded_request = (new Dropbox\Sign\Model\SignatureRequestEditEmbeddedRequest())
+    ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
+    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.")
+    ->setSubject("The NDA we talked about")
+    ->setTestMode(true)
+    ->setTitle("NDA with Acme Co.")
+    ->setCcEmailAddresses([
+        "lawyer1@dropboxsign.com",
+        "lawyer2@dropboxsign.com",
+    ])
+    ->setFiles([
+    ])
+    ->setSigningOptions($signing_options)
+    ->setSigners($signers);
+
+try {
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestEditEmbedded(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        signature_request_edit_embedded_request: $signature_request_edit_embedded_request,
+    );
+
+    print_r($response);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling SignatureRequestApi#signatureRequestEditEmbedded: {$e->getMessage()}";
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
+| **signature_request_edit_embedded_request** | [**\Dropbox\Sign\Model\SignatureRequestEditEmbeddedRequest**](../Model/SignatureRequestEditEmbeddedRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\SignatureRequestGetResponse**](../Model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEditEmbeddedWithTemplate()`
+
+```php
+signatureRequestEditEmbeddedWithTemplate($signature_request_id, $signature_request_edit_embedded_with_template_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+```
+Edit Embedded Signature Request with Template
+
+Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### Example
+
+```php
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW)
+    ->setDraw(true)
+    ->setPhone(false)
+    ->setType(true)
+    ->setUpload(true);
+
+$signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
+    ->setRole("Client")
+    ->setName("George")
+    ->setEmailAddress("george@example.com");
+
+$signers = [
+    $signers_1,
+];
+
+$signature_request_edit_embedded_with_template_request = (new Dropbox\Sign\Model\SignatureRequestEditEmbeddedWithTemplateRequest())
+    ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
+    ->setTemplateIds([
+        "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+    ])
+    ->setMessage("Glad we could come to an agreement.")
+    ->setSubject("Purchase Order")
+    ->setTestMode(true)
+    ->setSigningOptions($signing_options)
+    ->setSigners($signers);
+
+try {
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestEditEmbeddedWithTemplate(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        signature_request_edit_embedded_with_template_request: $signature_request_edit_embedded_with_template_request,
+    );
+
+    print_r($response);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling SignatureRequestApi#signatureRequestEditEmbeddedWithTemplate: {$e->getMessage()}";
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
+| **signature_request_edit_embedded_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestEditEmbeddedWithTemplateRequest**](../Model/SignatureRequestEditEmbeddedWithTemplateRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\SignatureRequestGetResponse**](../Model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEditWithTemplate()`
+
+```php
+signatureRequestEditWithTemplate($signature_request_id, $signature_request_edit_with_template_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+```
+Edit Signature Request With Template
+
+Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+
+### Example
+
+```php
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW)
+    ->setDraw(true)
+    ->setPhone(false)
+    ->setType(true)
+    ->setUpload(true);
+
+$signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
+    ->setRole("Client")
+    ->setName("George")
+    ->setEmailAddress("george@example.com");
+
+$signers = [
+    $signers_1,
+];
+
+$ccs_1 = (new Dropbox\Sign\Model\SubCC())
+    ->setRole("Accounting")
+    ->setEmailAddress("accounting@example.com");
+
+$ccs = [
+    $ccs_1,
+];
+
+$custom_fields_1 = (new Dropbox\Sign\Model\SubCustomField())
+    ->setName("Cost")
+    ->setEditor("Client")
+    ->setRequired(true)
+    ->setValue("\$20,000");
+
+$custom_fields = [
+    $custom_fields_1,
+];
+
+$signature_request_edit_with_template_request = (new Dropbox\Sign\Model\SignatureRequestEditWithTemplateRequest())
+    ->setTemplateIds([
+        "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+    ])
+    ->setMessage("Glad we could come to an agreement.")
+    ->setSubject("Purchase Order")
+    ->setTestMode(true)
+    ->setSigningOptions($signing_options)
+    ->setSigners($signers)
+    ->setCcs($ccs)
+    ->setCustomFields($custom_fields);
+
+try {
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestEditWithTemplate(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        signature_request_edit_with_template_request: $signature_request_edit_with_template_request,
+    );
+
+    print_r($response);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling SignatureRequestApi#signatureRequestEditWithTemplate: {$e->getMessage()}";
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
+| **signature_request_edit_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestEditWithTemplateRequest**](../Model/SignatureRequestEditWithTemplateRequest.md)|  | |
 
 ### Return type
 
@@ -467,28 +940,26 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-$fileType = "pdf";
-
 try {
-    $result = $signatureRequestApi->signatureRequestFiles($signatureRequestId, $fileType);
-    copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestFiles(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        file_type: "pdf",
+    );
+
+    copy($response->getRealPath(), __DIR__ . '/file_response');
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestFiles: {$e->getMessage()}";
 }
 
 ```
@@ -531,27 +1002,25 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 try {
-    $result = $signatureRequestApi->signatureRequestFilesAsDataUri($signatureRequestId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestFilesAsDataUri(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestFilesAsDataUri: {$e->getMessage()}";
 }
 
 ```
@@ -593,27 +1062,26 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 try {
-    $result = $signatureRequestApi->signatureRequestFilesAsFileUrl($signatureRequestId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestFilesAsFileUrl(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        force_download: 1,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestFilesAsFileUrl: {$e->getMessage()}";
 }
 
 ```
@@ -656,27 +1124,25 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 try {
-    $result = $signatureRequestApi->signatureRequestGet($signatureRequestId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestGet(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestGet: {$e->getMessage()}";
 }
 
 ```
@@ -718,28 +1184,26 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$accountId = null;
-$page = 1;
-
 try {
-    $result = $signatureRequestApi->signatureRequestList($accountId, $page);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestList(
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestList: {$e->getMessage()}";
 }
 
 ```
@@ -784,27 +1248,25 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
 try {
-    $result = $signatureRequestApi->signatureRequestReleaseHold($signatureRequestId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestReleaseHold(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestReleaseHold: {$e->getMessage()}";
 }
 
 ```
@@ -846,30 +1308,29 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$data = new Dropbox\Sign\Model\SignatureRequestRemindRequest();
-$data->setEmailAddress("john@example.com");
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+$signature_request_remind_request = (new Dropbox\Sign\Model\SignatureRequestRemindRequest())
+    ->setEmailAddress("john@example.com");
 
 try {
-    $result = $signatureRequestApi->signatureRequestRemind($signatureRequestId, $data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestRemind(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        signature_request_remind_request: $signature_request_remind_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestRemind: {$e->getMessage()}";
 }
 
 ```
@@ -912,23 +1373,22 @@ Removes your access to a completed signature request. This action is **not rever
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
 try {
-    $signatureRequestApi->signatureRequestRemove($signatureRequestId);
+    (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestRemove(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+    );
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestRemove: {$e->getMessage()}";
 }
 
 ```
@@ -970,63 +1430,71 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
+$field_options = (new Dropbox\Sign\Model\SubFieldOptions())
+    ->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$signer1 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
-$signer1->setEmailAddress("jack@example.com")
+$signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW)
+    ->setDraw(true)
+    ->setPhone(false)
+    ->setType(true)
+    ->setUpload(true);
+
+$signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
+    ->setEmailAddress("jack@example.com")
     ->setOrder(0);
 
-$signer2 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
-$signer2->setEmailAddress("jill@example.com")
+$signers_2 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jill")
+    ->setEmailAddress("jill@example.com")
     ->setOrder(1);
 
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
-    ->setPhone(false)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+$signers = [
+    $signers_1,
+    $signers_2,
+];
 
-$fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
-
-$data = new Dropbox\Sign\Model\SignatureRequestSendRequest();
-$data->setTitle("NDA with Acme Co.")
+$signature_request_send_request = (new Dropbox\Sign\Model\SignatureRequestSendRequest())
+    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.")
     ->setSubject("The NDA we talked about")
-    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-    ->setSigners([$signer1, $signer2])
+    ->setTestMode(true)
+    ->setTitle("NDA with Acme Co.")
     ->setCcEmailAddresses([
         "lawyer1@dropboxsign.com",
         "lawyer2@dropboxsign.com",
     ])
-    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setMetadata([
-        "custom_id" => 1234,
-        "custom_text" => "NDA #9",
+    ->setFiles([
     ])
-    ->setSigningOptions($signingOptions)
-    ->setFieldOptions($fieldOptions)
-    ->setTestMode(true);
+    ->setMetadata(json_decode(<<<'EOD'
+        {
+            "custom_id": 1234,
+            "custom_text": "NDA #9"
+        }
+    EOD, true))
+    ->setFieldOptions($field_options)
+    ->setSigningOptions($signing_options)
+    ->setSigners($signers);
 
 try {
-    $result = $signatureRequestApi->signatureRequestSend($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestSend(
+        signature_request_send_request: $signature_request_send_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestSend: {$e->getMessage()}";
 }
 
 ```
@@ -1068,57 +1536,71 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
+$signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW)
+    ->setDraw(true)
+    ->setPhone(false)
+    ->setType(true)
+    ->setUpload(true);
 
-$signer1 = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signer1->setRole("Client")
-    ->setEmailAddress("george@example.com")
-    ->setName("George");
+$signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
+    ->setRole("Client")
+    ->setName("George")
+    ->setEmailAddress("george@example.com");
 
-$cc1 = new Dropbox\Sign\Model\SubCC();
-$cc1->setRole("Accounting")
+$signers = [
+    $signers_1,
+];
+
+$ccs_1 = (new Dropbox\Sign\Model\SubCC())
+    ->setRole("Accounting")
     ->setEmailAddress("accounting@example.com");
 
-$customField1 = new Dropbox\Sign\Model\SubCustomField();
-$customField1->setName("Cost")
-    ->setValue("$20,000")
+$ccs = [
+    $ccs_1,
+];
+
+$custom_fields_1 = (new Dropbox\Sign\Model\SubCustomField())
+    ->setName("Cost")
     ->setEditor("Client")
-    ->setRequired(true);
+    ->setRequired(true)
+    ->setValue("\$20,000");
 
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
-    ->setPhone(false)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+$custom_fields = [
+    $custom_fields_1,
+];
 
-$data = new Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest();
-$data->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
-    ->setSubject("Purchase Order")
+$signature_request_send_with_template_request = (new Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest())
+    ->setTemplateIds([
+        "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+    ])
     ->setMessage("Glad we could come to an agreement.")
-    ->setSigners([$signer1])
-    ->setCcs([$cc1])
-    ->setCustomFields([$customField1])
-    ->setSigningOptions($signingOptions)
-    ->setTestMode(true);
+    ->setSubject("Purchase Order")
+    ->setTestMode(true)
+    ->setSigningOptions($signing_options)
+    ->setSigners($signers)
+    ->setCcs($ccs)
+    ->setCustomFields($custom_fields);
 
 try {
-    $result = $signatureRequestApi->signatureRequestSendWithTemplate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestSendWithTemplate(
+        signature_request_send_with_template_request: $signature_request_send_with_template_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestSendWithTemplate: {$e->getMessage()}";
 }
 
 ```
@@ -1160,31 +1642,30 @@ Updates the email address and/or the name for a given signer on a signature requ
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$data = new Dropbox\Sign\Model\SignatureRequestUpdateRequest();
-$data->setEmailAddress("john@example.com")
-    ->setSignatureId("78caf2a1d01cd39cea2bc1cbb340dac3");
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+$signature_request_update_request = (new Dropbox\Sign\Model\SignatureRequestUpdateRequest())
+    ->setSignatureId("2f9781e1a8e2045224d808c153c2e1d3df6f8f2f")
+    ->setEmailAddress("john@example.com");
 
 try {
-    $result = $signatureRequestApi->signatureRequestUpdate($signatureRequestId, $data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->signatureRequestUpdate(
+        signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        signature_request_update_request: $signature_request_update_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling SignatureRequestApi#signatureRequestUpdate: {$e->getMessage()}";
 }
 
 ```

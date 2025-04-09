@@ -26,48 +26,24 @@ Grants a user access to the specified Fax Line.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxLineApi = new DropboxSign.FaxLineApi();
+const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const data: DropboxSign.FaxLineAddUserRequest = {
+const faxLineAddUserRequest: models.FaxLineAddUserRequest = {
   number: "[FAX_NUMBER]",
   emailAddress: "member@dropboxsign.com",
 };
 
-const result = faxLineApi.faxLineAddUser(data);
-result.then(response => {
+apiCaller.faxLineAddUser(
+  faxLineAddUserRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxLineApi = new DropboxSign.FaxLineApi();
-
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const data = {
-  number: "[FAX_NUMBER]",
-  emailAddress: "member@dropboxsign.com",
-};
-
-const result = faxLineApi.faxLineAddUser(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxLineApi#faxLineAddUser:");
   console.log(error.body);
 });
 
@@ -104,43 +80,27 @@ faxLineAreaCodeGet(country: 'CA' | 'US' | 'UK', state: 'AK' | 'AL' | 'AR' | 'AZ'
 
 Get Available Fax Line Area Codes
 
-Returns a response with the area codes available for a given state/provice and city.
+Returns a list of available area codes for a given state/province and city
 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxLineApi = new DropboxSign.FaxLineApi();
+const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const result = faxLineApi.faxLineAreaCodeGet("US", "CA");
-result.then(response => {
+apiCaller.faxLineAreaCodeGet(
+  "US", // country
+  undefined, // state
+  undefined, // province
+  undefined, // city
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxLineApi = new DropboxSign.FaxLineApi();
-
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const result = faxLineApi.faxLineAreaCodeGet("US", "CA");
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxLineApi#faxLineAreaCodeGet:");
   console.log(error.body);
 });
 
@@ -150,10 +110,10 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **country** | **'CA' | 'US' | 'UK'**| Filter area codes by country. | |
-| **state** | **'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'**| Filter area codes by state. | [optional] |
-| **province** | **'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'**| Filter area codes by province. | [optional] |
-| **city** | **string**| Filter area codes by city. | [optional] |
+| **country** | **'CA' | 'US' | 'UK'**| Filter area codes by country | |
+| **state** | **'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'**| Filter area codes by state | [optional] |
+| **province** | **'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'**| Filter area codes by province | [optional] |
+| **city** | **string**| Filter area codes by city | [optional] |
 
 ### Return type
 
@@ -180,53 +140,29 @@ faxLineCreate(faxLineCreateRequest: FaxLineCreateRequest): FaxLineResponse
 
 Purchase Fax Line
 
-Purchases a new Fax Line.
+Purchases a new Fax Line
 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxLineApi = new DropboxSign.FaxLineApi();
+const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const data: DropboxSign.FaxLineCreateRequest = {
+const faxLineCreateRequest: models.FaxLineCreateRequest = {
   areaCode: 209,
-  country: "US",
+  country: models.FaxLineCreateRequest.CountryEnum.Us,
 };
 
-const result = faxLineApi.faxLineCreate(data);
-result.then(response => {
+apiCaller.faxLineCreate(
+  faxLineCreateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxLineApi = new DropboxSign.FaxLineApi();
-
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const data = {
-  areaCode: 209,
-  country: "US",
-};
-
-const result = faxLineApi.faxLineCreate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxLineApi#faxLineCreate:");
   console.log(error.body);
 });
 
@@ -268,44 +204,21 @@ Deletes the specified Fax Line from the subscription.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxLineApi = new DropboxSign.FaxLineApi();
+const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const data: DropboxSign.FaxLineDeleteRequest = {
+const faxLineDeleteRequest: models.FaxLineDeleteRequest = {
   number: "[FAX_NUMBER]",
 };
 
-const result = faxLineApi.faxLineDelete(data);
-
-result.catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxLineApi = new DropboxSign.FaxLineApi();
-
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const data = {
-  number: "[FAX_NUMBER]",
-};
-
-const result = faxLineApi.faxLineDelete(data);
-
-result.catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+apiCaller.faxLineDelete(
+  faxLineDeleteRequest,
+).catch(error => {
+  console.log("Exception when calling FaxLineApi#faxLineDelete:");
   console.log(error.body);
 });
 
@@ -347,38 +260,19 @@ Returns the properties and settings of a Fax Line.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxLineApi = new DropboxSign.FaxLineApi();
+const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const result = faxLineApi.faxLineGet("[FAX_NUMBER]");
-result.then(response => {
+apiCaller.faxLineGet(
+  "123-123-1234", // number
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxLineApi = new DropboxSign.FaxLineApi();
-
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const result = faxLineApi.faxLineGet("[FAX_NUMBER]");
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxLineApi#faxLineGet:");
   console.log(error.body);
 });
 
@@ -388,7 +282,7 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **number** | **string**| The Fax Line number. | |
+| **number** | **string**| The Fax Line number | |
 
 ### Return type
 
@@ -420,38 +314,22 @@ Returns the properties and settings of multiple Fax Lines.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxLineApi = new DropboxSign.FaxLineApi();
+const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const result = faxLineApi.faxLineList();
-result.then(response => {
+apiCaller.faxLineList(
+  "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97", // accountId
+  1, // page
+  20, // pageSize
+  undefined, // showTeamLines
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxLineApi = new DropboxSign.FaxLineApi();
-
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const result = faxLineApi.faxLineList();
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxLineApi#faxLineList:");
   console.log(error.body);
 });
 
@@ -462,9 +340,9 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accountId** | **string**| Account ID | [optional] |
-| **page** | **number**| Page | [optional] [default to 1] |
-| **pageSize** | **number**| Page size | [optional] [default to 20] |
-| **showTeamLines** | **boolean**| Show team lines | [optional] |
+| **page** | **number**| Which page number of the Fax Line List to return. Defaults to `1`. | [optional] [default to 1] |
+| **pageSize** | **number**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **showTeamLines** | **boolean**| Include Fax Lines belonging to team members in the list | [optional] |
 
 ### Return type
 
@@ -491,53 +369,29 @@ faxLineRemoveUser(faxLineRemoveUserRequest: FaxLineRemoveUserRequest): FaxLineRe
 
 Remove Fax Line Access
 
-Removes a user\'s access to the specified Fax Line.
+Removes a user\'s access to the specified Fax Line
 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const faxLineApi = new DropboxSign.FaxLineApi();
+const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const data: DropboxSign.FaxLineRemoveUserRequest = {
+const faxLineRemoveUserRequest: models.FaxLineRemoveUserRequest = {
   number: "[FAX_NUMBER]",
   emailAddress: "member@dropboxsign.com",
 };
 
-const result = faxLineApi.faxLineRemoveUser(data);
-result.then(response => {
+apiCaller.faxLineRemoveUser(
+  faxLineRemoveUserRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxLineApi = new DropboxSign.FaxLineApi();
-
-// Configure HTTP basic authorization: api_key
-faxLineApi.username = "YOUR_API_KEY";
-
-const data = {
-  number: "[FAX_NUMBER]",
-  emailAddress: "member@dropboxsign.com",
-};
-
-const result = faxLineApi.faxLineRemoveUser(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling FaxLineApi#faxLineRemoveUser:");
   console.log(error.body);
 });
 

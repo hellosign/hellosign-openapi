@@ -28,37 +28,39 @@ Gives the specified Account access to the specified Template. The specified Acco
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateAddUserExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
-        var data = new TemplateAddUserRequest(
+        var templateAddUserRequest = new TemplateAddUserRequest(
             emailAddress: "george@dropboxsign.com"
         );
 
         try
         {
-            var result = templateApi.TemplateAddUser(templateId, data);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateAddUser(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35",
+                templateAddUserRequest: templateAddUserRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateAddUser: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -129,77 +131,127 @@ Creates a template that can then be used.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateCreateExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
+        var fieldOptions = new SubFieldOptions(
+            dateFormat: SubFieldOptions.DateFormatEnum.DD_MM_YYYY
+        );
 
-        var templateApi = new TemplateApi(config);
-
-        var role1 = new SubTemplateRole(
+        var signerRoles1 = new SubTemplateRole(
             name: "Client",
             order: 0
         );
 
-        var role2 = new SubTemplateRole(
+        var signerRoles2 = new SubTemplateRole(
             name: "Witness",
             order: 1
         );
 
-        var mergeField1 = new SubMergeField(
+        var signerRoles = new List<SubTemplateRole>
+        {
+            signerRoles1,
+            signerRoles2,
+        };
+
+        var formFieldsPerDocument1 = new SubFormFieldsPerDocumentText(
+            documentIndex: 0,
+            apiId: "uniqueIdHere_1",
+            type: "text",
+            required: true,
+            signer: "1",
+            width: 100,
+            height: 16,
+            x: 112,
+            y: 328,
+            name: "",
+            page: 1,
+            placeholder: "",
+            validationType: SubFormFieldsPerDocumentText.ValidationTypeEnum.NumbersOnly
+        );
+
+        var formFieldsPerDocument2 = new SubFormFieldsPerDocumentSignature(
+            documentIndex: 0,
+            apiId: "uniqueIdHere_2",
+            type: "signature",
+            required: true,
+            signer: "0",
+            width: 120,
+            height: 30,
+            x: 530,
+            y: 415,
+            name: "",
+            page: 1
+        );
+
+        var formFieldsPerDocument = new List<SubFormFieldsPerDocumentBase>
+        {
+            formFieldsPerDocument1,
+            formFieldsPerDocument2,
+        };
+
+        var mergeFields1 = new SubMergeField(
             name: "Full Name",
             type: SubMergeField.TypeEnum.Text
         );
 
-        var mergeField2 = new SubMergeField(
+        var mergeFields2 = new SubMergeField(
             name: "Is Registered?",
             type: SubMergeField.TypeEnum.Checkbox
         );
 
-        var subFieldOptions = new SubFieldOptions(
-            dateFormat: SubFieldOptions.DateFormatEnum.DDMMYYYY
-        );
-
-        var files = new List<Stream> {
-            new FileStream(
-                "./example_signature_request.pdf",
-                FileMode.Open,
-                FileAccess.Read,
-                FileShare.Read
-            )
+        var mergeFields = new List<SubMergeField>
+        {
+            mergeFields1,
+            mergeFields2,
         };
 
-        var data = new TemplateCreateRequest(
+        var templateCreateRequest = new TemplateCreateRequest(
             clientId: "37dee8d8440c66d54cfa05d92c160882",
-            files: files,
-            title: "Test Template",
-            subject: "Please sign this document",
             message: "For your approval",
-            signerRoles: new List<SubTemplateRole>(){role1, role2},
-            ccRoles: new List<string>(){"Manager"},
-            mergeFields: new List<SubMergeField>(){mergeField1, mergeField2},
-            fieldOptions: subFieldOptions,
-            testMode: true
+            subject: "Please sign this document",
+            testMode: true,
+            title: "Test Template",
+            ccRoles: [
+                "Manager",
+            ],
+            files: new List<Stream>
+            {
+                new FileStream(
+                    path: "./example_signature_request.pdf",
+                    mode: FileMode.Open
+                ),
+            },
+            fieldOptions: fieldOptions,
+            signerRoles: signerRoles,
+            formFieldsPerDocument: formFieldsPerDocument,
+            mergeFields: mergeFields
         );
 
         try
         {
-            var result = templateApi.TemplateCreate(data);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateCreate(
+                templateCreateRequest: templateCreateRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -269,77 +321,90 @@ The first step in an embedded template workflow. Creates a draft template that c
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateCreateEmbeddedDraftExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var role1 = new SubTemplateRole(
-            name: "Client",
-            order: 0
+        var fieldOptions = new SubFieldOptions(
+            dateFormat: SubFieldOptions.DateFormatEnum.DD_MM_YYYY
         );
 
-        var role2 = new SubTemplateRole(
-            name: "Witness",
-            order: 1
-        );
-
-        var mergeField1 = new SubMergeField(
+        var mergeFields1 = new SubMergeField(
             name: "Full Name",
             type: SubMergeField.TypeEnum.Text
         );
 
-        var mergeField2 = new SubMergeField(
+        var mergeFields2 = new SubMergeField(
             name: "Is Registered?",
             type: SubMergeField.TypeEnum.Checkbox
         );
 
-        var subFieldOptions = new SubFieldOptions(
-            dateFormat: SubFieldOptions.DateFormatEnum.DDMMYYYY
-        );
-
-        var files = new List<Stream> {
-            new FileStream(
-                "./example_signature_request.pdf",
-                FileMode.Open,
-                FileAccess.Read,
-                FileShare.Read
-            )
+        var mergeFields = new List<SubMergeField>
+        {
+            mergeFields1,
+            mergeFields2,
         };
 
-        var data = new TemplateCreateEmbeddedDraftRequest(
+        var signerRoles1 = new SubTemplateRole(
+            name: "Client",
+            order: 0
+        );
+
+        var signerRoles2 = new SubTemplateRole(
+            name: "Witness",
+            order: 1
+        );
+
+        var signerRoles = new List<SubTemplateRole>
+        {
+            signerRoles1,
+            signerRoles2,
+        };
+
+        var templateCreateEmbeddedDraftRequest = new TemplateCreateEmbeddedDraftRequest(
             clientId: "37dee8d8440c66d54cfa05d92c160882",
-            files: files,
-            title: "Test Template",
-            subject: "Please sign this document",
             message: "For your approval",
-            signerRoles: new List<SubTemplateRole>(){role1, role2},
-            ccRoles: new List<string>(){"Manager"},
-            mergeFields: new List<SubMergeField>(){mergeField1, mergeField2},
-            fieldOptions: subFieldOptions,
-            testMode: true
+            subject: "Please sign this document",
+            testMode: true,
+            title: "Test Template",
+            ccRoles: [
+                "Manager",
+            ],
+            files: new List<Stream>
+            {
+                new FileStream(
+                    path: "./example_signature_request.pdf",
+                    mode: FileMode.Open
+                ),
+            },
+            fieldOptions: fieldOptions,
+            mergeFields: mergeFields,
+            signerRoles: signerRoles
         );
 
         try
         {
-            var result = templateApi.TemplateCreateEmbeddedDraft(data);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateCreateEmbeddedDraft(
+                templateCreateEmbeddedDraftRequest: templateCreateEmbeddedDraftRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateCreateEmbeddedDraft: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -408,32 +473,32 @@ Completely deletes the template specified from the account.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateDeleteExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            templateApi.TemplateDelete(templateId);
+            new TemplateApi(config).TemplateDelete(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35"
+            );
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -499,37 +564,36 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateFilesExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = templateApi.TemplateFiles(templateId, "pdf");
-
-            var fileStream = File.Create("file_response.pdf");
-            result.Seek(0, SeekOrigin.Begin);
-            result.CopyTo(fileStream);
+            var response = new TemplateApi(config).TemplateFiles(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35"
+            );
+            var fileStream = File.Create("./file_response");
+            response.Seek(0, SeekOrigin.Begin);
+            response.CopyTo(fileStream);
             fileStream.Close();
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateFiles: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -599,33 +663,34 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateFilesAsDataUriExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = templateApi.TemplateFilesAsDataUri(templateId, "pdf", false, false);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateFilesAsDataUri(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35"
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateFilesAsDataUri: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -694,33 +759,35 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateFilesAsFileUrlExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = templateApi.TemplateFilesAsFileUrl(templateId, "pdf", false, false);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateFilesAsFileUrl(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35",
+                forceDownload: 1
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateFilesAsFileUrl: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -790,33 +857,34 @@ Returns the Template specified by the `template_id` parameter.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateGetExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = templateApi.TemplateGet(templateId);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateGet(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35"
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -885,33 +953,35 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateListExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var accountId = "f57db65d3f933b5316d398057a36176831451a35";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = templateApi.TemplateList(accountId, 1, 20, null);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateList(
+                page: 1,
+                pageSize: 20
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -983,37 +1053,39 @@ Removes the specified Account's access to the specified Template.
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateRemoveUserExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var data = new TemplateRemoveUserRequest(
+        var templateRemoveUserRequest = new TemplateRemoveUserRequest(
             emailAddress: "george@dropboxsign.com"
         );
 
-        var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
-
         try
         {
-            var result = templateApi.TemplateRemoveUser(templateId, data);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateRemoveUser(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35",
+                templateRemoveUserRequest: templateRemoveUserRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateRemoveUser: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -1084,46 +1156,44 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class TemplateUpdateFilesExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var templateApi = new TemplateApi(config);
-
-        var files = new List<Stream> {
-            new FileStream(
-                "./example_signature_request.pdf",
-                FileMode.Open,
-                FileAccess.Read,
-                FileShare.Read
-            )
-        };
-
-        var data = new TemplateUpdateFilesRequest(
-            files: files
+        var templateUpdateFilesRequest = new TemplateUpdateFilesRequest(
+            files: new List<Stream>
+            {
+                new FileStream(
+                    path: "./example_signature_request.pdf",
+                    mode: FileMode.Open
+                ),
+            }
         );
-
-        var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
         try
         {
-            var result = templateApi.TemplateUpdateFiles(templateId, data);
-            Console.WriteLine(result);
+            var response = new TemplateApi(config).TemplateUpdateFiles(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35",
+                templateUpdateFilesRequest: templateUpdateFilesRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateUpdateFiles: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

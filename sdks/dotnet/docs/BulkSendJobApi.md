@@ -20,33 +20,35 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class BulkSendJobGetExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var bulkSendJobApi = new BulkSendJobApi(config);
-
-        var bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = bulkSendJobApi.BulkSendJobGet(bulkSendJobId);
-            Console.WriteLine(result);
+            var response = new BulkSendJobApi(config).BulkSendJobGet(
+                bulkSendJobId: "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174",
+                page: 1,
+                pageSize: 20
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling BulkSendJobApi#BulkSendJobGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -118,34 +120,34 @@ Returns a list of BulkSendJob that you can access.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class BulkSendJobListExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var bulkSendJobApi = new BulkSendJobApi(config);
-
-        var page = 1;
-        var pageSize = 20;
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         try
         {
-            var result = bulkSendJobApi.BulkSendJobList(page, pageSize);
-            Console.WriteLine(result);
+            var response = new BulkSendJobApi(config).BulkSendJobList(
+                page: 1,
+                pageSize: 20
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling BulkSendJobApi#BulkSendJobList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

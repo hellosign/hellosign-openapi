@@ -20,38 +20,49 @@ Retrieves an embedded object containing a template url that can be opened in an 
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Main {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class EmbeddedEditUrlExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var mergeFields = new ArrayList<SubMergeField>(List.of ());
 
-        var embeddedApi = new EmbeddedApi(apiClient);
+        var embeddedEditUrlRequest = new EmbeddedEditUrlRequest();
+        embeddedEditUrlRequest.ccRoles(List.of (
+            ""
+        ));
+        embeddedEditUrlRequest.mergeFields(mergeFields);
 
-        var data = new EmbeddedEditUrlRequest()
-            .ccRoles(List.of(""))
-            .mergeFields(List.of());
+        try
+        {
+            var response = new EmbeddedApi(config).embeddedEditUrl(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                embeddedEditUrlRequest
+            );
 
-        var templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-        try {
-            EmbeddedEditUrlResponse result = embeddedApi.embeddedEditUrl(templateId, data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling EmbeddedApi#embeddedEditUrl");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -101,32 +112,40 @@ Retrieves an embedded object containing a signature url that can be opened in an
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class EmbeddedSignUrlExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var embeddedApi = new EmbeddedApi(apiClient);
+        try
+        {
+            var response = new EmbeddedApi(config).embeddedSignUrl(
+                "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b" // signatureId
+            );
 
-        var signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
-
-        try {
-            EmbeddedSignUrlResponse result = embeddedApi.embeddedSignUrl(signatureId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling EmbeddedApi#embeddedSignUrl");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

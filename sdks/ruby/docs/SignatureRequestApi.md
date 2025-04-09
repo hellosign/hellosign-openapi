@@ -9,6 +9,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [`signature_request_cancel`](SignatureRequestApi.md#signature_request_cancel) | **POST** `/signature_request/cancel/{signature_request_id}` | Cancel Incomplete Signature Request |
 | [`signature_request_create_embedded`](SignatureRequestApi.md#signature_request_create_embedded) | **POST** `/signature_request/create_embedded` | Create Embedded Signature Request |
 | [`signature_request_create_embedded_with_template`](SignatureRequestApi.md#signature_request_create_embedded_with_template) | **POST** `/signature_request/create_embedded_with_template` | Create Embedded Signature Request with Template |
+| [`signature_request_edit`](SignatureRequestApi.md#signature_request_edit) | **PUT** `/signature_request/edit/{signature_request_id}` | Edit Signature Request |
+| [`signature_request_edit_embedded`](SignatureRequestApi.md#signature_request_edit_embedded) | **PUT** `/signature_request/edit_embedded/{signature_request_id}` | Edit Embedded Signature Request |
+| [`signature_request_edit_embedded_with_template`](SignatureRequestApi.md#signature_request_edit_embedded_with_template) | **PUT** `/signature_request/edit_embedded_with_template/{signature_request_id}` | Edit Embedded Signature Request with Template |
+| [`signature_request_edit_with_template`](SignatureRequestApi.md#signature_request_edit_with_template) | **PUT** `/signature_request/edit_with_template/{signature_request_id}` | Edit Signature Request With Template |
 | [`signature_request_files`](SignatureRequestApi.md#signature_request_files) | **GET** `/signature_request/files/{signature_request_id}` | Download Files |
 | [`signature_request_files_as_data_uri`](SignatureRequestApi.md#signature_request_files_as_data_uri) | **GET** `/signature_request/files_as_data_uri/{signature_request_id}` | Download Files as Data Uri |
 | [`signature_request_files_as_file_url`](SignatureRequestApi.md#signature_request_files_as_file_url) | **GET** `/signature_request/files_as_file_url/{signature_request_id}` | Download Files as File Url |
@@ -33,64 +37,89 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
+signer_list_2_custom_fields_1 = Dropbox::Sign::SubBulkSignerListCustomField.new
+signer_list_2_custom_fields_1.name = "company"
+signer_list_2_custom_fields_1.value = "123 LLC"
 
-signer_list_1_signer = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
-signer_list_1_signer.role = "Client"
-signer_list_1_signer.name = "George"
-signer_list_1_signer.email_address = "george@example.com"
-signer_list_1_signer.pin = "d79a3td"
+signer_list_2_custom_fields = [
+    signer_list_2_custom_fields_1,
+]
 
-signer_list_1_custom_fields = Dropbox::Sign::SubBulkSignerListCustomField.new
-signer_list_1_custom_fields.name = "company"
-signer_list_1_custom_fields.value = "ABC Corp"
+signer_list_2_signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signer_list_2_signers_1.role = "Client"
+signer_list_2_signers_1.name = "Mary"
+signer_list_2_signers_1.email_address = "mary@example.com"
+signer_list_2_signers_1.pin = "gd9as5b"
+
+signer_list_2_signers = [
+    signer_list_2_signers_1,
+]
+
+signer_list_1_custom_fields_1 = Dropbox::Sign::SubBulkSignerListCustomField.new
+signer_list_1_custom_fields_1.name = "company"
+signer_list_1_custom_fields_1.value = "ABC Corp"
+
+signer_list_1_custom_fields = [
+    signer_list_1_custom_fields_1,
+]
+
+signer_list_1_signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signer_list_1_signers_1.role = "Client"
+signer_list_1_signers_1.name = "George"
+signer_list_1_signers_1.email_address = "george@example.com"
+signer_list_1_signers_1.pin = "d79a3td"
+
+signer_list_1_signers = [
+    signer_list_1_signers_1,
+]
 
 signer_list_1 = Dropbox::Sign::SubBulkSignerList.new
-signer_list_1.signers = [signer_list_1_signer]
-signer_list_1.custom_fields = [signer_list_1_custom_fields]
-
-signer_list_2_signer = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
-signer_list_2_signer.role = "Client"
-signer_list_2_signer.name = "Mary"
-signer_list_2_signer.email_address = "mary@example.com"
-signer_list_2_signer.pin = "gd9as5b"
-
-signer_list_2_custom_fields = Dropbox::Sign::SubBulkSignerListCustomField.new
-signer_list_2_custom_fields.name = "company"
-signer_list_2_custom_fields.value = "123 LLC"
+signer_list_1.custom_fields = signer_list_1_custom_fields
+signer_list_1.signers = signer_list_1_signers
 
 signer_list_2 = Dropbox::Sign::SubBulkSignerList.new
-signer_list_2.signers = [signer_list_2_signer]
-signer_list_2.custom_fields = [signer_list_2_custom_fields]
+signer_list_2.custom_fields = signer_list_2_custom_fields
+signer_list_2.signers = signer_list_2_signers
 
-cc_1 = Dropbox::Sign::SubCC.new
-cc_1.role = "Accounting"
-cc_1.email_address = "accounting@example.com"
+signer_list = [
+    signer_list_1,
+    signer_list_2,
+]
 
-data = Dropbox::Sign::SignatureRequestBulkCreateEmbeddedWithTemplateRequest.new
-data.client_id = "1a659d9ad95bccd307ecad78d72192f8"
-data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
-data.subject = "Purchase Order"
-data.message = "Glad we could come to an agreement."
-data.signer_list = [signer_list_1, signer_list_2]
-data.ccs = [cc_1]
-data.test_mode = true
+ccs_1 = Dropbox::Sign::SubCC.new
+ccs_1.role = "Accounting"
+ccs_1.email_address = "accounting@example.com"
+
+ccs = [
+    ccs_1,
+]
+
+signature_request_bulk_create_embedded_with_template_request = Dropbox::Sign::SignatureRequestBulkCreateEmbeddedWithTemplateRequest.new
+signature_request_bulk_create_embedded_with_template_request.client_id = "1a659d9ad95bccd307ecad78d72192f8"
+signature_request_bulk_create_embedded_with_template_request.template_ids = [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+]
+signature_request_bulk_create_embedded_with_template_request.message = "Glad we could come to an agreement."
+signature_request_bulk_create_embedded_with_template_request.subject = "Purchase Order"
+signature_request_bulk_create_embedded_with_template_request.test_mode = true
+signature_request_bulk_create_embedded_with_template_request.signer_list = signer_list
+signature_request_bulk_create_embedded_with_template_request.ccs = ccs
 
 begin
-  result = signature_request_api.signature_request_bulk_create_embedded_with_template(data)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_bulk_create_embedded_with_template(
+    signature_request_bulk_create_embedded_with_template_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_bulk_create_embedded_with_template: #{e}"
 end
 
 ```
@@ -144,63 +173,89 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
+signer_list_2_custom_fields_1 = Dropbox::Sign::SubBulkSignerListCustomField.new
+signer_list_2_custom_fields_1.name = "company"
+signer_list_2_custom_fields_1.value = "123 LLC"
 
-signer_list_1_signer = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
-signer_list_1_signer.role = "Client"
-signer_list_1_signer.name = "George"
-signer_list_1_signer.email_address = "george@example.com"
-signer_list_1_signer.pin = "d79a3td"
+signer_list_2_custom_fields = [
+    signer_list_2_custom_fields_1,
+]
 
-signer_list_1_custom_fields = Dropbox::Sign::SubBulkSignerListCustomField.new
-signer_list_1_custom_fields.name = "company"
-signer_list_1_custom_fields.value = "ABC Corp"
+signer_list_2_signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signer_list_2_signers_1.role = "Client"
+signer_list_2_signers_1.name = "Mary"
+signer_list_2_signers_1.email_address = "mary@example.com"
+signer_list_2_signers_1.pin = "gd9as5b"
+
+signer_list_2_signers = [
+    signer_list_2_signers_1,
+]
+
+signer_list_1_custom_fields_1 = Dropbox::Sign::SubBulkSignerListCustomField.new
+signer_list_1_custom_fields_1.name = "company"
+signer_list_1_custom_fields_1.value = "ABC Corp"
+
+signer_list_1_custom_fields = [
+    signer_list_1_custom_fields_1,
+]
+
+signer_list_1_signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signer_list_1_signers_1.role = "Client"
+signer_list_1_signers_1.name = "George"
+signer_list_1_signers_1.email_address = "george@example.com"
+signer_list_1_signers_1.pin = "d79a3td"
+
+signer_list_1_signers = [
+    signer_list_1_signers_1,
+]
 
 signer_list_1 = Dropbox::Sign::SubBulkSignerList.new
-signer_list_1.signers = [signer_list_1_signer]
-signer_list_1.custom_fields = [signer_list_1_custom_fields]
-
-signer_list_2_signer = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
-signer_list_2_signer.role = "Client"
-signer_list_2_signer.name = "Mary"
-signer_list_2_signer.email_address = "mary@example.com"
-signer_list_2_signer.pin = "gd9as5b"
-
-signer_list_2_custom_fields = Dropbox::Sign::SubBulkSignerListCustomField.new
-signer_list_2_custom_fields.name = "company"
-signer_list_2_custom_fields.value = "123 LLC"
+signer_list_1.custom_fields = signer_list_1_custom_fields
+signer_list_1.signers = signer_list_1_signers
 
 signer_list_2 = Dropbox::Sign::SubBulkSignerList.new
-signer_list_2.signers = [signer_list_2_signer]
-signer_list_2.custom_fields = [signer_list_2_custom_fields]
+signer_list_2.custom_fields = signer_list_2_custom_fields
+signer_list_2.signers = signer_list_2_signers
 
-cc_1 = Dropbox::Sign::SubCC.new
-cc_1.role = "Accounting"
-cc_1.email_address = "accounting@example.com"
+signer_list = [
+    signer_list_1,
+    signer_list_2,
+]
 
-data = Dropbox::Sign::SignatureRequestBulkSendWithTemplateRequest.new
-data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
-data.subject = "Purchase Order"
-data.message = "Glad we could come to an agreement."
-data.signer_list = [signer_list_1, signer_list_2]
-data.ccs = [cc_1]
-data.test_mode = true
+ccs_1 = Dropbox::Sign::SubCC.new
+ccs_1.role = "Accounting"
+ccs_1.email_address = "accounting@example.com"
+
+ccs = [
+    ccs_1,
+]
+
+signature_request_bulk_send_with_template_request = Dropbox::Sign::SignatureRequestBulkSendWithTemplateRequest.new
+signature_request_bulk_send_with_template_request.template_ids = [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+]
+signature_request_bulk_send_with_template_request.message = "Glad we could come to an agreement."
+signature_request_bulk_send_with_template_request.subject = "Purchase Order"
+signature_request_bulk_send_with_template_request.test_mode = true
+signature_request_bulk_send_with_template_request.signer_list = signer_list
+signature_request_bulk_send_with_template_request.ccs = ccs
 
 begin
-  result = signature_request_api.signature_request_bulk_send_with_template(data)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_bulk_send_with_template(
+    signature_request_bulk_send_with_template_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_bulk_send_with_template: #{e}"
 end
 
 ```
@@ -254,25 +309,20 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
-
 begin
-  result = signature_request_api.signature_request_cancel(signature_request_id)
-  p result
+  Dropbox::Sign::SignatureRequestApi.new.signature_request_cancel(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+  )
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_cancel: #{e}"
 end
 
 ```
@@ -326,51 +376,60 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signer_1 = Dropbox::Sign::SubSignatureRequestSigner.new
-signer_1.email_address = "jack@example.com"
-signer_1.name = "Jack"
-signer_1.order = 0
-
-signer_2 = Dropbox::Sign::SubSignatureRequestSigner.new
-signer_2.email_address = "jill@example.com"
-signer_2.name = "Jill"
-signer_2.order = 1
-
 signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.default_type = "draw"
 signing_options.draw = true
+signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
-signing_options.phone = true
-signing_options.default_type = "draw"
 
-data = Dropbox::Sign::SignatureRequestCreateEmbeddedRequest.new
-data.client_id = "ec64a202072370a737edf4a0eb7f4437"
-data.title = "NDA with Acme Co."
-data.subject = "The NDA we talked about"
-data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
-data.signers = [signer_1, signer_2]
-data.cc_email_addresses = ["lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"]
-data.files = [File.new("example_signature_request.pdf", "r")]
-data.signing_options = signing_options
-data.test_mode = true
+signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
+signers_1.name = "Jack"
+signers_1.email_address = "jack@example.com"
+signers_1.order = 0
+
+signers_2 = Dropbox::Sign::SubSignatureRequestSigner.new
+signers_2.name = "Jill"
+signers_2.email_address = "jill@example.com"
+signers_2.order = 1
+
+signers = [
+    signers_1,
+    signers_2,
+]
+
+signature_request_create_embedded_request = Dropbox::Sign::SignatureRequestCreateEmbeddedRequest.new
+signature_request_create_embedded_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+signature_request_create_embedded_request.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions."
+signature_request_create_embedded_request.subject = "The NDA we talked about"
+signature_request_create_embedded_request.test_mode = true
+signature_request_create_embedded_request.title = "NDA with Acme Co."
+signature_request_create_embedded_request.cc_email_addresses = [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+]
+signature_request_create_embedded_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
+signature_request_create_embedded_request.signing_options = signing_options
+signature_request_create_embedded_request.signers = signers
 
 begin
-  result = signature_request_api.signature_request_create_embedded(data)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_create_embedded(
+    signature_request_create_embedded_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_create_embedded: #{e}"
 end
 
 ```
@@ -424,44 +483,49 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signer_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
-signer_1.role = "Client"
-signer_1.email_address = "jack@example.com"
-signer_1.name = "Jack"
-
 signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.default_type = "draw"
 signing_options.draw = true
+signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
-signing_options.phone = true
-signing_options.default_type = "draw"
 
-data = Dropbox::Sign::SignatureRequestCreateEmbeddedWithTemplateRequest.new
-data.client_id = "ec64a202072370a737edf4a0eb7f4437"
-data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
-data.subject = "Purchase Order"
-data.message = "Glad we could come to an agreement."
-data.signers = [signer_1]
-data.signing_options = signing_options
-data.test_mode = true
+signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signers_1.role = "Client"
+signers_1.name = "George"
+signers_1.email_address = "george@example.com"
+
+signers = [
+    signers_1,
+]
+
+signature_request_create_embedded_with_template_request = Dropbox::Sign::SignatureRequestCreateEmbeddedWithTemplateRequest.new
+signature_request_create_embedded_with_template_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+signature_request_create_embedded_with_template_request.template_ids = [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+]
+signature_request_create_embedded_with_template_request.message = "Glad we could come to an agreement."
+signature_request_create_embedded_with_template_request.subject = "Purchase Order"
+signature_request_create_embedded_with_template_request.test_mode = true
+signature_request_create_embedded_with_template_request.signing_options = signing_options
+signature_request_create_embedded_with_template_request.signers = signers
 
 begin
-  result = signature_request_api.signature_request_create_embedded_with_template(data)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_create_embedded_with_template(
+    signature_request_create_embedded_with_template_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_create_embedded_with_template: #{e}"
 end
 
 ```
@@ -504,6 +568,449 @@ end
 - **Accept**: application/json
 
 
+## `signature_request_edit`
+
+> `<SignatureRequestGetResponse> signature_request_edit(signature_request_id, signature_request_edit_request)`
+
+Edit Signature Request
+
+Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+
+### Examples
+
+```ruby
+require "json"
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+field_options = Dropbox::Sign::SubFieldOptions.new
+field_options.date_format = "DD - MM - YYYY"
+
+signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.default_type = "draw"
+signing_options.draw = true
+signing_options.phone = false
+signing_options.type = true
+signing_options.upload = true
+
+signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
+signers_1.name = "Jack"
+signers_1.email_address = "jack@example.com"
+signers_1.order = 0
+
+signers_2 = Dropbox::Sign::SubSignatureRequestSigner.new
+signers_2.name = "Jill"
+signers_2.email_address = "jill@example.com"
+signers_2.order = 1
+
+signers = [
+    signers_1,
+    signers_2,
+]
+
+signature_request_edit_request = Dropbox::Sign::SignatureRequestEditRequest.new
+signature_request_edit_request.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions."
+signature_request_edit_request.subject = "The NDA we talked about"
+signature_request_edit_request.test_mode = true
+signature_request_edit_request.title = "NDA with Acme Co."
+signature_request_edit_request.cc_email_addresses = [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+]
+signature_request_edit_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
+signature_request_edit_request.metadata = JSON.parse(<<-EOD
+    {
+        "custom_id": 1234,
+        "custom_text": "NDA #9"
+    }
+    EOD
+)
+signature_request_edit_request.field_options = field_options
+signature_request_edit_request.signing_options = signing_options
+signature_request_edit_request.signers = signers
+
+begin
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_edit(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      signature_request_edit_request,
+  )
+
+  p response
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling SignatureRequestApi#signature_request_edit: #{e}"
+end
+
+```
+
+#### Using the `signature_request_edit_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request)`
+
+```ruby
+begin
+  # Edit Signature Request
+  data, status_code, headers = api_instance.signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SignatureRequestGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling SignatureRequestApi->signature_request_edit_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
+| `signature_request_edit_request` | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+
+## `signature_request_edit_embedded`
+
+> `<SignatureRequestGetResponse> signature_request_edit_embedded(signature_request_id, signature_request_edit_embedded_request)`
+
+Edit Embedded Signature Request
+
+Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### Examples
+
+```ruby
+require "json"
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.default_type = "draw"
+signing_options.draw = true
+signing_options.phone = false
+signing_options.type = true
+signing_options.upload = true
+
+signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
+signers_1.name = "Jack"
+signers_1.email_address = "jack@example.com"
+signers_1.order = 0
+
+signers_2 = Dropbox::Sign::SubSignatureRequestSigner.new
+signers_2.name = "Jill"
+signers_2.email_address = "jill@example.com"
+signers_2.order = 1
+
+signers = [
+    signers_1,
+    signers_2,
+]
+
+signature_request_edit_embedded_request = Dropbox::Sign::SignatureRequestEditEmbeddedRequest.new
+signature_request_edit_embedded_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+signature_request_edit_embedded_request.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions."
+signature_request_edit_embedded_request.subject = "The NDA we talked about"
+signature_request_edit_embedded_request.test_mode = true
+signature_request_edit_embedded_request.title = "NDA with Acme Co."
+signature_request_edit_embedded_request.cc_email_addresses = [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+]
+signature_request_edit_embedded_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
+signature_request_edit_embedded_request.signing_options = signing_options
+signature_request_edit_embedded_request.signers = signers
+
+begin
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_edit_embedded(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      signature_request_edit_embedded_request,
+  )
+
+  p response
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling SignatureRequestApi#signature_request_edit_embedded: #{e}"
+end
+
+```
+
+#### Using the `signature_request_edit_embedded_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_embedded_with_http_info(signature_request_id, signature_request_edit_embedded_request)`
+
+```ruby
+begin
+  # Edit Embedded Signature Request
+  data, status_code, headers = api_instance.signature_request_edit_embedded_with_http_info(signature_request_id, signature_request_edit_embedded_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SignatureRequestGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling SignatureRequestApi->signature_request_edit_embedded_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
+| `signature_request_edit_embedded_request` | [**SignatureRequestEditEmbeddedRequest**](SignatureRequestEditEmbeddedRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+
+## `signature_request_edit_embedded_with_template`
+
+> `<SignatureRequestGetResponse> signature_request_edit_embedded_with_template(signature_request_id, signature_request_edit_embedded_with_template_request)`
+
+Edit Embedded Signature Request with Template
+
+Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### Examples
+
+```ruby
+require "json"
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.default_type = "draw"
+signing_options.draw = true
+signing_options.phone = false
+signing_options.type = true
+signing_options.upload = true
+
+signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signers_1.role = "Client"
+signers_1.name = "George"
+signers_1.email_address = "george@example.com"
+
+signers = [
+    signers_1,
+]
+
+signature_request_edit_embedded_with_template_request = Dropbox::Sign::SignatureRequestEditEmbeddedWithTemplateRequest.new
+signature_request_edit_embedded_with_template_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+signature_request_edit_embedded_with_template_request.template_ids = [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+]
+signature_request_edit_embedded_with_template_request.message = "Glad we could come to an agreement."
+signature_request_edit_embedded_with_template_request.subject = "Purchase Order"
+signature_request_edit_embedded_with_template_request.test_mode = true
+signature_request_edit_embedded_with_template_request.signing_options = signing_options
+signature_request_edit_embedded_with_template_request.signers = signers
+
+begin
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_edit_embedded_with_template(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      signature_request_edit_embedded_with_template_request,
+  )
+
+  p response
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling SignatureRequestApi#signature_request_edit_embedded_with_template: #{e}"
+end
+
+```
+
+#### Using the `signature_request_edit_embedded_with_template_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_embedded_with_template_with_http_info(signature_request_id, signature_request_edit_embedded_with_template_request)`
+
+```ruby
+begin
+  # Edit Embedded Signature Request with Template
+  data, status_code, headers = api_instance.signature_request_edit_embedded_with_template_with_http_info(signature_request_id, signature_request_edit_embedded_with_template_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SignatureRequestGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling SignatureRequestApi->signature_request_edit_embedded_with_template_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
+| `signature_request_edit_embedded_with_template_request` | [**SignatureRequestEditEmbeddedWithTemplateRequest**](SignatureRequestEditEmbeddedWithTemplateRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+
+## `signature_request_edit_with_template`
+
+> `<SignatureRequestGetResponse> signature_request_edit_with_template(signature_request_id, signature_request_edit_with_template_request)`
+
+Edit Signature Request With Template
+
+Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+
+### Examples
+
+```ruby
+require "json"
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.default_type = "draw"
+signing_options.draw = true
+signing_options.phone = false
+signing_options.type = true
+signing_options.upload = true
+
+signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signers_1.role = "Client"
+signers_1.name = "George"
+signers_1.email_address = "george@example.com"
+
+signers = [
+    signers_1,
+]
+
+ccs_1 = Dropbox::Sign::SubCC.new
+ccs_1.role = "Accounting"
+ccs_1.email_address = "accounting@example.com"
+
+ccs = [
+    ccs_1,
+]
+
+custom_fields_1 = Dropbox::Sign::SubCustomField.new
+custom_fields_1.name = "Cost"
+custom_fields_1.editor = "Client"
+custom_fields_1.required = true
+custom_fields_1.value = "$20,000"
+
+custom_fields = [
+    custom_fields_1,
+]
+
+signature_request_edit_with_template_request = Dropbox::Sign::SignatureRequestEditWithTemplateRequest.new
+signature_request_edit_with_template_request.template_ids = [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+]
+signature_request_edit_with_template_request.message = "Glad we could come to an agreement."
+signature_request_edit_with_template_request.subject = "Purchase Order"
+signature_request_edit_with_template_request.test_mode = true
+signature_request_edit_with_template_request.signing_options = signing_options
+signature_request_edit_with_template_request.signers = signers
+signature_request_edit_with_template_request.ccs = ccs
+signature_request_edit_with_template_request.custom_fields = custom_fields
+
+begin
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_edit_with_template(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      signature_request_edit_with_template_request,
+  )
+
+  p response
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling SignatureRequestApi#signature_request_edit_with_template: #{e}"
+end
+
+```
+
+#### Using the `signature_request_edit_with_template_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request)`
+
+```ruby
+begin
+  # Edit Signature Request With Template
+  data, status_code, headers = api_instance.signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SignatureRequestGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling SignatureRequestApi->signature_request_edit_with_template_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
+| `signature_request_edit_with_template_request` | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+
 ## `signature_request_files`
 
 > `File signature_request_files(signature_request_id, opts)`
@@ -515,25 +1022,25 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
 begin
-  file_bin = signature_request_api.signature_request_files(signature_request_id)
-  FileUtils.cp(file_bin.path, "path/to/file.pdf")
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_files(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      {
+          file_type: "pdf",
+      },
+  )
+
+  FileUtils.cp(response.path, "./file_response")
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_files: #{e}"
 end
 
 ```
@@ -588,25 +1095,22 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
 begin
-  result = signature_request_api.signature_request_files_as_data_uri(signature_request_id)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_files_as_data_uri(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_files_as_data_uri: #{e}"
 end
 
 ```
@@ -660,25 +1164,25 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
 begin
-  result = signature_request_api.signature_request_files_as_file_url(signature_request_id)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_files_as_file_url(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      {
+          force_download: 1,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_files_as_file_url: #{e}"
 end
 
 ```
@@ -733,25 +1237,22 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
 begin
-  result = signature_request_api.signature_request_get(signature_request_id)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_get(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_get: #{e}"
 end
 
 ```
@@ -805,26 +1306,27 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-account_id = null
-page = 1
-
 begin
-  result = signature_request_api.signature_request_list({ account_id: account_id, page: page })
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_list(
+    {
+          account_id: nil,
+          page: 1,
+          page_size: 20,
+          query: nil,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_list: #{e}"
 end
 
 ```
@@ -881,25 +1383,22 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
-
 begin
-  result = signature_request_api.signature_request_release_hold(signature_request_id)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_release_hold(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_release_hold: #{e}"
 end
 
 ```
@@ -953,28 +1452,26 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-data = Dropbox::Sign::SignatureRequestRemindRequest.new
-data.email_address = "john@example.com"
-
-signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+signature_request_remind_request = Dropbox::Sign::SignatureRequestRemindRequest.new
+signature_request_remind_request.email_address = "john@example.com"
 
 begin
-  result = signature_request_api.signature_request_remind(signature_request_id, data)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_remind(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      signature_request_remind_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_remind: #{e}"
 end
 
 ```
@@ -1029,25 +1526,19 @@ Removes your access to a completed signature request. This action is **not rever
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
-
 begin
-  result = signature_request_api.signature_request_remove(signature_request_id)
-  p result
+  Dropbox::Sign::SignatureRequestApi.new.signature_request_remove(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+  )
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_remove: #{e}"
 end
 
 ```
@@ -1101,61 +1592,70 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
-
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signer_1 = Dropbox::Sign::SubSignatureRequestSigner.new
-signer_1.email_address = "jack@example.com"
-signer_1.name = "Jack"
-signer_1.order = 0
-
-signer_2 = Dropbox::Sign::SubSignatureRequestSigner.new
-signer_2.email_address = "jill@example.com"
-signer_2.name = "Jill"
-signer_2.order = 1
-
-signing_options = Dropbox::Sign::SubSigningOptions.new
-signing_options.draw = true
-signing_options.type = true
-signing_options.upload = true
-signing_options.phone = true
-signing_options.default_type = "draw"
 
 field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
-data = Dropbox::Sign::SignatureRequestSendRequest.new
-data.title = "NDA with Acme Co."
-data.subject = "The NDA we talked about"
-data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
-data.signers = [signer_1, signer_2]
-data.cc_email_addresses = [
-  "lawyer1@dropboxsign.com",
-  "lawyer2@dropboxsign.com",
+signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.default_type = "draw"
+signing_options.draw = true
+signing_options.phone = false
+signing_options.type = true
+signing_options.upload = true
+
+signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
+signers_1.name = "Jack"
+signers_1.email_address = "jack@example.com"
+signers_1.order = 0
+
+signers_2 = Dropbox::Sign::SubSignatureRequestSigner.new
+signers_2.name = "Jill"
+signers_2.email_address = "jill@example.com"
+signers_2.order = 1
+
+signers = [
+    signers_1,
+    signers_2,
 ]
-data.files = [File.new("example_signature_request.pdf", "r")]
-data.metadata = {
-  custom_id: 1234,
-  custom_text: "NDA #9",
-}
-data.signing_options = signing_options
-data.field_options = field_options
-data.test_mode = true
+
+signature_request_send_request = Dropbox::Sign::SignatureRequestSendRequest.new
+signature_request_send_request.message = "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions."
+signature_request_send_request.subject = "The NDA we talked about"
+signature_request_send_request.test_mode = true
+signature_request_send_request.title = "NDA with Acme Co."
+signature_request_send_request.cc_email_addresses = [
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
+]
+signature_request_send_request.files = [
+    File.new("./example_signature_request.pdf", "r"),
+]
+signature_request_send_request.metadata = JSON.parse(<<-EOD
+    {
+        "custom_id": 1234,
+        "custom_text": "NDA #9"
+    }
+    EOD
+)
+signature_request_send_request.field_options = field_options
+signature_request_send_request.signing_options = signing_options
+signature_request_send_request.signers = signers
 
 begin
-  result = signature_request_api.signature_request_send(data)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_send(
+    signature_request_send_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_send: #{e}"
 end
 
 ```
@@ -1209,55 +1709,68 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-signer_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
-signer_1.role = "Client"
-signer_1.email_address = "george@example.com"
-signer_1.name = "George"
-
-cc_1 = Dropbox::Sign::SubCC.new
-cc_1.role = "Accounting"
-cc_1.email_address = "accounting@example.com"
-
-custom_field_1 = Dropbox::Sign::SubCustomField.new
-custom_field_1.name = "Cost"
-custom_field_1.value = "$20,000"
-custom_field_1.editor = "Client"
-custom_field_1.required = true
-
 signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.default_type = "draw"
 signing_options.draw = true
+signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
-signing_options.phone = false
-signing_options.default_type = "draw"
 
-data = Dropbox::Sign::SignatureRequestSendWithTemplateRequest.new
-data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
-data.subject = "Purchase Order"
-data.message = "Glad we could come to an agreement."
-data.signers = [signer_1]
-data.ccs = [cc_1]
-data.custom_fields = [custom_field_1]
-data.signing_options = signing_options
-data.test_mode = true
+signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signers_1.role = "Client"
+signers_1.name = "George"
+signers_1.email_address = "george@example.com"
+
+signers = [
+    signers_1,
+]
+
+ccs_1 = Dropbox::Sign::SubCC.new
+ccs_1.role = "Accounting"
+ccs_1.email_address = "accounting@example.com"
+
+ccs = [
+    ccs_1,
+]
+
+custom_fields_1 = Dropbox::Sign::SubCustomField.new
+custom_fields_1.name = "Cost"
+custom_fields_1.editor = "Client"
+custom_fields_1.required = true
+custom_fields_1.value = "$20,000"
+
+custom_fields = [
+    custom_fields_1,
+]
+
+signature_request_send_with_template_request = Dropbox::Sign::SignatureRequestSendWithTemplateRequest.new
+signature_request_send_with_template_request.template_ids = [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+]
+signature_request_send_with_template_request.message = "Glad we could come to an agreement."
+signature_request_send_with_template_request.subject = "Purchase Order"
+signature_request_send_with_template_request.test_mode = true
+signature_request_send_with_template_request.signing_options = signing_options
+signature_request_send_with_template_request.signers = signers
+signature_request_send_with_template_request.ccs = ccs
+signature_request_send_with_template_request.custom_fields = custom_fields
 
 begin
-  result = signature_request_api.signature_request_send_with_template(data)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_send_with_template(
+    signature_request_send_with_template_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_send_with_template: #{e}"
 end
 
 ```
@@ -1311,29 +1824,27 @@ Updates the email address and/or the name for a given signer on a signature requ
 ### Examples
 
 ```ruby
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = Dropbox::Sign::SignatureRequestApi.new
-
-data = Dropbox::Sign::SignatureRequestUpdateRequest.new
-data.email_address = "john@example.com"
-data.signature_id = "78caf2a1d01cd39cea2bc1cbb340dac3"
-
-signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+signature_request_update_request = Dropbox::Sign::SignatureRequestUpdateRequest.new
+signature_request_update_request.signature_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+signature_request_update_request.email_address = "john@example.com"
 
 begin
-  result = signature_request_api.signature_request_update(signature_request_id, data)
-  p result
+  response = Dropbox::Sign::SignatureRequestApi.new.signature_request_update(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
+      signature_request_update_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling SignatureRequestApi#signature_request_update: #{e}"
 end
 
 ```

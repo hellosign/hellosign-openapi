@@ -23,52 +23,24 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const accountApi = new DropboxSign.AccountApi();
+const apiCaller = new api.AccountApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.AccountCreateRequest = {
+const accountCreateRequest: models.AccountCreateRequest = {
   emailAddress: "newuser@dropboxsign.com",
 };
 
-const result = accountApi.accountCreate(data);
-result.then(response => {
+apiCaller.accountCreate(
+  accountCreateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const accountApi = new DropboxSign.AccountApi();
-
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "newuser@dropboxsign.com",
-};
-
-const result = accountApi.accountCreate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling AccountApi#accountCreate:");
   console.log(error.body);
 });
 
@@ -110,44 +82,18 @@ Returns the properties and settings of your Account.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const accountApi = new DropboxSign.AccountApi();
+const apiCaller = new api.AccountApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const result = accountApi.accountGet(undefined, "jack@example.com");
-result.then(response => {
+apiCaller.accountGet().then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const accountApi = new DropboxSign.AccountApi();
-
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const result = accountApi.accountGet(undefined, "jack@example.com");
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling AccountApi#accountGet:");
   console.log(error.body);
 });
 
@@ -190,52 +136,25 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const accountApi = new DropboxSign.AccountApi();
+const apiCaller = new api.AccountApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.AccountUpdateRequest = {
+const accountUpdateRequest: models.AccountUpdateRequest = {
   callbackUrl: "https://www.example.com/callback",
+  locale: "en-US",
 };
 
-const result = accountApi.accountUpdate(data);
-result.then(response => {
+apiCaller.accountUpdate(
+  accountUpdateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const accountApi = new DropboxSign.AccountApi();
-
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  callbackUrl: "https://www.example.com/callback",
-};
-
-const result = accountApi.accountUpdate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling AccountApi#accountUpdate:");
   console.log(error.body);
 });
 
@@ -277,52 +196,24 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const accountApi = new DropboxSign.AccountApi();
+const apiCaller = new api.AccountApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.AccountVerifyRequest = {
+const accountVerifyRequest: models.AccountVerifyRequest = {
   emailAddress: "some_user@dropboxsign.com",
 };
 
-const result = accountApi.accountVerify(data);
-result.then(response => {
+apiCaller.accountVerify(
+  accountVerifyRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const accountApi = new DropboxSign.AccountApi();
-
-// Configure HTTP basic authorization: api_key
-accountApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "some_user@dropboxsign.com",
-};
-
-const result = accountApi.accountVerify(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling AccountApi#accountVerify:");
   console.log(error.body);
 });
 

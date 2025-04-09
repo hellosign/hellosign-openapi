@@ -13,7 +13,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 public class ReportApi {
     private ApiClient apiClient;
 
@@ -44,7 +44,7 @@ public class ReportApi {
     }
 
     /**
-     * Create Report. Request the creation of one or more report(s). When the report(s) have been
+     * Create Report Request the creation of one or more report(s). When the report(s) have been
      * generated, you will receive an email (one per requested report type) containing a link to
      * download the report as a CSV file. The requested date range may be up to 12 months in
      * duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
@@ -53,7 +53,8 @@ public class ReportApi {
      * @return ReportCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
@@ -65,7 +66,7 @@ public class ReportApi {
     }
 
     /**
-     * Create Report. Request the creation of one or more report(s). When the report(s) have been
+     * Create Report Request the creation of one or more report(s). When the report(s) have been
      * generated, you will receive an email (one per requested report type) containing a link to
      * download the report as a CSV file. The requested date range may be up to 12 months in
      * duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
@@ -74,7 +75,8 @@ public class ReportApi {
      * @return ApiResponse&lt;ReportCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-     *     <table summary="Response Details" border="1">
+     *     <table border="1">
+     * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>

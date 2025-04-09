@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -42,10 +42,10 @@ import java.util.Objects;
         visible = true)
 public class SignatureRequestResponseDataValueTextMerge extends SignatureRequestResponseDataBase {
     public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "text-merge";
+    @javax.annotation.Nullable private String type = "text-merge";
 
     public static final String JSON_PROPERTY_VALUE = "value";
-    private String value;
+    @javax.annotation.Nullable private String value;
 
     public SignatureRequestResponseDataValueTextMerge() {}
 
@@ -67,7 +67,7 @@ public class SignatureRequestResponseDataValueTextMerge extends SignatureRequest
                         SignatureRequestResponseDataValueTextMerge.class);
     }
 
-    public SignatureRequestResponseDataValueTextMerge type(String type) {
+    public SignatureRequestResponseDataValueTextMerge type(@javax.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -85,11 +85,12 @@ public class SignatureRequestResponseDataValueTextMerge extends SignatureRequest
 
     @JsonProperty(JSON_PROPERTY_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setType(String type) {
+    public void setType(@javax.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public SignatureRequestResponseDataValueTextMerge value(String value) {
+    public SignatureRequestResponseDataValueTextMerge value(
+            @javax.annotation.Nullable String value) {
         this.value = value;
         return this;
     }
@@ -107,7 +108,7 @@ public class SignatureRequestResponseDataValueTextMerge extends SignatureRequest
 
     @JsonProperty(JSON_PROPERTY_VALUE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValue(String value) {
+    public void setValue(@javax.annotation.Nullable String value) {
         this.value = value;
     }
 

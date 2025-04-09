@@ -25,45 +25,45 @@ Creates a new API App.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
-
-$oauth = new Dropbox\Sign\Model\SubOAuth();
-$oauth->setCallbackUrl("https://example.com/oauth")
+$oauth = (new Dropbox\Sign\Model\SubOAuth())
+    ->setCallbackUrl("https://example.com/oauth")
     ->setScopes([
         Dropbox\Sign\Model\SubOAuth::SCOPES_BASIC_ACCOUNT_INFO,
         Dropbox\Sign\Model\SubOAuth::SCOPES_REQUEST_SIGNATURE,
     ]);
 
-$whiteLabelingOptions = new Dropbox\Sign\Model\SubWhiteLabelingOptions();
-$whiteLabelingOptions->setPrimaryButtonColor("#00b3e6")
+$white_labeling_options = (new Dropbox\Sign\Model\SubWhiteLabelingOptions())
+    ->setPrimaryButtonColor("#00b3e6")
     ->setPrimaryButtonTextColor("#ffffff");
 
-$customLogoFile = new SplFileObject(__DIR__ . "/CustomLogoFile.png");
-
-$data = new Dropbox\Sign\Model\ApiAppCreateRequest();
-$data->setName("My Production App")
-    ->setDomains(["example.com"])
+$api_app_create_request = (new Dropbox\Sign\Model\ApiAppCreateRequest())
+    ->setName("My Production App")
+    ->setDomains([
+        "example.com",
+    ])
+    ->setCustomLogoFile(new SplFileObject("CustomLogoFile.png"))
     ->setOauth($oauth)
-    ->setWhiteLabelingOptions($whiteLabelingOptions)
-    ->setCustomLogoFile($customLogoFile);
+    ->setWhiteLabelingOptions($white_labeling_options);
 
 try {
-    $result = $apiAppApi->apiAppCreate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\ApiAppApi(config: $config))->apiAppCreate(
+        api_app_create_request: $api_app_create_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling ApiAppApi#apiAppCreate: {$e->getMessage()}";
 }
 
 ```
@@ -105,26 +105,23 @@ Deletes an API App. Can only be invoked for apps you own.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
-
-$clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
 try {
-    $apiAppApi->apiAppDelete($clientId);
+    (new Dropbox\Sign\Api\ApiAppApi(config: $config))->apiAppDelete(
+        client_id: "0dd3b823a682527788c4e40cb7b6f7e9",
+    );
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling ApiAppApi#apiAppDelete: {$e->getMessage()}";
 }
 
 ```
@@ -166,27 +163,25 @@ Returns an object with information about an API App.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
-
-$clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
 try {
-    $result = $apiAppApi->apiAppGet($clientId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\ApiAppApi(config: $config))->apiAppGet(
+        client_id: "0dd3b823a682527788c4e40cb7b6f7e9",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling ApiAppApi#apiAppGet: {$e->getMessage()}";
 }
 
 ```
@@ -228,28 +223,26 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
-
-$page = 1;
-$pageSize = 2;
-
 try {
-    $result = $apiAppApi->apiAppList($page, $pageSize);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\ApiAppApi(config: $config))->apiAppList(
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling ApiAppApi#apiAppList: {$e->getMessage()}";
 }
 
 ```
@@ -292,39 +285,47 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
+$oauth = (new Dropbox\Sign\Model\SubOAuth())
+    ->setCallbackUrl("https://example.com/oauth")
+    ->setScopes([
+        Dropbox\Sign\Model\SubOAuth::SCOPES_BASIC_ACCOUNT_INFO,
+        Dropbox\Sign\Model\SubOAuth::SCOPES_REQUEST_SIGNATURE,
+    ]);
 
-$whiteLabelingOptions = new Dropbox\Sign\Model\SubWhiteLabelingOptions();
-$whiteLabelingOptions->setPrimaryButtonColor("#00b3e6")
+$white_labeling_options = (new Dropbox\Sign\Model\SubWhiteLabelingOptions())
+    ->setPrimaryButtonColor("#00b3e6")
     ->setPrimaryButtonTextColor("#ffffff");
 
-$customLogoFile = new SplFileObject(__DIR__ . "/CustomLogoFile.png");
-
-$data = new Dropbox\Sign\Model\ApiAppUpdateRequest();
-$data->setName("New Name")
-    ->setCallbackUrl("http://example.com/dropboxsign")
-    ->setWhiteLabelingOptions($whiteLabelingOptions)
-    ->setCustomLogoFile($customLogoFile);
-
-$clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
+$api_app_update_request = (new Dropbox\Sign\Model\ApiAppUpdateRequest())
+    ->setCallbackUrl("https://example.com/dropboxsign")
+    ->setName("New Name")
+    ->setDomains([
+        "example.com",
+    ])
+    ->setCustomLogoFile(new SplFileObject("CustomLogoFile.png"))
+    ->setOauth($oauth)
+    ->setWhiteLabelingOptions($white_labeling_options);
 
 try {
-    $result = $apiAppApi->apiAppUpdate($clientId, $data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\ApiAppApi(config: $config))->apiAppUpdate(
+        client_id: "0dd3b823a682527788c4e40cb7b6f7e9",
+        api_app_update_request: $api_app_update_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling ApiAppApi#apiAppUpdate: {$e->getMessage()}";
 }
 
 ```

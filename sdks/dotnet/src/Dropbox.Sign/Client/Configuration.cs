@@ -36,7 +36,7 @@ namespace Dropbox.Sign.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.8-dev";
+        public const string Version = "2.0-dev";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -120,7 +120,7 @@ namespace Dropbox.Sign.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/1.8-dev/csharp");
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/2.0-dev/csharp");
             BasePath = "https://api.hellosign.com/v3";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -163,7 +163,7 @@ namespace Dropbox.Sign.Client
             };
 
             // Setting Timeout has side effects (forces ApiClient creation).
-            Timeout = 100000;
+            Timeout = TimeSpan.FromSeconds(100);
         }
 
         /// <summary>
@@ -247,9 +247,9 @@ namespace Dropbox.Sign.Client
         public virtual IDictionary<string, string> DefaultHeaders { get; set; }
 
         /// <summary>
-        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
+        /// Gets or sets the HTTP timeout of ApiClient. Defaults to 100 seconds.
         /// </summary>
-        public virtual int Timeout { get; set; }
+        public virtual TimeSpan Timeout { get; set; }
 
         /// <summary>
         /// Gets or sets the proxy
@@ -567,7 +567,7 @@ namespace Dropbox.Sign.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: 3.0.0\n";
-            report += "    SDK Package Version: 1.8-dev\n";
+            report += "    SDK Package Version: 2.0-dev\n";
 
             return report;
         }

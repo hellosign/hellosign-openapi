@@ -31,30 +31,29 @@ Gives the specified Account access to the specified Template. The specified Acco
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$data = new Dropbox\Sign\Model\TemplateAddUserRequest();
-$data->setEmailAddress("george@dropboxsign.com");
-
-$templateId = "f57db65d3f933b5316d398057a36176831451a35";
+$template_add_user_request = (new Dropbox\Sign\Model\TemplateAddUserRequest())
+    ->setEmailAddress("george@dropboxsign.com");
 
 try {
-    $result = $templateApi->templateAddUser($templateId, $data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateAddUser(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+        template_add_user_request: $template_add_user_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateAddUser: {$e->getMessage()}";
 }
 
 ```
@@ -97,56 +96,103 @@ Creates a template that can then be used.
 ```php
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername('YOUR_API_KEY');
-
-// or, configure Bearer (JWT) authorization: oauth2
+$config->setUsername("YOUR_API_KEY");
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
+$field_options = (new Dropbox\Sign\Model\SubFieldOptions())
+    ->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$role1 = new Dropbox\Sign\Model\SubTemplateRole();
-$role1->setName('Client')
+$signer_roles_1 = (new Dropbox\Sign\Model\SubTemplateRole())
+    ->setName("Client")
     ->setOrder(0);
 
-$role2 = new Dropbox\Sign\Model\SubTemplateRole();
-$role2->setName('Witness')
+$signer_roles_2 = (new Dropbox\Sign\Model\SubTemplateRole())
+    ->setName("Witness")
     ->setOrder(1);
 
-$mergeField1 = new Dropbox\Sign\Model\SubMergeField();
-$mergeField1->setName('Full Name')
+$signer_roles = [
+    $signer_roles_1,
+    $signer_roles_2,
+];
+
+$form_fields_per_document_1 = (new Dropbox\Sign\Model\SubFormFieldsPerDocumentText())
+    ->setDocumentIndex(0)
+    ->setApiId("uniqueIdHere_1")
+    ->setType("text")
+    ->setRequired(true)
+    ->setSigner("1")
+    ->setWidth(100)
+    ->setHeight(16)
+    ->setX(112)
+    ->setY(328)
+    ->setName("")
+    ->setPage(1)
+    ->setPlaceholder("")
+    ->setValidationType(Dropbox\Sign\Model\SubFormFieldsPerDocumentText::VALIDATION_TYPE_NUMBERS_ONLY);
+
+$form_fields_per_document_2 = (new Dropbox\Sign\Model\SubFormFieldsPerDocumentSignature())
+    ->setDocumentIndex(0)
+    ->setApiId("uniqueIdHere_2")
+    ->setType("signature")
+    ->setRequired(true)
+    ->setSigner("0")
+    ->setWidth(120)
+    ->setHeight(30)
+    ->setX(530)
+    ->setY(415)
+    ->setName("")
+    ->setPage(1);
+
+$form_fields_per_document = [
+    $form_fields_per_document_1,
+    $form_fields_per_document_2,
+];
+
+$merge_fields_1 = (new Dropbox\Sign\Model\SubMergeField())
+    ->setName("Full Name")
     ->setType(Dropbox\Sign\Model\SubMergeField::TYPE_TEXT);
 
-$mergeField2 = new Dropbox\Sign\Model\SubMergeField();
-$mergeField2->setName('Is Registered?')
+$merge_fields_2 = (new Dropbox\Sign\Model\SubMergeField())
+    ->setName("Is Registered?")
     ->setType(Dropbox\Sign\Model\SubMergeField::TYPE_CHECKBOX);
 
-$fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+$merge_fields = [
+    $merge_fields_1,
+    $merge_fields_2,
+];
 
-$data = new Dropbox\Sign\Model\TemplateCreateRequest();
-$data->setClientId('37dee8d8440c66d54cfa05d92c160882')
-    ->setFiles([new SplFileObject(__DIR__ . '/example_signature_request.pdf')])
-    ->setTitle('Test Template')
-    ->setSubject('Please sign this document')
-    ->setMessage('For your approval')
-    ->setSignerRoles([$role1, $role2])
-    ->setCcRoles(['Manager'])
-    ->setMergeFields([$mergeField1, $mergeField2])
-    ->setFieldOptions($fieldOptions)
-    ->setTestMode(true);
+$template_create_request = (new Dropbox\Sign\Model\TemplateCreateRequest())
+    ->setClientId("37dee8d8440c66d54cfa05d92c160882")
+    ->setMessage("For your approval")
+    ->setSubject("Please sign this document")
+    ->setTestMode(true)
+    ->setTitle("Test Template")
+    ->setCcRoles([
+        "Manager",
+    ])
+    ->setFiles([
+    ])
+    ->setFieldOptions($field_options)
+    ->setSignerRoles($signer_roles)
+    ->setFormFieldsPerDocument($form_fields_per_document)
+    ->setMergeFields($merge_fields);
 
 try {
-    $result = $templateApi->templateCreate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateCreate(
+        template_create_request: $template_create_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo 'Exception when calling Dropbox Sign API: '
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateCreate: {$e->getMessage()}";
 }
 
 ```
@@ -188,56 +234,69 @@ The first step in an embedded template workflow. Creates a draft template that c
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
+$field_options = (new Dropbox\Sign\Model\SubFieldOptions())
+    ->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$role1 = new Dropbox\Sign\Model\SubTemplateRole();
-$role1->setName("Client")
-    ->setOrder(0);
-
-$role2 = new Dropbox\Sign\Model\SubTemplateRole();
-$role2->setName("Witness")
-    ->setOrder(1);
-
-$mergeField1 = new Dropbox\Sign\Model\SubMergeField();
-$mergeField1->setName("Full Name")
+$merge_fields_1 = (new Dropbox\Sign\Model\SubMergeField())
+    ->setName("Full Name")
     ->setType(Dropbox\Sign\Model\SubMergeField::TYPE_TEXT);
 
-$mergeField2 = new Dropbox\Sign\Model\SubMergeField();
-$mergeField2->setName("Is Registered?")
+$merge_fields_2 = (new Dropbox\Sign\Model\SubMergeField())
+    ->setName("Is Registered?")
     ->setType(Dropbox\Sign\Model\SubMergeField::TYPE_CHECKBOX);
 
-$fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+$merge_fields = [
+    $merge_fields_1,
+    $merge_fields_2,
+];
 
-$data = new Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest();
-$data->setClientId("37dee8d8440c66d54cfa05d92c160882")
-    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setTitle("Test Template")
-    ->setSubject("Please sign this document")
+$signer_roles_1 = (new Dropbox\Sign\Model\SubTemplateRole())
+    ->setName("Client")
+    ->setOrder(0);
+
+$signer_roles_2 = (new Dropbox\Sign\Model\SubTemplateRole())
+    ->setName("Witness")
+    ->setOrder(1);
+
+$signer_roles = [
+    $signer_roles_1,
+    $signer_roles_2,
+];
+
+$template_create_embedded_draft_request = (new Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest())
+    ->setClientId("37dee8d8440c66d54cfa05d92c160882")
     ->setMessage("For your approval")
-    ->setSignerRoles([$role1, $role2])
-    ->setCcRoles(["Manager"])
-    ->setMergeFields([$mergeField1, $mergeField2])
-    ->setFieldOptions($fieldOptions)
-    ->setTestMode(true);
+    ->setSubject("Please sign this document")
+    ->setTestMode(true)
+    ->setTitle("Test Template")
+    ->setCcRoles([
+        "Manager",
+    ])
+    ->setFiles([
+    ])
+    ->setFieldOptions($field_options)
+    ->setMergeFields($merge_fields)
+    ->setSignerRoles($signer_roles);
 
 try {
-    $result = $templateApi->templateCreateEmbeddedDraft($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateCreateEmbeddedDraft(
+        template_create_embedded_draft_request: $template_create_embedded_draft_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateCreateEmbeddedDraft: {$e->getMessage()}";
 }
 
 ```
@@ -279,26 +338,23 @@ Completely deletes the template specified from the account.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
 try {
-    $templateApi->templateDelete($templateId);
+    (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateDelete(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+    );
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateDelete: {$e->getMessage()}";
 }
 
 ```
@@ -340,28 +396,25 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$templateId = "5de8179668f2033afac48da1868d0093bf133266";
-$fileType = "pdf";
-
 try {
-    $result = $templateApi->templateFiles($templateId, $fileType);
-    copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateFiles(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+    );
+
+    copy($response->getRealPath(), __DIR__ . '/file_response');
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateFiles: {$e->getMessage()}";
 }
 
 ```
@@ -404,27 +457,25 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
 try {
-    $result = $templateApi->templateFilesAsDataUri($templateId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateFilesAsDataUri(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateFilesAsDataUri: {$e->getMessage()}";
 }
 
 ```
@@ -466,27 +517,26 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
 try {
-    $result = $templateApi->templateFilesAsFileUrl($templateId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateFilesAsFileUrl(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+        force_download: 1,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateFilesAsFileUrl: {$e->getMessage()}";
 }
 
 ```
@@ -529,27 +579,25 @@ Returns the Template specified by the `template_id` parameter.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 try {
-    $result = $templateApi->templateGet($templateId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateGet(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateGet: {$e->getMessage()}";
 }
 
 ```
@@ -591,27 +639,26 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$accountId = "f57db65d3f933b5316d398057a36176831451a35";
-
 try {
-    $result = $templateApi->templateList($accountId);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateList(
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateList: {$e->getMessage()}";
 }
 
 ```
@@ -656,30 +703,29 @@ Removes the specified Account's access to the specified Template.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$data = new Dropbox\Sign\Model\TemplateRemoveUserRequest();
-$data->setEmailAddress("george@dropboxsign.com");
-
-$templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
+$template_remove_user_request = (new Dropbox\Sign\Model\TemplateRemoveUserRequest())
+    ->setEmailAddress("george@dropboxsign.com");
 
 try {
-    $result = $templateApi->templateRemoveUser($templateId, $data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateRemoveUser(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+        template_remove_user_request: $template_remove_user_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateRemoveUser: {$e->getMessage()}";
 }
 
 ```
@@ -722,30 +768,30 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
-
-$data = new Dropbox\Sign\Model\TemplateUpdateFilesRequest();
-$data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")]);
-
-$templateId = "5de8179668f2033afac48da1868d0093bf133266";
+$template_update_files_request = (new Dropbox\Sign\Model\TemplateUpdateFilesRequest())
+    ->setFiles([
+    ]);
 
 try {
-    $result = $templateApi->templateUpdateFiles($templateId, $data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateUpdateFiles(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+        template_update_files_request: $template_update_files_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling TemplateApi#templateUpdateFiles: {$e->getMessage()}";
 }
 
 ```

@@ -27,26 +27,28 @@ Grants a user access to the specified Fax Line.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
-
-$data = new Dropbox\Sign\Model\FaxLineAddUserRequest();
-$data->setNumber("[FAX_NUMBER]")
+$fax_line_add_user_request = (new Dropbox\Sign\Model\FaxLineAddUserRequest())
+    ->setNumber("[FAX_NUMBER]")
     ->setEmailAddress("member@dropboxsign.com");
 
 try {
-    $result = $faxLineApi->faxLineAddUser($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineAddUser(
+        fax_line_add_user_request: $fax_line_add_user_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxLineApi#faxLineAddUser: {$e->getMessage()}";
 }
 
 ```
@@ -81,29 +83,31 @@ faxLineAreaCodeGet($country, $state, $province, $city): \Dropbox\Sign\Model\FaxL
 ```
 Get Available Fax Line Area Codes
 
-Returns a response with the area codes available for a given state/provice and city.
+Returns a list of available area codes for a given state/province and city
 
 ### Example
 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
-
 try {
-    $result = $faxLineApi->faxLineAreaCodeGet("US", "CA");
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineAreaCodeGet(
+        country: "US",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxLineApi#faxLineAreaCodeGet: {$e->getMessage()}";
 }
 
 ```
@@ -112,10 +116,10 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **country** | **string**| Filter area codes by country. | |
-| **state** | **string**| Filter area codes by state. | [optional] |
-| **province** | **string**| Filter area codes by province. | [optional] |
-| **city** | **string**| Filter area codes by city. | [optional] |
+| **country** | **string**| Filter area codes by country | |
+| **state** | **string**| Filter area codes by state | [optional] |
+| **province** | **string**| Filter area codes by province | [optional] |
+| **city** | **string**| Filter area codes by city | [optional] |
 
 ### Return type
 
@@ -141,33 +145,35 @@ faxLineCreate($fax_line_create_request): \Dropbox\Sign\Model\FaxLineResponse
 ```
 Purchase Fax Line
 
-Purchases a new Fax Line.
+Purchases a new Fax Line
 
 ### Example
 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
-
-$data = new Dropbox\Sign\Model\FaxLineCreateRequest();
-$data->setAreaCode(209)
-    ->setCountry("US");
+$fax_line_create_request = (new Dropbox\Sign\Model\FaxLineCreateRequest())
+    ->setAreaCode(209)
+    ->setCountry(Dropbox\Sign\Model\FaxLineCreateRequest::COUNTRY_US);
 
 try {
-    $result = $faxLineApi->faxLineCreate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineCreate(
+        fax_line_create_request: $fax_line_create_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxLineApi#faxLineCreate: {$e->getMessage()}";
 }
 
 ```
@@ -209,24 +215,25 @@ Deletes the specified Fax Line from the subscription.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
-
-$data = new Dropbox\Sign\Model\FaxLineDeleteRequest();
-$data->setNumber("[FAX_NUMBER]");
+$fax_line_delete_request = (new Dropbox\Sign\Model\FaxLineDeleteRequest())
+    ->setNumber("[FAX_NUMBER]");
 
 try {
-    $faxLineApi->faxLineDelete($data);
+    (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineDelete(
+        fax_line_delete_request: $fax_line_delete_request,
+    );
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxLineApi#faxLineDelete: {$e->getMessage()}";
 }
 
 ```
@@ -268,22 +275,24 @@ Returns the properties and settings of a Fax Line.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
-
 try {
-    $result = $faxLineApi->faxLineGet("[FAX_NUMBER]");
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineGet(
+        number: "123-123-1234",
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxLineApi#faxLineGet: {$e->getMessage()}";
 }
 
 ```
@@ -292,7 +301,7 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **number** | **string**| The Fax Line number. | |
+| **number** | **string**| The Fax Line number | |
 
 ### Return type
 
@@ -325,22 +334,26 @@ Returns the properties and settings of multiple Fax Lines.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
-
 try {
-    $result = $faxLineApi->faxLineList();
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineList(
+        account_id: "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97",
+        page: 1,
+        page_size: 20,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxLineApi#faxLineList: {$e->getMessage()}";
 }
 
 ```
@@ -350,9 +363,9 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account_id** | **string**| Account ID | [optional] |
-| **page** | **int**| Page | [optional] [default to 1] |
-| **page_size** | **int**| Page size | [optional] [default to 20] |
-| **show_team_lines** | **bool**| Show team lines | [optional] |
+| **page** | **int**| Which page number of the Fax Line List to return. Defaults to `1`. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **show_team_lines** | **bool**| Include Fax Lines belonging to team members in the list | [optional] |
 
 ### Return type
 
@@ -378,33 +391,35 @@ faxLineRemoveUser($fax_line_remove_user_request): \Dropbox\Sign\Model\FaxLineRes
 ```
 Remove Fax Line Access
 
-Removes a user's access to the specified Fax Line.
+Removes a user's access to the specified Fax Line
 
 ### Example
 
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
-
-$data = new Dropbox\Sign\Model\FaxLineRemoveUserRequest();
-$data->setNumber("[FAX_NUMBER]")
+$fax_line_remove_user_request = (new Dropbox\Sign\Model\FaxLineRemoveUserRequest())
+    ->setNumber("[FAX_NUMBER]")
     ->setEmailAddress("member@dropboxsign.com");
 
 try {
-    $result = $faxLineApi->faxLineRemoveUser($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineRemoveUser(
+        fax_line_remove_user_request: $fax_line_remove_user_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling FaxLineApi#faxLineRemoveUser: {$e->getMessage()}";
 }
 
 ```

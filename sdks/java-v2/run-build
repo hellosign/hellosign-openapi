@@ -18,7 +18,7 @@ rm -f "${DIR}/src/main/java/com/dropbox/sign/model/"*.java
 
 docker run --rm \
   -v "${DIR}/:/local" \
-  openapitools/openapi-generator-cli:v7.8.0 generate \
+  openapitools/openapi-generator-cli:v7.12.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
     -t "/local/templates" \
@@ -46,6 +46,9 @@ docker run --rm \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/scan_for
+
+printf "Adding old-style constant names ...\n"
+bash "${DIR}/bin/php" ./bin/copy-constants.php
 
 # avoid docker messing with permissions
 if [[ -z "$GITHUB_ACTIONS" ]]; then

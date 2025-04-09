@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseCustomFieldCheckbox.JSON_PROPERTY_TYPE,
   SignatureRequestResponseCustomFieldCheckbox.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -49,9 +49,11 @@ import com.dropbox.sign.ApiException;
 
 public class SignatureRequestResponseCustomFieldCheckbox extends SignatureRequestResponseCustomFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "checkbox";
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nullable
   private Boolean value;
 
   public SignatureRequestResponseCustomFieldCheckbox() { 
@@ -72,7 +74,7 @@ public class SignatureRequestResponseCustomFieldCheckbox extends SignatureReques
     );
   }
 
-  public SignatureRequestResponseCustomFieldCheckbox type(String type) {
+  public SignatureRequestResponseCustomFieldCheckbox type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -92,12 +94,12 @@ public class SignatureRequestResponseCustomFieldCheckbox extends SignatureReques
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public SignatureRequestResponseCustomFieldCheckbox value(Boolean value) {
+  public SignatureRequestResponseCustomFieldCheckbox value(@jakarta.annotation.Nullable Boolean value) {
     this.value = value;
     return this;
   }
@@ -117,7 +119,7 @@ public class SignatureRequestResponseCustomFieldCheckbox extends SignatureReques
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(Boolean value) {
+  public void setValue(@jakarta.annotation.Nullable Boolean value) {
     this.value = value;
   }
 

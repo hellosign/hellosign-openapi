@@ -34,26 +34,26 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftResponse {
     public static final String JSON_PROPERTY_SIGNATURE_REQUEST_ID = "signature_request_id";
-    private String signatureRequestId;
+    @javax.annotation.Nullable private String signatureRequestId;
 
     public static final String JSON_PROPERTY_CLAIM_URL = "claim_url";
-    private String claimUrl;
+    @javax.annotation.Nullable private String claimUrl;
 
     public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
-    private String signingRedirectUrl;
+    @javax.annotation.Nullable private String signingRedirectUrl;
 
     public static final String JSON_PROPERTY_REQUESTING_REDIRECT_URL = "requesting_redirect_url";
-    private String requestingRedirectUrl;
+    @javax.annotation.Nullable private String requestingRedirectUrl;
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-    private Integer expiresAt;
+    @javax.annotation.Nullable private Integer expiresAt;
 
     public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    private Boolean testMode;
+    @javax.annotation.Nullable private Boolean testMode;
 
     public UnclaimedDraftResponse() {}
 
@@ -72,7 +72,8 @@ public class UnclaimedDraftResponse {
                         new ObjectMapper().writeValueAsString(data), UnclaimedDraftResponse.class);
     }
 
-    public UnclaimedDraftResponse signatureRequestId(String signatureRequestId) {
+    public UnclaimedDraftResponse signatureRequestId(
+            @javax.annotation.Nullable String signatureRequestId) {
         this.signatureRequestId = signatureRequestId;
         return this;
     }
@@ -90,11 +91,11 @@ public class UnclaimedDraftResponse {
 
     @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignatureRequestId(String signatureRequestId) {
+    public void setSignatureRequestId(@javax.annotation.Nullable String signatureRequestId) {
         this.signatureRequestId = signatureRequestId;
     }
 
-    public UnclaimedDraftResponse claimUrl(String claimUrl) {
+    public UnclaimedDraftResponse claimUrl(@javax.annotation.Nullable String claimUrl) {
         this.claimUrl = claimUrl;
         return this;
     }
@@ -112,11 +113,12 @@ public class UnclaimedDraftResponse {
 
     @JsonProperty(JSON_PROPERTY_CLAIM_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setClaimUrl(String claimUrl) {
+    public void setClaimUrl(@javax.annotation.Nullable String claimUrl) {
         this.claimUrl = claimUrl;
     }
 
-    public UnclaimedDraftResponse signingRedirectUrl(String signingRedirectUrl) {
+    public UnclaimedDraftResponse signingRedirectUrl(
+            @javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
         return this;
     }
@@ -134,11 +136,12 @@ public class UnclaimedDraftResponse {
 
     @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigningRedirectUrl(String signingRedirectUrl) {
+    public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
     }
 
-    public UnclaimedDraftResponse requestingRedirectUrl(String requestingRedirectUrl) {
+    public UnclaimedDraftResponse requestingRedirectUrl(
+            @javax.annotation.Nullable String requestingRedirectUrl) {
         this.requestingRedirectUrl = requestingRedirectUrl;
         return this;
     }
@@ -157,11 +160,11 @@ public class UnclaimedDraftResponse {
 
     @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequestingRedirectUrl(String requestingRedirectUrl) {
+    public void setRequestingRedirectUrl(@javax.annotation.Nullable String requestingRedirectUrl) {
         this.requestingRedirectUrl = requestingRedirectUrl;
     }
 
-    public UnclaimedDraftResponse expiresAt(Integer expiresAt) {
+    public UnclaimedDraftResponse expiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -179,11 +182,11 @@ public class UnclaimedDraftResponse {
 
     @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setExpiresAt(Integer expiresAt) {
+    public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
     }
 
-    public UnclaimedDraftResponse testMode(Boolean testMode) {
+    public UnclaimedDraftResponse testMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
         return this;
     }
@@ -201,7 +204,7 @@ public class UnclaimedDraftResponse {
 
     @JsonProperty(JSON_PROPERTY_TEST_MODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(Boolean testMode) {
+    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
     }
 

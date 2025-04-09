@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_FONT_FAMILY,
   SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_FONT_SIZE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -52,49 +52,52 @@ import com.dropbox.sign.ApiException;
 
 public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "hyperlink";
 
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @jakarta.annotation.Nonnull
   private String content;
 
   public static final String JSON_PROPERTY_CONTENT_URL = "content_url";
+  @jakarta.annotation.Nonnull
   private String contentUrl;
 
   /**
    * Font family for the field.
    */
   public enum FontFamilyEnum {
-    HELVETICA("helvetica"),
+    HELVETICA(String.valueOf("helvetica")),
     
-    ARIAL("arial"),
+    ARIAL(String.valueOf("arial")),
     
-    COURIER("courier"),
+    COURIER(String.valueOf("courier")),
     
-    CALIBRI("calibri"),
+    CALIBRI(String.valueOf("calibri")),
     
-    CAMBRIA("cambria"),
+    CAMBRIA(String.valueOf("cambria")),
     
-    GEORGIA("georgia"),
+    GEORGIA(String.valueOf("georgia")),
     
-    TIMES("times"),
+    TIMES(String.valueOf("times")),
     
-    TREBUCHET("trebuchet"),
+    TREBUCHET(String.valueOf("trebuchet")),
     
-    VERDANA("verdana"),
+    VERDANA(String.valueOf("verdana")),
     
-    ROBOTO("roboto"),
+    ROBOTO(String.valueOf("roboto")),
     
-    ROBOTO_MONO("robotoMono"),
+    ROBOTO_MONO(String.valueOf("robotoMono")),
     
-    NOTO_SANS("notoSans"),
+    NOTO_SANS(String.valueOf("notoSans")),
     
-    NOTO_SERIF("notoSerif"),
+    NOTO_SERIF(String.valueOf("notoSerif")),
     
-    NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
+    NOTO_CJK_JP_REGULAR(String.valueOf("notoCJK-JP-Regular")),
     
-    NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
+    NOTO_HEBREW_REGULAR(String.valueOf("notoHebrew-Regular")),
     
-    NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
+    NOTO_SAN_THAI_MERGED(String.valueOf("notoSanThaiMerged"));
 
     private String value;
 
@@ -124,9 +127,11 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   }
 
   public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
+  @jakarta.annotation.Nullable
   private FontFamilyEnum fontFamily;
 
   public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
+  @jakarta.annotation.Nullable
   private Integer fontSize = 12;
 
   public SubFormFieldsPerDocumentHyperlink() { 
@@ -147,7 +152,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
     );
   }
 
-  public SubFormFieldsPerDocumentHyperlink type(String type) {
+  public SubFormFieldsPerDocumentHyperlink type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -167,12 +172,12 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public SubFormFieldsPerDocumentHyperlink content(String content) {
+  public SubFormFieldsPerDocumentHyperlink content(@jakarta.annotation.Nonnull String content) {
     this.content = content;
     return this;
   }
@@ -192,12 +197,12 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setContent(String content) {
+  public void setContent(@jakarta.annotation.Nonnull String content) {
     this.content = content;
   }
 
 
-  public SubFormFieldsPerDocumentHyperlink contentUrl(String contentUrl) {
+  public SubFormFieldsPerDocumentHyperlink contentUrl(@jakarta.annotation.Nonnull String contentUrl) {
     this.contentUrl = contentUrl;
     return this;
   }
@@ -217,12 +222,12 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
 
   @JsonProperty(JSON_PROPERTY_CONTENT_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setContentUrl(String contentUrl) {
+  public void setContentUrl(@jakarta.annotation.Nonnull String contentUrl) {
     this.contentUrl = contentUrl;
   }
 
 
-  public SubFormFieldsPerDocumentHyperlink fontFamily(FontFamilyEnum fontFamily) {
+  public SubFormFieldsPerDocumentHyperlink fontFamily(@jakarta.annotation.Nullable FontFamilyEnum fontFamily) {
     this.fontFamily = fontFamily;
     return this;
   }
@@ -242,12 +247,12 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
 
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFontFamily(FontFamilyEnum fontFamily) {
+  public void setFontFamily(@jakarta.annotation.Nullable FontFamilyEnum fontFamily) {
     this.fontFamily = fontFamily;
   }
 
 
-  public SubFormFieldsPerDocumentHyperlink fontSize(Integer fontSize) {
+  public SubFormFieldsPerDocumentHyperlink fontSize(@jakarta.annotation.Nullable Integer fontSize) {
     this.fontSize = fontSize;
     return this;
   }
@@ -267,7 +272,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
 
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFontSize(Integer fontSize) {
+  public void setFontSize(@jakarta.annotation.Nullable Integer fontSize) {
     this.fontSize = fontSize;
   }
 

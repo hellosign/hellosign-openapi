@@ -56,7 +56,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.dropbox.sign</groupId>
   <artifactId>dropbox-sign</artifactId>
-  <version>2.4-dev</version>
+  <version>2.4.1-dev</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -72,7 +72,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.dropbox.sign:dropbox-sign:2.4-dev"
+     implementation "com.dropbox.sign:dropbox-sign:2.4.1-dev"
   }
 ```
 
@@ -86,7 +86,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/dropbox-sign-2.4-dev.jar`
+- `target/dropbox-sign-2.4.1-dev.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -95,31 +95,41 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class AccountCreateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-        var accountApi = new AccountApi(apiClient);
+        var accountCreateRequest = new AccountCreateRequest();
+        accountCreateRequest.emailAddress("newuser@dropboxsign.com");
 
-        var data = new AccountCreateRequest()
-            .emailAddress("newuser@dropboxsign.com");
+        try
+        {
+            var response = new AccountApi(config).accountCreate(
+                accountCreateRequest
+            );
 
-        try {
-            AccountCreateResponse result = accountApi.accountCreate(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
             System.err.println("Status code: " + e.getCode());
@@ -154,7 +164,7 @@ Class | Method | HTTP request | Description
 *EmbeddedApi* | [**embeddedEditUrl**](docs/EmbeddedApi.md#embeddedEditUrl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**embeddedSignUrl**](docs/EmbeddedApi.md#embeddedSignUrl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
 *FaxApi* | [**faxDelete**](docs/FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax
-*FaxApi* | [**faxFiles**](docs/FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | List Fax Files
+*FaxApi* | [**faxFiles**](docs/FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files
 *FaxApi* | [**faxGet**](docs/FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax
 *FaxApi* | [**faxList**](docs/FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes
 *FaxApi* | [**faxSend**](docs/FaxApi.md#faxSend) | **POST** /fax/send | Send Fax
@@ -173,6 +183,10 @@ Class | Method | HTTP request | Description
 *SignatureRequestApi* | [**signatureRequestCancel**](docs/SignatureRequestApi.md#signatureRequestCancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request
 *SignatureRequestApi* | [**signatureRequestCreateEmbedded**](docs/SignatureRequestApi.md#signatureRequestCreateEmbedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request
 *SignatureRequestApi* | [**signatureRequestCreateEmbeddedWithTemplate**](docs/SignatureRequestApi.md#signatureRequestCreateEmbeddedWithTemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template
+*SignatureRequestApi* | [**signatureRequestEdit**](docs/SignatureRequestApi.md#signatureRequestEdit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request
+*SignatureRequestApi* | [**signatureRequestEditEmbedded**](docs/SignatureRequestApi.md#signatureRequestEditEmbedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request
+*SignatureRequestApi* | [**signatureRequestEditEmbeddedWithTemplate**](docs/SignatureRequestApi.md#signatureRequestEditEmbeddedWithTemplate) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template
+*SignatureRequestApi* | [**signatureRequestEditWithTemplate**](docs/SignatureRequestApi.md#signatureRequestEditWithTemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template
 *SignatureRequestApi* | [**signatureRequestFiles**](docs/SignatureRequestApi.md#signatureRequestFiles) | **GET** /signature_request/files/{signature_request_id} | Download Files
 *SignatureRequestApi* | [**signatureRequestFilesAsDataUri**](docs/SignatureRequestApi.md#signatureRequestFilesAsDataUri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri
 *SignatureRequestApi* | [**signatureRequestFilesAsFileUrl**](docs/SignatureRequestApi.md#signatureRequestFilesAsFileUrl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url
@@ -276,6 +290,10 @@ Class | Method | HTTP request | Description
  - [SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
  - [SignatureRequestCreateEmbeddedWithTemplateRequest](docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+ - [SignatureRequestEditEmbeddedRequest](docs/SignatureRequestEditEmbeddedRequest.md)
+ - [SignatureRequestEditEmbeddedWithTemplateRequest](docs/SignatureRequestEditEmbeddedWithTemplateRequest.md)
+ - [SignatureRequestEditRequest](docs/SignatureRequestEditRequest.md)
+ - [SignatureRequestEditWithTemplateRequest](docs/SignatureRequestEditWithTemplateRequest.md)
  - [SignatureRequestGetResponse](docs/SignatureRequestGetResponse.md)
  - [SignatureRequestListResponse](docs/SignatureRequestListResponse.md)
  - [SignatureRequestRemindRequest](docs/SignatureRequestRemindRequest.md)
@@ -435,7 +453,7 @@ apisupport@hellosign.com
 This Java package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `3.0.0`
-    - Package version: `2.4-dev`
+    - Package version: `2.4.1-dev`
 - Build package: `org.openapitools.codegen.languages.JavaClientCodegen`
 
 

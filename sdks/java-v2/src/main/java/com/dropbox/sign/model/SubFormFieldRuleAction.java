@@ -38,19 +38,22 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRuleAction.JSON_PROPERTY_FIELD_ID,
   SubFormFieldRuleAction.JSON_PROPERTY_GROUP_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFormFieldRuleAction {
   public static final String JSON_PROPERTY_HIDDEN = "hidden";
+  @jakarta.annotation.Nonnull
   private Boolean hidden;
 
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    FIELD_VISIBILITY("change-field-visibility"),
+    CHANGE_FIELD_VISIBILITY(String.valueOf("change-field-visibility")),
+    FIELD_VISIBILITY(String.valueOf("change-field-visibility")),
     
-    GROUP_VISIBILITY("change-group-visibility");
+    CHANGE_GROUP_VISIBILITY(String.valueOf("change-group-visibility")),
+    GROUP_VISIBILITY(String.valueOf("change-group-visibility"));
 
     private String value;
 
@@ -80,12 +83,15 @@ public class SubFormFieldRuleAction {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private TypeEnum type;
 
   public static final String JSON_PROPERTY_FIELD_ID = "field_id";
+  @jakarta.annotation.Nullable
   private String fieldId;
 
   public static final String JSON_PROPERTY_GROUP_ID = "group_id";
+  @jakarta.annotation.Nullable
   private String groupId;
 
   public SubFormFieldRuleAction() { 
@@ -106,7 +112,7 @@ public class SubFormFieldRuleAction {
     );
   }
 
-  public SubFormFieldRuleAction hidden(Boolean hidden) {
+  public SubFormFieldRuleAction hidden(@jakarta.annotation.Nonnull Boolean hidden) {
     this.hidden = hidden;
     return this;
   }
@@ -126,12 +132,12 @@ public class SubFormFieldRuleAction {
 
   @JsonProperty(JSON_PROPERTY_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHidden(Boolean hidden) {
+  public void setHidden(@jakarta.annotation.Nonnull Boolean hidden) {
     this.hidden = hidden;
   }
 
 
-  public SubFormFieldRuleAction type(TypeEnum type) {
+  public SubFormFieldRuleAction type(@jakarta.annotation.Nonnull TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -151,12 +157,12 @@ public class SubFormFieldRuleAction {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TypeEnum type) {
+  public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
     this.type = type;
   }
 
 
-  public SubFormFieldRuleAction fieldId(String fieldId) {
+  public SubFormFieldRuleAction fieldId(@jakarta.annotation.Nullable String fieldId) {
     this.fieldId = fieldId;
     return this;
   }
@@ -176,12 +182,12 @@ public class SubFormFieldRuleAction {
 
   @JsonProperty(JSON_PROPERTY_FIELD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFieldId(String fieldId) {
+  public void setFieldId(@jakarta.annotation.Nullable String fieldId) {
     this.fieldId = fieldId;
   }
 
 
-  public SubFormFieldRuleAction groupId(String groupId) {
+  public SubFormFieldRuleAction groupId(@jakarta.annotation.Nullable String groupId) {
     this.groupId = groupId;
     return this;
   }
@@ -201,7 +207,7 @@ public class SubFormFieldRuleAction {
 
   @JsonProperty(JSON_PROPERTY_GROUP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroupId(String groupId) {
+  public void setGroupId(@jakarta.annotation.Nullable String groupId) {
     this.groupId = groupId;
   }
 

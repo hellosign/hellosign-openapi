@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldDateSigned.JSON_PROPERTY_TYPE,
   TemplateResponseDocumentFormFieldDateSigned.JSON_PROPERTY_GROUP
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -49,9 +49,11 @@ import com.dropbox.sign.ApiException;
 
 public class TemplateResponseDocumentFormFieldDateSigned extends TemplateResponseDocumentFormFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type = "date_signed";
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @jakarta.annotation.Nullable
   private String group;
 
   public TemplateResponseDocumentFormFieldDateSigned() { 
@@ -72,7 +74,7 @@ public class TemplateResponseDocumentFormFieldDateSigned extends TemplateRespons
     );
   }
 
-  public TemplateResponseDocumentFormFieldDateSigned type(String type) {
+  public TemplateResponseDocumentFormFieldDateSigned type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -92,12 +94,12 @@ public class TemplateResponseDocumentFormFieldDateSigned extends TemplateRespons
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public TemplateResponseDocumentFormFieldDateSigned group(String group) {
+  public TemplateResponseDocumentFormFieldDateSigned group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
@@ -117,7 +119,7 @@ public class TemplateResponseDocumentFormFieldDateSigned extends TemplateRespons
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 

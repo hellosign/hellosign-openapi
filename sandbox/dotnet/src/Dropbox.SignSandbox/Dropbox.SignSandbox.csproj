@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
-    <TargetFramework>net6.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>net9.0</TargetFramework>
     <AssemblyName>Dropbox.SignSandbox</AssemblyName>
     <PackageId>Dropbox.SignSandbox</PackageId>
     <OutputType>Library</OutputType>
@@ -10,9 +10,10 @@
     <IsPackable>false</IsPackable>
     <Nullable>annotations</Nullable>
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dropbox.Sign" Version="1.0.*" />
+    <PackageReference Include="Dropbox.Sign" Version="2.0.0-dev" />
   </ItemGroup>
 </Project>

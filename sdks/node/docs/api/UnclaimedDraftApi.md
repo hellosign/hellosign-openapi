@@ -23,138 +23,39 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
+const apiCaller = new api.UnclaimedDraftApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-unclaimedDraftApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1: DropboxSign.SubUnclaimedDraftSigner = {
-  emailAddress: "jack@example.com",
+const signers1: models.SubUnclaimedDraftSigner = {
   name: "Jack",
+  emailAddress: "jack@example.com",
   order: 0,
 };
 
-const signer2: DropboxSign.SubUnclaimedDraftSigner = {
-  emailAddress: "jill@example.com",
-  name: "Jill",
-  order: 1,
-};
+const signers = [
+  signers1,
+];
 
-const signingOptions: DropboxSign.SubSigningOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: false,
-  defaultType: DropboxSign.SubSigningOptions.DefaultTypeEnum.Draw,
-};
-
-const fieldOptions: DropboxSign.SubFieldOptions = {
-  dateFormat: DropboxSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
-};
-
-const data: DropboxSign.UnclaimedDraftCreateRequest = {
-  subject: "The NDA we talked about",
-  type: DropboxSign.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
-  message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-  signers: [
-    signer1,
-    signer2,
-  ],
-  ccEmailAddresses: [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@dropboxsign.com",
-  ],
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  metadata: {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
-  },
-  signingOptions,
-  fieldOptions,
+const unclaimedDraftCreateRequest: models.UnclaimedDraftCreateRequest = {
+  type: models.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
   testMode: true,
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
+  signers: signers,
 };
 
-const result = unclaimedDraftApi.unclaimedDraftCreate(data);
-result.then(response => {
+apiCaller.unclaimedDraftCreate(
+  unclaimedDraftCreateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
-
-// Configure HTTP basic authorization: api_key
-unclaimedDraftApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1 = {
-  emailAddress: "jack@example.com",
-  name: "Jack",
-  order: 0,
-};
-
-const signer2 = {
-  emailAddress: "jill@example.com",
-  name: "Jill",
-  order: 1,
-};
-
-const signingOptions = {
-  draw: true,
-  type: true,
-  upload: true,
-  phone: false,
-  defaultType: "draw",
-};
-
-const fieldOptions = {
-  dateFormat: "DD - MM - YYYY",
-};
-
-const data = {
-  subject: "The NDA we talked about",
-  type: "request_signature",
-  message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-  signers: [
-    signer1,
-    signer2,
-  ],
-  ccEmailAddresses: [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@example.com",
-  ],
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  metadata: {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
-  },
-  signingOptions,
-  fieldOptions,
-  testMode: true,
-};
-
-const result = unclaimedDraftApi.unclaimedDraftCreate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreate:");
   console.log(error.body);
 });
 
@@ -196,60 +97,29 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
+const apiCaller = new api.UnclaimedDraftApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-unclaimedDraftApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.UnclaimedDraftCreateEmbeddedRequest = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  files: [fs.createReadStream("example_signature_request.pdf")],
+const unclaimedDraftCreateEmbeddedRequest: models.UnclaimedDraftCreateEmbeddedRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
   requesterEmailAddress: "jack@dropboxsign.com",
   testMode: true,
+  files: [
+    fs.createReadStream("./example_signature_request.pdf"),
+  ],
 };
 
-const result = unclaimedDraftApi.unclaimedDraftCreateEmbedded(data);
-result.then(response => {
+apiCaller.unclaimedDraftCreateEmbedded(
+  unclaimedDraftCreateEmbeddedRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-import * as fs from 'fs';
-
-const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
-
-// Configure HTTP basic authorization: api_key
-unclaimedDraftApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  files: [fs.createReadStream("example_signature_request.pdf")],
-  requesterEmailAddress: "jack@dropboxsign.com",
-  testMode: true,
-};
-
-const result = unclaimedDraftApi.unclaimedDraftCreateEmbedded(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbedded:");
   console.log(error.body);
 });
 
@@ -291,84 +161,50 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
+const apiCaller = new api.UnclaimedDraftApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-unclaimedDraftApi.username = "YOUR_API_KEY";
+const ccs1: models.SubCC = {
+  role: "Accounting",
+  emailAddress: "accounting@dropboxsign.com",
+};
 
-// or, configure Bearer (JWT) authorization: oauth2
-// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
+const ccs = [
+  ccs1,
+];
 
-const signer1: DropboxSign.SubUnclaimedDraftTemplateSigner = {
+const signers1: models.SubUnclaimedDraftTemplateSigner = {
   role: "Client",
   name: "George",
   emailAddress: "george@example.com",
 };
 
-const cc1: DropboxSign.SubCC = {
-  role: "Accounting",
-  emailAddress: "accounting@dropboxsign.com",
-};
+const signers = [
+  signers1,
+];
 
-const data: DropboxSign.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  templateIds: ["61a832ff0d8423f91d503e76bfbcc750f7417c78"],
+const unclaimedDraftCreateEmbeddedWithTemplateRequest: models.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
   requesterEmailAddress: "jack@dropboxsign.com",
-  signers: [ signer1 ],
-  ccs: [ cc1 ],
-  testMode: true,
+  templateIds: [
+    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  ],
+  testMode: false,
+  ccs: ccs,
+  signers: signers,
 };
 
-const result = unclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate(data);
-result.then(response => {
+apiCaller.unclaimedDraftCreateEmbeddedWithTemplate(
+  unclaimedDraftCreateEmbeddedWithTemplateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
-
-// Configure HTTP basic authorization: api_key
-unclaimedDraftApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const signer1 = {
-  role: "Client",
-  name: "George",
-  emailAddress: "george@example.com",
-};
-
-const cc1 = {
-  role: "Accounting",
-  emailAddress: "accounting@dropboxsign.com",
-};
-
-const data = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  templateIds: ["61a832ff0d8423f91d503e76bfbcc750f7417c78"],
-  requesterEmailAddress: "jack@dropboxsign.com",
-  signers: [ signer1 ],
-  ccs: [ cc1 ],
-  testMode: true,
-};
-
-const result = unclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbeddedWithTemplate:");
   console.log(error.body);
 });
 
@@ -410,58 +246,26 @@ Creates a new signature request from an embedded request that can be edited prio
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
+const apiCaller = new api.UnclaimedDraftApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-unclaimedDraftApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.UnclaimedDraftEditAndResendRequest = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  testMode: true,
+const unclaimedDraftEditAndResendRequest: models.UnclaimedDraftEditAndResendRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  testMode: false,
 };
 
-const signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
-
-const result = unclaimedDraftApi.unclaimedDraftEditAndResend(signatureRequestId, data);
-result.then(response => {
+apiCaller.unclaimedDraftEditAndResend(
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  unclaimedDraftEditAndResendRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
-
-// Configure HTTP basic authorization: api_key
-unclaimedDraftApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  clientId: "ec64a202072370a737edf4a0eb7f4437",
-  testMode: true,
-};
-
-const signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
-
-const result = unclaimedDraftApi.unclaimedDraftEditAndResend(signatureRequestId, data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftEditAndResend:");
   console.log(error.body);
 });
 

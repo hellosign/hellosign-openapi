@@ -27,11 +27,11 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxLineDeleteRequest.JSON_PROPERTY_NUMBER})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineDeleteRequest {
     public static final String JSON_PROPERTY_NUMBER = "number";
-    private String number;
+    @javax.annotation.Nonnull private String number;
 
     public FaxLineDeleteRequest() {}
 
@@ -49,13 +49,13 @@ public class FaxLineDeleteRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxLineDeleteRequest.class);
     }
 
-    public FaxLineDeleteRequest number(String number) {
+    public FaxLineDeleteRequest number(@javax.annotation.Nonnull String number) {
         this.number = number;
         return this;
     }
 
     /**
-     * The Fax Line number.
+     * The Fax Line number
      *
      * @return number
      */
@@ -68,7 +68,7 @@ public class FaxLineDeleteRequest {
 
     @JsonProperty(JSON_PROPERTY_NUMBER)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setNumber(String number) {
+    public void setNumber(@javax.annotation.Nonnull String number) {
         this.number = number;
     }
 

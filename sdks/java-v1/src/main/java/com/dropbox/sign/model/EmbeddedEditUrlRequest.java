@@ -40,38 +40,38 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmbeddedEditUrlRequest {
     public static final String JSON_PROPERTY_ALLOW_EDIT_CCS = "allow_edit_ccs";
-    private Boolean allowEditCcs = false;
+    @javax.annotation.Nullable private Boolean allowEditCcs = false;
 
     public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
-    private List<String> ccRoles = null;
+    @javax.annotation.Nullable private List<String> ccRoles = null;
 
     public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
-    private SubEditorOptions editorOptions;
+    @javax.annotation.Nullable private SubEditorOptions editorOptions;
 
     public static final String JSON_PROPERTY_FORCE_SIGNER_ROLES = "force_signer_roles";
-    private Boolean forceSignerRoles = false;
+    @javax.annotation.Nullable private Boolean forceSignerRoles = false;
 
     public static final String JSON_PROPERTY_FORCE_SUBJECT_MESSAGE = "force_subject_message";
-    private Boolean forceSubjectMessage = false;
+    @javax.annotation.Nullable private Boolean forceSubjectMessage = false;
 
     public static final String JSON_PROPERTY_MERGE_FIELDS = "merge_fields";
-    private List<SubMergeField> mergeFields = null;
+    @javax.annotation.Nullable private List<SubMergeField> mergeFields = null;
 
     public static final String JSON_PROPERTY_PREVIEW_ONLY = "preview_only";
-    private Boolean previewOnly = false;
+    @javax.annotation.Nullable private Boolean previewOnly = false;
 
     public static final String JSON_PROPERTY_SHOW_PREVIEW = "show_preview";
-    private Boolean showPreview = false;
+    @javax.annotation.Nullable private Boolean showPreview = false;
 
     public static final String JSON_PROPERTY_SHOW_PROGRESS_STEPPER = "show_progress_stepper";
-    private Boolean showProgressStepper = true;
+    @javax.annotation.Nullable private Boolean showProgressStepper = true;
 
     public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    private Boolean testMode = false;
+    @javax.annotation.Nullable private Boolean testMode = false;
 
     public EmbeddedEditUrlRequest() {}
 
@@ -90,7 +90,7 @@ public class EmbeddedEditUrlRequest {
                         new ObjectMapper().writeValueAsString(data), EmbeddedEditUrlRequest.class);
     }
 
-    public EmbeddedEditUrlRequest allowEditCcs(Boolean allowEditCcs) {
+    public EmbeddedEditUrlRequest allowEditCcs(@javax.annotation.Nullable Boolean allowEditCcs) {
         this.allowEditCcs = allowEditCcs;
         return this;
     }
@@ -109,11 +109,11 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_CCS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowEditCcs(Boolean allowEditCcs) {
+    public void setAllowEditCcs(@javax.annotation.Nullable Boolean allowEditCcs) {
         this.allowEditCcs = allowEditCcs;
     }
 
-    public EmbeddedEditUrlRequest ccRoles(List<String> ccRoles) {
+    public EmbeddedEditUrlRequest ccRoles(@javax.annotation.Nullable List<String> ccRoles) {
         this.ccRoles = ccRoles;
         return this;
     }
@@ -140,11 +140,12 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_CC_ROLES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCcRoles(List<String> ccRoles) {
+    public void setCcRoles(@javax.annotation.Nullable List<String> ccRoles) {
         this.ccRoles = ccRoles;
     }
 
-    public EmbeddedEditUrlRequest editorOptions(SubEditorOptions editorOptions) {
+    public EmbeddedEditUrlRequest editorOptions(
+            @javax.annotation.Nullable SubEditorOptions editorOptions) {
         this.editorOptions = editorOptions;
         return this;
     }
@@ -162,11 +163,12 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEditorOptions(SubEditorOptions editorOptions) {
+    public void setEditorOptions(@javax.annotation.Nullable SubEditorOptions editorOptions) {
         this.editorOptions = editorOptions;
     }
 
-    public EmbeddedEditUrlRequest forceSignerRoles(Boolean forceSignerRoles) {
+    public EmbeddedEditUrlRequest forceSignerRoles(
+            @javax.annotation.Nullable Boolean forceSignerRoles) {
         this.forceSignerRoles = forceSignerRoles;
         return this;
     }
@@ -184,11 +186,12 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setForceSignerRoles(Boolean forceSignerRoles) {
+    public void setForceSignerRoles(@javax.annotation.Nullable Boolean forceSignerRoles) {
         this.forceSignerRoles = forceSignerRoles;
     }
 
-    public EmbeddedEditUrlRequest forceSubjectMessage(Boolean forceSubjectMessage) {
+    public EmbeddedEditUrlRequest forceSubjectMessage(
+            @javax.annotation.Nullable Boolean forceSubjectMessage) {
         this.forceSubjectMessage = forceSubjectMessage;
         return this;
     }
@@ -206,11 +209,12 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setForceSubjectMessage(Boolean forceSubjectMessage) {
+    public void setForceSubjectMessage(@javax.annotation.Nullable Boolean forceSubjectMessage) {
         this.forceSubjectMessage = forceSubjectMessage;
     }
 
-    public EmbeddedEditUrlRequest mergeFields(List<SubMergeField> mergeFields) {
+    public EmbeddedEditUrlRequest mergeFields(
+            @javax.annotation.Nullable List<SubMergeField> mergeFields) {
         this.mergeFields = mergeFields;
         return this;
     }
@@ -238,11 +242,11 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMergeFields(List<SubMergeField> mergeFields) {
+    public void setMergeFields(@javax.annotation.Nullable List<SubMergeField> mergeFields) {
         this.mergeFields = mergeFields;
     }
 
-    public EmbeddedEditUrlRequest previewOnly(Boolean previewOnly) {
+    public EmbeddedEditUrlRequest previewOnly(@javax.annotation.Nullable Boolean previewOnly) {
         this.previewOnly = previewOnly;
         return this;
     }
@@ -262,11 +266,11 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setPreviewOnly(Boolean previewOnly) {
+    public void setPreviewOnly(@javax.annotation.Nullable Boolean previewOnly) {
         this.previewOnly = previewOnly;
     }
 
-    public EmbeddedEditUrlRequest showPreview(Boolean showPreview) {
+    public EmbeddedEditUrlRequest showPreview(@javax.annotation.Nullable Boolean showPreview) {
         this.showPreview = showPreview;
         return this;
     }
@@ -284,11 +288,12 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setShowPreview(Boolean showPreview) {
+    public void setShowPreview(@javax.annotation.Nullable Boolean showPreview) {
         this.showPreview = showPreview;
     }
 
-    public EmbeddedEditUrlRequest showProgressStepper(Boolean showProgressStepper) {
+    public EmbeddedEditUrlRequest showProgressStepper(
+            @javax.annotation.Nullable Boolean showProgressStepper) {
         this.showProgressStepper = showProgressStepper;
         return this;
     }
@@ -307,11 +312,11 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setShowProgressStepper(Boolean showProgressStepper) {
+    public void setShowProgressStepper(@javax.annotation.Nullable Boolean showProgressStepper) {
         this.showProgressStepper = showProgressStepper;
     }
 
-    public EmbeddedEditUrlRequest testMode(Boolean testMode) {
+    public EmbeddedEditUrlRequest testMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
         return this;
     }
@@ -330,7 +335,7 @@ public class EmbeddedEditUrlRequest {
 
     @JsonProperty(JSON_PROPERTY_TEST_MODE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(Boolean testMode) {
+    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
     }
 

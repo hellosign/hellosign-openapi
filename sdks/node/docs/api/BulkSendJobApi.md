@@ -21,48 +21,22 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const bulkSendJobApi = new DropboxSign.BulkSendJobApi();
+const apiCaller = new api.BulkSendJobApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-bulkSendJobApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// bulkSendJobApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-
-const result = bulkSendJobApi.bulkSendJobGet(bulkSendJobId);
-result.then(response => {
+apiCaller.bulkSendJobGet(
+  "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174", // bulkSendJobId
+  1, // page
+  20, // pageSize
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const bulkSendJobApi = new DropboxSign.BulkSendJobApi();
-
-// Configure HTTP basic authorization: api_key
-bulkSendJobApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// bulkSendJobApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-
-const result = bulkSendJobApi.bulkSendJobGet(bulkSendJobId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling BulkSendJobApi#bulkSendJobGet:");
   console.log(error.body);
 });
 
@@ -106,50 +80,21 @@ Returns a list of BulkSendJob that you can access.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const bulkSendJobApi = new DropboxSign.BulkSendJobApi();
+const apiCaller = new api.BulkSendJobApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-bulkSendJobApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// bulkSendJobApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const page = 1;
-const pageSize = 20;
-
-const result = bulkSendJobApi.bulkSendJobList(page, pageSize);
-result.then(response => {
+apiCaller.bulkSendJobList(
+  1, // page
+  20, // pageSize
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const bulkSendJobApi = new DropboxSign.BulkSendJobApi();
-
-// Configure HTTP basic authorization: api_key
-bulkSendJobApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// bulkSendJobApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const page = 1;
-const pageSize = 20;
-
-const result = bulkSendJobApi.bulkSendJobList(page, pageSize);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling BulkSendJobApi#bulkSendJobList:");
   console.log(error.body);
 });
 

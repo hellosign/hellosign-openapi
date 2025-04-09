@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 [**faxDelete**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax
-[**faxFiles**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | List Fax Files
+[**faxFiles**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files
 [**faxGet**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax
 [**faxList**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes
 [**faxSend**](FaxApi.md#faxSend) | **POST** /fax/send | Send Fax
@@ -18,29 +18,42 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 Delete Fax
 
-Deletes the specified Fax from the system.
+Deletes the specified Fax from the system
 
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxDeleteExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
-        var faxApi = new FaxApi(apiClient);
-
-        try {
-            faxApi.faxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
+        try
+        {
+            new FaxApi(config).faxDelete(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // faxId
+            );
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxApi#faxDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -82,34 +95,45 @@ null (empty response body)
 
 > File faxFiles(faxId)
 
-List Fax Files
+Download Fax Files
 
-Returns list of fax files
+Downloads files associated with a Fax
 
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxFilesExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
-        var faxApi = new FaxApi(apiClient);
-
-        var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-        try {
-            File result = faxApi.faxFiles(faxId);
-            result.renameTo(new File("file_response.pdf"));;
+        try
+        {
+            var response = new FaxApi(config).faxFiles(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // faxId
+            );
+            response.renameTo(new File("./file_response"));
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxApi#faxFiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -153,31 +177,44 @@ public class Example {
 
 Get Fax
 
-Returns information about fax
+Returns information about a Fax
 
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        var faxApi = new FaxApi(apiClient);
+public class FaxGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
-        var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+        try
+        {
+            var response = new FaxApi(config).faxGet(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // faxId
+            );
 
-        try {
-            FaxGetResponse result = faxApi.faxGet(faxId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling FaxApi#faxGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -221,32 +258,45 @@ public class Example {
 
 Lists Faxes
 
-Returns properties of multiple faxes
+Returns properties of multiple Faxes
 
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        var faxApi = new FaxApi(apiClient);
+public class FaxListExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
-        var page = 1;
-        var pageSize = 2;
+        try
+        {
+            var response = new FaxApi(config).faxList(
+                1, // page
+                20 // pageSize
+            );
 
-        try {
-            FaxListResponse result = faxApi.faxList(page, pageSize);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling FaxApi#faxList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -262,8 +312,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
- **page** | **Integer**| Page | [optional] [default to 1]
- **pageSize** | **Integer**| Page size | [optional] [default to 20]
+ **page** | **Integer**| Which page number of the Fax List to return. Defaults to `1`. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20]
 
 ### Return type
 
@@ -291,41 +341,56 @@ public class Example {
 
 Send Fax
 
-Action to prepare and send a fax
+Creates and sends a new Fax with the submitted file(s)
 
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class FaxSendExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
 
-        var faxApi = new FaxApi(apiClient);
+        var faxSendRequest = new FaxSendRequest();
+        faxSendRequest.recipient("16690000001");
+        faxSendRequest.sender("16690000000");
+        faxSendRequest.testMode(true);
+        faxSendRequest.coverPageTo("Jill Fax");
+        faxSendRequest.coverPageFrom("Faxer Faxerson");
+        faxSendRequest.coverPageMessage("I'm sending you a fax!");
+        faxSendRequest.title("This is what the fax is about!");
+        faxSendRequest.files(List.of (
+            new File("./example_fax.pdf")
+        ));
 
+        try
+        {
+            var response = new FaxApi(config).faxSend(
+                faxSendRequest
+            );
 
-        var data = new FaxSendRequest()
-            .addFilesItem(new File("example_fax.pdf"))
-            .testMode(true)
-            .recipient("16690000001")
-            .sender("16690000000")
-            .coverPageTo("Jill Fax")
-            .coverPageMessage("I'm sending you a fax!")
-            .coverPageFrom("Faxer Faxerson")
-            .title("This is what the fax is about!");
-
-        try {
-            FaxCreateResponse result = faxApi.faxSend(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
+            System.err.println("Exception when calling FaxApi#faxSend");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

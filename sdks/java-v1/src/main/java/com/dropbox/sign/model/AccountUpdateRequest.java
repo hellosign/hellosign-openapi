@@ -31,17 +31,17 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountUpdateRequest {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+    @javax.annotation.Nullable private String accountId;
 
     public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
-    private String callbackUrl;
+    @javax.annotation.Nullable private String callbackUrl;
 
     public static final String JSON_PROPERTY_LOCALE = "locale";
-    private String locale;
+    @javax.annotation.Nullable private String locale;
 
     public AccountUpdateRequest() {}
 
@@ -59,7 +59,7 @@ public class AccountUpdateRequest {
                 .readValue(new ObjectMapper().writeValueAsString(data), AccountUpdateRequest.class);
     }
 
-    public AccountUpdateRequest accountId(String accountId) {
+    public AccountUpdateRequest accountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -77,11 +77,11 @@ public class AccountUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccountId(String accountId) {
+    public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public AccountUpdateRequest callbackUrl(String callbackUrl) {
+    public AccountUpdateRequest callbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
         return this;
     }
@@ -99,11 +99,11 @@ public class AccountUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCallbackUrl(String callbackUrl) {
+    public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
     }
 
-    public AccountUpdateRequest locale(String locale) {
+    public AccountUpdateRequest locale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
         return this;
     }
@@ -123,7 +123,7 @@ public class AccountUpdateRequest {
 
     @JsonProperty(JSON_PROPERTY_LOCALE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLocale(String locale) {
+    public void setLocale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
     }
 

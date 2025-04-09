@@ -33,23 +33,23 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OAuthTokenResponse {
     public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
-    private String accessToken;
+    @javax.annotation.Nullable private String accessToken;
 
     public static final String JSON_PROPERTY_TOKEN_TYPE = "token_type";
-    private String tokenType;
+    @javax.annotation.Nullable private String tokenType;
 
     public static final String JSON_PROPERTY_REFRESH_TOKEN = "refresh_token";
-    private String refreshToken;
+    @javax.annotation.Nullable private String refreshToken;
 
     public static final String JSON_PROPERTY_EXPIRES_IN = "expires_in";
-    private Integer expiresIn;
+    @javax.annotation.Nullable private Integer expiresIn;
 
     public static final String JSON_PROPERTY_STATE = "state";
-    private String state;
+    @javax.annotation.Nullable private String state;
 
     public OAuthTokenResponse() {}
 
@@ -67,7 +67,7 @@ public class OAuthTokenResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), OAuthTokenResponse.class);
     }
 
-    public OAuthTokenResponse accessToken(String accessToken) {
+    public OAuthTokenResponse accessToken(@javax.annotation.Nullable String accessToken) {
         this.accessToken = accessToken;
         return this;
     }
@@ -85,11 +85,11 @@ public class OAuthTokenResponse {
 
     @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccessToken(String accessToken) {
+    public void setAccessToken(@javax.annotation.Nullable String accessToken) {
         this.accessToken = accessToken;
     }
 
-    public OAuthTokenResponse tokenType(String tokenType) {
+    public OAuthTokenResponse tokenType(@javax.annotation.Nullable String tokenType) {
         this.tokenType = tokenType;
         return this;
     }
@@ -107,11 +107,11 @@ public class OAuthTokenResponse {
 
     @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTokenType(String tokenType) {
+    public void setTokenType(@javax.annotation.Nullable String tokenType) {
         this.tokenType = tokenType;
     }
 
-    public OAuthTokenResponse refreshToken(String refreshToken) {
+    public OAuthTokenResponse refreshToken(@javax.annotation.Nullable String refreshToken) {
         this.refreshToken = refreshToken;
         return this;
     }
@@ -129,11 +129,11 @@ public class OAuthTokenResponse {
 
     @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRefreshToken(String refreshToken) {
+    public void setRefreshToken(@javax.annotation.Nullable String refreshToken) {
         this.refreshToken = refreshToken;
     }
 
-    public OAuthTokenResponse expiresIn(Integer expiresIn) {
+    public OAuthTokenResponse expiresIn(@javax.annotation.Nullable Integer expiresIn) {
         this.expiresIn = expiresIn;
         return this;
     }
@@ -151,11 +151,11 @@ public class OAuthTokenResponse {
 
     @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setExpiresIn(Integer expiresIn) {
+    public void setExpiresIn(@javax.annotation.Nullable Integer expiresIn) {
         this.expiresIn = expiresIn;
     }
 
-    public OAuthTokenResponse state(String state) {
+    public OAuthTokenResponse state(@javax.annotation.Nullable String state) {
         this.state = state;
         return this;
     }
@@ -173,7 +173,7 @@ public class OAuthTokenResponse {
 
     @JsonProperty(JSON_PROPERTY_STATE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setState(String state) {
+    public void setState(@javax.annotation.Nullable String state) {
         this.state = state;
     }
 

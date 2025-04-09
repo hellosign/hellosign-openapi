@@ -21,17 +21,18 @@ Request the creation of one or more report(s).  When the report(s) have been gen
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$reportApi = new Dropbox\Sign\Api\ReportApi($config);
-
-$data = new Dropbox\Sign\Model\ReportCreateRequest();
-$data->setStartDate("09/01/2020")
+$report_create_request = (new Dropbox\Sign\Model\ReportCreateRequest())
+    ->setStartDate("09/01/2020")
     ->setEndDate("09/01/2020")
     ->setReportType([
         Dropbox\Sign\Model\ReportCreateRequest::REPORT_TYPE_USER_ACTIVITY,
@@ -39,12 +40,13 @@ $data->setStartDate("09/01/2020")
     ]);
 
 try {
-    $result = $reportApi->reportCreate($data);
-    print_r($result);
+    $response = (new Dropbox\Sign\Api\ReportApi(config: $config))->reportCreate(
+        report_create_request: $report_create_request,
+    );
+
+    print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
+    echo "Exception when calling ReportApi#reportCreate: {$e->getMessage()}";
 }
 
 ```

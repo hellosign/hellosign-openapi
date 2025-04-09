@@ -33,23 +33,23 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+        comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamInfoResponse {
     public static final String JSON_PROPERTY_TEAM_ID = "team_id";
-    private String teamId;
+    @javax.annotation.Nullable private String teamId;
 
     public static final String JSON_PROPERTY_TEAM_PARENT = "team_parent";
-    private TeamParentResponse teamParent;
+    @javax.annotation.Nullable private TeamParentResponse teamParent;
 
     public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+    @javax.annotation.Nullable private String name;
 
     public static final String JSON_PROPERTY_NUM_MEMBERS = "num_members";
-    private Integer numMembers;
+    @javax.annotation.Nullable private Integer numMembers;
 
     public static final String JSON_PROPERTY_NUM_SUB_TEAMS = "num_sub_teams";
-    private Integer numSubTeams;
+    @javax.annotation.Nullable private Integer numSubTeams;
 
     public TeamInfoResponse() {}
 
@@ -67,7 +67,7 @@ public class TeamInfoResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), TeamInfoResponse.class);
     }
 
-    public TeamInfoResponse teamId(String teamId) {
+    public TeamInfoResponse teamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
         return this;
     }
@@ -85,11 +85,11 @@ public class TeamInfoResponse {
 
     @JsonProperty(JSON_PROPERTY_TEAM_ID)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTeamId(String teamId) {
+    public void setTeamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
     }
 
-    public TeamInfoResponse teamParent(TeamParentResponse teamParent) {
+    public TeamInfoResponse teamParent(@javax.annotation.Nullable TeamParentResponse teamParent) {
         this.teamParent = teamParent;
         return this;
     }
@@ -107,11 +107,11 @@ public class TeamInfoResponse {
 
     @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTeamParent(TeamParentResponse teamParent) {
+    public void setTeamParent(@javax.annotation.Nullable TeamParentResponse teamParent) {
         this.teamParent = teamParent;
     }
 
-    public TeamInfoResponse name(String name) {
+    public TeamInfoResponse name(@javax.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -129,11 +129,11 @@ public class TeamInfoResponse {
 
     @JsonProperty(JSON_PROPERTY_NAME)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
+    public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public TeamInfoResponse numMembers(Integer numMembers) {
+    public TeamInfoResponse numMembers(@javax.annotation.Nullable Integer numMembers) {
         this.numMembers = numMembers;
         return this;
     }
@@ -151,11 +151,11 @@ public class TeamInfoResponse {
 
     @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setNumMembers(Integer numMembers) {
+    public void setNumMembers(@javax.annotation.Nullable Integer numMembers) {
         this.numMembers = numMembers;
     }
 
-    public TeamInfoResponse numSubTeams(Integer numSubTeams) {
+    public TeamInfoResponse numSubTeams(@javax.annotation.Nullable Integer numSubTeams) {
         this.numSubTeams = numSubTeams;
         return this;
     }
@@ -173,7 +173,7 @@ public class TeamInfoResponse {
 
     @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setNumSubTeams(Integer numSubTeams) {
+    public void setNumSubTeams(@javax.annotation.Nullable Integer numSubTeams) {
         this.numSubTeams = numSubTeams;
     }
 

@@ -37,16 +37,19 @@ import com.dropbox.sign.ApiException;
   SubUnclaimedDraftTemplateSigner.JSON_PROPERTY_NAME,
   SubUnclaimedDraftTemplateSigner.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubUnclaimedDraftTemplateSigner {
   public static final String JSON_PROPERTY_ROLE = "role";
+  @jakarta.annotation.Nonnull
   private String role;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  @jakarta.annotation.Nonnull
   private String emailAddress;
 
   public SubUnclaimedDraftTemplateSigner() { 
@@ -67,7 +70,7 @@ public class SubUnclaimedDraftTemplateSigner {
     );
   }
 
-  public SubUnclaimedDraftTemplateSigner role(String role) {
+  public SubUnclaimedDraftTemplateSigner role(@jakarta.annotation.Nonnull String role) {
     this.role = role;
     return this;
   }
@@ -87,12 +90,12 @@ public class SubUnclaimedDraftTemplateSigner {
 
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRole(String role) {
+  public void setRole(@jakarta.annotation.Nonnull String role) {
     this.role = role;
   }
 
 
-  public SubUnclaimedDraftTemplateSigner name(String name) {
+  public SubUnclaimedDraftTemplateSigner name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -112,12 +115,12 @@ public class SubUnclaimedDraftTemplateSigner {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SubUnclaimedDraftTemplateSigner emailAddress(String emailAddress) {
+  public SubUnclaimedDraftTemplateSigner emailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -137,7 +140,7 @@ public class SubUnclaimedDraftTemplateSigner {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
   }
 

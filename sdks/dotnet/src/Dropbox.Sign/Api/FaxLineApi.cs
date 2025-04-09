@@ -54,13 +54,13 @@ namespace Dropbox.Sign.Api
         /// Get Available Fax Line Area Codes
         /// </summary>
         /// <remarks>
-        /// Returns a response with the area codes available for a given state/provice and city.
+        /// Returns a list of available area codes for a given state/province and city
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="country">Filter area codes by country.</param>
-        /// <param name="state">Filter area codes by state. (optional)</param>
-        /// <param name="province">Filter area codes by province. (optional)</param>
-        /// <param name="city">Filter area codes by city. (optional)</param>
+        /// <param name="country">Filter area codes by country</param>
+        /// <param name="state">Filter area codes by state (optional)</param>
+        /// <param name="province">Filter area codes by province (optional)</param>
+        /// <param name="city">Filter area codes by city (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineAreaCodeGetResponse</returns>
         FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0);
@@ -69,13 +69,13 @@ namespace Dropbox.Sign.Api
         /// Get Available Fax Line Area Codes
         /// </summary>
         /// <remarks>
-        /// Returns a response with the area codes available for a given state/provice and city.
+        /// Returns a list of available area codes for a given state/province and city
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="country">Filter area codes by country.</param>
-        /// <param name="state">Filter area codes by state. (optional)</param>
-        /// <param name="province">Filter area codes by province. (optional)</param>
-        /// <param name="city">Filter area codes by city. (optional)</param>
+        /// <param name="country">Filter area codes by country</param>
+        /// <param name="state">Filter area codes by state (optional)</param>
+        /// <param name="province">Filter area codes by province (optional)</param>
+        /// <param name="city">Filter area codes by city (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineAreaCodeGetResponse</returns>
         ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0);
@@ -83,7 +83,7 @@ namespace Dropbox.Sign.Api
         /// Purchase Fax Line
         /// </summary>
         /// <remarks>
-        /// Purchases a new Fax Line.
+        /// Purchases a new Fax Line
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
@@ -95,7 +95,7 @@ namespace Dropbox.Sign.Api
         /// Purchase Fax Line
         /// </summary>
         /// <remarks>
-        /// Purchases a new Fax Line.
+        /// Purchases a new Fax Line
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
@@ -132,7 +132,7 @@ namespace Dropbox.Sign.Api
         /// Returns the properties and settings of a Fax Line.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="number">The Fax Line number.</param>
+        /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
         FaxLineResponse FaxLineGet(string number, int operationIndex = 0);
@@ -144,7 +144,7 @@ namespace Dropbox.Sign.Api
         /// Returns the properties and settings of a Fax Line.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="number">The Fax Line number.</param>
+        /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
         ApiResponse<FaxLineResponse> FaxLineGetWithHttpInfo(string number, int operationIndex = 0);
@@ -156,9 +156,9 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional, default to 1)</param>
-        /// <param name="pageSize">Page size (optional, default to 20)</param>
-        /// <param name="showTeamLines">Show team lines (optional)</param>
+        /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
+        /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
+        /// <param name="showTeamLines">Include Fax Lines belonging to team members in the list (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineListResponse</returns>
         FaxLineListResponse FaxLineList(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0);
@@ -171,9 +171,9 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional, default to 1)</param>
-        /// <param name="pageSize">Page size (optional, default to 20)</param>
-        /// <param name="showTeamLines">Show team lines (optional)</param>
+        /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
+        /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
+        /// <param name="showTeamLines">Include Fax Lines belonging to team members in the list (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineListResponse</returns>
         ApiResponse<FaxLineListResponse> FaxLineListWithHttpInfo(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0);
@@ -181,7 +181,7 @@ namespace Dropbox.Sign.Api
         /// Remove Fax Line Access
         /// </summary>
         /// <remarks>
-        /// Removes a user&#39;s access to the specified Fax Line.
+        /// Removes a user&#39;s access to the specified Fax Line
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
@@ -193,7 +193,7 @@ namespace Dropbox.Sign.Api
         /// Remove Fax Line Access
         /// </summary>
         /// <remarks>
-        /// Removes a user&#39;s access to the specified Fax Line.
+        /// Removes a user&#39;s access to the specified Fax Line
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
@@ -238,13 +238,13 @@ namespace Dropbox.Sign.Api
         /// Get Available Fax Line Area Codes
         /// </summary>
         /// <remarks>
-        /// Returns a response with the area codes available for a given state/provice and city.
+        /// Returns a list of available area codes for a given state/province and city
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="country">Filter area codes by country.</param>
-        /// <param name="state">Filter area codes by state. (optional)</param>
-        /// <param name="province">Filter area codes by province. (optional)</param>
-        /// <param name="city">Filter area codes by city. (optional)</param>
+        /// <param name="country">Filter area codes by country</param>
+        /// <param name="state">Filter area codes by state (optional)</param>
+        /// <param name="province">Filter area codes by province (optional)</param>
+        /// <param name="city">Filter area codes by city (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineAreaCodeGetResponse</returns>
@@ -254,13 +254,13 @@ namespace Dropbox.Sign.Api
         /// Get Available Fax Line Area Codes
         /// </summary>
         /// <remarks>
-        /// Returns a response with the area codes available for a given state/provice and city.
+        /// Returns a list of available area codes for a given state/province and city
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="country">Filter area codes by country.</param>
-        /// <param name="state">Filter area codes by state. (optional)</param>
-        /// <param name="province">Filter area codes by province. (optional)</param>
-        /// <param name="city">Filter area codes by city. (optional)</param>
+        /// <param name="country">Filter area codes by country</param>
+        /// <param name="state">Filter area codes by state (optional)</param>
+        /// <param name="province">Filter area codes by province (optional)</param>
+        /// <param name="city">Filter area codes by city (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineAreaCodeGetResponse)</returns>
@@ -269,7 +269,7 @@ namespace Dropbox.Sign.Api
         /// Purchase Fax Line
         /// </summary>
         /// <remarks>
-        /// Purchases a new Fax Line.
+        /// Purchases a new Fax Line
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
@@ -282,7 +282,7 @@ namespace Dropbox.Sign.Api
         /// Purchase Fax Line
         /// </summary>
         /// <remarks>
-        /// Purchases a new Fax Line.
+        /// Purchases a new Fax Line
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
@@ -322,7 +322,7 @@ namespace Dropbox.Sign.Api
         /// Returns the properties and settings of a Fax Line.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="number">The Fax Line number.</param>
+        /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
@@ -335,7 +335,7 @@ namespace Dropbox.Sign.Api
         /// Returns the properties and settings of a Fax Line.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="number">The Fax Line number.</param>
+        /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
@@ -348,9 +348,9 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional, default to 1)</param>
-        /// <param name="pageSize">Page size (optional, default to 20)</param>
-        /// <param name="showTeamLines">Show team lines (optional)</param>
+        /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
+        /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
+        /// <param name="showTeamLines">Include Fax Lines belonging to team members in the list (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineListResponse</returns>
@@ -364,9 +364,9 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional, default to 1)</param>
-        /// <param name="pageSize">Page size (optional, default to 20)</param>
-        /// <param name="showTeamLines">Show team lines (optional)</param>
+        /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
+        /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
+        /// <param name="showTeamLines">Include Fax Lines belonging to team members in the list (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineListResponse)</returns>
@@ -375,7 +375,7 @@ namespace Dropbox.Sign.Api
         /// Remove Fax Line Access
         /// </summary>
         /// <remarks>
-        /// Removes a user&#39;s access to the specified Fax Line.
+        /// Removes a user&#39;s access to the specified Fax Line
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
@@ -388,7 +388,7 @@ namespace Dropbox.Sign.Api
         /// Remove Fax Line Access
         /// </summary>
         /// <remarks>
-        /// Removes a user&#39;s access to the specified Fax Line.
+        /// Removes a user&#39;s access to the specified Fax Line
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
@@ -689,13 +689,13 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/provice and city.
+        /// Get Available Fax Line Area Codes Returns a list of available area codes for a given state/province and city
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="country">Filter area codes by country.</param>
-        /// <param name="state">Filter area codes by state. (optional)</param>
-        /// <param name="province">Filter area codes by province. (optional)</param>
-        /// <param name="city">Filter area codes by city. (optional)</param>
+        /// <param name="country">Filter area codes by country</param>
+        /// <param name="state">Filter area codes by state (optional)</param>
+        /// <param name="province">Filter area codes by province (optional)</param>
+        /// <param name="city">Filter area codes by city (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineAreaCodeGetResponse</returns>
         public FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0)
@@ -705,13 +705,13 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/provice and city.
+        /// Get Available Fax Line Area Codes Returns a list of available area codes for a given state/province and city
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="country">Filter area codes by country.</param>
-        /// <param name="state">Filter area codes by state. (optional)</param>
-        /// <param name="province">Filter area codes by province. (optional)</param>
-        /// <param name="city">Filter area codes by city. (optional)</param>
+        /// <param name="country">Filter area codes by country</param>
+        /// <param name="state">Filter area codes by state (optional)</param>
+        /// <param name="province">Filter area codes by province (optional)</param>
+        /// <param name="city">Filter area codes by city (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineAreaCodeGetResponse</returns>
         public Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0)
@@ -783,13 +783,13 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/provice and city.
+        /// Get Available Fax Line Area Codes Returns a list of available area codes for a given state/province and city
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="country">Filter area codes by country.</param>
-        /// <param name="state">Filter area codes by state. (optional)</param>
-        /// <param name="province">Filter area codes by province. (optional)</param>
-        /// <param name="city">Filter area codes by city. (optional)</param>
+        /// <param name="country">Filter area codes by country</param>
+        /// <param name="state">Filter area codes by state (optional)</param>
+        /// <param name="province">Filter area codes by province (optional)</param>
+        /// <param name="city">Filter area codes by city (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineAreaCodeGetResponse</returns>
@@ -800,13 +800,13 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/provice and city.
+        /// Get Available Fax Line Area Codes Returns a list of available area codes for a given state/province and city
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="country">Filter area codes by country.</param>
-        /// <param name="state">Filter area codes by state. (optional)</param>
-        /// <param name="province">Filter area codes by province. (optional)</param>
-        /// <param name="city">Filter area codes by city. (optional)</param>
+        /// <param name="country">Filter area codes by country</param>
+        /// <param name="state">Filter area codes by state (optional)</param>
+        /// <param name="province">Filter area codes by province (optional)</param>
+        /// <param name="city">Filter area codes by city (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineAreaCodeGetResponse)</returns>
@@ -881,7 +881,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Purchase Fax Line Purchases a new Fax Line.
+        /// Purchase Fax Line Purchases a new Fax Line
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
@@ -894,7 +894,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Purchase Fax Line Purchases a new Fax Line.
+        /// Purchase Fax Line Purchases a new Fax Line
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
@@ -965,7 +965,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Purchase Fax Line Purchases a new Fax Line.
+        /// Purchase Fax Line Purchases a new Fax Line
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
@@ -979,7 +979,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Purchase Fax Line Purchases a new Fax Line.
+        /// Purchase Fax Line Purchases a new Fax Line
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
@@ -1226,7 +1226,7 @@ namespace Dropbox.Sign.Api
         /// Get Fax Line Returns the properties and settings of a Fax Line.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="number">The Fax Line number.</param>
+        /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
         public FaxLineResponse FaxLineGet(string number, int operationIndex = 0)
@@ -1239,7 +1239,7 @@ namespace Dropbox.Sign.Api
         /// Get Fax Line Returns the properties and settings of a Fax Line.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="number">The Fax Line number.</param>
+        /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
         public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineGetWithHttpInfo(string number, int operationIndex = 0)
@@ -1302,7 +1302,7 @@ namespace Dropbox.Sign.Api
         /// Get Fax Line Returns the properties and settings of a Fax Line.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="number">The Fax Line number.</param>
+        /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
@@ -1316,7 +1316,7 @@ namespace Dropbox.Sign.Api
         /// Get Fax Line Returns the properties and settings of a Fax Line.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="number">The Fax Line number.</param>
+        /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
@@ -1383,9 +1383,9 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional, default to 1)</param>
-        /// <param name="pageSize">Page size (optional, default to 20)</param>
-        /// <param name="showTeamLines">Show team lines (optional)</param>
+        /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
+        /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
+        /// <param name="showTeamLines">Include Fax Lines belonging to team members in the list (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineListResponse</returns>
         public FaxLineListResponse FaxLineList(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0)
@@ -1399,9 +1399,9 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional, default to 1)</param>
-        /// <param name="pageSize">Page size (optional, default to 20)</param>
-        /// <param name="showTeamLines">Show team lines (optional)</param>
+        /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
+        /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
+        /// <param name="showTeamLines">Include Fax Lines belonging to team members in the list (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineListResponse</returns>
         public Dropbox.Sign.Client.ApiResponse<FaxLineListResponse> FaxLineListWithHttpInfo(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0)
@@ -1474,9 +1474,9 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional, default to 1)</param>
-        /// <param name="pageSize">Page size (optional, default to 20)</param>
-        /// <param name="showTeamLines">Show team lines (optional)</param>
+        /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
+        /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
+        /// <param name="showTeamLines">Include Fax Lines belonging to team members in the list (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineListResponse</returns>
@@ -1491,9 +1491,9 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional, default to 1)</param>
-        /// <param name="pageSize">Page size (optional, default to 20)</param>
-        /// <param name="showTeamLines">Show team lines (optional)</param>
+        /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
+        /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
+        /// <param name="showTeamLines">Include Fax Lines belonging to team members in the list (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineListResponse)</returns>
@@ -1565,7 +1565,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line.
+        /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
@@ -1578,7 +1578,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line.
+        /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
@@ -1649,7 +1649,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line.
+        /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
@@ -1663,7 +1663,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line.
+        /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
