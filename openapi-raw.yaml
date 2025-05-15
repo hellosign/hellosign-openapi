@@ -3499,8 +3499,6 @@ paths:
         seo:
           title: '_t__SignatureRequestEdit::SEO::TITLE'
           description: '_t__SignatureRequestEdit::SEO::DESCRIPTION'
-      x-hideOn: doc
-      x-beta: closed
   '/signature_request/edit_embedded/{signature_request_id}':
     put:
       tags:
@@ -3617,8 +3615,6 @@ paths:
         seo:
           title: '_t__SignatureRequestEditEmbedded::SEO::TITLE'
           description: '_t__SignatureRequestEditEmbedded::SEO::DESCRIPTION'
-      x-hideOn: doc
-      x-beta: closed
   '/signature_request/edit_embedded_with_template/{signature_request_id}':
     put:
       tags:
@@ -3733,8 +3729,6 @@ paths:
         seo:
           title: '_t__SignatureRequestEditEmbeddedWithTemplate::SEO::TITLE'
           description: '_t__SignatureRequestEditEmbeddedWithTemplate::SEO::DESCRIPTION'
-      x-hideOn: doc
-      x-beta: closed
   '/signature_request/edit_with_template/{signature_request_id}':
     put:
       tags:
@@ -3850,8 +3844,6 @@ paths:
         seo:
           title: '_t__SignatureRequestEditWithTemplate::SEO::TITLE'
           description: '_t__SignatureRequestEditWithTemplate::SEO::DESCRIPTION'
-      x-hideOn: doc
-      x-beta: closed
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
