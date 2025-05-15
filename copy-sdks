@@ -126,7 +126,6 @@ function copy_files()
   elif [[ "${SDK}" == "java-v2" ]] || [[ "${SDK}" == "java-v1" ]]; then
     cp -r "${DIR}/examples/"*.java "${SDK_DIR}/examples/"
   elif [[ "${SDK}" == "node" ]]; then
-    cp -r "${DIR}/examples/"*.js "${SDK_DIR}/examples/"
     cp -r "${DIR}/examples/"*.ts "${SDK_DIR}/examples/"
   elif [[ "${SDK}" == "php" ]]; then
     cp -r "${DIR}/examples/"*.php "${SDK_DIR}/examples/"
