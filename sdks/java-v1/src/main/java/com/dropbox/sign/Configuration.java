@@ -16,7 +16,7 @@ package com.dropbox.sign;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.12.0")
 public class Configuration {
-    public static final String VERSION = "1.8.1-dev";
+    public static final String VERSION = "1.9-dev";
 
     private static volatile ApiClient defaultApiClient = new ApiClient();
 
