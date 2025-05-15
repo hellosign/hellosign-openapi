@@ -3428,7 +3428,7 @@ paths:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
                 example:
-                  $ref: '#/components/examples/SignatureRequestEditResponse'
+                  $ref: '#/components/examples/SignatureRequestSendResponse'
         4XX:
           description: failed_operation
           content:
@@ -3545,7 +3545,7 @@ paths:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
                 example:
-                  $ref: '#/components/examples/SignatureRequestEditEmbeddedResponse'
+                  $ref: '#/components/examples/SignatureRequestCreateEmbeddedResponse'
         4XX:
           description: failed_operation
           content:
@@ -3659,7 +3659,7 @@ paths:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
                 example:
-                  $ref: '#/components/examples/SignatureRequestEditEmbeddedWithTemplateResponse'
+                  $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateResponse'
         4XX:
           description: failed_operation
           content:
@@ -3773,7 +3773,7 @@ paths:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
                 example:
-                  $ref: '#/components/examples/SignatureRequestEditWithTemplateResponse'
+                  $ref: '#/components/examples/SignatureRequestSendWithTemplateResponse'
         4XX:
           description: failed_operation
           content:
