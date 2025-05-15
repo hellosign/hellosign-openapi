@@ -52,6 +52,14 @@ export class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    */
   "validationType"?: TemplateResponseDocumentFormFieldText.ValidationTypeEnum;
   /**
+   * When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.
+   */
+  "validationCustomRegex"?: string | null;
+  /**
+   * When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
+   */
+  "validationCustomRegexFormatLabel"?: string | null;
+  /**
    * The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
    */
   "group"?: string | null;
@@ -88,6 +96,16 @@ export class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
       name: "validationType",
       baseName: "validation_type",
       type: "TemplateResponseDocumentFormFieldText.ValidationTypeEnum",
+    },
+    {
+      name: "validationCustomRegex",
+      baseName: "validation_custom_regex",
+      type: "string",
+    },
+    {
+      name: "validationCustomRegexFormatLabel",
+      baseName: "validation_custom_regex_format_label",
+      type: "string",
     },
     {
       name: "group",

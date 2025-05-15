@@ -1617,7 +1617,8 @@
 "TemplateResponseDocumentFormField::FONT_FAMILY": Font family used in this form field's text.
 # text-only
 "TemplateResponseDocumentFormField::VALIDATION_TYPE": Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
-
+"TemplateResponseDocumentFormField::CUSTOM_REGEX": When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.
+"TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL": When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
 "TemplateResponseDocumentStaticField::DESCRIPTION": An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
 "TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS": This class extends `TemplateResponseDocumentStaticFieldBase`
 "TemplateResponseDocumentStaticField::NAME": The name of the static field.

@@ -12294,6 +12294,14 @@ components:
                 - employer_identification_number
                 - custom_regex
               nullable: true
+            validation_custom_regex:
+              description: '_t__TemplateResponseDocumentFormField::CUSTOM_REGEX'
+              type: string
+              nullable: true
+            validation_custom_regex_format_label:
+              description: '_t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL'
+              type: string
+              nullable: true
             group:
               description: '_t__TemplateResponseDocumentFormField::GROUP'
               type: string

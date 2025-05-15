@@ -12,5 +12,7 @@ This class extends `TemplateResponseDocumentFormFieldBase`
 | `original_font_size` | ```Integer``` |  Original font size used in this form field&#39;s text.  |  |
 | `font_family` | ```String``` |  Font family used in this form field&#39;s text.  |  |
 | `validation_type` | ```String``` |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  |  |
+| `validation_custom_regex` | ```String``` |  When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.  |  |
+| `validation_custom_regex_format_label` | ```String``` |  When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.  |  |
 | `group` | ```String``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
 

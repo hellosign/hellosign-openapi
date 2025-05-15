@@ -42,6 +42,14 @@ module Dropbox::Sign
     # @return [String, nil]
     attr_accessor :validation_type
 
+    # When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.
+    # @return [String, nil]
+    attr_accessor :validation_custom_regex
+
+    # When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
+    # @return [String, nil]
+    attr_accessor :validation_custom_regex_format_label
+
     # The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
     # @return [String, nil]
     attr_accessor :group
@@ -77,6 +85,8 @@ module Dropbox::Sign
         :'original_font_size' => :'originalFontSize',
         :'font_family' => :'fontFamily',
         :'validation_type' => :'validation_type',
+        :'validation_custom_regex' => :'validation_custom_regex',
+        :'validation_custom_regex_format_label' => :'validation_custom_regex_format_label',
         :'group' => :'group'
       }
     end
@@ -100,6 +110,8 @@ module Dropbox::Sign
         :'original_font_size' => :'Integer',
         :'font_family' => :'String',
         :'validation_type' => :'String',
+        :'validation_custom_regex' => :'String',
+        :'validation_custom_regex_format_label' => :'String',
         :'group' => :'String'
       }
     end
@@ -108,6 +120,8 @@ module Dropbox::Sign
     def self.openapi_nullable
       Set.new([
         :'validation_type',
+        :'validation_custom_regex',
+        :'validation_custom_regex_format_label',
         :'group'
       ])
     end
@@ -182,6 +196,14 @@ module Dropbox::Sign
         self.validation_type = attributes[:'validation_type']
       end
 
+      if attributes.key?(:'validation_custom_regex')
+        self.validation_custom_regex = attributes[:'validation_custom_regex']
+      end
+
+      if attributes.key?(:'validation_custom_regex_format_label')
+        self.validation_custom_regex_format_label = attributes[:'validation_custom_regex_format_label']
+      end
+
       if attributes.key?(:'group')
         self.group = attributes[:'group']
       end
@@ -238,6 +260,8 @@ module Dropbox::Sign
           original_font_size == o.original_font_size &&
           font_family == o.font_family &&
           validation_type == o.validation_type &&
+          validation_custom_regex == o.validation_custom_regex &&
+          validation_custom_regex_format_label == o.validation_custom_regex_format_label &&
           group == o.group && super(o)
     end
 
@@ -250,7 +274,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, avg_text_length, is_multiline, original_font_size, font_family, validation_type, group].hash
+      [type, avg_text_length, is_multiline, original_font_size, font_family, validation_type, validation_custom_regex, validation_custom_regex_format_label, group].hash
     end
 
     # Builds the object from hash

@@ -8,6 +8,8 @@ export declare class TemplateResponseDocumentFormFieldText extends TemplateRespo
     "originalFontSize"?: number;
     "fontFamily"?: string;
     "validationType"?: TemplateResponseDocumentFormFieldText.ValidationTypeEnum;
+    "validationCustomRegex"?: string | null;
+    "validationCustomRegexFormatLabel"?: string | null;
     "group"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
