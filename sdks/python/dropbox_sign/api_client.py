@@ -302,6 +302,8 @@ class ApiClient:
         try:
             if response_type == "bytearray":
                 return_data = response_data.data
+            elif response_type == "io.IOBase":
+                return_data = self.__bytearray_to_iobase(response_data)
             elif response_type == "file":
                 return_data = self.__deserialize_file(response_data)
             elif response_type is not None:
@@ -690,6 +692,13 @@ class ApiClient:
             f.write(response.data)
 
         return path
+
+    def __bytearray_to_iobase(self, response):
+        """Convert bytearray to io.IOBase"""
+        buffer = io.BytesIO()
+        buffer.write(response.data)
+        buffer.seek(0)
+        return buffer
 
     def __deserialize_primitive(self, data, klass):
         """Deserializes string to primitive type.
