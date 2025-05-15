@@ -654,7 +654,7 @@ Edit Signature Request
 
 Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
 
-**NOTE:** Edit and resend will not deduct your signature request quota.
+**NOTE:** Edit and resend *will* deduct your signature request quota.
 
 ### Example
 
@@ -787,6 +787,8 @@ Edit Embedded Signature Request
 
 Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
+**NOTE:** Edit and resend *will* deduct your signature request quota.
+
 ### Example
 
 ```java
@@ -909,6 +911,8 @@ Edit Embedded Signature Request with Template
 
 Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
+**NOTE:** Edit and resend *will* deduct your signature request quota.
+
 ### Example
 
 ```java
@@ -1020,7 +1024,7 @@ Edit Signature Request With Template
 
 Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
 
-**NOTE:** Edit and resend will not deduct your signature request quota.
+**NOTE:** Edit and resend *will* deduct your signature request quota.
 
 ### Example
 

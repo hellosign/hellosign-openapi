@@ -511,7 +511,7 @@ public class SignatureRequestApi {
      * Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If
      * &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where
      * all signers will be required to add their signature, signifying their agreement to all
-     * contained documents. **NOTE:** Edit and resend will not deduct your signature request quota.
+     * contained documents. **NOTE:** Edit and resend *will* deduct your signature request quota.
      *
      * @param signatureRequestId The id of the SignatureRequest to edit. (required)
      * @param signatureRequestEditRequest (required)
@@ -536,7 +536,7 @@ public class SignatureRequestApi {
      * Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If
      * &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where
      * all signers will be required to add their signature, signifying their agreement to all
-     * contained documents. **NOTE:** Edit and resend will not deduct your signature request quota.
+     * contained documents. **NOTE:** Edit and resend *will* deduct your signature request quota.
      *
      * @param signatureRequestId The id of the SignatureRequest to edit. (required)
      * @param signatureRequestEditRequest (required)
@@ -609,7 +609,7 @@ public class SignatureRequestApi {
      * will be affixed where all signers will be required to add their signature, signifying their
      * agreement to all contained documents. Note that embedded signature requests can only be
      * signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox
-     * Sign.
+     * Sign. **NOTE:** Edit and resend *will* deduct your signature request quota.
      *
      * @param signatureRequestId The id of the SignatureRequest to edit. (required)
      * @param signatureRequestEditEmbeddedRequest (required)
@@ -638,7 +638,7 @@ public class SignatureRequestApi {
      * will be affixed where all signers will be required to add their signature, signifying their
      * agreement to all contained documents. Note that embedded signature requests can only be
      * signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox
-     * Sign.
+     * Sign. **NOTE:** Edit and resend *will* deduct your signature request quota.
      *
      * @param signatureRequestId The id of the SignatureRequest to edit. (required)
      * @param signatureRequestEditEmbeddedRequest (required)
@@ -710,7 +710,7 @@ public class SignatureRequestApi {
      * Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given
      * Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can
      * only be signed in embedded iFrames whereas normal signature requests can only be signed on
-     * Dropbox Sign.
+     * Dropbox Sign. **NOTE:** Edit and resend *will* deduct your signature request quota.
      *
      * @param signatureRequestId The id of the SignatureRequest to edit. (required)
      * @param signatureRequestEditEmbeddedWithTemplateRequest (required)
@@ -738,7 +738,7 @@ public class SignatureRequestApi {
      * Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given
      * Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can
      * only be signed in embedded iFrames whereas normal signature requests can only be signed on
-     * Dropbox Sign.
+     * Dropbox Sign. **NOTE:** Edit and resend *will* deduct your signature request quota.
      *
      * @param signatureRequestId The id of the SignatureRequest to edit. (required)
      * @param signatureRequestEditEmbeddedWithTemplateRequest (required)
@@ -811,7 +811,7 @@ public class SignatureRequestApi {
 
     /**
      * Edit Signature Request With Template Edits and sends a SignatureRequest based off of the
-     * Template(s) specified with the template_ids parameter. **NOTE:** Edit and resend will not
+     * Template(s) specified with the template_ids parameter. **NOTE:** Edit and resend *will*
      * deduct your signature request quota.
      *
      * @param signatureRequestId The id of the SignatureRequest to edit. (required)
@@ -837,7 +837,7 @@ public class SignatureRequestApi {
 
     /**
      * Edit Signature Request With Template Edits and sends a SignatureRequest based off of the
-     * Template(s) specified with the template_ids parameter. **NOTE:** Edit and resend will not
+     * Template(s) specified with the template_ids parameter. **NOTE:** Edit and resend *will*
      * deduct your signature request quota.
      *
      * @param signatureRequestId The id of the SignatureRequest to edit. (required)
