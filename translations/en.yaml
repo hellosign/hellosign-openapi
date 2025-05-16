@@ -362,7 +362,10 @@
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
 
 "SignatureRequestEditEmbedded::SUMMARY": Edit Embedded Signature Request
-"SignatureRequestEditEmbedded::DESCRIPTION": Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+"SignatureRequestEditEmbedded::DESCRIPTION": |-
+  Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+  **NOTE:** Edit and resend *will* deduct your signature request quota.
 "SignatureRequestEditEmbedded::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
 
 "SignatureRequestCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Signature Request with Template
@@ -388,7 +391,10 @@
   **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 
 "SignatureRequestEditEmbeddedWithTemplate::SUMMARY": Edit Embedded Signature Request with Template
-"SignatureRequestEditEmbeddedWithTemplate::DESCRIPTION": Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+"SignatureRequestEditEmbeddedWithTemplate::DESCRIPTION": |-
+  Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+  **NOTE:** Edit and resend *will* deduct your signature request quota.
 "SignatureRequestEditEmbeddedWithTemplate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
 
 "SignatureRequestFiles::SUMMARY": Download Files
@@ -494,7 +500,7 @@
 "SignatureRequestEdit::DESCRIPTION": |-
   Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
   
-  **NOTE:** Edit and resend will not deduct your signature request quota.
+  **NOTE:** Edit and resend *will* deduct your signature request quota.
 "SignatureRequestEdit::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
 
 "SignatureRequestSendWithTemplate::SUMMARY": Send with Template
@@ -531,7 +537,7 @@
 "SignatureRequestEditWithTemplate::DESCRIPTION": |-
   Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
   
-  **NOTE:** Edit and resend will not deduct your signature request quota.
+  **NOTE:** Edit and resend *will* deduct your signature request quota.
 "SignatureRequestEditWithTemplate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
 
 "SignatureRequestUpdate::SUMMARY": Update Signature Request

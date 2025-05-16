@@ -147,7 +147,7 @@ public class ApiClient extends JavaTimeFormatter {
         this.dateFormat = new RFC3339DateFormat();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/1.8.1-dev/java");
+        setUserAgent("OpenAPI-Generator/1.9-dev/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<>();

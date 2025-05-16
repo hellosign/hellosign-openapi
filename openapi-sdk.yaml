@@ -3414,7 +3414,7 @@ paths:
       description: |-
         Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
 
-        **NOTE:** Edit and resend will not deduct your signature request quota.
+        **NOTE:** Edit and resend *will* deduct your signature request quota.
       operationId: signatureRequestEdit
       parameters:
         -
@@ -3455,7 +3455,7 @@ paths:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
                 example:
-                  $ref: '#/components/examples/SignatureRequestEditResponse'
+                  $ref: '#/components/examples/SignatureRequestSendResponse'
         '4XX':
           description: failed_operation
           content:
@@ -3526,14 +3526,15 @@ paths:
         seo:
           title: 'Edit Signature Request | REST API | Dropbox Sign for Developers'
           description: 'Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest with the submitted documents, click here.'
-      x-hideOn: doc
-      x-beta: closed
   '/signature_request/edit_embedded/{signature_request_id}':
     put:
       tags:
         - 'Signature Request'
       summary: 'Edit Embedded Signature Request'
-      description: 'Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
+      description: |-
+        Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+        **NOTE:** Edit and resend *will* deduct your signature request quota.
       operationId: signatureRequestEditEmbedded
       parameters:
         -
@@ -3574,7 +3575,7 @@ paths:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
                 example:
-                  $ref: '#/components/examples/SignatureRequestEditEmbeddedResponse'
+                  $ref: '#/components/examples/SignatureRequestCreateEmbeddedResponse'
         '4XX':
           description: failed_operation
           content:
@@ -3644,14 +3645,15 @@ paths:
         seo:
           title: 'Edit Embedded Signature Request | Dropbox Sign for Developers'
           description: 'The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to edit a SignatureRequest in an iFrame, click here.'
-      x-hideOn: doc
-      x-beta: closed
   '/signature_request/edit_embedded_with_template/{signature_request_id}':
     put:
       tags:
         - 'Signature Request'
       summary: 'Edit Embedded Signature Request with Template'
-      description: 'Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
+      description: |-
+        Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+        **NOTE:** Edit and resend *will* deduct your signature request quota.
       operationId: signatureRequestEditEmbeddedWithTemplate
       parameters:
         -
@@ -3690,7 +3692,7 @@ paths:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
                 example:
-                  $ref: '#/components/examples/SignatureRequestEditEmbeddedWithTemplateResponse'
+                  $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateResponse'
         '4XX':
           description: failed_operation
           content:
@@ -3760,8 +3762,6 @@ paths:
         seo:
           title: 'Signature Request with Template | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest based on the given Template, click here.'
-      x-hideOn: doc
-      x-beta: closed
   '/signature_request/edit_with_template/{signature_request_id}':
     put:
       tags:
@@ -3770,7 +3770,7 @@ paths:
       description: |-
         Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
 
-        **NOTE:** Edit and resend will not deduct your signature request quota.
+        **NOTE:** Edit and resend *will* deduct your signature request quota.
       operationId: signatureRequestEditWithTemplate
       parameters:
         -
@@ -3809,7 +3809,7 @@ paths:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
                 example:
-                  $ref: '#/components/examples/SignatureRequestEditWithTemplateResponse'
+                  $ref: '#/components/examples/SignatureRequestSendWithTemplateResponse'
         '4XX':
           description: failed_operation
           content:
@@ -3880,8 +3880,6 @@ paths:
         seo:
           title: 'Edit Signature Request with Template | API Documentation | Dropbox Sign for Developers'
           description: 'Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest based off of the Template, click here.'
-      x-hideOn: doc
-      x-beta: closed
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
