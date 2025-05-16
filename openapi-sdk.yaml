@@ -13130,6 +13130,14 @@ components:
                 - employer_identification_number
                 - custom_regex
               nullable: true
+            validation_custom_regex:
+              description: 'When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.'
+              type: string
+              nullable: true
+            validation_custom_regex_format_label:
+              description: 'When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.'
+              type: string
+              nullable: true
             group:
               description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
               type: string

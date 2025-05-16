@@ -25345,6 +25345,16 @@ var TemplateResponseDocumentFormFieldText = class _TemplateResponseDocumentFormF
         type: "TemplateResponseDocumentFormFieldText.ValidationTypeEnum"
       },
       {
+        name: "validationCustomRegex",
+        baseName: "validation_custom_regex",
+        type: "string"
+      },
+      {
+        name: "validationCustomRegexFormatLabel",
+        baseName: "validation_custom_regex_format_label",
+        type: "string"
+      },
+      {
         name: "group",
         baseName: "group",
         type: "string"

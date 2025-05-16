@@ -62,6 +62,8 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'int',
         'font_family' => 'string',
         'validation_type' => 'string',
+        'validation_custom_regex' => 'string',
+        'validation_custom_regex_format_label' => 'string',
         'group' => 'string',
     ];
 
@@ -79,6 +81,8 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => null,
         'font_family' => null,
         'validation_type' => null,
+        'validation_custom_regex' => null,
+        'validation_custom_regex_format_label' => null,
         'group' => null,
     ];
 
@@ -94,6 +98,8 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => false,
         'font_family' => false,
         'validation_type' => true,
+        'validation_custom_regex' => true,
+        'validation_custom_regex_format_label' => true,
         'group' => true,
     ];
 
@@ -181,6 +187,8 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'originalFontSize',
         'font_family' => 'fontFamily',
         'validation_type' => 'validation_type',
+        'validation_custom_regex' => 'validation_custom_regex',
+        'validation_custom_regex_format_label' => 'validation_custom_regex_format_label',
         'group' => 'group',
     ];
 
@@ -196,6 +204,8 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'setOriginalFontSize',
         'font_family' => 'setFontFamily',
         'validation_type' => 'setValidationType',
+        'validation_custom_regex' => 'setValidationCustomRegex',
+        'validation_custom_regex_format_label' => 'setValidationCustomRegexFormatLabel',
         'group' => 'setGroup',
     ];
 
@@ -211,6 +221,8 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'getOriginalFontSize',
         'font_family' => 'getFontFamily',
         'validation_type' => 'getValidationType',
+        'validation_custom_regex' => 'getValidationCustomRegex',
+        'validation_custom_regex_format_label' => 'getValidationCustomRegexFormatLabel',
         'group' => 'getGroup',
     ];
 
@@ -303,6 +315,8 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         $this->setIfExists('original_font_size', $data ?? [], null);
         $this->setIfExists('font_family', $data ?? [], null);
         $this->setIfExists('validation_type', $data ?? [], null);
+        $this->setIfExists('validation_custom_regex', $data ?? [], null);
+        $this->setIfExists('validation_custom_regex_format_label', $data ?? [], null);
         $this->setIfExists('group', $data ?? [], null);
     }
 
@@ -552,6 +566,74 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
             );
         }
         $this->container['validation_type'] = $validation_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_custom_regex
+     *
+     * @return string|null
+     */
+    public function getValidationCustomRegex()
+    {
+        return $this->container['validation_custom_regex'];
+    }
+
+    /**
+     * Sets validation_custom_regex
+     *
+     * @param string|null $validation_custom_regex when `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field
+     *
+     * @return self
+     */
+    public function setValidationCustomRegex(?string $validation_custom_regex)
+    {
+        if (is_null($validation_custom_regex)) {
+            array_push($this->openAPINullablesSetToNull, 'validation_custom_regex');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validation_custom_regex', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['validation_custom_regex'] = $validation_custom_regex;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_custom_regex_format_label
+     *
+     * @return string|null
+     */
+    public function getValidationCustomRegexFormatLabel()
+    {
+        return $this->container['validation_custom_regex_format_label'];
+    }
+
+    /**
+     * Sets validation_custom_regex_format_label
+     *
+     * @param string|null $validation_custom_regex_format_label when `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern
+     *
+     * @return self
+     */
+    public function setValidationCustomRegexFormatLabel(?string $validation_custom_regex_format_label)
+    {
+        if (is_null($validation_custom_regex_format_label)) {
+            array_push($this->openAPINullablesSetToNull, 'validation_custom_regex_format_label');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validation_custom_regex_format_label', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['validation_custom_regex_format_label'] = $validation_custom_regex_format_label;
 
         return $this;
     }
