@@ -28,7 +28,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An array of Form Field objects containing the name and type of each named field.
+    /// _t__TemplateResponseDocumentFormField::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentFormFieldBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
@@ -51,15 +51,15 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFormFieldBase" /> class.
         /// </summary>
-        /// <param name="apiId">A unique id for the form field..</param>
-        /// <param name="name">The name of the form field..</param>
+        /// <param name="apiId">_t__TemplateResponseDocumentFormField::API_ID.</param>
+        /// <param name="name">_t__TemplateResponseDocumentFormField::NAME.</param>
         /// <param name="type">type (required).</param>
-        /// <param name="signer">The signer of the Form Field..</param>
-        /// <param name="x">The horizontal offset in pixels for this form field..</param>
-        /// <param name="y">The vertical offset in pixels for this form field..</param>
-        /// <param name="width">The width in pixels of this form field..</param>
-        /// <param name="height">The height in pixels of this form field..</param>
-        /// <param name="required">Boolean showing whether or not this field is required..</param>
+        /// <param name="signer">_t__TemplateResponseDocumentFormField::SIGNER.</param>
+        /// <param name="x">_t__TemplateResponseDocumentFormField::X.</param>
+        /// <param name="y">_t__TemplateResponseDocumentFormField::Y.</param>
+        /// <param name="width">_t__TemplateResponseDocumentFormField::WIDTH.</param>
+        /// <param name="height">_t__TemplateResponseDocumentFormField::HEIGHT.</param>
+        /// <param name="required">_t__TemplateResponseDocumentFormField::REQUIRED.</param>
         public TemplateResponseDocumentFormFieldBase(string apiId = default(string), string name = default(string), string type = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
         {
 
@@ -102,23 +102,23 @@ namespace Dropbox.Sign.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// A unique id for the form field.
+        /// _t__TemplateResponseDocumentFormField::API_ID
         /// </summary>
-        /// <value>A unique id for the form field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::API_ID</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
 
         /// <summary>
-        /// The name of the form field.
+        /// _t__TemplateResponseDocumentFormField::NAME
         /// </summary>
-        /// <value>The name of the form field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The signer of the Form Field.
+        /// _t__TemplateResponseDocumentFormField::SIGNER
         /// </summary>
-        /// <value>The signer of the Form Field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::SIGNER</value>
         [DataMember(Name = "signer", EmitDefaultValue = true)]
         public object Signer
         {
@@ -128,37 +128,37 @@ namespace Dropbox.Sign.Model
 
         private string _signer;
         /// <summary>
-        /// The horizontal offset in pixels for this form field.
+        /// _t__TemplateResponseDocumentFormField::X
         /// </summary>
-        /// <value>The horizontal offset in pixels for this form field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::X</value>
         [DataMember(Name = "x", EmitDefaultValue = true)]
         public int X { get; set; }
 
         /// <summary>
-        /// The vertical offset in pixels for this form field.
+        /// _t__TemplateResponseDocumentFormField::Y
         /// </summary>
-        /// <value>The vertical offset in pixels for this form field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::Y</value>
         [DataMember(Name = "y", EmitDefaultValue = true)]
         public int Y { get; set; }
 
         /// <summary>
-        /// The width in pixels of this form field.
+        /// _t__TemplateResponseDocumentFormField::WIDTH
         /// </summary>
-        /// <value>The width in pixels of this form field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::WIDTH</value>
         [DataMember(Name = "width", EmitDefaultValue = true)]
         public int Width { get; set; }
 
         /// <summary>
-        /// The height in pixels of this form field.
+        /// _t__TemplateResponseDocumentFormField::HEIGHT
         /// </summary>
-        /// <value>The height in pixels of this form field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::HEIGHT</value>
         [DataMember(Name = "height", EmitDefaultValue = true)]
         public int Height { get; set; }
 
         /// <summary>
-        /// Boolean showing whether or not this field is required.
+        /// _t__TemplateResponseDocumentFormField::REQUIRED
         /// </summary>
-        /// <value>Boolean showing whether or not this field is required.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::REQUIRED</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An object with options that override account settings.
+    /// _t__ApiAppResponseOptions::DESCRIPTION
     /// </summary>
     [DataContract(Name = "ApiAppResponseOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOptions" /> class.
         /// </summary>
-        /// <param name="canInsertEverywhere">Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document.</param>
+        /// <param name="canInsertEverywhere">_t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE.</param>
         public ApiAppResponseOptions(bool canInsertEverywhere = default(bool))
         {
 
@@ -65,9 +65,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document
+        /// _t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE
         /// </summary>
-        /// <value>Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document</value>
+        /// <value>_t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE</value>
         [DataMember(Name = "can_insert_everywhere", EmitDefaultValue = true)]
         public bool CanInsertEverywhere { get; set; }
 

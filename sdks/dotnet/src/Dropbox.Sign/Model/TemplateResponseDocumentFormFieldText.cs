@@ -27,16 +27,16 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
+    /// _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentFormFieldText")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class TemplateResponseDocumentFormFieldText : TemplateResponseDocumentFormFieldBase, IOpenApiTyped, IEquatable<TemplateResponseDocumentFormFieldText>, IValidatableObject
     {
         /// <summary>
-        /// Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
+        /// _t__TemplateResponseDocumentFormField::VALIDATION_TYPE
         /// </summary>
-        /// <value>Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::VALIDATION_TYPE</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ValidationTypeEnum
         {
@@ -103,9 +103,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
+        /// _t__TemplateResponseDocumentFormField::VALIDATION_TYPE
         /// </summary>
-        /// <value>Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::VALIDATION_TYPE</value>
         [DataMember(Name = "validation_type", EmitDefaultValue = true)]
         public ValidationTypeEnum? ValidationType { get; set; }
         /// <summary>
@@ -116,23 +116,23 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFormFieldText" /> class.
         /// </summary>
-        /// <param name="type">The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60; (required) (default to &quot;text&quot;).</param>
+        /// <param name="type">_t__TemplateResponseDocumentFormField::TYPE (required) (default to &quot;text&quot;).</param>
         /// <param name="avgTextLength">avgTextLength.</param>
-        /// <param name="isMultiline">Whether this form field is multiline text..</param>
-        /// <param name="originalFontSize">Original font size used in this form field&#39;s text..</param>
-        /// <param name="fontFamily">Font family used in this form field&#39;s text..</param>
-        /// <param name="validationType">Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values..</param>
-        /// <param name="validationCustomRegex">When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the custom regular expression pattern that will be used to validate the text field..</param>
-        /// <param name="validationCustomRegexFormatLabel">When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error message displayed to the signer when the text does not match the provided regex pattern..</param>
-        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        /// <param name="apiId">A unique id for the form field..</param>
-        /// <param name="name">The name of the form field..</param>
-        /// <param name="signer">The signer of the Form Field..</param>
-        /// <param name="x">The horizontal offset in pixels for this form field..</param>
-        /// <param name="y">The vertical offset in pixels for this form field..</param>
-        /// <param name="width">The width in pixels of this form field..</param>
-        /// <param name="height">The height in pixels of this form field..</param>
-        /// <param name="required">Boolean showing whether or not this field is required..</param>
+        /// <param name="isMultiline">_t__TemplateResponseDocumentFormField::IS_MULTILINE.</param>
+        /// <param name="originalFontSize">_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE.</param>
+        /// <param name="fontFamily">_t__TemplateResponseDocumentFormField::FONT_FAMILY.</param>
+        /// <param name="validationType">_t__TemplateResponseDocumentFormField::VALIDATION_TYPE.</param>
+        /// <param name="validationCustomRegex">_t__TemplateResponseDocumentFormField::CUSTOM_REGEX.</param>
+        /// <param name="validationCustomRegexFormatLabel">_t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL.</param>
+        /// <param name="group">_t__TemplateResponseDocumentFormField::GROUP.</param>
+        /// <param name="apiId">_t__TemplateResponseDocumentFormField::API_ID.</param>
+        /// <param name="name">_t__TemplateResponseDocumentFormField::NAME.</param>
+        /// <param name="signer">_t__TemplateResponseDocumentFormField::SIGNER.</param>
+        /// <param name="x">_t__TemplateResponseDocumentFormField::X.</param>
+        /// <param name="y">_t__TemplateResponseDocumentFormField::Y.</param>
+        /// <param name="width">_t__TemplateResponseDocumentFormField::WIDTH.</param>
+        /// <param name="height">_t__TemplateResponseDocumentFormField::HEIGHT.</param>
+        /// <param name="required">_t__TemplateResponseDocumentFormField::REQUIRED.</param>
         public TemplateResponseDocumentFormFieldText(string type = @"text", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), ValidationTypeEnum? validationType = default(ValidationTypeEnum?), string validationCustomRegex = default(string), string validationCustomRegexFormatLabel = default(string), string group = default(string), string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
         {
             this.ApiId = apiId;
@@ -177,9 +177,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60;
+        /// _t__TemplateResponseDocumentFormField::TYPE
         /// </summary>
-        /// <value>The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60;</value>
+        /// <value>_t__TemplateResponseDocumentFormField::TYPE</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
@@ -190,44 +190,44 @@ namespace Dropbox.Sign.Model
         public TemplateResponseFieldAvgTextLength AvgTextLength { get; set; }
 
         /// <summary>
-        /// Whether this form field is multiline text.
+        /// _t__TemplateResponseDocumentFormField::IS_MULTILINE
         /// </summary>
-        /// <value>Whether this form field is multiline text.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::IS_MULTILINE</value>
         [DataMember(Name = "isMultiline", EmitDefaultValue = true)]
         public bool IsMultiline { get; set; }
 
         /// <summary>
-        /// Original font size used in this form field&#39;s text.
+        /// _t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE
         /// </summary>
-        /// <value>Original font size used in this form field&#39;s text.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE</value>
         [DataMember(Name = "originalFontSize", EmitDefaultValue = true)]
         public int OriginalFontSize { get; set; }
 
         /// <summary>
-        /// Font family used in this form field&#39;s text.
+        /// _t__TemplateResponseDocumentFormField::FONT_FAMILY
         /// </summary>
-        /// <value>Font family used in this form field&#39;s text.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::FONT_FAMILY</value>
         [DataMember(Name = "fontFamily", EmitDefaultValue = true)]
         public string FontFamily { get; set; }
 
         /// <summary>
-        /// When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the custom regular expression pattern that will be used to validate the text field.
+        /// _t__TemplateResponseDocumentFormField::CUSTOM_REGEX
         /// </summary>
-        /// <value>When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the custom regular expression pattern that will be used to validate the text field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::CUSTOM_REGEX</value>
         [DataMember(Name = "validation_custom_regex", EmitDefaultValue = true)]
         public string ValidationCustomRegex { get; set; }
 
         /// <summary>
-        /// When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
+        /// _t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL
         /// </summary>
-        /// <value>When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL</value>
         [DataMember(Name = "validation_custom_regex_format_label", EmitDefaultValue = true)]
         public string ValidationCustomRegexFormatLabel { get; set; }
 
         /// <summary>
-        /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
+        /// _t__TemplateResponseDocumentFormField::GROUP
         /// </summary>
-        /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::GROUP</value>
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
 

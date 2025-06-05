@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.TemplateResponseAccountQuota
-An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+_t__TemplateResponseAccountQuota::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TemplatesLeft** | **int** |  API templates remaining.  | [optional] **ApiSignatureRequestsLeft** | **int** |  API signature requests remaining.  | [optional] **DocumentsLeft** | **int** |  Signature requests remaining.  | [optional] **SmsVerificationsLeft** | **int** |  SMS verifications remaining.  | [optional] 
+**TemplatesLeft** | **int** |  _t__TemplateResponseAccountQuota::TEMPLATES_LEFT  | [optional] **ApiSignatureRequestsLeft** | **int** |  _t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT  | [optional] **DocumentsLeft** | **int** |  _t__TemplateResponseAccountQuota::DOCUMENTS_LEFT  | [optional] **SmsVerificationsLeft** | **int** |  _t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

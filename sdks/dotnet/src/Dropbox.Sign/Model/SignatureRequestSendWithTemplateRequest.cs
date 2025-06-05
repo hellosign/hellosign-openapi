@@ -51,8 +51,8 @@ namespace Dropbox.Sign.Model
         /// <param name="isQualifiedSignature">Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="isEid">Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
-        /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
-        /// <param name="signers">Add Signers to your Templated-based Signature Request. (required).</param>
+        /// <param name="metadata">_t__Sub::Metadata::DESCRIPTION.</param>
+        /// <param name="signers">_t__Sub::SignatureRequestTemplateSigner::DESCRIPTION (required).</param>
         /// <param name="signingOptions">signingOptions.</param>
         /// <param name="signingRedirectUrl">The URL you want signers redirected to after they successfully sign..</param>
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
@@ -114,9 +114,9 @@ namespace Dropbox.Sign.Model
         public List<string> TemplateIds { get; set; }
 
         /// <summary>
-        /// Add Signers to your Templated-based Signature Request.
+        /// _t__Sub::SignatureRequestTemplateSigner::DESCRIPTION
         /// </summary>
-        /// <value>Add Signers to your Templated-based Signature Request.</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::DESCRIPTION</value>
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
 
@@ -185,9 +185,9 @@ namespace Dropbox.Sign.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+        /// _t__Sub::Metadata::DESCRIPTION
         /// </summary>
-        /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
+        /// <value>_t__Sub::Metadata::DESCRIPTION</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
 

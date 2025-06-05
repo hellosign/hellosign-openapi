@@ -25,10 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;,
- * &#x60;expires_at&#x60;.
- */
+/** _t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION */
 @JsonPropertyOrder({
     TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
     TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_EDIT_URL,
@@ -79,7 +76,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     }
 
     /**
-     * The id of the Template.
+     * _t__TemplateResponse::TEMPLATE_ID
      *
      * @return templateId
      */
@@ -102,7 +99,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     }
 
     /**
-     * Link to edit the template.
+     * _t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL
      *
      * @return editUrl
      */
@@ -125,7 +122,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     }
 
     /**
-     * When the link expires.
+     * _t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT
      *
      * @return expiresAt
      */
@@ -158,7 +155,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     }
 
     /**
-     * A list of warnings.
+     * _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return warnings
      * @deprecated

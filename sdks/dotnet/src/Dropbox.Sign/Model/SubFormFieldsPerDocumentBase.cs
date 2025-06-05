@@ -61,9 +61,9 @@ namespace Dropbox.Sign.Model
         /// <param name="required">Whether this field is required. (required).</param>
         /// <param name="signer">Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data. (required).</param>
         /// <param name="type">type (required).</param>
-        /// <param name="width">Size of the field in pixels. (required).</param>
-        /// <param name="x">Location coordinates of the field in pixels. (required).</param>
-        /// <param name="y">Location coordinates of the field in pixels. (required).</param>
+        /// <param name="width">_t__Sub::FormFieldsPerDocument::WIDTH (required).</param>
+        /// <param name="x">_t__Sub::FormFieldsPerDocument::X (required).</param>
+        /// <param name="y">_t__Sub::FormFieldsPerDocument::Y (required).</param>
         public SubFormFieldsPerDocumentBase(int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, string type = default(string), int width = default(int), int x = default(int), int y = default(int))
         {
 
@@ -158,23 +158,23 @@ namespace Dropbox.Sign.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Size of the field in pixels.
+        /// _t__Sub::FormFieldsPerDocument::WIDTH
         /// </summary>
-        /// <value>Size of the field in pixels.</value>
+        /// <value>_t__Sub::FormFieldsPerDocument::WIDTH</value>
         [DataMember(Name = "width", IsRequired = true, EmitDefaultValue = true)]
         public int Width { get; set; }
 
         /// <summary>
-        /// Location coordinates of the field in pixels.
+        /// _t__Sub::FormFieldsPerDocument::X
         /// </summary>
-        /// <value>Location coordinates of the field in pixels.</value>
+        /// <value>_t__Sub::FormFieldsPerDocument::X</value>
         [DataMember(Name = "x", IsRequired = true, EmitDefaultValue = true)]
         public int X { get; set; }
 
         /// <summary>
-        /// Location coordinates of the field in pixels.
+        /// _t__Sub::FormFieldsPerDocument::Y
         /// </summary>
-        /// <value>Location coordinates of the field in pixels.</value>
+        /// <value>_t__Sub::FormFieldsPerDocument::Y</value>
         [DataMember(Name = "y", IsRequired = true, EmitDefaultValue = true)]
         public int Y { get; set; }
 

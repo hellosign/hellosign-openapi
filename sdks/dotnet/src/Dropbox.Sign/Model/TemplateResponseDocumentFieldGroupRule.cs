@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
+    /// _t__TemplateResponseDocumentFieldGroup::RULE
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentFieldGroupRule")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFieldGroupRule" /> class.
         /// </summary>
-        /// <param name="requirement">Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group..</param>
-        /// <param name="groupLabel">Name of the group.</param>
+        /// <param name="requirement">_t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT.</param>
+        /// <param name="groupLabel">_t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL.</param>
         public TemplateResponseDocumentFieldGroupRule(string requirement = default(string), string groupLabel = default(string))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
+        /// _t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT
         /// </summary>
-        /// <value>Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.</value>
+        /// <value>_t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT</value>
         [DataMember(Name = "requirement", EmitDefaultValue = true)]
         public string Requirement { get; set; }
 
         /// <summary>
-        /// Name of the group
+        /// _t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL
         /// </summary>
-        /// <value>Name of the group</value>
+        /// <value>_t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL</value>
         [DataMember(Name = "groupLabel", EmitDefaultValue = true)]
         public string GroupLabel { get; set; }
 

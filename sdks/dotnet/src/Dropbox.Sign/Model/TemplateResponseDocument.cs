@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocument" /> class.
         /// </summary>
-        /// <param name="name">Name of the associated file..</param>
-        /// <param name="index">Document ordering, the lowest index is displayed first and the highest last (0-based indexing)..</param>
-        /// <param name="fieldGroups">An array of Form Field Group objects..</param>
-        /// <param name="formFields">An array of Form Field objects containing the name and type of each named field..</param>
-        /// <param name="customFields">An array of Form Field objects containing the name and type of each named field..</param>
-        /// <param name="staticFields">An array describing static overlay fields. **NOTE:** Only available for certain subscriptions..</param>
+        /// <param name="name">_t__TemplateResponseDocument::NAME.</param>
+        /// <param name="index">_t__TemplateResponseDocument::INDEX.</param>
+        /// <param name="fieldGroups">_t__TemplateResponseDocument::FIELD_GROUPS.</param>
+        /// <param name="formFields">_t__TemplateResponseDocumentFormField::DESCRIPTION.</param>
+        /// <param name="customFields">_t__TemplateResponseDocumentCustomField::DESCRIPTION.</param>
+        /// <param name="staticFields">_t__TemplateResponseDocumentStaticField::DESCRIPTION.</param>
         public TemplateResponseDocument(string name = default(string), int index = default(int), List<TemplateResponseDocumentFieldGroup> fieldGroups = default(List<TemplateResponseDocumentFieldGroup>), List<TemplateResponseDocumentFormFieldBase> formFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentStaticFieldBase> staticFields = default(List<TemplateResponseDocumentStaticFieldBase>))
         {
 
@@ -75,44 +75,44 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Name of the associated file.
+        /// _t__TemplateResponseDocument::NAME
         /// </summary>
-        /// <value>Name of the associated file.</value>
+        /// <value>_t__TemplateResponseDocument::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
+        /// _t__TemplateResponseDocument::INDEX
         /// </summary>
-        /// <value>Document ordering, the lowest index is displayed first and the highest last (0-based indexing).</value>
+        /// <value>_t__TemplateResponseDocument::INDEX</value>
         [DataMember(Name = "index", EmitDefaultValue = true)]
         public int Index { get; set; }
 
         /// <summary>
-        /// An array of Form Field Group objects.
+        /// _t__TemplateResponseDocument::FIELD_GROUPS
         /// </summary>
-        /// <value>An array of Form Field Group objects.</value>
+        /// <value>_t__TemplateResponseDocument::FIELD_GROUPS</value>
         [DataMember(Name = "field_groups", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentFieldGroup> FieldGroups { get; set; }
 
         /// <summary>
-        /// An array of Form Field objects containing the name and type of each named field.
+        /// _t__TemplateResponseDocumentFormField::DESCRIPTION
         /// </summary>
-        /// <value>An array of Form Field objects containing the name and type of each named field.</value>
+        /// <value>_t__TemplateResponseDocumentFormField::DESCRIPTION</value>
         [DataMember(Name = "form_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentFormFieldBase> FormFields { get; set; }
 
         /// <summary>
-        /// An array of Form Field objects containing the name and type of each named field.
+        /// _t__TemplateResponseDocumentCustomField::DESCRIPTION
         /// </summary>
-        /// <value>An array of Form Field objects containing the name and type of each named field.</value>
+        /// <value>_t__TemplateResponseDocumentCustomField::DESCRIPTION</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
 
         /// <summary>
-        /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+        /// _t__TemplateResponseDocumentStaticField::DESCRIPTION
         /// </summary>
-        /// <value>An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::DESCRIPTION</value>
         [DataMember(Name = "static_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentStaticFieldBase> StaticFields { get; set; }
 

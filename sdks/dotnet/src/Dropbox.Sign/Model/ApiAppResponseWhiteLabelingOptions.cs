@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An object with options to customize the app&#39;s signer page
+    /// _t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION
     /// </summary>
     [DataContract(Name = "ApiAppResponseWhiteLabelingOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]

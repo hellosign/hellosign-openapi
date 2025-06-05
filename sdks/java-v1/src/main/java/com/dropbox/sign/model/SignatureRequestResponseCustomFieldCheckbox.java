@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** This class extends &#x60;SignatureRequestResponseCustomFieldBase&#x60;. */
+/** _t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS */
 @JsonPropertyOrder({
     SignatureRequestResponseCustomFieldCheckbox.JSON_PROPERTY_TYPE,
     SignatureRequestResponseCustomFieldCheckbox.JSON_PROPERTY_VALUE
@@ -74,8 +74,7 @@ public class SignatureRequestResponseCustomFieldCheckbox
     }
 
     /**
-     * The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently
-     * supported.
+     * _t__SignatureRequestResponseCustomField::TYPE
      *
      * @return type
      */
@@ -99,7 +98,7 @@ public class SignatureRequestResponseCustomFieldCheckbox
     }
 
     /**
-     * A true/false for checkbox fields
+     * _t__SignatureRequestResponseCustomField::VALUE_CHECKBOX
      *
      * @return value
      */

@@ -71,7 +71,7 @@ public class SignatureRequestResponseDataValueText extends SignatureRequestRespo
     }
 
     /**
-     * A text input field
+     * _t__SignatureRequestResponseDataValue::TEXT_TYPE
      *
      * @return type
      */
@@ -93,7 +93,7 @@ public class SignatureRequestResponseDataValueText extends SignatureRequestRespo
     }
 
     /**
-     * The value of the form field.
+     * _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return value
      */

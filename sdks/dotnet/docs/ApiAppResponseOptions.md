@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.ApiAppResponseOptions
-An object with options that override account settings.
+_t__ApiAppResponseOptions::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CanInsertEverywhere** | **bool** |  Boolean denoting if signers can &quot;Insert Everywhere&quot; in one click while signing a document  | [optional] 
+**CanInsertEverywhere** | **bool** |  _t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

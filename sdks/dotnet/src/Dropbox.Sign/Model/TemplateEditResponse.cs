@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateEditResponse" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template. (required).</param>
+        /// <param name="templateId">_t__TemplateResponse::TEMPLATE_ID (required).</param>
         public TemplateEditResponse(string templateId = default(string))
         {
 
@@ -70,9 +70,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the Template.
+        /// _t__TemplateResponse::TEMPLATE_ID
         /// </summary>
-        /// <value>The id of the Template.</value>
+        /// <value>_t__TemplateResponse::TEMPLATE_ID</value>
         [DataMember(Name = "template_id", IsRequired = true, EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 

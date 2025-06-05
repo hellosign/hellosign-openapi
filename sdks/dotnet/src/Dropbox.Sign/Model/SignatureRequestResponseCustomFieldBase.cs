@@ -28,7 +28,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
+    /// _t__SignatureRequestResponseCustomField::DESCRIPTION
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseCustomFieldBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
@@ -45,11 +45,11 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseCustomFieldBase" /> class.
         /// </summary>
-        /// <param name="type">The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported. (required).</param>
-        /// <param name="name">The name of the Custom Field. (required).</param>
-        /// <param name="required">A boolean value denoting if this field is required..</param>
-        /// <param name="apiId">The unique ID for this field..</param>
-        /// <param name="editor">The name of the Role that is able to edit this field..</param>
+        /// <param name="type">_t__SignatureRequestResponseCustomField::TYPE (required).</param>
+        /// <param name="name">_t__SignatureRequestResponseCustomField::NAME (required).</param>
+        /// <param name="required">_t__SignatureRequestResponseCustomField::REQUIRED.</param>
+        /// <param name="apiId">_t__SignatureRequestResponseCustomField::API_ID.</param>
+        /// <param name="editor">_t__SignatureRequestResponseCustomField::EDITOR.</param>
         public SignatureRequestResponseCustomFieldBase(string type = default(string), string name = default(string), bool required = default(bool), string apiId = default(string), string editor = default(string))
         {
 
@@ -87,37 +87,37 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.
+        /// _t__SignatureRequestResponseCustomField::TYPE
         /// </summary>
-        /// <value>The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.</value>
+        /// <value>_t__SignatureRequestResponseCustomField::TYPE</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// The name of the Custom Field.
+        /// _t__SignatureRequestResponseCustomField::NAME
         /// </summary>
-        /// <value>The name of the Custom Field.</value>
+        /// <value>_t__SignatureRequestResponseCustomField::NAME</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// A boolean value denoting if this field is required.
+        /// _t__SignatureRequestResponseCustomField::REQUIRED
         /// </summary>
-        /// <value>A boolean value denoting if this field is required.</value>
+        /// <value>_t__SignatureRequestResponseCustomField::REQUIRED</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
 
         /// <summary>
-        /// The unique ID for this field.
+        /// _t__SignatureRequestResponseCustomField::API_ID
         /// </summary>
-        /// <value>The unique ID for this field.</value>
+        /// <value>_t__SignatureRequestResponseCustomField::API_ID</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
 
         /// <summary>
-        /// The name of the Role that is able to edit this field.
+        /// _t__SignatureRequestResponseCustomField::EDITOR
         /// </summary>
-        /// <value>The name of the Role that is able to edit this field.</value>
+        /// <value>_t__SignatureRequestResponseCustomField::EDITOR</value>
         [DataMember(Name = "editor", EmitDefaultValue = true)]
         public string Editor { get; set; }
 

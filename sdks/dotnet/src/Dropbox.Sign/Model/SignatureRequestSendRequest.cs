@@ -43,11 +43,12 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
-        /// <param name="signers">Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
-        /// <param name="groupedSigners">Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
+        /// <param name="signers">_t__Sub::SignatureRequestSigner::DESCRIPTION.</param>
+        /// <param name="groupedSigners">_t__Sub::SignatureRequestGroupedSigners::DESCRIPTION.</param>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher. (default to false).</param>
-        /// <param name="attachments">A list describing the attachments.</param>
+        /// <param name="allowFormView">Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
+        /// <param name="attachments">_t__SubAttachment::LIST_DESCRIPTION.</param>
         /// <param name="ccEmailAddresses">The email addresses that should be CCed..</param>
         /// <param name="clientId">The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app..</param>
         /// <param name="customFields">When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \&quot;send-once\&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template..</param>
@@ -59,7 +60,7 @@ namespace Dropbox.Sign.Model
         /// <param name="isQualifiedSignature">Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="isEid">Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
-        /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
+        /// <param name="metadata">_t__Sub::Metadata::DESCRIPTION.</param>
         /// <param name="signingOptions">signingOptions.</param>
         /// <param name="signingRedirectUrl">The URL you want signers redirected to after they successfully sign..</param>
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
@@ -67,7 +68,7 @@ namespace Dropbox.Sign.Model
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="useTextTags">Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;. (default to false).</param>
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
-        public SignatureRequestSendRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isQualifiedSignature = false, bool isEid = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, int? expiresAt = default(int?))
+        public SignatureRequestSendRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, bool allowFormView = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isQualifiedSignature = false, bool isEid = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, int? expiresAt = default(int?))
         {
 
             this.Files = files;
@@ -76,6 +77,7 @@ namespace Dropbox.Sign.Model
             this.GroupedSigners = groupedSigners;
             this.AllowDecline = allowDecline;
             this.AllowReassign = allowReassign;
+            this.AllowFormView = allowFormView;
             this.Attachments = attachments;
             this.CcEmailAddresses = ccEmailAddresses;
             this.ClientId = clientId;
@@ -129,16 +131,16 @@ namespace Dropbox.Sign.Model
         public List<string> FileUrls { get; set; }
 
         /// <summary>
-        /// Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+        /// _t__Sub::SignatureRequestSigner::DESCRIPTION
         /// </summary>
-        /// <value>Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.</value>
+        /// <value>_t__Sub::SignatureRequestSigner::DESCRIPTION</value>
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubSignatureRequestSigner> Signers { get; set; }
 
         /// <summary>
-        /// Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+        /// _t__Sub::SignatureRequestGroupedSigners::DESCRIPTION
         /// </summary>
-        /// <value>Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.</value>
+        /// <value>_t__Sub::SignatureRequestGroupedSigners::DESCRIPTION</value>
         [DataMember(Name = "grouped_signers", EmitDefaultValue = true)]
         public List<SubSignatureRequestGroupedSigners> GroupedSigners { get; set; }
 
@@ -157,9 +159,16 @@ namespace Dropbox.Sign.Model
         public bool AllowReassign { get; set; }
 
         /// <summary>
-        /// A list describing the attachments
+        /// Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
-        /// <value>A list describing the attachments</value>
+        /// <value>Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
+        [DataMember(Name = "allow_form_view", EmitDefaultValue = true)]
+        public bool AllowFormView { get; set; }
+
+        /// <summary>
+        /// _t__SubAttachment::LIST_DESCRIPTION
+        /// </summary>
+        /// <value>_t__SubAttachment::LIST_DESCRIPTION</value>
         [DataMember(Name = "attachments", EmitDefaultValue = true)]
         public List<SubAttachment> Attachments { get; set; }
 
@@ -241,9 +250,9 @@ namespace Dropbox.Sign.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+        /// _t__Sub::Metadata::DESCRIPTION
         /// </summary>
-        /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
+        /// <value>_t__Sub::Metadata::DESCRIPTION</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
 
@@ -309,6 +318,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  GroupedSigners: ").Append(GroupedSigners).Append("\n");
             sb.Append("  AllowDecline: ").Append(AllowDecline).Append("\n");
             sb.Append("  AllowReassign: ").Append(AllowReassign).Append("\n");
+            sb.Append("  AllowFormView: ").Append(AllowFormView).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
             sb.Append("  CcEmailAddresses: ").Append(CcEmailAddresses).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
@@ -395,6 +405,10 @@ namespace Dropbox.Sign.Model
                 (
                     this.AllowReassign == input.AllowReassign ||
                     this.AllowReassign.Equals(input.AllowReassign)
+                ) &&
+                (
+                    this.AllowFormView == input.AllowFormView ||
+                    this.AllowFormView.Equals(input.AllowFormView)
                 ) &&
                 (
                     this.Attachments == input.Attachments ||
@@ -527,6 +541,7 @@ namespace Dropbox.Sign.Model
                 }
                 hashCode = (hashCode * 59) + this.AllowDecline.GetHashCode();
                 hashCode = (hashCode * 59) + this.AllowReassign.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowFormView.GetHashCode();
                 if (this.Attachments != null)
                 {
                     hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
@@ -667,6 +682,13 @@ namespace Dropbox.Sign.Model
                 Property = "AllowReassign",
                 Type = "bool",
                 Value = AllowReassign,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "allow_form_view",
+                Property = "AllowFormView",
+                Type = "bool",
+                Value = AllowFormView,
             });
             types.Add(new OpenApiType()
             {

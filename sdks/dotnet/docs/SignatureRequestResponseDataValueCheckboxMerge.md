@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApiId** | **string** |  The unique ID for this field.  | [optional] 
-**SignatureId** | **string** |  The ID of the signature to which this response is linked.  | [optional] 
-**Name** | **string** |  The name of the form field.  | [optional] 
-**Required** | **bool** |  A boolean value denoting if this field is required.  | [optional] 
-**Type** | **string** |  A checkbox field that has default value set by the api  | [optional] [default to "checkbox-merge"]**Value** | **string** |  The value of the form field.  | [optional] 
+**ApiId** | **string** |  _t__SignatureRequestResponseData::API_ID  | [optional] 
+**SignatureId** | **string** |  _t__SignatureRequestResponseData::SIGNATURE_ID  | [optional] 
+**Name** | **string** |  _t__SignatureRequestResponseData::NAME  | [optional] 
+**Required** | **bool** |  _t__SignatureRequestResponseData::REQUIRED  | [optional] 
+**Type** | **string** |  _t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE  | [optional] [default to "checkbox-merge"]**Value** | **string** |  _t__SignatureRequestResponseDataValue::VALUE  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

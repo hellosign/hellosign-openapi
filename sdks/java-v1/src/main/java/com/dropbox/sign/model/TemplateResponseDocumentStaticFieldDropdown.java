@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** This class extends &#x60;TemplateResponseDocumentStaticFieldBase&#x60; */
+/** _t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS */
 @JsonPropertyOrder({TemplateResponseDocumentStaticFieldDropdown.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -68,15 +68,7 @@ public class TemplateResponseDocumentStaticFieldDropdown
     }
 
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types). *
-     * Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60; * Dropdown Field uses
-     * &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60; * Hyperlink Field uses
-     * &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60; * Checkbox Field uses
-     * &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60; * Radio Field uses
-     * &#x60;TemplateResponseDocumentStaticFieldRadio&#x60; * Signature Field uses
-     * &#x60;TemplateResponseDocumentStaticFieldSignature&#x60; * Date Signed Field uses
-     * &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60; * Initials Field uses
-     * &#x60;TemplateResponseDocumentStaticFieldInitials&#x60;
+     * _t__TemplateResponseDocumentStaticField::TYPE
      *
      * @return type
      */

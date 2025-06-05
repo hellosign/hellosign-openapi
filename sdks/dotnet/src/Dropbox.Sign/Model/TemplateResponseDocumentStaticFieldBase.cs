@@ -28,7 +28,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+    /// _t__TemplateResponseDocumentStaticField::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentStaticFieldBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
@@ -51,16 +51,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentStaticFieldBase" /> class.
         /// </summary>
-        /// <param name="apiId">A unique id for the static field..</param>
-        /// <param name="name">The name of the static field..</param>
+        /// <param name="apiId">_t__TemplateResponseDocumentStaticField::API_ID.</param>
+        /// <param name="name">_t__TemplateResponseDocumentStaticField::NAME.</param>
         /// <param name="type">type (required).</param>
-        /// <param name="signer">The signer of the Static Field. (default to &quot;me_now&quot;).</param>
-        /// <param name="x">The horizontal offset in pixels for this static field..</param>
-        /// <param name="y">The vertical offset in pixels for this static field..</param>
-        /// <param name="width">The width in pixels of this static field..</param>
-        /// <param name="height">The height in pixels of this static field..</param>
-        /// <param name="required">Boolean showing whether or not this field is required..</param>
-        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
+        /// <param name="signer">_t__TemplateResponseDocumentStaticField::SIGNER (default to &quot;me_now&quot;).</param>
+        /// <param name="x">_t__TemplateResponseDocumentStaticField::X.</param>
+        /// <param name="y">_t__TemplateResponseDocumentStaticField::Y.</param>
+        /// <param name="width">_t__TemplateResponseDocumentStaticField::WIDTH.</param>
+        /// <param name="height">_t__TemplateResponseDocumentStaticField::HEIGHT.</param>
+        /// <param name="required">_t__TemplateResponseDocumentStaticField::REQUIRED.</param>
+        /// <param name="group">_t__TemplateResponseDocumentStaticField::GROUP.</param>
         public TemplateResponseDocumentStaticFieldBase(string apiId = default(string), string name = default(string), string type = default(string), string signer = @"me_now", int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
 
@@ -105,65 +105,65 @@ namespace Dropbox.Sign.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// A unique id for the static field.
+        /// _t__TemplateResponseDocumentStaticField::API_ID
         /// </summary>
-        /// <value>A unique id for the static field.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::API_ID</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
 
         /// <summary>
-        /// The name of the static field.
+        /// _t__TemplateResponseDocumentStaticField::NAME
         /// </summary>
-        /// <value>The name of the static field.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The signer of the Static Field.
+        /// _t__TemplateResponseDocumentStaticField::SIGNER
         /// </summary>
-        /// <value>The signer of the Static Field.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::SIGNER</value>
         [DataMember(Name = "signer", EmitDefaultValue = true)]
         public string Signer { get; set; }
 
         /// <summary>
-        /// The horizontal offset in pixels for this static field.
+        /// _t__TemplateResponseDocumentStaticField::X
         /// </summary>
-        /// <value>The horizontal offset in pixels for this static field.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::X</value>
         [DataMember(Name = "x", EmitDefaultValue = true)]
         public int X { get; set; }
 
         /// <summary>
-        /// The vertical offset in pixels for this static field.
+        /// _t__TemplateResponseDocumentStaticField::Y
         /// </summary>
-        /// <value>The vertical offset in pixels for this static field.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::Y</value>
         [DataMember(Name = "y", EmitDefaultValue = true)]
         public int Y { get; set; }
 
         /// <summary>
-        /// The width in pixels of this static field.
+        /// _t__TemplateResponseDocumentStaticField::WIDTH
         /// </summary>
-        /// <value>The width in pixels of this static field.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::WIDTH</value>
         [DataMember(Name = "width", EmitDefaultValue = true)]
         public int Width { get; set; }
 
         /// <summary>
-        /// The height in pixels of this static field.
+        /// _t__TemplateResponseDocumentStaticField::HEIGHT
         /// </summary>
-        /// <value>The height in pixels of this static field.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::HEIGHT</value>
         [DataMember(Name = "height", EmitDefaultValue = true)]
         public int Height { get; set; }
 
         /// <summary>
-        /// Boolean showing whether or not this field is required.
+        /// _t__TemplateResponseDocumentStaticField::REQUIRED
         /// </summary>
-        /// <value>Boolean showing whether or not this field is required.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::REQUIRED</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
 
         /// <summary>
-        /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.
+        /// _t__TemplateResponseDocumentStaticField::GROUP
         /// </summary>
-        /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::GROUP</value>
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// This class extends &#x60;TemplateResponseDocumentCustomFieldBase&#x60;
+    /// _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentCustomFieldCheckbox")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,16 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentCustomFieldCheckbox" /> class.
         /// </summary>
-        /// <param name="type">The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60; (required) (default to &quot;checkbox&quot;).</param>
-        /// <param name="apiId">The unique ID for this field..</param>
-        /// <param name="name">The name of the Custom Field..</param>
-        /// <param name="signer">The signer of the Custom Field. Can be &#x60;null&#x60; if field is a merge field (assigned to Sender)..</param>
-        /// <param name="x">The horizontal offset in pixels for this form field..</param>
-        /// <param name="y">The vertical offset in pixels for this form field..</param>
-        /// <param name="width">The width in pixels of this form field..</param>
-        /// <param name="height">The height in pixels of this form field..</param>
-        /// <param name="required">Boolean showing whether or not this field is required..</param>
-        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
+        /// <param name="type">_t__TemplateResponseDocumentCustomField::TYPE (required) (default to &quot;checkbox&quot;).</param>
+        /// <param name="apiId">_t__TemplateResponseDocumentCustomField::API_ID.</param>
+        /// <param name="name">_t__TemplateResponseDocumentCustomField::NAME.</param>
+        /// <param name="signer">_t__TemplateResponseDocumentCustomField::SIGNER.</param>
+        /// <param name="x">_t__TemplateResponseDocumentCustomField::X.</param>
+        /// <param name="y">_t__TemplateResponseDocumentCustomField::Y.</param>
+        /// <param name="width">_t__TemplateResponseDocumentCustomField::WIDTH.</param>
+        /// <param name="height">_t__TemplateResponseDocumentCustomField::HEIGHT.</param>
+        /// <param name="required">_t__TemplateResponseDocumentStaticField::REQUIRED.</param>
+        /// <param name="group">_t__TemplateResponseDocumentCustomField::GROUP.</param>
         public TemplateResponseDocumentCustomFieldCheckbox(string type = @"checkbox", string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             this.ApiId = apiId;
@@ -88,9 +88,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60;
+        /// _t__TemplateResponseDocumentCustomField::TYPE
         /// </summary>
-        /// <value>The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60;</value>
+        /// <value>_t__TemplateResponseDocumentCustomField::TYPE</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

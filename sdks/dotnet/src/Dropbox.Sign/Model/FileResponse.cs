@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileResponse" /> class.
         /// </summary>
-        /// <param name="fileUrl">URL to the file. (required).</param>
-        /// <param name="expiresAt">When the link expires. (required).</param>
+        /// <param name="fileUrl">_t__FileResponse::FILE_URL (required).</param>
+        /// <param name="expiresAt">_t__FileResponse::EXPIRES_AT (required).</param>
         public FileResponse(string fileUrl = default(string), int expiresAt = default(int))
         {
 
@@ -72,16 +72,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// URL to the file.
+        /// _t__FileResponse::FILE_URL
         /// </summary>
-        /// <value>URL to the file.</value>
+        /// <value>_t__FileResponse::FILE_URL</value>
         [DataMember(Name = "file_url", IsRequired = true, EmitDefaultValue = true)]
         public string FileUrl { get; set; }
 
         /// <summary>
-        /// When the link expires.
+        /// _t__FileResponse::EXPIRES_AT
         /// </summary>
-        /// <value>When the link expires.</value>
+        /// <value>_t__FileResponse::EXPIRES_AT</value>
         [DataMember(Name = "expires_at", IsRequired = true, EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
+    /// _t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TemplateCreateEmbeddedDraftResponseTemplate")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,10 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateEmbeddedDraftResponseTemplate" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template..</param>
-        /// <param name="editUrl">Link to edit the template..</param>
-        /// <param name="expiresAt">When the link expires..</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="templateId">_t__TemplateResponse::TEMPLATE_ID.</param>
+        /// <param name="editUrl">_t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL.</param>
+        /// <param name="expiresAt">_t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT.</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public TemplateCreateEmbeddedDraftResponseTemplate(string templateId = default(string), string editUrl = default(string), int expiresAt = default(int), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -71,30 +71,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the Template.
+        /// _t__TemplateResponse::TEMPLATE_ID
         /// </summary>
-        /// <value>The id of the Template.</value>
+        /// <value>_t__TemplateResponse::TEMPLATE_ID</value>
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>
-        /// Link to edit the template.
+        /// _t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL
         /// </summary>
-        /// <value>Link to edit the template.</value>
+        /// <value>_t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL</value>
         [DataMember(Name = "edit_url", EmitDefaultValue = true)]
         public string EditUrl { get; set; }
 
         /// <summary>
-        /// When the link expires.
+        /// _t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT
         /// </summary>
-        /// <value>When the link expires.</value>
+        /// <value>_t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         [Obsolete]
         public List<WarningResponse> Warnings { get; set; }

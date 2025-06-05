@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains information about the report request.
+    /// _t__ReportResponse::DESCRIPTION
     /// </summary>
     [DataContract(Name = "ReportResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -60,10 +60,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportResponse" /> class.
         /// </summary>
-        /// <param name="success">A message indicating the requested operation&#39;s success.</param>
-        /// <param name="startDate">The (inclusive) start date for the report data in MM/DD/YYYY format..</param>
-        /// <param name="endDate">The (inclusive) end date for the report data in MM/DD/YYYY format..</param>
-        /// <param name="reportType">The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status)..</param>
+        /// <param name="success">_t__ReportResponse::SUCCESS.</param>
+        /// <param name="startDate">_t__ReportResponse::START_DATE.</param>
+        /// <param name="endDate">_t__ReportResponse::END_DATE.</param>
+        /// <param name="reportType">_t__ReportResponse::REPORT_TYPE.</param>
         public ReportResponse(string success = default(string), string startDate = default(string), string endDate = default(string), List<ReportTypeEnum> reportType = default(List<ReportTypeEnum>))
         {
 
@@ -90,30 +90,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// A message indicating the requested operation&#39;s success
+        /// _t__ReportResponse::SUCCESS
         /// </summary>
-        /// <value>A message indicating the requested operation&#39;s success</value>
+        /// <value>_t__ReportResponse::SUCCESS</value>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public string Success { get; set; }
 
         /// <summary>
-        /// The (inclusive) start date for the report data in MM/DD/YYYY format.
+        /// _t__ReportResponse::START_DATE
         /// </summary>
-        /// <value>The (inclusive) start date for the report data in MM/DD/YYYY format.</value>
+        /// <value>_t__ReportResponse::START_DATE</value>
         [DataMember(Name = "start_date", EmitDefaultValue = true)]
         public string StartDate { get; set; }
 
         /// <summary>
-        /// The (inclusive) end date for the report data in MM/DD/YYYY format.
+        /// _t__ReportResponse::END_DATE
         /// </summary>
-        /// <value>The (inclusive) end date for the report data in MM/DD/YYYY format.</value>
+        /// <value>_t__ReportResponse::END_DATE</value>
         [DataMember(Name = "end_date", EmitDefaultValue = true)]
         public string EndDate { get; set; }
 
         /// <summary>
-        /// The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
+        /// _t__ReportResponse::REPORT_TYPE
         /// </summary>
-        /// <value>The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).</value>
+        /// <value>_t__ReportResponse::REPORT_TYPE</value>
         [DataMember(Name = "report_type", EmitDefaultValue = true)]
         public List<ReportResponse.ReportTypeEnum> ReportType { get; set; }
 

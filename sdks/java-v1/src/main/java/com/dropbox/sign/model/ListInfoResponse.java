@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains pagination information about the data returned. */
+/** _t__ListInfoResponse::DESCRIPTION */
 @JsonPropertyOrder({
     ListInfoResponse.JSON_PROPERTY_NUM_PAGES,
     ListInfoResponse.JSON_PROPERTY_NUM_RESULTS,
@@ -69,7 +69,7 @@ public class ListInfoResponse {
     }
 
     /**
-     * Total number of pages available.
+     * _t__ListInfoResponse::NUM_PAGES
      *
      * @return numPages
      */
@@ -91,7 +91,7 @@ public class ListInfoResponse {
     }
 
     /**
-     * Total number of objects available.
+     * _t__ListInfoResponse::NUM_RESULTS
      *
      * @return numResults
      */
@@ -113,7 +113,7 @@ public class ListInfoResponse {
     }
 
     /**
-     * Number of the page being returned.
+     * _t__ListInfoResponse::PAGE
      *
      * @return page
      */
@@ -135,7 +135,7 @@ public class ListInfoResponse {
     }
 
     /**
-     * Objects returned per page.
+     * _t__ListInfoResponse::PAGE_SIZE
      *
      * @return pageSize
      */

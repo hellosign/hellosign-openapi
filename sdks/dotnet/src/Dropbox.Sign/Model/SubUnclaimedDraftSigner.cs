@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubUnclaimedDraftSigner" /> class.
         /// </summary>
-        /// <param name="emailAddress">The email address of the signer. (required).</param>
-        /// <param name="name">The name of the signer. (required).</param>
-        /// <param name="order">The order the signer is required to sign in..</param>
+        /// <param name="emailAddress">_t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS (required).</param>
+        /// <param name="name">_t__Sub::UnclaimedDraftSigner::NAME (required).</param>
+        /// <param name="order">_t__Sub::UnclaimedDraftSigner::ORDER.</param>
         public SubUnclaimedDraftSigner(string emailAddress = default(string), string name = default(string), int? order = default(int?))
         {
 
@@ -79,23 +79,23 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The email address of the signer.
+        /// _t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS
         /// </summary>
-        /// <value>The email address of the signer.</value>
+        /// <value>_t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// The name of the signer.
+        /// _t__Sub::UnclaimedDraftSigner::NAME
         /// </summary>
-        /// <value>The name of the signer.</value>
+        /// <value>_t__Sub::UnclaimedDraftSigner::NAME</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The order the signer is required to sign in.
+        /// _t__Sub::UnclaimedDraftSigner::ORDER
         /// </summary>
-        /// <value>The order the signer is required to sign in.</value>
+        /// <value>_t__Sub::UnclaimedDraftSigner::ORDER</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
 

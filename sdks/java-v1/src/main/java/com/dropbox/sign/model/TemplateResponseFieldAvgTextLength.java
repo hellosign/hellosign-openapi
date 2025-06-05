@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Average text length in this field. */
+/** _t__TemplateResponseFieldAvgTextLength::DESCRIPTION */
 @JsonPropertyOrder({
     TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
     TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_CHARS_PER_LINE
@@ -64,7 +64,7 @@ public class TemplateResponseFieldAvgTextLength {
     }
 
     /**
-     * Number of lines.
+     * _t__TemplateResponseFieldAvgTextLength::NUM_LINES
      *
      * @return numLines
      */
@@ -87,7 +87,7 @@ public class TemplateResponseFieldAvgTextLength {
     }
 
     /**
-     * Number of characters per line.
+     * _t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE
      *
      * @return numCharsPerLine
      */

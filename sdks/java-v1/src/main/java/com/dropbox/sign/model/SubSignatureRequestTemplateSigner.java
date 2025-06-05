@@ -54,12 +54,7 @@ public class SubSignatureRequestTemplateSigner {
     public static final String JSON_PROPERTY_SMS_PHONE_NUMBER = "sms_phone_number";
     @javax.annotation.Nullable private String smsPhoneNumber;
 
-    /**
-     * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default
-     * &#x60;authentication&#x60;. If &#x60;authentication&#x60;, signer is sent a verification code
-     * via SMS that is required to access the document. If &#x60;delivery&#x60;, a link to complete
-     * the signature request is delivered via SMS (_and_ email).
-     */
+    /** _t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE */
     public enum SmsPhoneNumberTypeEnum {
         AUTHENTICATION(String.valueOf("authentication")),
 
@@ -119,7 +114,7 @@ public class SubSignatureRequestTemplateSigner {
     }
 
     /**
-     * Must match an existing role in chosen Template(s). It&#39;s case-sensitive.
+     * _t__Sub::SignatureRequestTemplateSigner::ROLE
      *
      * @return role
      */
@@ -142,7 +137,7 @@ public class SubSignatureRequestTemplateSigner {
     }
 
     /**
-     * The name of the signer.
+     * _t__Sub::SignatureRequestTemplateSigner::NAME
      *
      * @return name
      */
@@ -166,7 +161,7 @@ public class SubSignatureRequestTemplateSigner {
     }
 
     /**
-     * The email address of the signer.
+     * _t__Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS
      *
      * @return emailAddress
      */
@@ -189,7 +184,7 @@ public class SubSignatureRequestTemplateSigner {
     }
 
     /**
-     * The 4- to 12-character access code that will secure this signer&#39;s signature page.
+     * _t__Sub::SignatureRequestTemplateSigner::PIN
      *
      * @return pin
      */
@@ -212,12 +207,7 @@ public class SubSignatureRequestTemplateSigner {
     }
 
     /**
-     * An E.164 formatted phone number. By using the feature, you agree you are responsible for
-     * obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this
-     * signature request and confirm you have obtained such consent from all signers prior to
-     * enabling SMS delivery for this signature request. [Learn
-     * more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
-     * **NOTE:** Not available in test mode and requires a Standard plan or higher.
+     * _t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER
      *
      * @return smsPhoneNumber
      */
@@ -240,10 +230,7 @@ public class SubSignatureRequestTemplateSigner {
     }
 
     /**
-     * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default
-     * &#x60;authentication&#x60;. If &#x60;authentication&#x60;, signer is sent a verification code
-     * via SMS that is required to access the document. If &#x60;delivery&#x60;, a link to complete
-     * the signature request is delivered via SMS (_and_ email).
+     * _t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE
      *
      * @return smsPhoneNumberType
      */

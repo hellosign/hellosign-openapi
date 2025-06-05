@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseCCRole" /> class.
         /// </summary>
-        /// <param name="name">The name of the Role..</param>
+        /// <param name="name">_t__TemplateResponseCCRole::NAME.</param>
         public TemplateResponseCCRole(string name = default(string))
         {
 
@@ -65,9 +65,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The name of the Role.
+        /// _t__TemplateResponseCCRole::NAME
         /// </summary>
-        /// <value>The name of the Role.</value>
+        /// <value>_t__TemplateResponseCCRole::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 

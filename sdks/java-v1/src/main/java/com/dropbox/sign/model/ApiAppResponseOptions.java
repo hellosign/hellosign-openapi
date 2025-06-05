@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An object with options that override account settings. */
+/** _t__ApiAppResponseOptions::DESCRIPTION */
 @JsonPropertyOrder({ApiAppResponseOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -57,8 +57,7 @@ public class ApiAppResponseOptions {
     }
 
     /**
-     * Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a
-     * document
+     * _t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE
      *
      * @return canInsertEverywhere
      */

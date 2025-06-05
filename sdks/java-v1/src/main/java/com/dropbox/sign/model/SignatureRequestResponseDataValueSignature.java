@@ -77,7 +77,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
     }
 
     /**
-     * A signature input field
+     * _t__SignatureRequestResponseDataValue::SIGNATURE_TYPE
      *
      * @return type
      */
@@ -100,7 +100,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
     }
 
     /**
-     * The value of the form field.
+     * _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return value
      */
@@ -123,7 +123,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
     }
 
     /**
-     * This field contains the boolean true if the field is signed.
+     * _t__SignatureRequestResponseDataValue::IS_SIGNED
      *
      * @return isSigned
      */

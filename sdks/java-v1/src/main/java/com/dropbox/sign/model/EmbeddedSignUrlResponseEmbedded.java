@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An object that contains necessary information to set up embedded signing. */
+/** _t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION */
 @JsonPropertyOrder({
     EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_SIGN_URL,
     EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
@@ -63,7 +63,7 @@ public class EmbeddedSignUrlResponseEmbedded {
     }
 
     /**
-     * A signature url that can be opened in an iFrame.
+     * _t__EmbeddedSignUrlResponseEmbedded::SIGN_URL
      *
      * @return signUrl
      */
@@ -85,7 +85,7 @@ public class EmbeddedSignUrlResponseEmbedded {
     }
 
     /**
-     * The specific time that the the &#x60;sign_url&#x60; link expires, in epoch.
+     * _t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT
      *
      * @return expiresAt
      */

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// This class extends &#x60;SignatureRequestResponseCustomFieldBase&#x60;.
+    /// _t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseCustomFieldText")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseCustomFieldText" /> class.
         /// </summary>
-        /// <param name="type">The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported. (required) (default to &quot;text&quot;).</param>
-        /// <param name="value">A text string for text fields.</param>
-        /// <param name="name">The name of the Custom Field. (required).</param>
-        /// <param name="required">A boolean value denoting if this field is required..</param>
-        /// <param name="apiId">The unique ID for this field..</param>
-        /// <param name="editor">The name of the Role that is able to edit this field..</param>
+        /// <param name="type">_t__SignatureRequestResponseCustomField::TYPE (required) (default to &quot;text&quot;).</param>
+        /// <param name="value">_t__SignatureRequestResponseCustomField::VALUE_TEXT.</param>
+        /// <param name="name">_t__SignatureRequestResponseCustomField::NAME (required).</param>
+        /// <param name="required">_t__SignatureRequestResponseCustomField::REQUIRED.</param>
+        /// <param name="apiId">_t__SignatureRequestResponseCustomField::API_ID.</param>
+        /// <param name="editor">_t__SignatureRequestResponseCustomField::EDITOR.</param>
         public SignatureRequestResponseCustomFieldText(string type = @"text", string value = default(string), string name = default(string), bool required = default(bool), string apiId = default(string), string editor = default(string))
         {
             this.Name = name;
@@ -80,16 +80,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.
+        /// _t__SignatureRequestResponseCustomField::TYPE
         /// </summary>
-        /// <value>The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.</value>
+        /// <value>_t__SignatureRequestResponseCustomField::TYPE</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// A text string for text fields
+        /// _t__SignatureRequestResponseCustomField::VALUE_TEXT
         /// </summary>
-        /// <value>A text string for text fields</value>
+        /// <value>_t__SignatureRequestResponseCustomField::VALUE_TEXT</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 

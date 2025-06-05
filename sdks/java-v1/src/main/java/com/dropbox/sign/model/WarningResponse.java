@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A list of warnings. */
+/** _t__WarningResponse::LIST_DESCRIPTION */
 @JsonPropertyOrder({
     WarningResponse.JSON_PROPERTY_WARNING_MSG,
     WarningResponse.JSON_PROPERTY_WARNING_NAME
@@ -61,7 +61,7 @@ public class WarningResponse {
     }
 
     /**
-     * Warning message
+     * _t__WarningResponse::WARNING_MSG
      *
      * @return warningMsg
      */
@@ -84,7 +84,7 @@ public class WarningResponse {
     }
 
     /**
-     * Warning name
+     * _t__WarningResponse::WARNING_NAME
      *
      * @return warningName
      */

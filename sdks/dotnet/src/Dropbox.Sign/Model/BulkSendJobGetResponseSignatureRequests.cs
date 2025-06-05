@@ -41,31 +41,31 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkSendJobGetResponseSignatureRequests" /> class.
         /// </summary>
-        /// <param name="testMode">Whether this is a test signature request. Test requests have no legal value. Defaults to &#x60;false&#x60;. (default to false).</param>
-        /// <param name="signatureRequestId">The id of the SignatureRequest..</param>
-        /// <param name="requesterEmailAddress">The email address of the initiator of the SignatureRequest..</param>
-        /// <param name="title">The title the specified Account uses for the SignatureRequest..</param>
-        /// <param name="originalTitle">Default Label for account..</param>
-        /// <param name="subject">The subject in the email that was initially sent to the signers..</param>
-        /// <param name="message">The custom message in the email that was initially sent to the signers..</param>
-        /// <param name="metadata">The metadata attached to the signature request..</param>
-        /// <param name="createdAt">Time the signature request was created..</param>
-        /// <param name="expiresAt">The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
-        /// <param name="isComplete">Whether or not the SignatureRequest has been fully executed by all signers..</param>
-        /// <param name="isDeclined">Whether or not the SignatureRequest has been declined by a signer..</param>
-        /// <param name="hasError">Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings)..</param>
-        /// <param name="filesUrl">The URL where a copy of the request&#39;s documents can be downloaded..</param>
-        /// <param name="signingUrl">The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing..</param>
-        /// <param name="detailsUrl">The URL where the requester and the signers can view the current status of the SignatureRequest..</param>
-        /// <param name="ccEmailAddresses">A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed..</param>
-        /// <param name="signingRedirectUrl">The URL you want the signer redirected to after they successfully sign..</param>
-        /// <param name="finalCopyUri">The path where the completed document can be downloaded.</param>
-        /// <param name="templateIds">Templates IDs used in this SignatureRequest (if any)..</param>
-        /// <param name="customFields">An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;.</param>
-        /// <param name="attachments">Signer attachments..</param>
-        /// <param name="responseData">An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers..</param>
-        /// <param name="signatures">An array of signature objects, 1 for each signer..</param>
-        /// <param name="bulkSendJobId">The id of the BulkSendJob..</param>
+        /// <param name="testMode">_t__SignatureRequestResponse::TEST_MODE (default to false).</param>
+        /// <param name="signatureRequestId">_t__SignatureRequestResponse::SIGNATURE_REQUEST_ID.</param>
+        /// <param name="requesterEmailAddress">_t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS.</param>
+        /// <param name="title">_t__SignatureRequestResponse::TITLE.</param>
+        /// <param name="originalTitle">_t__SignatureRequestResponse::ORIGINAL_TITLE.</param>
+        /// <param name="subject">_t__SignatureRequestResponse::SUBJECT.</param>
+        /// <param name="message">_t__SignatureRequestResponse::MESSAGE.</param>
+        /// <param name="metadata">_t__SignatureRequestResponse::METADATA.</param>
+        /// <param name="createdAt">_t__SignatureRequestResponse::CREATED_AT.</param>
+        /// <param name="expiresAt">_t__SignatureRequestResponse::EXPIRES_AT.</param>
+        /// <param name="isComplete">_t__SignatureRequestResponse::IS_COMPLETE.</param>
+        /// <param name="isDeclined">_t__SignatureRequestResponse::IS_DECLINED.</param>
+        /// <param name="hasError">_t__SignatureRequestResponse::HAS_ERROR.</param>
+        /// <param name="filesUrl">_t__SignatureRequestResponse::FILES_URL.</param>
+        /// <param name="signingUrl">_t__SignatureRequestResponse::SIGNING_URL.</param>
+        /// <param name="detailsUrl">_t__SignatureRequestResponse::DETAILS_URL.</param>
+        /// <param name="ccEmailAddresses">_t__SignatureRequestResponse::CC_EMAIL_ADDRESSES.</param>
+        /// <param name="signingRedirectUrl">_t__SignatureRequestResponse::SIGNING_REDIRECT_URL.</param>
+        /// <param name="finalCopyUri">_t__SignatureRequestResponse::FINAL_COPY_URI.</param>
+        /// <param name="templateIds">_t__SignatureRequestResponse::TEMPLATE_IDS.</param>
+        /// <param name="customFields">_t__SignatureRequestResponseCustomField::DESCRIPTION.</param>
+        /// <param name="attachments">_t__SignatureRequestResponseAttachment::DESCRIPTION.</param>
+        /// <param name="responseData">_t__SignatureRequestResponseData::DESCRIPTION.</param>
+        /// <param name="signatures">_t__SignatureRequestResponseSignatures::DESCRIPTION.</param>
+        /// <param name="bulkSendJobId">_t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID.</param>
         public BulkSendJobGetResponseSignatureRequests(bool testMode = false, string signatureRequestId = default(string), string requesterEmailAddress = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), int? expiresAt = default(int?), bool isComplete = default(bool), bool isDeclined = default(bool), bool hasError = default(bool), string filesUrl = default(string), string signingUrl = default(string), string detailsUrl = default(string), List<string> ccEmailAddresses = default(List<string>), string signingRedirectUrl = default(string), string finalCopyUri = default(string), List<string> templateIds = default(List<string>), List<SignatureRequestResponseCustomFieldBase> customFields = default(List<SignatureRequestResponseCustomFieldBase>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), List<SignatureRequestResponseDataBase> responseData = default(List<SignatureRequestResponseDataBase>), List<SignatureRequestResponseSignatures> signatures = default(List<SignatureRequestResponseSignatures>), string bulkSendJobId = default(string))
         {
 
@@ -113,177 +113,177 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Whether this is a test signature request. Test requests have no legal value. Defaults to &#x60;false&#x60;.
+        /// _t__SignatureRequestResponse::TEST_MODE
         /// </summary>
-        /// <value>Whether this is a test signature request. Test requests have no legal value. Defaults to &#x60;false&#x60;.</value>
+        /// <value>_t__SignatureRequestResponse::TEST_MODE</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
 
         /// <summary>
-        /// The id of the SignatureRequest.
+        /// _t__SignatureRequestResponse::SIGNATURE_REQUEST_ID
         /// </summary>
-        /// <value>The id of the SignatureRequest.</value>
+        /// <value>_t__SignatureRequestResponse::SIGNATURE_REQUEST_ID</value>
         [DataMember(Name = "signature_request_id", EmitDefaultValue = true)]
         public string SignatureRequestId { get; set; }
 
         /// <summary>
-        /// The email address of the initiator of the SignatureRequest.
+        /// _t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS
         /// </summary>
-        /// <value>The email address of the initiator of the SignatureRequest.</value>
+        /// <value>_t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS</value>
         [DataMember(Name = "requester_email_address", EmitDefaultValue = true)]
         public string RequesterEmailAddress { get; set; }
 
         /// <summary>
-        /// The title the specified Account uses for the SignatureRequest.
+        /// _t__SignatureRequestResponse::TITLE
         /// </summary>
-        /// <value>The title the specified Account uses for the SignatureRequest.</value>
+        /// <value>_t__SignatureRequestResponse::TITLE</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Default Label for account.
+        /// _t__SignatureRequestResponse::ORIGINAL_TITLE
         /// </summary>
-        /// <value>Default Label for account.</value>
+        /// <value>_t__SignatureRequestResponse::ORIGINAL_TITLE</value>
         [DataMember(Name = "original_title", EmitDefaultValue = true)]
         public string OriginalTitle { get; set; }
 
         /// <summary>
-        /// The subject in the email that was initially sent to the signers.
+        /// _t__SignatureRequestResponse::SUBJECT
         /// </summary>
-        /// <value>The subject in the email that was initially sent to the signers.</value>
+        /// <value>_t__SignatureRequestResponse::SUBJECT</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
 
         /// <summary>
-        /// The custom message in the email that was initially sent to the signers.
+        /// _t__SignatureRequestResponse::MESSAGE
         /// </summary>
-        /// <value>The custom message in the email that was initially sent to the signers.</value>
+        /// <value>_t__SignatureRequestResponse::MESSAGE</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
-        /// The metadata attached to the signature request.
+        /// _t__SignatureRequestResponse::METADATA
         /// </summary>
-        /// <value>The metadata attached to the signature request.</value>
+        /// <value>_t__SignatureRequestResponse::METADATA</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
-        /// Time the signature request was created.
+        /// _t__SignatureRequestResponse::CREATED_AT
         /// </summary>
-        /// <value>Time the signature request was created.</value>
+        /// <value>_t__SignatureRequestResponse::CREATED_AT</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
 
         /// <summary>
-        /// The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+        /// _t__SignatureRequestResponse::EXPIRES_AT
         /// </summary>
-        /// <value>The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
+        /// <value>_t__SignatureRequestResponse::EXPIRES_AT</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
 
         /// <summary>
-        /// Whether or not the SignatureRequest has been fully executed by all signers.
+        /// _t__SignatureRequestResponse::IS_COMPLETE
         /// </summary>
-        /// <value>Whether or not the SignatureRequest has been fully executed by all signers.</value>
+        /// <value>_t__SignatureRequestResponse::IS_COMPLETE</value>
         [DataMember(Name = "is_complete", EmitDefaultValue = true)]
         public bool IsComplete { get; set; }
 
         /// <summary>
-        /// Whether or not the SignatureRequest has been declined by a signer.
+        /// _t__SignatureRequestResponse::IS_DECLINED
         /// </summary>
-        /// <value>Whether or not the SignatureRequest has been declined by a signer.</value>
+        /// <value>_t__SignatureRequestResponse::IS_DECLINED</value>
         [DataMember(Name = "is_declined", EmitDefaultValue = true)]
         public bool IsDeclined { get; set; }
 
         /// <summary>
-        /// Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
+        /// _t__SignatureRequestResponse::HAS_ERROR
         /// </summary>
-        /// <value>Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).</value>
+        /// <value>_t__SignatureRequestResponse::HAS_ERROR</value>
         [DataMember(Name = "has_error", EmitDefaultValue = true)]
         public bool HasError { get; set; }
 
         /// <summary>
-        /// The URL where a copy of the request&#39;s documents can be downloaded.
+        /// _t__SignatureRequestResponse::FILES_URL
         /// </summary>
-        /// <value>The URL where a copy of the request&#39;s documents can be downloaded.</value>
+        /// <value>_t__SignatureRequestResponse::FILES_URL</value>
         [DataMember(Name = "files_url", EmitDefaultValue = true)]
         public string FilesUrl { get; set; }
 
         /// <summary>
-        /// The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
+        /// _t__SignatureRequestResponse::SIGNING_URL
         /// </summary>
-        /// <value>The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.</value>
+        /// <value>_t__SignatureRequestResponse::SIGNING_URL</value>
         [DataMember(Name = "signing_url", EmitDefaultValue = true)]
         public string SigningUrl { get; set; }
 
         /// <summary>
-        /// The URL where the requester and the signers can view the current status of the SignatureRequest.
+        /// _t__SignatureRequestResponse::DETAILS_URL
         /// </summary>
-        /// <value>The URL where the requester and the signers can view the current status of the SignatureRequest.</value>
+        /// <value>_t__SignatureRequestResponse::DETAILS_URL</value>
         [DataMember(Name = "details_url", EmitDefaultValue = true)]
         public string DetailsUrl { get; set; }
 
         /// <summary>
-        /// A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
+        /// _t__SignatureRequestResponse::CC_EMAIL_ADDRESSES
         /// </summary>
-        /// <value>A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.</value>
+        /// <value>_t__SignatureRequestResponse::CC_EMAIL_ADDRESSES</value>
         [DataMember(Name = "cc_email_addresses", EmitDefaultValue = true)]
         public List<string> CcEmailAddresses { get; set; }
 
         /// <summary>
-        /// The URL you want the signer redirected to after they successfully sign.
+        /// _t__SignatureRequestResponse::SIGNING_REDIRECT_URL
         /// </summary>
-        /// <value>The URL you want the signer redirected to after they successfully sign.</value>
+        /// <value>_t__SignatureRequestResponse::SIGNING_REDIRECT_URL</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
 
         /// <summary>
-        /// The path where the completed document can be downloaded
+        /// _t__SignatureRequestResponse::FINAL_COPY_URI
         /// </summary>
-        /// <value>The path where the completed document can be downloaded</value>
+        /// <value>_t__SignatureRequestResponse::FINAL_COPY_URI</value>
         [DataMember(Name = "final_copy_uri", EmitDefaultValue = true)]
         public string FinalCopyUri { get; set; }
 
         /// <summary>
-        /// Templates IDs used in this SignatureRequest (if any).
+        /// _t__SignatureRequestResponse::TEMPLATE_IDS
         /// </summary>
-        /// <value>Templates IDs used in this SignatureRequest (if any).</value>
+        /// <value>_t__SignatureRequestResponse::TEMPLATE_IDS</value>
         [DataMember(Name = "template_ids", EmitDefaultValue = true)]
         public List<string> TemplateIds { get; set; }
 
         /// <summary>
-        /// An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
+        /// _t__SignatureRequestResponseCustomField::DESCRIPTION
         /// </summary>
-        /// <value>An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;</value>
+        /// <value>_t__SignatureRequestResponseCustomField::DESCRIPTION</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SignatureRequestResponseCustomFieldBase> CustomFields { get; set; }
 
         /// <summary>
-        /// Signer attachments.
+        /// _t__SignatureRequestResponseAttachment::DESCRIPTION
         /// </summary>
-        /// <value>Signer attachments.</value>
+        /// <value>_t__SignatureRequestResponseAttachment::DESCRIPTION</value>
         [DataMember(Name = "attachments", EmitDefaultValue = true)]
         public List<SignatureRequestResponseAttachment> Attachments { get; set; }
 
         /// <summary>
-        /// An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+        /// _t__SignatureRequestResponseData::DESCRIPTION
         /// </summary>
-        /// <value>An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.</value>
+        /// <value>_t__SignatureRequestResponseData::DESCRIPTION</value>
         [DataMember(Name = "response_data", EmitDefaultValue = true)]
         public List<SignatureRequestResponseDataBase> ResponseData { get; set; }
 
         /// <summary>
-        /// An array of signature objects, 1 for each signer.
+        /// _t__SignatureRequestResponseSignatures::DESCRIPTION
         /// </summary>
-        /// <value>An array of signature objects, 1 for each signer.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::DESCRIPTION</value>
         [DataMember(Name = "signatures", EmitDefaultValue = true)]
         public List<SignatureRequestResponseSignatures> Signatures { get; set; }
 
         /// <summary>
-        /// The id of the BulkSendJob.
+        /// _t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID
         /// </summary>
-        /// <value>The id of the BulkSendJob.</value>
+        /// <value>_t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID</value>
         [DataMember(Name = "bulk_send_job_id", EmitDefaultValue = true)]
         public string BulkSendJobId { get; set; }
 

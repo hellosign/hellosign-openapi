@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppListResponse" /> class.
         /// </summary>
-        /// <param name="apiApps">Contains information about API Apps. (required).</param>
+        /// <param name="apiApps">_t__ApiAppListResponse::DESCRIPTION (required).</param>
         /// <param name="listInfo">listInfo (required).</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public ApiAppListResponse(List<ApiAppResponse> apiApps = default(List<ApiAppResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -79,9 +79,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Contains information about API Apps.
+        /// _t__ApiAppListResponse::DESCRIPTION
         /// </summary>
-        /// <value>Contains information about API Apps.</value>
+        /// <value>_t__ApiAppListResponse::DESCRIPTION</value>
         [DataMember(Name = "api_apps", IsRequired = true, EmitDefaultValue = true)]
         public List<ApiAppResponse> ApiApps { get; set; }
 
@@ -92,9 +92,9 @@ namespace Dropbox.Sign.Model
         public ListInfoResponse ListInfo { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
 

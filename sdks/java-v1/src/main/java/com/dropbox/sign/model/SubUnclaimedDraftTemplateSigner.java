@@ -67,7 +67,7 @@ public class SubUnclaimedDraftTemplateSigner {
     }
 
     /**
-     * Must match an existing role in chosen Template(s).
+     * _t__Sub::UnclaimedDraftTemplateSigner::ROLE
      *
      * @return role
      */
@@ -90,7 +90,7 @@ public class SubUnclaimedDraftTemplateSigner {
     }
 
     /**
-     * The name of the signer filling the role of &#x60;role&#x60;.
+     * _t__Sub::UnclaimedDraftTemplateSigner::NAME
      *
      * @return name
      */
@@ -114,7 +114,7 @@ public class SubUnclaimedDraftTemplateSigner {
     }
 
     /**
-     * The email address of the signer filling the role of &#x60;role&#x60;.
+     * _t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS
      *
      * @return emailAddress
      */

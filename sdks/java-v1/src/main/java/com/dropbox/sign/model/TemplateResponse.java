@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains information about the templates you and your team have created. */
+/** _t__TemplateResponse::DESCRIPTION */
 @JsonPropertyOrder({
     TemplateResponse.JSON_PROPERTY_TEMPLATE_ID,
     TemplateResponse.JSON_PROPERTY_TITLE,
@@ -121,7 +121,7 @@ public class TemplateResponse {
     }
 
     /**
-     * The id of the Template.
+     * _t__TemplateResponse::TEMPLATE_ID
      *
      * @return templateId
      */
@@ -143,9 +143,7 @@ public class TemplateResponse {
     }
 
     /**
-     * The title of the Template. This will also be the default subject of the message sent to
-     * signers when using this Template to send a SignatureRequest. This can be overridden when
-     * sending the SignatureRequest.
+     * _t__TemplateResponse::TITLE
      *
      * @return title
      */
@@ -167,8 +165,7 @@ public class TemplateResponse {
     }
 
     /**
-     * The default message that will be sent to signers when using this Template to send a
-     * SignatureRequest. This can be overridden when sending the SignatureRequest.
+     * _t__TemplateResponse::MESSAGE
      *
      * @return message
      */
@@ -190,7 +187,7 @@ public class TemplateResponse {
     }
 
     /**
-     * Time the template was last updated.
+     * _t__TemplateResponse::UPDATED_AT
      *
      * @return updatedAt
      */
@@ -212,9 +209,7 @@ public class TemplateResponse {
     }
 
     /**
-     * &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it
-     * was created on our website. Will be &#x60;null&#x60; when you are not the creator of the
-     * Template.
+     * _t__TemplateResponse::IS_EMBEDDED
      *
      * @return isEmbedded
      */
@@ -236,8 +231,7 @@ public class TemplateResponse {
     }
 
     /**
-     * &#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been
-     * shared with you by a team member.
+     * _t__TemplateResponse::IS_CREATOR
      *
      * @return isCreator
      */
@@ -259,8 +253,7 @@ public class TemplateResponse {
     }
 
     /**
-     * Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60;
-     * if that&#39;s you).
+     * _t__TemplateResponse::CAN_EDIT
      *
      * @return canEdit
      */
@@ -282,9 +275,7 @@ public class TemplateResponse {
     }
 
     /**
-     * Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created
-     * outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then
-     * the template is within your quota and can be used to create signature requests.
+     * _t__TemplateResponse::IS_LOCKED
      *
      * @return isLocked
      */
@@ -314,7 +305,7 @@ public class TemplateResponse {
     }
 
     /**
-     * The metadata attached to the template.
+     * _t__TemplateResponse::METADATA
      *
      * @return metadata
      */
@@ -345,8 +336,7 @@ public class TemplateResponse {
     }
 
     /**
-     * An array of the designated signer roles that must be specified when sending a
-     * SignatureRequest using this Template.
+     * _t__TemplateResponse::SIGNER_ROLES
      *
      * @return signerRoles
      */
@@ -378,8 +368,7 @@ public class TemplateResponse {
     }
 
     /**
-     * An array of the designated CC roles that must be specified when sending a SignatureRequest
-     * using this Template.
+     * _t__TemplateResponse::CC_ROLES
      *
      * @return ccRoles
      */
@@ -410,8 +399,7 @@ public class TemplateResponse {
     }
 
     /**
-     * An array describing each document associated with this Template. Includes form field data for
-     * each document.
+     * _t__TemplateResponse::DOCUMENTS
      *
      * @return documents
      */
@@ -444,9 +432,7 @@ public class TemplateResponse {
     }
 
     /**
-     * Deprecated. Use &#x60;custom_fields&#x60; inside the
-     * [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response)
-     * array instead.
+     * _t__TemplateResponseCustomField::DESCRIPTION
      *
      * @return customFields
      * @deprecated
@@ -483,9 +469,7 @@ public class TemplateResponse {
     }
 
     /**
-     * Deprecated. Use &#x60;form_fields&#x60; inside the
-     * [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response)
-     * array instead.
+     * _t__TemplateResponseNamedFormField::DESCRIPTION
      *
      * @return namedFormFields
      * @deprecated
@@ -520,7 +504,7 @@ public class TemplateResponse {
     }
 
     /**
-     * An array of the Accounts that can use this Template.
+     * _t__TemplateResponse::ACCOUNTS
      *
      * @return accounts
      */
@@ -551,7 +535,7 @@ public class TemplateResponse {
     }
 
     /**
-     * Signer attachments.
+     * _t__SignatureRequestResponseAttachment::DESCRIPTION
      *
      * @return attachments
      */

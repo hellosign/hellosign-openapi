@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+    /// _t__TemplateResponseAccountQuota::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TemplateResponseAccountQuota")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,10 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseAccountQuota" /> class.
         /// </summary>
-        /// <param name="templatesLeft">API templates remaining..</param>
-        /// <param name="apiSignatureRequestsLeft">API signature requests remaining..</param>
-        /// <param name="documentsLeft">Signature requests remaining..</param>
-        /// <param name="smsVerificationsLeft">SMS verifications remaining..</param>
+        /// <param name="templatesLeft">_t__TemplateResponseAccountQuota::TEMPLATES_LEFT.</param>
+        /// <param name="apiSignatureRequestsLeft">_t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT.</param>
+        /// <param name="documentsLeft">_t__TemplateResponseAccountQuota::DOCUMENTS_LEFT.</param>
+        /// <param name="smsVerificationsLeft">_t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT.</param>
         public TemplateResponseAccountQuota(int templatesLeft = default(int), int apiSignatureRequestsLeft = default(int), int documentsLeft = default(int), int smsVerificationsLeft = default(int))
         {
 
@@ -71,30 +71,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// API templates remaining.
+        /// _t__TemplateResponseAccountQuota::TEMPLATES_LEFT
         /// </summary>
-        /// <value>API templates remaining.</value>
+        /// <value>_t__TemplateResponseAccountQuota::TEMPLATES_LEFT</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int TemplatesLeft { get; set; }
 
         /// <summary>
-        /// API signature requests remaining.
+        /// _t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT
         /// </summary>
-        /// <value>API signature requests remaining.</value>
+        /// <value>_t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int ApiSignatureRequestsLeft { get; set; }
 
         /// <summary>
-        /// Signature requests remaining.
+        /// _t__TemplateResponseAccountQuota::DOCUMENTS_LEFT
         /// </summary>
-        /// <value>Signature requests remaining.</value>
+        /// <value>_t__TemplateResponseAccountQuota::DOCUMENTS_LEFT</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int DocumentsLeft { get; set; }
 
         /// <summary>
-        /// SMS verifications remaining.
+        /// _t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT
         /// </summary>
-        /// <value>SMS verifications remaining.</value>
+        /// <value>_t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int SmsVerificationsLeft { get; set; }
 

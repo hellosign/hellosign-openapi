@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An array of Form Field objects containing the name and type of each named field. */
+/** _t__TemplateResponseDocumentFormField::DESCRIPTION */
 @JsonPropertyOrder({
     TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_TYPE,
     TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_API_ID,
@@ -139,7 +139,7 @@ public class TemplateResponseDocumentFormFieldBase {
     }
 
     /**
-     * A unique id for the form field.
+     * _t__TemplateResponseDocumentFormField::API_ID
      *
      * @return apiId
      */
@@ -161,7 +161,7 @@ public class TemplateResponseDocumentFormFieldBase {
     }
 
     /**
-     * The name of the form field.
+     * _t__TemplateResponseDocumentFormField::NAME
      *
      * @return name
      */
@@ -188,7 +188,7 @@ public class TemplateResponseDocumentFormFieldBase {
     }
 
     /**
-     * The signer of the Form Field.
+     * _t__TemplateResponseDocumentFormField::SIGNER
      *
      * @return signer
      */
@@ -214,7 +214,7 @@ public class TemplateResponseDocumentFormFieldBase {
     }
 
     /**
-     * The horizontal offset in pixels for this form field.
+     * _t__TemplateResponseDocumentFormField::X
      *
      * @return x
      */
@@ -236,7 +236,7 @@ public class TemplateResponseDocumentFormFieldBase {
     }
 
     /**
-     * The vertical offset in pixels for this form field.
+     * _t__TemplateResponseDocumentFormField::Y
      *
      * @return y
      */
@@ -258,7 +258,7 @@ public class TemplateResponseDocumentFormFieldBase {
     }
 
     /**
-     * The width in pixels of this form field.
+     * _t__TemplateResponseDocumentFormField::WIDTH
      *
      * @return width
      */
@@ -280,7 +280,7 @@ public class TemplateResponseDocumentFormFieldBase {
     }
 
     /**
-     * The height in pixels of this form field.
+     * _t__TemplateResponseDocumentFormField::HEIGHT
      *
      * @return height
      */
@@ -303,7 +303,7 @@ public class TemplateResponseDocumentFormFieldBase {
     }
 
     /**
-     * Boolean showing whether or not this field is required.
+     * _t__TemplateResponseDocumentFormField::REQUIRED
      *
      * @return required
      */

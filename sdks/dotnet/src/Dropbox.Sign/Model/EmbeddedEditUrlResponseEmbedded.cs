@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An embedded template object.
+    /// _t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION
     /// </summary>
     [DataContract(Name = "EmbeddedEditUrlResponseEmbedded")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedEditUrlResponseEmbedded" /> class.
         /// </summary>
-        /// <param name="editUrl">A template url that can be opened in an iFrame..</param>
-        /// <param name="expiresAt">The specific time that the the &#x60;edit_url&#x60; link expires, in epoch..</param>
+        /// <param name="editUrl">_t__EmbeddedEditUrlResponseEmbedded::EDIT_URL.</param>
+        /// <param name="expiresAt">_t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT.</param>
         public EmbeddedEditUrlResponseEmbedded(string editUrl = default(string), int expiresAt = default(int))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// A template url that can be opened in an iFrame.
+        /// _t__EmbeddedEditUrlResponseEmbedded::EDIT_URL
         /// </summary>
-        /// <value>A template url that can be opened in an iFrame.</value>
+        /// <value>_t__EmbeddedEditUrlResponseEmbedded::EDIT_URL</value>
         [DataMember(Name = "edit_url", EmitDefaultValue = true)]
         public string EditUrl { get; set; }
 
         /// <summary>
-        /// The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.
+        /// _t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT
         /// </summary>
-        /// <value>The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.</value>
+        /// <value>_t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
 

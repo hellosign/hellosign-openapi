@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An array of elements and values serialized to a string, to be used to customize the app&#39;s signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
+    /// _t__Sub::WhiteLabelingOptions::DESCRIPTION
     /// </summary>
     [DataContract(Name = "SubWhiteLabelingOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -80,7 +80,7 @@ namespace Dropbox.Sign.Model
         /// <param name="secondaryButtonTextColorHover">secondaryButtonTextColorHover (default to &quot;#0061FE&quot;).</param>
         /// <param name="textColor1">textColor1 (default to &quot;#808080&quot;).</param>
         /// <param name="textColor2">textColor2 (default to &quot;#ffffff&quot;).</param>
-        /// <param name="resetToDefault">Resets white labeling options to defaults. Only useful when updating an API App..</param>
+        /// <param name="resetToDefault">_t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT.</param>
         public SubWhiteLabelingOptions(string headerBackgroundColor = @"#1a1a1a", LegalVersionEnum? legalVersion = LegalVersionEnum.Terms1, string linkColor = @"#0061FE", string pageBackgroundColor = @"#f7f8f9", string primaryButtonColor = @"#0061FE", string primaryButtonColorHover = @"#0061FE", string primaryButtonTextColor = @"#ffffff", string primaryButtonTextColorHover = @"#ffffff", string secondaryButtonColor = @"#ffffff", string secondaryButtonColorHover = @"#ffffff", string secondaryButtonTextColor = @"#0061FE", string secondaryButtonTextColorHover = @"#0061FE", string textColor1 = @"#808080", string textColor2 = @"#ffffff", bool resetToDefault = default(bool))
         {
 
@@ -209,9 +209,9 @@ namespace Dropbox.Sign.Model
         public string TextColor2 { get; set; }
 
         /// <summary>
-        /// Resets white labeling options to defaults. Only useful when updating an API App.
+        /// _t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT
         /// </summary>
-        /// <value>Resets white labeling options to defaults. Only useful when updating an API App.</value>
+        /// <value>_t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT</value>
         [DataMember(Name = "reset_to_default", EmitDefaultValue = true)]
         public bool ResetToDefault { get; set; }
 

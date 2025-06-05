@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains pagination information about the data returned.
+    /// _t__ListInfoResponse::DESCRIPTION
     /// </summary>
     [DataContract(Name = "ListInfoResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,10 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ListInfoResponse" /> class.
         /// </summary>
-        /// <param name="numPages">Total number of pages available..</param>
-        /// <param name="numResults">Total number of objects available..</param>
-        /// <param name="page">Number of the page being returned..</param>
-        /// <param name="pageSize">Objects returned per page..</param>
+        /// <param name="numPages">_t__ListInfoResponse::NUM_PAGES.</param>
+        /// <param name="numResults">_t__ListInfoResponse::NUM_RESULTS.</param>
+        /// <param name="page">_t__ListInfoResponse::PAGE.</param>
+        /// <param name="pageSize">_t__ListInfoResponse::PAGE_SIZE.</param>
         public ListInfoResponse(int numPages = default(int), int? numResults = default(int?), int page = default(int), int pageSize = default(int))
         {
 
@@ -71,30 +71,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Total number of pages available.
+        /// _t__ListInfoResponse::NUM_PAGES
         /// </summary>
-        /// <value>Total number of pages available.</value>
+        /// <value>_t__ListInfoResponse::NUM_PAGES</value>
         [DataMember(Name = "num_pages", EmitDefaultValue = true)]
         public int NumPages { get; set; }
 
         /// <summary>
-        /// Total number of objects available.
+        /// _t__ListInfoResponse::NUM_RESULTS
         /// </summary>
-        /// <value>Total number of objects available.</value>
+        /// <value>_t__ListInfoResponse::NUM_RESULTS</value>
         [DataMember(Name = "num_results", EmitDefaultValue = true)]
         public int? NumResults { get; set; }
 
         /// <summary>
-        /// Number of the page being returned.
+        /// _t__ListInfoResponse::PAGE
         /// </summary>
-        /// <value>Number of the page being returned.</value>
+        /// <value>_t__ListInfoResponse::PAGE</value>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public int Page { get; set; }
 
         /// <summary>
-        /// Objects returned per page.
+        /// _t__ListInfoResponse::PAGE_SIZE
         /// </summary>
-        /// <value>Objects returned per page.</value>
+        /// <value>_t__ListInfoResponse::PAGE_SIZE</value>
         [DataMember(Name = "page_size", EmitDefaultValue = true)]
         public int PageSize { get; set; }
 

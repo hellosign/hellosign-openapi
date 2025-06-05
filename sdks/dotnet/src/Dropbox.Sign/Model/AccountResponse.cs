@@ -41,16 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponse" /> class.
         /// </summary>
-        /// <param name="accountId">The ID of the Account.</param>
-        /// <param name="emailAddress">The email address associated with the Account..</param>
-        /// <param name="isLocked">Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin..</param>
-        /// <param name="isPaidHs">Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account..</param>
-        /// <param name="isPaidHf">Returns &#x60;true&#x60; if the user has a paid HelloFax account..</param>
+        /// <param name="accountId">_t__Account::ACCOUNT_ID.</param>
+        /// <param name="emailAddress">_t__Account::EMAIL_ADDRESS.</param>
+        /// <param name="isLocked">_t__Account::IS_LOCKED.</param>
+        /// <param name="isPaidHs">_t__Account::IS_PAID_HS.</param>
+        /// <param name="isPaidHf">_t__Account::IS_PAID_HF.</param>
         /// <param name="quotas">quotas.</param>
-        /// <param name="callbackUrl">The URL that Dropbox Sign events will &#x60;POST&#x60; to..</param>
-        /// <param name="roleCode">The membership role for the team..</param>
-        /// <param name="teamId">The id of the team account belongs to..</param>
-        /// <param name="locale">The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values..</param>
+        /// <param name="callbackUrl">_t__Account::CALLBACK_URL.</param>
+        /// <param name="roleCode">_t__Account::ROLE_CODE.</param>
+        /// <param name="teamId">_t__Account::TEAM_ID.</param>
+        /// <param name="locale">_t__Account::LOCALE.</param>
         /// <param name="usage">usage.</param>
         public AccountResponse(string accountId = default(string), string emailAddress = default(string), bool isLocked = default(bool), bool isPaidHs = default(bool), bool isPaidHf = default(bool), AccountResponseQuotas quotas = default(AccountResponseQuotas), string callbackUrl = default(string), string roleCode = default(string), string teamId = default(string), string locale = default(string), AccountResponseUsage usage = default(AccountResponseUsage))
         {
@@ -85,37 +85,37 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The ID of the Account
+        /// _t__Account::ACCOUNT_ID
         /// </summary>
-        /// <value>The ID of the Account</value>
+        /// <value>_t__Account::ACCOUNT_ID</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
 
         /// <summary>
-        /// The email address associated with the Account.
+        /// _t__Account::EMAIL_ADDRESS
         /// </summary>
-        /// <value>The email address associated with the Account.</value>
+        /// <value>_t__Account::EMAIL_ADDRESS</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
+        /// _t__Account::IS_LOCKED
         /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.</value>
+        /// <value>_t__Account::IS_LOCKED</value>
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
 
         /// <summary>
-        /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
+        /// _t__Account::IS_PAID_HS
         /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.</value>
+        /// <value>_t__Account::IS_PAID_HS</value>
         [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
         public bool IsPaidHs { get; set; }
 
         /// <summary>
-        /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
+        /// _t__Account::IS_PAID_HF
         /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has a paid HelloFax account.</value>
+        /// <value>_t__Account::IS_PAID_HF</value>
         [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
         public bool IsPaidHf { get; set; }
 
@@ -126,30 +126,30 @@ namespace Dropbox.Sign.Model
         public AccountResponseQuotas Quotas { get; set; }
 
         /// <summary>
-        /// The URL that Dropbox Sign events will &#x60;POST&#x60; to.
+        /// _t__Account::CALLBACK_URL
         /// </summary>
-        /// <value>The URL that Dropbox Sign events will &#x60;POST&#x60; to.</value>
+        /// <value>_t__Account::CALLBACK_URL</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
 
         /// <summary>
-        /// The membership role for the team.
+        /// _t__Account::ROLE_CODE
         /// </summary>
-        /// <value>The membership role for the team.</value>
+        /// <value>_t__Account::ROLE_CODE</value>
         [DataMember(Name = "role_code", EmitDefaultValue = true)]
         public string RoleCode { get; set; }
 
         /// <summary>
-        /// The id of the team account belongs to.
+        /// _t__Account::TEAM_ID
         /// </summary>
-        /// <value>The id of the team account belongs to.</value>
+        /// <value>_t__Account::TEAM_ID</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
 
         /// <summary>
-        /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
+        /// _t__Account::LOCALE
         /// </summary>
-        /// <value>The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.</value>
+        /// <value>_t__Account::LOCALE</value>
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
 

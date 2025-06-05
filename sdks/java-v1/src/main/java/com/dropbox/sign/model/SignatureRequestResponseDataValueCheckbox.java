@@ -72,7 +72,7 @@ public class SignatureRequestResponseDataValueCheckbox extends SignatureRequestR
     }
 
     /**
-     * A yes/no checkbox
+     * _t__SignatureRequestResponseDataValue::CHECKBOX_TYPE
      *
      * @return type
      */
@@ -95,7 +95,7 @@ public class SignatureRequestResponseDataValueCheckbox extends SignatureRequestR
     }
 
     /**
-     * The value of the form field.
+     * _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return value
      */

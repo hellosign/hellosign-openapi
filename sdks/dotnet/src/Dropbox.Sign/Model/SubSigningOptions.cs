@@ -27,16 +27,16 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+    /// _t__Sub::SigningOptions::DESCRIPTION
     /// </summary>
     [DataContract(Name = "SubSigningOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class SubSigningOptions : IEquatable<SubSigningOptions>, IValidatableObject
     {
         /// <summary>
-        /// The default type shown (limited to the listed types)
+        /// _t__Sub::SigningOptions::DEFAULT
         /// </summary>
-        /// <value>The default type shown (limited to the listed types)</value>
+        /// <value>_t__Sub::SigningOptions::DEFAULT</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DefaultTypeEnum
         {
@@ -67,9 +67,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// The default type shown (limited to the listed types)
+        /// _t__Sub::SigningOptions::DEFAULT
         /// </summary>
-        /// <value>The default type shown (limited to the listed types)</value>
+        /// <value>_t__Sub::SigningOptions::DEFAULT</value>
         [DataMember(Name = "default_type", IsRequired = true, EmitDefaultValue = true)]
         public DefaultTypeEnum DefaultType { get; set; }
         /// <summary>
@@ -80,11 +80,11 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSigningOptions" /> class.
         /// </summary>
-        /// <param name="defaultType">The default type shown (limited to the listed types) (required).</param>
-        /// <param name="draw">Allows drawing the signature (default to false).</param>
-        /// <param name="phone">Allows using a smartphone to email the signature (default to false).</param>
-        /// <param name="type">Allows typing the signature (default to false).</param>
-        /// <param name="upload">Allows uploading the signature (default to false).</param>
+        /// <param name="defaultType">_t__Sub::SigningOptions::DEFAULT (required).</param>
+        /// <param name="draw">_t__Sub::SigningOptions::DRAW (default to false).</param>
+        /// <param name="phone">_t__Sub::SigningOptions::PHONE (default to false).</param>
+        /// <param name="type">_t__Sub::SigningOptions::TYPE (default to false).</param>
+        /// <param name="upload">_t__Sub::SigningOptions::UPLOAD (default to false).</param>
         public SubSigningOptions(DefaultTypeEnum defaultType = default(DefaultTypeEnum), bool draw = false, bool phone = false, bool type = false, bool upload = false)
         {
 
@@ -112,30 +112,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Allows drawing the signature
+        /// _t__Sub::SigningOptions::DRAW
         /// </summary>
-        /// <value>Allows drawing the signature</value>
+        /// <value>_t__Sub::SigningOptions::DRAW</value>
         [DataMember(Name = "draw", EmitDefaultValue = true)]
         public bool Draw { get; set; }
 
         /// <summary>
-        /// Allows using a smartphone to email the signature
+        /// _t__Sub::SigningOptions::PHONE
         /// </summary>
-        /// <value>Allows using a smartphone to email the signature</value>
+        /// <value>_t__Sub::SigningOptions::PHONE</value>
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public bool Phone { get; set; }
 
         /// <summary>
-        /// Allows typing the signature
+        /// _t__Sub::SigningOptions::TYPE
         /// </summary>
-        /// <value>Allows typing the signature</value>
+        /// <value>_t__Sub::SigningOptions::TYPE</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public bool Type { get; set; }
 
         /// <summary>
-        /// Allows uploading the signature
+        /// _t__Sub::SigningOptions::UPLOAD
         /// </summary>
-        /// <value>Allows uploading the signature</value>
+        /// <value>_t__Sub::SigningOptions::UPLOAD</value>
         [DataMember(Name = "upload", EmitDefaultValue = true)]
         public bool Upload { get; set; }
 

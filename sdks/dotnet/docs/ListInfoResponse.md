@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.ListInfoResponse
-Contains pagination information about the data returned.
+_t__ListInfoResponse::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NumPages** | **int** |  Total number of pages available.  | [optional] **NumResults** | **int?** |  Total number of objects available.  | [optional] **Page** | **int** |  Number of the page being returned.  | [optional] **PageSize** | **int** |  Objects returned per page.  | [optional] 
+**NumPages** | **int** |  _t__ListInfoResponse::NUM_PAGES  | [optional] **NumResults** | **int?** |  _t__ListInfoResponse::NUM_RESULTS  | [optional] **Page** | **int** |  _t__ListInfoResponse::PAGE  | [optional] **PageSize** | **int** |  _t__ListInfoResponse::PAGE_SIZE  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

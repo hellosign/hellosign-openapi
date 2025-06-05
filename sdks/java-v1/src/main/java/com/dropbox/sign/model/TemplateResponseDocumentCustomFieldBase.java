@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An array of Form Field objects containing the name and type of each named field. */
+/** _t__TemplateResponseDocumentCustomField::DESCRIPTION */
 @JsonPropertyOrder({
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_TYPE,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_API_ID,
@@ -134,7 +134,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * The unique ID for this field.
+     * _t__TemplateResponseDocumentCustomField::API_ID
      *
      * @return apiId
      */
@@ -156,7 +156,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * The name of the Custom Field.
+     * _t__TemplateResponseDocumentCustomField::NAME
      *
      * @return name
      */
@@ -184,8 +184,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * The signer of the Custom Field. Can be &#x60;null&#x60; if field is a merge field (assigned
-     * to Sender).
+     * _t__TemplateResponseDocumentCustomField::SIGNER
      *
      * @return signer
      */
@@ -211,7 +210,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * The horizontal offset in pixels for this form field.
+     * _t__TemplateResponseDocumentCustomField::X
      *
      * @return x
      */
@@ -233,7 +232,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * The vertical offset in pixels for this form field.
+     * _t__TemplateResponseDocumentCustomField::Y
      *
      * @return y
      */
@@ -255,7 +254,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * The width in pixels of this form field.
+     * _t__TemplateResponseDocumentCustomField::WIDTH
      *
      * @return width
      */
@@ -278,7 +277,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * The height in pixels of this form field.
+     * _t__TemplateResponseDocumentCustomField::HEIGHT
      *
      * @return height
      */
@@ -301,7 +300,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * Boolean showing whether or not this field is required.
+     * _t__TemplateResponseDocumentStaticField::REQUIRED
      *
      * @return required
      */
@@ -323,8 +322,7 @@ public class TemplateResponseDocumentCustomFieldBase {
     }
 
     /**
-     * The name of the group this field is in. If this field is not a group, this defaults to
-     * &#x60;null&#x60;.
+     * _t__TemplateResponseDocumentCustomField::GROUP
      *
      * @return group
      */

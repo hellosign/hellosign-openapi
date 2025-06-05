@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// This class extends &#x60;TemplateResponseDocumentStaticFieldBase&#x60;
+    /// _t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentStaticFieldRadio")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,16 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentStaticFieldRadio" /> class.
         /// </summary>
-        /// <param name="type">The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentStaticFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentStaticFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentStaticFieldInitials&#x60; (required) (default to &quot;radio&quot;).</param>
-        /// <param name="apiId">A unique id for the static field..</param>
-        /// <param name="name">The name of the static field..</param>
-        /// <param name="signer">The signer of the Static Field. (default to &quot;me_now&quot;).</param>
-        /// <param name="x">The horizontal offset in pixels for this static field..</param>
-        /// <param name="y">The vertical offset in pixels for this static field..</param>
-        /// <param name="width">The width in pixels of this static field..</param>
-        /// <param name="height">The height in pixels of this static field..</param>
-        /// <param name="required">Boolean showing whether or not this field is required..</param>
-        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
+        /// <param name="type">_t__TemplateResponseDocumentStaticField::TYPE (required) (default to &quot;radio&quot;).</param>
+        /// <param name="apiId">_t__TemplateResponseDocumentStaticField::API_ID.</param>
+        /// <param name="name">_t__TemplateResponseDocumentStaticField::NAME.</param>
+        /// <param name="signer">_t__TemplateResponseDocumentStaticField::SIGNER (default to &quot;me_now&quot;).</param>
+        /// <param name="x">_t__TemplateResponseDocumentStaticField::X.</param>
+        /// <param name="y">_t__TemplateResponseDocumentStaticField::Y.</param>
+        /// <param name="width">_t__TemplateResponseDocumentStaticField::WIDTH.</param>
+        /// <param name="height">_t__TemplateResponseDocumentStaticField::HEIGHT.</param>
+        /// <param name="required">_t__TemplateResponseDocumentStaticField::REQUIRED.</param>
+        /// <param name="group">_t__TemplateResponseDocumentStaticField::GROUP.</param>
         public TemplateResponseDocumentStaticFieldRadio(string type = @"radio", string apiId = default(string), string name = default(string), string signer = @"me_now", int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             this.ApiId = apiId;
@@ -88,9 +88,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentStaticFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentStaticFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentStaticFieldInitials&#x60;
+        /// _t__TemplateResponseDocumentStaticField::TYPE
         /// </summary>
-        /// <value>The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentStaticFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentStaticFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentStaticFieldInitials&#x60;</value>
+        /// <value>_t__TemplateResponseDocumentStaticField::TYPE</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

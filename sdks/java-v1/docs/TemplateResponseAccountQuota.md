@@ -2,16 +2,16 @@
 
 # TemplateResponseAccountQuota
 
-An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+_t__TemplateResponseAccountQuota::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `templatesLeft` | ```Integer``` |  API templates remaining.  |  |
-| `apiSignatureRequestsLeft` | ```Integer``` |  API signature requests remaining.  |  |
-| `documentsLeft` | ```Integer``` |  Signature requests remaining.  |  |
-| `smsVerificationsLeft` | ```Integer``` |  SMS verifications remaining.  |  |
+| `templatesLeft` | ```Integer``` |  _t__TemplateResponseAccountQuota::TEMPLATES_LEFT  |  |
+| `apiSignatureRequestsLeft` | ```Integer``` |  _t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT  |  |
+| `documentsLeft` | ```Integer``` |  _t__TemplateResponseAccountQuota::DOCUMENTS_LEFT  |  |
+| `smsVerificationsLeft` | ```Integer``` |  _t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT  |  |
 
 
 

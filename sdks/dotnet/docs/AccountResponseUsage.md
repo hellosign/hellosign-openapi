@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.AccountResponseUsage
-Details concerning monthly usage
+_t__Account::USAGE
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FaxPagesSent** | **int?** |  Number of fax pages sent  | [optional] 
+**FaxPagesSent** | **int?** |  _t__AccountUsage::FAX_PAGES_SENT  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

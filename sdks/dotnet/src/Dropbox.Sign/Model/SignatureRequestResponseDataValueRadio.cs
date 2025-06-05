@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseDataValueRadio" /> class.
         /// </summary>
-        /// <param name="type">An input field for radios (default to &quot;radio&quot;).</param>
-        /// <param name="value">The value of the form field..</param>
-        /// <param name="apiId">The unique ID for this field..</param>
-        /// <param name="signatureId">The ID of the signature to which this response is linked..</param>
-        /// <param name="name">The name of the form field..</param>
-        /// <param name="required">A boolean value denoting if this field is required..</param>
+        /// <param name="type">_t__SignatureRequestResponseDataValue::RADIO_TYPE (default to &quot;radio&quot;).</param>
+        /// <param name="value">_t__SignatureRequestResponseDataValue::VALUE.</param>
+        /// <param name="apiId">_t__SignatureRequestResponseData::API_ID.</param>
+        /// <param name="signatureId">_t__SignatureRequestResponseData::SIGNATURE_ID.</param>
+        /// <param name="name">_t__SignatureRequestResponseData::NAME.</param>
+        /// <param name="required">_t__SignatureRequestResponseData::REQUIRED.</param>
         public SignatureRequestResponseDataValueRadio(string type = @"radio", bool value = default(bool), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
         {
             this.ApiId = apiId;
@@ -76,16 +76,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// An input field for radios
+        /// _t__SignatureRequestResponseDataValue::RADIO_TYPE
         /// </summary>
-        /// <value>An input field for radios</value>
+        /// <value>_t__SignatureRequestResponseDataValue::RADIO_TYPE</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// The value of the form field.
+        /// _t__SignatureRequestResponseDataValue::VALUE
         /// </summary>
-        /// <value>The value of the form field.</value>
+        /// <value>_t__SignatureRequestResponseDataValue::VALUE</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public bool Value { get; set; }
 

@@ -76,7 +76,7 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
     }
 
     /**
-     * An input field for initials
+     * _t__SignatureRequestResponseDataValue::INITIAL_TYPE
      *
      * @return type
      */
@@ -99,7 +99,7 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
     }
 
     /**
-     * The value of the form field.
+     * _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return value
      */
@@ -122,7 +122,7 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
     }
 
     /**
-     * This field contains the boolean true if the field is signed.
+     * _t__SignatureRequestResponseDataValue::IS_SIGNED
      *
      * @return isSigned
      */

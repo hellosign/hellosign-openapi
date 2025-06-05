@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.UnclaimedDraftResponse
-A group of documents that a user can take ownership of via the claim URL.
+_t__UnclaimedDraftResponse::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SignatureRequestId** | **string** |  The ID of the signature request that is represented by this UnclaimedDraft.  | [optional] **ClaimUrl** | **string** |  The URL to be used to claim this UnclaimedDraft.  | [optional] **SigningRedirectUrl** | **string** |  The URL you want signers redirected to after they successfully sign.  | [optional] **RequestingRedirectUrl** | **string** |  The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).  | [optional] **ExpiresAt** | **int?** |  When the link expires.  | [optional] **TestMode** | **bool** |  Whether this is a test draft. Signature requests made from test drafts have no legal value.  | [optional] 
+**SignatureRequestId** | **string** |  _t__UnclaimedDraft::SIGNATURE_REQUEST_ID  | [optional] **ClaimUrl** | **string** |  _t__UnclaimedDraft::CLAIM_URL  | [optional] **SigningRedirectUrl** | **string** |  _t__UnclaimedDraft::SIGNING_REDIRECT_URL  | [optional] **RequestingRedirectUrl** | **string** |  _t__UnclaimedDraft::REQUESTING_REDIRECT_URL  | [optional] **ExpiresAt** | **int?** |  _t__UnclaimedDraft::EXPIRES_AT  | [optional] **TestMode** | **bool** |  _t__UnclaimedDraft::TEST_MODE  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

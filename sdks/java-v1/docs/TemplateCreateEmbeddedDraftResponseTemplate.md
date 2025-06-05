@@ -2,16 +2,16 @@
 
 # TemplateCreateEmbeddedDraftResponseTemplate
 
-Template object with parameters: `template_id`, `edit_url`, `expires_at`.
+_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `templateId` | ```String``` |  The id of the Template.  |  |
-| `editUrl` | ```String``` |  Link to edit the template.  |  |
-| `expiresAt` | ```Integer``` |  When the link expires.  |  |
-| `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
+| `templateId` | ```String``` |  _t__TemplateResponse::TEMPLATE_ID  |  |
+| `editUrl` | ```String``` |  _t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL  |  |
+| `expiresAt` | ```Integer``` |  _t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT  |  |
+| `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  _t__WarningResponse::LIST_DESCRIPTION  |  |
 
 
 

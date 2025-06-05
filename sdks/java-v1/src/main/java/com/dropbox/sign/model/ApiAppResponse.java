@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains information about an API App. */
+/** _t__ApiAppResponse::DESCRIPTION */
 @JsonPropertyOrder({
     ApiAppResponse.JSON_PROPERTY_CALLBACK_URL,
     ApiAppResponse.JSON_PROPERTY_CLIENT_ID,
@@ -95,7 +95,7 @@ public class ApiAppResponse {
     }
 
     /**
-     * The app&#39;s callback URL (for events)
+     * _t__ApiAppResponse::CALLBACK_URL
      *
      * @return callbackUrl
      */
@@ -117,7 +117,7 @@ public class ApiAppResponse {
     }
 
     /**
-     * The app&#39;s client id
+     * _t__ApiAppResponse::CLIENT_ID
      *
      * @return clientId
      */
@@ -139,7 +139,7 @@ public class ApiAppResponse {
     }
 
     /**
-     * The time that the app was created
+     * _t__ApiAppResponse::CREATED_AT
      *
      * @return createdAt
      */
@@ -169,7 +169,7 @@ public class ApiAppResponse {
     }
 
     /**
-     * The domain name(s) associated with the app
+     * _t__ApiAppResponse::DOMAINS
      *
      * @return domains
      */
@@ -191,7 +191,7 @@ public class ApiAppResponse {
     }
 
     /**
-     * The name of the app
+     * _t__ApiAppResponse::NAME
      *
      * @return name
      */
@@ -213,7 +213,7 @@ public class ApiAppResponse {
     }
 
     /**
-     * Boolean to indicate if the app has been approved
+     * _t__ApiAppResponse::IS_APPROVED
      *
      * @return isApproved
      */

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// OAuth related parameters.
+    /// _t__Sub::OAuth::DESCRIPTION
     /// </summary>
     [DataContract(Name = "SubOAuth")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -96,8 +96,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubOAuth" /> class.
         /// </summary>
-        /// <param name="callbackUrl">The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided).</param>
-        /// <param name="scopes">A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided)..</param>
+        /// <param name="callbackUrl">_t__Sub::OAuth::CALLBACK_URL.</param>
+        /// <param name="scopes">_t__Sub::OAuth::SCOPES.</param>
         public SubOAuth(string callbackUrl = default(string), List<ScopesEnum> scopes = default(List<ScopesEnum>))
         {
 
@@ -122,16 +122,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)
+        /// _t__Sub::OAuth::CALLBACK_URL
         /// </summary>
-        /// <value>The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)</value>
+        /// <value>_t__Sub::OAuth::CALLBACK_URL</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
 
         /// <summary>
-        /// A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
+        /// _t__Sub::OAuth::SCOPES
         /// </summary>
-        /// <value>A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).</value>
+        /// <value>_t__Sub::OAuth::SCOPES</value>
         [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<SubOAuth.ScopesEnum> Scopes { get; set; }
 

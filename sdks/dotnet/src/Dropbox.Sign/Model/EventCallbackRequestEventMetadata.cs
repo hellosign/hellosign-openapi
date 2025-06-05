@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Specific metadata about the event.
+    /// _t__EventCallbackRequestEventMetadata::DESCRIPTION
     /// </summary>
     [DataContract(Name = "EventCallbackRequestEventMetadata")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,10 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EventCallbackRequestEventMetadata" /> class.
         /// </summary>
-        /// <param name="relatedSignatureId">Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events..</param>
-        /// <param name="reportedForAccountId">Account ID the event was reported for..</param>
-        /// <param name="reportedForAppId">App ID the event was reported for..</param>
-        /// <param name="eventMessage">Message about a declined or failed (due to error) signature flow..</param>
+        /// <param name="relatedSignatureId">_t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID.</param>
+        /// <param name="reportedForAccountId">_t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID.</param>
+        /// <param name="reportedForAppId">_t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID.</param>
+        /// <param name="eventMessage">_t__EventCallbackRequestEventMetadata::EVENT_MESSAGE.</param>
         public EventCallbackRequestEventMetadata(string relatedSignatureId = default(string), string reportedForAccountId = default(string), string reportedForAppId = default(string), string eventMessage = default(string))
         {
 
@@ -71,30 +71,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events.
+        /// _t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID
         /// </summary>
-        /// <value>Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events.</value>
+        /// <value>_t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID</value>
         [DataMember(Name = "related_signature_id", EmitDefaultValue = true)]
         public string RelatedSignatureId { get; set; }
 
         /// <summary>
-        /// Account ID the event was reported for.
+        /// _t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID
         /// </summary>
-        /// <value>Account ID the event was reported for.</value>
+        /// <value>_t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID</value>
         [DataMember(Name = "reported_for_account_id", EmitDefaultValue = true)]
         public string ReportedForAccountId { get; set; }
 
         /// <summary>
-        /// App ID the event was reported for.
+        /// _t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID
         /// </summary>
-        /// <value>App ID the event was reported for.</value>
+        /// <value>_t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID</value>
         [DataMember(Name = "reported_for_app_id", EmitDefaultValue = true)]
         public string ReportedForAppId { get; set; }
 
         /// <summary>
-        /// Message about a declined or failed (due to error) signature flow.
+        /// _t__EventCallbackRequestEventMetadata::EVENT_MESSAGE
         /// </summary>
-        /// <value>Message about a declined or failed (due to error) signature flow.</value>
+        /// <value>_t__EventCallbackRequestEventMetadata::EVENT_MESSAGE</value>
         [DataMember(Name = "event_message", EmitDefaultValue = true)]
         public string EventMessage { get; set; }
 

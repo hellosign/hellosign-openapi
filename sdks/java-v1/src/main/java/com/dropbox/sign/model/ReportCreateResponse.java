@@ -95,7 +95,7 @@ public class ReportCreateResponse {
     }
 
     /**
-     * A list of warnings.
+     * _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return warnings
      */

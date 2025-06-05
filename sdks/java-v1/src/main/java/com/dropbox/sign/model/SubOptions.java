@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Additional options supported by API App. */
+/** _t__Sub::Options::DESCRIPTION */
 @JsonPropertyOrder({SubOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -55,7 +55,7 @@ public class SubOptions {
     }
 
     /**
-     * Determines if signers can use \&quot;Insert Everywhere\&quot; when signing a document.
+     * _t__Sub::Options::CAN_INSERT_EVERYWHERE
      *
      * @return canInsertEverywhere
      */

@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubUnclaimedDraftTemplateSigner" /> class.
         /// </summary>
-        /// <param name="role">Must match an existing role in chosen Template(s). (required).</param>
-        /// <param name="name">The name of the signer filling the role of &#x60;role&#x60;. (required).</param>
-        /// <param name="emailAddress">The email address of the signer filling the role of &#x60;role&#x60;. (required).</param>
+        /// <param name="role">_t__Sub::UnclaimedDraftTemplateSigner::ROLE (required).</param>
+        /// <param name="name">_t__Sub::UnclaimedDraftTemplateSigner::NAME (required).</param>
+        /// <param name="emailAddress">_t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS (required).</param>
         public SubUnclaimedDraftTemplateSigner(string role = default(string), string name = default(string), string emailAddress = default(string))
         {
 
@@ -84,23 +84,23 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Must match an existing role in chosen Template(s).
+        /// _t__Sub::UnclaimedDraftTemplateSigner::ROLE
         /// </summary>
-        /// <value>Must match an existing role in chosen Template(s).</value>
+        /// <value>_t__Sub::UnclaimedDraftTemplateSigner::ROLE</value>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
 
         /// <summary>
-        /// The name of the signer filling the role of &#x60;role&#x60;.
+        /// _t__Sub::UnclaimedDraftTemplateSigner::NAME
         /// </summary>
-        /// <value>The name of the signer filling the role of &#x60;role&#x60;.</value>
+        /// <value>_t__Sub::UnclaimedDraftTemplateSigner::NAME</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The email address of the signer filling the role of &#x60;role&#x60;.
+        /// _t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS
         /// </summary>
-        /// <value>The email address of the signer filling the role of &#x60;role&#x60;.</value>
+        /// <value>_t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 

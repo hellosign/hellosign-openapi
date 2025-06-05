@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains information about the templates you and your team have created.
+    /// _t__TemplateResponse::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TemplateResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,22 +41,22 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponse" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template..</param>
-        /// <param name="title">The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest..</param>
-        /// <param name="message">The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest..</param>
-        /// <param name="updatedAt">Time the template was last updated..</param>
-        /// <param name="isEmbedded">&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template..</param>
-        /// <param name="isCreator">&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member..</param>
-        /// <param name="canEdit">Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you)..</param>
-        /// <param name="isLocked">Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests..</param>
-        /// <param name="metadata">The metadata attached to the template..</param>
-        /// <param name="signerRoles">An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template..</param>
-        /// <param name="ccRoles">An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template..</param>
-        /// <param name="documents">An array describing each document associated with this Template. Includes form field data for each document..</param>
-        /// <param name="customFields">Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
-        /// <param name="namedFormFields">Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
-        /// <param name="accounts">An array of the Accounts that can use this Template..</param>
-        /// <param name="attachments">Signer attachments..</param>
+        /// <param name="templateId">_t__TemplateResponse::TEMPLATE_ID.</param>
+        /// <param name="title">_t__TemplateResponse::TITLE.</param>
+        /// <param name="message">_t__TemplateResponse::MESSAGE.</param>
+        /// <param name="updatedAt">_t__TemplateResponse::UPDATED_AT.</param>
+        /// <param name="isEmbedded">_t__TemplateResponse::IS_EMBEDDED.</param>
+        /// <param name="isCreator">_t__TemplateResponse::IS_CREATOR.</param>
+        /// <param name="canEdit">_t__TemplateResponse::CAN_EDIT.</param>
+        /// <param name="isLocked">_t__TemplateResponse::IS_LOCKED.</param>
+        /// <param name="metadata">_t__TemplateResponse::METADATA.</param>
+        /// <param name="signerRoles">_t__TemplateResponse::SIGNER_ROLES.</param>
+        /// <param name="ccRoles">_t__TemplateResponse::CC_ROLES.</param>
+        /// <param name="documents">_t__TemplateResponse::DOCUMENTS.</param>
+        /// <param name="customFields">_t__TemplateResponseCustomField::DESCRIPTION.</param>
+        /// <param name="namedFormFields">_t__TemplateResponseNamedFormField::DESCRIPTION.</param>
+        /// <param name="accounts">_t__TemplateResponse::ACCOUNTS.</param>
+        /// <param name="attachments">_t__SignatureRequestResponseAttachment::DESCRIPTION.</param>
         public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool isCreator = default(bool), bool canEdit = default(bool), bool isLocked = default(bool), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>))
         {
 
@@ -95,116 +95,116 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the Template.
+        /// _t__TemplateResponse::TEMPLATE_ID
         /// </summary>
-        /// <value>The id of the Template.</value>
+        /// <value>_t__TemplateResponse::TEMPLATE_ID</value>
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>
-        /// The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+        /// _t__TemplateResponse::TITLE
         /// </summary>
-        /// <value>The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.</value>
+        /// <value>_t__TemplateResponse::TITLE</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+        /// _t__TemplateResponse::MESSAGE
         /// </summary>
-        /// <value>The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.</value>
+        /// <value>_t__TemplateResponse::MESSAGE</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Time the template was last updated.
+        /// _t__TemplateResponse::UPDATED_AT
         /// </summary>
-        /// <value>Time the template was last updated.</value>
+        /// <value>_t__TemplateResponse::UPDATED_AT</value>
         [DataMember(Name = "updated_at", EmitDefaultValue = true)]
         public int UpdatedAt { get; set; }
 
         /// <summary>
-        /// &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template.
+        /// _t__TemplateResponse::IS_EMBEDDED
         /// </summary>
-        /// <value>&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template.</value>
+        /// <value>_t__TemplateResponse::IS_EMBEDDED</value>
         [DataMember(Name = "is_embedded", EmitDefaultValue = true)]
         public bool? IsEmbedded { get; set; }
 
         /// <summary>
-        /// &#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.
+        /// _t__TemplateResponse::IS_CREATOR
         /// </summary>
-        /// <value>&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.</value>
+        /// <value>_t__TemplateResponse::IS_CREATOR</value>
         [DataMember(Name = "is_creator", EmitDefaultValue = true)]
         public bool IsCreator { get; set; }
 
         /// <summary>
-        /// Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).
+        /// _t__TemplateResponse::CAN_EDIT
         /// </summary>
-        /// <value>Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).</value>
+        /// <value>_t__TemplateResponse::CAN_EDIT</value>
         [DataMember(Name = "can_edit", EmitDefaultValue = true)]
         public bool CanEdit { get; set; }
 
         /// <summary>
-        /// Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
+        /// _t__TemplateResponse::IS_LOCKED
         /// </summary>
-        /// <value>Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.</value>
+        /// <value>_t__TemplateResponse::IS_LOCKED</value>
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
 
         /// <summary>
-        /// The metadata attached to the template.
+        /// _t__TemplateResponse::METADATA
         /// </summary>
-        /// <value>The metadata attached to the template.</value>
+        /// <value>_t__TemplateResponse::METADATA</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
-        /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+        /// _t__TemplateResponse::SIGNER_ROLES
         /// </summary>
-        /// <value>An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.</value>
+        /// <value>_t__TemplateResponse::SIGNER_ROLES</value>
         [DataMember(Name = "signer_roles", EmitDefaultValue = true)]
         public List<TemplateResponseSignerRole> SignerRoles { get; set; }
 
         /// <summary>
-        /// An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+        /// _t__TemplateResponse::CC_ROLES
         /// </summary>
-        /// <value>An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.</value>
+        /// <value>_t__TemplateResponse::CC_ROLES</value>
         [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
         public List<TemplateResponseCCRole> CcRoles { get; set; }
 
         /// <summary>
-        /// An array describing each document associated with this Template. Includes form field data for each document.
+        /// _t__TemplateResponse::DOCUMENTS
         /// </summary>
-        /// <value>An array describing each document associated with this Template. Includes form field data for each document.</value>
+        /// <value>_t__TemplateResponse::DOCUMENTS</value>
         [DataMember(Name = "documents", EmitDefaultValue = true)]
         public List<TemplateResponseDocument> Documents { get; set; }
 
         /// <summary>
-        /// Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
+        /// _t__TemplateResponseCustomField::DESCRIPTION
         /// </summary>
-        /// <value>Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.</value>
+        /// <value>_t__TemplateResponseCustomField::DESCRIPTION</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         [Obsolete]
         public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
 
         /// <summary>
-        /// Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
+        /// _t__TemplateResponseNamedFormField::DESCRIPTION
         /// </summary>
-        /// <value>Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.</value>
+        /// <value>_t__TemplateResponseNamedFormField::DESCRIPTION</value>
         [DataMember(Name = "named_form_fields", EmitDefaultValue = true)]
         [Obsolete]
         public List<TemplateResponseDocumentFormFieldBase> NamedFormFields { get; set; }
 
         /// <summary>
-        /// An array of the Accounts that can use this Template.
+        /// _t__TemplateResponse::ACCOUNTS
         /// </summary>
-        /// <value>An array of the Accounts that can use this Template.</value>
+        /// <value>_t__TemplateResponse::ACCOUNTS</value>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<TemplateResponseAccount> Accounts { get; set; }
 
         /// <summary>
-        /// Signer attachments.
+        /// _t__SignatureRequestResponseAttachment::DESCRIPTION
         /// </summary>
-        /// <value>Signer attachments.</value>
+        /// <value>_t__SignatureRequestResponseAttachment::DESCRIPTION</value>
         [DataMember(Name = "attachments", EmitDefaultValue = true)]
         public List<SignatureRequestResponseAttachment> Attachments { get; set; }
 

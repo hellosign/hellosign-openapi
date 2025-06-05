@@ -23,10 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The rule used to validate checkboxes in the form field group. See [checkbox field
- * grouping](/api/reference/constants/#checkbox-field-grouping).
- */
+/** _t__TemplateResponseDocumentFieldGroup::RULE */
 @JsonPropertyOrder({
     TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_REQUIREMENT,
     TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_GROUP_LABEL
@@ -67,12 +64,7 @@ public class TemplateResponseDocumentFieldGroupRule {
     }
 
     /**
-     * Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60; - Check
-     * out the list of [acceptable &#x60;requirement&#x60; checkbox type
-     * values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of
-     * [acceptable &#x60;requirement&#x60; radio type
-     * fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least**
-     * two fields per group.
+     * _t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT
      *
      * @return requirement
      */
@@ -95,7 +87,7 @@ public class TemplateResponseDocumentFieldGroupRule {
     }
 
     /**
-     * Name of the group
+     * _t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL
      *
      * @return groupLabel
      */

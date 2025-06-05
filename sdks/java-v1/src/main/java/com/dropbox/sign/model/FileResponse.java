@@ -58,7 +58,7 @@ public class FileResponse {
     }
 
     /**
-     * URL to the file.
+     * _t__FileResponse::FILE_URL
      *
      * @return fileUrl
      */
@@ -81,7 +81,7 @@ public class FileResponse {
     }
 
     /**
-     * When the link expires.
+     * _t__FileResponse::EXPIRES_AT
      *
      * @return expiresAt
      */

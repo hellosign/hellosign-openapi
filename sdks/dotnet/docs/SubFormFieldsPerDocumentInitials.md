@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Height** | **int** |  Size of the field in pixels.  | 
 **Required** | **bool** |  Whether this field is required.  | 
 **Signer** | **string** |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE:** To set the value of the field as the preparer you must set this to `me_now`<br><br>**NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  | 
-**Width** | **int** |  Size of the field in pixels.  | 
-**X** | **int** |  Location coordinates of the field in pixels.  | 
-**Y** | **int** |  Location coordinates of the field in pixels.  | 
+**Width** | **int** |  _t__Sub::FormFieldsPerDocument::WIDTH  | 
+**X** | **int** |  _t__Sub::FormFieldsPerDocument::X  | 
+**Y** | **int** |  _t__Sub::FormFieldsPerDocument::Y  | 
 **Name** | **string** |  Display name for the field.  | [optional] 
 **Page** | **int?** |  Page in the document where the field should be placed (requires documents be PDF files).<br><br>- When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.  | [optional] 
 **Type** | **string** |  An input field for initials. Use the `SubFormFieldsPerDocumentInitials` class.  | [default to "initials"]

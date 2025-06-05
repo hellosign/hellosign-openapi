@@ -25,9 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
- */
+/** _t__TemplateResponseDocumentStaticField::DESCRIPTION */
 @JsonPropertyOrder({
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_TYPE,
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_API_ID,
@@ -152,7 +150,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * A unique id for the static field.
+     * _t__TemplateResponseDocumentStaticField::API_ID
      *
      * @return apiId
      */
@@ -174,7 +172,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * The name of the static field.
+     * _t__TemplateResponseDocumentStaticField::NAME
      *
      * @return name
      */
@@ -197,7 +195,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * The signer of the Static Field.
+     * _t__TemplateResponseDocumentStaticField::SIGNER
      *
      * @return signer
      */
@@ -219,7 +217,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * The horizontal offset in pixels for this static field.
+     * _t__TemplateResponseDocumentStaticField::X
      *
      * @return x
      */
@@ -241,7 +239,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * The vertical offset in pixels for this static field.
+     * _t__TemplateResponseDocumentStaticField::Y
      *
      * @return y
      */
@@ -263,7 +261,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * The width in pixels of this static field.
+     * _t__TemplateResponseDocumentStaticField::WIDTH
      *
      * @return width
      */
@@ -286,7 +284,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * The height in pixels of this static field.
+     * _t__TemplateResponseDocumentStaticField::HEIGHT
      *
      * @return height
      */
@@ -309,7 +307,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * Boolean showing whether or not this field is required.
+     * _t__TemplateResponseDocumentStaticField::REQUIRED
      *
      * @return required
      */
@@ -331,8 +329,7 @@ public class TemplateResponseDocumentStaticFieldBase {
     }
 
     /**
-     * The name of the group this field is in. If this field is not a group, this defaults to
-     * &#x60;null&#x60;.
+     * _t__TemplateResponseDocumentStaticField::GROUP
      *
      * @return group
      */

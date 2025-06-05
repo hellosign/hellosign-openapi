@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// A list of warnings.
+    /// _t__WarningResponse::LIST_DESCRIPTION
     /// </summary>
     [DataContract(Name = "WarningResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WarningResponse" /> class.
         /// </summary>
-        /// <param name="warningMsg">Warning message (required).</param>
-        /// <param name="warningName">Warning name (required).</param>
+        /// <param name="warningMsg">_t__WarningResponse::WARNING_MSG (required).</param>
+        /// <param name="warningName">_t__WarningResponse::WARNING_NAME (required).</param>
         public WarningResponse(string warningMsg = default(string), string warningName = default(string))
         {
 
@@ -77,16 +77,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Warning message
+        /// _t__WarningResponse::WARNING_MSG
         /// </summary>
-        /// <value>Warning message</value>
+        /// <value>_t__WarningResponse::WARNING_MSG</value>
         [DataMember(Name = "warning_msg", IsRequired = true, EmitDefaultValue = true)]
         public string WarningMsg { get; set; }
 
         /// <summary>
-        /// Warning name
+        /// _t__WarningResponse::WARNING_NAME
         /// </summary>
-        /// <value>Warning name</value>
+        /// <value>_t__WarningResponse::WARNING_NAME</value>
         [DataMember(Name = "warning_name", IsRequired = true, EmitDefaultValue = true)]
         public string WarningName { get; set; }
 

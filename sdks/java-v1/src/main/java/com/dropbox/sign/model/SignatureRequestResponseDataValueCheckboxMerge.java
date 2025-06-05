@@ -76,7 +76,7 @@ public class SignatureRequestResponseDataValueCheckboxMerge
     }
 
     /**
-     * A checkbox field that has default value set by the api
+     * _t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE
      *
      * @return type
      */
@@ -99,7 +99,7 @@ public class SignatureRequestResponseDataValueCheckboxMerge
     }
 
     /**
-     * The value of the form field.
+     * _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return value
      */

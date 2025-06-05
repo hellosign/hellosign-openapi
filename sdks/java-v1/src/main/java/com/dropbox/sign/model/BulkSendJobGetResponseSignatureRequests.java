@@ -160,8 +160,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * Whether this is a test signature request. Test requests have no legal value. Defaults to
-     * &#x60;false&#x60;.
+     * _t__SignatureRequestResponse::TEST_MODE
      *
      * @return testMode
      */
@@ -184,7 +183,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The id of the SignatureRequest.
+     * _t__SignatureRequestResponse::SIGNATURE_REQUEST_ID
      *
      * @return signatureRequestId
      */
@@ -207,7 +206,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The email address of the initiator of the SignatureRequest.
+     * _t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS
      *
      * @return requesterEmailAddress
      */
@@ -229,7 +228,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The title the specified Account uses for the SignatureRequest.
+     * _t__SignatureRequestResponse::TITLE
      *
      * @return title
      */
@@ -252,7 +251,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * Default Label for account.
+     * _t__SignatureRequestResponse::ORIGINAL_TITLE
      *
      * @return originalTitle
      */
@@ -275,7 +274,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The subject in the email that was initially sent to the signers.
+     * _t__SignatureRequestResponse::SUBJECT
      *
      * @return subject
      */
@@ -298,7 +297,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The custom message in the email that was initially sent to the signers.
+     * _t__SignatureRequestResponse::MESSAGE
      *
      * @return message
      */
@@ -330,7 +329,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The metadata attached to the signature request.
+     * _t__SignatureRequestResponse::METADATA
      *
      * @return metadata
      */
@@ -353,7 +352,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * Time the signature request was created.
+     * _t__SignatureRequestResponse::CREATED_AT
      *
      * @return createdAt
      */
@@ -376,9 +375,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The time when the signature request will expire unsigned signatures. See [Signature Request
-     * Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for
-     * details.
+     * _t__SignatureRequestResponse::EXPIRES_AT
      *
      * @return expiresAt
      */
@@ -401,7 +398,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * Whether or not the SignatureRequest has been fully executed by all signers.
+     * _t__SignatureRequestResponse::IS_COMPLETE
      *
      * @return isComplete
      */
@@ -424,7 +421,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * Whether or not the SignatureRequest has been declined by a signer.
+     * _t__SignatureRequestResponse::IS_DECLINED
      *
      * @return isDeclined
      */
@@ -447,8 +444,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * Whether or not an error occurred (either during the creation of the SignatureRequest or
-     * during one of the signings).
+     * _t__SignatureRequestResponse::HAS_ERROR
      *
      * @return hasError
      */
@@ -471,7 +467,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The URL where a copy of the request&#39;s documents can be downloaded.
+     * _t__SignatureRequestResponse::FILES_URL
      *
      * @return filesUrl
      */
@@ -494,9 +490,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The URL where a signer, after authenticating, can sign the documents. This should only be
-     * used by users with existing Dropbox Sign accounts as they will be required to log in before
-     * signing.
+     * _t__SignatureRequestResponse::SIGNING_URL
      *
      * @return signingUrl
      */
@@ -519,8 +513,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The URL where the requester and the signers can view the current status of the
-     * SignatureRequest.
+     * _t__SignatureRequestResponse::DETAILS_URL
      *
      * @return detailsUrl
      */
@@ -552,8 +545,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of
-     * the final PDF once all the signers have signed.
+     * _t__SignatureRequestResponse::CC_EMAIL_ADDRESSES
      *
      * @return ccEmailAddresses
      */
@@ -576,7 +568,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The URL you want the signer redirected to after they successfully sign.
+     * _t__SignatureRequestResponse::SIGNING_REDIRECT_URL
      *
      * @return signingRedirectUrl
      */
@@ -599,7 +591,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The path where the completed document can be downloaded
+     * _t__SignatureRequestResponse::FINAL_COPY_URI
      *
      * @return finalCopyUri
      */
@@ -630,7 +622,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * Templates IDs used in this SignatureRequest (if any).
+     * _t__SignatureRequestResponse::TEMPLATE_IDS
      *
      * @return templateIds
      */
@@ -662,9 +654,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * An array of Custom Field objects containing the name and type of each custom field. * Text
-     * Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses
-     * &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
+     * _t__SignatureRequestResponseCustomField::DESCRIPTION
      *
      * @return customFields
      */
@@ -697,7 +687,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * Signer attachments.
+     * _t__SignatureRequestResponseAttachment::DESCRIPTION
      *
      * @return attachments
      */
@@ -730,8 +720,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * An array of form field objects containing the name, value, and type of each textbox or
-     * checkmark field filled in by the signers.
+     * _t__SignatureRequestResponseData::DESCRIPTION
      *
      * @return responseData
      */
@@ -764,7 +753,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * An array of signature objects, 1 for each signer.
+     * _t__SignatureRequestResponseSignatures::DESCRIPTION
      *
      * @return signatures
      */
@@ -788,7 +777,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     }
 
     /**
-     * The id of the BulkSendJob.
+     * _t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID
      *
      * @return bulkSendJobId
      */

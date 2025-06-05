@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Details concerning remaining monthly quotas.
+    /// _t__Account::QUOTA
     /// </summary>
     [DataContract(Name = "AccountResponseQuotas")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseQuotas" /> class.
         /// </summary>
-        /// <param name="apiSignatureRequestsLeft">API signature requests remaining..</param>
-        /// <param name="documentsLeft">Signature requests remaining..</param>
-        /// <param name="templatesTotal">Total API templates allowed..</param>
-        /// <param name="templatesLeft">API templates remaining..</param>
-        /// <param name="smsVerificationsLeft">SMS verifications remaining..</param>
-        /// <param name="numFaxPagesLeft">Number of fax pages left.</param>
+        /// <param name="apiSignatureRequestsLeft">_t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT.</param>
+        /// <param name="documentsLeft">_t__AccountQuota::DOCUMENTS_LEFT.</param>
+        /// <param name="templatesTotal">_t__AccountQuota::TEMPLATES_TOTAL.</param>
+        /// <param name="templatesLeft">_t__AccountQuota::TEMPLATES_LEFT.</param>
+        /// <param name="smsVerificationsLeft">_t__AccountQuota::SMS_VERIFICATIONS_LEFT.</param>
+        /// <param name="numFaxPagesLeft">_t__AccountQuota::NUM_FAX_PAGES_LEFT.</param>
         public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?), int? numFaxPagesLeft = default(int?))
         {
 
@@ -75,44 +75,44 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// API signature requests remaining.
+        /// _t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT
         /// </summary>
-        /// <value>API signature requests remaining.</value>
+        /// <value>_t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int? ApiSignatureRequestsLeft { get; set; }
 
         /// <summary>
-        /// Signature requests remaining.
+        /// _t__AccountQuota::DOCUMENTS_LEFT
         /// </summary>
-        /// <value>Signature requests remaining.</value>
+        /// <value>_t__AccountQuota::DOCUMENTS_LEFT</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int? DocumentsLeft { get; set; }
 
         /// <summary>
-        /// Total API templates allowed.
+        /// _t__AccountQuota::TEMPLATES_TOTAL
         /// </summary>
-        /// <value>Total API templates allowed.</value>
+        /// <value>_t__AccountQuota::TEMPLATES_TOTAL</value>
         [DataMember(Name = "templates_total", EmitDefaultValue = true)]
         public int? TemplatesTotal { get; set; }
 
         /// <summary>
-        /// API templates remaining.
+        /// _t__AccountQuota::TEMPLATES_LEFT
         /// </summary>
-        /// <value>API templates remaining.</value>
+        /// <value>_t__AccountQuota::TEMPLATES_LEFT</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int? TemplatesLeft { get; set; }
 
         /// <summary>
-        /// SMS verifications remaining.
+        /// _t__AccountQuota::SMS_VERIFICATIONS_LEFT
         /// </summary>
-        /// <value>SMS verifications remaining.</value>
+        /// <value>_t__AccountQuota::SMS_VERIFICATIONS_LEFT</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int? SmsVerificationsLeft { get; set; }
 
         /// <summary>
-        /// Number of fax pages left
+        /// _t__AccountQuota::NUM_FAX_PAGES_LEFT
         /// </summary>
-        /// <value>Number of fax pages left</value>
+        /// <value>_t__AccountQuota::NUM_FAX_PAGES_LEFT</value>
         [DataMember(Name = "num_fax_pages_left", EmitDefaultValue = true)]
         public int? NumFaxPagesLeft { get; set; }
 

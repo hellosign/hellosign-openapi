@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="accessToken">accessToken.</param>
         /// <param name="tokenType">tokenType.</param>
         /// <param name="refreshToken">refreshToken.</param>
-        /// <param name="expiresIn">Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time..</param>
+        /// <param name="expiresIn">_t__OAuthTokenResponse::EXPIRES_IN.</param>
         /// <param name="state">state.</param>
         public OAuthTokenResponse(string accessToken = default(string), string tokenType = default(string), string refreshToken = default(string), int expiresIn = default(int), string state = default(string))
         {
@@ -91,9 +91,9 @@ namespace Dropbox.Sign.Model
         public string RefreshToken { get; set; }
 
         /// <summary>
-        /// Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.
+        /// _t__OAuthTokenResponse::EXPIRES_IN
         /// </summary>
-        /// <value>Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.</value>
+        /// <value>_t__OAuthTokenResponse::EXPIRES_IN</value>
         [DataMember(Name = "expires_in", EmitDefaultValue = true)]
         public int ExpiresIn { get; set; }
 

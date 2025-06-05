@@ -152,7 +152,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentTextMerge" /> class.
         /// </summary>
-        /// <param name="type">A text field that has default text set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentTextMerge&#x60; class. (required) (default to &quot;text-merge&quot;).</param>
+        /// <param name="type">_t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE (required) (default to &quot;text-merge&quot;).</param>
         /// <param name="fontFamily">Font family for the field..</param>
         /// <param name="fontSize">The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field. (default to 12).</param>
         /// <param name="documentIndex">Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to. (required).</param>
@@ -162,9 +162,9 @@ namespace Dropbox.Sign.Model
         /// <param name="page">Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them..</param>
         /// <param name="required">Whether this field is required. (required).</param>
         /// <param name="signer">Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data. (required).</param>
-        /// <param name="width">Size of the field in pixels. (required).</param>
-        /// <param name="x">Location coordinates of the field in pixels. (required).</param>
-        /// <param name="y">Location coordinates of the field in pixels. (required).</param>
+        /// <param name="width">_t__Sub::FormFieldsPerDocument::WIDTH (required).</param>
+        /// <param name="x">_t__Sub::FormFieldsPerDocument::X (required).</param>
+        /// <param name="y">_t__Sub::FormFieldsPerDocument::Y (required).</param>
         public SubFormFieldsPerDocumentTextMerge(string type = @"text-merge", FontFamilyEnum? fontFamily = default(FontFamilyEnum?), int fontSize = 12, int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
@@ -205,9 +205,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// A text field that has default text set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentTextMerge&#x60; class.
+        /// _t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE
         /// </summary>
-        /// <value>A text field that has default text set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentTextMerge&#x60; class.</value>
+        /// <value>_t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

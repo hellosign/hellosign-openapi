@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Specific metadata about the event. */
+/** _t__EventCallbackRequestEventMetadata::DESCRIPTION */
 @JsonPropertyOrder({
     EventCallbackRequestEventMetadata.JSON_PROPERTY_RELATED_SIGNATURE_ID,
     EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID,
@@ -72,8 +72,7 @@ public class EventCallbackRequestEventMetadata {
     }
 
     /**
-     * Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and
-     * &#x60;signature_request_viewed&#x60; events.
+     * _t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID
      *
      * @return relatedSignatureId
      */
@@ -96,7 +95,7 @@ public class EventCallbackRequestEventMetadata {
     }
 
     /**
-     * Account ID the event was reported for.
+     * _t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID
      *
      * @return reportedForAccountId
      */
@@ -119,7 +118,7 @@ public class EventCallbackRequestEventMetadata {
     }
 
     /**
-     * App ID the event was reported for.
+     * _t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID
      *
      * @return reportedForAppId
      */
@@ -142,7 +141,7 @@ public class EventCallbackRequestEventMetadata {
     }
 
     /**
-     * Message about a declined or failed (due to error) signature flow.
+     * _t__EventCallbackRequestEventMetadata::EVENT_MESSAGE
      *
      * @return eventMessage
      */

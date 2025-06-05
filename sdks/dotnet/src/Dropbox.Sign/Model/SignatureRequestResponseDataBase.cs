@@ -28,7 +28,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+    /// _t__SignatureRequestResponseData::DESCRIPTION
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseDataBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
@@ -52,10 +52,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseDataBase" /> class.
         /// </summary>
-        /// <param name="apiId">The unique ID for this field..</param>
-        /// <param name="signatureId">The ID of the signature to which this response is linked..</param>
-        /// <param name="name">The name of the form field..</param>
-        /// <param name="required">A boolean value denoting if this field is required..</param>
+        /// <param name="apiId">_t__SignatureRequestResponseData::API_ID.</param>
+        /// <param name="signatureId">_t__SignatureRequestResponseData::SIGNATURE_ID.</param>
+        /// <param name="name">_t__SignatureRequestResponseData::NAME.</param>
+        /// <param name="required">_t__SignatureRequestResponseData::REQUIRED.</param>
         /// <param name="type">type.</param>
         public SignatureRequestResponseDataBase(string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool), string type = default(string))
         {
@@ -84,30 +84,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The unique ID for this field.
+        /// _t__SignatureRequestResponseData::API_ID
         /// </summary>
-        /// <value>The unique ID for this field.</value>
+        /// <value>_t__SignatureRequestResponseData::API_ID</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
 
         /// <summary>
-        /// The ID of the signature to which this response is linked.
+        /// _t__SignatureRequestResponseData::SIGNATURE_ID
         /// </summary>
-        /// <value>The ID of the signature to which this response is linked.</value>
+        /// <value>_t__SignatureRequestResponseData::SIGNATURE_ID</value>
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
 
         /// <summary>
-        /// The name of the form field.
+        /// _t__SignatureRequestResponseData::NAME
         /// </summary>
-        /// <value>The name of the form field.</value>
+        /// <value>_t__SignatureRequestResponseData::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// A boolean value denoting if this field is required.
+        /// _t__SignatureRequestResponseData::REQUIRED
         /// </summary>
-        /// <value>A boolean value denoting if this field is required.</value>
+        /// <value>_t__SignatureRequestResponseData::REQUIRED</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
 

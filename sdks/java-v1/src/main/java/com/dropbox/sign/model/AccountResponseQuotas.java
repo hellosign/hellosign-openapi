@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Details concerning remaining monthly quotas. */
+/** _t__Account::QUOTA */
 @JsonPropertyOrder({
     AccountResponseQuotas.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
     AccountResponseQuotas.JSON_PROPERTY_DOCUMENTS_LEFT,
@@ -80,7 +80,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * API signature requests remaining.
+     * _t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT
      *
      * @return apiSignatureRequestsLeft
      */
@@ -103,7 +103,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * Signature requests remaining.
+     * _t__AccountQuota::DOCUMENTS_LEFT
      *
      * @return documentsLeft
      */
@@ -125,7 +125,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * Total API templates allowed.
+     * _t__AccountQuota::TEMPLATES_TOTAL
      *
      * @return templatesTotal
      */
@@ -147,7 +147,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * API templates remaining.
+     * _t__AccountQuota::TEMPLATES_LEFT
      *
      * @return templatesLeft
      */
@@ -170,7 +170,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * SMS verifications remaining.
+     * _t__AccountQuota::SMS_VERIFICATIONS_LEFT
      *
      * @return smsVerificationsLeft
      */
@@ -193,7 +193,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * Number of fax pages left
+     * _t__AccountQuota::NUM_FAX_PAGES_LEFT
      *
      * @return numFaxPagesLeft
      */

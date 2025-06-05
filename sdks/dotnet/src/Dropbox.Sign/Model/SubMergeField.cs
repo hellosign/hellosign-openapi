@@ -34,9 +34,9 @@ namespace Dropbox.Sign.Model
     public partial class SubMergeField : IEquatable<SubMergeField>, IValidatableObject
     {
         /// <summary>
-        /// The type of merge field.
+        /// _t__Sub::MergeField::TYPE
         /// </summary>
-        /// <value>The type of merge field.</value>
+        /// <value>_t__Sub::MergeField::TYPE</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -55,9 +55,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// The type of merge field.
+        /// _t__Sub::MergeField::TYPE
         /// </summary>
-        /// <value>The type of merge field.</value>
+        /// <value>_t__Sub::MergeField::TYPE</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -68,8 +68,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubMergeField" /> class.
         /// </summary>
-        /// <param name="name">The name of the merge field. Must be unique. (required).</param>
-        /// <param name="type">The type of merge field. (required).</param>
+        /// <param name="name">_t__Sub::MergeField::NAME (required).</param>
+        /// <param name="type">_t__Sub::MergeField::TYPE (required).</param>
         public SubMergeField(string name = default(string), TypeEnum type = default(TypeEnum))
         {
 
@@ -99,9 +99,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The name of the merge field. Must be unique.
+        /// _t__Sub::MergeField::NAME
         /// </summary>
-        /// <value>The name of the merge field. Must be unique.</value>
+        /// <value>_t__Sub::MergeField::NAME</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 

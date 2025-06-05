@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A group of documents that a user can take ownership of via the claim URL. */
+/** _t__UnclaimedDraftResponse::DESCRIPTION */
 @JsonPropertyOrder({
     UnclaimedDraftResponse.JSON_PROPERTY_SIGNATURE_REQUEST_ID,
     UnclaimedDraftResponse.JSON_PROPERTY_CLAIM_URL,
@@ -79,7 +79,7 @@ public class UnclaimedDraftResponse {
     }
 
     /**
-     * The ID of the signature request that is represented by this UnclaimedDraft.
+     * _t__UnclaimedDraft::SIGNATURE_REQUEST_ID
      *
      * @return signatureRequestId
      */
@@ -101,7 +101,7 @@ public class UnclaimedDraftResponse {
     }
 
     /**
-     * The URL to be used to claim this UnclaimedDraft.
+     * _t__UnclaimedDraft::CLAIM_URL
      *
      * @return claimUrl
      */
@@ -124,7 +124,7 @@ public class UnclaimedDraftResponse {
     }
 
     /**
-     * The URL you want signers redirected to after they successfully sign.
+     * _t__UnclaimedDraft::SIGNING_REDIRECT_URL
      *
      * @return signingRedirectUrl
      */
@@ -147,8 +147,7 @@ public class UnclaimedDraftResponse {
     }
 
     /**
-     * The URL you want signers redirected to after they successfully request a signature (Will only
-     * be returned in the response if it is applicable to the request.).
+     * _t__UnclaimedDraft::REQUESTING_REDIRECT_URL
      *
      * @return requestingRedirectUrl
      */
@@ -170,7 +169,7 @@ public class UnclaimedDraftResponse {
     }
 
     /**
-     * When the link expires.
+     * _t__UnclaimedDraft::EXPIRES_AT
      *
      * @return expiresAt
      */
@@ -192,7 +191,7 @@ public class UnclaimedDraftResponse {
     }
 
     /**
-     * Whether this is a test draft. Signature requests made from test drafts have no legal value.
+     * _t__UnclaimedDraft::TEST_MODE
      *
      * @return testMode
      */

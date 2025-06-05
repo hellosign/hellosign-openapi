@@ -34,9 +34,9 @@ namespace Dropbox.Sign.Model
     public partial class SubSignatureRequestTemplateSigner : IEquatable<SubSignatureRequestTemplateSigner>, IValidatableObject
     {
         /// <summary>
-        /// Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).
+        /// _t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE
         /// </summary>
-        /// <value>Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SmsPhoneNumberTypeEnum
         {
@@ -55,9 +55,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).
+        /// _t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE
         /// </summary>
-        /// <value>Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE</value>
         [DataMember(Name = "sms_phone_number_type", EmitDefaultValue = true)]
         public SmsPhoneNumberTypeEnum? SmsPhoneNumberType { get; set; }
         /// <summary>
@@ -68,12 +68,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSignatureRequestTemplateSigner" /> class.
         /// </summary>
-        /// <param name="role">Must match an existing role in chosen Template(s). It&#39;s case-sensitive. (required).</param>
-        /// <param name="name">The name of the signer. (required).</param>
-        /// <param name="emailAddress">The email address of the signer. (required).</param>
-        /// <param name="pin">The 4- to 12-character access code that will secure this signer&#39;s signature page..</param>
-        /// <param name="smsPhoneNumber">An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher..</param>
-        /// <param name="smsPhoneNumberType">Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email)..</param>
+        /// <param name="role">_t__Sub::SignatureRequestTemplateSigner::ROLE (required).</param>
+        /// <param name="name">_t__Sub::SignatureRequestTemplateSigner::NAME (required).</param>
+        /// <param name="emailAddress">_t__Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS (required).</param>
+        /// <param name="pin">_t__Sub::SignatureRequestTemplateSigner::PIN.</param>
+        /// <param name="smsPhoneNumber">_t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER.</param>
+        /// <param name="smsPhoneNumberType">_t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE.</param>
         public SubSignatureRequestTemplateSigner(string role = default(string), string name = default(string), string emailAddress = default(string), string pin = default(string), string smsPhoneNumber = default(string), SmsPhoneNumberTypeEnum? smsPhoneNumberType = default(SmsPhoneNumberTypeEnum?))
         {
 
@@ -117,37 +117,37 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Must match an existing role in chosen Template(s). It&#39;s case-sensitive.
+        /// _t__Sub::SignatureRequestTemplateSigner::ROLE
         /// </summary>
-        /// <value>Must match an existing role in chosen Template(s). It&#39;s case-sensitive.</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::ROLE</value>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
 
         /// <summary>
-        /// The name of the signer.
+        /// _t__Sub::SignatureRequestTemplateSigner::NAME
         /// </summary>
-        /// <value>The name of the signer.</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::NAME</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The email address of the signer.
+        /// _t__Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS
         /// </summary>
-        /// <value>The email address of the signer.</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// The 4- to 12-character access code that will secure this signer&#39;s signature page.
+        /// _t__Sub::SignatureRequestTemplateSigner::PIN
         /// </summary>
-        /// <value>The 4- to 12-character access code that will secure this signer&#39;s signature page.</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::PIN</value>
         [DataMember(Name = "pin", EmitDefaultValue = true)]
         public string Pin { get; set; }
 
         /// <summary>
-        /// An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.
+        /// _t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER
         /// </summary>
-        /// <value>An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER</value>
         [DataMember(Name = "sms_phone_number", EmitDefaultValue = true)]
         public string SmsPhoneNumber { get; set; }
 

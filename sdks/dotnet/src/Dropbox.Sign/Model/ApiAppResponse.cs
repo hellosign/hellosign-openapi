@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains information about an API App.
+    /// _t__ApiAppResponse::DESCRIPTION
     /// </summary>
     [DataContract(Name = "ApiAppResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponse" /> class.
         /// </summary>
-        /// <param name="callbackUrl">The app&#39;s callback URL (for events).</param>
-        /// <param name="clientId">The app&#39;s client id.</param>
-        /// <param name="createdAt">The time that the app was created.</param>
-        /// <param name="domains">The domain name(s) associated with the app.</param>
-        /// <param name="name">The name of the app.</param>
-        /// <param name="isApproved">Boolean to indicate if the app has been approved.</param>
+        /// <param name="callbackUrl">_t__ApiAppResponse::CALLBACK_URL.</param>
+        /// <param name="clientId">_t__ApiAppResponse::CLIENT_ID.</param>
+        /// <param name="createdAt">_t__ApiAppResponse::CREATED_AT.</param>
+        /// <param name="domains">_t__ApiAppResponse::DOMAINS.</param>
+        /// <param name="name">_t__ApiAppResponse::NAME.</param>
+        /// <param name="isApproved">_t__ApiAppResponse::IS_APPROVED.</param>
         /// <param name="oauth">oauth.</param>
         /// <param name="options">options.</param>
         /// <param name="ownerAccount">ownerAccount.</param>
@@ -83,44 +83,44 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The app&#39;s callback URL (for events)
+        /// _t__ApiAppResponse::CALLBACK_URL
         /// </summary>
-        /// <value>The app&#39;s callback URL (for events)</value>
+        /// <value>_t__ApiAppResponse::CALLBACK_URL</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
 
         /// <summary>
-        /// The app&#39;s client id
+        /// _t__ApiAppResponse::CLIENT_ID
         /// </summary>
-        /// <value>The app&#39;s client id</value>
+        /// <value>_t__ApiAppResponse::CLIENT_ID</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
-        /// The time that the app was created
+        /// _t__ApiAppResponse::CREATED_AT
         /// </summary>
-        /// <value>The time that the app was created</value>
+        /// <value>_t__ApiAppResponse::CREATED_AT</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
 
         /// <summary>
-        /// The domain name(s) associated with the app
+        /// _t__ApiAppResponse::DOMAINS
         /// </summary>
-        /// <value>The domain name(s) associated with the app</value>
+        /// <value>_t__ApiAppResponse::DOMAINS</value>
         [DataMember(Name = "domains", EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
 
         /// <summary>
-        /// The name of the app
+        /// _t__ApiAppResponse::NAME
         /// </summary>
-        /// <value>The name of the app</value>
+        /// <value>_t__ApiAppResponse::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Boolean to indicate if the app has been approved
+        /// _t__ApiAppResponse::IS_APPROVED
         /// </summary>
-        /// <value>Boolean to indicate if the app has been approved</value>
+        /// <value>_t__ApiAppResponse::IS_APPROVED</value>
         [DataMember(Name = "is_approved", EmitDefaultValue = true)]
         public bool IsApproved { get; set; }
 

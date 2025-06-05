@@ -35,7 +35,7 @@ public class SubMergeField {
     public static final String JSON_PROPERTY_NAME = "name";
     @javax.annotation.Nonnull private String name;
 
-    /** The type of merge field. */
+    /** _t__Sub::MergeField::TYPE */
     public enum TypeEnum {
         TEXT(String.valueOf("text")),
 
@@ -93,7 +93,7 @@ public class SubMergeField {
     }
 
     /**
-     * The name of the merge field. Must be unique.
+     * _t__Sub::MergeField::NAME
      *
      * @return name
      */
@@ -116,7 +116,7 @@ public class SubMergeField {
     }
 
     /**
-     * The type of merge field.
+     * _t__Sub::MergeField::TYPE
      *
      * @return type
      */

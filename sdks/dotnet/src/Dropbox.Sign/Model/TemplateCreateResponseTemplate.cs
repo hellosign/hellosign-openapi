@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Template object with parameters: &#x60;template_id&#x60;.
+    /// _t__TemplateCreateResponseTemplate::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TemplateCreateResponseTemplate")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateResponseTemplate" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template..</param>
+        /// <param name="templateId">_t__TemplateResponse::TEMPLATE_ID.</param>
         public TemplateCreateResponseTemplate(string templateId = default(string))
         {
 
@@ -65,9 +65,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the Template.
+        /// _t__TemplateResponse::TEMPLATE_ID
         /// </summary>
-        /// <value>The id of the Template.</value>
+        /// <value>_t__TemplateResponse::TEMPLATE_ID</value>
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
