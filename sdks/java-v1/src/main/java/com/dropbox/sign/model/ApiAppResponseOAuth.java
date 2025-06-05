@@ -25,10 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * An object describing the app&#39;s OAuth properties, or null if OAuth is not configured for the
- * app.
- */
+/** _t__ApiAppResponseOAuth::DESCRIPTION */
 @JsonPropertyOrder({
     ApiAppResponseOAuth.JSON_PROPERTY_CALLBACK_URL,
     ApiAppResponseOAuth.JSON_PROPERTY_SECRET,
@@ -74,7 +71,7 @@ public class ApiAppResponseOAuth {
     }
 
     /**
-     * The app&#39;s OAuth callback URL.
+     * _t__ApiAppResponseOAuth::CALLBACK_URL
      *
      * @return callbackUrl
      */
@@ -96,7 +93,7 @@ public class ApiAppResponseOAuth {
     }
 
     /**
-     * The app&#39;s OAuth secret, or null if the app does not belong to user.
+     * _t__ApiAppResponseOAuth::SECRET
      *
      * @return secret
      */
@@ -126,7 +123,7 @@ public class ApiAppResponseOAuth {
     }
 
     /**
-     * Array of OAuth scopes used by the app.
+     * _t__ApiAppResponseOAuth::SCOPES
      *
      * @return scopes
      */
@@ -148,8 +145,7 @@ public class ApiAppResponseOAuth {
     }
 
     /**
-     * Boolean indicating whether the app owner or the account granting permission is billed for
-     * OAuth requests.
+     * _t__ApiAppResponseOAuth::CHARGES_USERS
      *
      * @return chargesUsers
      */

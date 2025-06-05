@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TeamGetInfoResponse" /> class.
         /// </summary>
         /// <param name="team">team (required).</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public TeamGetInfoResponse(TeamInfoResponse team = default(TeamInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -78,9 +78,9 @@ namespace Dropbox.Sign.Model
         public TeamInfoResponse Team { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
 

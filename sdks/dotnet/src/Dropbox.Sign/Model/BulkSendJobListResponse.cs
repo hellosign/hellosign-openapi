@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkSendJobListResponse" /> class.
         /// </summary>
-        /// <param name="bulkSendJobs">Contains a list of BulkSendJobs that the API caller has access to. (required).</param>
+        /// <param name="bulkSendJobs">_t__BulkSendJobListResponse::BULK_SEND_JOBS (required).</param>
         /// <param name="listInfo">listInfo (required).</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public BulkSendJobListResponse(List<BulkSendJobResponse> bulkSendJobs = default(List<BulkSendJobResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -79,9 +79,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Contains a list of BulkSendJobs that the API caller has access to.
+        /// _t__BulkSendJobListResponse::BULK_SEND_JOBS
         /// </summary>
-        /// <value>Contains a list of BulkSendJobs that the API caller has access to.</value>
+        /// <value>_t__BulkSendJobListResponse::BULK_SEND_JOBS</value>
         [DataMember(Name = "bulk_send_jobs", IsRequired = true, EmitDefaultValue = true)]
         public List<BulkSendJobResponse> BulkSendJobs { get; set; }
 
@@ -92,9 +92,9 @@ namespace Dropbox.Sign.Model
         public ListInfoResponse ListInfo { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
 

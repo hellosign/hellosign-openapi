@@ -7740,6 +7740,10 @@ components:
           description: '_t__EmbeddedEditUrl::ALLOW_EDIT_CCS'
           type: boolean
           default: false
+        allow_form_view:
+          description: '_t__EmbeddedEditUrl::ALLOW_FORM_VIEW'
+          type: boolean
+          default: false
         cc_roles:
           description: '_t__EmbeddedEditUrl::CC_ROLES'
           type: array
@@ -8177,6 +8181,10 @@ components:
           description: '_t__SignatureRequestCreateEmbedded::ALLOW_DECLINE'
           type: boolean
           default: false
+        allow_form_view:
+          description: '_t__SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW'
+          type: boolean
+          default: false
         allow_reassign:
           description: '_t__SignatureRequestCreateEmbedded::ALLOW_REASSIGN'
           type: boolean
@@ -8356,6 +8364,10 @@ components:
           description: '_t__SignatureRequestSend::ALLOW_DECLINE'
           type: boolean
           default: false
+        allow_form_view:
+          description: '_t__SignatureRequestSend::ALLOW_FORM_VIEW'
+          type: boolean
+          default: false
         allow_reassign:
           description: '_t__SignatureRequestSend::ALLOW_REASSIGN'
           type: boolean
@@ -8466,6 +8478,10 @@ components:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
         allow_decline:
           description: '_t__SignatureRequestCreateEmbedded::ALLOW_DECLINE'
+          type: boolean
+          default: false
+        allow_form_view:
+          description: '_t__SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         allow_reassign:
@@ -8736,6 +8752,10 @@ components:
           default: false
         allow_reassign:
           description: '_t__SignatureRequestSend::ALLOW_REASSIGN'
+          type: boolean
+          default: false
+        allow_form_view:
+          description: '_t__SignatureRequestSend::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         attachments:
@@ -9889,6 +9909,10 @@ components:
           description: '_t__TemplateCreate::ALLOW_REASSIGN'
           type: boolean
           default: false
+        allow_form_view:
+          description: '_t__TemplateCreate::ALLOW_FORM_VIEW'
+          type: boolean
+          default: false
         attachments:
           description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
@@ -9975,6 +9999,10 @@ components:
           default: true
         allow_reassign:
           description: '_t__TemplateCreateEmbeddedDraft::ALLOW_REASSIGN'
+          type: boolean
+          default: false
+        allow_form_view:
+          description: '_t__TemplateCreateEmbeddedDraft::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         attachments:
@@ -10123,6 +10151,10 @@ components:
           description: '_t__UnclaimedDraftCreate::ALLOW_DECLINE'
           type: boolean
           default: false
+        allow_form_view:
+          description: '_t__UnclaimedDraftCreate::ALLOW_FORM_VIEW'
+          type: boolean
+          default: false
         attachments:
           description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
@@ -10236,6 +10268,10 @@ components:
           default: true
         allow_decline:
           description: '_t__UnclaimedDraftCreateEmbedded::ALLOW_DECLINE'
+          type: boolean
+          default: false
+        allow_form_view:
+          description: '_t__UnclaimedDraftCreateEmbedded::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         allow_reassign:

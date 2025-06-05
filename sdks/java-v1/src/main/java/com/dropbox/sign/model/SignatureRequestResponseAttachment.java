@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Signer attachments. */
+/** _t__SignatureRequestResponseAttachment::DESCRIPTION */
 @JsonPropertyOrder({
     SignatureRequestResponseAttachment.JSON_PROPERTY_ID,
     SignatureRequestResponseAttachment.JSON_PROPERTY_SIGNER,
@@ -79,7 +79,7 @@ public class SignatureRequestResponseAttachment {
     }
 
     /**
-     * The unique ID for this attachment.
+     * _t__SignatureRequestResponseAttachment::ID
      *
      * @return id
      */
@@ -107,7 +107,7 @@ public class SignatureRequestResponseAttachment {
     }
 
     /**
-     * The Signer this attachment is assigned to.
+     * _t__SignatureRequestResponseAttachment::SIGNER
      *
      * @return signer
      */
@@ -134,7 +134,7 @@ public class SignatureRequestResponseAttachment {
     }
 
     /**
-     * The name of this attachment.
+     * _t__SignatureRequestResponseAttachment::NAME
      *
      * @return name
      */
@@ -157,7 +157,7 @@ public class SignatureRequestResponseAttachment {
     }
 
     /**
-     * A boolean value denoting if this attachment is required.
+     * _t__SignatureRequestResponseAttachment::REQUIRED
      *
      * @return required
      */
@@ -181,7 +181,7 @@ public class SignatureRequestResponseAttachment {
     }
 
     /**
-     * Instructions for Signer.
+     * _t__SignatureRequestResponseAttachment::INSTRUCTIONS
      *
      * @return instructions
      */
@@ -204,7 +204,7 @@ public class SignatureRequestResponseAttachment {
     }
 
     /**
-     * Timestamp when attachment was uploaded by Signer.
+     * _t__SignatureRequestResponseAttachment::UPLOADED_AT
      *
      * @return uploadedAt
      */

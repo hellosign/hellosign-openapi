@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Basic information about the event that occurred. */
+/** _t__EventCallbackRequestEvent::DESCRIPTION */
 @JsonPropertyOrder({
     EventCallbackRequestEvent.JSON_PROPERTY_EVENT_TIME,
     EventCallbackRequestEvent.JSON_PROPERTY_EVENT_TYPE,
@@ -40,7 +40,7 @@ public class EventCallbackRequestEvent {
     public static final String JSON_PROPERTY_EVENT_TIME = "event_time";
     @javax.annotation.Nonnull private String eventTime;
 
-    /** Type of callback event that was triggered. */
+    /** _t__EventCallbackRequestEvent::EVENT_TYPE */
     public enum EventTypeEnum {
         ACCOUNT_CONFIRMED(String.valueOf("account_confirmed")),
 
@@ -148,7 +148,7 @@ public class EventCallbackRequestEvent {
     }
 
     /**
-     * Time the event was created (using Unix time).
+     * _t__EventCallbackRequestEvent::EVENT_TIME
      *
      * @return eventTime
      */
@@ -171,7 +171,7 @@ public class EventCallbackRequestEvent {
     }
 
     /**
-     * Type of callback event that was triggered.
+     * _t__EventCallbackRequestEvent::EVENT_TYPE
      *
      * @return eventType
      */
@@ -194,7 +194,7 @@ public class EventCallbackRequestEvent {
     }
 
     /**
-     * Generated hash used to verify source of event data.
+     * _t__EventCallbackRequestEvent::EVENT_HASH
      *
      * @return eventHash
      */

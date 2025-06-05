@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TeamId** | **string** |  The id of a team  | [optional] **TeamParent** | [**TeamParentResponse**](TeamParentResponse.md) |    | [optional] **Name** | **string** |  The name of a team  | [optional] **NumMembers** | **int** |  Number of members within a team  | [optional] **NumSubTeams** | **int** |  Number of sub teams within a team  | [optional] 
+**TeamId** | **string** |  _t__TeamGeneral::TEAM_ID  | [optional] **TeamParent** | [**TeamParentResponse**](TeamParentResponse.md) |    | [optional] **Name** | **string** |  _t__TeamGeneral::NAME  | [optional] **NumMembers** | **int** |  _t__TeamGeneral::NUM_MEMBERS  | [optional] **NumSubTeams** | **int** |  _t__TeamGeneral::NUM_SUB_TEAMS  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

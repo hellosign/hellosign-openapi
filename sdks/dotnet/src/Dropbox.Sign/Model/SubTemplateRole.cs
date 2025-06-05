@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubTemplateRole" /> class.
         /// </summary>
-        /// <param name="name">The role name of the signer that will be displayed when the template is used to create a signature request..</param>
-        /// <param name="order">The order in which this signer role is required to sign..</param>
+        /// <param name="name">_t__Sub::SignerRole::NAME.</param>
+        /// <param name="order">_t__Sub::SignerRole::ORDER.</param>
         public SubTemplateRole(string name = default(string), int? order = default(int?))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The role name of the signer that will be displayed when the template is used to create a signature request.
+        /// _t__Sub::SignerRole::NAME
         /// </summary>
-        /// <value>The role name of the signer that will be displayed when the template is used to create a signature request.</value>
+        /// <value>_t__Sub::SignerRole::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The order in which this signer role is required to sign.
+        /// _t__Sub::SignerRole::ORDER
         /// </summary>
-        /// <value>The order in which this signer role is required to sign.</value>
+        /// <value>_t__Sub::SignerRole::ORDER</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
 

@@ -73,7 +73,7 @@ public class TeamInfoResponse {
     }
 
     /**
-     * The id of a team
+     * _t__TeamGeneral::TEAM_ID
      *
      * @return teamId
      */
@@ -117,7 +117,7 @@ public class TeamInfoResponse {
     }
 
     /**
-     * The name of a team
+     * _t__TeamGeneral::NAME
      *
      * @return name
      */
@@ -139,7 +139,7 @@ public class TeamInfoResponse {
     }
 
     /**
-     * Number of members within a team
+     * _t__TeamGeneral::NUM_MEMBERS
      *
      * @return numMembers
      */
@@ -161,7 +161,7 @@ public class TeamInfoResponse {
     }
 
     /**
-     * Number of sub teams within a team
+     * _t__TeamGeneral::NUM_SUB_TEAMS
      *
      * @return numSubTeams
      */

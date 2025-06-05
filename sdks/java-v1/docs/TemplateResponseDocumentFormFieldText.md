@@ -2,21 +2,21 @@
 
 # TemplateResponseDocumentFormFieldText
 
-This class extends `TemplateResponseDocumentFormFieldBase`
+_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `type`<sup>*_required_</sup> | ```String``` |  The type of this form field. See [field types](/api/reference/constants/#field-types).<br><br>* Text Field uses `TemplateResponseDocumentFormFieldText`<br>* Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`<br>* Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`<br>* Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`<br>* Radio Field uses `TemplateResponseDocumentFormFieldRadio`<br>* Signature Field uses `TemplateResponseDocumentFormFieldSignature`<br>* Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`<br>* Initials Field uses `TemplateResponseDocumentFormFieldInitials`  |  |
+| `type`<sup>*_required_</sup> | ```String``` |  _t__TemplateResponseDocumentFormField::TYPE  |  |
 | `avgTextLength` | [```TemplateResponseFieldAvgTextLength```](TemplateResponseFieldAvgTextLength.md) |    |  |
-| `isMultiline` | ```Boolean``` |  Whether this form field is multiline text.  |  |
-| `originalFontSize` | ```Integer``` |  Original font size used in this form field&#39;s text.  |  |
-| `fontFamily` | ```String``` |  Font family used in this form field&#39;s text.  |  |
-| `validationType` | [```ValidationTypeEnum```](#ValidationTypeEnum) |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  |  |
-| `validationCustomRegex` | ```String``` |  When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.  |  |
-| `validationCustomRegexFormatLabel` | ```String``` |  When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.  |  |
-| `group` | ```String``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
+| `isMultiline` | ```Boolean``` |  _t__TemplateResponseDocumentFormField::IS_MULTILINE  |  |
+| `originalFontSize` | ```Integer``` |  _t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE  |  |
+| `fontFamily` | ```String``` |  _t__TemplateResponseDocumentFormField::FONT_FAMILY  |  |
+| `validationType` | [```ValidationTypeEnum```](#ValidationTypeEnum) |  _t__TemplateResponseDocumentFormField::VALIDATION_TYPE  |  |
+| `validationCustomRegex` | ```String``` |  _t__TemplateResponseDocumentFormField::CUSTOM_REGEX  |  |
+| `validationCustomRegexFormatLabel` | ```String``` |  _t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL  |  |
+| `group` | ```String``` |  _t__TemplateResponseDocumentFormField::GROUP  |  |
 
 
 

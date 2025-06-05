@@ -2,19 +2,17 @@
 
 # SubSigningOptions
 
-This allows the requester to specify the types allowed for creating a signature.
-
-**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+_t__Sub::SigningOptions::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `defaultType`<sup>*_required_</sup> | [```DefaultTypeEnum```](#DefaultTypeEnum) |  The default type shown (limited to the listed types)  |  |
-| `draw` | ```Boolean``` |  Allows drawing the signature  |  |
-| `phone` | ```Boolean``` |  Allows using a smartphone to email the signature  |  |
-| `type` | ```Boolean``` |  Allows typing the signature  |  |
-| `upload` | ```Boolean``` |  Allows uploading the signature  |  |
+| `defaultType`<sup>*_required_</sup> | [```DefaultTypeEnum```](#DefaultTypeEnum) |  _t__Sub::SigningOptions::DEFAULT  |  |
+| `draw` | ```Boolean``` |  _t__Sub::SigningOptions::DRAW  |  |
+| `phone` | ```Boolean``` |  _t__Sub::SigningOptions::PHONE  |  |
+| `type` | ```Boolean``` |  _t__Sub::SigningOptions::TYPE  |  |
+| `upload` | ```Boolean``` |  _t__Sub::SigningOptions::UPLOAD  |  |
 
 
 

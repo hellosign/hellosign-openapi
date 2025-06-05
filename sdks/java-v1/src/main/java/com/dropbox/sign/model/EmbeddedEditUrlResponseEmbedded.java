@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An embedded template object. */
+/** _t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION */
 @JsonPropertyOrder({
     EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
     EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
@@ -63,7 +63,7 @@ public class EmbeddedEditUrlResponseEmbedded {
     }
 
     /**
-     * A template url that can be opened in an iFrame.
+     * _t__EmbeddedEditUrlResponseEmbedded::EDIT_URL
      *
      * @return editUrl
      */
@@ -85,7 +85,7 @@ public class EmbeddedEditUrlResponseEmbedded {
     }
 
     /**
-     * The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.
+     * _t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT
      *
      * @return expiresAt
      */

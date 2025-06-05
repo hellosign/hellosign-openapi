@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** OAuth related parameters. */
+/** _t__Sub::OAuth::DESCRIPTION */
 @JsonPropertyOrder({SubOAuth.JSON_PROPERTY_CALLBACK_URL, SubOAuth.JSON_PROPERTY_SCOPES})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -107,8 +107,7 @@ public class SubOAuth {
     }
 
     /**
-     * The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is
-     * provided)
+     * _t__Sub::OAuth::CALLBACK_URL
      *
      * @return callbackUrl
      */
@@ -138,8 +137,7 @@ public class SubOAuth {
     }
 
     /**
-     * A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if
-     * &#x60;oauth[callback_url]&#x60; is provided).
+     * _t__Sub::OAuth::SCOPES
      *
      * @return scopes
      */

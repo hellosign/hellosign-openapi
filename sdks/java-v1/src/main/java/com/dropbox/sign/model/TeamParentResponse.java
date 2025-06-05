@@ -61,7 +61,7 @@ public class TeamParentResponse {
     }
 
     /**
-     * The id of a team
+     * _t__TeamGeneral::TEAM_ID
      *
      * @return teamId
      */
@@ -83,7 +83,7 @@ public class TeamParentResponse {
     }
 
     /**
-     * The name of a team
+     * _t__TeamGeneral::NAME
      *
      * @return name
      */

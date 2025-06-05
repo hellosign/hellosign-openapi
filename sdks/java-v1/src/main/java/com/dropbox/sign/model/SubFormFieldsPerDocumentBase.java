@@ -290,7 +290,7 @@ public class SubFormFieldsPerDocumentBase {
     }
 
     /**
-     * Size of the field in pixels.
+     * _t__Sub::FormFieldsPerDocument::WIDTH
      *
      * @return width
      */
@@ -313,7 +313,7 @@ public class SubFormFieldsPerDocumentBase {
     }
 
     /**
-     * Location coordinates of the field in pixels.
+     * _t__Sub::FormFieldsPerDocument::X
      *
      * @return x
      */
@@ -336,7 +336,7 @@ public class SubFormFieldsPerDocumentBase {
     }
 
     /**
-     * Location coordinates of the field in pixels.
+     * _t__Sub::FormFieldsPerDocument::Y
      *
      * @return y
      */

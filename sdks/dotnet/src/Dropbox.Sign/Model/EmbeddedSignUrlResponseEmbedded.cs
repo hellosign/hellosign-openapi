@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An object that contains necessary information to set up embedded signing.
+    /// _t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION
     /// </summary>
     [DataContract(Name = "EmbeddedSignUrlResponseEmbedded")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedSignUrlResponseEmbedded" /> class.
         /// </summary>
-        /// <param name="signUrl">A signature url that can be opened in an iFrame..</param>
-        /// <param name="expiresAt">The specific time that the the &#x60;sign_url&#x60; link expires, in epoch..</param>
+        /// <param name="signUrl">_t__EmbeddedSignUrlResponseEmbedded::SIGN_URL.</param>
+        /// <param name="expiresAt">_t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT.</param>
         public EmbeddedSignUrlResponseEmbedded(string signUrl = default(string), int expiresAt = default(int))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// A signature url that can be opened in an iFrame.
+        /// _t__EmbeddedSignUrlResponseEmbedded::SIGN_URL
         /// </summary>
-        /// <value>A signature url that can be opened in an iFrame.</value>
+        /// <value>_t__EmbeddedSignUrlResponseEmbedded::SIGN_URL</value>
         [DataMember(Name = "sign_url", EmitDefaultValue = true)]
         public string SignUrl { get; set; }
 
         /// <summary>
-        /// The specific time that the the &#x60;sign_url&#x60; link expires, in epoch.
+        /// _t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT
         /// </summary>
-        /// <value>The specific time that the the &#x60;sign_url&#x60; link expires, in epoch.</value>
+        /// <value>_t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
 

@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains information about an error that occurred. */
+/** _t__ErrorResponseError::DESCRIPTION */
 @JsonPropertyOrder({
     ErrorResponseError.JSON_PROPERTY_ERROR_MSG,
     ErrorResponseError.JSON_PROPERTY_ERROR_NAME,
@@ -65,7 +65,7 @@ public class ErrorResponseError {
     }
 
     /**
-     * Message describing an error.
+     * _t__ErrorResponseError::ERROR_MSG
      *
      * @return errorMsg
      */
@@ -88,7 +88,7 @@ public class ErrorResponseError {
     }
 
     /**
-     * Name of the error.
+     * _t__ErrorResponseError::ERROR_NAME
      *
      * @return errorName
      */
@@ -111,7 +111,7 @@ public class ErrorResponseError {
     }
 
     /**
-     * Path at which an error occurred.
+     * _t__ErrorResponseError::ERROR_PATH
      *
      * @return errorPath
      */

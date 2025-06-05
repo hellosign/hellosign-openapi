@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Template object with parameters: &#x60;template_id&#x60;. */
+/** _t__TemplateCreateResponseTemplate::DESCRIPTION */
 @JsonPropertyOrder({TemplateCreateResponseTemplate.JSON_PROPERTY_TEMPLATE_ID})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -57,7 +57,7 @@ public class TemplateCreateResponseTemplate {
     }
 
     /**
-     * The id of the Template.
+     * _t__TemplateResponse::TEMPLATE_ID
      *
      * @return templateId
      */

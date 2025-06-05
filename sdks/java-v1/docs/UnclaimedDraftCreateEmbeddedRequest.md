@@ -14,8 +14,9 @@
 | `fileUrls` | ```List<String>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allowCcs` | ```Boolean``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.  |  |
 | `allowDecline` | ```Boolean``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  |
+| `allowFormView` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  |
 | `allowReassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  |
-| `attachments` | [```List<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
+| `attachments` | [```List<SubAttachment>```](SubAttachment.md) |  _t__SubAttachment::LIST_DESCRIPTION  |  |
 | `ccEmailAddresses` | ```List<String>``` |  The email addresses that should be CCed.  |  |
 | `customFields` | [```List<SubCustomField>```](SubCustomField.md) |  When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.<br><br>Pre-filled data can be used with &quot;send-once&quot; signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.<br><br>For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.  |  |
 | `editorOptions` | [```SubEditorOptions```](SubEditorOptions.md) |    |  |
@@ -29,11 +30,11 @@
 | `holdRequest` | ```Boolean``` |  The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.  |  |
 | `isForEmbeddedSigning` | ```Boolean``` |  The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.  |  |
 | `message` | ```String``` |  The custom message in the email that will be sent to the signers.  |  |
-| `metadata` | ```Map<String, Object>``` |  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.  |  |
+| `metadata` | ```Map<String, Object>``` |  _t__Sub::Metadata::DESCRIPTION  |  |
 | `requestingRedirectUrl` | ```String``` |  The URL you want signers redirected to after they successfully request a signature.  |  |
 | `showPreview` | ```Boolean``` |  This allows the requester to enable the editor/preview experience.<br><br>- `show_preview&#x3D;true`: Allows requesters to enable the editor/preview experience. - `show_preview&#x3D;false`: Allows requesters to disable the editor/preview experience.  |  |
 | `showProgressStepper` | ```Boolean``` |  When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.  |  |
-| `signers` | [```List<SubUnclaimedDraftSigner>```](SubUnclaimedDraftSigner.md) |  Add Signers to your Unclaimed Draft Signature Request.  |  |
+| `signers` | [```List<SubUnclaimedDraftSigner>```](SubUnclaimedDraftSigner.md) |  _t__Sub::UnclaimedDraftSigner::DESCRIPTION  |  |
 | `signingOptions` | [```SubSigningOptions```](SubSigningOptions.md) |    |  |
 | `signingRedirectUrl` | ```String``` |  The URL you want signers redirected to after they successfully sign.  |  |
 | `skipMeNow` | ```Boolean``` |  Disables the &quot;Me (Now)&quot; option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.  |  |

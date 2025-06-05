@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestListResponse" /> class.
         /// </summary>
-        /// <param name="signatureRequests">Contains information about signature requests. (required).</param>
+        /// <param name="signatureRequests">_t__SignatureRequestListResponse::DESCRIPTION (required).</param>
         /// <param name="listInfo">listInfo (required).</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public SignatureRequestListResponse(List<SignatureRequestResponse> signatureRequests = default(List<SignatureRequestResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -79,9 +79,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Contains information about signature requests.
+        /// _t__SignatureRequestListResponse::DESCRIPTION
         /// </summary>
-        /// <value>Contains information about signature requests.</value>
+        /// <value>_t__SignatureRequestListResponse::DESCRIPTION</value>
         [DataMember(Name = "signature_requests", IsRequired = true, EmitDefaultValue = true)]
         public List<SignatureRequestResponse> SignatureRequests { get; set; }
 
@@ -92,9 +92,9 @@ namespace Dropbox.Sign.Model
         public ListInfoResponse ListInfo { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
 

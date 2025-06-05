@@ -8,7 +8,7 @@ This class extends `SubFormFieldsPerDocumentBase`.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `type`<sup>*_required_</sup> | ```String``` |  A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.  |  |
+| `type`<sup>*_required_</sup> | ```String``` |  _t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE  |  |
 | `fontFamily` | [```FontFamilyEnum```](#FontFamilyEnum) |  Font family for the field.  |  |
 | `fontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
 

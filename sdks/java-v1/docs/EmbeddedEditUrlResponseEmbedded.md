@@ -2,14 +2,14 @@
 
 # EmbeddedEditUrlResponseEmbedded
 
-An embedded template object.
+_t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `editUrl` | ```String``` |  A template url that can be opened in an iFrame.  |  |
-| `expiresAt` | ```Integer``` |  The specific time that the the `edit_url` link expires, in epoch.  |  |
+| `editUrl` | ```String``` |  _t__EmbeddedEditUrlResponseEmbedded::EDIT_URL  |  |
+| `expiresAt` | ```Integer``` |  _t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT  |  |
 
 
 

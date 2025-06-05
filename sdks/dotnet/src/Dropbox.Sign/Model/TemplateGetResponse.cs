@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TemplateGetResponse" /> class.
         /// </summary>
         /// <param name="template">template (required).</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public TemplateGetResponse(TemplateResponse template = default(TemplateResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -78,9 +78,9 @@ namespace Dropbox.Sign.Model
         public TemplateResponse Template { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
 

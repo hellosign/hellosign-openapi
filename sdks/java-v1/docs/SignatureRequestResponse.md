@@ -2,37 +2,37 @@
 
 # SignatureRequestResponse
 
-Contains information about a signature request.
+_t__SignatureRequestResponse::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `testMode` | ```Boolean``` |  Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.  |  |
-| `signatureRequestId` | ```String``` |  The id of the SignatureRequest.  |  |
-| `requesterEmailAddress` | ```String``` |  The email address of the initiator of the SignatureRequest.  |  |
-| `title` | ```String``` |  The title the specified Account uses for the SignatureRequest.  |  |
-| `originalTitle` | ```String``` |  Default Label for account.  |  |
-| `subject` | ```String``` |  The subject in the email that was initially sent to the signers.  |  |
-| `message` | ```String``` |  The custom message in the email that was initially sent to the signers.  |  |
-| `metadata` | ```Map<String, Object>``` |  The metadata attached to the signature request.  |  |
-| `createdAt` | ```Integer``` |  Time the signature request was created.  |  |
-| `expiresAt` | ```Integer``` |  The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
-| `isComplete` | ```Boolean``` |  Whether or not the SignatureRequest has been fully executed by all signers.  |  |
-| `isDeclined` | ```Boolean``` |  Whether or not the SignatureRequest has been declined by a signer.  |  |
-| `hasError` | ```Boolean``` |  Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).  |  |
-| `filesUrl` | ```String``` |  The URL where a copy of the request&#39;s documents can be downloaded.  |  |
-| `signingUrl` | ```String``` |  The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.  |  |
-| `detailsUrl` | ```String``` |  The URL where the requester and the signers can view the current status of the SignatureRequest.  |  |
-| `ccEmailAddresses` | ```List<String>``` |  A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.  |  |
-| `signingRedirectUrl` | ```String``` |  The URL you want the signer redirected to after they successfully sign.  |  |
-| `finalCopyUri` | ```String``` |  The path where the completed document can be downloaded  |  |
-| `templateIds` | ```List<String>``` |  Templates IDs used in this SignatureRequest (if any).  |  |
-| `customFields` | [```List<SignatureRequestResponseCustomFieldBase>```](SignatureRequestResponseCustomFieldBase.md) |  An array of Custom Field objects containing the name and type of each custom field.<br><br>* Text Field uses `SignatureRequestResponseCustomFieldText`<br>* Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`  |  |
-| `attachments` | [```List<SignatureRequestResponseAttachment>```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |
-| `responseData` | [```List<SignatureRequestResponseDataBase>```](SignatureRequestResponseDataBase.md) |  An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.  |  |
-| `signatures` | [```List<SignatureRequestResponseSignatures>```](SignatureRequestResponseSignatures.md) |  An array of signature objects, 1 for each signer.  |  |
-| `bulkSendJobId` | ```String``` |  The ID of the Bulk Send job which sent the signature request, if applicable.  |  |
+| `testMode` | ```Boolean``` |  _t__SignatureRequestResponse::TEST_MODE  |  |
+| `signatureRequestId` | ```String``` |  _t__SignatureRequestResponse::SIGNATURE_REQUEST_ID  |  |
+| `requesterEmailAddress` | ```String``` |  _t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS  |  |
+| `title` | ```String``` |  _t__SignatureRequestResponse::TITLE  |  |
+| `originalTitle` | ```String``` |  _t__SignatureRequestResponse::ORIGINAL_TITLE  |  |
+| `subject` | ```String``` |  _t__SignatureRequestResponse::SUBJECT  |  |
+| `message` | ```String``` |  _t__SignatureRequestResponse::MESSAGE  |  |
+| `metadata` | ```Map<String, Object>``` |  _t__SignatureRequestResponse::METADATA  |  |
+| `createdAt` | ```Integer``` |  _t__SignatureRequestResponse::CREATED_AT  |  |
+| `expiresAt` | ```Integer``` |  _t__SignatureRequestResponse::EXPIRES_AT  |  |
+| `isComplete` | ```Boolean``` |  _t__SignatureRequestResponse::IS_COMPLETE  |  |
+| `isDeclined` | ```Boolean``` |  _t__SignatureRequestResponse::IS_DECLINED  |  |
+| `hasError` | ```Boolean``` |  _t__SignatureRequestResponse::HAS_ERROR  |  |
+| `filesUrl` | ```String``` |  _t__SignatureRequestResponse::FILES_URL  |  |
+| `signingUrl` | ```String``` |  _t__SignatureRequestResponse::SIGNING_URL  |  |
+| `detailsUrl` | ```String``` |  _t__SignatureRequestResponse::DETAILS_URL  |  |
+| `ccEmailAddresses` | ```List<String>``` |  _t__SignatureRequestResponse::CC_EMAIL_ADDRESSES  |  |
+| `signingRedirectUrl` | ```String``` |  _t__SignatureRequestResponse::SIGNING_REDIRECT_URL  |  |
+| `finalCopyUri` | ```String``` |  _t__SignatureRequestResponse::FINAL_COPY_URI  |  |
+| `templateIds` | ```List<String>``` |  _t__SignatureRequestResponse::TEMPLATE_IDS  |  |
+| `customFields` | [```List<SignatureRequestResponseCustomFieldBase>```](SignatureRequestResponseCustomFieldBase.md) |  _t__SignatureRequestResponseCustomField::DESCRIPTION  |  |
+| `attachments` | [```List<SignatureRequestResponseAttachment>```](SignatureRequestResponseAttachment.md) |  _t__SignatureRequestResponseAttachment::DESCRIPTION  |  |
+| `responseData` | [```List<SignatureRequestResponseDataBase>```](SignatureRequestResponseDataBase.md) |  _t__SignatureRequestResponseData::DESCRIPTION  |  |
+| `signatures` | [```List<SignatureRequestResponseSignatures>```](SignatureRequestResponseSignatures.md) |  _t__SignatureRequestResponseSignatures::DESCRIPTION  |  |
+| `bulkSendJobId` | ```String``` |  _t__SignatureRequestResponse::BULK_SEND_JOB_ID  |  |
 
 
 

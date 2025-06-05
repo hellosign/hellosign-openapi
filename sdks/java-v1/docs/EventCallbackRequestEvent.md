@@ -2,15 +2,15 @@
 
 # EventCallbackRequestEvent
 
-Basic information about the event that occurred.
+_t__EventCallbackRequestEvent::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `eventTime`<sup>*_required_</sup> | ```String``` |  Time the event was created (using Unix time).  |  |
-| `eventType`<sup>*_required_</sup> | [```EventTypeEnum```](#EventTypeEnum) |  Type of callback event that was triggered.  |  |
-| `eventHash`<sup>*_required_</sup> | ```String``` |  Generated hash used to verify source of event data.  |  |
+| `eventTime`<sup>*_required_</sup> | ```String``` |  _t__EventCallbackRequestEvent::EVENT_TIME  |  |
+| `eventType`<sup>*_required_</sup> | [```EventTypeEnum```](#EventTypeEnum) |  _t__EventCallbackRequestEvent::EVENT_TYPE  |  |
+| `eventHash`<sup>*_required_</sup> | ```String``` |  _t__EventCallbackRequestEvent::EVENT_HASH  |  |
 | `eventMetadata` | [```EventCallbackRequestEventMetadata```](EventCallbackRequestEventMetadata.md) |    |  |
 
 

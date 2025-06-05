@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains template id
+    /// _t__TemplateUpdateFilesResponseTemplate::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TemplateUpdateFilesResponseTemplate")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateUpdateFilesResponseTemplate" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template..</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="templateId">_t__TemplateResponse::TEMPLATE_ID.</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public TemplateUpdateFilesResponseTemplate(string templateId = default(string), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the Template.
+        /// _t__TemplateResponse::TEMPLATE_ID
         /// </summary>
-        /// <value>The id of the Template.</value>
+        /// <value>_t__TemplateResponse::TEMPLATE_ID</value>
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         [Obsolete]
         public List<WarningResponse> Warnings { get; set; }

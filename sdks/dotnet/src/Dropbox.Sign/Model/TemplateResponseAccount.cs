@@ -41,11 +41,11 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseAccount" /> class.
         /// </summary>
-        /// <param name="accountId">The id of the Account..</param>
-        /// <param name="emailAddress">The email address associated with the Account..</param>
-        /// <param name="isLocked">Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin..</param>
-        /// <param name="isPaidHs">Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account..</param>
-        /// <param name="isPaidHf">Returns &#x60;true&#x60; if the user has a paid HelloFax account..</param>
+        /// <param name="accountId">_t__TemplateResponseAccount::ACCOUNT_ID.</param>
+        /// <param name="emailAddress">_t__TemplateResponseAccount::EMAIL_ADDRESS.</param>
+        /// <param name="isLocked">_t__TemplateResponseAccount::IS_LOCKED.</param>
+        /// <param name="isPaidHs">_t__TemplateResponseAccount::IS_PAID_HS.</param>
+        /// <param name="isPaidHf">_t__TemplateResponseAccount::IS_PAID_HF.</param>
         /// <param name="quotas">quotas.</param>
         public TemplateResponseAccount(string accountId = default(string), string emailAddress = default(string), bool isLocked = default(bool), bool isPaidHs = default(bool), bool isPaidHf = default(bool), TemplateResponseAccountQuota quotas = default(TemplateResponseAccountQuota))
         {
@@ -75,37 +75,37 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the Account.
+        /// _t__TemplateResponseAccount::ACCOUNT_ID
         /// </summary>
-        /// <value>The id of the Account.</value>
+        /// <value>_t__TemplateResponseAccount::ACCOUNT_ID</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
 
         /// <summary>
-        /// The email address associated with the Account.
+        /// _t__TemplateResponseAccount::EMAIL_ADDRESS
         /// </summary>
-        /// <value>The email address associated with the Account.</value>
+        /// <value>_t__TemplateResponseAccount::EMAIL_ADDRESS</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
+        /// _t__TemplateResponseAccount::IS_LOCKED
         /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.</value>
+        /// <value>_t__TemplateResponseAccount::IS_LOCKED</value>
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
 
         /// <summary>
-        /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
+        /// _t__TemplateResponseAccount::IS_PAID_HS
         /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.</value>
+        /// <value>_t__TemplateResponseAccount::IS_PAID_HS</value>
         [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
         public bool IsPaidHs { get; set; }
 
         /// <summary>
-        /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
+        /// _t__TemplateResponseAccount::IS_PAID_HF
         /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has a paid HelloFax account.</value>
+        /// <value>_t__TemplateResponseAccount::IS_PAID_HF</value>
         [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
         public bool IsPaidHf { get; set; }
 

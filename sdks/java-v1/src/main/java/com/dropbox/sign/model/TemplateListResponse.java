@@ -76,7 +76,7 @@ public class TemplateListResponse {
     }
 
     /**
-     * List of templates that the API caller has access to.
+     * _t__TemplateListResponse::DESCRIPTION
      *
      * @return templates
      */
@@ -131,7 +131,7 @@ public class TemplateListResponse {
     }
 
     /**
-     * A list of warnings.
+     * _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return warnings
      */

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An object describing the app&#39;s OAuth properties, or null if OAuth is not configured for the app.
+    /// _t__ApiAppResponseOAuth::DESCRIPTION
     /// </summary>
     [DataContract(Name = "ApiAppResponseOAuth")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,10 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOAuth" /> class.
         /// </summary>
-        /// <param name="callbackUrl">The app&#39;s OAuth callback URL..</param>
-        /// <param name="secret">The app&#39;s OAuth secret, or null if the app does not belong to user..</param>
-        /// <param name="scopes">Array of OAuth scopes used by the app..</param>
-        /// <param name="chargesUsers">Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests..</param>
+        /// <param name="callbackUrl">_t__ApiAppResponseOAuth::CALLBACK_URL.</param>
+        /// <param name="secret">_t__ApiAppResponseOAuth::SECRET.</param>
+        /// <param name="scopes">_t__ApiAppResponseOAuth::SCOPES.</param>
+        /// <param name="chargesUsers">_t__ApiAppResponseOAuth::CHARGES_USERS.</param>
         public ApiAppResponseOAuth(string callbackUrl = default(string), string secret = default(string), List<string> scopes = default(List<string>), bool chargesUsers = default(bool))
         {
 
@@ -71,30 +71,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The app&#39;s OAuth callback URL.
+        /// _t__ApiAppResponseOAuth::CALLBACK_URL
         /// </summary>
-        /// <value>The app&#39;s OAuth callback URL.</value>
+        /// <value>_t__ApiAppResponseOAuth::CALLBACK_URL</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
 
         /// <summary>
-        /// The app&#39;s OAuth secret, or null if the app does not belong to user.
+        /// _t__ApiAppResponseOAuth::SECRET
         /// </summary>
-        /// <value>The app&#39;s OAuth secret, or null if the app does not belong to user.</value>
+        /// <value>_t__ApiAppResponseOAuth::SECRET</value>
         [DataMember(Name = "secret", EmitDefaultValue = true)]
         public string Secret { get; set; }
 
         /// <summary>
-        /// Array of OAuth scopes used by the app.
+        /// _t__ApiAppResponseOAuth::SCOPES
         /// </summary>
-        /// <value>Array of OAuth scopes used by the app.</value>
+        /// <value>_t__ApiAppResponseOAuth::SCOPES</value>
         [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<string> Scopes { get; set; }
 
         /// <summary>
-        /// Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
+        /// _t__ApiAppResponseOAuth::CHARGES_USERS
         /// </summary>
-        /// <value>Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.</value>
+        /// <value>_t__ApiAppResponseOAuth::CHARGES_USERS</value>
         [DataMember(Name = "charges_users", EmitDefaultValue = true)]
         public bool ChargesUsers { get; set; }
 

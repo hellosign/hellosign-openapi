@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="AccountVerifyResponse" /> class.
         /// </summary>
         /// <param name="account">account.</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public AccountVerifyResponse(AccountVerifyResponseAccount account = default(AccountVerifyResponseAccount), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -73,9 +73,9 @@ namespace Dropbox.Sign.Model
         public AccountVerifyResponseAccount Account { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
 

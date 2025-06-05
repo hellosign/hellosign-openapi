@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileResponseDataUri" /> class.
         /// </summary>
-        /// <param name="dataUri">File as base64 encoded string. (required).</param>
+        /// <param name="dataUri">_t__FileResponse::DATA_URI (required).</param>
         public FileResponseDataUri(string dataUri = default(string))
         {
 
@@ -70,9 +70,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// File as base64 encoded string.
+        /// _t__FileResponse::DATA_URI
         /// </summary>
-        /// <value>File as base64 encoded string.</value>
+        /// <value>_t__FileResponse::DATA_URI</value>
         [DataMember(Name = "data_uri", IsRequired = true, EmitDefaultValue = true)]
         public string DataUri { get; set; }
 

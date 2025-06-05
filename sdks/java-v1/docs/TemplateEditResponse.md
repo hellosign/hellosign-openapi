@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `templateId`<sup>*_required_</sup> | ```String``` |  The id of the Template.  |  |
+| `templateId`<sup>*_required_</sup> | ```String``` |  _t__TemplateResponse::TEMPLATE_ID  |  |
 
 
 

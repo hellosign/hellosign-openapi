@@ -8,8 +8,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `type` | ```String``` |  A date  |  |
-| `value` | ```String``` |  The value of the form field.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::DATESIGNED_TYPE  |  |
+| `value` | ```String``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
 
 
 

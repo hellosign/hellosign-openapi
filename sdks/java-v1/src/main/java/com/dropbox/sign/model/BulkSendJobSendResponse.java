@@ -97,7 +97,7 @@ public class BulkSendJobSendResponse {
     }
 
     /**
-     * A list of warnings.
+     * _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return warnings
      */

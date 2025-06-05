@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.TemplateResponseDocumentFormFieldBase
-An array of Form Field objects containing the name and type of each named field.
+_t__TemplateResponseDocumentFormField::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** |    | **ApiId** | **string** |  A unique id for the form field.  | [optional] **Name** | **string** |  The name of the form field.  | [optional] **Signer** | **string** |  The signer of the Form Field.  | [optional] **X** | **int** |  The horizontal offset in pixels for this form field.  | [optional] **Y** | **int** |  The vertical offset in pixels for this form field.  | [optional] **Width** | **int** |  The width in pixels of this form field.  | [optional] **Height** | **int** |  The height in pixels of this form field.  | [optional] **Required** | **bool** |  Boolean showing whether or not this field is required.  | [optional] 
+**Type** | **string** |    | **ApiId** | **string** |  _t__TemplateResponseDocumentFormField::API_ID  | [optional] **Name** | **string** |  _t__TemplateResponseDocumentFormField::NAME  | [optional] **Signer** | **string** |  _t__TemplateResponseDocumentFormField::SIGNER  | [optional] **X** | **int** |  _t__TemplateResponseDocumentFormField::X  | [optional] **Y** | **int** |  _t__TemplateResponseDocumentFormField::Y  | [optional] **Width** | **int** |  _t__TemplateResponseDocumentFormField::WIDTH  | [optional] **Height** | **int** |  _t__TemplateResponseDocumentFormField::HEIGHT  | [optional] **Required** | **bool** |  _t__TemplateResponseDocumentFormField::REQUIRED  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

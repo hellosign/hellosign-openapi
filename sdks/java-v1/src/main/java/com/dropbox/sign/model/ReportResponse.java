@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains information about the report request. */
+/** _t__ReportResponse::DESCRIPTION */
 @JsonPropertyOrder({
     ReportResponse.JSON_PROPERTY_SUCCESS,
     ReportResponse.JSON_PROPERTY_START_DATE,
@@ -106,7 +106,7 @@ public class ReportResponse {
     }
 
     /**
-     * A message indicating the requested operation&#39;s success
+     * _t__ReportResponse::SUCCESS
      *
      * @return success
      */
@@ -128,7 +128,7 @@ public class ReportResponse {
     }
 
     /**
-     * The (inclusive) start date for the report data in MM/DD/YYYY format.
+     * _t__ReportResponse::START_DATE
      *
      * @return startDate
      */
@@ -150,7 +150,7 @@ public class ReportResponse {
     }
 
     /**
-     * The (inclusive) end date for the report data in MM/DD/YYYY format.
+     * _t__ReportResponse::END_DATE
      *
      * @return endDate
      */
@@ -180,10 +180,7 @@ public class ReportResponse {
     }
 
     /**
-     * The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot;
-     * and \&quot;document_status\&quot;. User activity reports contain list of all users and their
-     * activity during the specified date range. Document status report contain a list of signature
-     * requests created in the specified time range (and their status).
+     * _t__ReportResponse::REPORT_TYPE
      *
      * @return reportType
      */

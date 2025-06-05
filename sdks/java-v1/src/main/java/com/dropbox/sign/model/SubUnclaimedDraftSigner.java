@@ -66,7 +66,7 @@ public class SubUnclaimedDraftSigner {
     }
 
     /**
-     * The email address of the signer.
+     * _t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS
      *
      * @return emailAddress
      */
@@ -89,7 +89,7 @@ public class SubUnclaimedDraftSigner {
     }
 
     /**
-     * The name of the signer.
+     * _t__Sub::UnclaimedDraftSigner::NAME
      *
      * @return name
      */
@@ -112,7 +112,7 @@ public class SubUnclaimedDraftSigner {
     }
 
     /**
-     * The order the signer is required to sign in.
+     * _t__Sub::UnclaimedDraftSigner::ORDER
      *
      * @return order
      */

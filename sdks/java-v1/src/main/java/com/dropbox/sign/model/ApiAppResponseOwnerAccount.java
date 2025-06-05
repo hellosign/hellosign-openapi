@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An object describing the app&#39;s owner */
+/** _t__ApiAppResponseOwnerAccount::DESCRIPTION */
 @JsonPropertyOrder({
     ApiAppResponseOwnerAccount.JSON_PROPERTY_ACCOUNT_ID,
     ApiAppResponseOwnerAccount.JSON_PROPERTY_EMAIL_ADDRESS
@@ -63,7 +63,7 @@ public class ApiAppResponseOwnerAccount {
     }
 
     /**
-     * The owner account&#39;s ID
+     * _t__ApiAppResponseOwnerAccount::ACCOUNT_ID
      *
      * @return accountId
      */
@@ -85,7 +85,7 @@ public class ApiAppResponseOwnerAccount {
     }
 
     /**
-     * The owner account&#39;s email address
+     * _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS
      *
      * @return emailAddress
      */

@@ -2,14 +2,14 @@
 
 # TemplateUpdateFilesResponseTemplate
 
-Contains template id
+_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `templateId` | ```String``` |  The id of the Template.  |  |
-| `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
+| `templateId` | ```String``` |  _t__TemplateResponse::TEMPLATE_ID  |  |
+| `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  _t__WarningResponse::LIST_DESCRIPTION  |  |
 
 
 

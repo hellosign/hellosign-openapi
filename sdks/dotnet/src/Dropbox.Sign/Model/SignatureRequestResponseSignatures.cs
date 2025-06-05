@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An array of signature objects, 1 for each signer.
+    /// _t__SignatureRequestResponseSignatures::DESCRIPTION
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseSignatures")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,25 +41,25 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseSignatures" /> class.
         /// </summary>
-        /// <param name="signatureId">Signature identifier..</param>
-        /// <param name="signerGroupGuid">Signer Group GUID.</param>
-        /// <param name="signerEmailAddress">The email address of the signer..</param>
-        /// <param name="signerName">The name of the signer..</param>
-        /// <param name="signerRole">The role of the signer..</param>
-        /// <param name="order">If signer order is assigned this is the 0-based index for this signer..</param>
-        /// <param name="statusCode">The current status of the signature. eg: awaiting_signature, signed, declined..</param>
-        /// <param name="declineReason">The reason provided by the signer for declining the request..</param>
-        /// <param name="signedAt">Time that the document was signed or null..</param>
-        /// <param name="lastViewedAt">The time that the document was last viewed by this signer or null..</param>
-        /// <param name="lastRemindedAt">The time the last reminder email was sent to the signer or null..</param>
-        /// <param name="hasPin">Boolean to indicate whether this signature requires a PIN to access..</param>
-        /// <param name="hasSmsAuth">Boolean to indicate whether this signature has SMS authentication enabled..</param>
-        /// <param name="hasSmsDelivery">Boolean to indicate whether this signature has SMS delivery enabled..</param>
-        /// <param name="smsPhoneNumber">The SMS phone number used for authentication or signature request delivery..</param>
-        /// <param name="reassignedBy">Email address of original signer who reassigned to this signer..</param>
-        /// <param name="reassignmentReason">Reason provided by original signer who reassigned to this signer..</param>
-        /// <param name="reassignedFrom">Previous signature identifier..</param>
-        /// <param name="error">Error message pertaining to this signer, or null..</param>
+        /// <param name="signatureId">_t__SignatureRequestResponseSignatures::SIGNATURE_ID.</param>
+        /// <param name="signerGroupGuid">_t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID.</param>
+        /// <param name="signerEmailAddress">_t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS.</param>
+        /// <param name="signerName">_t__SignatureRequestResponseSignatures::SIGNER_NAME.</param>
+        /// <param name="signerRole">_t__SignatureRequestResponseSignatures::SIGNER_ROLE.</param>
+        /// <param name="order">_t__SignatureRequestResponseSignatures::ORDER.</param>
+        /// <param name="statusCode">_t__SignatureRequestResponseSignatures::STATUS_CODE.</param>
+        /// <param name="declineReason">_t__SignatureRequestResponseSignatures::DECLINE_REASON.</param>
+        /// <param name="signedAt">_t__SignatureRequestResponseSignatures::SIGNED_AT.</param>
+        /// <param name="lastViewedAt">_t__SignatureRequestResponseSignatures::LAST_VIEWED_AT.</param>
+        /// <param name="lastRemindedAt">_t__SignatureRequestResponseSignatures::LAST_REMINDED_AT.</param>
+        /// <param name="hasPin">_t__SignatureRequestResponseSignatures::HAS_PIN.</param>
+        /// <param name="hasSmsAuth">_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH.</param>
+        /// <param name="hasSmsDelivery">_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY.</param>
+        /// <param name="smsPhoneNumber">_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER.</param>
+        /// <param name="reassignedBy">_t__SignatureRequestResponseSignatures::REASSIGNED_BY.</param>
+        /// <param name="reassignmentReason">_t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON.</param>
+        /// <param name="reassignedFrom">_t__SignatureRequestResponseSignatures::REASSIGNED_FROM.</param>
+        /// <param name="error">_t__SignatureRequestResponseSignatures::ERROR.</param>
         public SignatureRequestResponseSignatures(string signatureId = default(string), string signerGroupGuid = default(string), string signerEmailAddress = default(string), string signerName = default(string), string signerRole = default(string), int? order = default(int?), string statusCode = default(string), string declineReason = default(string), int? signedAt = default(int?), int? lastViewedAt = default(int?), int? lastRemindedAt = default(int?), bool hasPin = default(bool), bool? hasSmsAuth = default(bool?), bool? hasSmsDelivery = default(bool?), string smsPhoneNumber = default(string), string reassignedBy = default(string), string reassignmentReason = default(string), string reassignedFrom = default(string), string error = default(string))
         {
 
@@ -101,135 +101,135 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Signature identifier.
+        /// _t__SignatureRequestResponseSignatures::SIGNATURE_ID
         /// </summary>
-        /// <value>Signature identifier.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::SIGNATURE_ID</value>
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
 
         /// <summary>
-        /// Signer Group GUID
+        /// _t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID
         /// </summary>
-        /// <value>Signer Group GUID</value>
+        /// <value>_t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID</value>
         [DataMember(Name = "signer_group_guid", EmitDefaultValue = true)]
         public string SignerGroupGuid { get; set; }
 
         /// <summary>
-        /// The email address of the signer.
+        /// _t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS
         /// </summary>
-        /// <value>The email address of the signer.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS</value>
         [DataMember(Name = "signer_email_address", EmitDefaultValue = true)]
         public string SignerEmailAddress { get; set; }
 
         /// <summary>
-        /// The name of the signer.
+        /// _t__SignatureRequestResponseSignatures::SIGNER_NAME
         /// </summary>
-        /// <value>The name of the signer.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::SIGNER_NAME</value>
         [DataMember(Name = "signer_name", EmitDefaultValue = true)]
         public string SignerName { get; set; }
 
         /// <summary>
-        /// The role of the signer.
+        /// _t__SignatureRequestResponseSignatures::SIGNER_ROLE
         /// </summary>
-        /// <value>The role of the signer.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::SIGNER_ROLE</value>
         [DataMember(Name = "signer_role", EmitDefaultValue = true)]
         public string SignerRole { get; set; }
 
         /// <summary>
-        /// If signer order is assigned this is the 0-based index for this signer.
+        /// _t__SignatureRequestResponseSignatures::ORDER
         /// </summary>
-        /// <value>If signer order is assigned this is the 0-based index for this signer.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::ORDER</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
 
         /// <summary>
-        /// The current status of the signature. eg: awaiting_signature, signed, declined.
+        /// _t__SignatureRequestResponseSignatures::STATUS_CODE
         /// </summary>
-        /// <value>The current status of the signature. eg: awaiting_signature, signed, declined.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::STATUS_CODE</value>
         [DataMember(Name = "status_code", EmitDefaultValue = true)]
         public string StatusCode { get; set; }
 
         /// <summary>
-        /// The reason provided by the signer for declining the request.
+        /// _t__SignatureRequestResponseSignatures::DECLINE_REASON
         /// </summary>
-        /// <value>The reason provided by the signer for declining the request.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::DECLINE_REASON</value>
         [DataMember(Name = "decline_reason", EmitDefaultValue = true)]
         public string DeclineReason { get; set; }
 
         /// <summary>
-        /// Time that the document was signed or null.
+        /// _t__SignatureRequestResponseSignatures::SIGNED_AT
         /// </summary>
-        /// <value>Time that the document was signed or null.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::SIGNED_AT</value>
         [DataMember(Name = "signed_at", EmitDefaultValue = true)]
         public int? SignedAt { get; set; }
 
         /// <summary>
-        /// The time that the document was last viewed by this signer or null.
+        /// _t__SignatureRequestResponseSignatures::LAST_VIEWED_AT
         /// </summary>
-        /// <value>The time that the document was last viewed by this signer or null.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::LAST_VIEWED_AT</value>
         [DataMember(Name = "last_viewed_at", EmitDefaultValue = true)]
         public int? LastViewedAt { get; set; }
 
         /// <summary>
-        /// The time the last reminder email was sent to the signer or null.
+        /// _t__SignatureRequestResponseSignatures::LAST_REMINDED_AT
         /// </summary>
-        /// <value>The time the last reminder email was sent to the signer or null.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::LAST_REMINDED_AT</value>
         [DataMember(Name = "last_reminded_at", EmitDefaultValue = true)]
         public int? LastRemindedAt { get; set; }
 
         /// <summary>
-        /// Boolean to indicate whether this signature requires a PIN to access.
+        /// _t__SignatureRequestResponseSignatures::HAS_PIN
         /// </summary>
-        /// <value>Boolean to indicate whether this signature requires a PIN to access.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::HAS_PIN</value>
         [DataMember(Name = "has_pin", EmitDefaultValue = true)]
         public bool HasPin { get; set; }
 
         /// <summary>
-        /// Boolean to indicate whether this signature has SMS authentication enabled.
+        /// _t__SignatureRequestResponseSignatures::HAS_SMS_AUTH
         /// </summary>
-        /// <value>Boolean to indicate whether this signature has SMS authentication enabled.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH</value>
         [DataMember(Name = "has_sms_auth", EmitDefaultValue = true)]
         public bool? HasSmsAuth { get; set; }
 
         /// <summary>
-        /// Boolean to indicate whether this signature has SMS delivery enabled.
+        /// _t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY
         /// </summary>
-        /// <value>Boolean to indicate whether this signature has SMS delivery enabled.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY</value>
         [DataMember(Name = "has_sms_delivery", EmitDefaultValue = true)]
         public bool? HasSmsDelivery { get; set; }
 
         /// <summary>
-        /// The SMS phone number used for authentication or signature request delivery.
+        /// _t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER
         /// </summary>
-        /// <value>The SMS phone number used for authentication or signature request delivery.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER</value>
         [DataMember(Name = "sms_phone_number", EmitDefaultValue = true)]
         public string SmsPhoneNumber { get; set; }
 
         /// <summary>
-        /// Email address of original signer who reassigned to this signer.
+        /// _t__SignatureRequestResponseSignatures::REASSIGNED_BY
         /// </summary>
-        /// <value>Email address of original signer who reassigned to this signer.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::REASSIGNED_BY</value>
         [DataMember(Name = "reassigned_by", EmitDefaultValue = true)]
         public string ReassignedBy { get; set; }
 
         /// <summary>
-        /// Reason provided by original signer who reassigned to this signer.
+        /// _t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON
         /// </summary>
-        /// <value>Reason provided by original signer who reassigned to this signer.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON</value>
         [DataMember(Name = "reassignment_reason", EmitDefaultValue = true)]
         public string ReassignmentReason { get; set; }
 
         /// <summary>
-        /// Previous signature identifier.
+        /// _t__SignatureRequestResponseSignatures::REASSIGNED_FROM
         /// </summary>
-        /// <value>Previous signature identifier.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::REASSIGNED_FROM</value>
         [DataMember(Name = "reassigned_from", EmitDefaultValue = true)]
         public string ReassignedFrom { get; set; }
 
         /// <summary>
-        /// Error message pertaining to this signer, or null.
+        /// _t__SignatureRequestResponseSignatures::ERROR
         /// </summary>
-        /// <value>Error message pertaining to this signer, or null.</value>
+        /// <value>_t__SignatureRequestResponseSignatures::ERROR</value>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 

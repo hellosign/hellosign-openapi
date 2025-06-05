@@ -8,8 +8,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `type` | ```String``` |  An input field for dropdowns  |  |
-| `value` | ```String``` |  The value of the form field.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::DROPDOWN_TYPE  |  |
+| `value` | ```String``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
 
 
 

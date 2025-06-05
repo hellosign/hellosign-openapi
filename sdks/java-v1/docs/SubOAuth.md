@@ -2,14 +2,14 @@
 
 # SubOAuth
 
-OAuth related parameters.
+_t__Sub::OAuth::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `callbackUrl` | ```String``` |  The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)  |  |
-| `scopes` | [```List&lt;ScopesEnum&gt;```](#List&lt;ScopesEnum&gt;) |  A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).  |  |
+| `callbackUrl` | ```String``` |  _t__Sub::OAuth::CALLBACK_URL  |  |
+| `scopes` | [```List&lt;ScopesEnum&gt;```](#List&lt;ScopesEnum&gt;) |  _t__Sub::OAuth::SCOPES  |  |
 
 
 

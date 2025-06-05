@@ -2,18 +2,18 @@
 
 # UnclaimedDraftResponse
 
-A group of documents that a user can take ownership of via the claim URL.
+_t__UnclaimedDraftResponse::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `signatureRequestId` | ```String``` |  The ID of the signature request that is represented by this UnclaimedDraft.  |  |
-| `claimUrl` | ```String``` |  The URL to be used to claim this UnclaimedDraft.  |  |
-| `signingRedirectUrl` | ```String``` |  The URL you want signers redirected to after they successfully sign.  |  |
-| `requestingRedirectUrl` | ```String``` |  The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).  |  |
-| `expiresAt` | ```Integer``` |  When the link expires.  |  |
-| `testMode` | ```Boolean``` |  Whether this is a test draft. Signature requests made from test drafts have no legal value.  |  |
+| `signatureRequestId` | ```String``` |  _t__UnclaimedDraft::SIGNATURE_REQUEST_ID  |  |
+| `claimUrl` | ```String``` |  _t__UnclaimedDraft::CLAIM_URL  |  |
+| `signingRedirectUrl` | ```String``` |  _t__UnclaimedDraft::SIGNING_REDIRECT_URL  |  |
+| `requestingRedirectUrl` | ```String``` |  _t__UnclaimedDraft::REQUESTING_REDIRECT_URL  |  |
+| `expiresAt` | ```Integer``` |  _t__UnclaimedDraft::EXPIRES_AT  |  |
+| `testMode` | ```Boolean``` |  _t__UnclaimedDraft::TEST_MODE  |  |
 
 
 

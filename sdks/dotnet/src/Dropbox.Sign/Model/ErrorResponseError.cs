@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains information about an error that occurred.
+    /// _t__ErrorResponseError::DESCRIPTION
     /// </summary>
     [DataContract(Name = "ErrorResponseError")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponseError" /> class.
         /// </summary>
-        /// <param name="errorMsg">Message describing an error. (required).</param>
-        /// <param name="errorPath">Path at which an error occurred..</param>
-        /// <param name="errorName">Name of the error. (required).</param>
+        /// <param name="errorMsg">_t__ErrorResponseError::ERROR_MSG (required).</param>
+        /// <param name="errorPath">_t__ErrorResponseError::ERROR_PATH.</param>
+        /// <param name="errorName">_t__ErrorResponseError::ERROR_NAME (required).</param>
         public ErrorResponseError(string errorMsg = default(string), string errorPath = default(string), string errorName = default(string))
         {
 
@@ -79,23 +79,23 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Message describing an error.
+        /// _t__ErrorResponseError::ERROR_MSG
         /// </summary>
-        /// <value>Message describing an error.</value>
+        /// <value>_t__ErrorResponseError::ERROR_MSG</value>
         [DataMember(Name = "error_msg", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorMsg { get; set; }
 
         /// <summary>
-        /// Name of the error.
+        /// _t__ErrorResponseError::ERROR_NAME
         /// </summary>
-        /// <value>Name of the error.</value>
+        /// <value>_t__ErrorResponseError::ERROR_NAME</value>
         [DataMember(Name = "error_name", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorName { get; set; }
 
         /// <summary>
-        /// Path at which an error occurred.
+        /// _t__ErrorResponseError::ERROR_PATH
         /// </summary>
-        /// <value>Path at which an error occurred.</value>
+        /// <value>_t__ErrorResponseError::ERROR_PATH</value>
         [DataMember(Name = "error_path", EmitDefaultValue = true)]
         public string ErrorPath { get; set; }
 

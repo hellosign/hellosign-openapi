@@ -24,12 +24,12 @@
 | `holdRequest` | ```Boolean``` |  The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.  |  |
 | `isForEmbeddedSigning` | ```Boolean``` |  The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.  |  |
 | `message` | ```String``` |  The custom message in the email that will be sent to the signers.  |  |
-| `metadata` | ```Map<String, Object>``` |  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.  |  |
+| `metadata` | ```Map<String, Object>``` |  _t__Sub::Metadata::DESCRIPTION  |  |
 | `previewOnly` | ```Boolean``` |  This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).<br><br>- `preview_only&#x3D;true`: Allows requesters to enable the preview only experience. - `preview_only&#x3D;false`: Allows requesters to disable the preview only experience.<br><br>**NOTE:** This parameter overwrites `show_preview&#x3D;1` (if set).  |  |
 | `requestingRedirectUrl` | ```String``` |  The URL you want signers redirected to after they successfully request a signature.  |  |
 | `showPreview` | ```Boolean``` |  This allows the requester to enable the editor/preview experience.<br><br>- `show_preview&#x3D;true`: Allows requesters to enable the editor/preview experience. - `show_preview&#x3D;false`: Allows requesters to disable the editor/preview experience.  |  |
 | `showProgressStepper` | ```Boolean``` |  When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.  |  |
-| `signers` | [```List<SubUnclaimedDraftTemplateSigner>```](SubUnclaimedDraftTemplateSigner.md) |  Add Signers to your Templated-based Signature Request.  |  |
+| `signers` | [```List<SubUnclaimedDraftTemplateSigner>```](SubUnclaimedDraftTemplateSigner.md) |  _t__Sub::UnclaimedDraftTemplateSigner::DESCRIPTION  |  |
 | `signingOptions` | [```SubSigningOptions```](SubSigningOptions.md) |    |  |
 | `signingRedirectUrl` | ```String``` |  The URL you want signers redirected to after they successfully sign.  |  |
 | `skipMeNow` | ```Boolean``` |  Disables the &quot;Me (Now)&quot; option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.  |  |

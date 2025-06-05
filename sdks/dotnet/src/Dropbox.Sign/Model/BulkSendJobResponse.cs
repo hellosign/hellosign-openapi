@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
+    /// _t__BulkSendJobResponse::DESCRIPTION
     /// </summary>
     [DataContract(Name = "BulkSendJobResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,10 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkSendJobResponse" /> class.
         /// </summary>
-        /// <param name="bulkSendJobId">The id of the BulkSendJob..</param>
-        /// <param name="total">The total amount of Signature Requests queued for sending..</param>
-        /// <param name="isCreator">True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member..</param>
-        /// <param name="createdAt">Time that the BulkSendJob was created..</param>
+        /// <param name="bulkSendJobId">_t__BulkSendJobResponse::BULK_SEND_JOB_ID.</param>
+        /// <param name="total">_t__BulkSendJobResponse::TOTAL.</param>
+        /// <param name="isCreator">_t__BulkSendJobResponse::IS_CREATOR.</param>
+        /// <param name="createdAt">_t__BulkSendJobResponse::CREATED_AT.</param>
         public BulkSendJobResponse(string bulkSendJobId = default(string), int total = default(int), bool isCreator = default(bool), int createdAt = default(int))
         {
 
@@ -71,30 +71,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the BulkSendJob.
+        /// _t__BulkSendJobResponse::BULK_SEND_JOB_ID
         /// </summary>
-        /// <value>The id of the BulkSendJob.</value>
+        /// <value>_t__BulkSendJobResponse::BULK_SEND_JOB_ID</value>
         [DataMember(Name = "bulk_send_job_id", EmitDefaultValue = true)]
         public string BulkSendJobId { get; set; }
 
         /// <summary>
-        /// The total amount of Signature Requests queued for sending.
+        /// _t__BulkSendJobResponse::TOTAL
         /// </summary>
-        /// <value>The total amount of Signature Requests queued for sending.</value>
+        /// <value>_t__BulkSendJobResponse::TOTAL</value>
         [DataMember(Name = "total", EmitDefaultValue = true)]
         public int Total { get; set; }
 
         /// <summary>
-        /// True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
+        /// _t__BulkSendJobResponse::IS_CREATOR
         /// </summary>
-        /// <value>True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.</value>
+        /// <value>_t__BulkSendJobResponse::IS_CREATOR</value>
         [DataMember(Name = "is_creator", EmitDefaultValue = true)]
         public bool IsCreator { get; set; }
 
         /// <summary>
-        /// Time that the BulkSendJob was created.
+        /// _t__BulkSendJobResponse::CREATED_AT
         /// </summary>
-        /// <value>Time that the BulkSendJob was created.</value>
+        /// <value>_t__BulkSendJobResponse::CREATED_AT</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
 

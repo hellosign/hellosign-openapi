@@ -25,11 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * An array of Custom Field objects containing the name and type of each custom field. * Text Field
- * uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses
- * &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
- */
+/** _t__SignatureRequestResponseCustomField::DESCRIPTION */
 @JsonPropertyOrder({
     SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_TYPE,
     SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_NAME,
@@ -95,8 +91,7 @@ public class SignatureRequestResponseCustomFieldBase {
     }
 
     /**
-     * The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently
-     * supported.
+     * _t__SignatureRequestResponseCustomField::TYPE
      *
      * @return type
      */
@@ -119,7 +114,7 @@ public class SignatureRequestResponseCustomFieldBase {
     }
 
     /**
-     * The name of the Custom Field.
+     * _t__SignatureRequestResponseCustomField::NAME
      *
      * @return name
      */
@@ -143,7 +138,7 @@ public class SignatureRequestResponseCustomFieldBase {
     }
 
     /**
-     * A boolean value denoting if this field is required.
+     * _t__SignatureRequestResponseCustomField::REQUIRED
      *
      * @return required
      */
@@ -165,7 +160,7 @@ public class SignatureRequestResponseCustomFieldBase {
     }
 
     /**
-     * The unique ID for this field.
+     * _t__SignatureRequestResponseCustomField::API_ID
      *
      * @return apiId
      */
@@ -188,7 +183,7 @@ public class SignatureRequestResponseCustomFieldBase {
     }
 
     /**
-     * The name of the Role that is able to edit this field.
+     * _t__SignatureRequestResponseCustomField::EDITOR
      *
      * @return editor
      */

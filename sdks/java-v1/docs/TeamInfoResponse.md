@@ -8,11 +8,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `teamId` | ```String``` |  The id of a team  |  |
+| `teamId` | ```String``` |  _t__TeamGeneral::TEAM_ID  |  |
 | `teamParent` | [```TeamParentResponse```](TeamParentResponse.md) |    |  |
-| `name` | ```String``` |  The name of a team  |  |
-| `numMembers` | ```Integer``` |  Number of members within a team  |  |
-| `numSubTeams` | ```Integer``` |  Number of sub teams within a team  |  |
+| `name` | ```String``` |  _t__TeamGeneral::NAME  |  |
+| `numMembers` | ```Integer``` |  _t__TeamGeneral::NUM_MEMBERS  |  |
+| `numSubTeams` | ```Integer``` |  _t__TeamGeneral::NUM_SUB_TEAMS  |  |
 
 
 

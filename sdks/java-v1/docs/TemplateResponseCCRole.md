@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `name` | ```String``` |  The name of the Role.  |  |
+| `name` | ```String``` |  _t__TemplateResponseCCRole::NAME  |  |
 
 
 

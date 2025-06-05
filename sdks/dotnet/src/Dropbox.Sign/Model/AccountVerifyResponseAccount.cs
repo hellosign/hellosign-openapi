@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountVerifyResponseAccount" /> class.
         /// </summary>
-        /// <param name="emailAddress">The email address associated with the Account..</param>
+        /// <param name="emailAddress">_t__Account::EMAIL_ADDRESS.</param>
         public AccountVerifyResponseAccount(string emailAddress = default(string))
         {
 
@@ -65,9 +65,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The email address associated with the Account.
+        /// _t__Account::EMAIL_ADDRESS
         /// </summary>
-        /// <value>The email address associated with the Account.</value>
+        /// <value>_t__Account::EMAIL_ADDRESS</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 

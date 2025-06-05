@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// A group of documents that a user can take ownership of via the claim URL.
+    /// _t__UnclaimedDraftResponse::DESCRIPTION
     /// </summary>
     [DataContract(Name = "UnclaimedDraftResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftResponse" /> class.
         /// </summary>
-        /// <param name="signatureRequestId">The ID of the signature request that is represented by this UnclaimedDraft..</param>
-        /// <param name="claimUrl">The URL to be used to claim this UnclaimedDraft..</param>
-        /// <param name="signingRedirectUrl">The URL you want signers redirected to after they successfully sign..</param>
-        /// <param name="requestingRedirectUrl">The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.)..</param>
-        /// <param name="expiresAt">When the link expires..</param>
-        /// <param name="testMode">Whether this is a test draft. Signature requests made from test drafts have no legal value..</param>
+        /// <param name="signatureRequestId">_t__UnclaimedDraft::SIGNATURE_REQUEST_ID.</param>
+        /// <param name="claimUrl">_t__UnclaimedDraft::CLAIM_URL.</param>
+        /// <param name="signingRedirectUrl">_t__UnclaimedDraft::SIGNING_REDIRECT_URL.</param>
+        /// <param name="requestingRedirectUrl">_t__UnclaimedDraft::REQUESTING_REDIRECT_URL.</param>
+        /// <param name="expiresAt">_t__UnclaimedDraft::EXPIRES_AT.</param>
+        /// <param name="testMode">_t__UnclaimedDraft::TEST_MODE.</param>
         public UnclaimedDraftResponse(string signatureRequestId = default(string), string claimUrl = default(string), string signingRedirectUrl = default(string), string requestingRedirectUrl = default(string), int? expiresAt = default(int?), bool testMode = default(bool))
         {
 
@@ -75,44 +75,44 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The ID of the signature request that is represented by this UnclaimedDraft.
+        /// _t__UnclaimedDraft::SIGNATURE_REQUEST_ID
         /// </summary>
-        /// <value>The ID of the signature request that is represented by this UnclaimedDraft.</value>
+        /// <value>_t__UnclaimedDraft::SIGNATURE_REQUEST_ID</value>
         [DataMember(Name = "signature_request_id", EmitDefaultValue = true)]
         public string SignatureRequestId { get; set; }
 
         /// <summary>
-        /// The URL to be used to claim this UnclaimedDraft.
+        /// _t__UnclaimedDraft::CLAIM_URL
         /// </summary>
-        /// <value>The URL to be used to claim this UnclaimedDraft.</value>
+        /// <value>_t__UnclaimedDraft::CLAIM_URL</value>
         [DataMember(Name = "claim_url", EmitDefaultValue = true)]
         public string ClaimUrl { get; set; }
 
         /// <summary>
-        /// The URL you want signers redirected to after they successfully sign.
+        /// _t__UnclaimedDraft::SIGNING_REDIRECT_URL
         /// </summary>
-        /// <value>The URL you want signers redirected to after they successfully sign.</value>
+        /// <value>_t__UnclaimedDraft::SIGNING_REDIRECT_URL</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
 
         /// <summary>
-        /// The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
+        /// _t__UnclaimedDraft::REQUESTING_REDIRECT_URL
         /// </summary>
-        /// <value>The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).</value>
+        /// <value>_t__UnclaimedDraft::REQUESTING_REDIRECT_URL</value>
         [DataMember(Name = "requesting_redirect_url", EmitDefaultValue = true)]
         public string RequestingRedirectUrl { get; set; }
 
         /// <summary>
-        /// When the link expires.
+        /// _t__UnclaimedDraft::EXPIRES_AT
         /// </summary>
-        /// <value>When the link expires.</value>
+        /// <value>_t__UnclaimedDraft::EXPIRES_AT</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
 
         /// <summary>
-        /// Whether this is a test draft. Signature requests made from test drafts have no legal value.
+        /// _t__UnclaimedDraft::TEST_MODE
         /// </summary>
-        /// <value>Whether this is a test draft. Signature requests made from test drafts have no legal value.</value>
+        /// <value>_t__UnclaimedDraft::TEST_MODE</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
 

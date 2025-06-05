@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** This class extends &#x60;TemplateResponseDocumentCustomFieldBase&#x60; */
+/** _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS */
 @JsonPropertyOrder({TemplateResponseDocumentCustomFieldCheckbox.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -68,9 +68,7 @@ public class TemplateResponseDocumentCustomFieldCheckbox
     }
 
     /**
-     * The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently
-     * supported. * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses
-     * &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60;
+     * _t__TemplateResponseDocumentCustomField::TYPE
      *
      * @return type
      */

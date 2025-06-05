@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `emailAddress` | ```String``` |  The email address associated with the Account.  |  |
+| `emailAddress` | ```String``` |  _t__Account::EMAIL_ADDRESS  |  |
 
 
 

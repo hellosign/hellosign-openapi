@@ -2,16 +2,16 @@
 
 # EventCallbackRequestEventMetadata
 
-Specific metadata about the event.
+_t__EventCallbackRequestEventMetadata::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `relatedSignatureId` | ```String``` |  Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.  |  |
-| `reportedForAccountId` | ```String``` |  Account ID the event was reported for.  |  |
-| `reportedForAppId` | ```String``` |  App ID the event was reported for.  |  |
-| `eventMessage` | ```String``` |  Message about a declined or failed (due to error) signature flow.  |  |
+| `relatedSignatureId` | ```String``` |  _t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID  |  |
+| `reportedForAccountId` | ```String``` |  _t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID  |  |
+| `reportedForAppId` | ```String``` |  _t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID  |  |
+| `eventMessage` | ```String``` |  _t__EventCallbackRequestEventMetadata::EVENT_MESSAGE  |  |
 
 
 

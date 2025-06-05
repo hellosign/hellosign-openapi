@@ -55,13 +55,13 @@ namespace Dropbox.Sign.Model
         /// <param name="holdRequest">The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="isForEmbeddedSigning">The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
-        /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
+        /// <param name="metadata">_t__Sub::Metadata::DESCRIPTION.</param>
         /// <param name="previewOnly">This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set). (default to false).</param>
         /// <param name="requesterEmailAddress">The email address of the user that should be designated as the requester of this draft. (required).</param>
         /// <param name="requestingRedirectUrl">The URL you want signers redirected to after they successfully request a signature..</param>
         /// <param name="showPreview">This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience. (default to false).</param>
         /// <param name="showProgressStepper">When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden. (default to true).</param>
-        /// <param name="signers">Add Signers to your Templated-based Signature Request..</param>
+        /// <param name="signers">_t__Sub::UnclaimedDraftTemplateSigner::DESCRIPTION.</param>
         /// <param name="signingOptions">signingOptions.</param>
         /// <param name="signingRedirectUrl">The URL you want signers redirected to after they successfully sign..</param>
         /// <param name="skipMeNow">Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
@@ -248,9 +248,9 @@ namespace Dropbox.Sign.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+        /// _t__Sub::Metadata::DESCRIPTION
         /// </summary>
-        /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
+        /// <value>_t__Sub::Metadata::DESCRIPTION</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
 
@@ -283,9 +283,9 @@ namespace Dropbox.Sign.Model
         public bool ShowProgressStepper { get; set; }
 
         /// <summary>
-        /// Add Signers to your Templated-based Signature Request.
+        /// _t__Sub::UnclaimedDraftTemplateSigner::DESCRIPTION
         /// </summary>
-        /// <value>Add Signers to your Templated-based Signature Request.</value>
+        /// <value>_t__Sub::UnclaimedDraftTemplateSigner::DESCRIPTION</value>
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubUnclaimedDraftTemplateSigner> Signers { get; set; }
 

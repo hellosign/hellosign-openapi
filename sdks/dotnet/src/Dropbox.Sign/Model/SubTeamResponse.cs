@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubTeamResponse" /> class.
         /// </summary>
-        /// <param name="teamId">The id of a team.</param>
-        /// <param name="name">The name of a team.</param>
+        /// <param name="teamId">_t__TeamGeneral::TEAM_ID.</param>
+        /// <param name="name">_t__TeamGeneral::NAME.</param>
         public SubTeamResponse(string teamId = default(string), string name = default(string))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of a team
+        /// _t__TeamGeneral::TEAM_ID
         /// </summary>
-        /// <value>The id of a team</value>
+        /// <value>_t__TeamGeneral::TEAM_ID</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
 
         /// <summary>
-        /// The name of a team
+        /// _t__TeamGeneral::NAME
         /// </summary>
-        /// <value>The name of a team</value>
+        /// <value>_t__TeamGeneral::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 

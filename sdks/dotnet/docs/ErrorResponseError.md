@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.ErrorResponseError
-Contains information about an error that occurred.
+_t__ErrorResponseError::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ErrorMsg** | **string** |  Message describing an error.  | **ErrorName** | **string** |  Name of the error.  | **ErrorPath** | **string** |  Path at which an error occurred.  | [optional] 
+**ErrorMsg** | **string** |  _t__ErrorResponseError::ERROR_MSG  | **ErrorName** | **string** |  _t__ErrorResponseError::ERROR_NAME  | **ErrorPath** | **string** |  _t__ErrorResponseError::ERROR_PATH  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,21 +2,21 @@
 
 # TemplateResponseDocumentFormFieldBase
 
-An array of Form Field objects containing the name and type of each named field.
+_t__TemplateResponseDocumentFormField::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 | `type`<sup>*_required_</sup> | ```String``` |    |  |
-| `apiId` | ```String``` |  A unique id for the form field.  |  |
-| `name` | ```String``` |  The name of the form field.  |  |
-| `signer` | ```String``` |  The signer of the Form Field.  |  |
-| `x` | ```Integer``` |  The horizontal offset in pixels for this form field.  |  |
-| `y` | ```Integer``` |  The vertical offset in pixels for this form field.  |  |
-| `width` | ```Integer``` |  The width in pixels of this form field.  |  |
-| `height` | ```Integer``` |  The height in pixels of this form field.  |  |
-| `required` | ```Boolean``` |  Boolean showing whether or not this field is required.  |  |
+| `apiId` | ```String``` |  _t__TemplateResponseDocumentFormField::API_ID  |  |
+| `name` | ```String``` |  _t__TemplateResponseDocumentFormField::NAME  |  |
+| `signer` | ```String``` |  _t__TemplateResponseDocumentFormField::SIGNER  |  |
+| `x` | ```Integer``` |  _t__TemplateResponseDocumentFormField::X  |  |
+| `y` | ```Integer``` |  _t__TemplateResponseDocumentFormField::Y  |  |
+| `width` | ```Integer``` |  _t__TemplateResponseDocumentFormField::WIDTH  |  |
+| `height` | ```Integer``` |  _t__TemplateResponseDocumentFormField::HEIGHT  |  |
+| `required` | ```Boolean``` |  _t__TemplateResponseDocumentFormField::REQUIRED  |  |
 
 
 

@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.EventCallbackRequestEventMetadata
-Specific metadata about the event.
+_t__EventCallbackRequestEventMetadata::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RelatedSignatureId** | **string** |  Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.  | [optional] **ReportedForAccountId** | **string** |  Account ID the event was reported for.  | [optional] **ReportedForAppId** | **string** |  App ID the event was reported for.  | [optional] **EventMessage** | **string** |  Message about a declined or failed (due to error) signature flow.  | [optional] 
+**RelatedSignatureId** | **string** |  _t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID  | [optional] **ReportedForAccountId** | **string** |  _t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID  | [optional] **ReportedForAppId** | **string** |  _t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID  | [optional] **EventMessage** | **string** |  _t__EventCallbackRequestEventMetadata::EVENT_MESSAGE  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

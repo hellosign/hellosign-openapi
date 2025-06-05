@@ -27,16 +27,16 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Basic information about the event that occurred.
+    /// _t__EventCallbackRequestEvent::DESCRIPTION
     /// </summary>
     [DataContract(Name = "EventCallbackRequestEvent")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class EventCallbackRequestEvent : IEquatable<EventCallbackRequestEvent>, IValidatableObject
     {
         /// <summary>
-        /// Type of callback event that was triggered.
+        /// _t__EventCallbackRequestEvent::EVENT_TYPE
         /// </summary>
-        /// <value>Type of callback event that was triggered.</value>
+        /// <value>_t__EventCallbackRequestEvent::EVENT_TYPE</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EventTypeEnum
         {
@@ -181,9 +181,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// Type of callback event that was triggered.
+        /// _t__EventCallbackRequestEvent::EVENT_TYPE
         /// </summary>
-        /// <value>Type of callback event that was triggered.</value>
+        /// <value>_t__EventCallbackRequestEvent::EVENT_TYPE</value>
         [DataMember(Name = "event_type", IsRequired = true, EmitDefaultValue = true)]
         public EventTypeEnum EventType { get; set; }
         /// <summary>
@@ -194,9 +194,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EventCallbackRequestEvent" /> class.
         /// </summary>
-        /// <param name="eventTime">Time the event was created (using Unix time). (required).</param>
-        /// <param name="eventType">Type of callback event that was triggered. (required).</param>
-        /// <param name="eventHash">Generated hash used to verify source of event data. (required).</param>
+        /// <param name="eventTime">_t__EventCallbackRequestEvent::EVENT_TIME (required).</param>
+        /// <param name="eventType">_t__EventCallbackRequestEvent::EVENT_TYPE (required).</param>
+        /// <param name="eventHash">_t__EventCallbackRequestEvent::EVENT_HASH (required).</param>
         /// <param name="eventMetadata">eventMetadata.</param>
         public EventCallbackRequestEvent(string eventTime = default(string), EventTypeEnum eventType = default(EventTypeEnum), string eventHash = default(string), EventCallbackRequestEventMetadata eventMetadata = default(EventCallbackRequestEventMetadata))
         {
@@ -234,16 +234,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Time the event was created (using Unix time).
+        /// _t__EventCallbackRequestEvent::EVENT_TIME
         /// </summary>
-        /// <value>Time the event was created (using Unix time).</value>
+        /// <value>_t__EventCallbackRequestEvent::EVENT_TIME</value>
         [DataMember(Name = "event_time", IsRequired = true, EmitDefaultValue = true)]
         public string EventTime { get; set; }
 
         /// <summary>
-        /// Generated hash used to verify source of event data.
+        /// _t__EventCallbackRequestEvent::EVENT_HASH
         /// </summary>
-        /// <value>Generated hash used to verify source of event data.</value>
+        /// <value>_t__EventCallbackRequestEvent::EVENT_HASH</value>
         [DataMember(Name = "event_hash", IsRequired = true, EmitDefaultValue = true)]
         public string EventHash { get; set; }
 

@@ -8,9 +8,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `templates`<sup>*_required_</sup> | [```List<TemplateResponse>```](TemplateResponse.md) |  List of templates that the API caller has access to.  |  |
+| `templates`<sup>*_required_</sup> | [```List<TemplateResponse>```](TemplateResponse.md) |  _t__TemplateListResponse::DESCRIPTION  |  |
 | `listInfo`<sup>*_required_</sup> | [```ListInfoResponse```](ListInfoResponse.md) |    |  |
-| `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
+| `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  _t__WarningResponse::LIST_DESCRIPTION  |  |
 
 
 

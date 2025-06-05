@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateListResponse" /> class.
         /// </summary>
-        /// <param name="templates">List of templates that the API caller has access to. (required).</param>
+        /// <param name="templates">_t__TemplateListResponse::DESCRIPTION (required).</param>
         /// <param name="listInfo">listInfo (required).</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public TemplateListResponse(List<TemplateResponse> templates = default(List<TemplateResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -79,9 +79,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// List of templates that the API caller has access to.
+        /// _t__TemplateListResponse::DESCRIPTION
         /// </summary>
-        /// <value>List of templates that the API caller has access to.</value>
+        /// <value>_t__TemplateListResponse::DESCRIPTION</value>
         [DataMember(Name = "templates", IsRequired = true, EmitDefaultValue = true)]
         public List<TemplateResponse> Templates { get; set; }
 
@@ -92,9 +92,9 @@ namespace Dropbox.Sign.Model
         public ListInfoResponse ListInfo { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
 

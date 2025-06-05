@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Signer attachments.
+    /// _t__SignatureRequestResponseAttachment::DESCRIPTION
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseAttachment")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseAttachment" /> class.
         /// </summary>
-        /// <param name="id">The unique ID for this attachment. (required).</param>
-        /// <param name="signer">The Signer this attachment is assigned to. (required).</param>
-        /// <param name="name">The name of this attachment. (required).</param>
-        /// <param name="required">A boolean value denoting if this attachment is required. (required).</param>
-        /// <param name="instructions">Instructions for Signer..</param>
-        /// <param name="uploadedAt">Timestamp when attachment was uploaded by Signer..</param>
+        /// <param name="id">_t__SignatureRequestResponseAttachment::ID (required).</param>
+        /// <param name="signer">_t__SignatureRequestResponseAttachment::SIGNER (required).</param>
+        /// <param name="name">_t__SignatureRequestResponseAttachment::NAME (required).</param>
+        /// <param name="required">_t__SignatureRequestResponseAttachment::REQUIRED (required).</param>
+        /// <param name="instructions">_t__SignatureRequestResponseAttachment::INSTRUCTIONS.</param>
+        /// <param name="uploadedAt">_t__SignatureRequestResponseAttachment::UPLOADED_AT.</param>
         public SignatureRequestResponseAttachment(string id = default(string), Object signer = null, string name = default(string), bool required = default(bool), string instructions = default(string), int? uploadedAt = default(int?))
         {
 
@@ -90,16 +90,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The unique ID for this attachment.
+        /// _t__SignatureRequestResponseAttachment::ID
         /// </summary>
-        /// <value>The unique ID for this attachment.</value>
+        /// <value>_t__SignatureRequestResponseAttachment::ID</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The Signer this attachment is assigned to.
+        /// _t__SignatureRequestResponseAttachment::SIGNER
         /// </summary>
-        /// <value>The Signer this attachment is assigned to.</value>
+        /// <value>_t__SignatureRequestResponseAttachment::SIGNER</value>
         [DataMember(Name = "signer", IsRequired = true, EmitDefaultValue = true)]
         public object Signer
         {
@@ -109,30 +109,30 @@ namespace Dropbox.Sign.Model
 
         private string _signer;
         /// <summary>
-        /// The name of this attachment.
+        /// _t__SignatureRequestResponseAttachment::NAME
         /// </summary>
-        /// <value>The name of this attachment.</value>
+        /// <value>_t__SignatureRequestResponseAttachment::NAME</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// A boolean value denoting if this attachment is required.
+        /// _t__SignatureRequestResponseAttachment::REQUIRED
         /// </summary>
-        /// <value>A boolean value denoting if this attachment is required.</value>
+        /// <value>_t__SignatureRequestResponseAttachment::REQUIRED</value>
         [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
         public bool Required { get; set; }
 
         /// <summary>
-        /// Instructions for Signer.
+        /// _t__SignatureRequestResponseAttachment::INSTRUCTIONS
         /// </summary>
-        /// <value>Instructions for Signer.</value>
+        /// <value>_t__SignatureRequestResponseAttachment::INSTRUCTIONS</value>
         [DataMember(Name = "instructions", EmitDefaultValue = true)]
         public string Instructions { get; set; }
 
         /// <summary>
-        /// Timestamp when attachment was uploaded by Signer.
+        /// _t__SignatureRequestResponseAttachment::UPLOADED_AT
         /// </summary>
-        /// <value>Timestamp when attachment was uploaded by Signer.</value>
+        /// <value>_t__SignatureRequestResponseAttachment::UPLOADED_AT</value>
         [DataMember(Name = "uploaded_at", EmitDefaultValue = true)]
         public int? UploadedAt { get; set; }
 

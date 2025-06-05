@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseSignerRole" /> class.
         /// </summary>
-        /// <param name="name">The name of the Role..</param>
-        /// <param name="order">If signer order is assigned this is the 0-based index for this role..</param>
+        /// <param name="name">_t__TemplateResponseSignerRole::NAME.</param>
+        /// <param name="order">_t__TemplateResponseSignerRole::ORDER.</param>
         public TemplateResponseSignerRole(string name = default(string), int order = default(int))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The name of the Role.
+        /// _t__TemplateResponseSignerRole::NAME
         /// </summary>
-        /// <value>The name of the Role.</value>
+        /// <value>_t__TemplateResponseSignerRole::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// If signer order is assigned this is the 0-based index for this role.
+        /// _t__TemplateResponseSignerRole::ORDER
         /// </summary>
-        /// <value>If signer order is assigned this is the 0-based index for this role.</value>
+        /// <value>_t__TemplateResponseSignerRole::ORDER</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int Order { get; set; }
 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains information about your team and its members
+    /// _t__TeamResponse::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TeamResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,10 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamResponse" /> class.
         /// </summary>
-        /// <param name="name">The name of your Team.</param>
+        /// <param name="name">_t__Team::NAME.</param>
         /// <param name="accounts">accounts.</param>
-        /// <param name="invitedAccounts">A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;..</param>
-        /// <param name="invitedEmails">A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account..</param>
+        /// <param name="invitedAccounts">_t__Team::INVITED_ACCOUNTS.</param>
+        /// <param name="invitedEmails">_t__Team::INVITED_EMAILS.</param>
         public TeamResponse(string name = default(string), List<AccountResponse> accounts = default(List<AccountResponse>), List<AccountResponse> invitedAccounts = default(List<AccountResponse>), List<string> invitedEmails = default(List<string>))
         {
 
@@ -71,9 +71,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The name of your Team
+        /// _t__Team::NAME
         /// </summary>
-        /// <value>The name of your Team</value>
+        /// <value>_t__Team::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -84,16 +84,16 @@ namespace Dropbox.Sign.Model
         public List<AccountResponse> Accounts { get; set; }
 
         /// <summary>
-        /// A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
+        /// _t__Team::INVITED_ACCOUNTS
         /// </summary>
-        /// <value>A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.</value>
+        /// <value>_t__Team::INVITED_ACCOUNTS</value>
         [DataMember(Name = "invited_accounts", EmitDefaultValue = true)]
         public List<AccountResponse> InvitedAccounts { get; set; }
 
         /// <summary>
-        /// A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
+        /// _t__Team::INVITED_EMAILS
         /// </summary>
-        /// <value>A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.</value>
+        /// <value>_t__Team::INVITED_EMAILS</value>
         [DataMember(Name = "invited_emails", EmitDefaultValue = true)]
         public List<string> InvitedEmails { get; set; }
 

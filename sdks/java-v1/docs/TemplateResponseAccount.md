@@ -8,11 +8,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `accountId` | ```String``` |  The id of the Account.  |  |
-| `emailAddress` | ```String``` |  The email address associated with the Account.  |  |
-| `isLocked` | ```Boolean``` |  Returns `true` if the user has been locked out of their account by a team admin.  |  |
-| `isPaidHs` | ```Boolean``` |  Returns `true` if the user has a paid Dropbox Sign account.  |  |
-| `isPaidHf` | ```Boolean``` |  Returns `true` if the user has a paid HelloFax account.  |  |
+| `accountId` | ```String``` |  _t__TemplateResponseAccount::ACCOUNT_ID  |  |
+| `emailAddress` | ```String``` |  _t__TemplateResponseAccount::EMAIL_ADDRESS  |  |
+| `isLocked` | ```Boolean``` |  _t__TemplateResponseAccount::IS_LOCKED  |  |
+| `isPaidHs` | ```Boolean``` |  _t__TemplateResponseAccount::IS_PAID_HS  |  |
+| `isPaidHf` | ```Boolean``` |  _t__TemplateResponseAccount::IS_PAID_HF  |  |
 | `quotas` | [```TemplateResponseAccountQuota```](TemplateResponseAccountQuota.md) |    |  |
 
 

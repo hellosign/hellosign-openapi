@@ -69,7 +69,7 @@ public class SubSignatureRequestGroupedSigners {
     }
 
     /**
-     * The name of the group.
+     * _t__Sub::SignatureRequestGroupedSigners::GROUP_NAME
      *
      * @return group
      */
@@ -101,9 +101,7 @@ public class SubSignatureRequestGroupedSigners {
     }
 
     /**
-     * Signers belonging to this Group. **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;,
-     * and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties,
-     * even though they are listed below.
+     * _t__Sub::SignatureRequestGroupedSigners::SIGNERS
      *
      * @return signers
      */
@@ -126,8 +124,7 @@ public class SubSignatureRequestGroupedSigners {
     }
 
     /**
-     * The order the group is required to sign in. Use this instead of Signer-level
-     * &#x60;order&#x60;.
+     * _t__Sub::SignatureRequestGroupedSigners::ORDER
      *
      * @return order
      */

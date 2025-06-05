@@ -97,7 +97,7 @@ public class AccountResponse {
     }
 
     /**
-     * The ID of the Account
+     * _t__Account::ACCOUNT_ID
      *
      * @return accountId
      */
@@ -119,7 +119,7 @@ public class AccountResponse {
     }
 
     /**
-     * The email address associated with the Account.
+     * _t__Account::EMAIL_ADDRESS
      *
      * @return emailAddress
      */
@@ -141,7 +141,7 @@ public class AccountResponse {
     }
 
     /**
-     * Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
+     * _t__Account::IS_LOCKED
      *
      * @return isLocked
      */
@@ -163,7 +163,7 @@ public class AccountResponse {
     }
 
     /**
-     * Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
+     * _t__Account::IS_PAID_HS
      *
      * @return isPaidHs
      */
@@ -185,7 +185,7 @@ public class AccountResponse {
     }
 
     /**
-     * Returns &#x60;true&#x60; if the user has a paid HelloFax account.
+     * _t__Account::IS_PAID_HF
      *
      * @return isPaidHf
      */
@@ -229,7 +229,7 @@ public class AccountResponse {
     }
 
     /**
-     * The URL that Dropbox Sign events will &#x60;POST&#x60; to.
+     * _t__Account::CALLBACK_URL
      *
      * @return callbackUrl
      */
@@ -251,7 +251,7 @@ public class AccountResponse {
     }
 
     /**
-     * The membership role for the team.
+     * _t__Account::ROLE_CODE
      *
      * @return roleCode
      */
@@ -273,7 +273,7 @@ public class AccountResponse {
     }
 
     /**
-     * The id of the team account belongs to.
+     * _t__Account::TEAM_ID
      *
      * @return teamId
      */
@@ -295,9 +295,7 @@ public class AccountResponse {
     }
 
     /**
-     * The locale used in this Account. Check out the list of [supported
-     * locales](/api/reference/constants/#supported-locales) to learn more about the possible
-     * values.
+     * _t__Account::LOCALE
      *
      * @return locale
      */

@@ -132,7 +132,7 @@ public class BulkSendJobGetResponse {
     }
 
     /**
-     * Contains information about the Signature Requests sent in bulk.
+     * _t__BulkSendJobGetResponse::SIGNATURE_REQUESTS
      *
      * @return signatureRequests
      */
@@ -166,7 +166,7 @@ public class BulkSendJobGetResponse {
     }
 
     /**
-     * A list of warnings.
+     * _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return warnings
      */

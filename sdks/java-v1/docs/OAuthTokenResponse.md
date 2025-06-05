@@ -11,7 +11,7 @@
 | `accessToken` | ```String``` |    |  |
 | `tokenType` | ```String``` |    |  |
 | `refreshToken` | ```String``` |    |  |
-| `expiresIn` | ```Integer``` |  Number of seconds until the `access_token` expires. Uses epoch time.  |  |
+| `expiresIn` | ```Integer``` |  _t__OAuthTokenResponse::EXPIRES_IN  |  |
 | `state` | ```String``` |    |  |
 
 

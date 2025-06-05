@@ -75,7 +75,7 @@ public class ApiAppListResponse {
     }
 
     /**
-     * Contains information about API Apps.
+     * _t__ApiAppListResponse::DESCRIPTION
      *
      * @return apiApps
      */
@@ -129,7 +129,7 @@ public class ApiAppListResponse {
     }
 
     /**
-     * A list of warnings.
+     * _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return warnings
      */

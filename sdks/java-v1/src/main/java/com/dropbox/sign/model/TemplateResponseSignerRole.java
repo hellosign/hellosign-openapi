@@ -63,7 +63,7 @@ public class TemplateResponseSignerRole {
     }
 
     /**
-     * The name of the Role.
+     * _t__TemplateResponseSignerRole::NAME
      *
      * @return name
      */
@@ -85,7 +85,7 @@ public class TemplateResponseSignerRole {
     }
 
     /**
-     * If signer order is assigned this is the 0-based index for this role.
+     * _t__TemplateResponseSignerRole::ORDER
      *
      * @return order
      */

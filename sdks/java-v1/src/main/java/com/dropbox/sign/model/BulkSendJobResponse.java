@@ -23,10 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Contains information about the BulkSendJob such as when it was created and how many signature
- * requests are queued.
- */
+/** _t__BulkSendJobResponse::DESCRIPTION */
 @JsonPropertyOrder({
     BulkSendJobResponse.JSON_PROPERTY_BULK_SEND_JOB_ID,
     BulkSendJobResponse.JSON_PROPERTY_TOTAL,
@@ -72,7 +69,7 @@ public class BulkSendJobResponse {
     }
 
     /**
-     * The id of the BulkSendJob.
+     * _t__BulkSendJobResponse::BULK_SEND_JOB_ID
      *
      * @return bulkSendJobId
      */
@@ -94,7 +91,7 @@ public class BulkSendJobResponse {
     }
 
     /**
-     * The total amount of Signature Requests queued for sending.
+     * _t__BulkSendJobResponse::TOTAL
      *
      * @return total
      */
@@ -116,8 +113,7 @@ public class BulkSendJobResponse {
     }
 
     /**
-     * True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a
-     * team member.
+     * _t__BulkSendJobResponse::IS_CREATOR
      *
      * @return isCreator
      */
@@ -139,7 +135,7 @@ public class BulkSendJobResponse {
     }
 
     /**
-     * Time that the BulkSendJob was created.
+     * _t__BulkSendJobResponse::CREATED_AT
      *
      * @return createdAt
      */

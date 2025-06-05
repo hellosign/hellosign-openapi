@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Details concerning monthly usage
+    /// _t__Account::USAGE
     /// </summary>
     [DataContract(Name = "AccountResponseUsage")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseUsage" /> class.
         /// </summary>
-        /// <param name="faxPagesSent">Number of fax pages sent.</param>
+        /// <param name="faxPagesSent">_t__AccountUsage::FAX_PAGES_SENT.</param>
         public AccountResponseUsage(int? faxPagesSent = default(int?))
         {
 
@@ -65,9 +65,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Number of fax pages sent
+        /// _t__AccountUsage::FAX_PAGES_SENT
         /// </summary>
-        /// <value>Number of fax pages sent</value>
+        /// <value>_t__AccountUsage::FAX_PAGES_SENT</value>
         [DataMember(Name = "fax_pages_sent", EmitDefaultValue = true)]
         public int? FaxPagesSent { get; set; }
 

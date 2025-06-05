@@ -43,8 +43,8 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="bulkSendJob">bulkSendJob (required).</param>
         /// <param name="listInfo">listInfo (required).</param>
-        /// <param name="signatureRequests">Contains information about the Signature Requests sent in bulk. (required).</param>
-        /// <param name="warnings">A list of warnings..</param>
+        /// <param name="signatureRequests">_t__BulkSendJobGetResponse::SIGNATURE_REQUESTS (required).</param>
+        /// <param name="warnings">_t__WarningResponse::LIST_DESCRIPTION.</param>
         public BulkSendJobGetResponse(BulkSendJobResponse bulkSendJob = default(BulkSendJobResponse), ListInfoResponse listInfo = default(ListInfoResponse), List<BulkSendJobGetResponseSignatureRequests> signatureRequests = default(List<BulkSendJobGetResponseSignatureRequests>), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
@@ -98,16 +98,16 @@ namespace Dropbox.Sign.Model
         public ListInfoResponse ListInfo { get; set; }
 
         /// <summary>
-        /// Contains information about the Signature Requests sent in bulk.
+        /// _t__BulkSendJobGetResponse::SIGNATURE_REQUESTS
         /// </summary>
-        /// <value>Contains information about the Signature Requests sent in bulk.</value>
+        /// <value>_t__BulkSendJobGetResponse::SIGNATURE_REQUESTS</value>
         [DataMember(Name = "signature_requests", IsRequired = true, EmitDefaultValue = true)]
         public List<BulkSendJobGetResponseSignatureRequests> SignatureRequests { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// _t__WarningResponse::LIST_DESCRIPTION
         /// </summary>
-        /// <value>A list of warnings.</value>
+        /// <value>_t__WarningResponse::LIST_DESCRIPTION</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
 

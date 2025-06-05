@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSignatureRequestGroupedSigners" /> class.
         /// </summary>
-        /// <param name="group">The name of the group. (required).</param>
-        /// <param name="order">The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;..</param>
-        /// <param name="signers">Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below. (required).</param>
+        /// <param name="group">_t__Sub::SignatureRequestGroupedSigners::GROUP_NAME (required).</param>
+        /// <param name="order">_t__Sub::SignatureRequestGroupedSigners::ORDER.</param>
+        /// <param name="signers">_t__Sub::SignatureRequestGroupedSigners::SIGNERS (required).</param>
         public SubSignatureRequestGroupedSigners(string group = default(string), int? order = default(int?), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>))
         {
 
@@ -79,23 +79,23 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The name of the group.
+        /// _t__Sub::SignatureRequestGroupedSigners::GROUP_NAME
         /// </summary>
-        /// <value>The name of the group.</value>
+        /// <value>_t__Sub::SignatureRequestGroupedSigners::GROUP_NAME</value>
         [DataMember(Name = "group", IsRequired = true, EmitDefaultValue = true)]
         public string Group { get; set; }
 
         /// <summary>
-        /// Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+        /// _t__Sub::SignatureRequestGroupedSigners::SIGNERS
         /// </summary>
-        /// <value>Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.</value>
+        /// <value>_t__Sub::SignatureRequestGroupedSigners::SIGNERS</value>
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestSigner> Signers { get; set; }
 
         /// <summary>
-        /// The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.
+        /// _t__Sub::SignatureRequestGroupedSigners::ORDER
         /// </summary>
-        /// <value>The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.</value>
+        /// <value>_t__Sub::SignatureRequestGroupedSigners::ORDER</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
 

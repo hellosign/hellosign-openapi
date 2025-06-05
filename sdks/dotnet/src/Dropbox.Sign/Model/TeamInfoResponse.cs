@@ -41,11 +41,11 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamInfoResponse" /> class.
         /// </summary>
-        /// <param name="teamId">The id of a team.</param>
+        /// <param name="teamId">_t__TeamGeneral::TEAM_ID.</param>
         /// <param name="teamParent">teamParent.</param>
-        /// <param name="name">The name of a team.</param>
-        /// <param name="numMembers">Number of members within a team.</param>
-        /// <param name="numSubTeams">Number of sub teams within a team.</param>
+        /// <param name="name">_t__TeamGeneral::NAME.</param>
+        /// <param name="numMembers">_t__TeamGeneral::NUM_MEMBERS.</param>
+        /// <param name="numSubTeams">_t__TeamGeneral::NUM_SUB_TEAMS.</param>
         public TeamInfoResponse(string teamId = default(string), TeamParentResponse teamParent = default(TeamParentResponse), string name = default(string), int numMembers = default(int), int numSubTeams = default(int))
         {
 
@@ -73,9 +73,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of a team
+        /// _t__TeamGeneral::TEAM_ID
         /// </summary>
-        /// <value>The id of a team</value>
+        /// <value>_t__TeamGeneral::TEAM_ID</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
 
@@ -86,23 +86,23 @@ namespace Dropbox.Sign.Model
         public TeamParentResponse TeamParent { get; set; }
 
         /// <summary>
-        /// The name of a team
+        /// _t__TeamGeneral::NAME
         /// </summary>
-        /// <value>The name of a team</value>
+        /// <value>_t__TeamGeneral::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Number of members within a team
+        /// _t__TeamGeneral::NUM_MEMBERS
         /// </summary>
-        /// <value>Number of members within a team</value>
+        /// <value>_t__TeamGeneral::NUM_MEMBERS</value>
         [DataMember(Name = "num_members", EmitDefaultValue = true)]
         public int NumMembers { get; set; }
 
         /// <summary>
-        /// Number of sub teams within a team
+        /// _t__TeamGeneral::NUM_SUB_TEAMS
         /// </summary>
-        /// <value>Number of sub teams within a team</value>
+        /// <value>_t__TeamGeneral::NUM_SUB_TEAMS</value>
         [DataMember(Name = "num_sub_teams", EmitDefaultValue = true)]
         public int NumSubTeams { get; set; }
 

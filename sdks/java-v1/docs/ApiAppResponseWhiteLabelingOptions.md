@@ -2,7 +2,7 @@
 
 # ApiAppResponseWhiteLabelingOptions
 
-An object with options to customize the app&#39;s signer page
+_t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION
 
 ## Properties
 

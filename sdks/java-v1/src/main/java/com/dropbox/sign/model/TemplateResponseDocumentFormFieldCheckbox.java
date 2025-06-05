@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60; */
+/** _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS */
 @JsonPropertyOrder({
     TemplateResponseDocumentFormFieldCheckbox.JSON_PROPERTY_TYPE,
     TemplateResponseDocumentFormFieldCheckbox.JSON_PROPERTY_GROUP
@@ -73,15 +73,7 @@ public class TemplateResponseDocumentFormFieldCheckbox
     }
 
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types). * Text
-     * Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses
-     * &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses
-     * &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses
-     * &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses
-     * &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses
-     * &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses
-     * &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses
-     * &#x60;TemplateResponseDocumentFormFieldInitials&#x60;
+     * _t__TemplateResponseDocumentFormField::TYPE
      *
      * @return type
      */
@@ -105,8 +97,7 @@ public class TemplateResponseDocumentFormFieldCheckbox
     }
 
     /**
-     * The name of the group this field is in. If this field is not a group, this defaults to
-     * &#x60;null&#x60; except for Radio fields.
+     * _t__TemplateResponseDocumentFormField::GROUP
      *
      * @return group
      */

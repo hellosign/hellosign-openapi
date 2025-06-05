@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An object describing the app&#39;s owner
+    /// _t__ApiAppResponseOwnerAccount::DESCRIPTION
     /// </summary>
     [DataContract(Name = "ApiAppResponseOwnerAccount")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOwnerAccount" /> class.
         /// </summary>
-        /// <param name="accountId">The owner account&#39;s ID.</param>
-        /// <param name="emailAddress">The owner account&#39;s email address.</param>
+        /// <param name="accountId">_t__ApiAppResponseOwnerAccount::ACCOUNT_ID.</param>
+        /// <param name="emailAddress">_t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS.</param>
         public ApiAppResponseOwnerAccount(string accountId = default(string), string emailAddress = default(string))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The owner account&#39;s ID
+        /// _t__ApiAppResponseOwnerAccount::ACCOUNT_ID
         /// </summary>
-        /// <value>The owner account&#39;s ID</value>
+        /// <value>_t__ApiAppResponseOwnerAccount::ACCOUNT_ID</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
 
         /// <summary>
-        /// The owner account&#39;s email address
+        /// _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS
         /// </summary>
-        /// <value>The owner account&#39;s email address</value>
+        /// <value>_t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 

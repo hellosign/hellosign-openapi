@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Details concerning monthly usage */
+/** _t__Account::USAGE */
 @JsonPropertyOrder({AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -55,7 +55,7 @@ public class AccountResponseUsage {
     }
 
     /**
-     * Number of fax pages sent
+     * _t__AccountUsage::FAX_PAGES_SENT
      *
      * @return faxPagesSent
      */

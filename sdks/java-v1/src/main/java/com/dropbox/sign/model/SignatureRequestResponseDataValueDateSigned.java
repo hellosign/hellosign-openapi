@@ -74,7 +74,7 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
     }
 
     /**
-     * A date
+     * _t__SignatureRequestResponseDataValue::DATESIGNED_TYPE
      *
      * @return type
      */
@@ -97,7 +97,7 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
     }
 
     /**
-     * The value of the form field.
+     * _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return value
      */

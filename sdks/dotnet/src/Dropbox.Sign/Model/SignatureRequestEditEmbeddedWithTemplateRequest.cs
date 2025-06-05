@@ -49,8 +49,8 @@ namespace Dropbox.Sign.Model
         /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
-        /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
-        /// <param name="signers">Add Signers to your Templated-based Signature Request. (required).</param>
+        /// <param name="metadata">_t__Sub::Metadata::DESCRIPTION.</param>
+        /// <param name="signers">_t__Sub::SignatureRequestTemplateSigner::DESCRIPTION (required).</param>
         /// <param name="signingOptions">signingOptions.</param>
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
@@ -122,9 +122,9 @@ namespace Dropbox.Sign.Model
         public string ClientId { get; set; }
 
         /// <summary>
-        /// Add Signers to your Templated-based Signature Request.
+        /// _t__Sub::SignatureRequestTemplateSigner::DESCRIPTION
         /// </summary>
-        /// <value>Add Signers to your Templated-based Signature Request.</value>
+        /// <value>_t__Sub::SignatureRequestTemplateSigner::DESCRIPTION</value>
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
 
@@ -171,9 +171,9 @@ namespace Dropbox.Sign.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+        /// _t__Sub::Metadata::DESCRIPTION
         /// </summary>
-        /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
+        /// <value>_t__Sub::Metadata::DESCRIPTION</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
 

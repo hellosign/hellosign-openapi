@@ -23,10 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * An array of the designated CC roles that must be specified when sending a SignatureRequest using
- * this Template.
- */
+/** _t__TemplateResponseAccountQuota::DESCRIPTION */
 @JsonPropertyOrder({
     TemplateResponseAccountQuota.JSON_PROPERTY_TEMPLATES_LEFT,
     TemplateResponseAccountQuota.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
@@ -76,7 +73,7 @@ public class TemplateResponseAccountQuota {
     }
 
     /**
-     * API templates remaining.
+     * _t__TemplateResponseAccountQuota::TEMPLATES_LEFT
      *
      * @return templatesLeft
      */
@@ -99,7 +96,7 @@ public class TemplateResponseAccountQuota {
     }
 
     /**
-     * API signature requests remaining.
+     * _t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT
      *
      * @return apiSignatureRequestsLeft
      */
@@ -123,7 +120,7 @@ public class TemplateResponseAccountQuota {
     }
 
     /**
-     * Signature requests remaining.
+     * _t__TemplateResponseAccountQuota::DOCUMENTS_LEFT
      *
      * @return documentsLeft
      */
@@ -146,7 +143,7 @@ public class TemplateResponseAccountQuota {
     }
 
     /**
-     * SMS verifications remaining.
+     * _t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT
      *
      * @return smsVerificationsLeft
      */

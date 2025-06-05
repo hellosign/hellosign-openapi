@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFieldGroup" /> class.
         /// </summary>
-        /// <param name="name">The name of the form field group..</param>
+        /// <param name="name">_t__TemplateResponseDocumentFieldGroup::NAME.</param>
         /// <param name="rule">rule.</param>
         public TemplateResponseDocumentFieldGroup(string name = default(string), TemplateResponseDocumentFieldGroupRule rule = default(TemplateResponseDocumentFieldGroupRule))
         {
@@ -67,9 +67,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The name of the form field group.
+        /// _t__TemplateResponseDocumentFieldGroup::NAME
         /// </summary>
-        /// <value>The name of the form field group.</value>
+        /// <value>_t__TemplateResponseDocumentFieldGroup::NAME</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 

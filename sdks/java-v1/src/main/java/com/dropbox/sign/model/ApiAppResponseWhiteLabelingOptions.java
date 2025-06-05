@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An object with options to customize the app&#39;s signer page */
+/** _t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION */
 @JsonPropertyOrder({
     ApiAppResponseWhiteLabelingOptions.JSON_PROPERTY_HEADER_BACKGROUND_COLOR,
     ApiAppResponseWhiteLabelingOptions.JSON_PROPERTY_LEGAL_VERSION,

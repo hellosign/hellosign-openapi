@@ -58,7 +58,7 @@ public class AccountVerifyResponseAccount {
     }
 
     /**
-     * The email address associated with the Account.
+     * _t__Account::EMAIL_ADDRESS
      *
      * @return emailAddress
      */

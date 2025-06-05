@@ -25,11 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * An array of elements and values serialized to a string, to be used to customize the app&#39;s
- * signer page. (Only applies to some API plans) Take a look at our [white labeling
- * guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
- */
+/** _t__Sub::WhiteLabelingOptions::DESCRIPTION */
 @JsonPropertyOrder({
     SubWhiteLabelingOptions.JSON_PROPERTY_HEADER_BACKGROUND_COLOR,
     SubWhiteLabelingOptions.JSON_PROPERTY_LEGAL_VERSION,
@@ -485,7 +481,7 @@ public class SubWhiteLabelingOptions {
     }
 
     /**
-     * Resets white labeling options to defaults. Only useful when updating an API App.
+     * _t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT
      *
      * @return resetToDefault
      */

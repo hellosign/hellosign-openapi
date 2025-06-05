@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains template id */
+/** _t__TemplateUpdateFilesResponseTemplate::DESCRIPTION */
 @JsonPropertyOrder({
     TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
     TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_WARNINGS
@@ -66,7 +66,7 @@ public class TemplateUpdateFilesResponseTemplate {
     }
 
     /**
-     * The id of the Template.
+     * _t__TemplateResponse::TEMPLATE_ID
      *
      * @return templateId
      */
@@ -98,7 +98,7 @@ public class TemplateUpdateFilesResponseTemplate {
     }
 
     /**
-     * A list of warnings.
+     * _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return warnings
      * @deprecated

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Average text length in this field.
+    /// _t__TemplateResponseFieldAvgTextLength::DESCRIPTION
     /// </summary>
     [DataContract(Name = "TemplateResponseFieldAvgTextLength")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseFieldAvgTextLength" /> class.
         /// </summary>
-        /// <param name="numLines">Number of lines..</param>
-        /// <param name="numCharsPerLine">Number of characters per line..</param>
+        /// <param name="numLines">_t__TemplateResponseFieldAvgTextLength::NUM_LINES.</param>
+        /// <param name="numCharsPerLine">_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE.</param>
         public TemplateResponseFieldAvgTextLength(int numLines = default(int), int numCharsPerLine = default(int))
         {
 
@@ -67,16 +67,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Number of lines.
+        /// _t__TemplateResponseFieldAvgTextLength::NUM_LINES
         /// </summary>
-        /// <value>Number of lines.</value>
+        /// <value>_t__TemplateResponseFieldAvgTextLength::NUM_LINES</value>
         [DataMember(Name = "num_lines", EmitDefaultValue = true)]
         public int NumLines { get; set; }
 
         /// <summary>
-        /// Number of characters per line.
+        /// _t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE
         /// </summary>
-        /// <value>Number of characters per line.</value>
+        /// <value>_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE</value>
         [DataMember(Name = "num_chars_per_line", EmitDefaultValue = true)]
         public int NumCharsPerLine { get; set; }
 
