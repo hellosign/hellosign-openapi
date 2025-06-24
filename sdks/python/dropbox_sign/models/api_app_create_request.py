@@ -36,7 +36,7 @@ class ApiAppCreateRequest(BaseModel):
     ApiAppCreateRequest
     """  # noqa: E501
 
-    domains: Annotated[List[StrictStr], Field(min_length=1, max_length=2)] = Field(
+    domains: Annotated[List[StrictStr], Field(min_length=1, max_length=10)] = Field(
         description="The domain names the ApiApp will be associated with."
     )
     name: StrictStr = Field(description="The name you want to assign to the ApiApp.")

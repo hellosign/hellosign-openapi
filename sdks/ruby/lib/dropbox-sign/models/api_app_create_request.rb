@@ -165,8 +165,8 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "domains", domains cannot be nil.')
       end
 
-      if @domains.length > 2
-        invalid_properties.push('invalid value for "domains", number of items must be less than or equal to 2.')
+      if @domains.length > 10
+        invalid_properties.push('invalid value for "domains", number of items must be less than or equal to 10.')
       end
 
       if @domains.length < 1
@@ -184,7 +184,7 @@ module Dropbox::Sign
     # @return true if the model is valid
     def valid?
       return false if @domains.nil?
-      return false if @domains.length > 2
+      return false if @domains.length > 10
       return false if @domains.length < 1
       return false if @name.nil?
       true
@@ -196,8 +196,8 @@ module Dropbox::Sign
       if domains.nil?
         fail ArgumentError, 'domains cannot be nil'
       end
-      if domains.length > 2
-        fail ArgumentError, 'invalid value for "domains", number of items must be less than or equal to 2.'
+      if domains.length > 10
+        fail ArgumentError, 'invalid value for "domains", number of items must be less than or equal to 10.'
       end
 
       if domains.length < 1
