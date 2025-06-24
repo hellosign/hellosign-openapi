@@ -161,8 +161,8 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@domains.nil? && @domains.length > 2
-        invalid_properties.push('invalid value for "domains", number of items must be less than or equal to 2.')
+      if !@domains.nil? && @domains.length > 10
+        invalid_properties.push('invalid value for "domains", number of items must be less than or equal to 10.')
       end
 
       invalid_properties
@@ -171,15 +171,15 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@domains.nil? && @domains.length > 2
+      return false if !@domains.nil? && @domains.length > 10
       true
     end
 
     # Custom attribute writer method with validation
     # @param [Object] domains Value to be assigned
     def domains=(domains)
-      if domains.length > 2
-        fail ArgumentError, 'invalid value for "domains", number of items must be less than or equal to 2.'
+      if domains.length > 10
+        fail ArgumentError, 'invalid value for "domains", number of items must be less than or equal to 10.'
       end
 
       @domains = domains

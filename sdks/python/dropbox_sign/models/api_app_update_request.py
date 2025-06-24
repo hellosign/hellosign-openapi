@@ -46,7 +46,7 @@ class ApiAppUpdateRequest(BaseModel):
         default=None,
         description="An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)",
     )
-    domains: Optional[Annotated[List[StrictStr], Field(max_length=2)]] = Field(
+    domains: Optional[Annotated[List[StrictStr], Field(max_length=10)]] = Field(
         default=None, description="The domain names the ApiApp will be associated with."
     )
     name: Optional[StrictStr] = Field(

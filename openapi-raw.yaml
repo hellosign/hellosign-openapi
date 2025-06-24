@@ -7697,7 +7697,7 @@ components:
           type: array
           items:
             type: string
-          maxItems: 2
+          maxItems: 10
           minItems: 1
         name:
           description: '_t__ApiAppCreate::NAME'
@@ -7723,7 +7723,7 @@ components:
           type: array
           items:
             type: string
-          maxItems: 2
+          maxItems: 10
         name:
           description: '_t__ApiAppUpdate::NAME'
           type: string
