@@ -1,0 +1,24 @@
+{
+  "default": {
+    "fax": {
+      "fax_id": "c2e9691c85d9d6fa6ae773842e3680b2b8650f1d",
+      "title": "example title",
+      "original_title": "example original title",
+      "metadata": {},
+      "created_at": 1750105080,
+      "sender": "14155557068",
+      "files_url": "https://api.hellosign.com/v3/fax/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
+      "final_copy_uri": "/v3/transmission/final_copy/c2e9691c85d9d6fa6ae773842e3680b2b8650f1d",
+      "transmissions": [
+        {
+          "recipient": "18005550199",
+          "status_code": "transmitting"
+        }
+      ],
+      "transmission_id": "c2e9691c85d9d6fa6ae773842e3680b2b8650f1d",
+      "from": "14155557068",
+      "test_mode": false
+    }
+  }
+}
+
