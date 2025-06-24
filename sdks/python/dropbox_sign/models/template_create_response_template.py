@@ -29,11 +29,11 @@ from pydantic import StrictBool
 
 class TemplateCreateResponseTemplate(BaseModel):
     """
-    Template object with parameters: `template_id`.
+    _t__TemplateCreateResponseTemplate::DESCRIPTION
     """  # noqa: E501
 
     template_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Template."
+        default=None, description="_t__TemplateResponse::TEMPLATE_ID"
     )
     __properties: ClassVar[List[str]] = ["template_id"]
 

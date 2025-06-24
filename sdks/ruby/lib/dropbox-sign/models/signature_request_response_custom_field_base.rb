@@ -17,25 +17,25 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
+  # _t__SignatureRequestResponseCustomField::DESCRIPTION
   class SignatureRequestResponseCustomFieldBase
-    # The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
+    # _t__SignatureRequestResponseCustomField::TYPE
     # @return [String]
     attr_accessor :type
 
-    # The name of the Custom Field.
+    # _t__SignatureRequestResponseCustomField::NAME
     # @return [String]
     attr_accessor :name
 
-    # A boolean value denoting if this field is required.
+    # _t__SignatureRequestResponseCustomField::REQUIRED
     # @return [Boolean]
     attr_accessor :required
 
-    # The unique ID for this field.
+    # _t__SignatureRequestResponseCustomField::API_ID
     # @return [String]
     attr_accessor :api_id
 
-    # The name of the Role that is able to edit this field.
+    # _t__SignatureRequestResponseCustomField::EDITOR
     # @return [String, nil]
     attr_accessor :editor
 

@@ -36,7 +36,7 @@ from pydantic import StrictBool
 
 class SubWhiteLabelingOptions(BaseModel):
     """
-    An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
+    _t__Sub::WhiteLabelingOptions::DESCRIPTION
     """  # noqa: E501
 
     header_background_color: Optional[StrictStr] = "#1a1a1a"
@@ -54,8 +54,7 @@ class SubWhiteLabelingOptions(BaseModel):
     text_color1: Optional[StrictStr] = "#808080"
     text_color2: Optional[StrictStr] = "#ffffff"
     reset_to_default: Optional[StrictBool] = Field(
-        default=None,
-        description="Resets white labeling options to defaults. Only useful when updating an API App.",
+        default=None, description="_t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT"
     )
     __properties: ClassVar[List[str]] = [
         "header_background_color",

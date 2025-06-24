@@ -308,7 +308,7 @@ class SignatureRequestResponseDataValueCheckboxMerge extends SignatureRequestRes
     /**
      * Sets type
      *
-     * @param string|null $type A checkbox field that has default value set by the api
+     * @param string|null $type _t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class SignatureRequestResponseDataValueCheckboxMerge extends SignatureRequestRes
     /**
      * Sets value
      *
-     * @param string|null $value the value of the form field
+     * @param string|null $value _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return self
      */

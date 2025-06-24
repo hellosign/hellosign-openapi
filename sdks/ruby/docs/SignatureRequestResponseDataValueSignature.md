@@ -6,7 +6,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `type` | ```String``` |  A signature input field  |  [default to 'signature'] |
-| `value` | ```String``` |  The value of the form field.  |  |
-| `is_signed` | ```Boolean``` |  This field contains the boolean true if the field is signed.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::SIGNATURE_TYPE  |  [default to 'signature'] |
+| `value` | ```String``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
+| `is_signed` | ```Boolean``` |  _t__SignatureRequestResponseDataValue::IS_SIGNED  |  |
 

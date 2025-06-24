@@ -29,12 +29,12 @@ import { WarningResponse } from "./warningResponse";
 
 export class BulkSendJobListResponse {
   /**
-   * Contains a list of BulkSendJobs that the API caller has access to.
+   * _t__BulkSendJobListResponse::BULK_SEND_JOBS
    */
   "bulkSendJobs": Array<BulkSendJobResponse>;
   "listInfo": ListInfoResponse;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

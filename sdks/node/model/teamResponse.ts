@@ -26,20 +26,20 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 import { AccountResponse } from "./accountResponse";
 
 /**
- * Contains information about your team and its members
+ * _t__TeamResponse::DESCRIPTION
  */
 export class TeamResponse {
   /**
-   * The name of your Team
+   * _t__Team::NAME
    */
   "name"?: string;
   "accounts"?: Array<AccountResponse>;
   /**
-   * A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+   * _t__Team::INVITED_ACCOUNTS
    */
   "invitedAccounts"?: Array<AccountResponse>;
   /**
-   * A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
+   * _t__Team::INVITED_EMAILS
    */
   "invitedEmails"?: Array<string>;
 

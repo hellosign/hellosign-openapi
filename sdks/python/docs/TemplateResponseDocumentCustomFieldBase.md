@@ -1,20 +1,20 @@
 # TemplateResponseDocumentCustomFieldBase
 
-An array of Form Field objects containing the name and type of each named field.
+_t__TemplateResponseDocumentCustomField::DESCRIPTION
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `type`<sup>*_required_</sup> | ```str``` |    |  |
-| `api_id` | ```str``` |  The unique ID for this field.  |  |
-| `name` | ```str``` |  The name of the Custom Field.  |  |
-| `signer` | ```str``` |  The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).  |  |
-| `x` | ```int``` |  The horizontal offset in pixels for this form field.  |  |
-| `y` | ```int``` |  The vertical offset in pixels for this form field.  |  |
-| `width` | ```int``` |  The width in pixels of this form field.  |  |
-| `height` | ```int``` |  The height in pixels of this form field.  |  |
-| `required` | ```bool``` |  Boolean showing whether or not this field is required.  |  |
-| `group` | ```str``` |  The name of the group this field is in. If this field is not a group, this defaults to `null`.  |  |
+| `api_id` | ```str``` |  _t__TemplateResponseDocumentCustomField::API_ID  |  |
+| `name` | ```str``` |  _t__TemplateResponseDocumentCustomField::NAME  |  |
+| `signer` | ```str``` |  _t__TemplateResponseDocumentCustomField::SIGNER  |  |
+| `x` | ```int``` |  _t__TemplateResponseDocumentCustomField::X  |  |
+| `y` | ```int``` |  _t__TemplateResponseDocumentCustomField::Y  |  |
+| `width` | ```int``` |  _t__TemplateResponseDocumentCustomField::WIDTH  |  |
+| `height` | ```int``` |  _t__TemplateResponseDocumentCustomField::HEIGHT  |  |
+| `required` | ```bool``` |  _t__TemplateResponseDocumentStaticField::REQUIRED  |  |
+| `group` | ```str``` |  _t__TemplateResponseDocumentCustomField::GROUP  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

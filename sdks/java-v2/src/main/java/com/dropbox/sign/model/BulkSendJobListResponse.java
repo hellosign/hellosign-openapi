@@ -89,7 +89,7 @@ public class BulkSendJobListResponse {
   }
 
   /**
-   * Contains a list of BulkSendJobs that the API caller has access to.
+   * _t__BulkSendJobListResponse::BULK_SEND_JOBS
    * @return bulkSendJobs
    */
   @jakarta.annotation.Nonnull
@@ -147,7 +147,7 @@ public class BulkSendJobListResponse {
   }
 
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    * @return warnings
    */
   @jakarta.annotation.Nullable

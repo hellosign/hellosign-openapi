@@ -26,11 +26,11 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class FileResponse {
   /**
-   * URL to the file.
+   * _t__FileResponse::FILE_URL
    */
   "fileUrl": string;
   /**
-   * When the link expires.
+   * _t__FileResponse::EXPIRES_AT
    */
   "expiresAt": number;
 

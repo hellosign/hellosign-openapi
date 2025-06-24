@@ -29,7 +29,7 @@ from pydantic import StrictBool
 
 class ApiAppResponseWhiteLabelingOptions(BaseModel):
     """
-    An object with options to customize the app's signer page
+    _t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION
     """  # noqa: E501
 
     header_background_color: Optional[StrictStr] = None

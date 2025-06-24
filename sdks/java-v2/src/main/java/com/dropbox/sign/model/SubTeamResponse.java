@@ -71,7 +71,7 @@ public class SubTeamResponse {
   }
 
   /**
-   * The id of a team
+   * _t__TeamGeneral::TEAM_ID
    * @return teamId
    */
   @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class SubTeamResponse {
   }
 
   /**
-   * The name of a team
+   * _t__TeamGeneral::NAME
    * @return name
    */
   @jakarta.annotation.Nullable

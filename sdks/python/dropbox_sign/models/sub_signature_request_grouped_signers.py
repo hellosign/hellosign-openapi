@@ -33,13 +33,14 @@ class SubSignatureRequestGroupedSigners(BaseModel):
     SubSignatureRequestGroupedSigners
     """  # noqa: E501
 
-    group: StrictStr = Field(description="The name of the group.")
+    group: StrictStr = Field(
+        description="_t__Sub::SignatureRequestGroupedSigners::GROUP_NAME"
+    )
     signers: List[SubSignatureRequestSigner] = Field(
-        description="Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below."
+        description="_t__Sub::SignatureRequestGroupedSigners::SIGNERS"
     )
     order: Optional[StrictInt] = Field(
-        default=None,
-        description="The order the group is required to sign in. Use this instead of Signer-level `order`.",
+        default=None, description="_t__Sub::SignatureRequestGroupedSigners::ORDER"
     )
     __properties: ClassVar[List[str]] = ["group", "signers", "order"]
 

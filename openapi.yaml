@@ -7797,7 +7797,7 @@ components:
           type: array
           items:
             type: string
-          maxItems: 2
+          maxItems: 10
           minItems: 1
         name:
           description: 'The name you want to assign to the ApiApp.'
@@ -7823,7 +7823,7 @@ components:
           type: array
           items:
             type: string
-          maxItems: 2
+          maxItems: 10
         name:
           description: 'The name you want to assign to the ApiApp.'
           type: string
@@ -8139,6 +8139,7 @@ components:
             enum:
               - user_activity
               - document_status
+              - sms_activity
           maxItems: 2
           minItems: 1
         start_date:
@@ -11877,6 +11878,7 @@ components:
             enum:
               - user_activity
               - document_status
+              - sms_activity
       type: object
       x-internal-class: true
     SignatureRequestResponse:

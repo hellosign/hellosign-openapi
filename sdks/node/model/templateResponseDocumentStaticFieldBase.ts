@@ -25,44 +25,44 @@
 import { AttributeTypeMap } from "./";
 
 /**
- * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+ * _t__TemplateResponseDocumentStaticField::DESCRIPTION
  */
 export abstract class TemplateResponseDocumentStaticFieldBase {
   "type": string;
   /**
-   * A unique id for the static field.
+   * _t__TemplateResponseDocumentStaticField::API_ID
    */
   "apiId"?: string;
   /**
-   * The name of the static field.
+   * _t__TemplateResponseDocumentStaticField::NAME
    */
   "name"?: string;
   /**
-   * The signer of the Static Field.
+   * _t__TemplateResponseDocumentStaticField::SIGNER
    */
   "signer"?: string = "me_now";
   /**
-   * The horizontal offset in pixels for this static field.
+   * _t__TemplateResponseDocumentStaticField::X
    */
   "x"?: number;
   /**
-   * The vertical offset in pixels for this static field.
+   * _t__TemplateResponseDocumentStaticField::Y
    */
   "y"?: number;
   /**
-   * The width in pixels of this static field.
+   * _t__TemplateResponseDocumentStaticField::WIDTH
    */
   "width"?: number;
   /**
-   * The height in pixels of this static field.
+   * _t__TemplateResponseDocumentStaticField::HEIGHT
    */
   "height"?: number;
   /**
-   * Boolean showing whether or not this field is required.
+   * _t__TemplateResponseDocumentStaticField::REQUIRED
    */
   "required"?: boolean;
   /**
-   * The name of the group this field is in. If this field is not a group, this defaults to `null`.
+   * _t__TemplateResponseDocumentStaticField::GROUP
    */
   "group"?: string | null;
 

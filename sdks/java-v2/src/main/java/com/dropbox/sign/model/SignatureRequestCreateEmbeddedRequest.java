@@ -53,6 +53,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_SIGNERS,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_GROUPED_SIGNERS,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_DECLINE,
+  SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_REASSIGN,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ATTACHMENTS,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
@@ -98,6 +99,10 @@ public class SignatureRequestCreateEmbeddedRequest {
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   @jakarta.annotation.Nullable
   private Boolean allowDecline = false;
+
+  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
+  @jakarta.annotation.Nullable
+  private Boolean allowFormView = false;
 
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
   @jakarta.annotation.Nullable
@@ -294,7 +299,7 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
   /**
-   * Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   * _t__Sub::SignatureRequestSigner::DESCRIPTION
    * @return signers
    */
   @jakarta.annotation.Nullable
@@ -327,7 +332,7 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
   /**
-   * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   * _t__Sub::SignatureRequestGroupedSigners::DESCRIPTION
    * @return groupedSigners
    */
   @jakarta.annotation.Nullable
@@ -371,6 +376,31 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
 
+  public SignatureRequestCreateEmbeddedRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
+    return this;
+  }
+
+  /**
+   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+   * @return allowFormView
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowFormView() {
+    return allowFormView;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
+  }
+
+
   public SignatureRequestCreateEmbeddedRequest allowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
     return this;
@@ -410,7 +440,7 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
   /**
-   * A list describing the attachments
+   * _t__SubAttachment::LIST_DESCRIPTION
    * @return attachments
    */
   @jakarta.annotation.Nullable
@@ -683,7 +713,7 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
   /**
-   * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+   * _t__Sub::Metadata::DESCRIPTION
    * @return metadata
    */
   @jakarta.annotation.Nullable
@@ -895,6 +925,7 @@ public class SignatureRequestCreateEmbeddedRequest {
         Objects.equals(this.signers, signatureRequestCreateEmbeddedRequest.signers) &&
         Objects.equals(this.groupedSigners, signatureRequestCreateEmbeddedRequest.groupedSigners) &&
         Objects.equals(this.allowDecline, signatureRequestCreateEmbeddedRequest.allowDecline) &&
+        Objects.equals(this.allowFormView, signatureRequestCreateEmbeddedRequest.allowFormView) &&
         Objects.equals(this.allowReassign, signatureRequestCreateEmbeddedRequest.allowReassign) &&
         Objects.equals(this.attachments, signatureRequestCreateEmbeddedRequest.attachments) &&
         Objects.equals(this.ccEmailAddresses, signatureRequestCreateEmbeddedRequest.ccEmailAddresses) &&
@@ -917,7 +948,7 @@ public class SignatureRequestCreateEmbeddedRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt);
+    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowFormView, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt);
   }
 
   @Override
@@ -930,6 +961,7 @@ public class SignatureRequestCreateEmbeddedRequest {
     sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
     sb.append("    groupedSigners: ").append(toIndentedString(groupedSigners)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
+    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
@@ -1068,6 +1100,25 @@ public class SignatureRequestCreateEmbeddedRequest {
         }
         else {
             map.put("allow_decline", JSON.getDefault().getMapper().writeValueAsString(allowDecline));
+        }
+    }
+    if (allowFormView != null) {
+        if (isFileTypeOrListOfFiles(allowFormView)) {
+            fileTypeFound = true;
+        }
+
+        if (allowFormView.getClass().equals(java.io.File.class) ||
+            allowFormView.getClass().equals(Integer.class) ||
+            allowFormView.getClass().equals(String.class) ||
+            allowFormView.getClass().isEnum()) {
+            map.put("allow_form_view", allowFormView);
+        } else if (isListOfFile(allowFormView)) {
+            for(int i = 0; i< getListSize(allowFormView); i++) {
+                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
+            }
+        }
+        else {
+            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (allowReassign != null) {

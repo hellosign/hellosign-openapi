@@ -6,15 +6,15 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `account_id` | ```String``` |  The ID of the Account  |  |
-| `email_address` | ```String``` |  The email address associated with the Account.  |  |
-| `is_locked` | ```Boolean``` |  Returns `true` if the user has been locked out of their account by a team admin.  |  |
-| `is_paid_hs` | ```Boolean``` |  Returns `true` if the user has a paid Dropbox Sign account.  |  |
-| `is_paid_hf` | ```Boolean``` |  Returns `true` if the user has a paid HelloFax account.  |  |
+| `account_id` | ```String``` |  _t__Account::ACCOUNT_ID  |  |
+| `email_address` | ```String``` |  _t__Account::EMAIL_ADDRESS  |  |
+| `is_locked` | ```Boolean``` |  _t__Account::IS_LOCKED  |  |
+| `is_paid_hs` | ```Boolean``` |  _t__Account::IS_PAID_HS  |  |
+| `is_paid_hf` | ```Boolean``` |  _t__Account::IS_PAID_HF  |  |
 | `quotas` | [```AccountResponseQuotas```](AccountResponseQuotas.md) |    |  |
-| `callback_url` | ```String``` |  The URL that Dropbox Sign events will `POST` to.  |  |
-| `role_code` | ```String``` |  The membership role for the team.  |  |
-| `team_id` | ```String``` |  The id of the team account belongs to.  |  |
-| `locale` | ```String``` |  The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.  |  |
+| `callback_url` | ```String``` |  _t__Account::CALLBACK_URL  |  |
+| `role_code` | ```String``` |  _t__Account::ROLE_CODE  |  |
+| `team_id` | ```String``` |  _t__Account::TEAM_ID  |  |
+| `locale` | ```String``` |  _t__Account::LOCALE  |  |
 | `usage` | [```AccountResponseUsage```](AccountResponseUsage.md) |    |  |
 

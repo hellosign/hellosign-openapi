@@ -35,7 +35,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentCustomFieldCheckbox Class Doc Comment
  *
  * @category Class
- * @description This class extends &#x60;TemplateResponseDocumentCustomFieldBase&#x60;
+ * @description _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -307,7 +307,7 @@ class TemplateResponseDocumentCustomFieldCheckbox extends TemplateResponseDocume
     /**
      * Sets type
      *
-     * @param string $type The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
+     * @param string $type _t__TemplateResponseDocumentCustomField::TYPE
      *
      * @return self
      */

@@ -17,13 +17,13 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This class extends `TemplateResponseDocumentFormFieldBase`
+  # _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
   class TemplateResponseDocumentFormFieldCheckbox < TemplateResponseDocumentFormFieldBase
-    # The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+    # _t__TemplateResponseDocumentFormField::TYPE
     # @return [String]
     attr_accessor :type
 
-    # The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+    # _t__TemplateResponseDocumentFormField::GROUP
     # @return [String, nil]
     attr_accessor :group
 

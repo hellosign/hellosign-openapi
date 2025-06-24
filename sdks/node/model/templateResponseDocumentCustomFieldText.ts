@@ -27,24 +27,24 @@ import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocum
 import { TemplateResponseFieldAvgTextLength } from "./templateResponseFieldAvgTextLength";
 
 /**
- * This class extends `TemplateResponseDocumentCustomFieldBase`
+ * _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
  */
 export class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCustomFieldBase {
   /**
-   * The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
+   * _t__TemplateResponseDocumentCustomField::TYPE
    */
   "type": string = "text";
   "avgTextLength"?: TemplateResponseFieldAvgTextLength;
   /**
-   * Whether this form field is multiline text.
+   * _t__TemplateResponseDocumentCustomField::IS_MULTILINE
    */
   "isMultiline"?: boolean;
   /**
-   * Original font size used in this form field\'s text.
+   * _t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE
    */
   "originalFontSize"?: number;
   /**
-   * Font family used in this form field\'s text.
+   * _t__TemplateResponseDocumentCustomField::FONT_FAMILY
    */
   "fontFamily"?: string;
 

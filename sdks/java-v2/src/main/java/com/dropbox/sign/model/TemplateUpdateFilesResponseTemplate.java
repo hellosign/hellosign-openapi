@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Contains template id
+ * _t__TemplateUpdateFilesResponseTemplate::DESCRIPTION
  */
 @JsonPropertyOrder({
   TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
@@ -75,7 +75,7 @@ public class TemplateUpdateFilesResponseTemplate {
   }
 
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    * @return templateId
    */
   @jakarta.annotation.Nullable
@@ -109,7 +109,7 @@ public class TemplateUpdateFilesResponseTemplate {
   }
 
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    * @return warnings
    * @deprecated
    */

@@ -27,11 +27,11 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueText extends SignatureRequestResponseDataBase {
   /**
-   * A text input field
+   * _t__SignatureRequestResponseDataValue::TEXT_TYPE
    */
   "type"?: string = "text";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: string;
 

@@ -308,7 +308,7 @@ class TemplateResponseCCRole implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets name
      *
-     * @param string|null $name the name of the Role
+     * @param string|null $name _t__TemplateResponseCCRole::NAME
      *
      * @return self
      */

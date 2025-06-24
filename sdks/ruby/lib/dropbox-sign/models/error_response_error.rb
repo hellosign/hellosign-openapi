@@ -17,17 +17,17 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Contains information about an error that occurred.
+  # _t__ErrorResponseError::DESCRIPTION
   class ErrorResponseError
-    # Message describing an error.
+    # _t__ErrorResponseError::ERROR_MSG
     # @return [String]
     attr_accessor :error_msg
 
-    # Name of the error.
+    # _t__ErrorResponseError::ERROR_NAME
     # @return [String]
     attr_accessor :error_name
 
-    # Path at which an error occurred.
+    # _t__ErrorResponseError::ERROR_PATH
     # @return [String]
     attr_accessor :error_path
 

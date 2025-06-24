@@ -15,6 +15,7 @@ export declare class SignatureRequestSendRequest {
     "groupedSigners"?: Array<SubSignatureRequestGroupedSigners>;
     "allowDecline"?: boolean;
     "allowReassign"?: boolean;
+    "allowFormView"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccEmailAddresses"?: Array<string>;
     "clientId"?: string;

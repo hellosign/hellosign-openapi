@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An object with options to customize the app&#39;s signer page
+ * _t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION
  */
 @JsonPropertyOrder({
   ApiAppResponseWhiteLabelingOptions.JSON_PROPERTY_HEADER_BACKGROUND_COLOR,

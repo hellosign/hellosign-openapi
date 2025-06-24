@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `name` | ```String``` |  The name of the form field group.  |  |
+| `name` | ```String``` |  _t__TemplateResponseDocumentFieldGroup::NAME  |  |
 | `rule` | [```TemplateResponseDocumentFieldGroupRule```](TemplateResponseDocumentFieldGroupRule.md) |    |  |
 

@@ -348,7 +348,7 @@ class SubMergeField implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name The name of the merge field. Must be unique.
+     * @param string $name _t__Sub::MergeField::NAME
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class SubMergeField implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type the type of merge field
+     * @param string $type _t__Sub::MergeField::TYPE
      *
      * @return self
      */

@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentFormFieldBase Class Doc Comment
  *
  * @category Class
- * @description An array of Form Field objects containing the name and type of each named field.
+ * @description _t__TemplateResponseDocumentFormField::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -414,7 +414,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets api_id
      *
-     * @param string|null $api_id a unique id for the form field
+     * @param string|null $api_id _t__TemplateResponseDocumentFormField::API_ID
      *
      * @return self
      */
@@ -441,7 +441,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets name
      *
-     * @param string|null $name the name of the form field
+     * @param string|null $name _t__TemplateResponseDocumentFormField::NAME
      *
      * @return self
      */
@@ -468,7 +468,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets signer
      *
-     * @param string|null $signer the signer of the Form Field
+     * @param string|null $signer _t__TemplateResponseDocumentFormField::SIGNER
      *
      * @return self
      */
@@ -495,7 +495,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets x
      *
-     * @param int|null $x the horizontal offset in pixels for this form field
+     * @param int|null $x _t__TemplateResponseDocumentFormField::X
      *
      * @return self
      */
@@ -522,7 +522,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets y
      *
-     * @param int|null $y the vertical offset in pixels for this form field
+     * @param int|null $y _t__TemplateResponseDocumentFormField::Y
      *
      * @return self
      */
@@ -549,7 +549,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets width
      *
-     * @param int|null $width the width in pixels of this form field
+     * @param int|null $width _t__TemplateResponseDocumentFormField::WIDTH
      *
      * @return self
      */
@@ -576,7 +576,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets height
      *
-     * @param int|null $height the height in pixels of this form field
+     * @param int|null $height _t__TemplateResponseDocumentFormField::HEIGHT
      *
      * @return self
      */
@@ -603,7 +603,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets required
      *
-     * @param bool|null $required boolean showing whether or not this field is required
+     * @param bool|null $required _t__TemplateResponseDocumentFormField::REQUIRED
      *
      * @return self
      */

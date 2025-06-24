@@ -36,22 +36,19 @@ class TemplateResponseAccount(BaseModel):
     """  # noqa: E501
 
     account_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Account."
+        default=None, description="_t__TemplateResponseAccount::ACCOUNT_ID"
     )
     email_address: Optional[StrictStr] = Field(
-        default=None, description="The email address associated with the Account."
+        default=None, description="_t__TemplateResponseAccount::EMAIL_ADDRESS"
     )
     is_locked: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has been locked out of their account by a team admin.",
+        default=None, description="_t__TemplateResponseAccount::IS_LOCKED"
     )
     is_paid_hs: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has a paid Dropbox Sign account.",
+        default=None, description="_t__TemplateResponseAccount::IS_PAID_HS"
     )
     is_paid_hf: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has a paid HelloFax account.",
+        default=None, description="_t__TemplateResponseAccount::IS_PAID_HF"
     )
     quotas: Optional[TemplateResponseAccountQuota] = None
     __properties: ClassVar[List[str]] = [

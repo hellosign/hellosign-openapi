@@ -17,13 +17,13 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An embedded template object.
+  # _t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION
   class EmbeddedEditUrlResponseEmbedded
-    # A template url that can be opened in an iFrame.
+    # _t__EmbeddedEditUrlResponseEmbedded::EDIT_URL
     # @return [String]
     attr_accessor :edit_url
 
-    # The specific time that the the `edit_url` link expires, in epoch.
+    # _t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT
     # @return [Integer]
     attr_accessor :expires_at
 

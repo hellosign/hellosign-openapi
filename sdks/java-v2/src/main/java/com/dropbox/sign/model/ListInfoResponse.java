@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Contains pagination information about the data returned.
+ * _t__ListInfoResponse::DESCRIPTION
  */
 @JsonPropertyOrder({
   ListInfoResponse.JSON_PROPERTY_NUM_PAGES,
@@ -81,7 +81,7 @@ public class ListInfoResponse {
   }
 
   /**
-   * Total number of pages available.
+   * _t__ListInfoResponse::NUM_PAGES
    * @return numPages
    */
   @jakarta.annotation.Nullable
@@ -106,7 +106,7 @@ public class ListInfoResponse {
   }
 
   /**
-   * Total number of objects available.
+   * _t__ListInfoResponse::NUM_RESULTS
    * @return numResults
    */
   @jakarta.annotation.Nullable
@@ -131,7 +131,7 @@ public class ListInfoResponse {
   }
 
   /**
-   * Number of the page being returned.
+   * _t__ListInfoResponse::PAGE
    * @return page
    */
   @jakarta.annotation.Nullable
@@ -156,7 +156,7 @@ public class ListInfoResponse {
   }
 
   /**
-   * Objects returned per page.
+   * _t__ListInfoResponse::PAGE_SIZE
    * @return pageSize
    */
   @jakarta.annotation.Nullable

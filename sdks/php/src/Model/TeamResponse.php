@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TeamResponse Class Doc Comment
  *
  * @category Class
- * @description Contains information about your team and its members
+ * @description _t__TeamResponse::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -330,7 +330,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of your Team
+     * @param string|null $name _t__Team::NAME
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets invited_accounts
      *
-     * @param AccountResponse[]|null $invited_accounts A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+     * @param AccountResponse[]|null $invited_accounts _t__Team::INVITED_ACCOUNTS
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets invited_emails
      *
-     * @param string[]|null $invited_emails a list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account
+     * @param string[]|null $invited_emails _t__Team::INVITED_EMAILS
      *
      * @return self
      */

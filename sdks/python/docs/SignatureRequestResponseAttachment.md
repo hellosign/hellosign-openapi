@@ -1,16 +1,16 @@
 # SignatureRequestResponseAttachment
 
-Signer attachments.
+_t__SignatureRequestResponseAttachment::DESCRIPTION
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `id`<sup>*_required_</sup> | ```str``` |  The unique ID for this attachment.  |  |
-| `signer`<sup>*_required_</sup> | ```str``` |  The Signer this attachment is assigned to.  |  |
-| `name`<sup>*_required_</sup> | ```str``` |  The name of this attachment.  |  |
-| `required`<sup>*_required_</sup> | ```bool``` |  A boolean value denoting if this attachment is required.  |  |
-| `instructions` | ```str``` |  Instructions for Signer.  |  |
-| `uploaded_at` | ```int``` |  Timestamp when attachment was uploaded by Signer.  |  |
+| `id`<sup>*_required_</sup> | ```str``` |  _t__SignatureRequestResponseAttachment::ID  |  |
+| `signer`<sup>*_required_</sup> | ```str``` |  _t__SignatureRequestResponseAttachment::SIGNER  |  |
+| `name`<sup>*_required_</sup> | ```str``` |  _t__SignatureRequestResponseAttachment::NAME  |  |
+| `required`<sup>*_required_</sup> | ```bool``` |  _t__SignatureRequestResponseAttachment::REQUIRED  |  |
+| `instructions` | ```str``` |  _t__SignatureRequestResponseAttachment::INSTRUCTIONS  |  |
+| `uploaded_at` | ```int``` |  _t__SignatureRequestResponseAttachment::UPLOADED_AT  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

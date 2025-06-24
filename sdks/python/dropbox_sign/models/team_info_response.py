@@ -33,14 +33,16 @@ class TeamInfoResponse(BaseModel):
     TeamInfoResponse
     """  # noqa: E501
 
-    team_id: Optional[StrictStr] = Field(default=None, description="The id of a team")
+    team_id: Optional[StrictStr] = Field(
+        default=None, description="_t__TeamGeneral::TEAM_ID"
+    )
     team_parent: Optional[TeamParentResponse] = None
-    name: Optional[StrictStr] = Field(default=None, description="The name of a team")
+    name: Optional[StrictStr] = Field(default=None, description="_t__TeamGeneral::NAME")
     num_members: Optional[StrictInt] = Field(
-        default=None, description="Number of members within a team"
+        default=None, description="_t__TeamGeneral::NUM_MEMBERS"
     )
     num_sub_teams: Optional[StrictInt] = Field(
-        default=None, description="Number of sub teams within a team"
+        default=None, description="_t__TeamGeneral::NUM_SUB_TEAMS"
     )
     __properties: ClassVar[List[str]] = [
         "team_id",

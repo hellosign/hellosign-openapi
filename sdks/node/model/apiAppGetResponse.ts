@@ -29,7 +29,7 @@ import { WarningResponse } from "./warningResponse";
 export class ApiAppGetResponse {
   "apiApp": ApiAppResponse;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

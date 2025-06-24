@@ -8,11 +8,12 @@
 | ---- | ---- | ----------- | ----- |
 | `files` | ```Array<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `file_urls` | ```Array<String>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
-| `signers` | [```Array<SubSignatureRequestSigner>```](SubSignatureRequestSigner.md) |  Add Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
-| `grouped_signers` | [```Array<SubSignatureRequestGroupedSigners>```](SubSignatureRequestGroupedSigners.md) |  Add Grouped Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
+| `signers` | [```Array<SubSignatureRequestSigner>```](SubSignatureRequestSigner.md) |  _t__Sub::SignatureRequestSigner::DESCRIPTION  |  |
+| `grouped_signers` | [```Array<SubSignatureRequestGroupedSigners>```](SubSignatureRequestGroupedSigners.md) |  _t__Sub::SignatureRequestGroupedSigners::DESCRIPTION  |  |
 | `allow_decline` | ```Boolean``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  [default to false] |
 | `allow_reassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
-| `attachments` | [```Array<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
+| `allow_form_view` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
+| `attachments` | [```Array<SubAttachment>```](SubAttachment.md) |  _t__SubAttachment::LIST_DESCRIPTION  |  |
 | `cc_email_addresses` | ```Array<String>``` |  The email addresses that should be CCed.  |  |
 | `client_id` | ```String``` |  The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.  |  |
 | `custom_fields` | [```Array<SubCustomField>```](SubCustomField.md) |  When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.<br><br>Pre-filled data can be used with &quot;send-once&quot; signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.<br><br>For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.  |  |
@@ -24,7 +25,7 @@
 | `is_qualified_signature` | ```Boolean``` |  Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt;<br>**NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.  |  [default to false] |
 | `is_eid` | ```Boolean``` |  Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt;<br>**NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.  |  [default to false] |
 | `message` | ```String``` |  The custom message in the email that will be sent to the signers.  |  |
-| `metadata` | ```Hash<String, Object>``` |  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.  |  |
+| `metadata` | ```Hash<String, Object>``` |  _t__Sub::Metadata::DESCRIPTION  |  |
 | `signing_options` | [```SubSigningOptions```](SubSigningOptions.md) |    |  |
 | `signing_redirect_url` | ```String``` |  The URL you want signers redirected to after they successfully sign.  |  |
 | `subject` | ```String``` |  The subject in the email that will be sent to the signers.  |  |

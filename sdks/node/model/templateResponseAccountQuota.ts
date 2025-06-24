@@ -25,23 +25,23 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+ * _t__TemplateResponseAccountQuota::DESCRIPTION
  */
 export class TemplateResponseAccountQuota {
   /**
-   * API templates remaining.
+   * _t__TemplateResponseAccountQuota::TEMPLATES_LEFT
    */
   "templatesLeft"?: number;
   /**
-   * API signature requests remaining.
+   * _t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT
    */
   "apiSignatureRequestsLeft"?: number;
   /**
-   * Signature requests remaining.
+   * _t__TemplateResponseAccountQuota::DOCUMENTS_LEFT
    */
   "documentsLeft"?: number;
   /**
-   * SMS verifications remaining.
+   * _t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT
    */
   "smsVerificationsLeft"?: number;
 

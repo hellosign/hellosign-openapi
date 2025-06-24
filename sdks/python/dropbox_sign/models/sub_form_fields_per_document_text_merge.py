@@ -36,7 +36,7 @@ class SubFormFieldsPerDocumentTextMerge(SubFormFieldsPerDocumentBase):
     """  # noqa: E501
 
     type: StrictStr = Field(
-        description="A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class."
+        description="_t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE"
     )
     font_family: Optional[StrictStr] = Field(
         default=None, description="Font family for the field."

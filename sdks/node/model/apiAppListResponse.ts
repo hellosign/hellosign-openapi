@@ -29,12 +29,12 @@ import { WarningResponse } from "./warningResponse";
 
 export class ApiAppListResponse {
   /**
-   * Contains information about API Apps.
+   * _t__ApiAppListResponse::DESCRIPTION
    */
   "apiApps": Array<ApiAppResponse>;
   "listInfo": ListInfoResponse;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

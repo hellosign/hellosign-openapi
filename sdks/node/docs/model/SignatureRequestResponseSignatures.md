@@ -1,29 +1,29 @@
 # # SignatureRequestResponseSignatures
 
-An array of signature objects, 1 for each signer.
+_t__SignatureRequestResponseSignatures::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `signatureId` | ```string``` |  Signature identifier.  |  |
-| `signerGroupGuid` | ```string``` |  Signer Group GUID  |  |
-| `signerEmailAddress` | ```string``` |  The email address of the signer.  |  |
-| `signerName` | ```string``` |  The name of the signer.  |  |
-| `signerRole` | ```string``` |  The role of the signer.  |  |
-| `order` | ```number``` |  If signer order is assigned this is the 0-based index for this signer.  |  |
-| `statusCode` | ```string``` |  The current status of the signature. eg: awaiting_signature, signed, declined.  |  |
-| `declineReason` | ```string``` |  The reason provided by the signer for declining the request.  |  |
-| `signedAt` | ```number``` |  Time that the document was signed or null.  |  |
-| `lastViewedAt` | ```number``` |  The time that the document was last viewed by this signer or null.  |  |
-| `lastRemindedAt` | ```number``` |  The time the last reminder email was sent to the signer or null.  |  |
-| `hasPin` | ```boolean``` |  Boolean to indicate whether this signature requires a PIN to access.  |  |
-| `hasSmsAuth` | ```boolean``` |  Boolean to indicate whether this signature has SMS authentication enabled.  |  |
-| `hasSmsDelivery` | ```boolean``` |  Boolean to indicate whether this signature has SMS delivery enabled.  |  |
-| `smsPhoneNumber` | ```string``` |  The SMS phone number used for authentication or signature request delivery.  |  |
-| `reassignedBy` | ```string``` |  Email address of original signer who reassigned to this signer.  |  |
-| `reassignmentReason` | ```string``` |  Reason provided by original signer who reassigned to this signer.  |  |
-| `reassignedFrom` | ```string``` |  Previous signature identifier.  |  |
-| `error` | ```string``` |  Error message pertaining to this signer, or null.  |  |
+| `signatureId` | ```string``` |  _t__SignatureRequestResponseSignatures::SIGNATURE_ID  |  |
+| `signerGroupGuid` | ```string``` |  _t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID  |  |
+| `signerEmailAddress` | ```string``` |  _t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS  |  |
+| `signerName` | ```string``` |  _t__SignatureRequestResponseSignatures::SIGNER_NAME  |  |
+| `signerRole` | ```string``` |  _t__SignatureRequestResponseSignatures::SIGNER_ROLE  |  |
+| `order` | ```number``` |  _t__SignatureRequestResponseSignatures::ORDER  |  |
+| `statusCode` | ```string``` |  _t__SignatureRequestResponseSignatures::STATUS_CODE  |  |
+| `declineReason` | ```string``` |  _t__SignatureRequestResponseSignatures::DECLINE_REASON  |  |
+| `signedAt` | ```number``` |  _t__SignatureRequestResponseSignatures::SIGNED_AT  |  |
+| `lastViewedAt` | ```number``` |  _t__SignatureRequestResponseSignatures::LAST_VIEWED_AT  |  |
+| `lastRemindedAt` | ```number``` |  _t__SignatureRequestResponseSignatures::LAST_REMINDED_AT  |  |
+| `hasPin` | ```boolean``` |  _t__SignatureRequestResponseSignatures::HAS_PIN  |  |
+| `hasSmsAuth` | ```boolean``` |  _t__SignatureRequestResponseSignatures::HAS_SMS_AUTH  |  |
+| `hasSmsDelivery` | ```boolean``` |  _t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY  |  |
+| `smsPhoneNumber` | ```string``` |  _t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER  |  |
+| `reassignedBy` | ```string``` |  _t__SignatureRequestResponseSignatures::REASSIGNED_BY  |  |
+| `reassignmentReason` | ```string``` |  _t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON  |  |
+| `reassignedFrom` | ```string``` |  _t__SignatureRequestResponseSignatures::REASSIGNED_FROM  |  |
+| `error` | ```string``` |  _t__SignatureRequestResponseSignatures::ERROR  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

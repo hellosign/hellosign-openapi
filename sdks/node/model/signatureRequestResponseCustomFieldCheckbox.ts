@@ -26,15 +26,15 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestResponseCustomFieldBase";
 
 /**
- * This class extends `SignatureRequestResponseCustomFieldBase`.
+ * _t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS
  */
 export class SignatureRequestResponseCustomFieldCheckbox extends SignatureRequestResponseCustomFieldBase {
   /**
-   * The type of this Custom Field. Only \'text\' and \'checkbox\' are currently supported.
+   * _t__SignatureRequestResponseCustomField::TYPE
    */
   "type": string = "checkbox";
   /**
-   * A true/false for checkbox fields
+   * _t__SignatureRequestResponseCustomField::VALUE_CHECKBOX
    */
   "value"?: boolean;
 

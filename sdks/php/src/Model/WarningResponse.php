@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * WarningResponse Class Doc Comment
  *
  * @category Class
- * @description A list of warnings.
+ * @description _t__WarningResponse::LIST_DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -324,7 +324,7 @@ class WarningResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets warning_msg
      *
-     * @param string $warning_msg Warning message
+     * @param string $warning_msg _t__WarningResponse::WARNING_MSG
      *
      * @return self
      */
@@ -351,7 +351,7 @@ class WarningResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets warning_name
      *
-     * @param string $warning_name Warning name
+     * @param string $warning_name _t__WarningResponse::WARNING_NAME
      *
      * @return self
      */

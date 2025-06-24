@@ -27,11 +27,11 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueCheckbox extends SignatureRequestResponseDataBase {
   /**
-   * A yes/no checkbox
+   * _t__SignatureRequestResponseDataValue::CHECKBOX_TYPE
    */
   "type"?: string = "checkbox";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: boolean;
 

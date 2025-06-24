@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
+ * _t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION
  */
 @JsonPropertyOrder({
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
@@ -85,7 +85,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    * @return templateId
    */
   @jakarta.annotation.Nullable
@@ -110,7 +110,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
   /**
-   * Link to edit the template.
+   * _t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL
    * @return editUrl
    */
   @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
   /**
-   * When the link expires.
+   * _t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
@@ -169,7 +169,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    * @return warnings
    * @deprecated
    */

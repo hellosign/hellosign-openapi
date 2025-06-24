@@ -2,14 +2,14 @@
 
 # ApiAppResponseOwnerAccount
 
-An object describing the app&#39;s owner
+_t__ApiAppResponseOwnerAccount::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `accountId` | ```String``` |  The owner account&#39;s ID  |  |
-| `emailAddress` | ```String``` |  The owner account&#39;s email address  |  |
+| `accountId` | ```String``` |  _t__ApiAppResponseOwnerAccount::ACCOUNT_ID  |  |
+| `emailAddress` | ```String``` |  _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS  |  |
 
 
 

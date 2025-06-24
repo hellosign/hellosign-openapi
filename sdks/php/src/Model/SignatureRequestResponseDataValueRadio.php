@@ -308,7 +308,7 @@ class SignatureRequestResponseDataValueRadio extends SignatureRequestResponseDat
     /**
      * Sets type
      *
-     * @param string|null $type An input field for radios
+     * @param string|null $type _t__SignatureRequestResponseDataValue::RADIO_TYPE
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class SignatureRequestResponseDataValueRadio extends SignatureRequestResponseDat
     /**
      * Sets value
      *
-     * @param bool|null $value the value of the form field
+     * @param bool|null $value _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return self
      */

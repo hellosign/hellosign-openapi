@@ -17,21 +17,21 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Contains pagination information about the data returned.
+  # _t__ListInfoResponse::DESCRIPTION
   class ListInfoResponse
-    # Total number of pages available.
+    # _t__ListInfoResponse::NUM_PAGES
     # @return [Integer]
     attr_accessor :num_pages
 
-    # Total number of objects available.
+    # _t__ListInfoResponse::NUM_RESULTS
     # @return [Integer, nil]
     attr_accessor :num_results
 
-    # Number of the page being returned.
+    # _t__ListInfoResponse::PAGE
     # @return [Integer]
     attr_accessor :page
 
-    # Objects returned per page.
+    # _t__ListInfoResponse::PAGE_SIZE
     # @return [Integer]
     attr_accessor :page_size
 

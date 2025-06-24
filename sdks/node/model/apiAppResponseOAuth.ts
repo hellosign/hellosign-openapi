@@ -25,23 +25,23 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An object describing the app\'s OAuth properties, or null if OAuth is not configured for the app.
+ * _t__ApiAppResponseOAuth::DESCRIPTION
  */
 export class ApiAppResponseOAuth {
   /**
-   * The app\'s OAuth callback URL.
+   * _t__ApiAppResponseOAuth::CALLBACK_URL
    */
   "callbackUrl"?: string;
   /**
-   * The app\'s OAuth secret, or null if the app does not belong to user.
+   * _t__ApiAppResponseOAuth::SECRET
    */
   "secret"?: string | null;
   /**
-   * Array of OAuth scopes used by the app.
+   * _t__ApiAppResponseOAuth::SCOPES
    */
   "scopes"?: Array<string>;
   /**
-   * Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
+   * _t__ApiAppResponseOAuth::CHARGES_USERS
    */
   "chargesUsers"?: boolean;
 

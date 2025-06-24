@@ -32,17 +32,17 @@ from pydantic import StrictBool
 
 class EventCallbackRequestEvent(BaseModel):
     """
-    Basic information about the event that occurred.
+    _t__EventCallbackRequestEvent::DESCRIPTION
     """  # noqa: E501
 
     event_time: StrictStr = Field(
-        description="Time the event was created (using Unix time)."
+        description="_t__EventCallbackRequestEvent::EVENT_TIME"
     )
     event_type: StrictStr = Field(
-        description="Type of callback event that was triggered."
+        description="_t__EventCallbackRequestEvent::EVENT_TYPE"
     )
     event_hash: StrictStr = Field(
-        description="Generated hash used to verify source of event data."
+        description="_t__EventCallbackRequestEvent::EVENT_HASH"
     )
     event_metadata: Optional[EventCallbackRequestEventMetadata] = None
     __properties: ClassVar[List[str]] = [

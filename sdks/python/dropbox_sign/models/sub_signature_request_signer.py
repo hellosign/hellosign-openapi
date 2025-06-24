@@ -33,24 +33,23 @@ class SubSignatureRequestSigner(BaseModel):
     SubSignatureRequestSigner
     """  # noqa: E501
 
-    name: StrictStr = Field(description="The name of the signer.")
-    email_address: StrictStr = Field(description="The email address of the signer.")
+    name: StrictStr = Field(description="_t__Sub::SignatureRequestSigner::SIGNER_NAME")
+    email_address: StrictStr = Field(
+        description="_t__Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS"
+    )
     order: Optional[StrictInt] = Field(
-        default=None, description="The order the signer is required to sign in."
+        default=None, description="_t__Sub::SignatureRequestSigner::SIGNER_ORDER"
     )
     pin: Optional[Annotated[str, Field(min_length=4, strict=True, max_length=12)]] = (
-        Field(
-            default=None,
-            description="The 4- to 12-character access code that will secure this signer's signature page.",
-        )
+        Field(default=None, description="_t__Sub::SignatureRequestSigner::SIGNER_PIN")
     )
     sms_phone_number: Optional[StrictStr] = Field(
         default=None,
-        description="An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.",
+        description="_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER",
     )
     sms_phone_number_type: Optional[StrictStr] = Field(
         default=None,
-        description="Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).",
+        description="_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE",
     )
     __properties: ClassVar[List[str]] = [
         "name",

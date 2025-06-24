@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class TemplateEditResponse
-    # The id of the Template.
+    # _t__TemplateResponse::TEMPLATE_ID
     # @return [String]
     attr_accessor :template_id
 

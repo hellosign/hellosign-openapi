@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An array of Form Field objects containing the name and type of each named field.
+ * _t__TemplateResponseDocumentFormField::DESCRIPTION
  */
 @JsonPropertyOrder({
   TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_TYPE,
@@ -149,7 +149,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
   /**
-   * A unique id for the form field.
+   * _t__TemplateResponseDocumentFormField::API_ID
    * @return apiId
    */
   @jakarta.annotation.Nullable
@@ -174,7 +174,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
   /**
-   * The name of the form field.
+   * _t__TemplateResponseDocumentFormField::NAME
    * @return name
    */
   @jakarta.annotation.Nullable
@@ -203,7 +203,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
   /**
-   * The signer of the Form Field.
+   * _t__TemplateResponseDocumentFormField::SIGNER
    * @return signer
    */
   @jakarta.annotation.Nullable
@@ -232,7 +232,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
   /**
-   * The horizontal offset in pixels for this form field.
+   * _t__TemplateResponseDocumentFormField::X
    * @return x
    */
   @jakarta.annotation.Nullable
@@ -257,7 +257,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
   /**
-   * The vertical offset in pixels for this form field.
+   * _t__TemplateResponseDocumentFormField::Y
    * @return y
    */
   @jakarta.annotation.Nullable
@@ -282,7 +282,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
   /**
-   * The width in pixels of this form field.
+   * _t__TemplateResponseDocumentFormField::WIDTH
    * @return width
    */
   @jakarta.annotation.Nullable
@@ -307,7 +307,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
   /**
-   * The height in pixels of this form field.
+   * _t__TemplateResponseDocumentFormField::HEIGHT
    * @return height
    */
   @jakarta.annotation.Nullable
@@ -332,7 +332,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
   /**
-   * Boolean showing whether or not this field is required.
+   * _t__TemplateResponseDocumentFormField::REQUIRED
    * @return required
    */
   @jakarta.annotation.Nullable

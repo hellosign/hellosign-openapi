@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * UnclaimedDraftResponse Class Doc Comment
  *
  * @category Class
- * @description A group of documents that a user can take ownership of via the claim URL.
+ * @description _t__UnclaimedDraftResponse::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -344,7 +344,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets signature_request_id
      *
-     * @param string|null $signature_request_id the ID of the signature request that is represented by this UnclaimedDraft
+     * @param string|null $signature_request_id _t__UnclaimedDraft::SIGNATURE_REQUEST_ID
      *
      * @return self
      */
@@ -378,7 +378,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets claim_url
      *
-     * @param string|null $claim_url the URL to be used to claim this UnclaimedDraft
+     * @param string|null $claim_url _t__UnclaimedDraft::CLAIM_URL
      *
      * @return self
      */
@@ -405,7 +405,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
+     * @param string|null $signing_redirect_url _t__UnclaimedDraft::SIGNING_REDIRECT_URL
      *
      * @return self
      */
@@ -439,7 +439,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets requesting_redirect_url
      *
-     * @param string|null $requesting_redirect_url The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
+     * @param string|null $requesting_redirect_url _t__UnclaimedDraft::REQUESTING_REDIRECT_URL
      *
      * @return self
      */
@@ -473,7 +473,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at when the link expires
+     * @param int|null $expires_at _t__UnclaimedDraft::EXPIRES_AT
      *
      * @return self
      */
@@ -507,7 +507,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets test_mode
      *
-     * @param bool|null $test_mode Whether this is a test draft. Signature requests made from test drafts have no legal value.
+     * @param bool|null $test_mode _t__UnclaimedDraft::TEST_MODE
      *
      * @return self
      */

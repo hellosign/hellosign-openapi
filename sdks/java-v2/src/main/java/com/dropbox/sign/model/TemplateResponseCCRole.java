@@ -66,7 +66,7 @@ public class TemplateResponseCCRole {
   }
 
   /**
-   * The name of the Role.
+   * _t__TemplateResponseCCRole::NAME
    * @return name
    */
   @jakarta.annotation.Nullable

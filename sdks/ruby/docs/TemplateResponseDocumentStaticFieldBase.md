@@ -1,19 +1,19 @@
 # Dropbox::Sign::TemplateResponseDocumentStaticFieldBase
 
-An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+_t__TemplateResponseDocumentStaticField::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `type`<sup>*_required_</sup> | ```String``` |    |  |
-| `api_id` | ```String``` |  A unique id for the static field.  |  |
-| `name` | ```String``` |  The name of the static field.  |  |
-| `signer` | ```String``` |  The signer of the Static Field.  |  [default to 'me_now'] |
-| `x` | ```Integer``` |  The horizontal offset in pixels for this static field.  |  |
-| `y` | ```Integer``` |  The vertical offset in pixels for this static field.  |  |
-| `width` | ```Integer``` |  The width in pixels of this static field.  |  |
-| `height` | ```Integer``` |  The height in pixels of this static field.  |  |
-| `required` | ```Boolean``` |  Boolean showing whether or not this field is required.  |  |
-| `group` | ```String``` |  The name of the group this field is in. If this field is not a group, this defaults to `null`.  |  |
+| `api_id` | ```String``` |  _t__TemplateResponseDocumentStaticField::API_ID  |  |
+| `name` | ```String``` |  _t__TemplateResponseDocumentStaticField::NAME  |  |
+| `signer` | ```String``` |  _t__TemplateResponseDocumentStaticField::SIGNER  |  [default to 'me_now'] |
+| `x` | ```Integer``` |  _t__TemplateResponseDocumentStaticField::X  |  |
+| `y` | ```Integer``` |  _t__TemplateResponseDocumentStaticField::Y  |  |
+| `width` | ```Integer``` |  _t__TemplateResponseDocumentStaticField::WIDTH  |  |
+| `height` | ```Integer``` |  _t__TemplateResponseDocumentStaticField::HEIGHT  |  |
+| `required` | ```Boolean``` |  _t__TemplateResponseDocumentStaticField::REQUIRED  |  |
+| `group` | ```String``` |  _t__TemplateResponseDocumentStaticField::GROUP  |  |
 

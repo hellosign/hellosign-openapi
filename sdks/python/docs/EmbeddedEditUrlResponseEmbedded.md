@@ -1,12 +1,12 @@
 # EmbeddedEditUrlResponseEmbedded
 
-An embedded template object.
+_t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `edit_url` | ```str``` |  A template url that can be opened in an iFrame.  |  |
-| `expires_at` | ```int``` |  The specific time that the the `edit_url` link expires, in epoch.  |  |
+| `edit_url` | ```str``` |  _t__EmbeddedEditUrlResponseEmbedded::EDIT_URL  |  |
+| `expires_at` | ```int``` |  _t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

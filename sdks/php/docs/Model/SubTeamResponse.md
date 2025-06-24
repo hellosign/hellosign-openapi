@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `team_id` | ```string``` |  The id of a team  |  |
-| `name` | ```string``` |  The name of a team  |  |
+| `team_id` | ```string``` |  _t__TeamGeneral::TEAM_ID  |  |
+| `name` | ```string``` |  _t__TeamGeneral::NAME  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

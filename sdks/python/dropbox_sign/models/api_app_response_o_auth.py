@@ -29,22 +29,20 @@ from pydantic import StrictBool
 
 class ApiAppResponseOAuth(BaseModel):
     """
-    An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
+    _t__ApiAppResponseOAuth::DESCRIPTION
     """  # noqa: E501
 
     callback_url: Optional[StrictStr] = Field(
-        default=None, description="The app's OAuth callback URL."
+        default=None, description="_t__ApiAppResponseOAuth::CALLBACK_URL"
     )
     secret: Optional[StrictStr] = Field(
-        default=None,
-        description="The app's OAuth secret, or null if the app does not belong to user.",
+        default=None, description="_t__ApiAppResponseOAuth::SECRET"
     )
     scopes: Optional[List[StrictStr]] = Field(
-        default=None, description="Array of OAuth scopes used by the app."
+        default=None, description="_t__ApiAppResponseOAuth::SCOPES"
     )
     charges_users: Optional[StrictBool] = Field(
-        default=None,
-        description="Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.",
+        default=None, description="_t__ApiAppResponseOAuth::CHARGES_USERS"
     )
     __properties: ClassVar[List[str]] = [
         "callback_url",

@@ -26,23 +26,23 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 import { WarningResponse } from "./warningResponse";
 
 /**
- * Template object with parameters: `template_id`, `edit_url`, `expires_at`.
+ * _t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION
  */
 export class TemplateCreateEmbeddedDraftResponseTemplate {
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    */
   "templateId"?: string;
   /**
-   * Link to edit the template.
+   * _t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL
    */
   "editUrl"?: string;
   /**
-   * When the link expires.
+   * _t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT
    */
   "expiresAt"?: number;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    *
    * @deprecated
    */

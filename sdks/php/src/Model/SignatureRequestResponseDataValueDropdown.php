@@ -308,7 +308,7 @@ class SignatureRequestResponseDataValueDropdown extends SignatureRequestResponse
     /**
      * Sets type
      *
-     * @param string|null $type An input field for dropdowns
+     * @param string|null $type _t__SignatureRequestResponseDataValue::DROPDOWN_TYPE
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class SignatureRequestResponseDataValueDropdown extends SignatureRequestResponse
     /**
      * Sets value
      *
-     * @param string|null $value the value of the form field
+     * @param string|null $value _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return self
      */

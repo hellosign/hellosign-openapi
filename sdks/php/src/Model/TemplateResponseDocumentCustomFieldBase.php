@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentCustomFieldBase Class Doc Comment
  *
  * @category Class
- * @description An array of Form Field objects containing the name and type of each named field.
+ * @description _t__TemplateResponseDocumentCustomField::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -403,7 +403,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets api_id
      *
-     * @param string|null $api_id the unique ID for this field
+     * @param string|null $api_id _t__TemplateResponseDocumentCustomField::API_ID
      *
      * @return self
      */
@@ -430,7 +430,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets name
      *
-     * @param string|null $name the name of the Custom Field
+     * @param string|null $name _t__TemplateResponseDocumentCustomField::NAME
      *
      * @return self
      */
@@ -457,7 +457,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets signer
      *
-     * @param string|null $signer The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
+     * @param string|null $signer _t__TemplateResponseDocumentCustomField::SIGNER
      *
      * @return self
      */
@@ -491,7 +491,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets x
      *
-     * @param int|null $x the horizontal offset in pixels for this form field
+     * @param int|null $x _t__TemplateResponseDocumentCustomField::X
      *
      * @return self
      */
@@ -518,7 +518,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets y
      *
-     * @param int|null $y the vertical offset in pixels for this form field
+     * @param int|null $y _t__TemplateResponseDocumentCustomField::Y
      *
      * @return self
      */
@@ -545,7 +545,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets width
      *
-     * @param int|null $width the width in pixels of this form field
+     * @param int|null $width _t__TemplateResponseDocumentCustomField::WIDTH
      *
      * @return self
      */
@@ -572,7 +572,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets height
      *
-     * @param int|null $height the height in pixels of this form field
+     * @param int|null $height _t__TemplateResponseDocumentCustomField::HEIGHT
      *
      * @return self
      */
@@ -599,7 +599,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets required
      *
-     * @param bool|null $required boolean showing whether or not this field is required
+     * @param bool|null $required _t__TemplateResponseDocumentStaticField::REQUIRED
      *
      * @return self
      */
@@ -626,7 +626,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets group
      *
-     * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null`.
+     * @param string|null $group _t__TemplateResponseDocumentCustomField::GROUP
      *
      * @return self
      */

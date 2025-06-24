@@ -32,7 +32,7 @@ class FileResponseDataUri(BaseModel):
     FileResponseDataUri
     """  # noqa: E501
 
-    data_uri: StrictStr = Field(description="File as base64 encoded string.")
+    data_uri: StrictStr = Field(description="_t__FileResponse::DATA_URI")
     __properties: ClassVar[List[str]] = ["data_uri"]
 
     model_config = ConfigDict(

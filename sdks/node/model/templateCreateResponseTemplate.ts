@@ -25,11 +25,11 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Template object with parameters: `template_id`.
+ * _t__TemplateCreateResponseTemplate::DESCRIPTION
  */
 export class TemplateCreateResponseTemplate {
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    */
   "templateId"?: string;
 

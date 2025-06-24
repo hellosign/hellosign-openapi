@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `type` | ```String``` |  An input field for dropdowns  |  [default to 'dropdown'] |
-| `value` | ```String``` |  The value of the form field.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::DROPDOWN_TYPE  |  [default to 'dropdown'] |
+| `value` | ```String``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
 

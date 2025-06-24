@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Details concerning remaining monthly quotas.
+ * _t__Account::QUOTA
  */
 @JsonPropertyOrder({
   AccountResponseQuotas.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
@@ -91,7 +91,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * API signature requests remaining.
+   * _t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT
    * @return apiSignatureRequestsLeft
    */
   @jakarta.annotation.Nullable
@@ -116,7 +116,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * Signature requests remaining.
+   * _t__AccountQuota::DOCUMENTS_LEFT
    * @return documentsLeft
    */
   @jakarta.annotation.Nullable
@@ -141,7 +141,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * Total API templates allowed.
+   * _t__AccountQuota::TEMPLATES_TOTAL
    * @return templatesTotal
    */
   @jakarta.annotation.Nullable
@@ -166,7 +166,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * API templates remaining.
+   * _t__AccountQuota::TEMPLATES_LEFT
    * @return templatesLeft
    */
   @jakarta.annotation.Nullable
@@ -191,7 +191,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * SMS verifications remaining.
+   * _t__AccountQuota::SMS_VERIFICATIONS_LEFT
    * @return smsVerificationsLeft
    */
   @jakarta.annotation.Nullable
@@ -216,7 +216,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * Number of fax pages left
+   * _t__AccountQuota::NUM_FAX_PAGES_LEFT
    * @return numFaxPagesLeft
    */
   @jakarta.annotation.Nullable

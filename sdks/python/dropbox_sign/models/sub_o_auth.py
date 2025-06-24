@@ -29,16 +29,14 @@ from pydantic import StrictBool
 
 class SubOAuth(BaseModel):
     """
-    OAuth related parameters.
+    _t__Sub::OAuth::DESCRIPTION
     """  # noqa: E501
 
     callback_url: Optional[StrictStr] = Field(
-        default=None,
-        description="The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)",
+        default=None, description="_t__Sub::OAuth::CALLBACK_URL"
     )
     scopes: Optional[List[StrictStr]] = Field(
-        default=None,
-        description="A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).",
+        default=None, description="_t__Sub::OAuth::SCOPES"
     )
     __properties: ClassVar[List[str]] = ["callback_url", "scopes"]
 

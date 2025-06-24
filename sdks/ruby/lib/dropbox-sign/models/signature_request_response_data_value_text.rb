@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class SignatureRequestResponseDataValueText < SignatureRequestResponseDataBase
-    # A text input field
+    # _t__SignatureRequestResponseDataValue::TEXT_TYPE
     # @return [String]
     attr_accessor :type
 
-    # The value of the form field.
+    # _t__SignatureRequestResponseDataValue::VALUE
     # @return [String]
     attr_accessor :value
 

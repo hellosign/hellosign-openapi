@@ -27,20 +27,20 @@ import { TeamParentResponse } from "./teamParentResponse";
 
 export class TeamInfoResponse {
   /**
-   * The id of a team
+   * _t__TeamGeneral::TEAM_ID
    */
   "teamId"?: string;
   "teamParent"?: TeamParentResponse | null;
   /**
-   * The name of a team
+   * _t__TeamGeneral::NAME
    */
   "name"?: string;
   /**
-   * Number of members within a team
+   * _t__TeamGeneral::NUM_MEMBERS
    */
   "numMembers"?: number;
   /**
-   * Number of sub teams within a team
+   * _t__TeamGeneral::NUM_SUB_TEAMS
    */
   "numSubTeams"?: number;
 

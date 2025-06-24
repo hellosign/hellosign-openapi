@@ -26,15 +26,15 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class SubUnclaimedDraftSigner {
   /**
-   * The email address of the signer.
+   * _t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS
    */
   "emailAddress": string;
   /**
-   * The name of the signer.
+   * _t__Sub::UnclaimedDraftSigner::NAME
    */
   "name": string;
   /**
-   * The order the signer is required to sign in.
+   * _t__Sub::UnclaimedDraftSigner::ORDER
    */
   "order"?: number | null;
 

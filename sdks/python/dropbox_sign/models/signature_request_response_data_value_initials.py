@@ -36,14 +36,14 @@ class SignatureRequestResponseDataValueInitials(SignatureRequestResponseDataBase
     """  # noqa: E501
 
     type: Optional[StrictStr] = Field(
-        default="initials", description="An input field for initials"
+        default="initials",
+        description="_t__SignatureRequestResponseDataValue::INITIAL_TYPE",
     )
     value: Optional[StrictStr] = Field(
-        default=None, description="The value of the form field."
+        default=None, description="_t__SignatureRequestResponseDataValue::VALUE"
     )
     is_signed: Optional[StrictBool] = Field(
-        default=None,
-        description="This field contains the boolean true if the field is signed.",
+        default=None, description="_t__SignatureRequestResponseDataValue::IS_SIGNED"
     )
     __properties: ClassVar[List[str]] = [
         "api_id",

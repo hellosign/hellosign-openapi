@@ -29,15 +29,14 @@ from pydantic import StrictBool
 
 class EmbeddedEditUrlResponseEmbedded(BaseModel):
     """
-    An embedded template object.
+    _t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION
     """  # noqa: E501
 
     edit_url: Optional[StrictStr] = Field(
-        default=None, description="A template url that can be opened in an iFrame."
+        default=None, description="_t__EmbeddedEditUrlResponseEmbedded::EDIT_URL"
     )
     expires_at: Optional[StrictInt] = Field(
-        default=None,
-        description="The specific time that the the `edit_url` link expires, in epoch.",
+        default=None, description="_t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT"
     )
     __properties: ClassVar[List[str]] = ["edit_url", "expires_at"]
 

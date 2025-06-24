@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * EmbeddedSignUrlResponseEmbedded Class Doc Comment
  *
  * @category Class
- * @description An object that contains necessary information to set up embedded signing.
+ * @description _t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -316,7 +316,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, Js
     /**
      * Sets sign_url
      *
-     * @param string|null $sign_url a signature url that can be opened in an iFrame
+     * @param string|null $sign_url _t__EmbeddedSignUrlResponseEmbedded::SIGN_URL
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, Js
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at the specific time that the the `sign_url` link expires, in epoch
+     * @param int|null $expires_at _t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT
      *
      * @return self
      */

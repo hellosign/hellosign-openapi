@@ -25,9 +25,9 @@ The fields that should appear on the document, expressed as an array of objects.
 | `required`<sup>*_required_</sup> | ```Boolean``` |  Whether this field is required.  |  |
 | `signer`<sup>*_required_</sup> | ```String``` |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE:** To set the value of the field as the preparer you must set this to `me_now`<br><br>**NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  |  |
 | `type`<sup>*_required_</sup> | ```String``` |    |  |
-| `width`<sup>*_required_</sup> | ```Integer``` |  Size of the field in pixels.  |  |
-| `x`<sup>*_required_</sup> | ```Integer``` |  Location coordinates of the field in pixels.  |  |
-| `y`<sup>*_required_</sup> | ```Integer``` |  Location coordinates of the field in pixels.  |  |
+| `width`<sup>*_required_</sup> | ```Integer``` |  _t__Sub::FormFieldsPerDocument::WIDTH  |  |
+| `x`<sup>*_required_</sup> | ```Integer``` |  _t__Sub::FormFieldsPerDocument::X  |  |
+| `y`<sup>*_required_</sup> | ```Integer``` |  _t__Sub::FormFieldsPerDocument::Y  |  |
 | `name` | ```String``` |  Display name for the field.  |  |
 | `page` | ```Integer``` |  Page in the document where the field should be placed (requires documents be PDF files).<br><br>- When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.  |  |
 

@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * EmbeddedEditUrlResponseEmbedded Class Doc Comment
  *
  * @category Class
- * @description An embedded template object.
+ * @description _t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -316,7 +316,7 @@ class EmbeddedEditUrlResponseEmbedded implements ModelInterface, ArrayAccess, Js
     /**
      * Sets edit_url
      *
-     * @param string|null $edit_url a template url that can be opened in an iFrame
+     * @param string|null $edit_url _t__EmbeddedEditUrlResponseEmbedded::EDIT_URL
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class EmbeddedEditUrlResponseEmbedded implements ModelInterface, ArrayAccess, Js
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at the specific time that the the `edit_url` link expires, in epoch
+     * @param int|null $expires_at _t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT
      *
      * @return self
      */

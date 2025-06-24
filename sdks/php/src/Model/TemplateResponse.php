@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateResponse Class Doc Comment
  *
  * @category Class
- * @description Contains information about the templates you and your team have created.
+ * @description _t__TemplateResponse::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -414,7 +414,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets template_id
      *
-     * @param string|null $template_id the id of the Template
+     * @param string|null $template_id _t__TemplateResponse::TEMPLATE_ID
      *
      * @return self
      */
@@ -441,7 +441,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets title
      *
-     * @param string|null $title The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+     * @param string|null $title _t__TemplateResponse::TITLE
      *
      * @return self
      */
@@ -468,7 +468,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets message
      *
-     * @param string|null $message The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+     * @param string|null $message _t__TemplateResponse::MESSAGE
      *
      * @return self
      */
@@ -495,7 +495,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param int|null $updated_at time the template was last updated
+     * @param int|null $updated_at _t__TemplateResponse::UPDATED_AT
      *
      * @return self
      */
@@ -522,7 +522,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_embedded
      *
-     * @param bool|null $is_embedded `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
+     * @param bool|null $is_embedded _t__TemplateResponse::IS_EMBEDDED
      *
      * @return self
      */
@@ -556,7 +556,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_creator
      *
-     * @param bool|null $is_creator `true` if you are the owner of this template, `false` if it's been shared with you by a team member
+     * @param bool|null $is_creator _t__TemplateResponse::IS_CREATOR
      *
      * @return self
      */
@@ -583,7 +583,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets can_edit
      *
-     * @param bool|null $can_edit indicates whether edit rights have been granted to you by the owner (always `true` if that's you)
+     * @param bool|null $can_edit _t__TemplateResponse::CAN_EDIT
      *
      * @return self
      */
@@ -610,7 +610,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_locked
      *
-     * @param bool|null $is_locked Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
+     * @param bool|null $is_locked _t__TemplateResponse::IS_LOCKED
      *
      * @return self
      */
@@ -637,7 +637,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata the metadata attached to the template
+     * @param array<string,mixed>|null $metadata _t__TemplateResponse::METADATA
      *
      * @return self
      */
@@ -664,7 +664,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets signer_roles
      *
-     * @param TemplateResponseSignerRole[]|null $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
+     * @param TemplateResponseSignerRole[]|null $signer_roles _t__TemplateResponse::SIGNER_ROLES
      *
      * @return self
      */
@@ -691,7 +691,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets cc_roles
      *
-     * @param TemplateResponseCCRole[]|null $cc_roles an array of the designated CC roles that must be specified when sending a SignatureRequest using this Template
+     * @param TemplateResponseCCRole[]|null $cc_roles _t__TemplateResponse::CC_ROLES
      *
      * @return self
      */
@@ -718,7 +718,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets documents
      *
-     * @param TemplateResponseDocument[]|null $documents An array describing each document associated with this Template. Includes form field data for each document.
+     * @param TemplateResponseDocument[]|null $documents _t__TemplateResponse::DOCUMENTS
      *
      * @return self
      */
@@ -746,7 +746,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets custom_fields
      *
-     * @param TemplateResponseDocumentCustomFieldBase[]|null $custom_fields Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+     * @param TemplateResponseDocumentCustomFieldBase[]|null $custom_fields _t__TemplateResponseCustomField::DESCRIPTION
      *
      * @return self
      * @deprecated
@@ -782,7 +782,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets named_form_fields
      *
-     * @param TemplateResponseDocumentFormFieldBase[]|null $named_form_fields Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+     * @param TemplateResponseDocumentFormFieldBase[]|null $named_form_fields _t__TemplateResponseNamedFormField::DESCRIPTION
      *
      * @return self
      * @deprecated
@@ -817,7 +817,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets accounts
      *
-     * @param TemplateResponseAccount[]|null $accounts an array of the Accounts that can use this Template
+     * @param TemplateResponseAccount[]|null $accounts _t__TemplateResponse::ACCOUNTS
      *
      * @return self
      */
@@ -844,7 +844,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets attachments
      *
-     * @param SignatureRequestResponseAttachment[]|null $attachments signer attachments
+     * @param SignatureRequestResponseAttachment[]|null $attachments _t__SignatureRequestResponseAttachment::DESCRIPTION
      *
      * @return self
      */

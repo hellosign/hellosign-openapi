@@ -17,28 +17,28 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This class extends `TemplateResponseDocumentFormFieldBase`
+  # _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
   class TemplateResponseDocumentFormFieldHyperlink < TemplateResponseDocumentFormFieldBase
-    # The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+    # _t__TemplateResponseDocumentFormField::TYPE
     # @return [String]
     attr_accessor :type
 
     # @return [TemplateResponseFieldAvgTextLength]
     attr_accessor :avg_text_length
 
-    # Whether this form field is multiline text.
+    # _t__TemplateResponseDocumentFormField::IS_MULTILINE
     # @return [Boolean]
     attr_accessor :is_multiline
 
-    # Original font size used in this form field's text.
+    # _t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE
     # @return [Integer]
     attr_accessor :original_font_size
 
-    # Font family used in this form field's text.
+    # _t__TemplateResponseDocumentFormField::FONT_FAMILY
     # @return [String]
     attr_accessor :font_family
 
-    # The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+    # _t__TemplateResponseDocumentFormField::GROUP
     # @return [String, nil]
     attr_accessor :group
 

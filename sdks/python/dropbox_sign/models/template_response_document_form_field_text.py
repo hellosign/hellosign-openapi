@@ -42,43 +42,39 @@ from pydantic import StrictBool
 
 class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBase):
     """
-    This class extends `TemplateResponseDocumentFormFieldBase`
+    _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`"
-    )
+    type: StrictStr = Field(description="_t__TemplateResponseDocumentFormField::TYPE")
     avg_text_length: Optional[TemplateResponseFieldAvgTextLength] = None
     is_multiline: Optional[StrictBool] = Field(
         default=None,
-        description="Whether this form field is multiline text.",
+        description="_t__TemplateResponseDocumentFormField::IS_MULTILINE",
         alias="isMultiline",
     )
     original_font_size: Optional[StrictInt] = Field(
         default=None,
-        description="Original font size used in this form field's text.",
+        description="_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE",
         alias="originalFontSize",
     )
     font_family: Optional[StrictStr] = Field(
         default=None,
-        description="Font family used in this form field's text.",
+        description="_t__TemplateResponseDocumentFormField::FONT_FAMILY",
         alias="fontFamily",
     )
     validation_type: Optional[StrictStr] = Field(
         default=None,
-        description="Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.",
+        description="_t__TemplateResponseDocumentFormField::VALIDATION_TYPE",
     )
     validation_custom_regex: Optional[StrictStr] = Field(
-        default=None,
-        description="When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.",
+        default=None, description="_t__TemplateResponseDocumentFormField::CUSTOM_REGEX"
     )
     validation_custom_regex_format_label: Optional[StrictStr] = Field(
         default=None,
-        description="When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.",
+        description="_t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL",
     )
     group: Optional[StrictStr] = Field(
-        default=None,
-        description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
+        default=None, description="_t__TemplateResponseDocumentFormField::GROUP"
     )
     __properties: ClassVar[List[str]] = [
         "type",

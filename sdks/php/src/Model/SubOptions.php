@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SubOptions Class Doc Comment
  *
  * @category Class
- * @description Additional options supported by API App.
+ * @description _t__Sub::Options::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -309,7 +309,7 @@ class SubOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets can_insert_everywhere
      *
-     * @param bool|null $can_insert_everywhere determines if signers can use \"Insert Everywhere\" when signing a document
+     * @param bool|null $can_insert_everywhere _t__Sub::Options::CAN_INSERT_EVERYWHERE
      *
      * @return self
      */

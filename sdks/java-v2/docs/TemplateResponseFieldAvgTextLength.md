@@ -2,14 +2,14 @@
 
 # TemplateResponseFieldAvgTextLength
 
-Average text length in this field.
+_t__TemplateResponseFieldAvgTextLength::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `numLines` | ```Integer``` |  Number of lines.  |  |
-| `numCharsPerLine` | ```Integer``` |  Number of characters per line.  |  |
+| `numLines` | ```Integer``` |  _t__TemplateResponseFieldAvgTextLength::NUM_LINES  |  |
+| `numCharsPerLine` | ```Integer``` |  _t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE  |  |
 
 
 

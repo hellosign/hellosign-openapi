@@ -80,7 +80,7 @@ public class SignatureRequestResponseDataValueDropdown extends SignatureRequestR
   }
 
   /**
-   * An input field for dropdowns
+   * _t__SignatureRequestResponseDataValue::DROPDOWN_TYPE
    * @return type
    */
   @jakarta.annotation.Nullable
@@ -105,7 +105,7 @@ public class SignatureRequestResponseDataValueDropdown extends SignatureRequestR
   }
 
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    * @return value
    */
   @jakarta.annotation.Nullable

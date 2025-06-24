@@ -58,39 +58,36 @@ if TYPE_CHECKING:
 
 class TemplateResponseDocumentStaticFieldBase(BaseModel):
     """
-    An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+    _t__TemplateResponseDocumentStaticField::DESCRIPTION
     """  # noqa: E501
 
     type: StrictStr
     api_id: Optional[StrictStr] = Field(
-        default=None, description="A unique id for the static field."
+        default=None, description="_t__TemplateResponseDocumentStaticField::API_ID"
     )
     name: Optional[StrictStr] = Field(
-        default=None, description="The name of the static field."
+        default=None, description="_t__TemplateResponseDocumentStaticField::NAME"
     )
     signer: Optional[StrictStr] = Field(
-        default="me_now", description="The signer of the Static Field."
+        default="me_now", description="_t__TemplateResponseDocumentStaticField::SIGNER"
     )
     x: Optional[StrictInt] = Field(
-        default=None,
-        description="The horizontal offset in pixels for this static field.",
+        default=None, description="_t__TemplateResponseDocumentStaticField::X"
     )
     y: Optional[StrictInt] = Field(
-        default=None, description="The vertical offset in pixels for this static field."
+        default=None, description="_t__TemplateResponseDocumentStaticField::Y"
     )
     width: Optional[StrictInt] = Field(
-        default=None, description="The width in pixels of this static field."
+        default=None, description="_t__TemplateResponseDocumentStaticField::WIDTH"
     )
     height: Optional[StrictInt] = Field(
-        default=None, description="The height in pixels of this static field."
+        default=None, description="_t__TemplateResponseDocumentStaticField::HEIGHT"
     )
     required: Optional[StrictBool] = Field(
-        default=None,
-        description="Boolean showing whether or not this field is required.",
+        default=None, description="_t__TemplateResponseDocumentStaticField::REQUIRED"
     )
     group: Optional[StrictStr] = Field(
-        default=None,
-        description="The name of the group this field is in. If this field is not a group, this defaults to `null`.",
+        default=None, description="_t__TemplateResponseDocumentStaticField::GROUP"
     )
     __properties: ClassVar[List[str]] = [
         "type",

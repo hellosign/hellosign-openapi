@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Contains information about an error that occurred.
+ * _t__ErrorResponseError::DESCRIPTION
  */
 @JsonPropertyOrder({
   ErrorResponseError.JSON_PROPERTY_ERROR_MSG,
@@ -76,7 +76,7 @@ public class ErrorResponseError {
   }
 
   /**
-   * Message describing an error.
+   * _t__ErrorResponseError::ERROR_MSG
    * @return errorMsg
    */
   @jakarta.annotation.Nonnull
@@ -101,7 +101,7 @@ public class ErrorResponseError {
   }
 
   /**
-   * Name of the error.
+   * _t__ErrorResponseError::ERROR_NAME
    * @return errorName
    */
   @jakarta.annotation.Nonnull
@@ -126,7 +126,7 @@ public class ErrorResponseError {
   }
 
   /**
-   * Path at which an error occurred.
+   * _t__ErrorResponseError::ERROR_PATH
    * @return errorPath
    */
   @jakarta.annotation.Nullable

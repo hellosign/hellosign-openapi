@@ -32,6 +32,10 @@ export class EmbeddedEditUrlRequest {
    */
   "allowEditCcs"?: boolean = false;
   /**
+   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+   */
+  "allowFormView"?: boolean = false;
+  /**
    * The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
    */
   "ccRoles"?: Array<string>;
@@ -71,6 +75,11 @@ export class EmbeddedEditUrlRequest {
     {
       name: "allowEditCcs",
       baseName: "allow_edit_ccs",
+      type: "boolean",
+    },
+    {
+      name: "allowFormView",
+      baseName: "allow_form_view",
       type: "boolean",
     },
     {

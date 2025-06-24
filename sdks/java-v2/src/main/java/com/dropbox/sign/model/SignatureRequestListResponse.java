@@ -89,7 +89,7 @@ public class SignatureRequestListResponse {
   }
 
   /**
-   * Contains information about signature requests.
+   * _t__SignatureRequestListResponse::DESCRIPTION
    * @return signatureRequests
    */
   @jakarta.annotation.Nonnull
@@ -147,7 +147,7 @@ public class SignatureRequestListResponse {
   }
 
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    * @return warnings
    */
   @jakarta.annotation.Nullable

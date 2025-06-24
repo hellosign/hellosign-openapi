@@ -17,24 +17,24 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This class extends `TemplateResponseDocumentCustomFieldBase`
+  # _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
   class TemplateResponseDocumentCustomFieldText < TemplateResponseDocumentCustomFieldBase
-    # The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
+    # _t__TemplateResponseDocumentCustomField::TYPE
     # @return [String]
     attr_accessor :type
 
     # @return [TemplateResponseFieldAvgTextLength]
     attr_accessor :avg_text_length
 
-    # Whether this form field is multiline text.
+    # _t__TemplateResponseDocumentCustomField::IS_MULTILINE
     # @return [Boolean]
     attr_accessor :is_multiline
 
-    # Original font size used in this form field's text.
+    # _t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE
     # @return [Integer]
     attr_accessor :original_font_size
 
-    # Font family used in this form field's text.
+    # _t__TemplateResponseDocumentCustomField::FONT_FAMILY
     # @return [String]
     attr_accessor :font_family
 

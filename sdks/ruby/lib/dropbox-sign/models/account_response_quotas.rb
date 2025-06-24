@@ -17,29 +17,29 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Details concerning remaining monthly quotas.
+  # _t__Account::QUOTA
   class AccountResponseQuotas
-    # API signature requests remaining.
+    # _t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT
     # @return [Integer, nil]
     attr_accessor :api_signature_requests_left
 
-    # Signature requests remaining.
+    # _t__AccountQuota::DOCUMENTS_LEFT
     # @return [Integer, nil]
     attr_accessor :documents_left
 
-    # Total API templates allowed.
+    # _t__AccountQuota::TEMPLATES_TOTAL
     # @return [Integer, nil]
     attr_accessor :templates_total
 
-    # API templates remaining.
+    # _t__AccountQuota::TEMPLATES_LEFT
     # @return [Integer, nil]
     attr_accessor :templates_left
 
-    # SMS verifications remaining.
+    # _t__AccountQuota::SMS_VERIFICATIONS_LEFT
     # @return [Integer, nil]
     attr_accessor :sms_verifications_left
 
-    # Number of fax pages left
+    # _t__AccountQuota::NUM_FAX_PAGES_LEFT
     # @return [Integer, nil]
     attr_accessor :num_fax_pages_left
 

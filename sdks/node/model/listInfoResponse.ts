@@ -25,23 +25,23 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Contains pagination information about the data returned.
+ * _t__ListInfoResponse::DESCRIPTION
  */
 export class ListInfoResponse {
   /**
-   * Total number of pages available.
+   * _t__ListInfoResponse::NUM_PAGES
    */
   "numPages"?: number;
   /**
-   * Total number of objects available.
+   * _t__ListInfoResponse::NUM_RESULTS
    */
   "numResults"?: number | null;
   /**
-   * Number of the page being returned.
+   * _t__ListInfoResponse::PAGE
    */
   "page"?: number;
   /**
-   * Objects returned per page.
+   * _t__ListInfoResponse::PAGE_SIZE
    */
   "pageSize"?: number;
 

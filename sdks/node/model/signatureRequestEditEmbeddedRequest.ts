@@ -47,11 +47,11 @@ export class SignatureRequestEditEmbeddedRequest {
    */
   "fileUrls"?: Array<string>;
   /**
-   * Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   * _t__Sub::SignatureRequestSigner::DESCRIPTION
    */
   "signers"?: Array<SubSignatureRequestSigner>;
   /**
-   * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   * _t__Sub::SignatureRequestGroupedSigners::DESCRIPTION
    */
   "groupedSigners"?: Array<SubSignatureRequestGroupedSigners>;
   /**
@@ -59,11 +59,15 @@ export class SignatureRequestEditEmbeddedRequest {
    */
   "allowDecline"?: boolean = false;
   /**
+   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+   */
+  "allowFormView"?: boolean = false;
+  /**
    * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
    */
   "allowReassign"?: boolean = false;
   /**
-   * A list describing the attachments
+   * _t__SubAttachment::LIST_DESCRIPTION
    */
   "attachments"?: Array<SubAttachment>;
   /**
@@ -96,7 +100,7 @@ export class SignatureRequestEditEmbeddedRequest {
    */
   "message"?: string;
   /**
-   * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer\'s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+   * _t__Sub::Metadata::DESCRIPTION
    */
   "metadata"?: { [key: string]: any };
   "signingOptions"?: SubSigningOptions;
@@ -156,6 +160,11 @@ export class SignatureRequestEditEmbeddedRequest {
     {
       name: "allowDecline",
       baseName: "allow_decline",
+      type: "boolean",
+    },
+    {
+      name: "allowFormView",
+      baseName: "allow_form_view",
       type: "boolean",
     },
     {

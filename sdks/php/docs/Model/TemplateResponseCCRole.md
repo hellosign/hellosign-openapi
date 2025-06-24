@@ -6,6 +6,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `name` | ```string``` |  The name of the Role.  |  |
+| `name` | ```string``` |  _t__TemplateResponseCCRole::NAME  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

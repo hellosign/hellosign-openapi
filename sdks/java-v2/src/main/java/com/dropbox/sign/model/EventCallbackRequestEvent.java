@@ -31,7 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Basic information about the event that occurred.
+ * _t__EventCallbackRequestEvent::DESCRIPTION
  */
 @JsonPropertyOrder({
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_TIME,
@@ -47,7 +47,7 @@ public class EventCallbackRequestEvent {
   private String eventTime;
 
   /**
-   * Type of callback event that was triggered.
+   * _t__EventCallbackRequestEvent::EVENT_TYPE
    */
   public enum EventTypeEnum {
     ACCOUNT_CONFIRMED(String.valueOf("account_confirmed")),
@@ -159,7 +159,7 @@ public class EventCallbackRequestEvent {
   }
 
   /**
-   * Time the event was created (using Unix time).
+   * _t__EventCallbackRequestEvent::EVENT_TIME
    * @return eventTime
    */
   @jakarta.annotation.Nonnull
@@ -184,7 +184,7 @@ public class EventCallbackRequestEvent {
   }
 
   /**
-   * Type of callback event that was triggered.
+   * _t__EventCallbackRequestEvent::EVENT_TYPE
    * @return eventType
    */
   @jakarta.annotation.Nonnull
@@ -209,7 +209,7 @@ public class EventCallbackRequestEvent {
   }
 
   /**
-   * Generated hash used to verify source of event data.
+   * _t__EventCallbackRequestEvent::EVENT_HASH
    * @return eventHash
    */
   @jakarta.annotation.Nonnull

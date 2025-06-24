@@ -29,12 +29,15 @@ from pydantic import StrictBool
 
 class TemplateResponseFieldAvgTextLength(BaseModel):
     """
-    Average text length in this field.
+    _t__TemplateResponseFieldAvgTextLength::DESCRIPTION
     """  # noqa: E501
 
-    num_lines: Optional[StrictInt] = Field(default=None, description="Number of lines.")
+    num_lines: Optional[StrictInt] = Field(
+        default=None, description="_t__TemplateResponseFieldAvgTextLength::NUM_LINES"
+    )
     num_chars_per_line: Optional[StrictInt] = Field(
-        default=None, description="Number of characters per line."
+        default=None,
+        description="_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE",
     )
     __properties: ClassVar[List[str]] = ["num_lines", "num_chars_per_line"]
 

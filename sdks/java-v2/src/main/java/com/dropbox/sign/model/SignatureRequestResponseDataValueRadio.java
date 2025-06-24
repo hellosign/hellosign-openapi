@@ -80,7 +80,7 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
   }
 
   /**
-   * An input field for radios
+   * _t__SignatureRequestResponseDataValue::RADIO_TYPE
    * @return type
    */
   @jakarta.annotation.Nullable
@@ -105,7 +105,7 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
   }
 
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    * @return value
    */
   @jakarta.annotation.Nullable

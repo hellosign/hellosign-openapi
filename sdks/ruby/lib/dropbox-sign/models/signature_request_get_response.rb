@@ -21,7 +21,7 @@ module Dropbox::Sign
     # @return [SignatureRequestResponse]
     attr_accessor :signature_request
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

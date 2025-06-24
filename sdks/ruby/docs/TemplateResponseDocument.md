@@ -6,10 +6,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `name` | ```String``` |  Name of the associated file.  |  |
-| `index` | ```Integer``` |  Document ordering, the lowest index is displayed first and the highest last (0-based indexing).  |  |
-| `field_groups` | [```Array<TemplateResponseDocumentFieldGroup>```](TemplateResponseDocumentFieldGroup.md) |  An array of Form Field Group objects.  |  |
-| `form_fields` | [```Array<TemplateResponseDocumentFormFieldBase>```](TemplateResponseDocumentFormFieldBase.md) |  An array of Form Field objects containing the name and type of each named field.  |  |
-| `custom_fields` | [```Array<TemplateResponseDocumentCustomFieldBase>```](TemplateResponseDocumentCustomFieldBase.md) |  An array of Form Field objects containing the name and type of each named field.  |  |
-| `static_fields` | [```Array<TemplateResponseDocumentStaticFieldBase>```](TemplateResponseDocumentStaticFieldBase.md) |  An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.  |  |
+| `name` | ```String``` |  _t__TemplateResponseDocument::NAME  |  |
+| `index` | ```Integer``` |  _t__TemplateResponseDocument::INDEX  |  |
+| `field_groups` | [```Array<TemplateResponseDocumentFieldGroup>```](TemplateResponseDocumentFieldGroup.md) |  _t__TemplateResponseDocument::FIELD_GROUPS  |  |
+| `form_fields` | [```Array<TemplateResponseDocumentFormFieldBase>```](TemplateResponseDocumentFormFieldBase.md) |  _t__TemplateResponseDocumentFormField::DESCRIPTION  |  |
+| `custom_fields` | [```Array<TemplateResponseDocumentCustomFieldBase>```](TemplateResponseDocumentCustomFieldBase.md) |  _t__TemplateResponseDocumentCustomField::DESCRIPTION  |  |
+| `static_fields` | [```Array<TemplateResponseDocumentStaticFieldBase>```](TemplateResponseDocumentStaticFieldBase.md) |  _t__TemplateResponseDocumentStaticField::DESCRIPTION  |  |
 

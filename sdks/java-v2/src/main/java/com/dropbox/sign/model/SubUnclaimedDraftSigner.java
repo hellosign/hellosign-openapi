@@ -76,7 +76,7 @@ public class SubUnclaimedDraftSigner {
   }
 
   /**
-   * The email address of the signer.
+   * _t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
@@ -101,7 +101,7 @@ public class SubUnclaimedDraftSigner {
   }
 
   /**
-   * The name of the signer.
+   * _t__Sub::UnclaimedDraftSigner::NAME
    * @return name
    */
   @jakarta.annotation.Nonnull
@@ -126,7 +126,7 @@ public class SubUnclaimedDraftSigner {
   }
 
   /**
-   * The order the signer is required to sign in.
+   * _t__Sub::UnclaimedDraftSigner::ORDER
    * @return order
    */
   @jakarta.annotation.Nullable

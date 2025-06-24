@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+ * _t__TemplateResponseDocumentStaticField::DESCRIPTION
  */
 @JsonPropertyOrder({
   TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_TYPE,
@@ -154,7 +154,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * A unique id for the static field.
+   * _t__TemplateResponseDocumentStaticField::API_ID
    * @return apiId
    */
   @jakarta.annotation.Nullable
@@ -179,7 +179,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * The name of the static field.
+   * _t__TemplateResponseDocumentStaticField::NAME
    * @return name
    */
   @jakarta.annotation.Nullable
@@ -204,7 +204,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * The signer of the Static Field.
+   * _t__TemplateResponseDocumentStaticField::SIGNER
    * @return signer
    */
   @jakarta.annotation.Nullable
@@ -229,7 +229,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * The horizontal offset in pixels for this static field.
+   * _t__TemplateResponseDocumentStaticField::X
    * @return x
    */
   @jakarta.annotation.Nullable
@@ -254,7 +254,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * The vertical offset in pixels for this static field.
+   * _t__TemplateResponseDocumentStaticField::Y
    * @return y
    */
   @jakarta.annotation.Nullable
@@ -279,7 +279,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * The width in pixels of this static field.
+   * _t__TemplateResponseDocumentStaticField::WIDTH
    * @return width
    */
   @jakarta.annotation.Nullable
@@ -304,7 +304,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * The height in pixels of this static field.
+   * _t__TemplateResponseDocumentStaticField::HEIGHT
    * @return height
    */
   @jakarta.annotation.Nullable
@@ -329,7 +329,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * Boolean showing whether or not this field is required.
+   * _t__TemplateResponseDocumentStaticField::REQUIRED
    * @return required
    */
   @jakarta.annotation.Nullable
@@ -354,7 +354,7 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
   /**
-   * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.
+   * _t__TemplateResponseDocumentStaticField::GROUP
    * @return group
    */
   @jakarta.annotation.Nullable

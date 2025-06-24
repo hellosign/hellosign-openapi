@@ -1,13 +1,13 @@
 # Dropbox::Sign::ReportResponse
 
-Contains information about the report request.
+_t__ReportResponse::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `success` | ```String``` |  A message indicating the requested operation&#39;s success  |  |
-| `start_date` | ```String``` |  The (inclusive) start date for the report data in MM/DD/YYYY format.  |  |
-| `end_date` | ```String``` |  The (inclusive) end date for the report data in MM/DD/YYYY format.  |  |
-| `report_type` | ```Array<String>``` |  The type(s) of the report you are requesting. Allowed values are &quot;user_activity&quot; and &quot;document_status&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).  |  |
+| `success` | ```String``` |  _t__ReportResponse::SUCCESS  |  |
+| `start_date` | ```String``` |  _t__ReportResponse::START_DATE  |  |
+| `end_date` | ```String``` |  _t__ReportResponse::END_DATE  |  |
+| `report_type` | ```Array<String>``` |  _t__ReportResponse::REPORT_TYPE  |  |
 

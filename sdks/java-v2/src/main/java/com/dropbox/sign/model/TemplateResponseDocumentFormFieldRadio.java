@@ -34,7 +34,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
+ * _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
  */
 @JsonPropertyOrder({
   TemplateResponseDocumentFormFieldRadio.JSON_PROPERTY_TYPE,
@@ -80,7 +80,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
   }
 
   /**
-   * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60;
+   * _t__TemplateResponseDocumentFormField::TYPE
    * @return type
    */
   @jakarta.annotation.Nonnull
@@ -105,7 +105,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
   }
 
   /**
-   * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
+   * _t__TemplateResponseDocumentFormField::GROUP
    * @return group
    */
   @jakarta.annotation.Nonnull

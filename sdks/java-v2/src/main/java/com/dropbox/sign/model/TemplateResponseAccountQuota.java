@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+ * _t__TemplateResponseAccountQuota::DESCRIPTION
  */
 @JsonPropertyOrder({
   TemplateResponseAccountQuota.JSON_PROPERTY_TEMPLATES_LEFT,
@@ -81,7 +81,7 @@ public class TemplateResponseAccountQuota {
   }
 
   /**
-   * API templates remaining.
+   * _t__TemplateResponseAccountQuota::TEMPLATES_LEFT
    * @return templatesLeft
    */
   @jakarta.annotation.Nullable
@@ -106,7 +106,7 @@ public class TemplateResponseAccountQuota {
   }
 
   /**
-   * API signature requests remaining.
+   * _t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT
    * @return apiSignatureRequestsLeft
    */
   @jakarta.annotation.Nullable
@@ -131,7 +131,7 @@ public class TemplateResponseAccountQuota {
   }
 
   /**
-   * Signature requests remaining.
+   * _t__TemplateResponseAccountQuota::DOCUMENTS_LEFT
    * @return documentsLeft
    */
   @jakarta.annotation.Nullable
@@ -156,7 +156,7 @@ public class TemplateResponseAccountQuota {
   }
 
   /**
-   * SMS verifications remaining.
+   * _t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT
    * @return smsVerificationsLeft
    */
   @jakarta.annotation.Nullable

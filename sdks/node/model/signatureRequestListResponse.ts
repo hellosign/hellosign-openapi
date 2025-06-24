@@ -29,12 +29,12 @@ import { WarningResponse } from "./warningResponse";
 
 export class SignatureRequestListResponse {
   /**
-   * Contains information about signature requests.
+   * _t__SignatureRequestListResponse::DESCRIPTION
    */
   "signatureRequests": Array<SignatureRequestResponse>;
   "listInfo": ListInfoResponse;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

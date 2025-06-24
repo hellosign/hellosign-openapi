@@ -32,10 +32,11 @@ class TemplateResponseSignerRole(BaseModel):
     TemplateResponseSignerRole
     """  # noqa: E501
 
-    name: Optional[StrictStr] = Field(default=None, description="The name of the Role.")
+    name: Optional[StrictStr] = Field(
+        default=None, description="_t__TemplateResponseSignerRole::NAME"
+    )
     order: Optional[StrictInt] = Field(
-        default=None,
-        description="If signer order is assigned this is the 0-based index for this role.",
+        default=None, description="_t__TemplateResponseSignerRole::ORDER"
     )
     __properties: ClassVar[List[str]] = ["name", "order"]
 

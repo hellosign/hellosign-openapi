@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SubOAuth Class Doc Comment
  *
  * @category Class
- * @description OAuth related parameters.
+ * @description _t__Sub::OAuth::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -344,7 +344,7 @@ class SubOAuth implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
+     * @param string|null $callback_url _t__Sub::OAuth::CALLBACK_URL
      *
      * @return self
      */
@@ -371,7 +371,7 @@ class SubOAuth implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets scopes
      *
-     * @param string[]|null $scopes A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
+     * @param string[]|null $scopes _t__Sub::OAuth::SCOPES
      *
      * @return self
      */

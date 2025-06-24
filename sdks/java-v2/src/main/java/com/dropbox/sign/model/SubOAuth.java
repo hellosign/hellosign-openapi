@@ -32,7 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * OAuth related parameters.
+ * _t__Sub::OAuth::DESCRIPTION
  */
 @JsonPropertyOrder({
   SubOAuth.JSON_PROPERTY_CALLBACK_URL,
@@ -120,7 +120,7 @@ public class SubOAuth {
   }
 
   /**
-   * The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)
+   * _t__Sub::OAuth::CALLBACK_URL
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
@@ -153,7 +153,7 @@ public class SubOAuth {
   }
 
   /**
-   * A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
+   * _t__Sub::OAuth::SCOPES
    * @return scopes
    */
   @jakarta.annotation.Nullable

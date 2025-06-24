@@ -17,21 +17,21 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+  # _t__SignatureRequestResponseData::DESCRIPTION
   class SignatureRequestResponseDataBase
-    # The unique ID for this field.
+    # _t__SignatureRequestResponseData::API_ID
     # @return [String]
     attr_accessor :api_id
 
-    # The ID of the signature to which this response is linked.
+    # _t__SignatureRequestResponseData::SIGNATURE_ID
     # @return [String]
     attr_accessor :signature_id
 
-    # The name of the form field.
+    # _t__SignatureRequestResponseData::NAME
     # @return [String]
     attr_accessor :name
 
-    # A boolean value denoting if this field is required.
+    # _t__SignatureRequestResponseData::REQUIRED
     # @return [Boolean]
     attr_accessor :required
 

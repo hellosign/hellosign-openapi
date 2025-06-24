@@ -5,11 +5,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `account_id` | ```str``` |  The id of the Account.  |  |
-| `email_address` | ```str``` |  The email address associated with the Account.  |  |
-| `is_locked` | ```bool``` |  Returns `true` if the user has been locked out of their account by a team admin.  |  |
-| `is_paid_hs` | ```bool``` |  Returns `true` if the user has a paid Dropbox Sign account.  |  |
-| `is_paid_hf` | ```bool``` |  Returns `true` if the user has a paid HelloFax account.  |  |
+| `account_id` | ```str``` |  _t__TemplateResponseAccount::ACCOUNT_ID  |  |
+| `email_address` | ```str``` |  _t__TemplateResponseAccount::EMAIL_ADDRESS  |  |
+| `is_locked` | ```bool``` |  _t__TemplateResponseAccount::IS_LOCKED  |  |
+| `is_paid_hs` | ```bool``` |  _t__TemplateResponseAccount::IS_PAID_HS  |  |
+| `is_paid_hf` | ```bool``` |  _t__TemplateResponseAccount::IS_PAID_HF  |  |
 | `quotas` | [```TemplateResponseAccountQuota```](TemplateResponseAccountQuota.md) |    |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

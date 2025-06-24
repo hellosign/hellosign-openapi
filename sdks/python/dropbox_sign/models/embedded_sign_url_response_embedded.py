@@ -29,15 +29,14 @@ from pydantic import StrictBool
 
 class EmbeddedSignUrlResponseEmbedded(BaseModel):
     """
-    An object that contains necessary information to set up embedded signing.
+    _t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION
     """  # noqa: E501
 
     sign_url: Optional[StrictStr] = Field(
-        default=None, description="A signature url that can be opened in an iFrame."
+        default=None, description="_t__EmbeddedSignUrlResponseEmbedded::SIGN_URL"
     )
     expires_at: Optional[StrictInt] = Field(
-        default=None,
-        description="The specific time that the the `sign_url` link expires, in epoch.",
+        default=None, description="_t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT"
     )
     __properties: ClassVar[List[str]] = ["sign_url", "expires_at"]
 

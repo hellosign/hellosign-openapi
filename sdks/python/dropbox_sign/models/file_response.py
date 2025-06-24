@@ -32,8 +32,8 @@ class FileResponse(BaseModel):
     FileResponse
     """  # noqa: E501
 
-    file_url: StrictStr = Field(description="URL to the file.")
-    expires_at: StrictInt = Field(description="When the link expires.")
+    file_url: StrictStr = Field(description="_t__FileResponse::FILE_URL")
+    expires_at: StrictInt = Field(description="_t__FileResponse::EXPIRES_AT")
     __properties: ClassVar[List[str]] = ["file_url", "expires_at"]
 
     model_config = ConfigDict(

@@ -25,15 +25,15 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Average text length in this field.
+ * _t__TemplateResponseFieldAvgTextLength::DESCRIPTION
  */
 export class TemplateResponseFieldAvgTextLength {
   /**
-   * Number of lines.
+   * _t__TemplateResponseFieldAvgTextLength::NUM_LINES
    */
   "numLines"?: number;
   /**
-   * Number of characters per line.
+   * _t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE
    */
   "numCharsPerLine"?: number;
 

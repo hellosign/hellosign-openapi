@@ -384,7 +384,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets name
      *
-     * @param string $name the name of the signer
+     * @param string $name _t__Sub::SignatureRequestSigner::SIGNER_NAME
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets email_address
      *
-     * @param string $email_address the email address of the signer
+     * @param string $email_address _t__Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS
      *
      * @return self
      */
@@ -438,7 +438,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets order
      *
-     * @param int|null $order the order the signer is required to sign in
+     * @param int|null $order _t__Sub::SignatureRequestSigner::SIGNER_ORDER
      *
      * @return self
      */
@@ -472,7 +472,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets pin
      *
-     * @param string|null $pin the 4- to 12-character access code that will secure this signer's signature page
+     * @param string|null $pin _t__Sub::SignatureRequestSigner::SIGNER_PIN
      *
      * @return self
      */
@@ -506,7 +506,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets sms_phone_number
      *
-     * @param string|null $sms_phone_number An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.
+     * @param string|null $sms_phone_number _t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER
      *
      * @return self
      */
@@ -533,7 +533,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets sms_phone_number_type
      *
-     * @param string|null $sms_phone_number_type Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
+     * @param string|null $sms_phone_number_type _t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE
      *
      * @return self
      */

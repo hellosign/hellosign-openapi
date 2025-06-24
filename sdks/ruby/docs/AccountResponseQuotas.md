@@ -1,15 +1,15 @@
 # Dropbox::Sign::AccountResponseQuotas
 
-Details concerning remaining monthly quotas.
+_t__Account::QUOTA
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `api_signature_requests_left` | ```Integer``` |  API signature requests remaining.  |  |
-| `documents_left` | ```Integer``` |  Signature requests remaining.  |  |
-| `templates_total` | ```Integer``` |  Total API templates allowed.  |  |
-| `templates_left` | ```Integer``` |  API templates remaining.  |  |
-| `sms_verifications_left` | ```Integer``` |  SMS verifications remaining.  |  |
-| `num_fax_pages_left` | ```Integer``` |  Number of fax pages left  |  |
+| `api_signature_requests_left` | ```Integer``` |  _t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT  |  |
+| `documents_left` | ```Integer``` |  _t__AccountQuota::DOCUMENTS_LEFT  |  |
+| `templates_total` | ```Integer``` |  _t__AccountQuota::TEMPLATES_TOTAL  |  |
+| `templates_left` | ```Integer``` |  _t__AccountQuota::TEMPLATES_LEFT  |  |
+| `sms_verifications_left` | ```Integer``` |  _t__AccountQuota::SMS_VERIFICATIONS_LEFT  |  |
+| `num_fax_pages_left` | ```Integer``` |  _t__AccountQuota::NUM_FAX_PAGES_LEFT  |  |
 

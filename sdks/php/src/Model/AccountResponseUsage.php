@@ -36,7 +36,7 @@ use ReturnTypeWillChange;
  * AccountResponseUsage Class Doc Comment
  *
  * @category Class
- * @description Details concerning monthly usage
+ * @description _t__Account::USAGE
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -308,7 +308,7 @@ class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets fax_pages_sent
      *
-     * @param int|null $fax_pages_sent Number of fax pages sent
+     * @param int|null $fax_pages_sent _t__AccountUsage::FAX_PAGES_SENT
      *
      * @return self
      */

@@ -34,12 +34,10 @@ class TemplateResponseDocumentCustomFieldCheckbox(
     TemplateResponseDocumentCustomFieldBase
 ):
     """
-    This class extends `TemplateResponseDocumentCustomFieldBase`
+    _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`"
-    )
+    type: StrictStr = Field(description="_t__TemplateResponseDocumentCustomField::TYPE")
     __properties: ClassVar[List[str]] = [
         "type",
         "api_id",

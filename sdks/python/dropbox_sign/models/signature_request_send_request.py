@@ -65,12 +65,10 @@ class SignatureRequestSendRequest(BaseModel):
         description="Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.",
     )
     signers: Optional[List[SubSignatureRequestSigner]] = Field(
-        default=None,
-        description="Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.",
+        default=None, description="_t__Sub::SignatureRequestSigner::DESCRIPTION"
     )
     grouped_signers: Optional[List[SubSignatureRequestGroupedSigners]] = Field(
-        default=None,
-        description="Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.",
+        default=None, description="_t__Sub::SignatureRequestGroupedSigners::DESCRIPTION"
     )
     allow_decline: Optional[StrictBool] = Field(
         default=False,
@@ -80,8 +78,12 @@ class SignatureRequestSendRequest(BaseModel):
         default=False,
         description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.",
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     attachments: Optional[List[SubAttachment]] = Field(
-        default=None, description="A list describing the attachments"
+        default=None, description="_t__SubAttachment::LIST_DESCRIPTION"
     )
     cc_email_addresses: Optional[List[StrictStr]] = Field(
         default=None, description="The email addresses that should be CCed."
@@ -124,8 +126,7 @@ class SignatureRequestSendRequest(BaseModel):
         description="The custom message in the email that will be sent to the signers.",
     )
     metadata: Optional[Dict[str, Any]] = Field(
-        default=None,
-        description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.",
+        default=None, description="_t__Sub::Metadata::DESCRIPTION"
     )
     signing_options: Optional[SubSigningOptions] = None
     signing_redirect_url: Optional[StrictStr] = Field(
@@ -159,6 +160,7 @@ class SignatureRequestSendRequest(BaseModel):
         "grouped_signers",
         "allow_decline",
         "allow_reassign",
+        "allow_form_view",
         "attachments",
         "cc_email_addresses",
         "client_id",
@@ -327,6 +329,11 @@ class SignatureRequestSendRequest(BaseModel):
                     if obj.get("allow_reassign") is not None
                     else False
                 ),
+                "allow_form_view": (
+                    obj.get("allow_form_view")
+                    if obj.get("allow_form_view") is not None
+                    else False
+                ),
                 "attachments": (
                     [SubAttachment.from_dict(_item) for _item in obj["attachments"]]
                     if obj.get("attachments") is not None
@@ -421,6 +428,7 @@ class SignatureRequestSendRequest(BaseModel):
             "grouped_signers": "(List[SubSignatureRequestGroupedSigners],)",
             "allow_decline": "(bool,)",
             "allow_reassign": "(bool,)",
+            "allow_form_view": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_email_addresses": "(List[str],)",
             "client_id": "(str,)",

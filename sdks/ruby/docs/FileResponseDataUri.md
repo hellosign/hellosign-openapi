@@ -6,5 +6,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `data_uri`<sup>*_required_</sup> | ```String``` |  File as base64 encoded string.  |  |
+| `data_uri`<sup>*_required_</sup> | ```String``` |  _t__FileResponse::DATA_URI  |  |
 

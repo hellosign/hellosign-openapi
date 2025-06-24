@@ -308,7 +308,7 @@ class SignatureRequestResponseDataValueTextMerge extends SignatureRequestRespons
     /**
      * Sets type
      *
-     * @param string|null $type A text field that has default text set by the api
+     * @param string|null $type _t__SignatureRequestResponseDataValue::TEXTMERGE_TYPE
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class SignatureRequestResponseDataValueTextMerge extends SignatureRequestRespons
     /**
      * Sets value
      *
-     * @param string|null $value the value of the form field
+     * @param string|null $value _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return self
      */

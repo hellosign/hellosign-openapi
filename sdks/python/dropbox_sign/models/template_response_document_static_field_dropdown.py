@@ -34,12 +34,10 @@ class TemplateResponseDocumentStaticFieldDropdown(
     TemplateResponseDocumentStaticFieldBase
 ):
     """
-    This class extends `TemplateResponseDocumentStaticFieldBase`
+    _t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`"
-    )
+    type: StrictStr = Field(description="_t__TemplateResponseDocumentStaticField::TYPE")
     __properties: ClassVar[List[str]] = [
         "type",
         "api_id",

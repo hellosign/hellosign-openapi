@@ -8,8 +8,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `type` | ```String``` |  A text input field  |  |
-| `value` | ```String``` |  The value of the form field.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::TEXT_TYPE  |  |
+| `value` | ```String``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
 
 
 

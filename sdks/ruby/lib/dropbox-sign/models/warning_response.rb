@@ -17,13 +17,13 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # A list of warnings.
+  # _t__WarningResponse::LIST_DESCRIPTION
   class WarningResponse
-    # Warning message
+    # _t__WarningResponse::WARNING_MSG
     # @return [String]
     attr_accessor :warning_msg
 
-    # Warning name
+    # _t__WarningResponse::WARNING_NAME
     # @return [String]
     attr_accessor :warning_name
 

@@ -29,12 +29,11 @@ from pydantic import StrictBool
 
 class SubOptions(BaseModel):
     """
-    Additional options supported by API App.
+    _t__Sub::Options::DESCRIPTION
     """  # noqa: E501
 
     can_insert_everywhere: Optional[StrictBool] = Field(
-        default=False,
-        description='Determines if signers can use "Insert Everywhere" when signing a document.',
+        default=False, description="_t__Sub::Options::CAN_INSERT_EVERYWHERE"
     )
     __properties: ClassVar[List[str]] = ["can_insert_everywhere"]
 

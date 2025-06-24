@@ -18,103 +18,103 @@ end
 
 module Dropbox::Sign
   class BulkSendJobGetResponseSignatureRequests
-    # Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
+    # _t__SignatureRequestResponse::TEST_MODE
     # @return [Boolean]
     attr_accessor :test_mode
 
-    # The id of the SignatureRequest.
+    # _t__SignatureRequestResponse::SIGNATURE_REQUEST_ID
     # @return [String]
     attr_accessor :signature_request_id
 
-    # The email address of the initiator of the SignatureRequest.
+    # _t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS
     # @return [String, nil]
     attr_accessor :requester_email_address
 
-    # The title the specified Account uses for the SignatureRequest.
+    # _t__SignatureRequestResponse::TITLE
     # @return [String]
     attr_accessor :title
 
-    # Default Label for account.
+    # _t__SignatureRequestResponse::ORIGINAL_TITLE
     # @return [String]
     attr_accessor :original_title
 
-    # The subject in the email that was initially sent to the signers.
+    # _t__SignatureRequestResponse::SUBJECT
     # @return [String, nil]
     attr_accessor :subject
 
-    # The custom message in the email that was initially sent to the signers.
+    # _t__SignatureRequestResponse::MESSAGE
     # @return [String, nil]
     attr_accessor :message
 
-    # The metadata attached to the signature request.
+    # _t__SignatureRequestResponse::METADATA
     # @return [Hash<String, Object>]
     attr_accessor :metadata
 
-    # Time the signature request was created.
+    # _t__SignatureRequestResponse::CREATED_AT
     # @return [Integer]
     attr_accessor :created_at
 
-    # The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+    # _t__SignatureRequestResponse::EXPIRES_AT
     # @return [Integer, nil]
     attr_accessor :expires_at
 
-    # Whether or not the SignatureRequest has been fully executed by all signers.
+    # _t__SignatureRequestResponse::IS_COMPLETE
     # @return [Boolean]
     attr_accessor :is_complete
 
-    # Whether or not the SignatureRequest has been declined by a signer.
+    # _t__SignatureRequestResponse::IS_DECLINED
     # @return [Boolean]
     attr_accessor :is_declined
 
-    # Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
+    # _t__SignatureRequestResponse::HAS_ERROR
     # @return [Boolean]
     attr_accessor :has_error
 
-    # The URL where a copy of the request's documents can be downloaded.
+    # _t__SignatureRequestResponse::FILES_URL
     # @return [String]
     attr_accessor :files_url
 
-    # The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
+    # _t__SignatureRequestResponse::SIGNING_URL
     # @return [String, nil]
     attr_accessor :signing_url
 
-    # The URL where the requester and the signers can view the current status of the SignatureRequest.
+    # _t__SignatureRequestResponse::DETAILS_URL
     # @return [String]
     attr_accessor :details_url
 
-    # A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
+    # _t__SignatureRequestResponse::CC_EMAIL_ADDRESSES
     # @return [Array<String>]
     attr_accessor :cc_email_addresses
 
-    # The URL you want the signer redirected to after they successfully sign.
+    # _t__SignatureRequestResponse::SIGNING_REDIRECT_URL
     # @return [String, nil]
     attr_accessor :signing_redirect_url
 
-    # The path where the completed document can be downloaded
+    # _t__SignatureRequestResponse::FINAL_COPY_URI
     # @return [String, nil]
     attr_accessor :final_copy_uri
 
-    # Templates IDs used in this SignatureRequest (if any).
+    # _t__SignatureRequestResponse::TEMPLATE_IDS
     # @return [Array<String>, nil]
     attr_accessor :template_ids
 
-    # An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
+    # _t__SignatureRequestResponseCustomField::DESCRIPTION
     # @return [Array<SignatureRequestResponseCustomFieldBase>, nil]
     attr_accessor :custom_fields
 
-    # Signer attachments.
+    # _t__SignatureRequestResponseAttachment::DESCRIPTION
     # @return [Array<SignatureRequestResponseAttachment>, nil]
     attr_accessor :attachments
 
-    # An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+    # _t__SignatureRequestResponseData::DESCRIPTION
     # @return [Array<SignatureRequestResponseDataBase>, nil]
     attr_accessor :response_data
 
-    # An array of signature objects, 1 for each signer.
+    # _t__SignatureRequestResponseSignatures::DESCRIPTION
     # @return [Array<SignatureRequestResponseSignatures>]
     attr_accessor :signatures
 
-    # The id of the BulkSendJob.
+    # _t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID
     # @return [String]
     attr_accessor :bulk_send_job_id
 

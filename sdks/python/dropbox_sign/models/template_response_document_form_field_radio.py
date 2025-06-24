@@ -32,15 +32,11 @@ from pydantic import StrictBool
 
 class TemplateResponseDocumentFormFieldRadio(TemplateResponseDocumentFormFieldBase):
     """
-    This class extends `TemplateResponseDocumentFormFieldBase`
+    _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`"
-    )
-    group: StrictStr = Field(
-        description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields."
-    )
+    type: StrictStr = Field(description="_t__TemplateResponseDocumentFormField::TYPE")
+    group: StrictStr = Field(description="_t__TemplateResponseDocumentFormField::GROUP")
     __properties: ClassVar[List[str]] = [
         "type",
         "group",

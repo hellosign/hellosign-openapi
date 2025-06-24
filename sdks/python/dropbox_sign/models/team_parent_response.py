@@ -32,8 +32,10 @@ class TeamParentResponse(BaseModel):
     Information about the parent team if a team has one, set to `null` otherwise.
     """  # noqa: E501
 
-    team_id: Optional[StrictStr] = Field(default=None, description="The id of a team")
-    name: Optional[StrictStr] = Field(default=None, description="The name of a team")
+    team_id: Optional[StrictStr] = Field(
+        default=None, description="_t__TeamGeneral::TEAM_ID"
+    )
+    name: Optional[StrictStr] = Field(default=None, description="_t__TeamGeneral::NAME")
     __properties: ClassVar[List[str]] = ["team_id", "name"]
 
     model_config = ConfigDict(

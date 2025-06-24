@@ -21,7 +21,7 @@ module Dropbox::Sign
     # @return [UnclaimedDraftResponse]
     attr_accessor :unclaimed_draft
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

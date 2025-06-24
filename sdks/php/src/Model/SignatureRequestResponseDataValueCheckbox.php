@@ -308,7 +308,7 @@ class SignatureRequestResponseDataValueCheckbox extends SignatureRequestResponse
     /**
      * Sets type
      *
-     * @param string|null $type A yes/no checkbox
+     * @param string|null $type _t__SignatureRequestResponseDataValue::CHECKBOX_TYPE
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class SignatureRequestResponseDataValueCheckbox extends SignatureRequestResponse
     /**
      * Sets value
      *
-     * @param bool|null $value the value of the form field
+     * @param bool|null $value _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return self
      */

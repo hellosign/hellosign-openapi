@@ -28,40 +28,40 @@ import { AccountResponseUsage } from "./accountResponseUsage";
 
 export class AccountResponse {
   /**
-   * The ID of the Account
+   * _t__Account::ACCOUNT_ID
    */
   "accountId"?: string;
   /**
-   * The email address associated with the Account.
+   * _t__Account::EMAIL_ADDRESS
    */
   "emailAddress"?: string;
   /**
-   * Returns `true` if the user has been locked out of their account by a team admin.
+   * _t__Account::IS_LOCKED
    */
   "isLocked"?: boolean;
   /**
-   * Returns `true` if the user has a paid Dropbox Sign account.
+   * _t__Account::IS_PAID_HS
    */
   "isPaidHs"?: boolean;
   /**
-   * Returns `true` if the user has a paid HelloFax account.
+   * _t__Account::IS_PAID_HF
    */
   "isPaidHf"?: boolean;
   "quotas"?: AccountResponseQuotas;
   /**
-   * The URL that Dropbox Sign events will `POST` to.
+   * _t__Account::CALLBACK_URL
    */
   "callbackUrl"?: string | null;
   /**
-   * The membership role for the team.
+   * _t__Account::ROLE_CODE
    */
   "roleCode"?: string | null;
   /**
-   * The id of the team account belongs to.
+   * _t__Account::TEAM_ID
    */
   "teamId"?: string | null;
   /**
-   * The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
+   * _t__Account::LOCALE
    */
   "locale"?: string | null;
   "usage"?: AccountResponseUsage;

@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An object with options that override account settings.
+ * _t__ApiAppResponseOptions::DESCRIPTION
  */
 @JsonPropertyOrder({
   ApiAppResponseOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
@@ -66,7 +66,7 @@ public class ApiAppResponseOptions {
   }
 
   /**
-   * Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document
+   * _t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE
    * @return canInsertEverywhere
    */
   @jakarta.annotation.Nullable

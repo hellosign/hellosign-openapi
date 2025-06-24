@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `name` | ```string``` |  The name of the Role.  |  |
-| `order` | ```number``` |  If signer order is assigned this is the 0-based index for this role.  |  |
+| `name` | ```string``` |  _t__TemplateResponseSignerRole::NAME  |  |
+| `order` | ```number``` |  _t__TemplateResponseSignerRole::ORDER  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

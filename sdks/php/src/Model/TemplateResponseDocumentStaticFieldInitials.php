@@ -35,7 +35,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentStaticFieldInitials Class Doc Comment
  *
  * @category Class
- * @description This class extends &#x60;TemplateResponseDocumentStaticFieldBase&#x60;
+ * @description _t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -307,7 +307,7 @@ class TemplateResponseDocumentStaticFieldInitials extends TemplateResponseDocume
     /**
      * Sets type
      *
-     * @param string $type The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * @param string $type _t__TemplateResponseDocumentStaticField::TYPE
      *
      * @return self
      */

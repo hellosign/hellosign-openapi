@@ -33,7 +33,7 @@ class AccountVerifyResponseAccount(BaseModel):
     """  # noqa: E501
 
     email_address: Optional[StrictStr] = Field(
-        default=None, description="The email address associated with the Account."
+        default=None, description="_t__Account::EMAIL_ADDRESS"
     )
     __properties: ClassVar[List[str]] = ["email_address"]
 

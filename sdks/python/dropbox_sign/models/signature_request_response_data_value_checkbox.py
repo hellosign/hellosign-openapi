@@ -36,10 +36,11 @@ class SignatureRequestResponseDataValueCheckbox(SignatureRequestResponseDataBase
     """  # noqa: E501
 
     type: Optional[StrictStr] = Field(
-        default="checkbox", description="A yes/no checkbox"
+        default="checkbox",
+        description="_t__SignatureRequestResponseDataValue::CHECKBOX_TYPE",
     )
     value: Optional[StrictBool] = Field(
-        default=None, description="The value of the form field."
+        default=None, description="_t__SignatureRequestResponseDataValue::VALUE"
     )
     __properties: ClassVar[List[str]] = [
         "api_id",

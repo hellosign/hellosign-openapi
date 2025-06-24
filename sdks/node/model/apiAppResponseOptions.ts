@@ -25,11 +25,11 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An object with options that override account settings.
+ * _t__ApiAppResponseOptions::DESCRIPTION
  */
 export class ApiAppResponseOptions {
   /**
-   * Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document
+   * _t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE
    */
   "canInsertEverywhere"?: boolean;
 

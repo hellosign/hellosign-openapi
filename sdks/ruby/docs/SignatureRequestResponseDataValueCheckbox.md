@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `type` | ```String``` |  A yes/no checkbox  |  [default to 'checkbox'] |
-| `value` | ```Boolean``` |  The value of the form field.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::CHECKBOX_TYPE  |  [default to 'checkbox'] |
+| `value` | ```Boolean``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
 

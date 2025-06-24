@@ -2,18 +2,18 @@
 
 # TemplateResponseDocumentFormFieldHyperlink
 
-This class extends `TemplateResponseDocumentFormFieldBase`
+_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `type`<sup>*_required_</sup> | ```String``` |  The type of this form field. See [field types](/api/reference/constants/#field-types).<br><br>* Text Field uses `TemplateResponseDocumentFormFieldText`<br>* Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`<br>* Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`<br>* Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`<br>* Radio Field uses `TemplateResponseDocumentFormFieldRadio`<br>* Signature Field uses `TemplateResponseDocumentFormFieldSignature`<br>* Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`<br>* Initials Field uses `TemplateResponseDocumentFormFieldInitials`  |  |
+| `type`<sup>*_required_</sup> | ```String``` |  _t__TemplateResponseDocumentFormField::TYPE  |  |
 | `avgTextLength` | [```TemplateResponseFieldAvgTextLength```](TemplateResponseFieldAvgTextLength.md) |    |  |
-| `isMultiline` | ```Boolean``` |  Whether this form field is multiline text.  |  |
-| `originalFontSize` | ```Integer``` |  Original font size used in this form field&#39;s text.  |  |
-| `fontFamily` | ```String``` |  Font family used in this form field&#39;s text.  |  |
-| `group` | ```String``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
+| `isMultiline` | ```Boolean``` |  _t__TemplateResponseDocumentFormField::IS_MULTILINE  |  |
+| `originalFontSize` | ```Integer``` |  _t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE  |  |
+| `fontFamily` | ```String``` |  _t__TemplateResponseDocumentFormField::FONT_FAMILY  |  |
+| `group` | ```String``` |  _t__TemplateResponseDocumentFormField::GROUP  |  |
 
 
 

@@ -29,12 +29,12 @@ import { WarningResponse } from "./warningResponse";
 
 export class TemplateListResponse {
   /**
-   * List of templates that the API caller has access to.
+   * _t__TemplateListResponse::DESCRIPTION
    */
   "templates": Array<TemplateResponse>;
   "listInfo": ListInfoResponse;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

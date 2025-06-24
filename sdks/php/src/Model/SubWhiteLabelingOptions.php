@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SubWhiteLabelingOptions Class Doc Comment
  *
  * @category Class
- * @description An array of elements and values serialized to a string, to be used to customize the app&#39;s signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
+ * @description _t__Sub::WhiteLabelingOptions::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -822,7 +822,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets reset_to_default
      *
-     * @param bool|null $reset_to_default Resets white labeling options to defaults. Only useful when updating an API App.
+     * @param bool|null $reset_to_default _t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT
      *
      * @return self
      */

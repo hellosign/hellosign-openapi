@@ -1,11 +1,11 @@
 # Dropbox::Sign::TemplateUpdateFilesResponseTemplate
 
-Contains template id
+_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `template_id` | ```String``` |  The id of the Template.  |  |
-| `warnings` | [```Array<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
+| `template_id` | ```String``` |  _t__TemplateResponse::TEMPLATE_ID  |  |
+| `warnings` | [```Array<WarningResponse>```](WarningResponse.md) |  _t__WarningResponse::LIST_DESCRIPTION  |  |
 

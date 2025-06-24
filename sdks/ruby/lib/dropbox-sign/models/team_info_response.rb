@@ -18,22 +18,22 @@ end
 
 module Dropbox::Sign
   class TeamInfoResponse
-    # The id of a team
+    # _t__TeamGeneral::TEAM_ID
     # @return [String]
     attr_accessor :team_id
 
     # @return [TeamParentResponse, nil]
     attr_accessor :team_parent
 
-    # The name of a team
+    # _t__TeamGeneral::NAME
     # @return [String]
     attr_accessor :name
 
-    # Number of members within a team
+    # _t__TeamGeneral::NUM_MEMBERS
     # @return [Integer]
     attr_accessor :num_members
 
-    # Number of sub teams within a team
+    # _t__TeamGeneral::NUM_SUB_TEAMS
     # @return [Integer]
     attr_accessor :num_sub_teams
 

@@ -29,26 +29,26 @@ from pydantic import StrictBool
 
 class AccountResponseQuotas(BaseModel):
     """
-    Details concerning remaining monthly quotas.
+    _t__Account::QUOTA
     """  # noqa: E501
 
     api_signature_requests_left: Optional[StrictInt] = Field(
-        default=None, description="API signature requests remaining."
+        default=None, description="_t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT"
     )
     documents_left: Optional[StrictInt] = Field(
-        default=None, description="Signature requests remaining."
+        default=None, description="_t__AccountQuota::DOCUMENTS_LEFT"
     )
     templates_total: Optional[StrictInt] = Field(
-        default=None, description="Total API templates allowed."
+        default=None, description="_t__AccountQuota::TEMPLATES_TOTAL"
     )
     templates_left: Optional[StrictInt] = Field(
-        default=None, description="API templates remaining."
+        default=None, description="_t__AccountQuota::TEMPLATES_LEFT"
     )
     sms_verifications_left: Optional[StrictInt] = Field(
-        default=None, description="SMS verifications remaining."
+        default=None, description="_t__AccountQuota::SMS_VERIFICATIONS_LEFT"
     )
     num_fax_pages_left: Optional[StrictInt] = Field(
-        default=None, description="Number of fax pages left"
+        default=None, description="_t__AccountQuota::NUM_FAX_PAGES_LEFT"
     )
     __properties: ClassVar[List[str]] = [
         "api_signature_requests_left",

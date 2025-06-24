@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
+ * _t__BulkSendJobResponse::DESCRIPTION
  */
 @JsonPropertyOrder({
   BulkSendJobResponse.JSON_PROPERTY_BULK_SEND_JOB_ID,
@@ -81,7 +81,7 @@ public class BulkSendJobResponse {
   }
 
   /**
-   * The id of the BulkSendJob.
+   * _t__BulkSendJobResponse::BULK_SEND_JOB_ID
    * @return bulkSendJobId
    */
   @jakarta.annotation.Nullable
@@ -106,7 +106,7 @@ public class BulkSendJobResponse {
   }
 
   /**
-   * The total amount of Signature Requests queued for sending.
+   * _t__BulkSendJobResponse::TOTAL
    * @return total
    */
   @jakarta.annotation.Nullable
@@ -131,7 +131,7 @@ public class BulkSendJobResponse {
   }
 
   /**
-   * True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
+   * _t__BulkSendJobResponse::IS_CREATOR
    * @return isCreator
    */
   @jakarta.annotation.Nullable
@@ -156,7 +156,7 @@ public class BulkSendJobResponse {
   }
 
   /**
-   * Time that the BulkSendJob was created.
+   * _t__BulkSendJobResponse::CREATED_AT
    * @return createdAt
    */
   @jakarta.annotation.Nullable

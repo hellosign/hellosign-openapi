@@ -87,7 +87,7 @@ public class TeamInfoResponse {
   }
 
   /**
-   * The id of a team
+   * _t__TeamGeneral::TEAM_ID
    * @return teamId
    */
   @jakarta.annotation.Nullable
@@ -137,7 +137,7 @@ public class TeamInfoResponse {
   }
 
   /**
-   * The name of a team
+   * _t__TeamGeneral::NAME
    * @return name
    */
   @jakarta.annotation.Nullable
@@ -162,7 +162,7 @@ public class TeamInfoResponse {
   }
 
   /**
-   * Number of members within a team
+   * _t__TeamGeneral::NUM_MEMBERS
    * @return numMembers
    */
   @jakarta.annotation.Nullable
@@ -187,7 +187,7 @@ public class TeamInfoResponse {
   }
 
   /**
-   * Number of sub teams within a team
+   * _t__TeamGeneral::NUM_SUB_TEAMS
    * @return numSubTeams
    */
   @jakarta.annotation.Nullable

@@ -17,21 +17,21 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+  # _t__TemplateResponseAccountQuota::DESCRIPTION
   class TemplateResponseAccountQuota
-    # API templates remaining.
+    # _t__TemplateResponseAccountQuota::TEMPLATES_LEFT
     # @return [Integer]
     attr_accessor :templates_left
 
-    # API signature requests remaining.
+    # _t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT
     # @return [Integer]
     attr_accessor :api_signature_requests_left
 
-    # Signature requests remaining.
+    # _t__TemplateResponseAccountQuota::DOCUMENTS_LEFT
     # @return [Integer]
     attr_accessor :documents_left
 
-    # SMS verifications remaining.
+    # _t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT
     # @return [Integer]
     attr_accessor :sms_verifications_left
 

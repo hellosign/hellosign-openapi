@@ -2,17 +2,17 @@
 
 # TemplateResponseDocumentCustomFieldText
 
-This class extends `TemplateResponseDocumentCustomFieldBase`
+_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `type`<sup>*_required_</sup> | ```String``` |  The type of this Custom Field. Only `text` and `checkbox` are currently supported.<br><br>* Text uses `TemplateResponseDocumentCustomFieldText`<br>* Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`  |  |
+| `type`<sup>*_required_</sup> | ```String``` |  _t__TemplateResponseDocumentCustomField::TYPE  |  |
 | `avgTextLength` | [```TemplateResponseFieldAvgTextLength```](TemplateResponseFieldAvgTextLength.md) |    |  |
-| `isMultiline` | ```Boolean``` |  Whether this form field is multiline text.  |  |
-| `originalFontSize` | ```Integer``` |  Original font size used in this form field&#39;s text.  |  |
-| `fontFamily` | ```String``` |  Font family used in this form field&#39;s text.  |  |
+| `isMultiline` | ```Boolean``` |  _t__TemplateResponseDocumentCustomField::IS_MULTILINE  |  |
+| `originalFontSize` | ```Integer``` |  _t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE  |  |
+| `fontFamily` | ```String``` |  _t__TemplateResponseDocumentCustomField::FONT_FAMILY  |  |
 
 
 

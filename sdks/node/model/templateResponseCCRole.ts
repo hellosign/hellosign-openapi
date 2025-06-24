@@ -26,7 +26,7 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class TemplateResponseCCRole {
   /**
-   * The name of the Role.
+   * _t__TemplateResponseCCRole::NAME
    */
   "name"?: string;
 

@@ -1,11 +1,11 @@
 # Dropbox::Sign::SubOAuth
 
-OAuth related parameters.
+_t__Sub::OAuth::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `callback_url` | ```String``` |  The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)  |  |
-| `scopes` | ```Array<String>``` |  A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).  |  |
+| `callback_url` | ```String``` |  _t__Sub::OAuth::CALLBACK_URL  |  |
+| `scopes` | ```Array<String>``` |  _t__Sub::OAuth::SCOPES  |  |
 

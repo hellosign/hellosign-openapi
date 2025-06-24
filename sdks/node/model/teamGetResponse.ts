@@ -29,7 +29,7 @@ import { WarningResponse } from "./warningResponse";
 export class TeamGetResponse {
   "team": TeamResponse;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

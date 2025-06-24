@@ -40,22 +40,19 @@ if TYPE_CHECKING:
 
 class SignatureRequestResponseCustomFieldBase(BaseModel):
     """
-    An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
+    _t__SignatureRequestResponseCustomField::DESCRIPTION
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="The type of this Custom Field. Only 'text' and 'checkbox' are currently supported."
-    )
-    name: StrictStr = Field(description="The name of the Custom Field.")
+    type: StrictStr = Field(description="_t__SignatureRequestResponseCustomField::TYPE")
+    name: StrictStr = Field(description="_t__SignatureRequestResponseCustomField::NAME")
     required: Optional[StrictBool] = Field(
-        default=None, description="A boolean value denoting if this field is required."
+        default=None, description="_t__SignatureRequestResponseCustomField::REQUIRED"
     )
     api_id: Optional[StrictStr] = Field(
-        default=None, description="The unique ID for this field."
+        default=None, description="_t__SignatureRequestResponseCustomField::API_ID"
     )
     editor: Optional[StrictStr] = Field(
-        default=None,
-        description="The name of the Role that is able to edit this field.",
+        default=None, description="_t__SignatureRequestResponseCustomField::EDITOR"
     )
     __properties: ClassVar[List[str]] = ["type", "name", "required", "api_id", "editor"]
 

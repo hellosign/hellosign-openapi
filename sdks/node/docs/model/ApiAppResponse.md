@@ -1,17 +1,17 @@
 # # ApiAppResponse
 
-Contains information about an API App.
+_t__ApiAppResponse::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `callbackUrl` | ```string``` |  The app&#39;s callback URL (for events)  |  |
-| `clientId` | ```string``` |  The app&#39;s client id  |  |
-| `createdAt` | ```number``` |  The time that the app was created  |  |
-| `domains` | ```Array<string>``` |  The domain name(s) associated with the app  |  |
-| `name` | ```string``` |  The name of the app  |  |
-| `isApproved` | ```boolean``` |  Boolean to indicate if the app has been approved  |  |
+| `callbackUrl` | ```string``` |  _t__ApiAppResponse::CALLBACK_URL  |  |
+| `clientId` | ```string``` |  _t__ApiAppResponse::CLIENT_ID  |  |
+| `createdAt` | ```number``` |  _t__ApiAppResponse::CREATED_AT  |  |
+| `domains` | ```Array<string>``` |  _t__ApiAppResponse::DOMAINS  |  |
+| `name` | ```string``` |  _t__ApiAppResponse::NAME  |  |
+| `isApproved` | ```boolean``` |  _t__ApiAppResponse::IS_APPROVED  |  |
 | `oauth` | [```ApiAppResponseOAuth```](ApiAppResponseOAuth.md) |    |  |
 | `options` | [```ApiAppResponseOptions```](ApiAppResponseOptions.md) |    |  |
 | `ownerAccount` | [```ApiAppResponseOwnerAccount```](ApiAppResponseOwnerAccount.md) |    |  |

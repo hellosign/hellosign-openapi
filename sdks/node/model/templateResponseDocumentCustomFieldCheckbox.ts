@@ -26,11 +26,11 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocumentCustomFieldBase";
 
 /**
- * This class extends `TemplateResponseDocumentCustomFieldBase`
+ * _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
  */
 export class TemplateResponseDocumentCustomFieldCheckbox extends TemplateResponseDocumentCustomFieldBase {
   /**
-   * The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
+   * _t__TemplateResponseDocumentCustomField::TYPE
    */
   "type": string = "checkbox";
 

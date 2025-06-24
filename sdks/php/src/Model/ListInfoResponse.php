@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * ListInfoResponse Class Doc Comment
  *
  * @category Class
- * @description Contains pagination information about the data returned.
+ * @description _t__ListInfoResponse::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -330,7 +330,7 @@ class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets num_pages
      *
-     * @param int|null $num_pages total number of pages available
+     * @param int|null $num_pages _t__ListInfoResponse::NUM_PAGES
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets num_results
      *
-     * @param int|null $num_results total number of objects available
+     * @param int|null $num_results _t__ListInfoResponse::NUM_RESULTS
      *
      * @return self
      */
@@ -391,7 +391,7 @@ class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets page
      *
-     * @param int|null $page number of the page being returned
+     * @param int|null $page _t__ListInfoResponse::PAGE
      *
      * @return self
      */
@@ -418,7 +418,7 @@ class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets page_size
      *
-     * @param int|null $page_size objects returned per page
+     * @param int|null $page_size _t__ListInfoResponse::PAGE_SIZE
      *
      * @return self
      */

@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class TemplateResponseDocumentFieldGroup
-    # The name of the form field group.
+    # _t__TemplateResponseDocumentFieldGroup::NAME
     # @return [String]
     attr_accessor :name
 

@@ -27,7 +27,7 @@ import { TemplateResponseDocumentFieldGroupRule } from "./templateResponseDocume
 
 export class TemplateResponseDocumentFieldGroup {
   /**
-   * The name of the form field group.
+   * _t__TemplateResponseDocumentFieldGroup::NAME
    */
   "name"?: string;
   "rule"?: TemplateResponseDocumentFieldGroupRule;

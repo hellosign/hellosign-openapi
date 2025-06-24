@@ -92,7 +92,7 @@ public class TemplateResponseAccount {
   }
 
   /**
-   * The id of the Account.
+   * _t__TemplateResponseAccount::ACCOUNT_ID
    * @return accountId
    */
   @jakarta.annotation.Nullable
@@ -117,7 +117,7 @@ public class TemplateResponseAccount {
   }
 
   /**
-   * The email address associated with the Account.
+   * _t__TemplateResponseAccount::EMAIL_ADDRESS
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
@@ -142,7 +142,7 @@ public class TemplateResponseAccount {
   }
 
   /**
-   * Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
+   * _t__TemplateResponseAccount::IS_LOCKED
    * @return isLocked
    */
   @jakarta.annotation.Nullable
@@ -167,7 +167,7 @@ public class TemplateResponseAccount {
   }
 
   /**
-   * Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
+   * _t__TemplateResponseAccount::IS_PAID_HS
    * @return isPaidHs
    */
   @jakarta.annotation.Nullable
@@ -192,7 +192,7 @@ public class TemplateResponseAccount {
   }
 
   /**
-   * Returns &#x60;true&#x60; if the user has a paid HelloFax account.
+   * _t__TemplateResponseAccount::IS_PAID_HF
    * @return isPaidHf
    */
   @jakarta.annotation.Nullable

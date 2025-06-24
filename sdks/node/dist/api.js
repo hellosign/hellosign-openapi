@@ -17470,7 +17470,7 @@ var BulkSendJobGetResponse = class _BulkSendJobGetResponse {
 var BulkSendJobGetResponseSignatureRequests = class _BulkSendJobGetResponseSignatureRequests {
   constructor() {
     /**
-     * Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
+     * _t__SignatureRequestResponse::TEST_MODE
      */
     this["testMode"] = false;
   }
@@ -17725,6 +17725,10 @@ var EmbeddedEditUrlRequest = class _EmbeddedEditUrlRequest {
      */
     this["allowEditCcs"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Provide users the ability to review/edit the template signer roles.
      */
     this["forceSignerRoles"] = false;
@@ -17757,6 +17761,11 @@ var EmbeddedEditUrlRequest = class _EmbeddedEditUrlRequest {
       {
         name: "allowEditCcs",
         baseName: "allow_edit_ccs",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -19239,6 +19248,7 @@ var ReportCreateRequest = class _ReportCreateRequest {
   ((ReportTypeEnum2) => {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
+    ReportTypeEnum2["SmsActivity"] = "sms_activity";
   })(ReportTypeEnum = ReportCreateRequest2.ReportTypeEnum || (ReportCreateRequest2.ReportTypeEnum = {}));
 })(ReportCreateRequest || (ReportCreateRequest = {}));
 
@@ -19312,6 +19322,7 @@ var ReportResponse = class _ReportResponse {
   ((ReportTypeEnum2) => {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
+    ReportTypeEnum2["SmsActivity"] = "sms_activity";
   })(ReportTypeEnum = ReportResponse2.ReportTypeEnum || (ReportResponse2.ReportTypeEnum = {}));
 })(ReportResponse || (ReportResponse = {}));
 
@@ -19515,6 +19526,10 @@ var SignatureRequestCreateEmbeddedRequest = class _SignatureRequestCreateEmbedde
      */
     this["allowDecline"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
      */
     this["allowReassign"] = false;
@@ -19568,6 +19583,11 @@ var SignatureRequestCreateEmbeddedRequest = class _SignatureRequestCreateEmbedde
       {
         name: "allowDecline",
         baseName: "allow_decline",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -19792,6 +19812,10 @@ var SignatureRequestEditEmbeddedRequest = class _SignatureRequestEditEmbeddedReq
      */
     this["allowDecline"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
      */
     this["allowReassign"] = false;
@@ -19845,6 +19869,11 @@ var SignatureRequestEditEmbeddedRequest = class _SignatureRequestEditEmbeddedReq
       {
         name: "allowDecline",
         baseName: "allow_decline",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -20069,6 +20098,10 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
      */
     this["allowDecline"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
      */
     this["allowReassign"] = false;
@@ -20117,6 +20150,11 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
       {
         name: "allowDecline",
         baseName: "allow_decline",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -20438,7 +20476,7 @@ var SignatureRequestRemindRequest = class _SignatureRequestRemindRequest {
 var SignatureRequestResponse = class _SignatureRequestResponse {
   constructor() {
     /**
-     * Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
+     * _t__SignatureRequestResponse::TEST_MODE
      */
     this["testMode"] = false;
   }
@@ -20690,7 +20728,7 @@ var SignatureRequestResponseCustomFieldCheckbox = class _SignatureRequestRespons
   constructor() {
     super(...arguments);
     /**
-     * The type of this Custom Field. Only \'text\' and \'checkbox\' are currently supported.
+     * _t__SignatureRequestResponseCustomField::TYPE
      */
     this["type"] = "checkbox";
   }
@@ -20728,7 +20766,7 @@ var SignatureRequestResponseCustomFieldText = class _SignatureRequestResponseCus
   constructor() {
     super(...arguments);
     /**
-     * The type of this Custom Field. Only \'text\' and \'checkbox\' are currently supported.
+     * _t__SignatureRequestResponseCustomField::TYPE
      */
     this["type"] = "text";
   }
@@ -20859,7 +20897,7 @@ var SignatureRequestResponseDataValueCheckbox = class _SignatureRequestResponseD
   constructor() {
     super(...arguments);
     /**
-     * A yes/no checkbox
+     * _t__SignatureRequestResponseDataValue::CHECKBOX_TYPE
      */
     this["type"] = "checkbox";
   }
@@ -20897,7 +20935,7 @@ var SignatureRequestResponseDataValueCheckboxMerge = class _SignatureRequestResp
   constructor() {
     super(...arguments);
     /**
-     * A checkbox field that has default value set by the api
+     * _t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE
      */
     this["type"] = "checkbox-merge";
   }
@@ -20935,7 +20973,7 @@ var SignatureRequestResponseDataValueDateSigned = class _SignatureRequestRespons
   constructor() {
     super(...arguments);
     /**
-     * A date
+     * _t__SignatureRequestResponseDataValue::DATESIGNED_TYPE
      */
     this["type"] = "date_signed";
   }
@@ -20973,7 +21011,7 @@ var SignatureRequestResponseDataValueDropdown = class _SignatureRequestResponseD
   constructor() {
     super(...arguments);
     /**
-     * An input field for dropdowns
+     * _t__SignatureRequestResponseDataValue::DROPDOWN_TYPE
      */
     this["type"] = "dropdown";
   }
@@ -21011,7 +21049,7 @@ var SignatureRequestResponseDataValueInitials = class _SignatureRequestResponseD
   constructor() {
     super(...arguments);
     /**
-     * An input field for initials
+     * _t__SignatureRequestResponseDataValue::INITIAL_TYPE
      */
     this["type"] = "initials";
   }
@@ -21054,7 +21092,7 @@ var SignatureRequestResponseDataValueRadio = class _SignatureRequestResponseData
   constructor() {
     super(...arguments);
     /**
-     * An input field for radios
+     * _t__SignatureRequestResponseDataValue::RADIO_TYPE
      */
     this["type"] = "radio";
   }
@@ -21092,7 +21130,7 @@ var SignatureRequestResponseDataValueSignature = class _SignatureRequestResponse
   constructor() {
     super(...arguments);
     /**
-     * A signature input field
+     * _t__SignatureRequestResponseDataValue::SIGNATURE_TYPE
      */
     this["type"] = "signature";
   }
@@ -21135,7 +21173,7 @@ var SignatureRequestResponseDataValueText = class _SignatureRequestResponseDataV
   constructor() {
     super(...arguments);
     /**
-     * A text input field
+     * _t__SignatureRequestResponseDataValue::TEXT_TYPE
      */
     this["type"] = "text";
   }
@@ -21173,7 +21211,7 @@ var SignatureRequestResponseDataValueTextMerge = class _SignatureRequestResponse
   constructor() {
     super(...arguments);
     /**
-     * A text field that has default text set by the api
+     * _t__SignatureRequestResponseDataValue::TEXTMERGE_TYPE
      */
     this["type"] = "text-merge";
   }
@@ -21334,6 +21372,10 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
      */
     this["allowReassign"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
      */
     this["hideTextTags"] = false;
@@ -21389,6 +21431,11 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
       {
         name: "allowReassign",
         baseName: "allow_reassign",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -22737,7 +22784,7 @@ var SubFormFieldsPerDocumentTextMerge = class _SubFormFieldsPerDocumentTextMerge
   constructor() {
     super(...arguments);
     /**
-     * A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.
+     * _t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE
      */
     this["type"] = "text-merge";
     /**
@@ -22895,7 +22942,7 @@ var SubOAuth = class _SubOAuth {
 var SubOptions = class _SubOptions {
   constructor() {
     /**
-     * Determines if signers can use \"Insert Everywhere\" when signing a document.
+     * _t__Sub::Options::CAN_INSERT_EVERYWHERE
      */
     this["canInsertEverywhere"] = false;
   }
@@ -23073,19 +23120,19 @@ var SubSignatureRequestTemplateSigner = class _SubSignatureRequestTemplateSigner
 var SubSigningOptions = class _SubSigningOptions {
   constructor() {
     /**
-     * Allows drawing the signature
+     * _t__Sub::SigningOptions::DRAW
      */
     this["draw"] = false;
     /**
-     * Allows using a smartphone to email the signature
+     * _t__Sub::SigningOptions::PHONE
      */
     this["phone"] = false;
     /**
-     * Allows typing the signature
+     * _t__Sub::SigningOptions::TYPE
      */
     this["type"] = false;
     /**
-     * Allows uploading the signature
+     * _t__Sub::SigningOptions::UPLOAD
      */
     this["upload"] = false;
   }
@@ -23917,6 +23964,10 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
      */
     this["allowReassign"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Provide users the ability to review/edit the template signer roles.
      */
     this["forceSignerRoles"] = false;
@@ -23973,6 +24024,11 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
       {
         name: "allowReassign",
         baseName: "allow_reassign",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -24169,6 +24225,10 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
      */
     this["allowReassign"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
      */
     this["testMode"] = false;
@@ -24205,6 +24265,11 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
       {
         name: "allowReassign",
         baseName: "allow_reassign",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -24782,7 +24847,7 @@ var TemplateResponseDocumentCustomFieldCheckbox = class _TemplateResponseDocumen
   constructor() {
     super(...arguments);
     /**
-     * The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
+     * _t__TemplateResponseDocumentCustomField::TYPE
      */
     this["type"] = "checkbox";
   }
@@ -24815,7 +24880,7 @@ var TemplateResponseDocumentCustomFieldText = class _TemplateResponseDocumentCus
   constructor() {
     super(...arguments);
     /**
-     * The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
+     * _t__TemplateResponseDocumentCustomField::TYPE
      */
     this["type"] = "text";
   }
@@ -25019,7 +25084,7 @@ var TemplateResponseDocumentFormFieldCheckbox = class _TemplateResponseDocumentF
   constructor() {
     super(...arguments);
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * _t__TemplateResponseDocumentFormField::TYPE
      */
     this["type"] = "checkbox";
   }
@@ -25057,7 +25122,7 @@ var TemplateResponseDocumentFormFieldDateSigned = class _TemplateResponseDocumen
   constructor() {
     super(...arguments);
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * _t__TemplateResponseDocumentFormField::TYPE
      */
     this["type"] = "date_signed";
   }
@@ -25095,7 +25160,7 @@ var TemplateResponseDocumentFormFieldDropdown = class _TemplateResponseDocumentF
   constructor() {
     super(...arguments);
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * _t__TemplateResponseDocumentFormField::TYPE
      */
     this["type"] = "dropdown";
   }
@@ -25133,7 +25198,7 @@ var TemplateResponseDocumentFormFieldHyperlink = class _TemplateResponseDocument
   constructor() {
     super(...arguments);
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * _t__TemplateResponseDocumentFormField::TYPE
      */
     this["type"] = "hyperlink";
   }
@@ -25191,7 +25256,7 @@ var TemplateResponseDocumentFormFieldInitials = class _TemplateResponseDocumentF
   constructor() {
     super(...arguments);
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * _t__TemplateResponseDocumentFormField::TYPE
      */
     this["type"] = "initials";
   }
@@ -25229,7 +25294,7 @@ var TemplateResponseDocumentFormFieldRadio = class _TemplateResponseDocumentForm
   constructor() {
     super(...arguments);
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * _t__TemplateResponseDocumentFormField::TYPE
      */
     this["type"] = "radio";
   }
@@ -25267,7 +25332,7 @@ var TemplateResponseDocumentFormFieldSignature = class _TemplateResponseDocument
   constructor() {
     super(...arguments);
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * _t__TemplateResponseDocumentFormField::TYPE
      */
     this["type"] = "signature";
   }
@@ -25305,7 +25370,7 @@ var TemplateResponseDocumentFormFieldText = class _TemplateResponseDocumentFormF
   constructor() {
     super(...arguments);
     /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * _t__TemplateResponseDocumentFormField::TYPE
      */
     this["type"] = "text";
   }
@@ -25392,7 +25457,7 @@ var TemplateResponseDocumentFormFieldText = class _TemplateResponseDocumentFormF
 var TemplateResponseDocumentStaticFieldBase = class _TemplateResponseDocumentStaticFieldBase {
   constructor() {
     /**
-     * The signer of the Static Field.
+     * _t__TemplateResponseDocumentStaticField::SIGNER
      */
     this["signer"] = "me_now";
   }
@@ -25493,7 +25558,7 @@ var TemplateResponseDocumentStaticFieldCheckbox = class _TemplateResponseDocumen
   constructor() {
     super(...arguments);
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * _t__TemplateResponseDocumentStaticField::TYPE
      */
     this["type"] = "checkbox";
   }
@@ -25526,7 +25591,7 @@ var TemplateResponseDocumentStaticFieldDateSigned = class _TemplateResponseDocum
   constructor() {
     super(...arguments);
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * _t__TemplateResponseDocumentStaticField::TYPE
      */
     this["type"] = "date_signed";
   }
@@ -25559,7 +25624,7 @@ var TemplateResponseDocumentStaticFieldDropdown = class _TemplateResponseDocumen
   constructor() {
     super(...arguments);
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * _t__TemplateResponseDocumentStaticField::TYPE
      */
     this["type"] = "dropdown";
   }
@@ -25592,7 +25657,7 @@ var TemplateResponseDocumentStaticFieldHyperlink = class _TemplateResponseDocume
   constructor() {
     super(...arguments);
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * _t__TemplateResponseDocumentStaticField::TYPE
      */
     this["type"] = "hyperlink";
   }
@@ -25625,7 +25690,7 @@ var TemplateResponseDocumentStaticFieldInitials = class _TemplateResponseDocumen
   constructor() {
     super(...arguments);
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * _t__TemplateResponseDocumentStaticField::TYPE
      */
     this["type"] = "initials";
   }
@@ -25658,7 +25723,7 @@ var TemplateResponseDocumentStaticFieldRadio = class _TemplateResponseDocumentSt
   constructor() {
     super(...arguments);
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * _t__TemplateResponseDocumentStaticField::TYPE
      */
     this["type"] = "radio";
   }
@@ -25691,7 +25756,7 @@ var TemplateResponseDocumentStaticFieldSignature = class _TemplateResponseDocume
   constructor() {
     super(...arguments);
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * _t__TemplateResponseDocumentStaticField::TYPE
      */
     this["type"] = "signature";
   }
@@ -25724,7 +25789,7 @@ var TemplateResponseDocumentStaticFieldText = class _TemplateResponseDocumentSta
   constructor() {
     super(...arguments);
     /**
-     * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
+     * _t__TemplateResponseDocumentStaticField::TYPE
      */
     this["type"] = "text";
   }
@@ -25931,6 +25996,10 @@ var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedReq
      */
     this["allowDecline"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
      */
     this["allowReassign"] = false;
@@ -26016,6 +26085,11 @@ var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedReq
       {
         name: "allowDecline",
         baseName: "allow_decline",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -26422,6 +26496,10 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
      */
     this["allowDecline"] = false;
     /**
+     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     */
+    this["allowFormView"] = false;
+    /**
      * Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
      */
     this["hideTextTags"] = false;
@@ -26465,6 +26543,11 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
       {
         name: "allowDecline",
         baseName: "allow_decline",
+        type: "boolean"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
         type: "boolean"
       },
       {

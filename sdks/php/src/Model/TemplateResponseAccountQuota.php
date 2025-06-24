@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateResponseAccountQuota Class Doc Comment
  *
  * @category Class
- * @description An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+ * @description _t__TemplateResponseAccountQuota::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -330,7 +330,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets templates_left
      *
-     * @param int|null $templates_left API templates remaining
+     * @param int|null $templates_left _t__TemplateResponseAccountQuota::TEMPLATES_LEFT
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets api_signature_requests_left
      *
-     * @param int|null $api_signature_requests_left API signature requests remaining
+     * @param int|null $api_signature_requests_left _t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets documents_left
      *
-     * @param int|null $documents_left signature requests remaining
+     * @param int|null $documents_left _t__TemplateResponseAccountQuota::DOCUMENTS_LEFT
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets sms_verifications_left
      *
-     * @param int|null $sms_verifications_left SMS verifications remaining
+     * @param int|null $sms_verifications_left _t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT
      *
      * @return self
      */

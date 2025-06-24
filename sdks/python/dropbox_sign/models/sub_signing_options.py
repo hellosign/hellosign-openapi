@@ -36,23 +36,21 @@ from pydantic import StrictBool
 
 class SubSigningOptions(BaseModel):
     """
-    This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+    _t__Sub::SigningOptions::DESCRIPTION
     """  # noqa: E501
 
-    default_type: StrictStr = Field(
-        description="The default type shown (limited to the listed types)"
-    )
+    default_type: StrictStr = Field(description="_t__Sub::SigningOptions::DEFAULT")
     draw: Optional[StrictBool] = Field(
-        default=False, description="Allows drawing the signature"
+        default=False, description="_t__Sub::SigningOptions::DRAW"
     )
     phone: Optional[StrictBool] = Field(
-        default=False, description="Allows using a smartphone to email the signature"
+        default=False, description="_t__Sub::SigningOptions::PHONE"
     )
     type: Optional[StrictBool] = Field(
-        default=False, description="Allows typing the signature"
+        default=False, description="_t__Sub::SigningOptions::TYPE"
     )
     upload: Optional[StrictBool] = Field(
-        default=False, description="Allows uploading the signature"
+        default=False, description="_t__Sub::SigningOptions::UPLOAD"
     )
     __properties: ClassVar[List[str]] = [
         "default_type",

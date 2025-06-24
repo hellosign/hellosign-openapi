@@ -29,11 +29,11 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
  */
 export class TeamParentResponse {
   /**
-   * The id of a team
+   * _t__TeamGeneral::TEAM_ID
    */
   "teamId"?: string;
   /**
-   * The name of a team
+   * _t__TeamGeneral::NAME
    */
   "name"?: string;
 

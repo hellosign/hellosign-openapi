@@ -29,24 +29,20 @@ from pydantic import StrictBool
 
 class ReportResponse(BaseModel):
     """
-    Contains information about the report request.
+    _t__ReportResponse::DESCRIPTION
     """  # noqa: E501
 
     success: Optional[StrictStr] = Field(
-        default=None,
-        description="A message indicating the requested operation's success",
+        default=None, description="_t__ReportResponse::SUCCESS"
     )
     start_date: Optional[StrictStr] = Field(
-        default=None,
-        description="The (inclusive) start date for the report data in MM/DD/YYYY format.",
+        default=None, description="_t__ReportResponse::START_DATE"
     )
     end_date: Optional[StrictStr] = Field(
-        default=None,
-        description="The (inclusive) end date for the report data in MM/DD/YYYY format.",
+        default=None, description="_t__ReportResponse::END_DATE"
     )
     report_type: Optional[List[StrictStr]] = Field(
-        default=None,
-        description='The type(s) of the report you are requesting. Allowed values are "user_activity" and "document_status". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).',
+        default=None, description="_t__ReportResponse::REPORT_TYPE"
     )
     __properties: ClassVar[List[str]] = [
         "success",
@@ -62,9 +58,9 @@ class ReportResponse(BaseModel):
             return value
 
         for i in value:
-            if i not in set(["user_activity", "document_status"]):
+            if i not in set(["user_activity", "document_status", "sms_activity"]):
                 raise ValueError(
-                    "each list item must be one of ('user_activity', 'document_status')"
+                    "each list item must be one of ('user_activity', 'document_status', 'sms_activity')"
                 )
         return value
 

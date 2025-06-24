@@ -17,13 +17,13 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This class extends `SignatureRequestResponseCustomFieldBase`.
+  # _t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS
   class SignatureRequestResponseCustomFieldText < SignatureRequestResponseCustomFieldBase
-    # The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
+    # _t__SignatureRequestResponseCustomField::TYPE
     # @return [String]
     attr_accessor :type
 
-    # A text string for text fields
+    # _t__SignatureRequestResponseCustomField::VALUE_TEXT
     # @return [String]
     attr_accessor :value
 

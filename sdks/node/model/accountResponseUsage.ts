@@ -25,11 +25,11 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Details concerning monthly usage
+ * _t__Account::USAGE
  */
 export class AccountResponseUsage {
   /**
-   * Number of fax pages sent
+   * _t__AccountUsage::FAX_PAGES_SENT
    */
   "faxPagesSent"?: number | null;
 

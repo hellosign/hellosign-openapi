@@ -38,7 +38,11 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_reassign
 
-    # A list describing the attachments
+    # Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+    # @return [Boolean]
+    attr_accessor :allow_form_view
+
+    # _t__SubAttachment::LIST_DESCRIPTION
     # @return [Array<SubAttachment>]
     attr_accessor :attachments
 
@@ -69,7 +73,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :message
 
-    # Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+    # _t__Sub::Metadata::DESCRIPTION
     # @return [Hash<String, Object>]
     attr_accessor :metadata
 
@@ -97,6 +101,7 @@ module Dropbox::Sign
         :'files' => :'files',
         :'file_urls' => :'file_urls',
         :'allow_reassign' => :'allow_reassign',
+        :'allow_form_view' => :'allow_form_view',
         :'attachments' => :'attachments',
         :'cc_roles' => :'cc_roles',
         :'client_id' => :'client_id',
@@ -131,6 +136,7 @@ module Dropbox::Sign
         :'files' => :'Array<File>',
         :'file_urls' => :'Array<String>',
         :'allow_reassign' => :'Boolean',
+        :'allow_form_view' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
         :'cc_roles' => :'Array<String>',
         :'client_id' => :'String',
@@ -222,6 +228,12 @@ module Dropbox::Sign
         self.allow_reassign = attributes[:'allow_reassign']
       else
         self.allow_reassign = false
+      end
+
+      if attributes.key?(:'allow_form_view')
+        self.allow_form_view = attributes[:'allow_form_view']
+      else
+        self.allow_form_view = false
       end
 
       if attributes.key?(:'attachments')
@@ -382,6 +394,7 @@ module Dropbox::Sign
           files == o.files &&
           file_urls == o.file_urls &&
           allow_reassign == o.allow_reassign &&
+          allow_form_view == o.allow_form_view &&
           attachments == o.attachments &&
           cc_roles == o.cc_roles &&
           client_id == o.client_id &&
@@ -406,7 +419,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [form_fields_per_document, signer_roles, files, file_urls, allow_reassign, attachments, cc_roles, client_id, field_options, form_field_groups, form_field_rules, merge_fields, message, metadata, subject, test_mode, title, use_preexisting_fields].hash
+      [form_fields_per_document, signer_roles, files, file_urls, allow_reassign, allow_form_view, attachments, cc_roles, client_id, field_options, form_field_groups, form_field_rules, merge_fields, message, metadata, subject, test_mode, title, use_preexisting_fields].hash
     end
 
     # Builds the object from hash

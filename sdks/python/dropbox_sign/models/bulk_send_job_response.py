@@ -29,22 +29,20 @@ from pydantic import StrictBool
 
 class BulkSendJobResponse(BaseModel):
     """
-    Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
+    _t__BulkSendJobResponse::DESCRIPTION
     """  # noqa: E501
 
     bulk_send_job_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the BulkSendJob."
+        default=None, description="_t__BulkSendJobResponse::BULK_SEND_JOB_ID"
     )
     total: Optional[StrictInt] = Field(
-        default=None,
-        description="The total amount of Signature Requests queued for sending.",
+        default=None, description="_t__BulkSendJobResponse::TOTAL"
     )
     is_creator: Optional[StrictBool] = Field(
-        default=None,
-        description="True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.",
+        default=None, description="_t__BulkSendJobResponse::IS_CREATOR"
     )
     created_at: Optional[StrictInt] = Field(
-        default=None, description="Time that the BulkSendJob was created."
+        default=None, description="_t__BulkSendJobResponse::CREATED_AT"
     )
     __properties: ClassVar[List[str]] = [
         "bulk_send_job_id",

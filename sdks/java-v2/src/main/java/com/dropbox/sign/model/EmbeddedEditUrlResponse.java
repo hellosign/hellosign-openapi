@@ -108,7 +108,7 @@ public class EmbeddedEditUrlResponse {
   }
 
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    * @return warnings
    */
   @jakarta.annotation.Nullable

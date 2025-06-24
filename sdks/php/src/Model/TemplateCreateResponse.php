@@ -347,7 +347,7 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets warnings
      *
-     * @param WarningResponse[]|null $warnings a list of warnings
+     * @param WarningResponse[]|null $warnings _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return self
      */

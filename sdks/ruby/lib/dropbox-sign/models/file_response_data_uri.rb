@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class FileResponseDataUri
-    # File as base64 encoded string.
+    # _t__FileResponse::DATA_URI
     # @return [String]
     attr_accessor :data_uri
 

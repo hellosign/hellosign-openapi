@@ -80,7 +80,7 @@ public class SignatureRequestResponseDataValueTextMerge extends SignatureRequest
   }
 
   /**
-   * A text field that has default text set by the api
+   * _t__SignatureRequestResponseDataValue::TEXTMERGE_TYPE
    * @return type
    */
   @jakarta.annotation.Nullable
@@ -105,7 +105,7 @@ public class SignatureRequestResponseDataValueTextMerge extends SignatureRequest
   }
 
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    * @return value
    */
   @jakarta.annotation.Nullable

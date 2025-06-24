@@ -26,15 +26,15 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class SubUnclaimedDraftTemplateSigner {
   /**
-   * Must match an existing role in chosen Template(s).
+   * _t__Sub::UnclaimedDraftTemplateSigner::ROLE
    */
   "role": string;
   /**
-   * The name of the signer filling the role of `role`.
+   * _t__Sub::UnclaimedDraftTemplateSigner::NAME
    */
   "name": string;
   /**
-   * The email address of the signer filling the role of `role`.
+   * _t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS
    */
   "emailAddress": string;
 

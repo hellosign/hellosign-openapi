@@ -1,11 +1,11 @@
 # Dropbox::Sign::ApiAppResponseOwnerAccount
 
-An object describing the app&#39;s owner
+_t__ApiAppResponseOwnerAccount::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `account_id` | ```String``` |  The owner account&#39;s ID  |  |
-| `email_address` | ```String``` |  The owner account&#39;s email address  |  |
+| `account_id` | ```String``` |  _t__ApiAppResponseOwnerAccount::ACCOUNT_ID  |  |
+| `email_address` | ```String``` |  _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS  |  |
 

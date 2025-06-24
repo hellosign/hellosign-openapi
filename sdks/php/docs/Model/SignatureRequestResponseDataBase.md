@@ -1,15 +1,15 @@
 # # SignatureRequestResponseDataBase
 
-An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+_t__SignatureRequestResponseData::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `api_id` | ```string``` |  The unique ID for this field.  |  |
-| `signature_id` | ```string``` |  The ID of the signature to which this response is linked.  |  |
-| `name` | ```string``` |  The name of the form field.  |  |
-| `required` | ```bool``` |  A boolean value denoting if this field is required.  |  |
+| `api_id` | ```string``` |  _t__SignatureRequestResponseData::API_ID  |  |
+| `signature_id` | ```string``` |  _t__SignatureRequestResponseData::SIGNATURE_ID  |  |
+| `name` | ```string``` |  _t__SignatureRequestResponseData::NAME  |  |
+| `required` | ```bool``` |  _t__SignatureRequestResponseData::REQUIRED  |  |
 | `type` | ```string``` |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -593,7 +593,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets width
      *
-     * @param int $width size of the field in pixels
+     * @param int $width _t__Sub::FormFieldsPerDocument::WIDTH
      *
      * @return self
      */
@@ -620,7 +620,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets x
      *
-     * @param int $x location coordinates of the field in pixels
+     * @param int $x _t__Sub::FormFieldsPerDocument::X
      *
      * @return self
      */
@@ -647,7 +647,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets y
      *
-     * @param int $y location coordinates of the field in pixels
+     * @param int $y _t__Sub::FormFieldsPerDocument::Y
      *
      * @return self
      */

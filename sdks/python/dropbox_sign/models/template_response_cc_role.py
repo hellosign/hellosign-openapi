@@ -32,7 +32,9 @@ class TemplateResponseCCRole(BaseModel):
     TemplateResponseCCRole
     """  # noqa: E501
 
-    name: Optional[StrictStr] = Field(default=None, description="The name of the Role.")
+    name: Optional[StrictStr] = Field(
+        default=None, description="_t__TemplateResponseCCRole::NAME"
+    )
     __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(

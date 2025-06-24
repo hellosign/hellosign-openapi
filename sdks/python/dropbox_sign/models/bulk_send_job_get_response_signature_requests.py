@@ -45,97 +45,81 @@ class BulkSendJobGetResponseSignatureRequests(BaseModel):
     """  # noqa: E501
 
     test_mode: Optional[StrictBool] = Field(
-        default=False,
-        description="Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.",
+        default=False, description="_t__SignatureRequestResponse::TEST_MODE"
     )
     signature_request_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the SignatureRequest."
+        default=None, description="_t__SignatureRequestResponse::SIGNATURE_REQUEST_ID"
     )
     requester_email_address: Optional[StrictStr] = Field(
         default=None,
-        description="The email address of the initiator of the SignatureRequest.",
+        description="_t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS",
     )
     title: Optional[StrictStr] = Field(
-        default=None,
-        description="The title the specified Account uses for the SignatureRequest.",
+        default=None, description="_t__SignatureRequestResponse::TITLE"
     )
     original_title: Optional[StrictStr] = Field(
-        default=None, description="Default Label for account."
+        default=None, description="_t__SignatureRequestResponse::ORIGINAL_TITLE"
     )
     subject: Optional[StrictStr] = Field(
-        default=None,
-        description="The subject in the email that was initially sent to the signers.",
+        default=None, description="_t__SignatureRequestResponse::SUBJECT"
     )
     message: Optional[StrictStr] = Field(
-        default=None,
-        description="The custom message in the email that was initially sent to the signers.",
+        default=None, description="_t__SignatureRequestResponse::MESSAGE"
     )
     metadata: Optional[Dict[str, Any]] = Field(
-        default=None, description="The metadata attached to the signature request."
+        default=None, description="_t__SignatureRequestResponse::METADATA"
     )
     created_at: Optional[StrictInt] = Field(
-        default=None, description="Time the signature request was created."
+        default=None, description="_t__SignatureRequestResponse::CREATED_AT"
     )
     expires_at: Optional[StrictInt] = Field(
-        default=None,
-        description="The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.",
+        default=None, description="_t__SignatureRequestResponse::EXPIRES_AT"
     )
     is_complete: Optional[StrictBool] = Field(
-        default=None,
-        description="Whether or not the SignatureRequest has been fully executed by all signers.",
+        default=None, description="_t__SignatureRequestResponse::IS_COMPLETE"
     )
     is_declined: Optional[StrictBool] = Field(
-        default=None,
-        description="Whether or not the SignatureRequest has been declined by a signer.",
+        default=None, description="_t__SignatureRequestResponse::IS_DECLINED"
     )
     has_error: Optional[StrictBool] = Field(
-        default=None,
-        description="Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).",
+        default=None, description="_t__SignatureRequestResponse::HAS_ERROR"
     )
     files_url: Optional[StrictStr] = Field(
-        default=None,
-        description="The URL where a copy of the request's documents can be downloaded.",
+        default=None, description="_t__SignatureRequestResponse::FILES_URL"
     )
     signing_url: Optional[StrictStr] = Field(
-        default=None,
-        description="The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.",
+        default=None, description="_t__SignatureRequestResponse::SIGNING_URL"
     )
     details_url: Optional[StrictStr] = Field(
-        default=None,
-        description="The URL where the requester and the signers can view the current status of the SignatureRequest.",
+        default=None, description="_t__SignatureRequestResponse::DETAILS_URL"
     )
     cc_email_addresses: Optional[List[StrictStr]] = Field(
-        default=None,
-        description="A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.",
+        default=None, description="_t__SignatureRequestResponse::CC_EMAIL_ADDRESSES"
     )
     signing_redirect_url: Optional[StrictStr] = Field(
-        default=None,
-        description="The URL you want the signer redirected to after they successfully sign.",
+        default=None, description="_t__SignatureRequestResponse::SIGNING_REDIRECT_URL"
     )
     final_copy_uri: Optional[StrictStr] = Field(
-        default=None,
-        description="The path where the completed document can be downloaded",
+        default=None, description="_t__SignatureRequestResponse::FINAL_COPY_URI"
     )
     template_ids: Optional[List[StrictStr]] = Field(
-        default=None,
-        description="Templates IDs used in this SignatureRequest (if any).",
+        default=None, description="_t__SignatureRequestResponse::TEMPLATE_IDS"
     )
     custom_fields: Optional[List[SignatureRequestResponseCustomFieldBase]] = Field(
-        default=None,
-        description="An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`",
+        default=None, description="_t__SignatureRequestResponseCustomField::DESCRIPTION"
     )
     attachments: Optional[List[SignatureRequestResponseAttachment]] = Field(
-        default=None, description="Signer attachments."
+        default=None, description="_t__SignatureRequestResponseAttachment::DESCRIPTION"
     )
     response_data: Optional[List[SignatureRequestResponseDataBase]] = Field(
-        default=None,
-        description="An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.",
+        default=None, description="_t__SignatureRequestResponseData::DESCRIPTION"
     )
     signatures: Optional[List[SignatureRequestResponseSignatures]] = Field(
-        default=None, description="An array of signature objects, 1 for each signer."
+        default=None, description="_t__SignatureRequestResponseSignatures::DESCRIPTION"
     )
     bulk_send_job_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the BulkSendJob."
+        default=None,
+        description="_t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID",
     )
     __properties: ClassVar[List[str]] = [
         "test_mode",

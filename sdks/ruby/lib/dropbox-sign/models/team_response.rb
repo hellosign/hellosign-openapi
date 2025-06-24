@@ -17,20 +17,20 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Contains information about your team and its members
+  # _t__TeamResponse::DESCRIPTION
   class TeamResponse
-    # The name of your Team
+    # _t__Team::NAME
     # @return [String]
     attr_accessor :name
 
     # @return [Array<AccountResponse>]
     attr_accessor :accounts
 
-    # A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+    # _t__Team::INVITED_ACCOUNTS
     # @return [Array<AccountResponse>]
     attr_accessor :invited_accounts
 
-    # A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
+    # _t__Team::INVITED_EMAILS
     # @return [Array<String>]
     attr_accessor :invited_emails
 

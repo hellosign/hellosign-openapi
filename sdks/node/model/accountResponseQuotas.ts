@@ -25,31 +25,31 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Details concerning remaining monthly quotas.
+ * _t__Account::QUOTA
  */
 export class AccountResponseQuotas {
   /**
-   * API signature requests remaining.
+   * _t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT
    */
   "apiSignatureRequestsLeft"?: number | null;
   /**
-   * Signature requests remaining.
+   * _t__AccountQuota::DOCUMENTS_LEFT
    */
   "documentsLeft"?: number | null;
   /**
-   * Total API templates allowed.
+   * _t__AccountQuota::TEMPLATES_TOTAL
    */
   "templatesTotal"?: number | null;
   /**
-   * API templates remaining.
+   * _t__AccountQuota::TEMPLATES_LEFT
    */
   "templatesLeft"?: number | null;
   /**
-   * SMS verifications remaining.
+   * _t__AccountQuota::SMS_VERIFICATIONS_LEFT
    */
   "smsVerificationsLeft"?: number | null;
   /**
-   * Number of fax pages left
+   * _t__AccountQuota::NUM_FAX_PAGES_LEFT
    */
   "numFaxPagesLeft"?: number | null;
 

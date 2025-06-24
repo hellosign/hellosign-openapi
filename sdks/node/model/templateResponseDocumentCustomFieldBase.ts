@@ -25,44 +25,44 @@
 import { AttributeTypeMap } from "./";
 
 /**
- * An array of Form Field objects containing the name and type of each named field.
+ * _t__TemplateResponseDocumentCustomField::DESCRIPTION
  */
 export abstract class TemplateResponseDocumentCustomFieldBase {
   "type": string;
   /**
-   * The unique ID for this field.
+   * _t__TemplateResponseDocumentCustomField::API_ID
    */
   "apiId"?: string;
   /**
-   * The name of the Custom Field.
+   * _t__TemplateResponseDocumentCustomField::NAME
    */
   "name"?: string;
   /**
-   * The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
+   * _t__TemplateResponseDocumentCustomField::SIGNER
    */
   "signer"?: number | string | null;
   /**
-   * The horizontal offset in pixels for this form field.
+   * _t__TemplateResponseDocumentCustomField::X
    */
   "x"?: number;
   /**
-   * The vertical offset in pixels for this form field.
+   * _t__TemplateResponseDocumentCustomField::Y
    */
   "y"?: number;
   /**
-   * The width in pixels of this form field.
+   * _t__TemplateResponseDocumentCustomField::WIDTH
    */
   "width"?: number;
   /**
-   * The height in pixels of this form field.
+   * _t__TemplateResponseDocumentCustomField::HEIGHT
    */
   "height"?: number;
   /**
-   * Boolean showing whether or not this field is required.
+   * _t__TemplateResponseDocumentStaticField::REQUIRED
    */
   "required"?: boolean;
   /**
-   * The name of the group this field is in. If this field is not a group, this defaults to `null`.
+   * _t__TemplateResponseDocumentCustomField::GROUP
    */
   "group"?: string | null;
 

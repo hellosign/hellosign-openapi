@@ -25,40 +25,40 @@
 import { AttributeTypeMap } from "./";
 
 /**
- * An array of Form Field objects containing the name and type of each named field.
+ * _t__TemplateResponseDocumentFormField::DESCRIPTION
  */
 export abstract class TemplateResponseDocumentFormFieldBase {
   "type": string;
   /**
-   * A unique id for the form field.
+   * _t__TemplateResponseDocumentFormField::API_ID
    */
   "apiId"?: string;
   /**
-   * The name of the form field.
+   * _t__TemplateResponseDocumentFormField::NAME
    */
   "name"?: string;
   /**
-   * The signer of the Form Field.
+   * _t__TemplateResponseDocumentFormField::SIGNER
    */
   "signer"?: number | string;
   /**
-   * The horizontal offset in pixels for this form field.
+   * _t__TemplateResponseDocumentFormField::X
    */
   "x"?: number;
   /**
-   * The vertical offset in pixels for this form field.
+   * _t__TemplateResponseDocumentFormField::Y
    */
   "y"?: number;
   /**
-   * The width in pixels of this form field.
+   * _t__TemplateResponseDocumentFormField::WIDTH
    */
   "width"?: number;
   /**
-   * The height in pixels of this form field.
+   * _t__TemplateResponseDocumentFormField::HEIGHT
    */
   "height"?: number;
   /**
-   * Boolean showing whether or not this field is required.
+   * _t__TemplateResponseDocumentFormField::REQUIRED
    */
   "required"?: boolean;
 

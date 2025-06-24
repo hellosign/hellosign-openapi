@@ -1,14 +1,14 @@
 # # ListInfoResponse
 
-Contains pagination information about the data returned.
+_t__ListInfoResponse::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `numPages` | ```number``` |  Total number of pages available.  |  |
-| `numResults` | ```number``` |  Total number of objects available.  |  |
-| `page` | ```number``` |  Number of the page being returned.  |  |
-| `pageSize` | ```number``` |  Objects returned per page.  |  |
+| `numPages` | ```number``` |  _t__ListInfoResponse::NUM_PAGES  |  |
+| `numResults` | ```number``` |  _t__ListInfoResponse::NUM_RESULTS  |  |
+| `page` | ```number``` |  _t__ListInfoResponse::PAGE  |  |
+| `pageSize` | ```number``` |  _t__ListInfoResponse::PAGE_SIZE  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

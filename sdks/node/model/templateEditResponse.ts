@@ -26,7 +26,7 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class TemplateEditResponse {
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    */
   "templateId": string;
 

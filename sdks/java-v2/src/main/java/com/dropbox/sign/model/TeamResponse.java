@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Contains information about your team and its members
+ * _t__TeamResponse::DESCRIPTION
  */
 @JsonPropertyOrder({
   TeamResponse.JSON_PROPERTY_NAME,
@@ -84,7 +84,7 @@ public class TeamResponse {
   }
 
   /**
-   * The name of your Team
+   * _t__Team::NAME
    * @return name
    */
   @jakarta.annotation.Nullable
@@ -150,7 +150,7 @@ public class TeamResponse {
   }
 
   /**
-   * A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
+   * _t__Team::INVITED_ACCOUNTS
    * @return invitedAccounts
    */
   @jakarta.annotation.Nullable
@@ -183,7 +183,7 @@ public class TeamResponse {
   }
 
   /**
-   * A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
+   * _t__Team::INVITED_EMAILS
    * @return invitedEmails
    */
   @jakarta.annotation.Nullable

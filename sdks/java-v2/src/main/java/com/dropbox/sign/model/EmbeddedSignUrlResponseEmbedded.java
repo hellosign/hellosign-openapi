@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An object that contains necessary information to set up embedded signing.
+ * _t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION
  */
 @JsonPropertyOrder({
   EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_SIGN_URL,
@@ -71,7 +71,7 @@ public class EmbeddedSignUrlResponseEmbedded {
   }
 
   /**
-   * A signature url that can be opened in an iFrame.
+   * _t__EmbeddedSignUrlResponseEmbedded::SIGN_URL
    * @return signUrl
    */
   @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class EmbeddedSignUrlResponseEmbedded {
   }
 
   /**
-   * The specific time that the the &#x60;sign_url&#x60; link expires, in epoch.
+   * _t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT
    * @return expiresAt
    */
   @jakarta.annotation.Nullable

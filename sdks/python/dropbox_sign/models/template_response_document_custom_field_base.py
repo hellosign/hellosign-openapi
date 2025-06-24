@@ -40,38 +40,36 @@ if TYPE_CHECKING:
 
 class TemplateResponseDocumentCustomFieldBase(BaseModel):
     """
-    An array of Form Field objects containing the name and type of each named field.
+    _t__TemplateResponseDocumentCustomField::DESCRIPTION
     """  # noqa: E501
 
     type: StrictStr
     api_id: Optional[StrictStr] = Field(
-        default=None, description="The unique ID for this field."
+        default=None, description="_t__TemplateResponseDocumentCustomField::API_ID"
     )
     name: Optional[StrictStr] = Field(
-        default=None, description="The name of the Custom Field."
+        default=None, description="_t__TemplateResponseDocumentCustomField::NAME"
     )
     signer: Union[StrictStr, StrictInt, None] = Field(
-        description="The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender)."
+        description="_t__TemplateResponseDocumentCustomField::SIGNER"
     )
     x: Optional[StrictInt] = Field(
-        default=None, description="The horizontal offset in pixels for this form field."
+        default=None, description="_t__TemplateResponseDocumentCustomField::X"
     )
     y: Optional[StrictInt] = Field(
-        default=None, description="The vertical offset in pixels for this form field."
+        default=None, description="_t__TemplateResponseDocumentCustomField::Y"
     )
     width: Optional[StrictInt] = Field(
-        default=None, description="The width in pixels of this form field."
+        default=None, description="_t__TemplateResponseDocumentCustomField::WIDTH"
     )
     height: Optional[StrictInt] = Field(
-        default=None, description="The height in pixels of this form field."
+        default=None, description="_t__TemplateResponseDocumentCustomField::HEIGHT"
     )
     required: Optional[StrictBool] = Field(
-        default=None,
-        description="Boolean showing whether or not this field is required.",
+        default=None, description="_t__TemplateResponseDocumentStaticField::REQUIRED"
     )
     group: Optional[StrictStr] = Field(
-        default=None,
-        description="The name of the group this field is in. If this field is not a group, this defaults to `null`.",
+        default=None, description="_t__TemplateResponseDocumentCustomField::GROUP"
     )
     __properties: ClassVar[List[str]] = [
         "type",

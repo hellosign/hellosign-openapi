@@ -26,11 +26,11 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class SubMergeField {
   /**
-   * The name of the merge field. Must be unique.
+   * _t__Sub::MergeField::NAME
    */
   "name": string;
   /**
-   * The type of merge field.
+   * _t__Sub::MergeField::TYPE
    */
   "type": SubMergeField.TypeEnum;
 

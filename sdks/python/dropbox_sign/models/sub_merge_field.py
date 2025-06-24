@@ -32,8 +32,8 @@ class SubMergeField(BaseModel):
     SubMergeField
     """  # noqa: E501
 
-    name: StrictStr = Field(description="The name of the merge field. Must be unique.")
-    type: StrictStr = Field(description="The type of merge field.")
+    name: StrictStr = Field(description="_t__Sub::MergeField::NAME")
+    type: StrictStr = Field(description="_t__Sub::MergeField::TYPE")
     __properties: ClassVar[List[str]] = ["name", "type"]
 
     @field_validator("type")

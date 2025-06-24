@@ -25,23 +25,23 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Contains information about the report request.
+ * _t__ReportResponse::DESCRIPTION
  */
 export class ReportResponse {
   /**
-   * A message indicating the requested operation\'s success
+   * _t__ReportResponse::SUCCESS
    */
   "success"?: string;
   /**
-   * The (inclusive) start date for the report data in MM/DD/YYYY format.
+   * _t__ReportResponse::START_DATE
    */
   "startDate"?: string;
   /**
-   * The (inclusive) end date for the report data in MM/DD/YYYY format.
+   * _t__ReportResponse::END_DATE
    */
   "endDate"?: string;
   /**
-   * The type(s) of the report you are requesting. Allowed values are \"user_activity\" and \"document_status\". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
+   * _t__ReportResponse::REPORT_TYPE
    */
   "reportType"?: Array<ReportResponse.ReportTypeEnum>;
 
@@ -84,5 +84,6 @@ export namespace ReportResponse {
   export enum ReportTypeEnum {
     UserActivity = "user_activity",
     DocumentStatus = "document_status",
+    SmsActivity = "sms_activity",
   }
 }

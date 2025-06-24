@@ -61,21 +61,20 @@ if TYPE_CHECKING:
 
 class SignatureRequestResponseDataBase(BaseModel):
     """
-    An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+    _t__SignatureRequestResponseData::DESCRIPTION
     """  # noqa: E501
 
     api_id: Optional[StrictStr] = Field(
-        default=None, description="The unique ID for this field."
+        default=None, description="_t__SignatureRequestResponseData::API_ID"
     )
     signature_id: Optional[StrictStr] = Field(
-        default=None,
-        description="The ID of the signature to which this response is linked.",
+        default=None, description="_t__SignatureRequestResponseData::SIGNATURE_ID"
     )
     name: Optional[StrictStr] = Field(
-        default=None, description="The name of the form field."
+        default=None, description="_t__SignatureRequestResponseData::NAME"
     )
     required: Optional[StrictBool] = Field(
-        default=None, description="A boolean value denoting if this field is required."
+        default=None, description="_t__SignatureRequestResponseData::REQUIRED"
     )
     type: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = [

@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class SignatureRequestResponseDataValueDropdown < SignatureRequestResponseDataBase
-    # An input field for dropdowns
+    # _t__SignatureRequestResponseDataValue::DROPDOWN_TYPE
     # @return [String]
     attr_accessor :type
 
-    # The value of the form field.
+    # _t__SignatureRequestResponseDataValue::VALUE
     # @return [String]
     attr_accessor :value
 

@@ -66,7 +66,7 @@ public class FileResponseDataUri {
   }
 
   /**
-   * File as base64 encoded string.
+   * _t__FileResponse::DATA_URI
    * @return dataUri
    */
   @jakarta.annotation.Nonnull

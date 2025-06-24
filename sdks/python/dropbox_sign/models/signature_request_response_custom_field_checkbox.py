@@ -34,14 +34,13 @@ class SignatureRequestResponseCustomFieldCheckbox(
     SignatureRequestResponseCustomFieldBase
 ):
     """
-    This class extends `SignatureRequestResponseCustomFieldBase`.
+    _t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="The type of this Custom Field. Only 'text' and 'checkbox' are currently supported."
-    )
+    type: StrictStr = Field(description="_t__SignatureRequestResponseCustomField::TYPE")
     value: Optional[StrictBool] = Field(
-        default=None, description="A true/false for checkbox fields"
+        default=None,
+        description="_t__SignatureRequestResponseCustomField::VALUE_CHECKBOX",
     )
     __properties: ClassVar[List[str]] = [
         "type",

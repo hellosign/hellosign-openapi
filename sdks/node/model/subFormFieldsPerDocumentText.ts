@@ -50,7 +50,7 @@ export class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    */
   "masked"?: boolean;
   /**
-   * Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
+   * _t__Sub::FormFieldsPerDocument::VALIDATION_TYPE
    */
   "validationType"?: SubFormFieldsPerDocumentText.ValidationTypeEnum;
   "validationCustomRegex"?: string;

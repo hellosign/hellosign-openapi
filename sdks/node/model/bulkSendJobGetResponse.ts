@@ -32,11 +32,11 @@ export class BulkSendJobGetResponse {
   "bulkSendJob": BulkSendJobResponse;
   "listInfo": ListInfoResponse;
   /**
-   * Contains information about the Signature Requests sent in bulk.
+   * _t__BulkSendJobGetResponse::SIGNATURE_REQUESTS
    */
   "signatureRequests": Array<BulkSendJobGetResponseSignatureRequests>;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

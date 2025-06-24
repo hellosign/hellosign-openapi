@@ -308,7 +308,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets email_address
      *
-     * @param string|null $email_address the email address associated with the Account
+     * @param string|null $email_address _t__Account::EMAIL_ADDRESS
      *
      * @return self
      */

@@ -27,40 +27,40 @@ import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumen
 import { TemplateResponseFieldAvgTextLength } from "./templateResponseFieldAvgTextLength";
 
 /**
- * This class extends `TemplateResponseDocumentFormFieldBase`
+ * _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
  */
 export class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentFormFieldBase {
   /**
-   * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+   * _t__TemplateResponseDocumentFormField::TYPE
    */
   "type": string = "text";
   "avgTextLength"?: TemplateResponseFieldAvgTextLength;
   /**
-   * Whether this form field is multiline text.
+   * _t__TemplateResponseDocumentFormField::IS_MULTILINE
    */
   "isMultiline"?: boolean;
   /**
-   * Original font size used in this form field\'s text.
+   * _t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE
    */
   "originalFontSize"?: number;
   /**
-   * Font family used in this form field\'s text.
+   * _t__TemplateResponseDocumentFormField::FONT_FAMILY
    */
   "fontFamily"?: string;
   /**
-   * Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
+   * _t__TemplateResponseDocumentFormField::VALIDATION_TYPE
    */
   "validationType"?: TemplateResponseDocumentFormFieldText.ValidationTypeEnum;
   /**
-   * When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.
+   * _t__TemplateResponseDocumentFormField::CUSTOM_REGEX
    */
   "validationCustomRegex"?: string | null;
   /**
-   * When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
+   * _t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL
    */
   "validationCustomRegexFormatLabel"?: string | null;
   /**
-   * The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+   * _t__TemplateResponseDocumentFormField::GROUP
    */
   "group"?: string | null;
 

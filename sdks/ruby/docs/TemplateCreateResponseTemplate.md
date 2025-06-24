@@ -1,10 +1,10 @@
 # Dropbox::Sign::TemplateCreateResponseTemplate
 
-Template object with parameters: `template_id`.
+_t__TemplateCreateResponseTemplate::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `template_id` | ```String``` |  The id of the Template.  |  |
+| `template_id` | ```String``` |  _t__TemplateResponse::TEMPLATE_ID  |  |
 

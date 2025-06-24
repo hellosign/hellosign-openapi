@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `name` | ```string``` |  The name of the form field group.  |  |
+| `name` | ```string``` |  _t__TemplateResponseDocumentFieldGroup::NAME  |  |
 | `rule` | [```TemplateResponseDocumentFieldGroupRule```](TemplateResponseDocumentFieldGroupRule.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

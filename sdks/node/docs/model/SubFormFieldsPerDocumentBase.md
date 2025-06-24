@@ -25,9 +25,9 @@ Name | Type | Description | Notes
 | `required`<sup>*_required_</sup> | ```boolean``` |  Whether this field is required.  |  |
 | `signer`<sup>*_required_</sup> | ```string``` |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE:** To set the value of the field as the preparer you must set this to `me_now`<br><br>**NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  |  |
 | `type`<sup>*_required_</sup> | ```string``` |    |  |
-| `width`<sup>*_required_</sup> | ```number``` |  Size of the field in pixels.  |  |
-| `x`<sup>*_required_</sup> | ```number``` |  Location coordinates of the field in pixels.  |  |
-| `y`<sup>*_required_</sup> | ```number``` |  Location coordinates of the field in pixels.  |  |
+| `width`<sup>*_required_</sup> | ```number``` |  _t__Sub::FormFieldsPerDocument::WIDTH  |  |
+| `x`<sup>*_required_</sup> | ```number``` |  _t__Sub::FormFieldsPerDocument::X  |  |
+| `y`<sup>*_required_</sup> | ```number``` |  _t__Sub::FormFieldsPerDocument::Y  |  |
 | `name` | ```string``` |  Display name for the field.  |  |
 | `page` | ```number``` |  Page in the document where the field should be placed (requires documents be PDF files).<br><br>- When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.  |  |
 

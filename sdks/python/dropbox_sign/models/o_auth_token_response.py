@@ -36,8 +36,7 @@ class OAuthTokenResponse(BaseModel):
     token_type: Optional[StrictStr] = None
     refresh_token: Optional[StrictStr] = None
     expires_in: Optional[StrictInt] = Field(
-        default=None,
-        description="Number of seconds until the `access_token` expires. Uses epoch time.",
+        default=None, description="_t__OAuthTokenResponse::EXPIRES_IN"
     )
     state: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = [

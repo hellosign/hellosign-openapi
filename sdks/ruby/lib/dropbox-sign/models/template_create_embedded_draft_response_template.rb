@@ -17,21 +17,21 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Template object with parameters: `template_id`, `edit_url`, `expires_at`.
+  # _t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION
   class TemplateCreateEmbeddedDraftResponseTemplate
-    # The id of the Template.
+    # _t__TemplateResponse::TEMPLATE_ID
     # @return [String]
     attr_accessor :template_id
 
-    # Link to edit the template.
+    # _t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL
     # @return [String]
     attr_accessor :edit_url
 
-    # When the link expires.
+    # _t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT
     # @return [Integer]
     attr_accessor :expires_at
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `type` | ```String``` |  An input field for radios  |  [default to 'radio'] |
-| `value` | ```Boolean``` |  The value of the form field.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::RADIO_TYPE  |  [default to 'radio'] |
+| `value` | ```Boolean``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
 

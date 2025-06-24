@@ -17,17 +17,17 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Basic information about the event that occurred.
+  # _t__EventCallbackRequestEvent::DESCRIPTION
   class EventCallbackRequestEvent
-    # Time the event was created (using Unix time).
+    # _t__EventCallbackRequestEvent::EVENT_TIME
     # @return [String]
     attr_accessor :event_time
 
-    # Type of callback event that was triggered.
+    # _t__EventCallbackRequestEvent::EVENT_TYPE
     # @return [String]
     attr_accessor :event_type
 
-    # Generated hash used to verify source of event data.
+    # _t__EventCallbackRequestEvent::EVENT_HASH
     # @return [String]
     attr_accessor :event_hash
 

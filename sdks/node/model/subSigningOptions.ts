@@ -25,27 +25,27 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+ * _t__Sub::SigningOptions::DESCRIPTION
  */
 export class SubSigningOptions {
   /**
-   * The default type shown (limited to the listed types)
+   * _t__Sub::SigningOptions::DEFAULT
    */
   "defaultType": SubSigningOptions.DefaultTypeEnum;
   /**
-   * Allows drawing the signature
+   * _t__Sub::SigningOptions::DRAW
    */
   "draw"?: boolean = false;
   /**
-   * Allows using a smartphone to email the signature
+   * _t__Sub::SigningOptions::PHONE
    */
   "phone"?: boolean = false;
   /**
-   * Allows typing the signature
+   * _t__Sub::SigningOptions::TYPE
    */
   "type"?: boolean = false;
   /**
-   * Allows uploading the signature
+   * _t__Sub::SigningOptions::UPLOAD
    */
   "upload"?: boolean = false;
 

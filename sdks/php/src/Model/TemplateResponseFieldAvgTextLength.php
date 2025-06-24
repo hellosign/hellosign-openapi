@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateResponseFieldAvgTextLength Class Doc Comment
  *
  * @category Class
- * @description Average text length in this field.
+ * @description _t__TemplateResponseFieldAvgTextLength::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -316,7 +316,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Sets num_lines
      *
-     * @param int|null $num_lines number of lines
+     * @param int|null $num_lines _t__TemplateResponseFieldAvgTextLength::NUM_LINES
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Sets num_chars_per_line
      *
-     * @param int|null $num_chars_per_line number of characters per line
+     * @param int|null $num_chars_per_line _t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE
      *
      * @return self
      */

@@ -1,12 +1,12 @@
 # Dropbox::Sign::ErrorResponseError
 
-Contains information about an error that occurred.
+_t__ErrorResponseError::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `error_msg`<sup>*_required_</sup> | ```String``` |  Message describing an error.  |  |
-| `error_name`<sup>*_required_</sup> | ```String``` |  Name of the error.  |  |
-| `error_path` | ```String``` |  Path at which an error occurred.  |  |
+| `error_msg`<sup>*_required_</sup> | ```String``` |  _t__ErrorResponseError::ERROR_MSG  |  |
+| `error_name`<sup>*_required_</sup> | ```String``` |  _t__ErrorResponseError::ERROR_NAME  |  |
+| `error_path` | ```String``` |  _t__ErrorResponseError::ERROR_PATH  |  |
 

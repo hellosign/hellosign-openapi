@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * A list of warnings.
+ * _t__WarningResponse::LIST_DESCRIPTION
  */
 @JsonPropertyOrder({
   WarningResponse.JSON_PROPERTY_WARNING_MSG,
@@ -71,7 +71,7 @@ public class WarningResponse {
   }
 
   /**
-   * Warning message
+   * _t__WarningResponse::WARNING_MSG
    * @return warningMsg
    */
   @jakarta.annotation.Nonnull
@@ -96,7 +96,7 @@ public class WarningResponse {
   }
 
   /**
-   * Warning name
+   * _t__WarningResponse::WARNING_NAME
    * @return warningName
    */
   @jakarta.annotation.Nonnull

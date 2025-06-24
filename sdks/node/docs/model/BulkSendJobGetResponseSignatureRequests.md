@@ -6,30 +6,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `testMode` | ```boolean``` |  Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.  |  [default to false] |
-| `signatureRequestId` | ```string``` |  The id of the SignatureRequest.  |  |
-| `requesterEmailAddress` | ```string``` |  The email address of the initiator of the SignatureRequest.  |  |
-| `title` | ```string``` |  The title the specified Account uses for the SignatureRequest.  |  |
-| `originalTitle` | ```string``` |  Default Label for account.  |  |
-| `subject` | ```string``` |  The subject in the email that was initially sent to the signers.  |  |
-| `message` | ```string``` |  The custom message in the email that was initially sent to the signers.  |  |
-| `metadata` | ```{ [key: string]: any; }``` |  The metadata attached to the signature request.  |  |
-| `createdAt` | ```number``` |  Time the signature request was created.  |  |
-| `expiresAt` | ```number``` |  The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
-| `isComplete` | ```boolean``` |  Whether or not the SignatureRequest has been fully executed by all signers.  |  |
-| `isDeclined` | ```boolean``` |  Whether or not the SignatureRequest has been declined by a signer.  |  |
-| `hasError` | ```boolean``` |  Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).  |  |
-| `filesUrl` | ```string``` |  The URL where a copy of the request&#39;s documents can be downloaded.  |  |
-| `signingUrl` | ```string``` |  The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.  |  |
-| `detailsUrl` | ```string``` |  The URL where the requester and the signers can view the current status of the SignatureRequest.  |  |
-| `ccEmailAddresses` | ```Array<string>``` |  A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.  |  |
-| `signingRedirectUrl` | ```string``` |  The URL you want the signer redirected to after they successfully sign.  |  |
-| `finalCopyUri` | ```string``` |  The path where the completed document can be downloaded  |  |
-| `templateIds` | ```Array<string>``` |  Templates IDs used in this SignatureRequest (if any).  |  |
-| `customFields` | [```Array<SignatureRequestResponseCustomFieldBase>```](SignatureRequestResponseCustomFieldBase.md) |  An array of Custom Field objects containing the name and type of each custom field.<br><br>* Text Field uses `SignatureRequestResponseCustomFieldText`<br>* Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`  |  |
-| `attachments` | [```Array<SignatureRequestResponseAttachment>```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |
-| `responseData` | [```Array<SignatureRequestResponseDataBase>```](SignatureRequestResponseDataBase.md) |  An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.  |  |
-| `signatures` | [```Array<SignatureRequestResponseSignatures>```](SignatureRequestResponseSignatures.md) |  An array of signature objects, 1 for each signer.  |  |
-| `bulkSendJobId` | ```string``` |  The id of the BulkSendJob.  |  |
+| `testMode` | ```boolean``` |  _t__SignatureRequestResponse::TEST_MODE  |  [default to false] |
+| `signatureRequestId` | ```string``` |  _t__SignatureRequestResponse::SIGNATURE_REQUEST_ID  |  |
+| `requesterEmailAddress` | ```string``` |  _t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS  |  |
+| `title` | ```string``` |  _t__SignatureRequestResponse::TITLE  |  |
+| `originalTitle` | ```string``` |  _t__SignatureRequestResponse::ORIGINAL_TITLE  |  |
+| `subject` | ```string``` |  _t__SignatureRequestResponse::SUBJECT  |  |
+| `message` | ```string``` |  _t__SignatureRequestResponse::MESSAGE  |  |
+| `metadata` | ```{ [key: string]: any; }``` |  _t__SignatureRequestResponse::METADATA  |  |
+| `createdAt` | ```number``` |  _t__SignatureRequestResponse::CREATED_AT  |  |
+| `expiresAt` | ```number``` |  _t__SignatureRequestResponse::EXPIRES_AT  |  |
+| `isComplete` | ```boolean``` |  _t__SignatureRequestResponse::IS_COMPLETE  |  |
+| `isDeclined` | ```boolean``` |  _t__SignatureRequestResponse::IS_DECLINED  |  |
+| `hasError` | ```boolean``` |  _t__SignatureRequestResponse::HAS_ERROR  |  |
+| `filesUrl` | ```string``` |  _t__SignatureRequestResponse::FILES_URL  |  |
+| `signingUrl` | ```string``` |  _t__SignatureRequestResponse::SIGNING_URL  |  |
+| `detailsUrl` | ```string``` |  _t__SignatureRequestResponse::DETAILS_URL  |  |
+| `ccEmailAddresses` | ```Array<string>``` |  _t__SignatureRequestResponse::CC_EMAIL_ADDRESSES  |  |
+| `signingRedirectUrl` | ```string``` |  _t__SignatureRequestResponse::SIGNING_REDIRECT_URL  |  |
+| `finalCopyUri` | ```string``` |  _t__SignatureRequestResponse::FINAL_COPY_URI  |  |
+| `templateIds` | ```Array<string>``` |  _t__SignatureRequestResponse::TEMPLATE_IDS  |  |
+| `customFields` | [```Array<SignatureRequestResponseCustomFieldBase>```](SignatureRequestResponseCustomFieldBase.md) |  _t__SignatureRequestResponseCustomField::DESCRIPTION  |  |
+| `attachments` | [```Array<SignatureRequestResponseAttachment>```](SignatureRequestResponseAttachment.md) |  _t__SignatureRequestResponseAttachment::DESCRIPTION  |  |
+| `responseData` | [```Array<SignatureRequestResponseDataBase>```](SignatureRequestResponseDataBase.md) |  _t__SignatureRequestResponseData::DESCRIPTION  |  |
+| `signatures` | [```Array<SignatureRequestResponseSignatures>```](SignatureRequestResponseSignatures.md) |  _t__SignatureRequestResponseSignatures::DESCRIPTION  |  |
+| `bulkSendJobId` | ```string``` |  _t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

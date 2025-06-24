@@ -29,7 +29,7 @@ export class OAuthTokenResponse {
   "tokenType"?: string;
   "refreshToken"?: string;
   /**
-   * Number of seconds until the `access_token` expires. Uses epoch time.
+   * _t__OAuthTokenResponse::EXPIRES_IN
    */
   "expiresIn"?: number;
   "state"?: string | null;

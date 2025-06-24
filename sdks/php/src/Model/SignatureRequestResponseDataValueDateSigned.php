@@ -308,7 +308,7 @@ class SignatureRequestResponseDataValueDateSigned extends SignatureRequestRespon
     /**
      * Sets type
      *
-     * @param string|null $type A date
+     * @param string|null $type _t__SignatureRequestResponseDataValue::DATESIGNED_TYPE
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class SignatureRequestResponseDataValueDateSigned extends SignatureRequestRespon
     /**
      * Sets value
      *
-     * @param string|null $value the value of the form field
+     * @param string|null $value _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return self
      */

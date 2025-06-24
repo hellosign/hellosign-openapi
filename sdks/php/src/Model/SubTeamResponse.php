@@ -315,7 +315,7 @@ class SubTeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets team_id
      *
-     * @param string|null $team_id The id of a team
+     * @param string|null $team_id _t__TeamGeneral::TEAM_ID
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class SubTeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of a team
+     * @param string|null $name _t__TeamGeneral::NAME
      *
      * @return self
      */

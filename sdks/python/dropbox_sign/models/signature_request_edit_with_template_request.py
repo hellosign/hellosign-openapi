@@ -41,7 +41,7 @@ class SignatureRequestEditWithTemplateRequest(BaseModel):
         description="Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used."
     )
     signers: List[SubSignatureRequestTemplateSigner] = Field(
-        description="Add Signers to your Templated-based Signature Request."
+        description="_t__Sub::SignatureRequestTemplateSigner::DESCRIPTION"
     )
     allow_decline: Optional[StrictBool] = Field(
         default=False,
@@ -78,8 +78,7 @@ class SignatureRequestEditWithTemplateRequest(BaseModel):
         description="The custom message in the email that will be sent to the signers.",
     )
     metadata: Optional[Dict[str, Any]] = Field(
-        default=None,
-        description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.",
+        default=None, description="_t__Sub::Metadata::DESCRIPTION"
     )
     signing_options: Optional[SubSigningOptions] = None
     signing_redirect_url: Optional[StrictStr] = Field(

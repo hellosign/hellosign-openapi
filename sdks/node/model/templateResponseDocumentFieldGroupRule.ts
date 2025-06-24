@@ -25,15 +25,15 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
+ * _t__TemplateResponseDocumentFieldGroup::RULE
  */
 export class TemplateResponseDocumentFieldGroupRule {
   /**
-   * Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
+   * _t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT
    */
   "requirement"?: string;
   /**
-   * Name of the group
+   * _t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL
    */
   "groupLabel"?: string;
 

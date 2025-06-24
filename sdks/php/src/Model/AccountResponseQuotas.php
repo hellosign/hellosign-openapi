@@ -36,7 +36,7 @@ use ReturnTypeWillChange;
  * AccountResponseQuotas Class Doc Comment
  *
  * @category Class
- * @description Details concerning remaining monthly quotas.
+ * @description _t__Account::QUOTA
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -343,7 +343,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets api_signature_requests_left
      *
-     * @param int|null $api_signature_requests_left API signature requests remaining
+     * @param int|null $api_signature_requests_left _t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT
      *
      * @return self
      */
@@ -377,7 +377,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets documents_left
      *
-     * @param int|null $documents_left signature requests remaining
+     * @param int|null $documents_left _t__AccountQuota::DOCUMENTS_LEFT
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets templates_total
      *
-     * @param int|null $templates_total total API templates allowed
+     * @param int|null $templates_total _t__AccountQuota::TEMPLATES_TOTAL
      *
      * @return self
      */
@@ -445,7 +445,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets templates_left
      *
-     * @param int|null $templates_left API templates remaining
+     * @param int|null $templates_left _t__AccountQuota::TEMPLATES_LEFT
      *
      * @return self
      */
@@ -479,7 +479,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets sms_verifications_left
      *
-     * @param int|null $sms_verifications_left SMS verifications remaining
+     * @param int|null $sms_verifications_left _t__AccountQuota::SMS_VERIFICATIONS_LEFT
      *
      * @return self
      */
@@ -513,7 +513,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets num_fax_pages_left
      *
-     * @param int|null $num_fax_pages_left Number of fax pages left
+     * @param int|null $num_fax_pages_left _t__AccountQuota::NUM_FAX_PAGES_LEFT
      *
      * @return self
      */

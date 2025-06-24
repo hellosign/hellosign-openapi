@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SignatureRequestResponseCustomFieldBase Class Doc Comment
  *
  * @category Class
- * @description An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
+ * @description _t__SignatureRequestResponseCustomField::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -344,7 +344,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets type
      *
-     * @param string $type The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
+     * @param string $type _t__SignatureRequestResponseCustomField::TYPE
      *
      * @return self
      */
@@ -371,7 +371,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets name
      *
-     * @param string $name the name of the Custom Field
+     * @param string $name _t__SignatureRequestResponseCustomField::NAME
      *
      * @return self
      */
@@ -398,7 +398,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets required
      *
-     * @param bool|null $required a boolean value denoting if this field is required
+     * @param bool|null $required _t__SignatureRequestResponseCustomField::REQUIRED
      *
      * @return self
      */
@@ -425,7 +425,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets api_id
      *
-     * @param string|null $api_id the unique ID for this field
+     * @param string|null $api_id _t__SignatureRequestResponseCustomField::API_ID
      *
      * @return self
      */
@@ -452,7 +452,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets editor
      *
-     * @param string|null $editor the name of the Role that is able to edit this field
+     * @param string|null $editor _t__SignatureRequestResponseCustomField::EDITOR
      *
      * @return self
      */

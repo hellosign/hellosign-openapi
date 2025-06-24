@@ -36,7 +36,7 @@ use ReturnTypeWillChange;
  * EventCallbackRequestEventMetadata Class Doc Comment
  *
  * @category Class
- * @description Specific metadata about the event.
+ * @description _t__EventCallbackRequestEventMetadata::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -329,7 +329,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Sets related_signature_id
      *
-     * @param string|null $related_signature_id Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.
+     * @param string|null $related_signature_id _t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID
      *
      * @return self
      */
@@ -363,7 +363,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Sets reported_for_account_id
      *
-     * @param string|null $reported_for_account_id account ID the event was reported for
+     * @param string|null $reported_for_account_id _t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Sets reported_for_app_id
      *
-     * @param string|null $reported_for_app_id app ID the event was reported for
+     * @param string|null $reported_for_app_id _t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID
      *
      * @return self
      */
@@ -431,7 +431,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
     /**
      * Sets event_message
      *
-     * @param string|null $event_message message about a declined or failed (due to error) signature flow
+     * @param string|null $event_message _t__EventCallbackRequestEventMetadata::EVENT_MESSAGE
      *
      * @return self
      */

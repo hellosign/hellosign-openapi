@@ -36,7 +36,7 @@ class TeamGetInfoResponse(BaseModel):
 
     team: TeamInfoResponse
     warnings: Optional[List[WarningResponse]] = Field(
-        default=None, description="A list of warnings."
+        default=None, description="_t__WarningResponse::LIST_DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = ["team", "warnings"]
 

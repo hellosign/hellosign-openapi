@@ -17,40 +17,40 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array of Form Field objects containing the name and type of each named field.
+  # _t__TemplateResponseDocumentFormField::DESCRIPTION
   class TemplateResponseDocumentFormFieldBase
     # @return [String]
     attr_accessor :type
 
-    # A unique id for the form field.
+    # _t__TemplateResponseDocumentFormField::API_ID
     # @return [String]
     attr_accessor :api_id
 
-    # The name of the form field.
+    # _t__TemplateResponseDocumentFormField::NAME
     # @return [String]
     attr_accessor :name
 
-    # The signer of the Form Field.
+    # _t__TemplateResponseDocumentFormField::SIGNER
     # @return [Integer, String]
     attr_accessor :signer
 
-    # The horizontal offset in pixels for this form field.
+    # _t__TemplateResponseDocumentFormField::X
     # @return [Integer]
     attr_accessor :x
 
-    # The vertical offset in pixels for this form field.
+    # _t__TemplateResponseDocumentFormField::Y
     # @return [Integer]
     attr_accessor :y
 
-    # The width in pixels of this form field.
+    # _t__TemplateResponseDocumentFormField::WIDTH
     # @return [Integer]
     attr_accessor :width
 
-    # The height in pixels of this form field.
+    # _t__TemplateResponseDocumentFormField::HEIGHT
     # @return [Integer]
     attr_accessor :height
 
-    # Boolean showing whether or not this field is required.
+    # _t__TemplateResponseDocumentFormField::REQUIRED
     # @return [Boolean]
     attr_accessor :required
 

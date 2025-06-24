@@ -29,13 +29,13 @@ from pydantic import StrictBool
 
 class ErrorResponseError(BaseModel):
     """
-    Contains information about an error that occurred.
+    _t__ErrorResponseError::DESCRIPTION
     """  # noqa: E501
 
-    error_msg: StrictStr = Field(description="Message describing an error.")
-    error_name: StrictStr = Field(description="Name of the error.")
+    error_msg: StrictStr = Field(description="_t__ErrorResponseError::ERROR_MSG")
+    error_name: StrictStr = Field(description="_t__ErrorResponseError::ERROR_NAME")
     error_path: Optional[StrictStr] = Field(
-        default=None, description="Path at which an error occurred."
+        default=None, description="_t__ErrorResponseError::ERROR_PATH"
     )
     __properties: ClassVar[List[str]] = ["error_msg", "error_name", "error_path"]
 

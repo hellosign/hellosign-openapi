@@ -29,11 +29,11 @@ from pydantic import StrictBool
 
 class WarningResponse(BaseModel):
     """
-    A list of warnings.
+    _t__WarningResponse::LIST_DESCRIPTION
     """  # noqa: E501
 
-    warning_msg: StrictStr = Field(description="Warning message")
-    warning_name: StrictStr = Field(description="Warning name")
+    warning_msg: StrictStr = Field(description="_t__WarningResponse::WARNING_MSG")
+    warning_name: StrictStr = Field(description="_t__WarningResponse::WARNING_NAME")
     __properties: ClassVar[List[str]] = ["warning_msg", "warning_name"]
 
     model_config = ConfigDict(

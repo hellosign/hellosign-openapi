@@ -161,7 +161,7 @@ public class OAuthTokenResponse {
   }
 
   /**
-   * Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.
+   * _t__OAuthTokenResponse::EXPIRES_IN
    * @return expiresIn
    */
   @jakarta.annotation.Nullable

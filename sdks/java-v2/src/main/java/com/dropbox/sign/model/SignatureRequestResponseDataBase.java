@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+ * _t__SignatureRequestResponseData::DESCRIPTION
  */
 @JsonPropertyOrder({
   SignatureRequestResponseDataBase.JSON_PROPERTY_API_ID,
@@ -105,7 +105,7 @@ public class SignatureRequestResponseDataBase {
   }
 
   /**
-   * The unique ID for this field.
+   * _t__SignatureRequestResponseData::API_ID
    * @return apiId
    */
   @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class SignatureRequestResponseDataBase {
   }
 
   /**
-   * The ID of the signature to which this response is linked.
+   * _t__SignatureRequestResponseData::SIGNATURE_ID
    * @return signatureId
    */
   @jakarta.annotation.Nullable
@@ -155,7 +155,7 @@ public class SignatureRequestResponseDataBase {
   }
 
   /**
-   * The name of the form field.
+   * _t__SignatureRequestResponseData::NAME
    * @return name
    */
   @jakarta.annotation.Nullable
@@ -180,7 +180,7 @@ public class SignatureRequestResponseDataBase {
   }
 
   /**
-   * A boolean value denoting if this field is required.
+   * _t__SignatureRequestResponseData::REQUIRED
    * @return required
    */
   @jakarta.annotation.Nullable

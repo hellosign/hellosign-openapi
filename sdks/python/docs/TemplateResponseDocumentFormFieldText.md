@@ -1,19 +1,19 @@
 # TemplateResponseDocumentFormFieldText
 
-This class extends `TemplateResponseDocumentFormFieldBase`
+_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `type`<sup>*_required_</sup> | ```str``` |  The type of this form field. See [field types](/api/reference/constants/#field-types).<br><br>* Text Field uses `TemplateResponseDocumentFormFieldText`<br>* Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`<br>* Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`<br>* Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`<br>* Radio Field uses `TemplateResponseDocumentFormFieldRadio`<br>* Signature Field uses `TemplateResponseDocumentFormFieldSignature`<br>* Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`<br>* Initials Field uses `TemplateResponseDocumentFormFieldInitials`  |  [default to 'text'] |
+| `type`<sup>*_required_</sup> | ```str``` |  _t__TemplateResponseDocumentFormField::TYPE  |  [default to 'text'] |
 | `avg_text_length` | [```TemplateResponseFieldAvgTextLength```](TemplateResponseFieldAvgTextLength.md) |    |  |
-| `is_multiline` | ```bool``` |  Whether this form field is multiline text.  |  |
-| `original_font_size` | ```int``` |  Original font size used in this form field&#39;s text.  |  |
-| `font_family` | ```str``` |  Font family used in this form field&#39;s text.  |  |
-| `validation_type` | ```str``` |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  |  |
-| `validation_custom_regex` | ```str``` |  When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.  |  |
-| `validation_custom_regex_format_label` | ```str``` |  When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.  |  |
-| `group` | ```str``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
+| `is_multiline` | ```bool``` |  _t__TemplateResponseDocumentFormField::IS_MULTILINE  |  |
+| `original_font_size` | ```int``` |  _t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE  |  |
+| `font_family` | ```str``` |  _t__TemplateResponseDocumentFormField::FONT_FAMILY  |  |
+| `validation_type` | ```str``` |  _t__TemplateResponseDocumentFormField::VALIDATION_TYPE  |  |
+| `validation_custom_regex` | ```str``` |  _t__TemplateResponseDocumentFormField::CUSTOM_REGEX  |  |
+| `validation_custom_regex_format_label` | ```str``` |  _t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL  |  |
+| `group` | ```str``` |  _t__TemplateResponseDocumentFormField::GROUP  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

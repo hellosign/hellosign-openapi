@@ -26,11 +26,11 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class TemplateResponseSignerRole {
   /**
-   * The name of the Role.
+   * _t__TemplateResponseSignerRole::NAME
    */
   "name"?: string;
   /**
-   * If signer order is assigned this is the 0-based index for this role.
+   * _t__TemplateResponseSignerRole::ORDER
    */
   "order"?: number;
 

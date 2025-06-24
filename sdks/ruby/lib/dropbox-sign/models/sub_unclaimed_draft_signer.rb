@@ -18,15 +18,15 @@ end
 
 module Dropbox::Sign
   class SubUnclaimedDraftSigner
-    # The email address of the signer.
+    # _t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS
     # @return [String]
     attr_accessor :email_address
 
-    # The name of the signer.
+    # _t__Sub::UnclaimedDraftSigner::NAME
     # @return [String]
     attr_accessor :name
 
-    # The order the signer is required to sign in.
+    # _t__Sub::UnclaimedDraftSigner::ORDER
     # @return [Integer, nil]
     attr_accessor :order
 

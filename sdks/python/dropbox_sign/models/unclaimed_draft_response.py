@@ -29,30 +29,26 @@ from pydantic import StrictBool
 
 class UnclaimedDraftResponse(BaseModel):
     """
-    A group of documents that a user can take ownership of via the claim URL.
+    _t__UnclaimedDraftResponse::DESCRIPTION
     """  # noqa: E501
 
     signature_request_id: Optional[StrictStr] = Field(
-        default=None,
-        description="The ID of the signature request that is represented by this UnclaimedDraft.",
+        default=None, description="_t__UnclaimedDraft::SIGNATURE_REQUEST_ID"
     )
     claim_url: Optional[StrictStr] = Field(
-        default=None, description="The URL to be used to claim this UnclaimedDraft."
+        default=None, description="_t__UnclaimedDraft::CLAIM_URL"
     )
     signing_redirect_url: Optional[StrictStr] = Field(
-        default=None,
-        description="The URL you want signers redirected to after they successfully sign.",
+        default=None, description="_t__UnclaimedDraft::SIGNING_REDIRECT_URL"
     )
     requesting_redirect_url: Optional[StrictStr] = Field(
-        default=None,
-        description="The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).",
+        default=None, description="_t__UnclaimedDraft::REQUESTING_REDIRECT_URL"
     )
     expires_at: Optional[StrictInt] = Field(
-        default=None, description="When the link expires."
+        default=None, description="_t__UnclaimedDraft::EXPIRES_AT"
     )
     test_mode: Optional[StrictBool] = Field(
-        default=None,
-        description="Whether this is a test draft. Signature requests made from test drafts have no legal value.",
+        default=None, description="_t__UnclaimedDraft::TEST_MODE"
     )
     __properties: ClassVar[List[str]] = [
         "signature_request_id",

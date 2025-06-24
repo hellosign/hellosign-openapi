@@ -25,23 +25,23 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
+ * _t__BulkSendJobResponse::DESCRIPTION
  */
 export class BulkSendJobResponse {
   /**
-   * The id of the BulkSendJob.
+   * _t__BulkSendJobResponse::BULK_SEND_JOB_ID
    */
   "bulkSendJobId"?: string | null;
   /**
-   * The total amount of Signature Requests queued for sending.
+   * _t__BulkSendJobResponse::TOTAL
    */
   "total"?: number;
   /**
-   * True if you are the owner of this BulkSendJob, false if it\'s been shared with you by a team member.
+   * _t__BulkSendJobResponse::IS_CREATOR
    */
   "isCreator"?: boolean;
   /**
-   * Time that the BulkSendJob was created.
+   * _t__BulkSendJobResponse::CREATED_AT
    */
   "createdAt"?: number;
 

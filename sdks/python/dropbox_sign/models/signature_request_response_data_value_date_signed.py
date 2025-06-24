@@ -35,9 +35,12 @@ class SignatureRequestResponseDataValueDateSigned(SignatureRequestResponseDataBa
     SignatureRequestResponseDataValueDateSigned
     """  # noqa: E501
 
-    type: Optional[StrictStr] = Field(default="date_signed", description="A date")
+    type: Optional[StrictStr] = Field(
+        default="date_signed",
+        description="_t__SignatureRequestResponseDataValue::DATESIGNED_TYPE",
+    )
     value: Optional[StrictStr] = Field(
-        default=None, description="The value of the form field."
+        default=None, description="_t__SignatureRequestResponseDataValue::VALUE"
     )
     __properties: ClassVar[List[str]] = [
         "api_id",

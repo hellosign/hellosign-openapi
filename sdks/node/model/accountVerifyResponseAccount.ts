@@ -26,7 +26,7 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class AccountVerifyResponseAccount {
   /**
-   * The email address associated with the Account.
+   * _t__Account::EMAIL_ADDRESS
    */
   "emailAddress"?: string;
 

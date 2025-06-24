@@ -63,6 +63,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => '\Dropbox\Sign\Model\SubSignatureRequestSigner[]',
         'grouped_signers' => '\Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]',
         'allow_decline' => 'bool',
+        'allow_form_view' => 'bool',
         'allow_reassign' => 'bool',
         'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
@@ -98,6 +99,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => null,
         'grouped_signers' => null,
         'allow_decline' => null,
+        'allow_form_view' => null,
         'allow_reassign' => null,
         'attachments' => null,
         'cc_email_addresses' => 'email',
@@ -131,6 +133,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => false,
         'grouped_signers' => false,
         'allow_decline' => false,
+        'allow_form_view' => false,
         'allow_reassign' => false,
         'attachments' => false,
         'cc_email_addresses' => false,
@@ -236,6 +239,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => 'signers',
         'grouped_signers' => 'grouped_signers',
         'allow_decline' => 'allow_decline',
+        'allow_form_view' => 'allow_form_view',
         'allow_reassign' => 'allow_reassign',
         'attachments' => 'attachments',
         'cc_email_addresses' => 'cc_email_addresses',
@@ -269,6 +273,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => 'setSigners',
         'grouped_signers' => 'setGroupedSigners',
         'allow_decline' => 'setAllowDecline',
+        'allow_form_view' => 'setAllowFormView',
         'allow_reassign' => 'setAllowReassign',
         'attachments' => 'setAttachments',
         'cc_email_addresses' => 'setCcEmailAddresses',
@@ -302,6 +307,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => 'getSigners',
         'grouped_signers' => 'getGroupedSigners',
         'allow_decline' => 'getAllowDecline',
+        'allow_form_view' => 'getAllowFormView',
         'allow_reassign' => 'getAllowReassign',
         'attachments' => 'getAttachments',
         'cc_email_addresses' => 'getCcEmailAddresses',
@@ -385,6 +391,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('signers', $data ?? [], null);
         $this->setIfExists('grouped_signers', $data ?? [], null);
         $this->setIfExists('allow_decline', $data ?? [], false);
+        $this->setIfExists('allow_form_view', $data ?? [], false);
         $this->setIfExists('allow_reassign', $data ?? [], false);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('cc_email_addresses', $data ?? [], null);
@@ -545,7 +552,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets signers
      *
-     * @param SubSignatureRequestSigner[]|null $signers Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+     * @param SubSignatureRequestSigner[]|null $signers _t__Sub::SignatureRequestSigner::DESCRIPTION
      *
      * @return self
      */
@@ -572,7 +579,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets grouped_signers
      *
-     * @param SubSignatureRequestGroupedSigners[]|null $grouped_signers Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+     * @param SubSignatureRequestGroupedSigners[]|null $grouped_signers _t__Sub::SignatureRequestGroupedSigners::DESCRIPTION
      *
      * @return self
      */
@@ -609,6 +616,33 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
             throw new InvalidArgumentException('non-nullable allow_decline cannot be null');
         }
         $this->container['allow_decline'] = $allow_decline;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_form_view
+     *
+     * @return bool|null
+     */
+    public function getAllowFormView()
+    {
+        return $this->container['allow_form_view'];
+    }
+
+    /**
+     * Sets allow_form_view
+     *
+     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setAllowFormView(?bool $allow_form_view)
+    {
+        if (is_null($allow_form_view)) {
+            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
+        }
+        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }
@@ -653,7 +687,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets attachments
      *
-     * @param SubAttachment[]|null $attachments A list describing the attachments
+     * @param SubAttachment[]|null $attachments _t__SubAttachment::LIST_DESCRIPTION
      *
      * @return self
      */
@@ -954,7 +988,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+     * @param array<string,mixed>|null $metadata _t__Sub::Metadata::DESCRIPTION
      *
      * @return self
      */

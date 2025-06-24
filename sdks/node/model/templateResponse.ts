@@ -32,75 +32,75 @@ import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumen
 import { TemplateResponseSignerRole } from "./templateResponseSignerRole";
 
 /**
- * Contains information about the templates you and your team have created.
+ * _t__TemplateResponse::DESCRIPTION
  */
 export class TemplateResponse {
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    */
   "templateId"?: string;
   /**
-   * The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+   * _t__TemplateResponse::TITLE
    */
   "title"?: string;
   /**
-   * The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+   * _t__TemplateResponse::MESSAGE
    */
   "message"?: string;
   /**
-   * Time the template was last updated.
+   * _t__TemplateResponse::UPDATED_AT
    */
   "updatedAt"?: number;
   /**
-   * `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
+   * _t__TemplateResponse::IS_EMBEDDED
    */
   "isEmbedded"?: boolean | null;
   /**
-   * `true` if you are the owner of this template, `false` if it\'s been shared with you by a team member.
+   * _t__TemplateResponse::IS_CREATOR
    */
   "isCreator"?: boolean;
   /**
-   * Indicates whether edit rights have been granted to you by the owner (always `true` if that\'s you).
+   * _t__TemplateResponse::CAN_EDIT
    */
   "canEdit"?: boolean;
   /**
-   * Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
+   * _t__TemplateResponse::IS_LOCKED
    */
   "isLocked"?: boolean;
   /**
-   * The metadata attached to the template.
+   * _t__TemplateResponse::METADATA
    */
   "metadata"?: { [key: string]: any };
   /**
-   * An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+   * _t__TemplateResponse::SIGNER_ROLES
    */
   "signerRoles"?: Array<TemplateResponseSignerRole>;
   /**
-   * An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+   * _t__TemplateResponse::CC_ROLES
    */
   "ccRoles"?: Array<TemplateResponseCCRole>;
   /**
-   * An array describing each document associated with this Template. Includes form field data for each document.
+   * _t__TemplateResponse::DOCUMENTS
    */
   "documents"?: Array<TemplateResponseDocument>;
   /**
-   * Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+   * _t__TemplateResponseCustomField::DESCRIPTION
    *
    * @deprecated
    */
   "customFields"?: Array<TemplateResponseDocumentCustomFieldBase> | null;
   /**
-   * Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+   * _t__TemplateResponseNamedFormField::DESCRIPTION
    *
    * @deprecated
    */
   "namedFormFields"?: Array<TemplateResponseDocumentFormFieldBase> | null;
   /**
-   * An array of the Accounts that can use this Template.
+   * _t__TemplateResponse::ACCOUNTS
    */
   "accounts"?: Array<TemplateResponseAccount>;
   /**
-   * Signer attachments.
+   * _t__SignatureRequestResponseAttachment::DESCRIPTION
    */
   "attachments"?: Array<SignatureRequestResponseAttachment>;
 

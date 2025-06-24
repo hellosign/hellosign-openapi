@@ -17,81 +17,81 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array of signature objects, 1 for each signer.
+  # _t__SignatureRequestResponseSignatures::DESCRIPTION
   class SignatureRequestResponseSignatures
-    # Signature identifier.
+    # _t__SignatureRequestResponseSignatures::SIGNATURE_ID
     # @return [String]
     attr_accessor :signature_id
 
-    # Signer Group GUID
+    # _t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID
     # @return [String, nil]
     attr_accessor :signer_group_guid
 
-    # The email address of the signer.
+    # _t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS
     # @return [String]
     attr_accessor :signer_email_address
 
-    # The name of the signer.
+    # _t__SignatureRequestResponseSignatures::SIGNER_NAME
     # @return [String, nil]
     attr_accessor :signer_name
 
-    # The role of the signer.
+    # _t__SignatureRequestResponseSignatures::SIGNER_ROLE
     # @return [String, nil]
     attr_accessor :signer_role
 
-    # If signer order is assigned this is the 0-based index for this signer.
+    # _t__SignatureRequestResponseSignatures::ORDER
     # @return [Integer, nil]
     attr_accessor :order
 
-    # The current status of the signature. eg: awaiting_signature, signed, declined.
+    # _t__SignatureRequestResponseSignatures::STATUS_CODE
     # @return [String]
     attr_accessor :status_code
 
-    # The reason provided by the signer for declining the request.
+    # _t__SignatureRequestResponseSignatures::DECLINE_REASON
     # @return [String, nil]
     attr_accessor :decline_reason
 
-    # Time that the document was signed or null.
+    # _t__SignatureRequestResponseSignatures::SIGNED_AT
     # @return [Integer, nil]
     attr_accessor :signed_at
 
-    # The time that the document was last viewed by this signer or null.
+    # _t__SignatureRequestResponseSignatures::LAST_VIEWED_AT
     # @return [Integer, nil]
     attr_accessor :last_viewed_at
 
-    # The time the last reminder email was sent to the signer or null.
+    # _t__SignatureRequestResponseSignatures::LAST_REMINDED_AT
     # @return [Integer, nil]
     attr_accessor :last_reminded_at
 
-    # Boolean to indicate whether this signature requires a PIN to access.
+    # _t__SignatureRequestResponseSignatures::HAS_PIN
     # @return [Boolean]
     attr_accessor :has_pin
 
-    # Boolean to indicate whether this signature has SMS authentication enabled.
+    # _t__SignatureRequestResponseSignatures::HAS_SMS_AUTH
     # @return [Boolean, nil]
     attr_accessor :has_sms_auth
 
-    # Boolean to indicate whether this signature has SMS delivery enabled.
+    # _t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY
     # @return [Boolean, nil]
     attr_accessor :has_sms_delivery
 
-    # The SMS phone number used for authentication or signature request delivery.
+    # _t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER
     # @return [String, nil]
     attr_accessor :sms_phone_number
 
-    # Email address of original signer who reassigned to this signer.
+    # _t__SignatureRequestResponseSignatures::REASSIGNED_BY
     # @return [String, nil]
     attr_accessor :reassigned_by
 
-    # Reason provided by original signer who reassigned to this signer.
+    # _t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON
     # @return [String, nil]
     attr_accessor :reassignment_reason
 
-    # Previous signature identifier.
+    # _t__SignatureRequestResponseSignatures::REASSIGNED_FROM
     # @return [String, nil]
     attr_accessor :reassigned_from
 
-    # Error message pertaining to this signer, or null.
+    # _t__SignatureRequestResponseSignatures::ERROR
     # @return [String, nil]
     attr_accessor :error
 

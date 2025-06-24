@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * ApiAppResponseOptions Class Doc Comment
  *
  * @category Class
- * @description An object with options that override account settings.
+ * @description _t__ApiAppResponseOptions::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -309,7 +309,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets can_insert_everywhere
      *
-     * @param bool|null $can_insert_everywhere Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document
+     * @param bool|null $can_insert_everywhere _t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE
      *
      * @return self
      */

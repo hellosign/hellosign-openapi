@@ -315,7 +315,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     /**
      * Sets type
      *
-     * @param string|null $type A signature input field
+     * @param string|null $type _t__SignatureRequestResponseDataValue::SIGNATURE_TYPE
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     /**
      * Sets value
      *
-     * @param string|null $value the value of the form field
+     * @param string|null $value _t__SignatureRequestResponseDataValue::VALUE
      *
      * @return self
      */
@@ -369,7 +369,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     /**
      * Sets is_signed
      *
-     * @param bool|null $is_signed this field contains the boolean true if the field is signed
+     * @param bool|null $is_signed _t__SignatureRequestResponseDataValue::IS_SIGNED
      *
      * @return self
      */

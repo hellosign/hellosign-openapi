@@ -35,37 +35,31 @@ class AccountResponse(BaseModel):
     """  # noqa: E501
 
     account_id: Optional[StrictStr] = Field(
-        default=None, description="The ID of the Account"
+        default=None, description="_t__Account::ACCOUNT_ID"
     )
     email_address: Optional[StrictStr] = Field(
-        default=None, description="The email address associated with the Account."
+        default=None, description="_t__Account::EMAIL_ADDRESS"
     )
     is_locked: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has been locked out of their account by a team admin.",
+        default=None, description="_t__Account::IS_LOCKED"
     )
     is_paid_hs: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has a paid Dropbox Sign account.",
+        default=None, description="_t__Account::IS_PAID_HS"
     )
     is_paid_hf: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has a paid HelloFax account.",
+        default=None, description="_t__Account::IS_PAID_HF"
     )
     quotas: Optional[AccountResponseQuotas] = None
     callback_url: Optional[StrictStr] = Field(
-        default=None, description="The URL that Dropbox Sign events will `POST` to."
+        default=None, description="_t__Account::CALLBACK_URL"
     )
     role_code: Optional[StrictStr] = Field(
-        default=None, description="The membership role for the team."
+        default=None, description="_t__Account::ROLE_CODE"
     )
     team_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the team account belongs to."
+        default=None, description="_t__Account::TEAM_ID"
     )
-    locale: Optional[StrictStr] = Field(
-        default=None,
-        description="The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.",
-    )
+    locale: Optional[StrictStr] = Field(default=None, description="_t__Account::LOCALE")
     usage: Optional[AccountResponseUsage] = None
     __properties: ClassVar[List[str]] = [
         "account_id",

@@ -1,11 +1,11 @@
 # Dropbox::Sign::TemplateResponseFieldAvgTextLength
 
-Average text length in this field.
+_t__TemplateResponseFieldAvgTextLength::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `num_lines` | ```Integer``` |  Number of lines.  |  |
-| `num_chars_per_line` | ```Integer``` |  Number of characters per line.  |  |
+| `num_lines` | ```Integer``` |  _t__TemplateResponseFieldAvgTextLength::NUM_LINES  |  |
+| `num_chars_per_line` | ```Integer``` |  _t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE  |  |
 

@@ -1,11 +1,11 @@
 # Dropbox::Sign::SignatureRequestResponseCustomFieldText
 
-This class extends `SignatureRequestResponseCustomFieldBase`.
+_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `type`<sup>*_required_</sup> | ```String``` |  The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.  |  [default to 'text'] |
-| `value` | ```String``` |  A text string for text fields  |  |
+| `type`<sup>*_required_</sup> | ```String``` |  _t__SignatureRequestResponseCustomField::TYPE  |  [default to 'text'] |
+| `value` | ```String``` |  _t__SignatureRequestResponseCustomField::VALUE_TEXT  |  |
 

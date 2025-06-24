@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class SubTeamResponse
-    # The id of a team
+    # _t__TeamGeneral::TEAM_ID
     # @return [String]
     attr_accessor :team_id
 
-    # The name of a team
+    # _t__TeamGeneral::NAME
     # @return [String]
     attr_accessor :name
 

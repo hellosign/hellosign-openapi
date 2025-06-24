@@ -1,11 +1,11 @@
 # Dropbox::Sign::EmbeddedEditUrlResponseEmbedded
 
-An embedded template object.
+_t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `edit_url` | ```String``` |  A template url that can be opened in an iFrame.  |  |
-| `expires_at` | ```Integer``` |  The specific time that the the `edit_url` link expires, in epoch.  |  |
+| `edit_url` | ```String``` |  _t__EmbeddedEditUrlResponseEmbedded::EDIT_URL  |  |
+| `expires_at` | ```Integer``` |  _t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT  |  |
 

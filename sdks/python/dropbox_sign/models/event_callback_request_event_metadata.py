@@ -29,22 +29,23 @@ from pydantic import StrictBool
 
 class EventCallbackRequestEventMetadata(BaseModel):
     """
-    Specific metadata about the event.
+    _t__EventCallbackRequestEventMetadata::DESCRIPTION
     """  # noqa: E501
 
     related_signature_id: Optional[StrictStr] = Field(
         default=None,
-        description="Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.",
+        description="_t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID",
     )
     reported_for_account_id: Optional[StrictStr] = Field(
-        default=None, description="Account ID the event was reported for."
+        default=None,
+        description="_t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID",
     )
     reported_for_app_id: Optional[StrictStr] = Field(
-        default=None, description="App ID the event was reported for."
+        default=None,
+        description="_t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID",
     )
     event_message: Optional[StrictStr] = Field(
-        default=None,
-        description="Message about a declined or failed (due to error) signature flow.",
+        default=None, description="_t__EventCallbackRequestEventMetadata::EVENT_MESSAGE"
     )
     __properties: ClassVar[List[str]] = [
         "related_signature_id",

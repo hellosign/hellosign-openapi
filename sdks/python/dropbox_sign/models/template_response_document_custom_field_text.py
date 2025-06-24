@@ -35,26 +35,24 @@ from pydantic import StrictBool
 
 class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFieldBase):
     """
-    This class extends `TemplateResponseDocumentCustomFieldBase`
+    _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`"
-    )
+    type: StrictStr = Field(description="_t__TemplateResponseDocumentCustomField::TYPE")
     avg_text_length: Optional[TemplateResponseFieldAvgTextLength] = None
     is_multiline: Optional[StrictBool] = Field(
         default=None,
-        description="Whether this form field is multiline text.",
+        description="_t__TemplateResponseDocumentCustomField::IS_MULTILINE",
         alias="isMultiline",
     )
     original_font_size: Optional[StrictInt] = Field(
         default=None,
-        description="Original font size used in this form field's text.",
+        description="_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE",
         alias="originalFontSize",
     )
     font_family: Optional[StrictStr] = Field(
         default=None,
-        description="Font family used in this form field's text.",
+        description="_t__TemplateResponseDocumentCustomField::FONT_FAMILY",
         alias="fontFamily",
     )
     __properties: ClassVar[List[str]] = [

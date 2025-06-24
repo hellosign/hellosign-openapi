@@ -315,7 +315,7 @@ class TemplateResponseSignerRole implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets name
      *
-     * @param string|null $name the name of the Role
+     * @param string|null $name _t__TemplateResponseSignerRole::NAME
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class TemplateResponseSignerRole implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets order
      *
-     * @param int|null $order if signer order is assigned this is the 0-based index for this role
+     * @param int|null $order _t__TemplateResponseSignerRole::ORDER
      *
      * @return self
      */

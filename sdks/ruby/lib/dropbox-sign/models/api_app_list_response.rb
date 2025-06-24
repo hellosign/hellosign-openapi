@@ -18,14 +18,14 @@ end
 
 module Dropbox::Sign
   class ApiAppListResponse
-    # Contains information about API Apps.
+    # _t__ApiAppListResponse::DESCRIPTION
     # @return [Array<ApiAppResponse>]
     attr_accessor :api_apps
 
     # @return [ListInfoResponse]
     attr_accessor :list_info
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

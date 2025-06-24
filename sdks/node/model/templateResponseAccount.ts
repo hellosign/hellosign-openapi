@@ -27,23 +27,23 @@ import { TemplateResponseAccountQuota } from "./templateResponseAccountQuota";
 
 export class TemplateResponseAccount {
   /**
-   * The id of the Account.
+   * _t__TemplateResponseAccount::ACCOUNT_ID
    */
   "accountId"?: string;
   /**
-   * The email address associated with the Account.
+   * _t__TemplateResponseAccount::EMAIL_ADDRESS
    */
   "emailAddress"?: string;
   /**
-   * Returns `true` if the user has been locked out of their account by a team admin.
+   * _t__TemplateResponseAccount::IS_LOCKED
    */
   "isLocked"?: boolean;
   /**
-   * Returns `true` if the user has a paid Dropbox Sign account.
+   * _t__TemplateResponseAccount::IS_PAID_HS
    */
   "isPaidHs"?: boolean;
   /**
-   * Returns `true` if the user has a paid HelloFax account.
+   * _t__TemplateResponseAccount::IS_PAID_HF
    */
   "isPaidHf"?: boolean;
   "quotas"?: TemplateResponseAccountQuota;

@@ -30,7 +30,7 @@ import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
  */
 export class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentBase {
   /**
-   * A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.
+   * _t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE
    */
   "type": string = "text-merge";
   /**

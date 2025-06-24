@@ -1,8 +1,6 @@
 # Dropbox::Sign::SubWhiteLabelingOptions
 
-An array of elements and values serialized to a string, to be used to customize the app&#39;s signer page. (Only applies to some API plans)
-
-Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
+_t__Sub::WhiteLabelingOptions::DESCRIPTION
 
 ## Properties
 
@@ -22,5 +20,5 @@ Take a look at our [white labeling guide](https://developers.hellosign.com/api/r
 | `secondary_button_text_color_hover` | ```String``` |    |  [default to '#0061FE'] |
 | `text_color1` | ```String``` |    |  [default to '#808080'] |
 | `text_color2` | ```String``` |    |  [default to '#ffffff'] |
-| `reset_to_default` | ```Boolean``` |  Resets white labeling options to defaults. Only useful when updating an API App.  |  |
+| `reset_to_default` | ```Boolean``` |  _t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT  |  |
 

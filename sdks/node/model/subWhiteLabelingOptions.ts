@@ -25,7 +25,7 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An array of elements and values serialized to a string, to be used to customize the app\'s signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
+ * _t__Sub::WhiteLabelingOptions::DESCRIPTION
  */
 export class SubWhiteLabelingOptions {
   "headerBackgroundColor"?: string = "#1a1a1a";
@@ -44,7 +44,7 @@ export class SubWhiteLabelingOptions {
   "textColor1"?: string = "#808080";
   "textColor2"?: string = "#ffffff";
   /**
-   * Resets white labeling options to defaults. Only useful when updating an API App.
+   * _t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT
    */
   "resetToDefault"?: boolean;
 

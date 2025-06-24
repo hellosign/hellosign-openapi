@@ -29,20 +29,20 @@ from pydantic import StrictBool
 
 class ListInfoResponse(BaseModel):
     """
-    Contains pagination information about the data returned.
+    _t__ListInfoResponse::DESCRIPTION
     """  # noqa: E501
 
     num_pages: Optional[StrictInt] = Field(
-        default=None, description="Total number of pages available."
+        default=None, description="_t__ListInfoResponse::NUM_PAGES"
     )
     num_results: Optional[StrictInt] = Field(
-        default=None, description="Total number of objects available."
+        default=None, description="_t__ListInfoResponse::NUM_RESULTS"
     )
     page: Optional[StrictInt] = Field(
-        default=None, description="Number of the page being returned."
+        default=None, description="_t__ListInfoResponse::PAGE"
     )
     page_size: Optional[StrictInt] = Field(
-        default=None, description="Objects returned per page."
+        default=None, description="_t__ListInfoResponse::PAGE_SIZE"
     )
     __properties: ClassVar[List[str]] = [
         "num_pages",

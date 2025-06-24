@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `type` | ```String``` |  A checkbox field that has default value set by the api  |  [default to 'checkbox-merge'] |
-| `value` | ```String``` |  The value of the form field.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE  |  [default to 'checkbox-merge'] |
+| `value` | ```String``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
 

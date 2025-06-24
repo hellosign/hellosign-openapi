@@ -1,16 +1,16 @@
 # AccountResponseQuotas
 
-Details concerning remaining monthly quotas.
+_t__Account::QUOTA
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `api_signature_requests_left` | ```int``` |  API signature requests remaining.  |  |
-| `documents_left` | ```int``` |  Signature requests remaining.  |  |
-| `templates_total` | ```int``` |  Total API templates allowed.  |  |
-| `templates_left` | ```int``` |  API templates remaining.  |  |
-| `sms_verifications_left` | ```int``` |  SMS verifications remaining.  |  |
-| `num_fax_pages_left` | ```int``` |  Number of fax pages left  |  |
+| `api_signature_requests_left` | ```int``` |  _t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT  |  |
+| `documents_left` | ```int``` |  _t__AccountQuota::DOCUMENTS_LEFT  |  |
+| `templates_total` | ```int``` |  _t__AccountQuota::TEMPLATES_TOTAL  |  |
+| `templates_left` | ```int``` |  _t__AccountQuota::TEMPLATES_LEFT  |  |
+| `sms_verifications_left` | ```int``` |  _t__AccountQuota::SMS_VERIFICATIONS_LEFT  |  |
+| `num_fax_pages_left` | ```int``` |  _t__AccountQuota::NUM_FAX_PAGES_LEFT  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

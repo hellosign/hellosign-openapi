@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class TemplateResponseCCRole
-    # The name of the Role.
+    # _t__TemplateResponseCCRole::NAME
     # @return [String]
     attr_accessor :name
 

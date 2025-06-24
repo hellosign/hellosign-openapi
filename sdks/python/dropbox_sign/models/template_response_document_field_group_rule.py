@@ -29,15 +29,17 @@ from pydantic import StrictBool
 
 class TemplateResponseDocumentFieldGroupRule(BaseModel):
     """
-    The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
+    _t__TemplateResponseDocumentFieldGroup::RULE
     """  # noqa: E501
 
     requirement: Optional[StrictStr] = Field(
         default=None,
-        description="Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.",
+        description="_t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT",
     )
     group_label: Optional[StrictStr] = Field(
-        default=None, description="Name of the group", alias="groupLabel"
+        default=None,
+        description="_t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL",
+        alias="groupLabel",
     )
     __properties: ClassVar[List[str]] = ["requirement", "groupLabel"]
 

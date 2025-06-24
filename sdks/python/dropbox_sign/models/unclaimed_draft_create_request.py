@@ -67,8 +67,12 @@ class UnclaimedDraftCreateRequest(BaseModel):
         default=False,
         description="Allows signers to decline to sign a document if `true`. Defaults to `false`.",
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     attachments: Optional[List[SubAttachment]] = Field(
-        default=None, description="A list describing the attachments"
+        default=None, description="_t__SubAttachment::LIST_DESCRIPTION"
     )
     cc_email_addresses: Optional[List[StrictStr]] = Field(
         default=None, description="The email addresses that should be CCed."
@@ -103,16 +107,14 @@ class UnclaimedDraftCreateRequest(BaseModel):
         description="The custom message in the email that will be sent to the signers.",
     )
     metadata: Optional[Dict[str, Any]] = Field(
-        default=None,
-        description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.",
+        default=None, description="_t__Sub::Metadata::DESCRIPTION"
     )
     show_progress_stepper: Optional[StrictBool] = Field(
         default=True,
         description="When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.",
     )
     signers: Optional[List[SubUnclaimedDraftSigner]] = Field(
-        default=None,
-        description="Add Signers to your Unclaimed Draft Signature Request.",
+        default=None, description="_t__Sub::UnclaimedDraftSigner::DESCRIPTION"
     )
     signing_options: Optional[SubSigningOptions] = None
     signing_redirect_url: Optional[StrictStr] = Field(
@@ -144,6 +146,7 @@ class UnclaimedDraftCreateRequest(BaseModel):
         "files",
         "file_urls",
         "allow_decline",
+        "allow_form_view",
         "attachments",
         "cc_email_addresses",
         "client_id",
@@ -294,6 +297,11 @@ class UnclaimedDraftCreateRequest(BaseModel):
                     if obj.get("allow_decline") is not None
                     else False
                 ),
+                "allow_form_view": (
+                    obj.get("allow_form_view")
+                    if obj.get("allow_form_view") is not None
+                    else False
+                ),
                 "attachments": (
                     [SubAttachment.from_dict(_item) for _item in obj["attachments"]]
                     if obj.get("attachments") is not None
@@ -397,6 +405,7 @@ class UnclaimedDraftCreateRequest(BaseModel):
             "files": "(List[io.IOBase],)",
             "file_urls": "(List[str],)",
             "allow_decline": "(bool,)",
+            "allow_form_view": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_email_addresses": "(List[str],)",
             "client_id": "(str,)",

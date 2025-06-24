@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * ApiAppResponse Class Doc Comment
  *
  * @category Class
- * @description Contains information about an API App.
+ * @description _t__ApiAppResponse::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -372,7 +372,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url The app's callback URL (for events)
+     * @param string|null $callback_url _t__ApiAppResponse::CALLBACK_URL
      *
      * @return self
      */
@@ -406,7 +406,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets client_id
      *
-     * @param string|null $client_id The app's client id
+     * @param string|null $client_id _t__ApiAppResponse::CLIENT_ID
      *
      * @return self
      */
@@ -433,7 +433,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets created_at
      *
-     * @param int|null $created_at The time that the app was created
+     * @param int|null $created_at _t__ApiAppResponse::CREATED_AT
      *
      * @return self
      */
@@ -460,7 +460,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets domains
      *
-     * @param string[]|null $domains The domain name(s) associated with the app
+     * @param string[]|null $domains _t__ApiAppResponse::DOMAINS
      *
      * @return self
      */
@@ -487,7 +487,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of the app
+     * @param string|null $name _t__ApiAppResponse::NAME
      *
      * @return self
      */
@@ -514,7 +514,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_approved
      *
-     * @param bool|null $is_approved Boolean to indicate if the app has been approved
+     * @param bool|null $is_approved _t__ApiAppResponse::IS_APPROVED
      *
      * @return self
      */

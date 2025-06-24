@@ -1,8 +1,6 @@
 # # SubWhiteLabelingOptions
 
-An array of elements and values serialized to a string, to be used to customize the app&#39;s signer page. (Only applies to some API plans)
-
-Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
+_t__Sub::WhiteLabelingOptions::DESCRIPTION
 
 ## Properties
 
@@ -22,6 +20,6 @@ Name | Type | Description | Notes
 | `secondaryButtonTextColorHover` | ```string``` |    |  [default to '#0061FE'] |
 | `textColor1` | ```string``` |    |  [default to '#808080'] |
 | `textColor2` | ```string``` |    |  [default to '#ffffff'] |
-| `resetToDefault` | ```boolean``` |  Resets white labeling options to defaults. Only useful when updating an API App.  |  |
+| `resetToDefault` | ```boolean``` |  _t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -17,13 +17,13 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An object describing the app's owner
+  # _t__ApiAppResponseOwnerAccount::DESCRIPTION
   class ApiAppResponseOwnerAccount
-    # The owner account's ID
+    # _t__ApiAppResponseOwnerAccount::ACCOUNT_ID
     # @return [String]
     attr_accessor :account_id
 
-    # The owner account's email address
+    # _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS
     # @return [String]
     attr_accessor :email_address
 

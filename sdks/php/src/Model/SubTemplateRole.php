@@ -315,7 +315,7 @@ class SubTemplateRole implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name the role name of the signer that will be displayed when the template is used to create a signature request
+     * @param string|null $name _t__Sub::SignerRole::NAME
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class SubTemplateRole implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets order
      *
-     * @param int|null $order the order in which this signer role is required to sign
+     * @param int|null $order _t__Sub::SignerRole::ORDER
      *
      * @return self
      */

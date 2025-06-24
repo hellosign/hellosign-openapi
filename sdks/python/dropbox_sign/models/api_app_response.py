@@ -37,24 +37,26 @@ from pydantic import StrictBool
 
 class ApiAppResponse(BaseModel):
     """
-    Contains information about an API App.
+    _t__ApiAppResponse::DESCRIPTION
     """  # noqa: E501
 
     callback_url: Optional[StrictStr] = Field(
-        default=None, description="The app's callback URL (for events)"
+        default=None, description="_t__ApiAppResponse::CALLBACK_URL"
     )
     client_id: Optional[StrictStr] = Field(
-        default=None, description="The app's client id"
+        default=None, description="_t__ApiAppResponse::CLIENT_ID"
     )
     created_at: Optional[StrictInt] = Field(
-        default=None, description="The time that the app was created"
+        default=None, description="_t__ApiAppResponse::CREATED_AT"
     )
     domains: Optional[List[StrictStr]] = Field(
-        default=None, description="The domain name(s) associated with the app"
+        default=None, description="_t__ApiAppResponse::DOMAINS"
     )
-    name: Optional[StrictStr] = Field(default=None, description="The name of the app")
+    name: Optional[StrictStr] = Field(
+        default=None, description="_t__ApiAppResponse::NAME"
+    )
     is_approved: Optional[StrictBool] = Field(
-        default=None, description="Boolean to indicate if the app has been approved"
+        default=None, description="_t__ApiAppResponse::IS_APPROVED"
     )
     oauth: Optional[ApiAppResponseOAuth] = None
     options: Optional[ApiAppResponseOptions] = None

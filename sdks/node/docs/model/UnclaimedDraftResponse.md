@@ -1,16 +1,16 @@
 # # UnclaimedDraftResponse
 
-A group of documents that a user can take ownership of via the claim URL.
+_t__UnclaimedDraftResponse::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `signatureRequestId` | ```string``` |  The ID of the signature request that is represented by this UnclaimedDraft.  |  |
-| `claimUrl` | ```string``` |  The URL to be used to claim this UnclaimedDraft.  |  |
-| `signingRedirectUrl` | ```string``` |  The URL you want signers redirected to after they successfully sign.  |  |
-| `requestingRedirectUrl` | ```string``` |  The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).  |  |
-| `expiresAt` | ```number``` |  When the link expires.  |  |
-| `testMode` | ```boolean``` |  Whether this is a test draft. Signature requests made from test drafts have no legal value.  |  |
+| `signatureRequestId` | ```string``` |  _t__UnclaimedDraft::SIGNATURE_REQUEST_ID  |  |
+| `claimUrl` | ```string``` |  _t__UnclaimedDraft::CLAIM_URL  |  |
+| `signingRedirectUrl` | ```string``` |  _t__UnclaimedDraft::SIGNING_REDIRECT_URL  |  |
+| `requestingRedirectUrl` | ```string``` |  _t__UnclaimedDraft::REQUESTING_REDIRECT_URL  |  |
+| `expiresAt` | ```number``` |  _t__UnclaimedDraft::EXPIRES_AT  |  |
+| `testMode` | ```boolean``` |  _t__UnclaimedDraft::TEST_MODE  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

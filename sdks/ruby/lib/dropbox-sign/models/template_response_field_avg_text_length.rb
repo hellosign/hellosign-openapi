@@ -17,13 +17,13 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Average text length in this field.
+  # _t__TemplateResponseFieldAvgTextLength::DESCRIPTION
   class TemplateResponseFieldAvgTextLength
-    # Number of lines.
+    # _t__TemplateResponseFieldAvgTextLength::NUM_LINES
     # @return [Integer]
     attr_accessor :num_lines
 
-    # Number of characters per line.
+    # _t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE
     # @return [Integer]
     attr_accessor :num_chars_per_line
 

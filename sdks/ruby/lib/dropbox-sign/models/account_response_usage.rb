@@ -17,9 +17,9 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Details concerning monthly usage
+  # _t__Account::USAGE
   class AccountResponseUsage
-    # Number of fax pages sent
+    # _t__AccountUsage::FAX_PAGES_SENT
     # @return [Integer, nil]
     attr_accessor :fax_pages_sent
 

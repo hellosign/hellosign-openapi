@@ -17,7 +17,7 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
+  # _t__Sub::WhiteLabelingOptions::DESCRIPTION
   class SubWhiteLabelingOptions
     # @return [String]
     attr_accessor :header_background_color
@@ -61,7 +61,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :text_color2
 
-    # Resets white labeling options to defaults. Only useful when updating an API App.
+    # _t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT
     # @return [Boolean]
     attr_accessor :reset_to_default
 

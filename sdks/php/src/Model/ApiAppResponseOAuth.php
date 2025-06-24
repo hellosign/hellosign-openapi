@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * ApiAppResponseOAuth Class Doc Comment
  *
  * @category Class
- * @description An object describing the app&#39;s OAuth properties, or null if OAuth is not configured for the app.
+ * @description _t__ApiAppResponseOAuth::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -330,7 +330,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url the app's OAuth callback URL
+     * @param string|null $callback_url _t__ApiAppResponseOAuth::CALLBACK_URL
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets secret
      *
-     * @param string|null $secret the app's OAuth secret, or null if the app does not belong to user
+     * @param string|null $secret _t__ApiAppResponseOAuth::SECRET
      *
      * @return self
      */
@@ -391,7 +391,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets scopes
      *
-     * @param string[]|null $scopes array of OAuth scopes used by the app
+     * @param string[]|null $scopes _t__ApiAppResponseOAuth::SCOPES
      *
      * @return self
      */
@@ -418,7 +418,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets charges_users
      *
-     * @param bool|null $charges_users boolean indicating whether the app owner or the account granting permission is billed for OAuth requests
+     * @param bool|null $charges_users _t__ApiAppResponseOAuth::CHARGES_USERS
      *
      * @return self
      */

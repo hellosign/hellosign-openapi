@@ -27,15 +27,15 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueInitials extends SignatureRequestResponseDataBase {
   /**
-   * An input field for initials
+   * _t__SignatureRequestResponseDataValue::INITIAL_TYPE
    */
   "type"?: string = "initials";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: string;
   /**
-   * This field contains the boolean true if the field is signed.
+   * _t__SignatureRequestResponseDataValue::IS_SIGNED
    */
   "isSigned"?: boolean | null;
 

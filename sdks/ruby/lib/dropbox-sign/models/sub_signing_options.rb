@@ -17,25 +17,25 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+  # _t__Sub::SigningOptions::DESCRIPTION
   class SubSigningOptions
-    # The default type shown (limited to the listed types)
+    # _t__Sub::SigningOptions::DEFAULT
     # @return [String]
     attr_accessor :default_type
 
-    # Allows drawing the signature
+    # _t__Sub::SigningOptions::DRAW
     # @return [Boolean]
     attr_accessor :draw
 
-    # Allows using a smartphone to email the signature
+    # _t__Sub::SigningOptions::PHONE
     # @return [Boolean]
     attr_accessor :phone
 
-    # Allows typing the signature
+    # _t__Sub::SigningOptions::TYPE
     # @return [Boolean]
     attr_accessor :type
 
-    # Allows uploading the signature
+    # _t__Sub::SigningOptions::UPLOAD
     # @return [Boolean]
     attr_accessor :upload
 

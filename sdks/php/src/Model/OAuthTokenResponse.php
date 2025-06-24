@@ -417,7 +417,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets expires_in
      *
-     * @param int|null $expires_in Number of seconds until the `access_token` expires. Uses epoch time.
+     * @param int|null $expires_in _t__OAuthTokenResponse::EXPIRES_IN
      *
      * @return self
      */

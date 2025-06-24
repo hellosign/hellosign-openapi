@@ -2,6 +2,7 @@
   "default": {
     "allow_ccs": true,
     "allow_reassign": true,
+    "allow_form_view": true,
     "attachments": [
       {
         "name": "Attachment1",

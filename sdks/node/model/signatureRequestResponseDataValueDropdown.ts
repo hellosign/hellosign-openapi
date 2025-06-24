@@ -27,11 +27,11 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueDropdown extends SignatureRequestResponseDataBase {
   /**
-   * An input field for dropdowns
+   * _t__SignatureRequestResponseDataValue::DROPDOWN_TYPE
    */
   "type"?: string = "dropdown";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: string;
 

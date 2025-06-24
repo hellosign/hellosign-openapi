@@ -29,31 +29,31 @@ import { ApiAppResponseOwnerAccount } from "./apiAppResponseOwnerAccount";
 import { ApiAppResponseWhiteLabelingOptions } from "./apiAppResponseWhiteLabelingOptions";
 
 /**
- * Contains information about an API App.
+ * _t__ApiAppResponse::DESCRIPTION
  */
 export class ApiAppResponse {
   /**
-   * The app\'s callback URL (for events)
+   * _t__ApiAppResponse::CALLBACK_URL
    */
   "callbackUrl"?: string | null;
   /**
-   * The app\'s client id
+   * _t__ApiAppResponse::CLIENT_ID
    */
   "clientId"?: string;
   /**
-   * The time that the app was created
+   * _t__ApiAppResponse::CREATED_AT
    */
   "createdAt"?: number;
   /**
-   * The domain name(s) associated with the app
+   * _t__ApiAppResponse::DOMAINS
    */
   "domains"?: Array<string>;
   /**
-   * The name of the app
+   * _t__ApiAppResponse::NAME
    */
   "name"?: string;
   /**
-   * Boolean to indicate if the app has been approved
+   * _t__ApiAppResponse::IS_APPROVED
    */
   "isApproved"?: boolean;
   "oauth"?: ApiAppResponseOAuth | null;

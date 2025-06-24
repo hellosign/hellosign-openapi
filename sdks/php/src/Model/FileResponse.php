@@ -323,7 +323,7 @@ class FileResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets file_url
      *
-     * @param string $file_url URL to the file
+     * @param string $file_url _t__FileResponse::FILE_URL
      *
      * @return self
      */
@@ -350,7 +350,7 @@ class FileResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets expires_at
      *
-     * @param int $expires_at when the link expires
+     * @param int $expires_at _t__FileResponse::EXPIRES_AT
      *
      * @return self
      */

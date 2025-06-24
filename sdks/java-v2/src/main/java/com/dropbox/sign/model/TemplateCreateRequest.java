@@ -50,6 +50,7 @@ import com.dropbox.sign.ApiException;
   TemplateCreateRequest.JSON_PROPERTY_FILES,
   TemplateCreateRequest.JSON_PROPERTY_FILE_URLS,
   TemplateCreateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
+  TemplateCreateRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   TemplateCreateRequest.JSON_PROPERTY_ATTACHMENTS,
   TemplateCreateRequest.JSON_PROPERTY_CC_ROLES,
   TemplateCreateRequest.JSON_PROPERTY_CLIENT_ID,
@@ -86,6 +87,10 @@ public class TemplateCreateRequest {
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
   @jakarta.annotation.Nullable
   private Boolean allowReassign = false;
+
+  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
+  @jakarta.annotation.Nullable
+  private Boolean allowFormView = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   @jakarta.annotation.Nullable
@@ -314,6 +319,31 @@ public class TemplateCreateRequest {
   }
 
 
+  public TemplateCreateRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
+    return this;
+  }
+
+  /**
+   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+   * @return allowFormView
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowFormView() {
+    return allowFormView;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
+  }
+
+
   public TemplateCreateRequest attachments(@jakarta.annotation.Nullable List<SubAttachment> attachments) {
     this.attachments = attachments;
     return this;
@@ -328,7 +358,7 @@ public class TemplateCreateRequest {
   }
 
   /**
-   * A list describing the attachments
+   * _t__SubAttachment::LIST_DESCRIPTION
    * @return attachments
    */
   @jakarta.annotation.Nullable
@@ -568,7 +598,7 @@ public class TemplateCreateRequest {
   }
 
   /**
-   * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+   * _t__Sub::Metadata::DESCRIPTION
    * @return metadata
    */
   @jakarta.annotation.Nullable
@@ -704,6 +734,7 @@ public class TemplateCreateRequest {
         Objects.equals(this.files, templateCreateRequest.files) &&
         Objects.equals(this.fileUrls, templateCreateRequest.fileUrls) &&
         Objects.equals(this.allowReassign, templateCreateRequest.allowReassign) &&
+        Objects.equals(this.allowFormView, templateCreateRequest.allowFormView) &&
         Objects.equals(this.attachments, templateCreateRequest.attachments) &&
         Objects.equals(this.ccRoles, templateCreateRequest.ccRoles) &&
         Objects.equals(this.clientId, templateCreateRequest.clientId) &&
@@ -721,7 +752,7 @@ public class TemplateCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(formFieldsPerDocument, signerRoles, files, fileUrls, allowReassign, attachments, ccRoles, clientId, fieldOptions, formFieldGroups, formFieldRules, mergeFields, message, metadata, subject, testMode, title, usePreexistingFields);
+    return Objects.hash(formFieldsPerDocument, signerRoles, files, fileUrls, allowReassign, allowFormView, attachments, ccRoles, clientId, fieldOptions, formFieldGroups, formFieldRules, mergeFields, message, metadata, subject, testMode, title, usePreexistingFields);
   }
 
   @Override
@@ -733,6 +764,7 @@ public class TemplateCreateRequest {
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
+    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
@@ -847,6 +879,25 @@ public class TemplateCreateRequest {
         }
         else {
             map.put("allow_reassign", JSON.getDefault().getMapper().writeValueAsString(allowReassign));
+        }
+    }
+    if (allowFormView != null) {
+        if (isFileTypeOrListOfFiles(allowFormView)) {
+            fileTypeFound = true;
+        }
+
+        if (allowFormView.getClass().equals(java.io.File.class) ||
+            allowFormView.getClass().equals(Integer.class) ||
+            allowFormView.getClass().equals(String.class) ||
+            allowFormView.getClass().isEnum()) {
+            map.put("allow_form_view", allowFormView);
+        } else if (isListOfFile(allowFormView)) {
+            for(int i = 0; i< getListSize(allowFormView); i++) {
+                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
+            }
+        }
+        else {
+            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (attachments != null) {

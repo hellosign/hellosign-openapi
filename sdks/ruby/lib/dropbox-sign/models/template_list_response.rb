@@ -18,14 +18,14 @@ end
 
 module Dropbox::Sign
   class TemplateListResponse
-    # List of templates that the API caller has access to.
+    # _t__TemplateListResponse::DESCRIPTION
     # @return [Array<TemplateResponse>]
     attr_accessor :templates
 
     # @return [ListInfoResponse]
     attr_accessor :list_info
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

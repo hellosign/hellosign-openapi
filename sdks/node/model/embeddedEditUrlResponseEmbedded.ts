@@ -25,15 +25,15 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An embedded template object.
+ * _t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION
  */
 export class EmbeddedEditUrlResponseEmbedded {
   /**
-   * A template url that can be opened in an iFrame.
+   * _t__EmbeddedEditUrlResponseEmbedded::EDIT_URL
    */
   "editUrl"?: string;
   /**
-   * The specific time that the the `edit_url` link expires, in epoch.
+   * _t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT
    */
   "expiresAt"?: number;
 

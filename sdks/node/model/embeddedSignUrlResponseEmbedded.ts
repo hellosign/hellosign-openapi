@@ -25,15 +25,15 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An object that contains necessary information to set up embedded signing.
+ * _t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION
  */
 export class EmbeddedSignUrlResponseEmbedded {
   /**
-   * A signature url that can be opened in an iFrame.
+   * _t__EmbeddedSignUrlResponseEmbedded::SIGN_URL
    */
   "signUrl"?: string;
   /**
-   * The specific time that the the `sign_url` link expires, in epoch.
+   * _t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT
    */
   "expiresAt"?: number;
 

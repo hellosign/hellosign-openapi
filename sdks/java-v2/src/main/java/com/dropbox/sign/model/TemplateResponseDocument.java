@@ -97,7 +97,7 @@ public class TemplateResponseDocument {
   }
 
   /**
-   * Name of the associated file.
+   * _t__TemplateResponseDocument::NAME
    * @return name
    */
   @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class TemplateResponseDocument {
   }
 
   /**
-   * Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
+   * _t__TemplateResponseDocument::INDEX
    * @return index
    */
   @jakarta.annotation.Nullable
@@ -155,7 +155,7 @@ public class TemplateResponseDocument {
   }
 
   /**
-   * An array of Form Field Group objects.
+   * _t__TemplateResponseDocument::FIELD_GROUPS
    * @return fieldGroups
    */
   @jakarta.annotation.Nullable
@@ -188,7 +188,7 @@ public class TemplateResponseDocument {
   }
 
   /**
-   * An array of Form Field objects containing the name and type of each named field.
+   * _t__TemplateResponseDocumentFormField::DESCRIPTION
    * @return formFields
    */
   @jakarta.annotation.Nullable
@@ -221,7 +221,7 @@ public class TemplateResponseDocument {
   }
 
   /**
-   * An array of Form Field objects containing the name and type of each named field.
+   * _t__TemplateResponseDocumentCustomField::DESCRIPTION
    * @return customFields
    */
   @jakarta.annotation.Nullable
@@ -254,7 +254,7 @@ public class TemplateResponseDocument {
   }
 
   /**
-   * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+   * _t__TemplateResponseDocumentStaticField::DESCRIPTION
    * @return staticFields
    */
   @jakarta.annotation.Nullable

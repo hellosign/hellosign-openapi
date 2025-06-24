@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * ApiAppResponseOwnerAccount Class Doc Comment
  *
  * @category Class
- * @description An object describing the app&#39;s owner
+ * @description _t__ApiAppResponseOwnerAccount::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -316,7 +316,7 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets account_id
      *
-     * @param string|null $account_id The owner account's ID
+     * @param string|null $account_id _t__ApiAppResponseOwnerAccount::ACCOUNT_ID
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets email_address
      *
-     * @param string|null $email_address The owner account's email address
+     * @param string|null $email_address _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS
      *
      * @return self
      */

@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentStaticFieldBase Class Doc Comment
  *
  * @category Class
- * @description An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+ * @description _t__TemplateResponseDocumentStaticField::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -421,7 +421,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets api_id
      *
-     * @param string|null $api_id a unique id for the static field
+     * @param string|null $api_id _t__TemplateResponseDocumentStaticField::API_ID
      *
      * @return self
      */
@@ -448,7 +448,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets name
      *
-     * @param string|null $name the name of the static field
+     * @param string|null $name _t__TemplateResponseDocumentStaticField::NAME
      *
      * @return self
      */
@@ -475,7 +475,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets signer
      *
-     * @param string|null $signer the signer of the Static Field
+     * @param string|null $signer _t__TemplateResponseDocumentStaticField::SIGNER
      *
      * @return self
      */
@@ -502,7 +502,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets x
      *
-     * @param int|null $x the horizontal offset in pixels for this static field
+     * @param int|null $x _t__TemplateResponseDocumentStaticField::X
      *
      * @return self
      */
@@ -529,7 +529,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets y
      *
-     * @param int|null $y the vertical offset in pixels for this static field
+     * @param int|null $y _t__TemplateResponseDocumentStaticField::Y
      *
      * @return self
      */
@@ -556,7 +556,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets width
      *
-     * @param int|null $width the width in pixels of this static field
+     * @param int|null $width _t__TemplateResponseDocumentStaticField::WIDTH
      *
      * @return self
      */
@@ -583,7 +583,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets height
      *
-     * @param int|null $height the height in pixels of this static field
+     * @param int|null $height _t__TemplateResponseDocumentStaticField::HEIGHT
      *
      * @return self
      */
@@ -610,7 +610,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets required
      *
-     * @param bool|null $required boolean showing whether or not this field is required
+     * @param bool|null $required _t__TemplateResponseDocumentStaticField::REQUIRED
      *
      * @return self
      */
@@ -637,7 +637,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets group
      *
-     * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null`.
+     * @param string|null $group _t__TemplateResponseDocumentStaticField::GROUP
      *
      * @return self
      */

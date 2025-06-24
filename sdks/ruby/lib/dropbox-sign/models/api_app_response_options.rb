@@ -17,9 +17,9 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An object with options that override account settings.
+  # _t__ApiAppResponseOptions::DESCRIPTION
   class ApiAppResponseOptions
-    # Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document
+    # _t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE
     # @return [Boolean]
     attr_accessor :can_insert_everywhere
 

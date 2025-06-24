@@ -30,20 +30,22 @@ from pydantic import StrictBool
 
 class TemplateCreateEmbeddedDraftResponseTemplate(BaseModel):
     """
-    Template object with parameters: `template_id`, `edit_url`, `expires_at`.
+    _t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION
     """  # noqa: E501
 
     template_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Template."
+        default=None, description="_t__TemplateResponse::TEMPLATE_ID"
     )
     edit_url: Optional[StrictStr] = Field(
-        default=None, description="Link to edit the template."
+        default=None,
+        description="_t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL",
     )
     expires_at: Optional[StrictInt] = Field(
-        default=None, description="When the link expires."
+        default=None,
+        description="_t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT",
     )
     warnings: Optional[List[WarningResponse]] = Field(
-        default=None, description="A list of warnings."
+        default=None, description="_t__WarningResponse::LIST_DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = [
         "template_id",

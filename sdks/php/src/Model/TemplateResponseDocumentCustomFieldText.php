@@ -35,7 +35,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentCustomFieldText Class Doc Comment
  *
  * @category Class
- * @description This class extends &#x60;TemplateResponseDocumentCustomFieldBase&#x60;
+ * @description _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -335,7 +335,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Sets type
      *
-     * @param string $type The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
+     * @param string $type _t__TemplateResponseDocumentCustomField::TYPE
      *
      * @return self
      */
@@ -389,7 +389,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Sets is_multiline
      *
-     * @param bool|null $is_multiline whether this form field is multiline text
+     * @param bool|null $is_multiline _t__TemplateResponseDocumentCustomField::IS_MULTILINE
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Sets original_font_size
      *
-     * @param int|null $original_font_size original font size used in this form field's text
+     * @param int|null $original_font_size _t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Sets font_family
      *
-     * @param string|null $font_family font family used in this form field's text
+     * @param string|null $font_family _t__TemplateResponseDocumentCustomField::FONT_FAMILY
      *
      * @return self
      */

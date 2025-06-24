@@ -32,7 +32,7 @@ class TemplateEditResponse(BaseModel):
     TemplateEditResponse
     """  # noqa: E501
 
-    template_id: StrictStr = Field(description="The id of the Template.")
+    template_id: StrictStr = Field(description="_t__TemplateResponse::TEMPLATE_ID")
     __properties: ClassVar[List[str]] = ["template_id"]
 
     model_config = ConfigDict(

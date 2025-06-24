@@ -330,7 +330,7 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets signature_requests
      *
-     * @param SignatureRequestResponse[] $signature_requests contains information about signature requests
+     * @param SignatureRequestResponse[] $signature_requests _t__SignatureRequestListResponse::DESCRIPTION
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets warnings
      *
-     * @param WarningResponse[]|null $warnings a list of warnings
+     * @param WarningResponse[]|null $warnings _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return self
      */

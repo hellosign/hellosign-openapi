@@ -35,9 +35,11 @@ class SignatureRequestResponseDataValueText(SignatureRequestResponseDataBase):
     SignatureRequestResponseDataValueText
     """  # noqa: E501
 
-    type: Optional[StrictStr] = Field(default="text", description="A text input field")
+    type: Optional[StrictStr] = Field(
+        default="text", description="_t__SignatureRequestResponseDataValue::TEXT_TYPE"
+    )
     value: Optional[StrictStr] = Field(
-        default=None, description="The value of the form field."
+        default=None, description="_t__SignatureRequestResponseDataValue::VALUE"
     )
     __properties: ClassVar[List[str]] = [
         "api_id",

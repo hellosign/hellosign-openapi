@@ -26,15 +26,15 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 import { WarningResponse } from "./warningResponse";
 
 /**
- * Contains template id
+ * _t__TemplateUpdateFilesResponseTemplate::DESCRIPTION
  */
 export class TemplateUpdateFilesResponseTemplate {
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    */
   "templateId"?: string;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    *
    * @deprecated
    */

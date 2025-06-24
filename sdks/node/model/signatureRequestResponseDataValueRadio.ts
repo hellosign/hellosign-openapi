@@ -27,11 +27,11 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueRadio extends SignatureRequestResponseDataBase {
   /**
-   * An input field for radios
+   * _t__SignatureRequestResponseDataValue::RADIO_TYPE
    */
   "type"?: string = "radio";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: boolean;
 

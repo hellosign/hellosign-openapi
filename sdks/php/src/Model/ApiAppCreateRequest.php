@@ -329,8 +329,8 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         if ($this->container['domains'] === null) {
             $invalidProperties[] = "'domains' can't be null";
         }
-        if (count($this->container['domains']) > 2) {
-            $invalidProperties[] = "invalid value for 'domains', number of items must be less than or equal to 2.";
+        if (count($this->container['domains']) > 10) {
+            $invalidProperties[] = "invalid value for 'domains', number of items must be less than or equal to 10.";
         }
 
         if (count($this->container['domains']) < 1) {
@@ -377,8 +377,8 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
             throw new InvalidArgumentException('non-nullable domains cannot be null');
         }
 
-        if (count($domains) > 2) {
-            throw new InvalidArgumentException('invalid value for $domains when calling ApiAppCreateRequest., number of items must be less than or equal to 2.');
+        if (count($domains) > 10) {
+            throw new InvalidArgumentException('invalid value for $domains when calling ApiAppCreateRequest., number of items must be less than or equal to 10.');
         }
         if (count($domains) < 1) {
             throw new InvalidArgumentException('invalid length for $domains when calling ApiAppCreateRequest., number of items must be greater than or equal to 1.');

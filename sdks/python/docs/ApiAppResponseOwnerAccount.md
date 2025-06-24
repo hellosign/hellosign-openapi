@@ -1,12 +1,12 @@
 # ApiAppResponseOwnerAccount
 
-An object describing the app&#39;s owner
+_t__ApiAppResponseOwnerAccount::DESCRIPTION
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `account_id` | ```str``` |  The owner account&#39;s ID  |  |
-| `email_address` | ```str``` |  The owner account&#39;s email address  |  |
+| `account_id` | ```str``` |  _t__ApiAppResponseOwnerAccount::ACCOUNT_ID  |  |
+| `email_address` | ```str``` |  _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

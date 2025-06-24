@@ -1,17 +1,17 @@
 # Dropbox::Sign::ApiAppResponse
 
-Contains information about an API App.
+_t__ApiAppResponse::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `callback_url` | ```String``` |  The app&#39;s callback URL (for events)  |  |
-| `client_id` | ```String``` |  The app&#39;s client id  |  |
-| `created_at` | ```Integer``` |  The time that the app was created  |  |
-| `domains` | ```Array<String>``` |  The domain name(s) associated with the app  |  |
-| `name` | ```String``` |  The name of the app  |  |
-| `is_approved` | ```Boolean``` |  Boolean to indicate if the app has been approved  |  |
+| `callback_url` | ```String``` |  _t__ApiAppResponse::CALLBACK_URL  |  |
+| `client_id` | ```String``` |  _t__ApiAppResponse::CLIENT_ID  |  |
+| `created_at` | ```Integer``` |  _t__ApiAppResponse::CREATED_AT  |  |
+| `domains` | ```Array<String>``` |  _t__ApiAppResponse::DOMAINS  |  |
+| `name` | ```String``` |  _t__ApiAppResponse::NAME  |  |
+| `is_approved` | ```Boolean``` |  _t__ApiAppResponse::IS_APPROVED  |  |
 | `oauth` | [```ApiAppResponseOAuth```](ApiAppResponseOAuth.md) |    |  |
 | `options` | [```ApiAppResponseOptions```](ApiAppResponseOptions.md) |    |  |
 | `owner_account` | [```ApiAppResponseOwnerAccount```](ApiAppResponseOwnerAccount.md) |    |  |

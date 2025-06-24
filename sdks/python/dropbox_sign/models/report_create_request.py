@@ -48,9 +48,9 @@ class ReportCreateRequest(BaseModel):
     def report_type_validate_enum(cls, value):
         """Validates the enum"""
         for i in value:
-            if i not in set(["user_activity", "document_status"]):
+            if i not in set(["user_activity", "document_status", "sms_activity"]):
                 raise ValueError(
-                    "each list item must be one of ('user_activity', 'document_status')"
+                    "each list item must be one of ('user_activity', 'document_status', 'sms_activity')"
                 )
         return value
 

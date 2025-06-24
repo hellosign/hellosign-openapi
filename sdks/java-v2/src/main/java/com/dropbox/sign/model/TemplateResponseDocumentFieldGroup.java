@@ -72,7 +72,7 @@ public class TemplateResponseDocumentFieldGroup {
   }
 
   /**
-   * The name of the form field group.
+   * _t__TemplateResponseDocumentFieldGroup::NAME
    * @return name
    */
   @jakarta.annotation.Nullable

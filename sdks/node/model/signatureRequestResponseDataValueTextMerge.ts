@@ -27,11 +27,11 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueTextMerge extends SignatureRequestResponseDataBase {
   /**
-   * A text field that has default text set by the api
+   * _t__SignatureRequestResponseDataValue::TEXTMERGE_TYPE
    */
   "type"?: string = "text-merge";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: string;
 

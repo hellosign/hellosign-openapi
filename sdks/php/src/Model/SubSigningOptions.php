@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SubSigningOptions Class Doc Comment
  *
  * @category Class
- * @description This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+ * @description _t__Sub::SigningOptions::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -371,7 +371,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets default_type
      *
-     * @param string $default_type The default type shown (limited to the listed types)
+     * @param string $default_type _t__Sub::SigningOptions::DEFAULT
      *
      * @return self
      */
@@ -408,7 +408,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets draw
      *
-     * @param bool|null $draw Allows drawing the signature
+     * @param bool|null $draw _t__Sub::SigningOptions::DRAW
      *
      * @return self
      */
@@ -435,7 +435,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets phone
      *
-     * @param bool|null $phone Allows using a smartphone to email the signature
+     * @param bool|null $phone _t__Sub::SigningOptions::PHONE
      *
      * @return self
      */
@@ -462,7 +462,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets type
      *
-     * @param bool|null $type Allows typing the signature
+     * @param bool|null $type _t__Sub::SigningOptions::TYPE
      *
      * @return self
      */
@@ -489,7 +489,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets upload
      *
-     * @param bool|null $upload Allows uploading the signature
+     * @param bool|null $upload _t__Sub::SigningOptions::UPLOAD
      *
      * @return self
      */

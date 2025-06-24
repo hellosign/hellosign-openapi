@@ -343,7 +343,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets account_id
      *
-     * @param string|null $account_id the id of the Account
+     * @param string|null $account_id _t__TemplateResponseAccount::ACCOUNT_ID
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets email_address
      *
-     * @param string|null $email_address the email address associated with the Account
+     * @param string|null $email_address _t__TemplateResponseAccount::EMAIL_ADDRESS
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets is_locked
      *
-     * @param bool|null $is_locked returns `true` if the user has been locked out of their account by a team admin
+     * @param bool|null $is_locked _t__TemplateResponseAccount::IS_LOCKED
      *
      * @return self
      */
@@ -424,7 +424,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets is_paid_hs
      *
-     * @param bool|null $is_paid_hs returns `true` if the user has a paid Dropbox Sign account
+     * @param bool|null $is_paid_hs _t__TemplateResponseAccount::IS_PAID_HS
      *
      * @return self
      */
@@ -451,7 +451,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets is_paid_hf
      *
-     * @param bool|null $is_paid_hf returns `true` if the user has a paid HelloFax account
+     * @param bool|null $is_paid_hf _t__TemplateResponseAccount::IS_PAID_HF
      *
      * @return self
      */

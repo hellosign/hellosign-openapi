@@ -15,6 +15,7 @@ export declare class SignatureRequestCreateEmbeddedRequest {
     "signers"?: Array<SubSignatureRequestSigner>;
     "groupedSigners"?: Array<SubSignatureRequestGroupedSigners>;
     "allowDecline"?: boolean;
+    "allowFormView"?: boolean;
     "allowReassign"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccEmailAddresses"?: Array<string>;

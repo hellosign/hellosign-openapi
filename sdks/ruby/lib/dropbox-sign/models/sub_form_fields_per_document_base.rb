@@ -42,15 +42,15 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :type
 
-    # Size of the field in pixels.
+    # _t__Sub::FormFieldsPerDocument::WIDTH
     # @return [Integer]
     attr_accessor :width
 
-    # Location coordinates of the field in pixels.
+    # _t__Sub::FormFieldsPerDocument::X
     # @return [Integer]
     attr_accessor :x
 
-    # Location coordinates of the field in pixels.
+    # _t__Sub::FormFieldsPerDocument::Y
     # @return [Integer]
     attr_accessor :y
 

@@ -36,7 +36,7 @@ class UnclaimedDraftCreateResponse(BaseModel):
 
     unclaimed_draft: UnclaimedDraftResponse
     warnings: Optional[List[WarningResponse]] = Field(
-        default=None, description="A list of warnings."
+        default=None, description="_t__WarningResponse::LIST_DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = ["unclaimed_draft", "warnings"]
 

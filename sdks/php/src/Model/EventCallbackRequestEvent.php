@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * EventCallbackRequestEvent Class Doc Comment
  *
  * @category Class
- * @description Basic information about the event that occurred.
+ * @description _t__EventCallbackRequestEvent::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -408,7 +408,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets event_time
      *
-     * @param string $event_time time the event was created (using Unix time)
+     * @param string $event_time _t__EventCallbackRequestEvent::EVENT_TIME
      *
      * @return self
      */
@@ -435,7 +435,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets event_type
      *
-     * @param string $event_type type of callback event that was triggered
+     * @param string $event_type _t__EventCallbackRequestEvent::EVENT_TYPE
      *
      * @return self
      */
@@ -472,7 +472,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets event_hash
      *
-     * @param string $event_hash generated hash used to verify source of event data
+     * @param string $event_hash _t__EventCallbackRequestEvent::EVENT_HASH
      *
      * @return self
      */

@@ -25,15 +25,15 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * A list of warnings.
+ * _t__WarningResponse::LIST_DESCRIPTION
  */
 export class WarningResponse {
   /**
-   * Warning message
+   * _t__WarningResponse::WARNING_MSG
    */
   "warningMsg": string;
   /**
-   * Warning name
+   * _t__WarningResponse::WARNING_NAME
    */
   "warningName": string;
 

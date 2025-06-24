@@ -37,10 +37,10 @@ class SignatureRequestResponseDataValueCheckboxMerge(SignatureRequestResponseDat
 
     type: Optional[StrictStr] = Field(
         default="checkbox-merge",
-        description="A checkbox field that has default value set by the api",
+        description="_t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE",
     )
     value: Optional[StrictStr] = Field(
-        default=None, description="The value of the form field."
+        default=None, description="_t__SignatureRequestResponseDataValue::VALUE"
     )
     __properties: ClassVar[List[str]] = [
         "api_id",

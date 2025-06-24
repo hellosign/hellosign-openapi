@@ -1,16 +1,14 @@
 # Dropbox::Sign::SubSigningOptions
 
-This allows the requester to specify the types allowed for creating a signature.
-
-**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+_t__Sub::SigningOptions::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `default_type`<sup>*_required_</sup> | ```String``` |  The default type shown (limited to the listed types)  |  |
-| `draw` | ```Boolean``` |  Allows drawing the signature  |  [default to false] |
-| `phone` | ```Boolean``` |  Allows using a smartphone to email the signature  |  [default to false] |
-| `type` | ```Boolean``` |  Allows typing the signature  |  [default to false] |
-| `upload` | ```Boolean``` |  Allows uploading the signature  |  [default to false] |
+| `default_type`<sup>*_required_</sup> | ```String``` |  _t__Sub::SigningOptions::DEFAULT  |  |
+| `draw` | ```Boolean``` |  _t__Sub::SigningOptions::DRAW  |  [default to false] |
+| `phone` | ```Boolean``` |  _t__Sub::SigningOptions::PHONE  |  [default to false] |
+| `type` | ```Boolean``` |  _t__Sub::SigningOptions::TYPE  |  [default to false] |
+| `upload` | ```Boolean``` |  _t__Sub::SigningOptions::UPLOAD  |  [default to false] |
 

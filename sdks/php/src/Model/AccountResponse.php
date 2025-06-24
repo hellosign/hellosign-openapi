@@ -378,7 +378,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets account_id
      *
-     * @param string|null $account_id The ID of the Account
+     * @param string|null $account_id _t__Account::ACCOUNT_ID
      *
      * @return self
      */
@@ -405,7 +405,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets email_address
      *
-     * @param string|null $email_address the email address associated with the Account
+     * @param string|null $email_address _t__Account::EMAIL_ADDRESS
      *
      * @return self
      */
@@ -432,7 +432,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_locked
      *
-     * @param bool|null $is_locked returns `true` if the user has been locked out of their account by a team admin
+     * @param bool|null $is_locked _t__Account::IS_LOCKED
      *
      * @return self
      */
@@ -459,7 +459,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_paid_hs
      *
-     * @param bool|null $is_paid_hs returns `true` if the user has a paid Dropbox Sign account
+     * @param bool|null $is_paid_hs _t__Account::IS_PAID_HS
      *
      * @return self
      */
@@ -486,7 +486,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_paid_hf
      *
-     * @param bool|null $is_paid_hf returns `true` if the user has a paid HelloFax account
+     * @param bool|null $is_paid_hf _t__Account::IS_PAID_HF
      *
      * @return self
      */
@@ -540,7 +540,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url the URL that Dropbox Sign events will `POST` to
+     * @param string|null $callback_url _t__Account::CALLBACK_URL
      *
      * @return self
      */
@@ -574,7 +574,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets role_code
      *
-     * @param string|null $role_code the membership role for the team
+     * @param string|null $role_code _t__Account::ROLE_CODE
      *
      * @return self
      */
@@ -608,7 +608,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets team_id
      *
-     * @param string|null $team_id the id of the team account belongs to
+     * @param string|null $team_id _t__Account::TEAM_ID
      *
      * @return self
      */
@@ -642,7 +642,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets locale
      *
-     * @param string|null $locale The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
+     * @param string|null $locale _t__Account::LOCALE
      *
      * @return self
      */

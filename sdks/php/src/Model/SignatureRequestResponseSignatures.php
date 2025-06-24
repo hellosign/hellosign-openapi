@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SignatureRequestResponseSignatures Class Doc Comment
  *
  * @category Class
- * @description An array of signature objects, 1 for each signer.
+ * @description _t__SignatureRequestResponseSignatures::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -435,7 +435,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signature_id
      *
-     * @param string|null $signature_id signature identifier
+     * @param string|null $signature_id _t__SignatureRequestResponseSignatures::SIGNATURE_ID
      *
      * @return self
      */
@@ -462,7 +462,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signer_group_guid
      *
-     * @param string|null $signer_group_guid Signer Group GUID
+     * @param string|null $signer_group_guid _t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID
      *
      * @return self
      */
@@ -496,7 +496,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signer_email_address
      *
-     * @param string|null $signer_email_address the email address of the signer
+     * @param string|null $signer_email_address _t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS
      *
      * @return self
      */
@@ -523,7 +523,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signer_name
      *
-     * @param string|null $signer_name the name of the signer
+     * @param string|null $signer_name _t__SignatureRequestResponseSignatures::SIGNER_NAME
      *
      * @return self
      */
@@ -557,7 +557,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signer_role
      *
-     * @param string|null $signer_role the role of the signer
+     * @param string|null $signer_role _t__SignatureRequestResponseSignatures::SIGNER_ROLE
      *
      * @return self
      */
@@ -591,7 +591,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets order
      *
-     * @param int|null $order if signer order is assigned this is the 0-based index for this signer
+     * @param int|null $order _t__SignatureRequestResponseSignatures::ORDER
      *
      * @return self
      */
@@ -625,7 +625,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets status_code
      *
-     * @param string|null $status_code The current status of the signature. eg: awaiting_signature, signed, declined.
+     * @param string|null $status_code _t__SignatureRequestResponseSignatures::STATUS_CODE
      *
      * @return self
      */
@@ -652,7 +652,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets decline_reason
      *
-     * @param string|null $decline_reason the reason provided by the signer for declining the request
+     * @param string|null $decline_reason _t__SignatureRequestResponseSignatures::DECLINE_REASON
      *
      * @return self
      */
@@ -686,7 +686,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signed_at
      *
-     * @param int|null $signed_at time that the document was signed or null
+     * @param int|null $signed_at _t__SignatureRequestResponseSignatures::SIGNED_AT
      *
      * @return self
      */
@@ -720,7 +720,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets last_viewed_at
      *
-     * @param int|null $last_viewed_at the time that the document was last viewed by this signer or null
+     * @param int|null $last_viewed_at _t__SignatureRequestResponseSignatures::LAST_VIEWED_AT
      *
      * @return self
      */
@@ -754,7 +754,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets last_reminded_at
      *
-     * @param int|null $last_reminded_at the time the last reminder email was sent to the signer or null
+     * @param int|null $last_reminded_at _t__SignatureRequestResponseSignatures::LAST_REMINDED_AT
      *
      * @return self
      */
@@ -788,7 +788,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets has_pin
      *
-     * @param bool|null $has_pin boolean to indicate whether this signature requires a PIN to access
+     * @param bool|null $has_pin _t__SignatureRequestResponseSignatures::HAS_PIN
      *
      * @return self
      */
@@ -815,7 +815,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets has_sms_auth
      *
-     * @param bool|null $has_sms_auth boolean to indicate whether this signature has SMS authentication enabled
+     * @param bool|null $has_sms_auth _t__SignatureRequestResponseSignatures::HAS_SMS_AUTH
      *
      * @return self
      */
@@ -849,7 +849,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets has_sms_delivery
      *
-     * @param bool|null $has_sms_delivery boolean to indicate whether this signature has SMS delivery enabled
+     * @param bool|null $has_sms_delivery _t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY
      *
      * @return self
      */
@@ -883,7 +883,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets sms_phone_number
      *
-     * @param string|null $sms_phone_number the SMS phone number used for authentication or signature request delivery
+     * @param string|null $sms_phone_number _t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER
      *
      * @return self
      */
@@ -917,7 +917,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets reassigned_by
      *
-     * @param string|null $reassigned_by email address of original signer who reassigned to this signer
+     * @param string|null $reassigned_by _t__SignatureRequestResponseSignatures::REASSIGNED_BY
      *
      * @return self
      */
@@ -951,7 +951,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets reassignment_reason
      *
-     * @param string|null $reassignment_reason reason provided by original signer who reassigned to this signer
+     * @param string|null $reassignment_reason _t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON
      *
      * @return self
      */
@@ -985,7 +985,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets reassigned_from
      *
-     * @param string|null $reassigned_from previous signature identifier
+     * @param string|null $reassigned_from _t__SignatureRequestResponseSignatures::REASSIGNED_FROM
      *
      * @return self
      */
@@ -1019,7 +1019,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets error
      *
-     * @param string|null $error error message pertaining to this signer, or null
+     * @param string|null $error _t__SignatureRequestResponseSignatures::ERROR
      *
      * @return self
      */

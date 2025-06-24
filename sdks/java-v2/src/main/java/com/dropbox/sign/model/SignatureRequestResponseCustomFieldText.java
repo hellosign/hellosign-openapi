@@ -34,7 +34,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * This class extends &#x60;SignatureRequestResponseCustomFieldBase&#x60;.
+ * _t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS
  */
 @JsonPropertyOrder({
   SignatureRequestResponseCustomFieldText.JSON_PROPERTY_TYPE,
@@ -80,7 +80,7 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
   }
 
   /**
-   * The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.
+   * _t__SignatureRequestResponseCustomField::TYPE
    * @return type
    */
   @jakarta.annotation.Nonnull
@@ -105,7 +105,7 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
   }
 
   /**
-   * A text string for text fields
+   * _t__SignatureRequestResponseCustomField::VALUE_TEXT
    * @return value
    */
   @jakarta.annotation.Nullable

@@ -1,14 +1,14 @@
 # TeamResponse
 
-Contains information about your team and its members
+_t__TeamResponse::DESCRIPTION
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `name` | ```str``` |  The name of your Team  |  |
+| `name` | ```str``` |  _t__Team::NAME  |  |
 | `accounts` | [```List[AccountResponse]```](AccountResponse.md) |    |  |
-| `invited_accounts` | [```List[AccountResponse]```](AccountResponse.md) |  A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.  |  |
-| `invited_emails` | ```List[str]``` |  A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.  |  |
+| `invited_accounts` | [```List[AccountResponse]```](AccountResponse.md) |  _t__Team::INVITED_ACCOUNTS  |  |
+| `invited_emails` | ```List[str]``` |  _t__Team::INVITED_EMAILS  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

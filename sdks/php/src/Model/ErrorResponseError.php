@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * ErrorResponseError Class Doc Comment
  *
  * @category Class
- * @description Contains information about an error that occurred.
+ * @description _t__ErrorResponseError::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -331,7 +331,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets error_msg
      *
-     * @param string $error_msg message describing an error
+     * @param string $error_msg _t__ErrorResponseError::ERROR_MSG
      *
      * @return self
      */
@@ -358,7 +358,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets error_name
      *
-     * @param string $error_name name of the error
+     * @param string $error_name _t__ErrorResponseError::ERROR_NAME
      *
      * @return self
      */
@@ -385,7 +385,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets error_path
      *
-     * @param string|null $error_path path at which an error occurred
+     * @param string|null $error_path _t__ErrorResponseError::ERROR_PATH
      *
      * @return self
      */

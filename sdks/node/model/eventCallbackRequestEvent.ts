@@ -26,19 +26,19 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
 
 /**
- * Basic information about the event that occurred.
+ * _t__EventCallbackRequestEvent::DESCRIPTION
  */
 export class EventCallbackRequestEvent {
   /**
-   * Time the event was created (using Unix time).
+   * _t__EventCallbackRequestEvent::EVENT_TIME
    */
   "eventTime": string;
   /**
-   * Type of callback event that was triggered.
+   * _t__EventCallbackRequestEvent::EVENT_TYPE
    */
   "eventType": EventCallbackRequestEvent.EventTypeEnum;
   /**
-   * Generated hash used to verify source of event data.
+   * _t__EventCallbackRequestEvent::EVENT_HASH
    */
   "eventHash": string;
   "eventMetadata"?: EventCallbackRequestEventMetadata;

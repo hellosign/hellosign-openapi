@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SignatureRequestResponseDataBase Class Doc Comment
  *
  * @category Class
- * @description An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+ * @description _t__SignatureRequestResponseData::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -357,7 +357,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
     /**
      * Sets api_id
      *
-     * @param string|null $api_id the unique ID for this field
+     * @param string|null $api_id _t__SignatureRequestResponseData::API_ID
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
     /**
      * Sets signature_id
      *
-     * @param string|null $signature_id the ID of the signature to which this response is linked
+     * @param string|null $signature_id _t__SignatureRequestResponseData::SIGNATURE_ID
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
     /**
      * Sets name
      *
-     * @param string|null $name the name of the form field
+     * @param string|null $name _t__SignatureRequestResponseData::NAME
      *
      * @return self
      */
@@ -438,7 +438,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
     /**
      * Sets required
      *
-     * @param bool|null $required a boolean value denoting if this field is required
+     * @param bool|null $required _t__SignatureRequestResponseData::REQUIRED
      *
      * @return self
      */

@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Average text length in this field.
+ * _t__TemplateResponseFieldAvgTextLength::DESCRIPTION
  */
 @JsonPropertyOrder({
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
@@ -71,7 +71,7 @@ public class TemplateResponseFieldAvgTextLength {
   }
 
   /**
-   * Number of lines.
+   * _t__TemplateResponseFieldAvgTextLength::NUM_LINES
    * @return numLines
    */
   @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class TemplateResponseFieldAvgTextLength {
   }
 
   /**
-   * Number of characters per line.
+   * _t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE
    * @return numCharsPerLine
    */
   @jakarta.annotation.Nullable

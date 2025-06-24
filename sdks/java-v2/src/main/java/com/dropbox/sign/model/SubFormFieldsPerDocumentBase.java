@@ -294,7 +294,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
   /**
-   * Size of the field in pixels.
+   * _t__Sub::FormFieldsPerDocument::WIDTH
    * @return width
    */
   @jakarta.annotation.Nonnull
@@ -319,7 +319,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
   /**
-   * Location coordinates of the field in pixels.
+   * _t__Sub::FormFieldsPerDocument::X
    * @return x
    */
   @jakarta.annotation.Nonnull
@@ -344,7 +344,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
   /**
-   * Location coordinates of the field in pixels.
+   * _t__Sub::FormFieldsPerDocument::Y
    * @return y
    */
   @jakarta.annotation.Nonnull

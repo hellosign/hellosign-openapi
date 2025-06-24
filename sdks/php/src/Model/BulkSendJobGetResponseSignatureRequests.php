@@ -476,7 +476,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets test_mode
      *
-     * @param bool|null $test_mode Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
+     * @param bool|null $test_mode _t__SignatureRequestResponse::TEST_MODE
      *
      * @return self
      */
@@ -503,7 +503,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets signature_request_id
      *
-     * @param string|null $signature_request_id the id of the SignatureRequest
+     * @param string|null $signature_request_id _t__SignatureRequestResponse::SIGNATURE_REQUEST_ID
      *
      * @return self
      */
@@ -530,7 +530,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets requester_email_address
      *
-     * @param string|null $requester_email_address the email address of the initiator of the SignatureRequest
+     * @param string|null $requester_email_address _t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS
      *
      * @return self
      */
@@ -564,7 +564,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets title
      *
-     * @param string|null $title the title the specified Account uses for the SignatureRequest
+     * @param string|null $title _t__SignatureRequestResponse::TITLE
      *
      * @return self
      */
@@ -591,7 +591,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets original_title
      *
-     * @param string|null $original_title default Label for account
+     * @param string|null $original_title _t__SignatureRequestResponse::ORIGINAL_TITLE
      *
      * @return self
      */
@@ -618,7 +618,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets subject
      *
-     * @param string|null $subject the subject in the email that was initially sent to the signers
+     * @param string|null $subject _t__SignatureRequestResponse::SUBJECT
      *
      * @return self
      */
@@ -652,7 +652,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets message
      *
-     * @param string|null $message the custom message in the email that was initially sent to the signers
+     * @param string|null $message _t__SignatureRequestResponse::MESSAGE
      *
      * @return self
      */
@@ -686,7 +686,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata the metadata attached to the signature request
+     * @param array<string,mixed>|null $metadata _t__SignatureRequestResponse::METADATA
      *
      * @return self
      */
@@ -713,7 +713,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets created_at
      *
-     * @param int|null $created_at time the signature request was created
+     * @param int|null $created_at _t__SignatureRequestResponse::CREATED_AT
      *
      * @return self
      */
@@ -740,7 +740,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+     * @param int|null $expires_at _t__SignatureRequestResponse::EXPIRES_AT
      *
      * @return self
      */
@@ -774,7 +774,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets is_complete
      *
-     * @param bool|null $is_complete whether or not the SignatureRequest has been fully executed by all signers
+     * @param bool|null $is_complete _t__SignatureRequestResponse::IS_COMPLETE
      *
      * @return self
      */
@@ -801,7 +801,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets is_declined
      *
-     * @param bool|null $is_declined whether or not the SignatureRequest has been declined by a signer
+     * @param bool|null $is_declined _t__SignatureRequestResponse::IS_DECLINED
      *
      * @return self
      */
@@ -828,7 +828,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets has_error
      *
-     * @param bool|null $has_error whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings)
+     * @param bool|null $has_error _t__SignatureRequestResponse::HAS_ERROR
      *
      * @return self
      */
@@ -855,7 +855,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets files_url
      *
-     * @param string|null $files_url the URL where a copy of the request's documents can be downloaded
+     * @param string|null $files_url _t__SignatureRequestResponse::FILES_URL
      *
      * @return self
      */
@@ -882,7 +882,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets signing_url
      *
-     * @param string|null $signing_url The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
+     * @param string|null $signing_url _t__SignatureRequestResponse::SIGNING_URL
      *
      * @return self
      */
@@ -916,7 +916,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets details_url
      *
-     * @param string|null $details_url the URL where the requester and the signers can view the current status of the SignatureRequest
+     * @param string|null $details_url _t__SignatureRequestResponse::DETAILS_URL
      *
      * @return self
      */
@@ -943,7 +943,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets cc_email_addresses
      *
-     * @param string[]|null $cc_email_addresses A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
+     * @param string[]|null $cc_email_addresses _t__SignatureRequestResponse::CC_EMAIL_ADDRESSES
      *
      * @return self
      */
@@ -970,7 +970,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url the URL you want the signer redirected to after they successfully sign
+     * @param string|null $signing_redirect_url _t__SignatureRequestResponse::SIGNING_REDIRECT_URL
      *
      * @return self
      */
@@ -1004,7 +1004,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets final_copy_uri
      *
-     * @param string|null $final_copy_uri The path where the completed document can be downloaded
+     * @param string|null $final_copy_uri _t__SignatureRequestResponse::FINAL_COPY_URI
      *
      * @return self
      */
@@ -1038,7 +1038,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets template_ids
      *
-     * @param string[]|null $template_ids templates IDs used in this SignatureRequest (if any)
+     * @param string[]|null $template_ids _t__SignatureRequestResponse::TEMPLATE_IDS
      *
      * @return self
      */
@@ -1072,7 +1072,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets custom_fields
      *
-     * @param SignatureRequestResponseCustomFieldBase[]|null $custom_fields An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
+     * @param SignatureRequestResponseCustomFieldBase[]|null $custom_fields _t__SignatureRequestResponseCustomField::DESCRIPTION
      *
      * @return self
      */
@@ -1106,7 +1106,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets attachments
      *
-     * @param SignatureRequestResponseAttachment[]|null $attachments signer attachments
+     * @param SignatureRequestResponseAttachment[]|null $attachments _t__SignatureRequestResponseAttachment::DESCRIPTION
      *
      * @return self
      */
@@ -1140,7 +1140,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets response_data
      *
-     * @param SignatureRequestResponseDataBase[]|null $response_data an array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers
+     * @param SignatureRequestResponseDataBase[]|null $response_data _t__SignatureRequestResponseData::DESCRIPTION
      *
      * @return self
      */
@@ -1174,7 +1174,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets signatures
      *
-     * @param SignatureRequestResponseSignatures[]|null $signatures an array of signature objects, 1 for each signer
+     * @param SignatureRequestResponseSignatures[]|null $signatures _t__SignatureRequestResponseSignatures::DESCRIPTION
      *
      * @return self
      */
@@ -1201,7 +1201,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets bulk_send_job_id
      *
-     * @param string|null $bulk_send_job_id the id of the BulkSendJob
+     * @param string|null $bulk_send_job_id _t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID
      *
      * @return self
      */

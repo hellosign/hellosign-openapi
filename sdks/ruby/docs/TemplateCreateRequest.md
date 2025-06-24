@@ -11,7 +11,8 @@
 | `files` | ```Array<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `file_urls` | ```Array<String>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allow_reassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
-| `attachments` | [```Array<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
+| `allow_form_view` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
+| `attachments` | [```Array<SubAttachment>```](SubAttachment.md) |  _t__SubAttachment::LIST_DESCRIPTION  |  |
 | `cc_roles` | ```Array<String>``` |  The CC roles that must be assigned when using the template to send a signature request  |  |
 | `client_id` | ```String``` |  Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app.  |  |
 | `field_options` | [```SubFieldOptions```](SubFieldOptions.md) |    |  |
@@ -19,7 +20,7 @@
 | `form_field_rules` | [```Array<SubFormFieldRule>```](SubFormFieldRule.md) |  Conditional Logic rules for fields defined in `form_fields_per_document`.  |  |
 | `merge_fields` | [```Array<SubMergeField>```](SubMergeField.md) |  Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.  |  |
 | `message` | ```String``` |  The default template email message.  |  |
-| `metadata` | ```Hash<String, Object>``` |  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.  |  |
+| `metadata` | ```Hash<String, Object>``` |  _t__Sub::Metadata::DESCRIPTION  |  |
 | `subject` | ```String``` |  The template title (alias).  |  |
 | `test_mode` | ```Boolean``` |  Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.  |  [default to false] |
 | `title` | ```String``` |  The title you want to assign to the SignatureRequest.  |  |

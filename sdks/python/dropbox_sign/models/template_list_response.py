@@ -36,11 +36,11 @@ class TemplateListResponse(BaseModel):
     """  # noqa: E501
 
     templates: List[TemplateResponse] = Field(
-        description="List of templates that the API caller has access to."
+        description="_t__TemplateListResponse::DESCRIPTION"
     )
     list_info: ListInfoResponse
     warnings: Optional[List[WarningResponse]] = Field(
-        default=None, description="A list of warnings."
+        default=None, description="_t__WarningResponse::LIST_DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = ["templates", "list_info", "warnings"]
 

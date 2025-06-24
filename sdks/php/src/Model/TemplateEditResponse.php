@@ -313,7 +313,7 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets template_id
      *
-     * @param string $template_id the id of the Template
+     * @param string $template_id _t__TemplateResponse::TEMPLATE_ID
      *
      * @return self
      */

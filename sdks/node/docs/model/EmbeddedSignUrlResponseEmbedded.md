@@ -1,12 +1,12 @@
 # # EmbeddedSignUrlResponseEmbedded
 
-An object that contains necessary information to set up embedded signing.
+_t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `signUrl` | ```string``` |  A signature url that can be opened in an iFrame.  |  |
-| `expiresAt` | ```number``` |  The specific time that the the `sign_url` link expires, in epoch.  |  |
+| `signUrl` | ```string``` |  _t__EmbeddedSignUrlResponseEmbedded::SIGN_URL  |  |
+| `expiresAt` | ```number``` |  _t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -26,11 +26,11 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class SubTemplateRole {
   /**
-   * The role name of the signer that will be displayed when the template is used to create a signature request.
+   * _t__Sub::SignerRole::NAME
    */
   "name"?: string;
   /**
-   * The order in which this signer role is required to sign.
+   * _t__Sub::SignerRole::ORDER
    */
   "order"?: number | null;
 

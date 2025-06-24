@@ -17,29 +17,29 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Contains information about an API App.
+  # _t__ApiAppResponse::DESCRIPTION
   class ApiAppResponse
-    # The app's callback URL (for events)
+    # _t__ApiAppResponse::CALLBACK_URL
     # @return [String, nil]
     attr_accessor :callback_url
 
-    # The app's client id
+    # _t__ApiAppResponse::CLIENT_ID
     # @return [String]
     attr_accessor :client_id
 
-    # The time that the app was created
+    # _t__ApiAppResponse::CREATED_AT
     # @return [Integer]
     attr_accessor :created_at
 
-    # The domain name(s) associated with the app
+    # _t__ApiAppResponse::DOMAINS
     # @return [Array<String>]
     attr_accessor :domains
 
-    # The name of the app
+    # _t__ApiAppResponse::NAME
     # @return [String]
     attr_accessor :name
 
-    # Boolean to indicate if the app has been approved
+    # _t__ApiAppResponse::IS_APPROVED
     # @return [Boolean]
     attr_accessor :is_approved
 

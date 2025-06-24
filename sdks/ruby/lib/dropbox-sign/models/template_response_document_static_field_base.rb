@@ -17,44 +17,44 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+  # _t__TemplateResponseDocumentStaticField::DESCRIPTION
   class TemplateResponseDocumentStaticFieldBase
     # @return [String]
     attr_accessor :type
 
-    # A unique id for the static field.
+    # _t__TemplateResponseDocumentStaticField::API_ID
     # @return [String]
     attr_accessor :api_id
 
-    # The name of the static field.
+    # _t__TemplateResponseDocumentStaticField::NAME
     # @return [String]
     attr_accessor :name
 
-    # The signer of the Static Field.
+    # _t__TemplateResponseDocumentStaticField::SIGNER
     # @return [String]
     attr_accessor :signer
 
-    # The horizontal offset in pixels for this static field.
+    # _t__TemplateResponseDocumentStaticField::X
     # @return [Integer]
     attr_accessor :x
 
-    # The vertical offset in pixels for this static field.
+    # _t__TemplateResponseDocumentStaticField::Y
     # @return [Integer]
     attr_accessor :y
 
-    # The width in pixels of this static field.
+    # _t__TemplateResponseDocumentStaticField::WIDTH
     # @return [Integer]
     attr_accessor :width
 
-    # The height in pixels of this static field.
+    # _t__TemplateResponseDocumentStaticField::HEIGHT
     # @return [Integer]
     attr_accessor :height
 
-    # Boolean showing whether or not this field is required.
+    # _t__TemplateResponseDocumentStaticField::REQUIRED
     # @return [Boolean]
     attr_accessor :required
 
-    # The name of the group this field is in. If this field is not a group, this defaults to `null`.
+    # _t__TemplateResponseDocumentStaticField::GROUP
     # @return [String, nil]
     attr_accessor :group
 

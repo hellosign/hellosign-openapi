@@ -148,7 +148,7 @@ public class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
   }
 
   /**
-   * A text field that has default text set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentTextMerge&#x60; class.
+   * _t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE
    * @return type
    */
   @jakarta.annotation.Nonnull

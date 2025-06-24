@@ -313,7 +313,7 @@ class FileResponseDataUri implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets data_uri
      *
-     * @param string $data_uri file as base64 encoded string
+     * @param string $data_uri _t__FileResponse::DATA_URI
      *
      * @return self
      */

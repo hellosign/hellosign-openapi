@@ -18,23 +18,23 @@ end
 
 module Dropbox::Sign
   class TemplateResponseAccount
-    # The id of the Account.
+    # _t__TemplateResponseAccount::ACCOUNT_ID
     # @return [String]
     attr_accessor :account_id
 
-    # The email address associated with the Account.
+    # _t__TemplateResponseAccount::EMAIL_ADDRESS
     # @return [String]
     attr_accessor :email_address
 
-    # Returns `true` if the user has been locked out of their account by a team admin.
+    # _t__TemplateResponseAccount::IS_LOCKED
     # @return [Boolean]
     attr_accessor :is_locked
 
-    # Returns `true` if the user has a paid Dropbox Sign account.
+    # _t__TemplateResponseAccount::IS_PAID_HS
     # @return [Boolean]
     attr_accessor :is_paid_hs
 
-    # Returns `true` if the user has a paid HelloFax account.
+    # _t__TemplateResponseAccount::IS_PAID_HF
     # @return [Boolean]
     attr_accessor :is_paid_hf
 

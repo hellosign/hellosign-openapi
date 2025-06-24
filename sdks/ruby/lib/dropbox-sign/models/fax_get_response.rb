@@ -21,7 +21,7 @@ module Dropbox::Sign
     # @return [FaxResponse]
     attr_accessor :fax
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

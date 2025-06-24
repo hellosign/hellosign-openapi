@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * BulkSendJobResponse Class Doc Comment
  *
  * @category Class
- * @description Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
+ * @description _t__BulkSendJobResponse::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -330,7 +330,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets bulk_send_job_id
      *
-     * @param string|null $bulk_send_job_id the id of the BulkSendJob
+     * @param string|null $bulk_send_job_id _t__BulkSendJobResponse::BULK_SEND_JOB_ID
      *
      * @return self
      */
@@ -364,7 +364,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets total
      *
-     * @param int|null $total the total amount of Signature Requests queued for sending
+     * @param int|null $total _t__BulkSendJobResponse::TOTAL
      *
      * @return self
      */
@@ -391,7 +391,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets is_creator
      *
-     * @param bool|null $is_creator true if you are the owner of this BulkSendJob, false if it's been shared with you by a team member
+     * @param bool|null $is_creator _t__BulkSendJobResponse::IS_CREATOR
      *
      * @return self
      */
@@ -418,7 +418,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets created_at
      *
-     * @param int|null $created_at time that the BulkSendJob was created
+     * @param int|null $created_at _t__BulkSendJobResponse::CREATED_AT
      *
      * @return self
      */

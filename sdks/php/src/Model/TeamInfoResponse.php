@@ -336,7 +336,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets team_id
      *
-     * @param string|null $team_id The id of a team
+     * @param string|null $team_id _t__TeamGeneral::TEAM_ID
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name The name of a team
+     * @param string|null $name _t__TeamGeneral::NAME
      *
      * @return self
      */
@@ -424,7 +424,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets num_members
      *
-     * @param int|null $num_members Number of members within a team
+     * @param int|null $num_members _t__TeamGeneral::NUM_MEMBERS
      *
      * @return self
      */
@@ -451,7 +451,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets num_sub_teams
      *
-     * @param int|null $num_sub_teams Number of sub teams within a team
+     * @param int|null $num_sub_teams _t__TeamGeneral::NUM_SUB_TEAMS
      *
      * @return self
      */

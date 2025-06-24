@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Signer attachments.
+ * _t__SignatureRequestResponseAttachment::DESCRIPTION
  */
 @JsonPropertyOrder({
   SignatureRequestResponseAttachment.JSON_PROPERTY_ID,
@@ -91,7 +91,7 @@ public class SignatureRequestResponseAttachment {
   }
 
   /**
-   * The unique ID for this attachment.
+   * _t__SignatureRequestResponseAttachment::ID
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -120,7 +120,7 @@ public class SignatureRequestResponseAttachment {
   }
 
   /**
-   * The Signer this attachment is assigned to.
+   * _t__SignatureRequestResponseAttachment::SIGNER
    * @return signer
    */
   @jakarta.annotation.Nonnull
@@ -149,7 +149,7 @@ public class SignatureRequestResponseAttachment {
   }
 
   /**
-   * The name of this attachment.
+   * _t__SignatureRequestResponseAttachment::NAME
    * @return name
    */
   @jakarta.annotation.Nonnull
@@ -174,7 +174,7 @@ public class SignatureRequestResponseAttachment {
   }
 
   /**
-   * A boolean value denoting if this attachment is required.
+   * _t__SignatureRequestResponseAttachment::REQUIRED
    * @return required
    */
   @jakarta.annotation.Nonnull
@@ -199,7 +199,7 @@ public class SignatureRequestResponseAttachment {
   }
 
   /**
-   * Instructions for Signer.
+   * _t__SignatureRequestResponseAttachment::INSTRUCTIONS
    * @return instructions
    */
   @jakarta.annotation.Nullable
@@ -224,7 +224,7 @@ public class SignatureRequestResponseAttachment {
   }
 
   /**
-   * Timestamp when attachment was uploaded by Signer.
+   * _t__SignatureRequestResponseAttachment::UPLOADED_AT
    * @return uploadedAt
    */
   @jakarta.annotation.Nullable

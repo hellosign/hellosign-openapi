@@ -36,11 +36,11 @@ class BulkSendJobListResponse(BaseModel):
     """  # noqa: E501
 
     bulk_send_jobs: List[BulkSendJobResponse] = Field(
-        description="Contains a list of BulkSendJobs that the API caller has access to."
+        description="_t__BulkSendJobListResponse::BULK_SEND_JOBS"
     )
     list_info: ListInfoResponse
     warnings: Optional[List[WarningResponse]] = Field(
-        default=None, description="A list of warnings."
+        default=None, description="_t__WarningResponse::LIST_DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = ["bulk_send_jobs", "list_info", "warnings"]
 

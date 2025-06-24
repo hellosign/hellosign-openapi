@@ -50,15 +50,15 @@ export abstract class SubFormFieldsPerDocumentBase {
   "signer": number | string;
   "type": string;
   /**
-   * Size of the field in pixels.
+   * _t__Sub::FormFieldsPerDocument::WIDTH
    */
   "width": number;
   /**
-   * Location coordinates of the field in pixels.
+   * _t__Sub::FormFieldsPerDocument::X
    */
   "x": number;
   /**
-   * Location coordinates of the field in pixels.
+   * _t__Sub::FormFieldsPerDocument::Y
    */
   "y": number;
   /**

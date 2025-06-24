@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * ReportResponse Class Doc Comment
  *
  * @category Class
- * @description Contains information about the report request.
+ * @description _t__ReportResponse::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -241,6 +241,7 @@ class ReportResponse implements ModelInterface, ArrayAccess, JsonSerializable
 
     public const REPORT_TYPE_USER_ACTIVITY = 'user_activity';
     public const REPORT_TYPE_DOCUMENT_STATUS = 'document_status';
+    public const REPORT_TYPE_SMS_ACTIVITY = 'sms_activity';
 
     /**
      * Gets allowable values of the enum
@@ -252,6 +253,7 @@ class ReportResponse implements ModelInterface, ArrayAccess, JsonSerializable
         return [
             self::REPORT_TYPE_USER_ACTIVITY,
             self::REPORT_TYPE_DOCUMENT_STATUS,
+            self::REPORT_TYPE_SMS_ACTIVITY,
         ];
     }
 
@@ -346,7 +348,7 @@ class ReportResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets success
      *
-     * @param string|null $success A message indicating the requested operation's success
+     * @param string|null $success _t__ReportResponse::SUCCESS
      *
      * @return self
      */
@@ -373,7 +375,7 @@ class ReportResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets start_date
      *
-     * @param string|null $start_date the (inclusive) start date for the report data in MM/DD/YYYY format
+     * @param string|null $start_date _t__ReportResponse::START_DATE
      *
      * @return self
      */
@@ -400,7 +402,7 @@ class ReportResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets end_date
      *
-     * @param string|null $end_date the (inclusive) end date for the report data in MM/DD/YYYY format
+     * @param string|null $end_date _t__ReportResponse::END_DATE
      *
      * @return self
      */
@@ -427,7 +429,7 @@ class ReportResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets report_type
      *
-     * @param string[]|null $report_type The type(s) of the report you are requesting. Allowed values are \"user_activity\" and \"document_status\". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
+     * @param string[]|null $report_type _t__ReportResponse::REPORT_TYPE
      *
      * @return self
      */

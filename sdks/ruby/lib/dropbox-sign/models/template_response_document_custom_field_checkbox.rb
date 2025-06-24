@@ -17,9 +17,9 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This class extends `TemplateResponseDocumentCustomFieldBase`
+  # _t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS
   class TemplateResponseDocumentCustomFieldCheckbox < TemplateResponseDocumentCustomFieldBase
-    # The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
+    # _t__TemplateResponseDocumentCustomField::TYPE
     # @return [String]
     attr_accessor :type
 

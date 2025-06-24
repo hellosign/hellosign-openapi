@@ -36,10 +36,11 @@ class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase
     """  # noqa: E501
 
     type: Optional[StrictStr] = Field(
-        default="dropdown", description="An input field for dropdowns"
+        default="dropdown",
+        description="_t__SignatureRequestResponseDataValue::DROPDOWN_TYPE",
     )
     value: Optional[StrictStr] = Field(
-        default=None, description="The value of the form field."
+        default=None, description="_t__SignatureRequestResponseDataValue::VALUE"
     )
     __properties: ClassVar[List[str]] = [
         "api_id",

@@ -32,14 +32,12 @@ from pydantic import StrictBool
 
 class SignatureRequestResponseCustomFieldText(SignatureRequestResponseCustomFieldBase):
     """
-    This class extends `SignatureRequestResponseCustomFieldBase`.
+    _t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="The type of this Custom Field. Only 'text' and 'checkbox' are currently supported."
-    )
+    type: StrictStr = Field(description="_t__SignatureRequestResponseCustomField::TYPE")
     value: Optional[StrictStr] = Field(
-        default=None, description="A text string for text fields"
+        default=None, description="_t__SignatureRequestResponseCustomField::VALUE_TEXT"
     )
     __properties: ClassVar[List[str]] = [
         "type",

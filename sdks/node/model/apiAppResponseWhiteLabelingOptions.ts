@@ -25,7 +25,7 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An object with options to customize the app\'s signer page
+ * _t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION
  */
 export class ApiAppResponseWhiteLabelingOptions {
   "headerBackgroundColor"?: string;

@@ -29,22 +29,22 @@ from pydantic import StrictBool
 
 class SignatureRequestResponseAttachment(BaseModel):
     """
-    Signer attachments.
+    _t__SignatureRequestResponseAttachment::DESCRIPTION
     """  # noqa: E501
 
-    id: StrictStr = Field(description="The unique ID for this attachment.")
+    id: StrictStr = Field(description="_t__SignatureRequestResponseAttachment::ID")
     signer: Union[StrictStr, StrictInt] = Field(
-        description="The Signer this attachment is assigned to."
+        description="_t__SignatureRequestResponseAttachment::SIGNER"
     )
-    name: StrictStr = Field(description="The name of this attachment.")
+    name: StrictStr = Field(description="_t__SignatureRequestResponseAttachment::NAME")
     required: StrictBool = Field(
-        description="A boolean value denoting if this attachment is required."
+        description="_t__SignatureRequestResponseAttachment::REQUIRED"
     )
     instructions: Optional[StrictStr] = Field(
-        default=None, description="Instructions for Signer."
+        default=None, description="_t__SignatureRequestResponseAttachment::INSTRUCTIONS"
     )
     uploaded_at: Optional[StrictInt] = Field(
-        default=None, description="Timestamp when attachment was uploaded by Signer."
+        default=None, description="_t__SignatureRequestResponseAttachment::UPLOADED_AT"
     )
     __properties: ClassVar[List[str]] = [
         "id",

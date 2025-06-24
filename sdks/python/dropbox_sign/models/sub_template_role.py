@@ -33,12 +33,10 @@ class SubTemplateRole(BaseModel):
     """  # noqa: E501
 
     name: Optional[StrictStr] = Field(
-        default=None,
-        description="The role name of the signer that will be displayed when the template is used to create a signature request.",
+        default=None, description="_t__Sub::SignerRole::NAME"
     )
     order: Optional[StrictInt] = Field(
-        default=None,
-        description="The order in which this signer role is required to sign.",
+        default=None, description="_t__Sub::SignerRole::ORDER"
     )
     __properties: ClassVar[List[str]] = ["name", "order"]
 

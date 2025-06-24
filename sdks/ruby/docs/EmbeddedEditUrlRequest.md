@@ -7,6 +7,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `allow_edit_ccs` | ```Boolean``` |  This allows the requester to enable/disable to add or change CC roles when editing the template.  |  [default to false] |
+| `allow_form_view` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
 | `cc_roles` | ```Array<String>``` |  The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.  |  |
 | `editor_options` | [```SubEditorOptions```](SubEditorOptions.md) |    |  |
 | `force_signer_roles` | ```Boolean``` |  Provide users the ability to review/edit the template signer roles.  |  [default to false] |

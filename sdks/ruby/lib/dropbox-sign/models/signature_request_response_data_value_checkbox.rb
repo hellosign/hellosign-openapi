@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class SignatureRequestResponseDataValueCheckbox < SignatureRequestResponseDataBase
-    # A yes/no checkbox
+    # _t__SignatureRequestResponseDataValue::CHECKBOX_TYPE
     # @return [String]
     attr_accessor :type
 
-    # The value of the form field.
+    # _t__SignatureRequestResponseDataValue::VALUE
     # @return [Boolean]
     attr_accessor :value
 

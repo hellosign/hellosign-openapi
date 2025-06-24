@@ -25,31 +25,31 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Signer attachments.
+ * _t__SignatureRequestResponseAttachment::DESCRIPTION
  */
 export class SignatureRequestResponseAttachment {
   /**
-   * The unique ID for this attachment.
+   * _t__SignatureRequestResponseAttachment::ID
    */
   "id": string;
   /**
-   * The Signer this attachment is assigned to.
+   * _t__SignatureRequestResponseAttachment::SIGNER
    */
   "signer": number | string;
   /**
-   * The name of this attachment.
+   * _t__SignatureRequestResponseAttachment::NAME
    */
   "name": string;
   /**
-   * A boolean value denoting if this attachment is required.
+   * _t__SignatureRequestResponseAttachment::REQUIRED
    */
   "required": boolean;
   /**
-   * Instructions for Signer.
+   * _t__SignatureRequestResponseAttachment::INSTRUCTIONS
    */
   "instructions"?: string | null;
   /**
-   * Timestamp when attachment was uploaded by Signer.
+   * _t__SignatureRequestResponseAttachment::UPLOADED_AT
    */
   "uploadedAt"?: number | null;
 

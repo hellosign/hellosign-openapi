@@ -35,7 +35,7 @@ use ReturnTypeWillChange;
  * SignatureRequestResponseCustomFieldCheckbox Class Doc Comment
  *
  * @category Class
- * @description This class extends &#x60;SignatureRequestResponseCustomFieldBase&#x60;.
+ * @description _t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -314,7 +314,7 @@ class SignatureRequestResponseCustomFieldCheckbox extends SignatureRequestRespon
     /**
      * Sets type
      *
-     * @param string $type The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
+     * @param string $type _t__SignatureRequestResponseCustomField::TYPE
      *
      * @return self
      */
@@ -341,7 +341,7 @@ class SignatureRequestResponseCustomFieldCheckbox extends SignatureRequestRespon
     /**
      * Sets value
      *
-     * @param bool|null $value A true/false for checkbox fields
+     * @param bool|null $value _t__SignatureRequestResponseCustomField::VALUE_CHECKBOX
      *
      * @return self
      */

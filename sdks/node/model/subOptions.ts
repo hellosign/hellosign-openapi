@@ -25,11 +25,11 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Additional options supported by API App.
+ * _t__Sub::Options::DESCRIPTION
  */
 export class SubOptions {
   /**
-   * Determines if signers can use \"Insert Everywhere\" when signing a document.
+   * _t__Sub::Options::CAN_INSERT_EVERYWHERE
    */
   "canInsertEverywhere"?: boolean = false;
 

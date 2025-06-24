@@ -27,11 +27,11 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueCheckboxMerge extends SignatureRequestResponseDataBase {
   /**
-   * A checkbox field that has default value set by the api
+   * _t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE
    */
   "type"?: string = "checkbox-merge";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: string;
 

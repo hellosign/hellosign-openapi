@@ -75,12 +75,16 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
         default=False,
         description="Allows signers to decline to sign a document if `true`. Defaults to `false`.",
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     allow_reassign: Optional[StrictBool] = Field(
         default=False,
         description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.",
     )
     attachments: Optional[List[SubAttachment]] = Field(
-        default=None, description="A list describing the attachments"
+        default=None, description="_t__SubAttachment::LIST_DESCRIPTION"
     )
     cc_email_addresses: Optional[List[StrictStr]] = Field(
         default=None, description="The email addresses that should be CCed."
@@ -128,8 +132,7 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
         description="The custom message in the email that will be sent to the signers.",
     )
     metadata: Optional[Dict[str, Any]] = Field(
-        default=None,
-        description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.",
+        default=None, description="_t__Sub::Metadata::DESCRIPTION"
     )
     requesting_redirect_url: Optional[StrictStr] = Field(
         default=None,
@@ -144,8 +147,7 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
         description="When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.",
     )
     signers: Optional[List[SubUnclaimedDraftSigner]] = Field(
-        default=None,
-        description="Add Signers to your Unclaimed Draft Signature Request.",
+        default=None, description="_t__Sub::UnclaimedDraftSigner::DESCRIPTION"
     )
     signing_options: Optional[SubSigningOptions] = None
     signing_redirect_url: Optional[StrictStr] = Field(
@@ -191,6 +193,7 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
         "file_urls",
         "allow_ccs",
         "allow_decline",
+        "allow_form_view",
         "allow_reassign",
         "attachments",
         "cc_email_addresses",
@@ -361,6 +364,11 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
                     if obj.get("allow_decline") is not None
                     else False
                 ),
+                "allow_form_view": (
+                    obj.get("allow_form_view")
+                    if obj.get("allow_form_view") is not None
+                    else False
+                ),
                 "allow_reassign": (
                     obj.get("allow_reassign")
                     if obj.get("allow_reassign") is not None
@@ -512,6 +520,7 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
             "file_urls": "(List[str],)",
             "allow_ccs": "(bool,)",
             "allow_decline": "(bool,)",
+            "allow_form_view": "(bool,)",
             "allow_reassign": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_email_addresses": "(List[str],)",

@@ -25,19 +25,19 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Contains information about an error that occurred.
+ * _t__ErrorResponseError::DESCRIPTION
  */
 export class ErrorResponseError {
   /**
-   * Message describing an error.
+   * _t__ErrorResponseError::ERROR_MSG
    */
   "errorMsg": string;
   /**
-   * Name of the error.
+   * _t__ErrorResponseError::ERROR_NAME
    */
   "errorName": string;
   /**
-   * Path at which an error occurred.
+   * _t__ErrorResponseError::ERROR_PATH
    */
   "errorPath"?: string;
 

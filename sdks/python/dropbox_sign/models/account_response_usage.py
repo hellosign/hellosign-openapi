@@ -29,11 +29,11 @@ from pydantic import StrictBool
 
 class AccountResponseUsage(BaseModel):
     """
-    Details concerning monthly usage
+    _t__Account::USAGE
     """  # noqa: E501
 
     fax_pages_sent: Optional[StrictInt] = Field(
-        default=None, description="Number of fax pages sent"
+        default=None, description="_t__AccountUsage::FAX_PAGES_SENT"
     )
     __properties: ClassVar[List[str]] = ["fax_pages_sent"]
 

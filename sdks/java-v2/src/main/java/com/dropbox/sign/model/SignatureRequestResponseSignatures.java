@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An array of signature objects, 1 for each signer.
+ * _t__SignatureRequestResponseSignatures::DESCRIPTION
  */
 @JsonPropertyOrder({
   SignatureRequestResponseSignatures.JSON_PROPERTY_SIGNATURE_ID,
@@ -156,7 +156,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Signature identifier.
+   * _t__SignatureRequestResponseSignatures::SIGNATURE_ID
    * @return signatureId
    */
   @jakarta.annotation.Nullable
@@ -181,7 +181,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Signer Group GUID
+   * _t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID
    * @return signerGroupGuid
    */
   @jakarta.annotation.Nullable
@@ -206,7 +206,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * The email address of the signer.
+   * _t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS
    * @return signerEmailAddress
    */
   @jakarta.annotation.Nullable
@@ -231,7 +231,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * The name of the signer.
+   * _t__SignatureRequestResponseSignatures::SIGNER_NAME
    * @return signerName
    */
   @jakarta.annotation.Nullable
@@ -256,7 +256,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * The role of the signer.
+   * _t__SignatureRequestResponseSignatures::SIGNER_ROLE
    * @return signerRole
    */
   @jakarta.annotation.Nullable
@@ -281,7 +281,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * If signer order is assigned this is the 0-based index for this signer.
+   * _t__SignatureRequestResponseSignatures::ORDER
    * @return order
    */
   @jakarta.annotation.Nullable
@@ -306,7 +306,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * The current status of the signature. eg: awaiting_signature, signed, declined.
+   * _t__SignatureRequestResponseSignatures::STATUS_CODE
    * @return statusCode
    */
   @jakarta.annotation.Nullable
@@ -331,7 +331,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * The reason provided by the signer for declining the request.
+   * _t__SignatureRequestResponseSignatures::DECLINE_REASON
    * @return declineReason
    */
   @jakarta.annotation.Nullable
@@ -356,7 +356,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Time that the document was signed or null.
+   * _t__SignatureRequestResponseSignatures::SIGNED_AT
    * @return signedAt
    */
   @jakarta.annotation.Nullable
@@ -381,7 +381,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * The time that the document was last viewed by this signer or null.
+   * _t__SignatureRequestResponseSignatures::LAST_VIEWED_AT
    * @return lastViewedAt
    */
   @jakarta.annotation.Nullable
@@ -406,7 +406,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * The time the last reminder email was sent to the signer or null.
+   * _t__SignatureRequestResponseSignatures::LAST_REMINDED_AT
    * @return lastRemindedAt
    */
   @jakarta.annotation.Nullable
@@ -431,7 +431,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Boolean to indicate whether this signature requires a PIN to access.
+   * _t__SignatureRequestResponseSignatures::HAS_PIN
    * @return hasPin
    */
   @jakarta.annotation.Nullable
@@ -456,7 +456,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Boolean to indicate whether this signature has SMS authentication enabled.
+   * _t__SignatureRequestResponseSignatures::HAS_SMS_AUTH
    * @return hasSmsAuth
    */
   @jakarta.annotation.Nullable
@@ -481,7 +481,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Boolean to indicate whether this signature has SMS delivery enabled.
+   * _t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY
    * @return hasSmsDelivery
    */
   @jakarta.annotation.Nullable
@@ -506,7 +506,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * The SMS phone number used for authentication or signature request delivery.
+   * _t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER
    * @return smsPhoneNumber
    */
   @jakarta.annotation.Nullable
@@ -531,7 +531,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Email address of original signer who reassigned to this signer.
+   * _t__SignatureRequestResponseSignatures::REASSIGNED_BY
    * @return reassignedBy
    */
   @jakarta.annotation.Nullable
@@ -556,7 +556,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Reason provided by original signer who reassigned to this signer.
+   * _t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON
    * @return reassignmentReason
    */
   @jakarta.annotation.Nullable
@@ -581,7 +581,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Previous signature identifier.
+   * _t__SignatureRequestResponseSignatures::REASSIGNED_FROM
    * @return reassignedFrom
    */
   @jakarta.annotation.Nullable
@@ -606,7 +606,7 @@ public class SignatureRequestResponseSignatures {
   }
 
   /**
-   * Error message pertaining to this signer, or null.
+   * _t__SignatureRequestResponseSignatures::ERROR
    * @return error
    */
   @jakarta.annotation.Nullable

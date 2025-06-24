@@ -30,14 +30,14 @@ from pydantic import StrictBool
 
 class TemplateUpdateFilesResponseTemplate(BaseModel):
     """
-    Contains template id
+    _t__TemplateUpdateFilesResponseTemplate::DESCRIPTION
     """  # noqa: E501
 
     template_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Template."
+        default=None, description="_t__TemplateResponse::TEMPLATE_ID"
     )
     warnings: Optional[List[WarningResponse]] = Field(
-        default=None, description="A list of warnings."
+        default=None, description="_t__WarningResponse::LIST_DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = ["template_id", "warnings"]
 

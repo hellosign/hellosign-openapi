@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentFieldGroupRule Class Doc Comment
  *
  * @category Class
- * @description The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
+ * @description _t__TemplateResponseDocumentFieldGroup::RULE
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -316,7 +316,7 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
     /**
      * Sets requirement
      *
-     * @param string|null $requirement Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
+     * @param string|null $requirement _t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
     /**
      * Sets group_label
      *
-     * @param string|null $group_label Name of the group
+     * @param string|null $group_label _t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL
      *
      * @return self
      */

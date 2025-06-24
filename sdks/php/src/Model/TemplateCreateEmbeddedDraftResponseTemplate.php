@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateCreateEmbeddedDraftResponseTemplate Class Doc Comment
  *
  * @category Class
- * @description Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
+ * @description _t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -330,7 +330,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Sets template_id
      *
-     * @param string|null $template_id the id of the Template
+     * @param string|null $template_id _t__TemplateResponse::TEMPLATE_ID
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Sets edit_url
      *
-     * @param string|null $edit_url link to edit the template
+     * @param string|null $edit_url _t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at when the link expires
+     * @param int|null $expires_at _t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT
      *
      * @return self
      */
@@ -412,7 +412,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Sets warnings
      *
-     * @param WarningResponse[]|null $warnings a list of warnings
+     * @param WarningResponse[]|null $warnings _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return self
      * @deprecated

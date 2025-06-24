@@ -66,7 +66,7 @@ public class TemplateEditResponse {
   }
 
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    * @return templateId
    */
   @jakarta.annotation.Nonnull

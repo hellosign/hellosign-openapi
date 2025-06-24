@@ -30,18 +30,16 @@ from pydantic import StrictBool
 
 class TeamResponse(BaseModel):
     """
-    Contains information about your team and its members
+    _t__TeamResponse::DESCRIPTION
     """  # noqa: E501
 
-    name: Optional[StrictStr] = Field(default=None, description="The name of your Team")
+    name: Optional[StrictStr] = Field(default=None, description="_t__Team::NAME")
     accounts: Optional[List[AccountResponse]] = None
     invited_accounts: Optional[List[AccountResponse]] = Field(
-        default=None,
-        description="A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.",
+        default=None, description="_t__Team::INVITED_ACCOUNTS"
     )
     invited_emails: Optional[List[StrictStr]] = Field(
-        default=None,
-        description="A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.",
+        default=None, description="_t__Team::INVITED_EMAILS"
     )
     __properties: ClassVar[List[str]] = [
         "name",

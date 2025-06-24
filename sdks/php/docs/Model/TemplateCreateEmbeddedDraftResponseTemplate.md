@@ -1,14 +1,14 @@
 # # TemplateCreateEmbeddedDraftResponseTemplate
 
-Template object with parameters: `template_id`, `edit_url`, `expires_at`.
+_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `template_id` | ```string``` |  The id of the Template.  |  |
-| `edit_url` | ```string``` |  Link to edit the template.  |  |
-| `expires_at` | ```int``` |  When the link expires.  |  |
-| `warnings` | [```\Dropbox\Sign\Model\WarningResponse[]```](WarningResponse.md) |  A list of warnings.  |  |
+| `template_id` | ```string``` |  _t__TemplateResponse::TEMPLATE_ID  |  |
+| `edit_url` | ```string``` |  _t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL  |  |
+| `expires_at` | ```int``` |  _t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT  |  |
+| `warnings` | [```\Dropbox\Sign\Model\WarningResponse[]```](WarningResponse.md) |  _t__WarningResponse::LIST_DESCRIPTION  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -36,7 +36,7 @@ class TemplateResponseDocumentFieldGroup(BaseModel):
     """  # noqa: E501
 
     name: Optional[StrictStr] = Field(
-        default=None, description="The name of the form field group."
+        default=None, description="_t__TemplateResponseDocumentFieldGroup::NAME"
     )
     rule: Optional[TemplateResponseDocumentFieldGroupRule] = None
     __properties: ClassVar[List[str]] = ["name", "rule"]

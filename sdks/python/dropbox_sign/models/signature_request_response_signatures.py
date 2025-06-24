@@ -29,76 +29,75 @@ from pydantic import StrictBool
 
 class SignatureRequestResponseSignatures(BaseModel):
     """
-    An array of signature objects, 1 for each signer.
+    _t__SignatureRequestResponseSignatures::DESCRIPTION
     """  # noqa: E501
 
     signature_id: Optional[StrictStr] = Field(
-        default=None, description="Signature identifier."
+        default=None, description="_t__SignatureRequestResponseSignatures::SIGNATURE_ID"
     )
     signer_group_guid: Optional[StrictStr] = Field(
-        default=None, description="Signer Group GUID"
+        default=None,
+        description="_t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID",
     )
     signer_email_address: Optional[StrictStr] = Field(
-        default=None, description="The email address of the signer."
+        default=None,
+        description="_t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS",
     )
     signer_name: Optional[StrictStr] = Field(
-        default=None, description="The name of the signer."
+        default=None, description="_t__SignatureRequestResponseSignatures::SIGNER_NAME"
     )
     signer_role: Optional[StrictStr] = Field(
-        default=None, description="The role of the signer."
+        default=None, description="_t__SignatureRequestResponseSignatures::SIGNER_ROLE"
     )
     order: Optional[StrictInt] = Field(
-        default=None,
-        description="If signer order is assigned this is the 0-based index for this signer.",
+        default=None, description="_t__SignatureRequestResponseSignatures::ORDER"
     )
     status_code: Optional[StrictStr] = Field(
-        default=None,
-        description="The current status of the signature. eg: awaiting_signature, signed, declined.",
+        default=None, description="_t__SignatureRequestResponseSignatures::STATUS_CODE"
     )
     decline_reason: Optional[StrictStr] = Field(
         default=None,
-        description="The reason provided by the signer for declining the request.",
+        description="_t__SignatureRequestResponseSignatures::DECLINE_REASON",
     )
     signed_at: Optional[StrictInt] = Field(
-        default=None, description="Time that the document was signed or null."
+        default=None, description="_t__SignatureRequestResponseSignatures::SIGNED_AT"
     )
     last_viewed_at: Optional[StrictInt] = Field(
         default=None,
-        description="The time that the document was last viewed by this signer or null.",
+        description="_t__SignatureRequestResponseSignatures::LAST_VIEWED_AT",
     )
     last_reminded_at: Optional[StrictInt] = Field(
         default=None,
-        description="The time the last reminder email was sent to the signer or null.",
+        description="_t__SignatureRequestResponseSignatures::LAST_REMINDED_AT",
     )
     has_pin: Optional[StrictBool] = Field(
-        default=None,
-        description="Boolean to indicate whether this signature requires a PIN to access.",
+        default=None, description="_t__SignatureRequestResponseSignatures::HAS_PIN"
     )
     has_sms_auth: Optional[StrictBool] = Field(
-        default=None,
-        description="Boolean to indicate whether this signature has SMS authentication enabled.",
+        default=None, description="_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH"
     )
     has_sms_delivery: Optional[StrictBool] = Field(
         default=None,
-        description="Boolean to indicate whether this signature has SMS delivery enabled.",
+        description="_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY",
     )
     sms_phone_number: Optional[StrictStr] = Field(
         default=None,
-        description="The SMS phone number used for authentication or signature request delivery.",
+        description="_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER",
     )
     reassigned_by: Optional[StrictStr] = Field(
         default=None,
-        description="Email address of original signer who reassigned to this signer.",
+        description="_t__SignatureRequestResponseSignatures::REASSIGNED_BY",
     )
     reassignment_reason: Optional[StrictStr] = Field(
         default=None,
-        description="Reason provided by original signer who reassigned to this signer.",
+        description="_t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON",
     )
     reassigned_from: Optional[StrictStr] = Field(
-        default=None, description="Previous signature identifier."
+        default=None,
+        description="_t__SignatureRequestResponseSignatures::REASSIGNED_FROM",
     )
     error: Optional[StrictStr] = Field(
-        default=None, description="Error message pertaining to this signer, or null."
+        default=None, description="_t__SignatureRequestResponseSignatures::ERROR"
     )
     __properties: ClassVar[List[str]] = [
         "signature_id",

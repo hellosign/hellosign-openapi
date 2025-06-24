@@ -27,15 +27,15 @@ import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 
 export class SubSignatureRequestGroupedSigners {
   /**
-   * The name of the group.
+   * _t__Sub::SignatureRequestGroupedSigners::GROUP_NAME
    */
   "group": string;
   /**
-   * Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+   * _t__Sub::SignatureRequestGroupedSigners::SIGNERS
    */
   "signers": Array<SubSignatureRequestSigner>;
   /**
-   * The order the group is required to sign in. Use this instead of Signer-level `order`.
+   * _t__Sub::SignatureRequestGroupedSigners::ORDER
    */
   "order"?: number | null;
 

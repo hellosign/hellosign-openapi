@@ -6,11 +6,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `name` | ```string``` |  Name of the associated file.  |  |
-| `index` | ```number``` |  Document ordering, the lowest index is displayed first and the highest last (0-based indexing).  |  |
-| `fieldGroups` | [```Array<TemplateResponseDocumentFieldGroup>```](TemplateResponseDocumentFieldGroup.md) |  An array of Form Field Group objects.  |  |
-| `formFields` | [```Array<TemplateResponseDocumentFormFieldBase>```](TemplateResponseDocumentFormFieldBase.md) |  An array of Form Field objects containing the name and type of each named field.  |  |
-| `customFields` | [```Array<TemplateResponseDocumentCustomFieldBase>```](TemplateResponseDocumentCustomFieldBase.md) |  An array of Form Field objects containing the name and type of each named field.  |  |
-| `staticFields` | [```Array<TemplateResponseDocumentStaticFieldBase>```](TemplateResponseDocumentStaticFieldBase.md) |  An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.  |  |
+| `name` | ```string``` |  _t__TemplateResponseDocument::NAME  |  |
+| `index` | ```number``` |  _t__TemplateResponseDocument::INDEX  |  |
+| `fieldGroups` | [```Array<TemplateResponseDocumentFieldGroup>```](TemplateResponseDocumentFieldGroup.md) |  _t__TemplateResponseDocument::FIELD_GROUPS  |  |
+| `formFields` | [```Array<TemplateResponseDocumentFormFieldBase>```](TemplateResponseDocumentFormFieldBase.md) |  _t__TemplateResponseDocumentFormField::DESCRIPTION  |  |
+| `customFields` | [```Array<TemplateResponseDocumentCustomFieldBase>```](TemplateResponseDocumentCustomFieldBase.md) |  _t__TemplateResponseDocumentCustomField::DESCRIPTION  |  |
+| `staticFields` | [```Array<TemplateResponseDocumentStaticFieldBase>```](TemplateResponseDocumentStaticFieldBase.md) |  _t__TemplateResponseDocumentStaticField::DESCRIPTION  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

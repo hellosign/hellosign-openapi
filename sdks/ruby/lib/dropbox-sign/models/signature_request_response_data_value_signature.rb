@@ -18,15 +18,15 @@ end
 
 module Dropbox::Sign
   class SignatureRequestResponseDataValueSignature < SignatureRequestResponseDataBase
-    # A signature input field
+    # _t__SignatureRequestResponseDataValue::SIGNATURE_TYPE
     # @return [String]
     attr_accessor :type
 
-    # The value of the form field.
+    # _t__SignatureRequestResponseDataValue::VALUE
     # @return [String]
     attr_accessor :value
 
-    # This field contains the boolean true if the field is signed.
+    # _t__SignatureRequestResponseDataValue::IS_SIGNED
     # @return [Boolean, nil]
     attr_accessor :is_signed
 

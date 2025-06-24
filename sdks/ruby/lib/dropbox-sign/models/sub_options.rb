@@ -17,9 +17,9 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Additional options supported by API App.
+  # _t__Sub::Options::DESCRIPTION
   class SubOptions
-    # Determines if signers can use \"Insert Everywhere\" when signing a document.
+    # _t__Sub::Options::CAN_INSERT_EVERYWHERE
     # @return [Boolean]
     attr_accessor :can_insert_everywhere
 

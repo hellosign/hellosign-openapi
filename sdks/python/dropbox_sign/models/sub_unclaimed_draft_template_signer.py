@@ -32,14 +32,10 @@ class SubUnclaimedDraftTemplateSigner(BaseModel):
     SubUnclaimedDraftTemplateSigner
     """  # noqa: E501
 
-    role: StrictStr = Field(
-        description="Must match an existing role in chosen Template(s)."
-    )
-    name: StrictStr = Field(
-        description="The name of the signer filling the role of `role`."
-    )
+    role: StrictStr = Field(description="_t__Sub::UnclaimedDraftTemplateSigner::ROLE")
+    name: StrictStr = Field(description="_t__Sub::UnclaimedDraftTemplateSigner::NAME")
     email_address: StrictStr = Field(
-        description="The email address of the signer filling the role of `role`."
+        description="_t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS"
     )
     __properties: ClassVar[List[str]] = ["role", "name", "email_address"]
 

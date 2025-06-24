@@ -58,34 +58,33 @@ if TYPE_CHECKING:
 
 class TemplateResponseDocumentFormFieldBase(BaseModel):
     """
-    An array of Form Field objects containing the name and type of each named field.
+    _t__TemplateResponseDocumentFormField::DESCRIPTION
     """  # noqa: E501
 
     type: StrictStr
     api_id: Optional[StrictStr] = Field(
-        default=None, description="A unique id for the form field."
+        default=None, description="_t__TemplateResponseDocumentFormField::API_ID"
     )
     name: Optional[StrictStr] = Field(
-        default=None, description="The name of the form field."
+        default=None, description="_t__TemplateResponseDocumentFormField::NAME"
     )
     signer: Union[StrictStr, StrictInt] = Field(
-        description="The signer of the Form Field."
+        description="_t__TemplateResponseDocumentFormField::SIGNER"
     )
     x: Optional[StrictInt] = Field(
-        default=None, description="The horizontal offset in pixels for this form field."
+        default=None, description="_t__TemplateResponseDocumentFormField::X"
     )
     y: Optional[StrictInt] = Field(
-        default=None, description="The vertical offset in pixels for this form field."
+        default=None, description="_t__TemplateResponseDocumentFormField::Y"
     )
     width: Optional[StrictInt] = Field(
-        default=None, description="The width in pixels of this form field."
+        default=None, description="_t__TemplateResponseDocumentFormField::WIDTH"
     )
     height: Optional[StrictInt] = Field(
-        default=None, description="The height in pixels of this form field."
+        default=None, description="_t__TemplateResponseDocumentFormField::HEIGHT"
     )
     required: Optional[StrictBool] = Field(
-        default=None,
-        description="Boolean showing whether or not this field is required.",
+        default=None, description="_t__TemplateResponseDocumentFormField::REQUIRED"
     )
     __properties: ClassVar[List[str]] = [
         "type",

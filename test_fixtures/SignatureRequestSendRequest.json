@@ -2,6 +2,7 @@
   "default": {
     "allow_decline": true,
     "allow_reassign": true,
+    "allow_form_view": true,
     "attachments": [
       {
         "name": "Attachment1",
@@ -240,6 +241,7 @@
   "with_grouped_signers": {
     "allow_decline": true,
     "allow_reassign": true,
+    "allow_form_view": true,
     "attachments": [
       {
         "name": "Attachment1",

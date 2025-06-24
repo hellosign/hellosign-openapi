@@ -17,13 +17,13 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Contains template id
+  # _t__TemplateUpdateFilesResponseTemplate::DESCRIPTION
   class TemplateUpdateFilesResponseTemplate
-    # The id of the Template.
+    # _t__TemplateResponse::TEMPLATE_ID
     # @return [String]
     attr_accessor :template_id
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

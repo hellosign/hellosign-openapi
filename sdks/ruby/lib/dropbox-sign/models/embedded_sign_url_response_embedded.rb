@@ -17,13 +17,13 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An object that contains necessary information to set up embedded signing.
+  # _t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION
   class EmbeddedSignUrlResponseEmbedded
-    # A signature url that can be opened in an iFrame.
+    # _t__EmbeddedSignUrlResponseEmbedded::SIGN_URL
     # @return [String]
     attr_accessor :sign_url
 
-    # The specific time that the the `sign_url` link expires, in epoch.
+    # _t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT
     # @return [Integer]
     attr_accessor :expires_at
 

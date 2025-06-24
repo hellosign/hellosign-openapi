@@ -17,44 +17,44 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array of Form Field objects containing the name and type of each named field.
+  # _t__TemplateResponseDocumentCustomField::DESCRIPTION
   class TemplateResponseDocumentCustomFieldBase
     # @return [String]
     attr_accessor :type
 
-    # The unique ID for this field.
+    # _t__TemplateResponseDocumentCustomField::API_ID
     # @return [String]
     attr_accessor :api_id
 
-    # The name of the Custom Field.
+    # _t__TemplateResponseDocumentCustomField::NAME
     # @return [String]
     attr_accessor :name
 
-    # The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
+    # _t__TemplateResponseDocumentCustomField::SIGNER
     # @return [Integer, String, nil]
     attr_accessor :signer
 
-    # The horizontal offset in pixels for this form field.
+    # _t__TemplateResponseDocumentCustomField::X
     # @return [Integer]
     attr_accessor :x
 
-    # The vertical offset in pixels for this form field.
+    # _t__TemplateResponseDocumentCustomField::Y
     # @return [Integer]
     attr_accessor :y
 
-    # The width in pixels of this form field.
+    # _t__TemplateResponseDocumentCustomField::WIDTH
     # @return [Integer]
     attr_accessor :width
 
-    # The height in pixels of this form field.
+    # _t__TemplateResponseDocumentCustomField::HEIGHT
     # @return [Integer]
     attr_accessor :height
 
-    # Boolean showing whether or not this field is required.
+    # _t__TemplateResponseDocumentStaticField::REQUIRED
     # @return [Boolean]
     attr_accessor :required
 
-    # The name of the group this field is in. If this field is not a group, this defaults to `null`.
+    # _t__TemplateResponseDocumentCustomField::GROUP
     # @return [String, nil]
     attr_accessor :group
 

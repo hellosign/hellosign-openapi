@@ -343,7 +343,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets name
      *
-     * @param string|null $name name of the associated file
+     * @param string|null $name _t__TemplateResponseDocument::NAME
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets index
      *
-     * @param int|null $index document ordering, the lowest index is displayed first and the highest last (0-based indexing)
+     * @param int|null $index _t__TemplateResponseDocument::INDEX
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets field_groups
      *
-     * @param TemplateResponseDocumentFieldGroup[]|null $field_groups an array of Form Field Group objects
+     * @param TemplateResponseDocumentFieldGroup[]|null $field_groups _t__TemplateResponseDocument::FIELD_GROUPS
      *
      * @return self
      */
@@ -424,7 +424,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets form_fields
      *
-     * @param TemplateResponseDocumentFormFieldBase[]|null $form_fields an array of Form Field objects containing the name and type of each named field
+     * @param TemplateResponseDocumentFormFieldBase[]|null $form_fields _t__TemplateResponseDocumentFormField::DESCRIPTION
      *
      * @return self
      */
@@ -451,7 +451,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets custom_fields
      *
-     * @param TemplateResponseDocumentCustomFieldBase[]|null $custom_fields an array of Form Field objects containing the name and type of each named field
+     * @param TemplateResponseDocumentCustomFieldBase[]|null $custom_fields _t__TemplateResponseDocumentCustomField::DESCRIPTION
      *
      * @return self
      */
@@ -478,7 +478,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets static_fields
      *
-     * @param TemplateResponseDocumentStaticFieldBase[]|null $static_fields An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+     * @param TemplateResponseDocumentStaticFieldBase[]|null $static_fields _t__TemplateResponseDocumentStaticField::DESCRIPTION
      *
      * @return self
      */

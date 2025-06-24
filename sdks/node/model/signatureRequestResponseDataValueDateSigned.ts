@@ -27,11 +27,11 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueDateSigned extends SignatureRequestResponseDataBase {
   /**
-   * A date
+   * _t__SignatureRequestResponseDataValue::DATESIGNED_TYPE
    */
   "type"?: string = "date_signed";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: string;
 

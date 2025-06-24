@@ -6,7 +6,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `role`<sup>*_required_</sup> | ```String``` |  Must match an existing role in chosen Template(s).  |  |
-| `name`<sup>*_required_</sup> | ```String``` |  The name of the signer filling the role of `role`.  |  |
-| `email_address`<sup>*_required_</sup> | ```String``` |  The email address of the signer filling the role of `role`.  |  |
+| `role`<sup>*_required_</sup> | ```String``` |  _t__Sub::UnclaimedDraftTemplateSigner::ROLE  |  |
+| `name`<sup>*_required_</sup> | ```String``` |  _t__Sub::UnclaimedDraftTemplateSigner::NAME  |  |
+| `email_address`<sup>*_required_</sup> | ```String``` |  _t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS  |  |
 

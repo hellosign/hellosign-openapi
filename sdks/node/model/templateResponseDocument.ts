@@ -30,27 +30,27 @@ import { TemplateResponseDocumentStaticFieldBase } from "./templateResponseDocum
 
 export class TemplateResponseDocument {
   /**
-   * Name of the associated file.
+   * _t__TemplateResponseDocument::NAME
    */
   "name"?: string;
   /**
-   * Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
+   * _t__TemplateResponseDocument::INDEX
    */
   "index"?: number;
   /**
-   * An array of Form Field Group objects.
+   * _t__TemplateResponseDocument::FIELD_GROUPS
    */
   "fieldGroups"?: Array<TemplateResponseDocumentFieldGroup>;
   /**
-   * An array of Form Field objects containing the name and type of each named field.
+   * _t__TemplateResponseDocumentFormField::DESCRIPTION
    */
   "formFields"?: Array<TemplateResponseDocumentFormFieldBase>;
   /**
-   * An array of Form Field objects containing the name and type of each named field.
+   * _t__TemplateResponseDocumentCustomField::DESCRIPTION
    */
   "customFields"?: Array<TemplateResponseDocumentCustomFieldBase>;
   /**
-   * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+   * _t__TemplateResponseDocumentStaticField::DESCRIPTION
    */
   "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase>;
 

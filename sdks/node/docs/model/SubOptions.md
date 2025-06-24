@@ -1,11 +1,11 @@
 # # SubOptions
 
-Additional options supported by API App.
+_t__Sub::Options::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `canInsertEverywhere` | ```boolean``` |  Determines if signers can use &quot;Insert Everywhere&quot; when signing a document.  |  [default to false] |
+| `canInsertEverywhere` | ```boolean``` |  _t__Sub::Options::CAN_INSERT_EVERYWHERE  |  [default to false] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

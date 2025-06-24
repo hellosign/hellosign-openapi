@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Template object with parameters: &#x60;template_id&#x60;.
+ * _t__TemplateCreateResponseTemplate::DESCRIPTION
  */
 @JsonPropertyOrder({
   TemplateCreateResponseTemplate.JSON_PROPERTY_TEMPLATE_ID
@@ -66,7 +66,7 @@ public class TemplateCreateResponseTemplate {
   }
 
   /**
-   * The id of the Template.
+   * _t__TemplateResponse::TEMPLATE_ID
    * @return templateId
    */
   @jakarta.annotation.Nullable

@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `name` | ```String``` |  The name of the Role.  |  |
-| `order` | ```Integer``` |  If signer order is assigned this is the 0-based index for this role.  |  |
+| `name` | ```String``` |  _t__TemplateResponseSignerRole::NAME  |  |
+| `order` | ```Integer``` |  _t__TemplateResponseSignerRole::ORDER  |  |
 

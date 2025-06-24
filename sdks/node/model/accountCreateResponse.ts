@@ -31,7 +31,7 @@ export class AccountCreateResponse {
   "account": AccountResponse;
   "oauthData"?: OAuthTokenResponse;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

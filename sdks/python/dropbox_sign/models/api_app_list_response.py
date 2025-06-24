@@ -36,11 +36,11 @@ class ApiAppListResponse(BaseModel):
     """  # noqa: E501
 
     api_apps: List[ApiAppResponse] = Field(
-        description="Contains information about API Apps."
+        description="_t__ApiAppListResponse::DESCRIPTION"
     )
     list_info: ListInfoResponse
     warnings: Optional[List[WarningResponse]] = Field(
-        default=None, description="A list of warnings."
+        default=None, description="_t__WarningResponse::LIST_DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = ["api_apps", "list_info", "warnings"]
 

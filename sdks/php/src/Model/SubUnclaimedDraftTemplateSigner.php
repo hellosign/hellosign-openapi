@@ -333,7 +333,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, Js
     /**
      * Sets role
      *
-     * @param string $role must match an existing role in chosen Template(s)
+     * @param string $role _t__Sub::UnclaimedDraftTemplateSigner::ROLE
      *
      * @return self
      */
@@ -360,7 +360,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, Js
     /**
      * Sets name
      *
-     * @param string $name the name of the signer filling the role of `role`
+     * @param string $name _t__Sub::UnclaimedDraftTemplateSigner::NAME
      *
      * @return self
      */
@@ -387,7 +387,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, Js
     /**
      * Sets email_address
      *
-     * @param string $email_address the email address of the signer filling the role of `role`
+     * @param string $email_address _t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS
      *
      * @return self
      */

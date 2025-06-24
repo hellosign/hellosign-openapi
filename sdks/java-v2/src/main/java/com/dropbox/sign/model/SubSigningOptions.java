@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+ * _t__Sub::SigningOptions::DESCRIPTION
  */
 @JsonPropertyOrder({
   SubSigningOptions.JSON_PROPERTY_DEFAULT_TYPE,
@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubSigningOptions {
   /**
-   * The default type shown (limited to the listed types)
+   * _t__Sub::SigningOptions::DEFAULT
    */
   public enum DefaultTypeEnum {
     DRAW(String.valueOf("draw")),
@@ -125,7 +125,7 @@ public class SubSigningOptions {
   }
 
   /**
-   * The default type shown (limited to the listed types)
+   * _t__Sub::SigningOptions::DEFAULT
    * @return defaultType
    */
   @jakarta.annotation.Nonnull
@@ -150,7 +150,7 @@ public class SubSigningOptions {
   }
 
   /**
-   * Allows drawing the signature
+   * _t__Sub::SigningOptions::DRAW
    * @return draw
    */
   @jakarta.annotation.Nullable
@@ -175,7 +175,7 @@ public class SubSigningOptions {
   }
 
   /**
-   * Allows using a smartphone to email the signature
+   * _t__Sub::SigningOptions::PHONE
    * @return phone
    */
   @jakarta.annotation.Nullable
@@ -200,7 +200,7 @@ public class SubSigningOptions {
   }
 
   /**
-   * Allows typing the signature
+   * _t__Sub::SigningOptions::TYPE
    * @return type
    */
   @jakarta.annotation.Nullable
@@ -225,7 +225,7 @@ public class SubSigningOptions {
   }
 
   /**
-   * Allows uploading the signature
+   * _t__Sub::SigningOptions::UPLOAD
    * @return upload
    */
   @jakarta.annotation.Nullable

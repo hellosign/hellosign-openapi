@@ -17,7 +17,7 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An object with options to customize the app's signer page
+  # _t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION
   class ApiAppResponseWhiteLabelingOptions
     # @return [String]
     attr_accessor :header_background_color

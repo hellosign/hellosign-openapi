@@ -330,7 +330,7 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
     /**
      * Sets group
      *
-     * @param string $group the name of the group
+     * @param string $group _t__Sub::SignatureRequestGroupedSigners::GROUP_NAME
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
     /**
      * Sets signers
      *
-     * @param SubSignatureRequestSigner[] $signers Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+     * @param SubSignatureRequestSigner[] $signers _t__Sub::SignatureRequestGroupedSigners::SIGNERS
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
     /**
      * Sets order
      *
-     * @param int|null $order The order the group is required to sign in. Use this instead of Signer-level `order`.
+     * @param int|null $order _t__Sub::SignatureRequestGroupedSigners::ORDER
      *
      * @return self
      */

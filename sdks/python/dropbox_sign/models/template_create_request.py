@@ -62,8 +62,12 @@ class TemplateCreateRequest(BaseModel):
         default=False,
         description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.",
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     attachments: Optional[List[SubAttachment]] = Field(
-        default=None, description="A list describing the attachments"
+        default=None, description="_t__SubAttachment::LIST_DESCRIPTION"
     )
     cc_roles: Optional[List[StrictStr]] = Field(
         default=None,
@@ -90,8 +94,7 @@ class TemplateCreateRequest(BaseModel):
         default=None, description="The default template email message."
     )
     metadata: Optional[Dict[str, Any]] = Field(
-        default=None,
-        description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.",
+        default=None, description="_t__Sub::Metadata::DESCRIPTION"
     )
     subject: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(
         default=None, description="The template title (alias)."
@@ -114,6 +117,7 @@ class TemplateCreateRequest(BaseModel):
         "files",
         "file_urls",
         "allow_reassign",
+        "allow_form_view",
         "attachments",
         "cc_roles",
         "client_id",
@@ -257,6 +261,11 @@ class TemplateCreateRequest(BaseModel):
                     if obj.get("allow_reassign") is not None
                     else False
                 ),
+                "allow_form_view": (
+                    obj.get("allow_form_view")
+                    if obj.get("allow_form_view") is not None
+                    else False
+                ),
                 "attachments": (
                     [SubAttachment.from_dict(_item) for _item in obj["attachments"]]
                     if obj.get("attachments") is not None
@@ -324,6 +333,7 @@ class TemplateCreateRequest(BaseModel):
             "files": "(List[io.IOBase],)",
             "file_urls": "(List[str],)",
             "allow_reassign": "(bool,)",
+            "allow_form_view": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_roles": "(List[str],)",
             "client_id": "(str,)",

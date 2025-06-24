@@ -78,7 +78,7 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
   private Boolean masked;
 
   /**
-   * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value.
+   * _t__Sub::FormFieldsPerDocument::VALIDATION_TYPE
    */
   public enum ValidationTypeEnum {
     NUMBERS_ONLY(String.valueOf("numbers_only")),
@@ -364,7 +364,7 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
   }
 
   /**
-   * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value.
+   * _t__Sub::FormFieldsPerDocument::VALIDATION_TYPE
    * @return validationType
    */
   @jakarta.annotation.Nullable

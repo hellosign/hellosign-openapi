@@ -1,13 +1,13 @@
 # Dropbox::Sign::ListInfoResponse
 
-Contains pagination information about the data returned.
+_t__ListInfoResponse::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `num_pages` | ```Integer``` |  Total number of pages available.  |  |
-| `num_results` | ```Integer``` |  Total number of objects available.  |  |
-| `page` | ```Integer``` |  Number of the page being returned.  |  |
-| `page_size` | ```Integer``` |  Objects returned per page.  |  |
+| `num_pages` | ```Integer``` |  _t__ListInfoResponse::NUM_PAGES  |  |
+| `num_results` | ```Integer``` |  _t__ListInfoResponse::NUM_RESULTS  |  |
+| `page` | ```Integer``` |  _t__ListInfoResponse::PAGE  |  |
+| `page_size` | ```Integer``` |  _t__ListInfoResponse::PAGE_SIZE  |  |
 

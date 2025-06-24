@@ -330,7 +330,7 @@ class SubUnclaimedDraftSigner implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets email_address
      *
-     * @param string $email_address the email address of the signer
+     * @param string $email_address _t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class SubUnclaimedDraftSigner implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets name
      *
-     * @param string $name the name of the signer
+     * @param string $name _t__Sub::UnclaimedDraftSigner::NAME
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class SubUnclaimedDraftSigner implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets order
      *
-     * @param int|null $order the order the signer is required to sign in
+     * @param int|null $order _t__Sub::UnclaimedDraftSigner::ORDER
      *
      * @return self
      */

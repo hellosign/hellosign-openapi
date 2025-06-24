@@ -17,9 +17,9 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Template object with parameters: `template_id`.
+  # _t__TemplateCreateResponseTemplate::DESCRIPTION
   class TemplateCreateResponseTemplate
-    # The id of the Template.
+    # _t__TemplateResponse::TEMPLATE_ID
     # @return [String]
     attr_accessor :template_id
 

@@ -42,67 +42,56 @@ from pydantic import StrictBool
 
 class TemplateResponse(BaseModel):
     """
-    Contains information about the templates you and your team have created.
+    _t__TemplateResponse::DESCRIPTION
     """  # noqa: E501
 
     template_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Template."
+        default=None, description="_t__TemplateResponse::TEMPLATE_ID"
     )
     title: Optional[StrictStr] = Field(
-        default=None,
-        description="The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.",
+        default=None, description="_t__TemplateResponse::TITLE"
     )
     message: Optional[StrictStr] = Field(
-        default=None,
-        description="The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.",
+        default=None, description="_t__TemplateResponse::MESSAGE"
     )
     updated_at: Optional[StrictInt] = Field(
-        default=None, description="Time the template was last updated."
+        default=None, description="_t__TemplateResponse::UPDATED_AT"
     )
     is_embedded: Optional[StrictBool] = Field(
-        default=None,
-        description="`true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.",
+        default=None, description="_t__TemplateResponse::IS_EMBEDDED"
     )
     is_creator: Optional[StrictBool] = Field(
-        default=None,
-        description="`true` if you are the owner of this template, `false` if it's been shared with you by a team member.",
+        default=None, description="_t__TemplateResponse::IS_CREATOR"
     )
     can_edit: Optional[StrictBool] = Field(
-        default=None,
-        description="Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).",
+        default=None, description="_t__TemplateResponse::CAN_EDIT"
     )
     is_locked: Optional[StrictBool] = Field(
-        default=None,
-        description="Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.",
+        default=None, description="_t__TemplateResponse::IS_LOCKED"
     )
     metadata: Optional[Dict[str, Any]] = Field(
-        default=None, description="The metadata attached to the template."
+        default=None, description="_t__TemplateResponse::METADATA"
     )
     signer_roles: Optional[List[TemplateResponseSignerRole]] = Field(
-        default=None,
-        description="An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.",
+        default=None, description="_t__TemplateResponse::SIGNER_ROLES"
     )
     cc_roles: Optional[List[TemplateResponseCCRole]] = Field(
-        default=None,
-        description="An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.",
+        default=None, description="_t__TemplateResponse::CC_ROLES"
     )
     documents: Optional[List[TemplateResponseDocument]] = Field(
-        default=None,
-        description="An array describing each document associated with this Template. Includes form field data for each document.",
+        default=None, description="_t__TemplateResponse::DOCUMENTS"
     )
     custom_fields: Optional[List[TemplateResponseDocumentCustomFieldBase]] = Field(
-        default=None,
-        description="Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.",
+        default=None, description="_t__TemplateResponseCustomField::DESCRIPTION"
     )
     named_form_fields: Optional[List[TemplateResponseDocumentFormFieldBase]] = Field(
-        default=None,
-        description="Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.",
+        default=None, description="_t__TemplateResponseNamedFormField::DESCRIPTION"
     )
     accounts: Optional[List[TemplateResponseAccount]] = Field(
-        default=None, description="An array of the Accounts that can use this Template."
+        default=None, description="_t__TemplateResponse::ACCOUNTS"
     )
     attachments: Optional[List[SignatureRequestResponseAttachment]] = Field(
-        default=None, description="Signer attachments."
+        default=None, description="_t__SignatureRequestResponseAttachment::DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = [
         "template_id",

@@ -29,7 +29,7 @@ import { WarningResponse } from "./warningResponse";
 export class AccountVerifyResponse {
   "account"?: AccountVerifyResponseAccount;
   /**
-   * A list of warnings.
+   * _t__WarningResponse::LIST_DESCRIPTION
    */
   "warnings"?: Array<WarningResponse>;
 

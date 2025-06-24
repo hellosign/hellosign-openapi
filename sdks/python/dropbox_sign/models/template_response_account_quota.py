@@ -29,20 +29,22 @@ from pydantic import StrictBool
 
 class TemplateResponseAccountQuota(BaseModel):
     """
-    An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+    _t__TemplateResponseAccountQuota::DESCRIPTION
     """  # noqa: E501
 
     templates_left: Optional[StrictInt] = Field(
-        default=None, description="API templates remaining."
+        default=None, description="_t__TemplateResponseAccountQuota::TEMPLATES_LEFT"
     )
     api_signature_requests_left: Optional[StrictInt] = Field(
-        default=None, description="API signature requests remaining."
+        default=None,
+        description="_t__TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT",
     )
     documents_left: Optional[StrictInt] = Field(
-        default=None, description="Signature requests remaining."
+        default=None, description="_t__TemplateResponseAccountQuota::DOCUMENTS_LEFT"
     )
     sms_verifications_left: Optional[StrictInt] = Field(
-        default=None, description="SMS verifications remaining."
+        default=None,
+        description="_t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT",
     )
     __properties: ClassVar[List[str]] = [
         "templates_left",

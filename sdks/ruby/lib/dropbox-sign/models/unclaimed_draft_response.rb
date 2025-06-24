@@ -17,29 +17,29 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # A group of documents that a user can take ownership of via the claim URL.
+  # _t__UnclaimedDraftResponse::DESCRIPTION
   class UnclaimedDraftResponse
-    # The ID of the signature request that is represented by this UnclaimedDraft.
+    # _t__UnclaimedDraft::SIGNATURE_REQUEST_ID
     # @return [String, nil]
     attr_accessor :signature_request_id
 
-    # The URL to be used to claim this UnclaimedDraft.
+    # _t__UnclaimedDraft::CLAIM_URL
     # @return [String]
     attr_accessor :claim_url
 
-    # The URL you want signers redirected to after they successfully sign.
+    # _t__UnclaimedDraft::SIGNING_REDIRECT_URL
     # @return [String, nil]
     attr_accessor :signing_redirect_url
 
-    # The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
+    # _t__UnclaimedDraft::REQUESTING_REDIRECT_URL
     # @return [String, nil]
     attr_accessor :requesting_redirect_url
 
-    # When the link expires.
+    # _t__UnclaimedDraft::EXPIRES_AT
     # @return [Integer, nil]
     attr_accessor :expires_at
 
-    # Whether this is a test draft. Signature requests made from test drafts have no legal value.
+    # _t__UnclaimedDraft::TEST_MODE
     # @return [Boolean]
     attr_accessor :test_mode
 

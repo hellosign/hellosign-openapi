@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateCreateResponseTemplate Class Doc Comment
  *
  * @category Class
- * @description Template object with parameters: &#x60;template_id&#x60;.
+ * @description _t__TemplateCreateResponseTemplate::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -309,7 +309,7 @@ class TemplateCreateResponseTemplate implements ModelInterface, ArrayAccess, Jso
     /**
      * Sets template_id
      *
-     * @param string|null $template_id the id of the Template
+     * @param string|null $template_id _t__TemplateResponse::TEMPLATE_ID
      *
      * @return self
      */

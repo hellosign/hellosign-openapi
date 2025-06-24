@@ -45,26 +45,22 @@ class TemplateResponseDocument(BaseModel):
     """  # noqa: E501
 
     name: Optional[StrictStr] = Field(
-        default=None, description="Name of the associated file."
+        default=None, description="_t__TemplateResponseDocument::NAME"
     )
     index: Optional[StrictInt] = Field(
-        default=None,
-        description="Document ordering, the lowest index is displayed first and the highest last (0-based indexing).",
+        default=None, description="_t__TemplateResponseDocument::INDEX"
     )
     field_groups: Optional[List[TemplateResponseDocumentFieldGroup]] = Field(
-        default=None, description="An array of Form Field Group objects."
+        default=None, description="_t__TemplateResponseDocument::FIELD_GROUPS"
     )
     form_fields: Optional[List[TemplateResponseDocumentFormFieldBase]] = Field(
-        default=None,
-        description="An array of Form Field objects containing the name and type of each named field.",
+        default=None, description="_t__TemplateResponseDocumentFormField::DESCRIPTION"
     )
     custom_fields: Optional[List[TemplateResponseDocumentCustomFieldBase]] = Field(
-        default=None,
-        description="An array of Form Field objects containing the name and type of each named field.",
+        default=None, description="_t__TemplateResponseDocumentCustomField::DESCRIPTION"
     )
     static_fields: Optional[List[TemplateResponseDocumentStaticFieldBase]] = Field(
-        default=None,
-        description="An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.",
+        default=None, description="_t__TemplateResponseDocumentStaticField::DESCRIPTION"
     )
     __properties: ClassVar[List[str]] = [
         "name",

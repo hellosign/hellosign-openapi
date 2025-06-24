@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * An object describing the app&#39;s owner
+ * _t__ApiAppResponseOwnerAccount::DESCRIPTION
  */
 @JsonPropertyOrder({
   ApiAppResponseOwnerAccount.JSON_PROPERTY_ACCOUNT_ID,
@@ -71,7 +71,7 @@ public class ApiAppResponseOwnerAccount {
   }
 
   /**
-   * The owner account&#39;s ID
+   * _t__ApiAppResponseOwnerAccount::ACCOUNT_ID
    * @return accountId
    */
   @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class ApiAppResponseOwnerAccount {
   }
 
   /**
-   * The owner account&#39;s email address
+   * _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS
    * @return emailAddress
    */
   @jakarta.annotation.Nullable

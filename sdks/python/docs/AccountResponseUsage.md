@@ -1,11 +1,11 @@
 # AccountResponseUsage
 
-Details concerning monthly usage
+_t__Account::USAGE
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `fax_pages_sent` | ```int``` |  Number of fax pages sent  |  |
+| `fax_pages_sent` | ```int``` |  _t__AccountUsage::FAX_PAGES_SENT  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

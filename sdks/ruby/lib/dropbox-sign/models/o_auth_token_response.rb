@@ -27,7 +27,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :refresh_token
 
-    # Number of seconds until the `access_token` expires. Uses epoch time.
+    # _t__OAuthTokenResponse::EXPIRES_IN
     # @return [Integer]
     attr_accessor :expires_in
 

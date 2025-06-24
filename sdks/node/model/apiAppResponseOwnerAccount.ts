@@ -25,15 +25,15 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An object describing the app\'s owner
+ * _t__ApiAppResponseOwnerAccount::DESCRIPTION
  */
 export class ApiAppResponseOwnerAccount {
   /**
-   * The owner account\'s ID
+   * _t__ApiAppResponseOwnerAccount::ACCOUNT_ID
    */
   "accountId"?: string;
   /**
-   * The owner account\'s email address
+   * _t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS
    */
   "emailAddress"?: string;
 

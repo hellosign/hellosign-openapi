@@ -32,10 +32,12 @@ class SubUnclaimedDraftSigner(BaseModel):
     SubUnclaimedDraftSigner
     """  # noqa: E501
 
-    email_address: StrictStr = Field(description="The email address of the signer.")
-    name: StrictStr = Field(description="The name of the signer.")
+    email_address: StrictStr = Field(
+        description="_t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS"
+    )
+    name: StrictStr = Field(description="_t__Sub::UnclaimedDraftSigner::NAME")
     order: Optional[StrictInt] = Field(
-        default=None, description="The order the signer is required to sign in."
+        default=None, description="_t__Sub::UnclaimedDraftSigner::ORDER"
     )
     __properties: ClassVar[List[str]] = ["email_address", "name", "order"]
 

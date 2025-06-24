@@ -2,13 +2,13 @@
 
 # SubOptions
 
-Additional options supported by API App.
+_t__Sub::Options::DESCRIPTION
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `canInsertEverywhere` | ```Boolean``` |  Determines if signers can use &quot;Insert Everywhere&quot; when signing a document.  |  |
+| `canInsertEverywhere` | ```Boolean``` |  _t__Sub::Options::CAN_INSERT_EVERYWHERE  |  |
 
 
 

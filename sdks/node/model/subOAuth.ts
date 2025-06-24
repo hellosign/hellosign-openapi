@@ -25,15 +25,15 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * OAuth related parameters.
+ * _t__Sub::OAuth::DESCRIPTION
  */
 export class SubOAuth {
   /**
-   * The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
+   * _t__Sub::OAuth::CALLBACK_URL
    */
   "callbackUrl"?: string;
   /**
-   * A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
+   * _t__Sub::OAuth::SCOPES
    */
   "scopes"?: Array<SubOAuth.ScopesEnum>;
 

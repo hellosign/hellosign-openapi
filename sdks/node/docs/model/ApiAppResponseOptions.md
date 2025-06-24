@@ -1,11 +1,11 @@
 # # ApiAppResponseOptions
 
-An object with options that override account settings.
+_t__ApiAppResponseOptions::DESCRIPTION
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `canInsertEverywhere` | ```boolean``` |  Boolean denoting if signers can &quot;Insert Everywhere&quot; in one click while signing a document  |  |
+| `canInsertEverywhere` | ```boolean``` |  _t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Details concerning monthly usage
+ * _t__Account::USAGE
  */
 @JsonPropertyOrder({
   AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT
@@ -66,7 +66,7 @@ public class AccountResponseUsage {
   }
 
   /**
-   * Number of fax pages sent
+   * _t__AccountUsage::FAX_PAGES_SENT
    * @return faxPagesSent
    */
   @jakarta.annotation.Nullable

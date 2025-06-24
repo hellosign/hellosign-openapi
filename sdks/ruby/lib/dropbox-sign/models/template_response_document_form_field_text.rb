@@ -17,40 +17,40 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This class extends `TemplateResponseDocumentFormFieldBase`
+  # _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
   class TemplateResponseDocumentFormFieldText < TemplateResponseDocumentFormFieldBase
-    # The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+    # _t__TemplateResponseDocumentFormField::TYPE
     # @return [String]
     attr_accessor :type
 
     # @return [TemplateResponseFieldAvgTextLength]
     attr_accessor :avg_text_length
 
-    # Whether this form field is multiline text.
+    # _t__TemplateResponseDocumentFormField::IS_MULTILINE
     # @return [Boolean]
     attr_accessor :is_multiline
 
-    # Original font size used in this form field's text.
+    # _t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE
     # @return [Integer]
     attr_accessor :original_font_size
 
-    # Font family used in this form field's text.
+    # _t__TemplateResponseDocumentFormField::FONT_FAMILY
     # @return [String]
     attr_accessor :font_family
 
-    # Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
+    # _t__TemplateResponseDocumentFormField::VALIDATION_TYPE
     # @return [String, nil]
     attr_accessor :validation_type
 
-    # When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.
+    # _t__TemplateResponseDocumentFormField::CUSTOM_REGEX
     # @return [String, nil]
     attr_accessor :validation_custom_regex
 
-    # When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
+    # _t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL
     # @return [String, nil]
     attr_accessor :validation_custom_regex_format_label
 
-    # The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+    # _t__TemplateResponseDocumentFormField::GROUP
     # @return [String, nil]
     attr_accessor :group
 

@@ -24,11 +24,11 @@ module Dropbox::Sign
     # @return [ListInfoResponse]
     attr_accessor :list_info
 
-    # Contains information about the Signature Requests sent in bulk.
+    # _t__BulkSendJobGetResponse::SIGNATURE_REQUESTS
     # @return [Array<BulkSendJobGetResponseSignatureRequests>]
     attr_accessor :signature_requests
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

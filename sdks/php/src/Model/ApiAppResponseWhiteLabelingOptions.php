@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * ApiAppResponseWhiteLabelingOptions Class Doc Comment
  *
  * @category Class
- * @description An object with options to customize the app&#39;s signer page
+ * @description _t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */

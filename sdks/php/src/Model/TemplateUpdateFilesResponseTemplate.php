@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateUpdateFilesResponseTemplate Class Doc Comment
  *
  * @category Class
- * @description Contains template id
+ * @description _t__TemplateUpdateFilesResponseTemplate::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -316,7 +316,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets template_id
      *
-     * @param string|null $template_id the id of the Template
+     * @param string|null $template_id _t__TemplateResponse::TEMPLATE_ID
      *
      * @return self
      */
@@ -344,7 +344,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets warnings
      *
-     * @param WarningResponse[]|null $warnings a list of warnings
+     * @param WarningResponse[]|null $warnings _t__WarningResponse::LIST_DESCRIPTION
      *
      * @return self
      * @deprecated

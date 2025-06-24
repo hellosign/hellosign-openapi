@@ -17,29 +17,29 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Signer attachments.
+  # _t__SignatureRequestResponseAttachment::DESCRIPTION
   class SignatureRequestResponseAttachment
-    # The unique ID for this attachment.
+    # _t__SignatureRequestResponseAttachment::ID
     # @return [String]
     attr_accessor :id
 
-    # The Signer this attachment is assigned to.
+    # _t__SignatureRequestResponseAttachment::SIGNER
     # @return [Integer, String]
     attr_accessor :signer
 
-    # The name of this attachment.
+    # _t__SignatureRequestResponseAttachment::NAME
     # @return [String]
     attr_accessor :name
 
-    # A boolean value denoting if this attachment is required.
+    # _t__SignatureRequestResponseAttachment::REQUIRED
     # @return [Boolean]
     attr_accessor :required
 
-    # Instructions for Signer.
+    # _t__SignatureRequestResponseAttachment::INSTRUCTIONS
     # @return [String, nil]
     attr_accessor :instructions
 
-    # Timestamp when attachment was uploaded by Signer.
+    # _t__SignatureRequestResponseAttachment::UPLOADED_AT
     # @return [Integer, nil]
     attr_accessor :uploaded_at
 

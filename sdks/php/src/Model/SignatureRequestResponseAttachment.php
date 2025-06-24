@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SignatureRequestResponseAttachment Class Doc Comment
  *
  * @category Class
- * @description Signer attachments.
+ * @description _t__SignatureRequestResponseAttachment::DESCRIPTION
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -358,7 +358,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
     /**
      * Sets id
      *
-     * @param string $id the unique ID for this attachment
+     * @param string $id _t__SignatureRequestResponseAttachment::ID
      *
      * @return self
      */
@@ -385,7 +385,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
     /**
      * Sets signer
      *
-     * @param string $signer the Signer this attachment is assigned to
+     * @param string $signer _t__SignatureRequestResponseAttachment::SIGNER
      *
      * @return self
      */
@@ -412,7 +412,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
     /**
      * Sets name
      *
-     * @param string $name the name of this attachment
+     * @param string $name _t__SignatureRequestResponseAttachment::NAME
      *
      * @return self
      */
@@ -439,7 +439,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
     /**
      * Sets required
      *
-     * @param bool $required a boolean value denoting if this attachment is required
+     * @param bool $required _t__SignatureRequestResponseAttachment::REQUIRED
      *
      * @return self
      */
@@ -466,7 +466,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
     /**
      * Sets instructions
      *
-     * @param string|null $instructions instructions for Signer
+     * @param string|null $instructions _t__SignatureRequestResponseAttachment::INSTRUCTIONS
      *
      * @return self
      */
@@ -500,7 +500,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
     /**
      * Sets uploaded_at
      *
-     * @param int|null $uploaded_at timestamp when attachment was uploaded by Signer
+     * @param int|null $uploaded_at _t__SignatureRequestResponseAttachment::UPLOADED_AT
      *
      * @return self
      */

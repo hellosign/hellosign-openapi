@@ -315,7 +315,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Sets name
      *
-     * @param string|null $name the name of the form field group
+     * @param string|null $name _t__TemplateResponseDocumentFieldGroup::NAME
      *
      * @return self
      */

@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class SubMergeField
-    # The name of the merge field. Must be unique.
+    # _t__Sub::MergeField::NAME
     # @return [String]
     attr_accessor :name
 
-    # The type of merge field.
+    # _t__Sub::MergeField::TYPE
     # @return [String]
     attr_accessor :type
 

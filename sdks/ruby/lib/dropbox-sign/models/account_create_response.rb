@@ -24,7 +24,7 @@ module Dropbox::Sign
     # @return [OAuthTokenResponse]
     attr_accessor :oauth_data
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

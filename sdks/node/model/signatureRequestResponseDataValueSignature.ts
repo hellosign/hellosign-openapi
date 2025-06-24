@@ -27,15 +27,15 @@ import { SignatureRequestResponseDataBase } from "./signatureRequestResponseData
 
 export class SignatureRequestResponseDataValueSignature extends SignatureRequestResponseDataBase {
   /**
-   * A signature input field
+   * _t__SignatureRequestResponseDataValue::SIGNATURE_TYPE
    */
   "type"?: string = "signature";
   /**
-   * The value of the form field.
+   * _t__SignatureRequestResponseDataValue::VALUE
    */
   "value"?: string;
   /**
-   * This field contains the boolean true if the field is signed.
+   * _t__SignatureRequestResponseDataValue::IS_SIGNED
    */
   "isSigned"?: boolean | null;
 

@@ -36,10 +36,10 @@ class SignatureRequestResponseDataValueRadio(SignatureRequestResponseDataBase):
     """  # noqa: E501
 
     type: Optional[StrictStr] = Field(
-        default="radio", description="An input field for radios"
+        default="radio", description="_t__SignatureRequestResponseDataValue::RADIO_TYPE"
     )
     value: Optional[StrictBool] = Field(
-        default=None, description="The value of the form field."
+        default=None, description="_t__SignatureRequestResponseDataValue::VALUE"
     )
     __properties: ClassVar[List[str]] = [
         "api_id",

@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `type` | ```String``` |  A date  |  [default to 'date_signed'] |
-| `value` | ```String``` |  The value of the form field.  |  |
+| `type` | ```String``` |  _t__SignatureRequestResponseDataValue::DATESIGNED_TYPE  |  [default to 'date_signed'] |
+| `value` | ```String``` |  _t__SignatureRequestResponseDataValue::VALUE  |  |
 

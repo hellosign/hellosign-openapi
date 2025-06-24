@@ -29,14 +29,14 @@ from pydantic import StrictBool
 
 class ApiAppResponseOwnerAccount(BaseModel):
     """
-    An object describing the app's owner
+    _t__ApiAppResponseOwnerAccount::DESCRIPTION
     """  # noqa: E501
 
     account_id: Optional[StrictStr] = Field(
-        default=None, description="The owner account's ID"
+        default=None, description="_t__ApiAppResponseOwnerAccount::ACCOUNT_ID"
     )
     email_address: Optional[StrictStr] = Field(
-        default=None, description="The owner account's email address"
+        default=None, description="_t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS"
     )
     __properties: ClassVar[List[str]] = ["account_id", "email_address"]
 

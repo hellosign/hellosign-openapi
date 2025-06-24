@@ -25,83 +25,83 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * An array of signature objects, 1 for each signer.
+ * _t__SignatureRequestResponseSignatures::DESCRIPTION
  */
 export class SignatureRequestResponseSignatures {
   /**
-   * Signature identifier.
+   * _t__SignatureRequestResponseSignatures::SIGNATURE_ID
    */
   "signatureId"?: string;
   /**
-   * Signer Group GUID
+   * _t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID
    */
   "signerGroupGuid"?: string | null;
   /**
-   * The email address of the signer.
+   * _t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS
    */
   "signerEmailAddress"?: string;
   /**
-   * The name of the signer.
+   * _t__SignatureRequestResponseSignatures::SIGNER_NAME
    */
   "signerName"?: string | null;
   /**
-   * The role of the signer.
+   * _t__SignatureRequestResponseSignatures::SIGNER_ROLE
    */
   "signerRole"?: string | null;
   /**
-   * If signer order is assigned this is the 0-based index for this signer.
+   * _t__SignatureRequestResponseSignatures::ORDER
    */
   "order"?: number | null;
   /**
-   * The current status of the signature. eg: awaiting_signature, signed, declined.
+   * _t__SignatureRequestResponseSignatures::STATUS_CODE
    */
   "statusCode"?: string;
   /**
-   * The reason provided by the signer for declining the request.
+   * _t__SignatureRequestResponseSignatures::DECLINE_REASON
    */
   "declineReason"?: string | null;
   /**
-   * Time that the document was signed or null.
+   * _t__SignatureRequestResponseSignatures::SIGNED_AT
    */
   "signedAt"?: number | null;
   /**
-   * The time that the document was last viewed by this signer or null.
+   * _t__SignatureRequestResponseSignatures::LAST_VIEWED_AT
    */
   "lastViewedAt"?: number | null;
   /**
-   * The time the last reminder email was sent to the signer or null.
+   * _t__SignatureRequestResponseSignatures::LAST_REMINDED_AT
    */
   "lastRemindedAt"?: number | null;
   /**
-   * Boolean to indicate whether this signature requires a PIN to access.
+   * _t__SignatureRequestResponseSignatures::HAS_PIN
    */
   "hasPin"?: boolean;
   /**
-   * Boolean to indicate whether this signature has SMS authentication enabled.
+   * _t__SignatureRequestResponseSignatures::HAS_SMS_AUTH
    */
   "hasSmsAuth"?: boolean | null;
   /**
-   * Boolean to indicate whether this signature has SMS delivery enabled.
+   * _t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY
    */
   "hasSmsDelivery"?: boolean | null;
   /**
-   * The SMS phone number used for authentication or signature request delivery.
+   * _t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER
    */
   "smsPhoneNumber"?: string | null;
   /**
-   * Email address of original signer who reassigned to this signer.
+   * _t__SignatureRequestResponseSignatures::REASSIGNED_BY
    */
   "reassignedBy"?: string | null;
   /**
-   * Reason provided by original signer who reassigned to this signer.
+   * _t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON
    */
   "reassignmentReason"?: string | null;
   /**
-   * Previous signature identifier.
+   * _t__SignatureRequestResponseSignatures::REASSIGNED_FROM
    */
   "reassignedFrom"?: string | null;
   /**
-   * Error message pertaining to this signer, or null.
+   * _t__SignatureRequestResponseSignatures::ERROR
    */
   "error"?: string | null;
 

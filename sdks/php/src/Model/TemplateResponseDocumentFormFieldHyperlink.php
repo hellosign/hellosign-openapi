@@ -35,7 +35,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentFormFieldHyperlink Class Doc Comment
  *
  * @category Class
- * @description This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
+ * @description _t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
@@ -342,7 +342,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets type
      *
-     * @param string $type The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
+     * @param string $type _t__TemplateResponseDocumentFormField::TYPE
      *
      * @return self
      */
@@ -396,7 +396,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets is_multiline
      *
-     * @param bool|null $is_multiline whether this form field is multiline text
+     * @param bool|null $is_multiline _t__TemplateResponseDocumentFormField::IS_MULTILINE
      *
      * @return self
      */
@@ -423,7 +423,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets original_font_size
      *
-     * @param int|null $original_font_size original font size used in this form field's text
+     * @param int|null $original_font_size _t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE
      *
      * @return self
      */
@@ -450,7 +450,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets font_family
      *
-     * @param string|null $font_family font family used in this form field's text
+     * @param string|null $font_family _t__TemplateResponseDocumentFormField::FONT_FAMILY
      *
      * @return self
      */
@@ -477,7 +477,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets group
      *
-     * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+     * @param string|null $group _t__TemplateResponseDocumentFormField::GROUP
      *
      * @return self
      */

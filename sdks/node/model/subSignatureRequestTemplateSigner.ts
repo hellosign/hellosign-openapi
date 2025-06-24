@@ -26,27 +26,27 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class SubSignatureRequestTemplateSigner {
   /**
-   * Must match an existing role in chosen Template(s). It\'s case-sensitive.
+   * _t__Sub::SignatureRequestTemplateSigner::ROLE
    */
   "role": string;
   /**
-   * The name of the signer.
+   * _t__Sub::SignatureRequestTemplateSigner::NAME
    */
   "name": string;
   /**
-   * The email address of the signer.
+   * _t__Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS
    */
   "emailAddress": string;
   /**
-   * The 4- to 12-character access code that will secure this signer\'s signature page.
+   * _t__Sub::SignatureRequestTemplateSigner::PIN
    */
   "pin"?: string;
   /**
-   * An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer\'s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.
+   * _t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER
    */
   "smsPhoneNumber"?: string;
   /**
-   * Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
+   * _t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE
    */
   "smsPhoneNumberType"?: SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum;
 

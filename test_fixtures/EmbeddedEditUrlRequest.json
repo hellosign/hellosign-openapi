@@ -1,6 +1,7 @@
 {
   "default": {
     "allow_edit_ccs": true,
+    "allow_form_view": true,
     "cc_roles": [
       ""
     ],

@@ -21,7 +21,7 @@ module Dropbox::Sign
     # @return [BulkSendJobResponse]
     attr_accessor :bulk_send_job
 
-    # A list of warnings.
+    # _t__WarningResponse::LIST_DESCRIPTION
     # @return [Array<WarningResponse>]
     attr_accessor :warnings
 

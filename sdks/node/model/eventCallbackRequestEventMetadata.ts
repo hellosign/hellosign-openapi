@@ -25,23 +25,23 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Specific metadata about the event.
+ * _t__EventCallbackRequestEventMetadata::DESCRIPTION
  */
 export class EventCallbackRequestEventMetadata {
   /**
-   * Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.
+   * _t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID
    */
   "relatedSignatureId"?: string | null;
   /**
-   * Account ID the event was reported for.
+   * _t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID
    */
   "reportedForAccountId"?: string | null;
   /**
-   * App ID the event was reported for.
+   * _t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID
    */
   "reportedForAppId"?: string | null;
   /**
-   * Message about a declined or failed (due to error) signature flow.
+   * _t__EventCallbackRequestEventMetadata::EVENT_MESSAGE
    */
   "eventMessage"?: string | null;
 
