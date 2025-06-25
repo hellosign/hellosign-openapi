@@ -84,5 +84,6 @@ export namespace ReportResponse {
   export enum ReportTypeEnum {
     UserActivity = "user_activity",
     DocumentStatus = "document_status",
+    SmsActivity = "sms_activity",
   }
 }
