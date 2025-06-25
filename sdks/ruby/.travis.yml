@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build dropbox-sign.gemspec
-  - gem install ./dropbox-sign-1.9-dev.gem
+  - gem install ./dropbox-sign-1.10-dev.gem
