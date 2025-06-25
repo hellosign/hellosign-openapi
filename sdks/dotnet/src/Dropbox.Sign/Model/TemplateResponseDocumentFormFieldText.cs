@@ -122,6 +122,8 @@ namespace Dropbox.Sign.Model
         /// <param name="originalFontSize">Original font size used in this form field&#39;s text..</param>
         /// <param name="fontFamily">Font family used in this form field&#39;s text..</param>
         /// <param name="validationType">Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values..</param>
+        /// <param name="validationCustomRegex">When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the custom regular expression pattern that will be used to validate the text field..</param>
+        /// <param name="validationCustomRegexFormatLabel">When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error message displayed to the signer when the text does not match the provided regex pattern..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
         /// <param name="apiId">A unique id for the form field..</param>
         /// <param name="name">The name of the form field..</param>
@@ -131,7 +133,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">The width in pixels of this form field..</param>
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
-        public TemplateResponseDocumentFormFieldText(string type = @"text", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), ValidationTypeEnum? validationType = default(ValidationTypeEnum?), string group = default(string), string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
+        public TemplateResponseDocumentFormFieldText(string type = @"text", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), ValidationTypeEnum? validationType = default(ValidationTypeEnum?), string validationCustomRegex = default(string), string validationCustomRegexFormatLabel = default(string), string group = default(string), string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
         {
             this.ApiId = apiId;
             this.Name = name;
@@ -153,6 +155,8 @@ namespace Dropbox.Sign.Model
             this.OriginalFontSize = originalFontSize;
             this.FontFamily = fontFamily;
             this.ValidationType = validationType;
+            this.ValidationCustomRegex = validationCustomRegex;
+            this.ValidationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
             this.Group = group;
         }
 
@@ -207,6 +211,20 @@ namespace Dropbox.Sign.Model
         public string FontFamily { get; set; }
 
         /// <summary>
+        /// When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the custom regular expression pattern that will be used to validate the text field.
+        /// </summary>
+        /// <value>When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the custom regular expression pattern that will be used to validate the text field.</value>
+        [DataMember(Name = "validation_custom_regex", EmitDefaultValue = true)]
+        public string ValidationCustomRegex { get; set; }
+
+        /// <summary>
+        /// When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
+        /// </summary>
+        /// <value>When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.</value>
+        [DataMember(Name = "validation_custom_regex_format_label", EmitDefaultValue = true)]
+        public string ValidationCustomRegexFormatLabel { get; set; }
+
+        /// <summary>
         /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
         /// </summary>
         /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.</value>
@@ -228,6 +246,8 @@ namespace Dropbox.Sign.Model
             sb.Append("  OriginalFontSize: ").Append(OriginalFontSize).Append("\n");
             sb.Append("  FontFamily: ").Append(FontFamily).Append("\n");
             sb.Append("  ValidationType: ").Append(ValidationType).Append("\n");
+            sb.Append("  ValidationCustomRegex: ").Append(ValidationCustomRegex).Append("\n");
+            sb.Append("  ValidationCustomRegexFormatLabel: ").Append(ValidationCustomRegexFormatLabel).Append("\n");
             sb.Append("  Group: ").Append(Group).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -292,6 +312,16 @@ namespace Dropbox.Sign.Model
                     this.ValidationType.Equals(input.ValidationType)
                 ) && base.Equals(input) &&
                 (
+                    this.ValidationCustomRegex == input.ValidationCustomRegex ||
+                    (this.ValidationCustomRegex != null &&
+                    this.ValidationCustomRegex.Equals(input.ValidationCustomRegex))
+                ) && base.Equals(input) &&
+                (
+                    this.ValidationCustomRegexFormatLabel == input.ValidationCustomRegexFormatLabel ||
+                    (this.ValidationCustomRegexFormatLabel != null &&
+                    this.ValidationCustomRegexFormatLabel.Equals(input.ValidationCustomRegexFormatLabel))
+                ) && base.Equals(input) &&
+                (
                     this.Group == input.Group ||
                     (this.Group != null &&
                     this.Group.Equals(input.Group))
@@ -322,6 +352,14 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.FontFamily.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ValidationType.GetHashCode();
+                if (this.ValidationCustomRegex != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValidationCustomRegex.GetHashCode();
+                }
+                if (this.ValidationCustomRegexFormatLabel != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValidationCustomRegexFormatLabel.GetHashCode();
+                }
                 if (this.Group != null)
                 {
                     hashCode = (hashCode * 59) + this.Group.GetHashCode();
@@ -397,6 +435,20 @@ namespace Dropbox.Sign.Model
                 Property = "ValidationType",
                 Type = "string",
                 Value = ValidationType,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "validation_custom_regex",
+                Property = "ValidationCustomRegex",
+                Type = "string",
+                Value = ValidationCustomRegex,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "validation_custom_regex_format_label",
+                Property = "ValidationCustomRegexFormatLabel",
+                Type = "string",
+                Value = ValidationCustomRegexFormatLabel,
             });
             types.Add(new OpenApiType()
             {

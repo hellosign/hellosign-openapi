@@ -61,7 +61,9 @@ public class ReportResponse {
   public enum ReportTypeEnum {
     USER_ACTIVITY(String.valueOf("user_activity")),
     
-    DOCUMENT_STATUS(String.valueOf("document_status"));
+    DOCUMENT_STATUS(String.valueOf("document_status")),
+    
+    SMS_ACTIVITY(String.valueOf("sms_activity"));
 
     private String value;
 

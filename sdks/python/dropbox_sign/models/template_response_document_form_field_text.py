@@ -68,6 +68,14 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
         default=None,
         description="Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.",
     )
+    validation_custom_regex: Optional[StrictStr] = Field(
+        default=None,
+        description="When `validation_type` is set to `custom_regex`, this specifies the custom regular expression pattern that will be used to validate the text field.",
+    )
+    validation_custom_regex_format_label: Optional[StrictStr] = Field(
+        default=None,
+        description="When `validation_type` is set to `custom_regex`, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.",
+    )
     group: Optional[StrictStr] = Field(
         default=None,
         description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
@@ -87,6 +95,8 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
         "originalFontSize",
         "fontFamily",
         "validation_type",
+        "validation_custom_regex",
+        "validation_custom_regex_format_label",
         "group",
     ]
 
@@ -199,6 +209,10 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
                 "originalFontSize": obj.get("originalFontSize"),
                 "fontFamily": obj.get("fontFamily"),
                 "validation_type": obj.get("validation_type"),
+                "validation_custom_regex": obj.get("validation_custom_regex"),
+                "validation_custom_regex_format_label": obj.get(
+                    "validation_custom_regex_format_label"
+                ),
                 "group": obj.get("group"),
             }
         )
@@ -223,6 +237,8 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
             "original_font_size": "(int,)",
             "font_family": "(str,)",
             "validation_type": "(str,)",
+            "validation_custom_regex": "(str,)",
+            "validation_custom_regex_format_label": "(str,)",
             "group": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",

@@ -44,6 +44,8 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_FONT_FAMILY,
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL,
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_GROUP
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
@@ -128,6 +130,14 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   public static final String JSON_PROPERTY_VALIDATION_TYPE = "validation_type";
   @jakarta.annotation.Nullable
   private ValidationTypeEnum validationType;
+
+  public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX = "validation_custom_regex";
+  @jakarta.annotation.Nullable
+  private String validationCustomRegex;
+
+  public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL = "validation_custom_regex_format_label";
+  @jakarta.annotation.Nullable
+  private String validationCustomRegexFormatLabel;
 
   public static final String JSON_PROPERTY_GROUP = "group";
   @jakarta.annotation.Nullable
@@ -301,6 +311,56 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
+  public TemplateResponseDocumentFormFieldText validationCustomRegex(@jakarta.annotation.Nullable String validationCustomRegex) {
+    this.validationCustomRegex = validationCustomRegex;
+    return this;
+  }
+
+  /**
+   * When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the custom regular expression pattern that will be used to validate the text field.
+   * @return validationCustomRegex
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getValidationCustomRegex() {
+    return validationCustomRegex;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValidationCustomRegex(@jakarta.annotation.Nullable String validationCustomRegex) {
+    this.validationCustomRegex = validationCustomRegex;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText validationCustomRegexFormatLabel(@jakarta.annotation.Nullable String validationCustomRegexFormatLabel) {
+    this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
+    return this;
+  }
+
+  /**
+   * When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
+   * @return validationCustomRegexFormatLabel
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getValidationCustomRegexFormatLabel() {
+    return validationCustomRegexFormatLabel;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValidationCustomRegexFormatLabel(@jakarta.annotation.Nullable String validationCustomRegexFormatLabel) {
+    this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
+  }
+
+
   public TemplateResponseDocumentFormFieldText group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
@@ -344,13 +404,15 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
         Objects.equals(this.originalFontSize, templateResponseDocumentFormFieldText.originalFontSize) &&
         Objects.equals(this.fontFamily, templateResponseDocumentFormFieldText.fontFamily) &&
         Objects.equals(this.validationType, templateResponseDocumentFormFieldText.validationType) &&
+        Objects.equals(this.validationCustomRegex, templateResponseDocumentFormFieldText.validationCustomRegex) &&
+        Objects.equals(this.validationCustomRegexFormatLabel, templateResponseDocumentFormFieldText.validationCustomRegexFormatLabel) &&
         Objects.equals(this.group, templateResponseDocumentFormFieldText.group) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, avgTextLength, isMultiline, originalFontSize, fontFamily, validationType, group, super.hashCode());
+    return Objects.hash(type, avgTextLength, isMultiline, originalFontSize, fontFamily, validationType, validationCustomRegex, validationCustomRegexFormatLabel, group, super.hashCode());
   }
 
   @Override
@@ -364,6 +426,8 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
     sb.append("    originalFontSize: ").append(toIndentedString(originalFontSize)).append("\n");
     sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
     sb.append("    validationType: ").append(toIndentedString(validationType)).append("\n");
+    sb.append("    validationCustomRegex: ").append(toIndentedString(validationCustomRegex)).append("\n");
+    sb.append("    validationCustomRegexFormatLabel: ").append(toIndentedString(validationCustomRegexFormatLabel)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -486,6 +550,44 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
         }
         else {
             map.put("validation_type", JSON.getDefault().getMapper().writeValueAsString(validationType));
+        }
+    }
+    if (validationCustomRegex != null) {
+        if (isFileTypeOrListOfFiles(validationCustomRegex)) {
+            fileTypeFound = true;
+        }
+
+        if (validationCustomRegex.getClass().equals(java.io.File.class) ||
+            validationCustomRegex.getClass().equals(Integer.class) ||
+            validationCustomRegex.getClass().equals(String.class) ||
+            validationCustomRegex.getClass().isEnum()) {
+            map.put("validation_custom_regex", validationCustomRegex);
+        } else if (isListOfFile(validationCustomRegex)) {
+            for(int i = 0; i< getListSize(validationCustomRegex); i++) {
+                map.put("validation_custom_regex[" + i + "]", getFromList(validationCustomRegex, i));
+            }
+        }
+        else {
+            map.put("validation_custom_regex", JSON.getDefault().getMapper().writeValueAsString(validationCustomRegex));
+        }
+    }
+    if (validationCustomRegexFormatLabel != null) {
+        if (isFileTypeOrListOfFiles(validationCustomRegexFormatLabel)) {
+            fileTypeFound = true;
+        }
+
+        if (validationCustomRegexFormatLabel.getClass().equals(java.io.File.class) ||
+            validationCustomRegexFormatLabel.getClass().equals(Integer.class) ||
+            validationCustomRegexFormatLabel.getClass().equals(String.class) ||
+            validationCustomRegexFormatLabel.getClass().isEnum()) {
+            map.put("validation_custom_regex_format_label", validationCustomRegexFormatLabel);
+        } else if (isListOfFile(validationCustomRegexFormatLabel)) {
+            for(int i = 0; i< getListSize(validationCustomRegexFormatLabel); i++) {
+                map.put("validation_custom_regex_format_label[" + i + "]", getFromList(validationCustomRegexFormatLabel, i));
+            }
+        }
+        else {
+            map.put("validation_custom_regex_format_label", JSON.getDefault().getMapper().writeValueAsString(validationCustomRegexFormatLabel));
         }
     }
     if (group != null) {

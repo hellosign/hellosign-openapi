@@ -7697,7 +7697,7 @@ components:
           type: array
           items:
             type: string
-          maxItems: 2
+          maxItems: 10
           minItems: 1
         name:
           description: '_t__ApiAppCreate::NAME'
@@ -7723,7 +7723,7 @@ components:
           type: array
           items:
             type: string
-          maxItems: 2
+          maxItems: 10
         name:
           description: '_t__ApiAppUpdate::NAME'
           type: string
@@ -8021,6 +8021,7 @@ components:
             enum:
               - user_activity
               - document_status
+              - sms_activity
           maxItems: 2
           minItems: 1
         start_date:
@@ -11224,6 +11225,7 @@ components:
             enum:
               - user_activity
               - document_status
+              - sms_activity
       type: object
       x-internal-class: true
     SignatureRequestResponse:
@@ -12285,6 +12287,14 @@ components:
                 - social_security_number
                 - employer_identification_number
                 - custom_regex
+              nullable: true
+            validation_custom_regex:
+              description: '_t__TemplateResponseDocumentFormField::CUSTOM_REGEX'
+              type: string
+              nullable: true
+            validation_custom_regex_format_label:
+              description: '_t__TemplateResponseDocumentFormField::CUSTOM_REGEX_LABEL'
+              type: string
               nullable: true
             group:
               description: '_t__TemplateResponseDocumentFormField::GROUP'

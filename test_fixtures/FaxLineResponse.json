@@ -1,0 +1,18 @@
+{
+  "default": {
+    "fax_line": {
+      "number": "14155557897",
+      "created_at": 1750196223,
+      "updated_at": 1750196223,
+      "accounts": [
+        {
+          "account_id": "a3367a4130f3624687ea7de6f09df951a44923dd",
+          "email_address": "me@dropboxsign.com",
+          "is_locked": false,
+          "is_paid_hs": false,
+          "is_paid_hf": true
+        }
+      ]
+    }
+  }
+}

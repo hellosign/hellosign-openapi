@@ -72,5 +72,6 @@ export namespace ReportCreateRequest {
   export enum ReportTypeEnum {
     UserActivity = "user_activity",
     DocumentStatus = "document_status",
+    SmsActivity = "sms_activity",
   }
 }

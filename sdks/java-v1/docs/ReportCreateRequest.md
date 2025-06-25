@@ -20,6 +20,7 @@
 ---- | -----
 | USER_ACTIVITY | &quot;user_activity&quot; |
 | DOCUMENT_STATUS | &quot;document_status&quot; |
+| SMS_ACTIVITY | &quot;sms_activity&quot; |
 
 
 
