@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dropbox_sign"
-version = "1.9-dev"
+version = "1.10-dev"
 description = "Dropbox Sign API"
 authors = ["Official Python SDK for the Dropbox Sign API <apisupport@hellosign.com>"]
 license = "MIT"
