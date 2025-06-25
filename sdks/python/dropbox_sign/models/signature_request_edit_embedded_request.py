@@ -79,6 +79,10 @@ class SignatureRequestEditEmbeddedRequest(BaseModel):
         default=False,
         description="Allows signers to decline to sign a document if `true`. Defaults to `false`.",
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     allow_reassign: Optional[StrictBool] = Field(
         default=False,
         description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.",
@@ -150,6 +154,7 @@ class SignatureRequestEditEmbeddedRequest(BaseModel):
         "signers",
         "grouped_signers",
         "allow_decline",
+        "allow_form_view",
         "allow_reassign",
         "attachments",
         "cc_email_addresses",
@@ -312,6 +317,11 @@ class SignatureRequestEditEmbeddedRequest(BaseModel):
                     if obj.get("allow_decline") is not None
                     else False
                 ),
+                "allow_form_view": (
+                    obj.get("allow_form_view")
+                    if obj.get("allow_form_view") is not None
+                    else False
+                ),
                 "allow_reassign": (
                     obj.get("allow_reassign")
                     if obj.get("allow_reassign") is not None
@@ -408,6 +418,7 @@ class SignatureRequestEditEmbeddedRequest(BaseModel):
             "signers": "(List[SubSignatureRequestSigner],)",
             "grouped_signers": "(List[SubSignatureRequestGroupedSigners],)",
             "allow_decline": "(bool,)",
+            "allow_form_view": "(bool,)",
             "allow_reassign": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_email_addresses": "(List[str],)",

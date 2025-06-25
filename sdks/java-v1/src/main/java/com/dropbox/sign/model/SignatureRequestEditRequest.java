@@ -33,6 +33,7 @@ import java.util.Objects;
     SignatureRequestEditRequest.JSON_PROPERTY_SIGNERS,
     SignatureRequestEditRequest.JSON_PROPERTY_GROUPED_SIGNERS,
     SignatureRequestEditRequest.JSON_PROPERTY_ALLOW_DECLINE,
+    SignatureRequestEditRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
     SignatureRequestEditRequest.JSON_PROPERTY_ALLOW_REASSIGN,
     SignatureRequestEditRequest.JSON_PROPERTY_ATTACHMENTS,
     SignatureRequestEditRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
@@ -74,6 +75,9 @@ public class SignatureRequestEditRequest {
 
     public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
     @javax.annotation.Nullable private Boolean allowDecline = false;
+
+    public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
+    @javax.annotation.Nullable private Boolean allowFormView = false;
 
     public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
     @javax.annotation.Nullable private Boolean allowReassign = false;
@@ -304,6 +308,30 @@ public class SignatureRequestEditRequest {
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAllowDecline(@javax.annotation.Nullable Boolean allowDecline) {
         this.allowDecline = allowDecline;
+    }
+
+    public SignatureRequestEditRequest allowFormView(
+            @javax.annotation.Nullable Boolean allowFormView) {
+        this.allowFormView = allowFormView;
+        return this;
+    }
+
+    /**
+     * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to
+     * &#x60;false&#x60;.
+     *
+     * @return allowFormView
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getAllowFormView() {
+        return allowFormView;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setAllowFormView(@javax.annotation.Nullable Boolean allowFormView) {
+        this.allowFormView = allowFormView;
     }
 
     public SignatureRequestEditRequest allowReassign(
@@ -882,6 +910,7 @@ public class SignatureRequestEditRequest {
                 && Objects.equals(this.signers, signatureRequestEditRequest.signers)
                 && Objects.equals(this.groupedSigners, signatureRequestEditRequest.groupedSigners)
                 && Objects.equals(this.allowDecline, signatureRequestEditRequest.allowDecline)
+                && Objects.equals(this.allowFormView, signatureRequestEditRequest.allowFormView)
                 && Objects.equals(this.allowReassign, signatureRequestEditRequest.allowReassign)
                 && Objects.equals(this.attachments, signatureRequestEditRequest.attachments)
                 && Objects.equals(
@@ -916,6 +945,7 @@ public class SignatureRequestEditRequest {
                 signers,
                 groupedSigners,
                 allowDecline,
+                allowFormView,
                 allowReassign,
                 attachments,
                 ccEmailAddresses,
@@ -947,6 +977,7 @@ public class SignatureRequestEditRequest {
         sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
         sb.append("    groupedSigners: ").append(toIndentedString(groupedSigners)).append("\n");
         sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
+        sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
         sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
         sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
         sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
@@ -1073,6 +1104,26 @@ public class SignatureRequestEditRequest {
                     map.put(
                             "allow_decline",
                             JSON.getDefault().getMapper().writeValueAsString(allowDecline));
+                }
+            }
+            if (allowFormView != null) {
+                if (isFileTypeOrListOfFiles(allowFormView)) {
+                    fileTypeFound = true;
+                }
+
+                if (allowFormView.getClass().equals(java.io.File.class)
+                        || allowFormView.getClass().equals(Integer.class)
+                        || allowFormView.getClass().equals(String.class)
+                        || allowFormView.getClass().isEnum()) {
+                    map.put("allow_form_view", allowFormView);
+                } else if (isListOfFile(allowFormView)) {
+                    for (int i = 0; i < getListSize(allowFormView); i++) {
+                        map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
+                    }
+                } else {
+                    map.put(
+                            "allow_form_view",
+                            JSON.getDefault().getMapper().writeValueAsString(allowFormView));
                 }
             }
             if (allowReassign != null) {

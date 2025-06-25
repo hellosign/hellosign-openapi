@@ -38,6 +38,10 @@ class EmbeddedEditUrlRequest(BaseModel):
         default=False,
         description="This allows the requester to enable/disable to add or change CC roles when editing the template.",
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     cc_roles: Optional[List[StrictStr]] = Field(
         default=None,
         description="The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.",
@@ -73,6 +77,7 @@ class EmbeddedEditUrlRequest(BaseModel):
     )
     __properties: ClassVar[List[str]] = [
         "allow_edit_ccs",
+        "allow_form_view",
         "cc_roles",
         "editor_options",
         "force_signer_roles",
@@ -162,6 +167,11 @@ class EmbeddedEditUrlRequest(BaseModel):
                     if obj.get("allow_edit_ccs") is not None
                     else False
                 ),
+                "allow_form_view": (
+                    obj.get("allow_form_view")
+                    if obj.get("allow_form_view") is not None
+                    else False
+                ),
                 "cc_roles": obj.get("cc_roles"),
                 "editor_options": (
                     SubEditorOptions.from_dict(obj["editor_options"])
@@ -219,6 +229,7 @@ class EmbeddedEditUrlRequest(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "allow_edit_ccs": "(bool,)",
+            "allow_form_view": "(bool,)",
             "cc_roles": "(List[str],)",
             "editor_options": "(SubEditorOptions,)",
             "force_signer_roles": "(bool,)",

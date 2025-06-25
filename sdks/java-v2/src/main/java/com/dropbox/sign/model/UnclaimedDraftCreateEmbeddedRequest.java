@@ -53,6 +53,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_FILE_URLS,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_CCS,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_DECLINE,
+  UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_REASSIGN,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_ATTACHMENTS,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
@@ -110,6 +111,10 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   @jakarta.annotation.Nullable
   private Boolean allowDecline = false;
+
+  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
+  @jakarta.annotation.Nullable
+  private Boolean allowFormView = false;
 
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
   @jakarta.annotation.Nullable
@@ -447,6 +452,31 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowDecline(@jakarta.annotation.Nullable Boolean allowDecline) {
     this.allowDecline = allowDecline;
+  }
+
+
+  public UnclaimedDraftCreateEmbeddedRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
+    return this;
+  }
+
+  /**
+   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+   * @return allowFormView
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowFormView() {
+    return allowFormView;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
   }
 
 
@@ -1282,6 +1312,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
         Objects.equals(this.fileUrls, unclaimedDraftCreateEmbeddedRequest.fileUrls) &&
         Objects.equals(this.allowCcs, unclaimedDraftCreateEmbeddedRequest.allowCcs) &&
         Objects.equals(this.allowDecline, unclaimedDraftCreateEmbeddedRequest.allowDecline) &&
+        Objects.equals(this.allowFormView, unclaimedDraftCreateEmbeddedRequest.allowFormView) &&
         Objects.equals(this.allowReassign, unclaimedDraftCreateEmbeddedRequest.allowReassign) &&
         Objects.equals(this.attachments, unclaimedDraftCreateEmbeddedRequest.attachments) &&
         Objects.equals(this.ccEmailAddresses, unclaimedDraftCreateEmbeddedRequest.ccEmailAddresses) &&
@@ -1316,7 +1347,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, requesterEmailAddress, files, fileUrls, allowCcs, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, editorOptions, fieldOptions, forceSignerPage, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, holdRequest, isForEmbeddedSigning, message, metadata, requestingRedirectUrl, showPreview, showProgressStepper, signers, signingOptions, signingRedirectUrl, skipMeNow, subject, testMode, type, usePreexistingFields, useTextTags, populateAutoFillFields, expiresAt);
+    return Objects.hash(clientId, requesterEmailAddress, files, fileUrls, allowCcs, allowDecline, allowFormView, allowReassign, attachments, ccEmailAddresses, customFields, editorOptions, fieldOptions, forceSignerPage, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, holdRequest, isForEmbeddedSigning, message, metadata, requestingRedirectUrl, showPreview, showProgressStepper, signers, signingOptions, signingRedirectUrl, skipMeNow, subject, testMode, type, usePreexistingFields, useTextTags, populateAutoFillFields, expiresAt);
   }
 
   @Override
@@ -1329,6 +1360,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    allowCcs: ").append(toIndentedString(allowCcs)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
+    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
@@ -1479,6 +1511,25 @@ public class UnclaimedDraftCreateEmbeddedRequest {
         }
         else {
             map.put("allow_decline", JSON.getDefault().getMapper().writeValueAsString(allowDecline));
+        }
+    }
+    if (allowFormView != null) {
+        if (isFileTypeOrListOfFiles(allowFormView)) {
+            fileTypeFound = true;
+        }
+
+        if (allowFormView.getClass().equals(java.io.File.class) ||
+            allowFormView.getClass().equals(Integer.class) ||
+            allowFormView.getClass().equals(String.class) ||
+            allowFormView.getClass().isEnum()) {
+            map.put("allow_form_view", allowFormView);
+        } else if (isListOfFile(allowFormView)) {
+            for(int i = 0; i< getListSize(allowFormView); i++) {
+                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
+            }
+        }
+        else {
+            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (allowReassign != null) {

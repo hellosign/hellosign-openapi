@@ -12,6 +12,7 @@ export declare class TemplateCreateRequest {
     "files"?: Array<RequestFile>;
     "fileUrls"?: Array<string>;
     "allowReassign"?: boolean;
+    "allowFormView"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccRoles"?: Array<string>;
     "clientId"?: string;

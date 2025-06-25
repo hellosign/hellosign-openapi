@@ -62,6 +62,10 @@ export class UnclaimedDraftCreateEmbeddedRequest {
    */
   "allowDecline"?: boolean = false;
   /**
+   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+   */
+  "allowFormView"?: boolean = false;
+  /**
    * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
    */
   "allowReassign"?: boolean = false;
@@ -205,6 +209,11 @@ export class UnclaimedDraftCreateEmbeddedRequest {
     {
       name: "allowDecline",
       baseName: "allow_decline",
+      type: "boolean",
+    },
+    {
+      name: "allowFormView",
+      baseName: "allow_form_view",
       type: "boolean",
     },
     {

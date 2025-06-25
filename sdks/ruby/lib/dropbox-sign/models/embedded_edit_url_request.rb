@@ -22,6 +22,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_edit_ccs
 
+    # Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+    # @return [Boolean]
+    attr_accessor :allow_form_view
+
     # The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
     # @return [Array<String>]
     attr_accessor :cc_roles
@@ -61,6 +65,7 @@ module Dropbox::Sign
     def self.attribute_map
       {
         :'allow_edit_ccs' => :'allow_edit_ccs',
+        :'allow_form_view' => :'allow_form_view',
         :'cc_roles' => :'cc_roles',
         :'editor_options' => :'editor_options',
         :'force_signer_roles' => :'force_signer_roles',
@@ -87,6 +92,7 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'allow_edit_ccs' => :'Boolean',
+        :'allow_form_view' => :'Boolean',
         :'cc_roles' => :'Array<String>',
         :'editor_options' => :'SubEditorOptions',
         :'force_signer_roles' => :'Boolean',
@@ -150,6 +156,12 @@ module Dropbox::Sign
         self.allow_edit_ccs = attributes[:'allow_edit_ccs']
       else
         self.allow_edit_ccs = false
+      end
+
+      if attributes.key?(:'allow_form_view')
+        self.allow_form_view = attributes[:'allow_form_view']
+      else
+        self.allow_form_view = false
       end
 
       if attributes.key?(:'cc_roles')
@@ -224,6 +236,7 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           allow_edit_ccs == o.allow_edit_ccs &&
+          allow_form_view == o.allow_form_view &&
           cc_roles == o.cc_roles &&
           editor_options == o.editor_options &&
           force_signer_roles == o.force_signer_roles &&
@@ -244,7 +257,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_edit_ccs, cc_roles, editor_options, force_signer_roles, force_subject_message, merge_fields, preview_only, show_preview, show_progress_stepper, test_mode].hash
+      [allow_edit_ccs, allow_form_view, cc_roles, editor_options, force_signer_roles, force_subject_message, merge_fields, preview_only, show_preview, show_progress_stepper, test_mode].hash
     end
 
     # Builds the object from hash

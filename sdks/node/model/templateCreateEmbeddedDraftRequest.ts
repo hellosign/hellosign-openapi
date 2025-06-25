@@ -54,6 +54,10 @@ export class TemplateCreateEmbeddedDraftRequest {
    */
   "allowReassign"?: boolean = false;
   /**
+   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+   */
+  "allowFormView"?: boolean = false;
+  /**
    * A list describing the attachments
    */
   "attachments"?: Array<SubAttachment>;
@@ -154,6 +158,11 @@ export class TemplateCreateEmbeddedDraftRequest {
     {
       name: "allowReassign",
       baseName: "allow_reassign",
+      type: "boolean",
+    },
+    {
+      name: "allowFormView",
+      baseName: "allow_form_view",
       type: "boolean",
     },
     {

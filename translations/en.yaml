@@ -125,6 +125,7 @@
 "EmbeddedEditUrl::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
 "EmbeddedEditUrl::TEMPLATE_ID": The id of the template to edit.
 "EmbeddedEditUrl::TEST_MODE": Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
+"EmbeddedEditUrl::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "EmbeddedSignUrl::SUMMARY": Get Embedded Sign URL
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
@@ -360,6 +361,7 @@
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+"SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "SignatureRequestEditEmbedded::SUMMARY": Edit Embedded Signature Request
 "SignatureRequestEditEmbedded::DESCRIPTION": |-
@@ -367,6 +369,7 @@
 
   **NOTE:** Edit and resend *will* deduct your signature request quota.
 "SignatureRequestEditEmbedded::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
+"SignatureRequestEditEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "SignatureRequestCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Signature Request with Template
 "SignatureRequestCreateEmbeddedWithTemplate::DESCRIPTION": Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
@@ -495,6 +498,7 @@
 "SignatureRequestSend::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestSend::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestSend::USE_PREEXISTING_FIELDS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+"SignatureRequestSend::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "SignatureRequestEdit::SUMMARY": Edit Signature Request
 "SignatureRequestEdit::DESCRIPTION": |-
@@ -502,6 +506,7 @@
   
   **NOTE:** Edit and resend *will* deduct your signature request quota.
 "SignatureRequestEdit::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
+"SignatureRequestEdit::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "SignatureRequestSendWithTemplate::SUMMARY": Send with Template
 "SignatureRequestSendWithTemplate::DESCRIPTION": Creates and sends a new SignatureRequest based off of the Template(s) specified with the `template_ids` parameter.
@@ -695,7 +700,7 @@
 "TemplateCreateEmbeddedDraft::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 "TemplateCreateEmbeddedDraft::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreateEmbeddedDraft::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
-
+"TemplateCreateEmbeddedDraft::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "TemplateCreate::SUMMARY": Create Template
 "TemplateCreate::DESCRIPTION": Creates a template that can then be used.
@@ -724,6 +729,7 @@
 "TemplateCreate::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 "TemplateCreate::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreate::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
+"TemplateCreate::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "TemplateDelete::SUMMARY": Delete Template
 "TemplateDelete::DESCRIPTION": Completely deletes the template specified from the account.
@@ -825,6 +831,8 @@
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
   **NOTE:** This does not correspond to the **expires_at** returned in the response.
+"UnclaimedDraftCreate::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+
 "UnclaimedDraftCreateEmbedded::SUMMARY": Create Embedded Unclaimed Draft
 "UnclaimedDraftCreateEmbedded::DESCRIPTION": |-
   Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
@@ -875,6 +883,8 @@
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
   **NOTE:** This does not correspond to the **expires_at** returned in the response.
+"UnclaimedDraftCreateEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+
 "UnclaimedDraftCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Unclaimed Draft with Template
 "UnclaimedDraftCreateEmbeddedWithTemplate::DESCRIPTION": |-
   Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.

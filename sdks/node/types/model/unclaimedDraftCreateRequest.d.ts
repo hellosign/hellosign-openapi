@@ -12,6 +12,7 @@ export declare class UnclaimedDraftCreateRequest {
     "files"?: Array<RequestFile>;
     "fileUrls"?: Array<string>;
     "allowDecline"?: boolean;
+    "allowFormView"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccEmailAddresses"?: Array<string>;
     "clientId"?: string;

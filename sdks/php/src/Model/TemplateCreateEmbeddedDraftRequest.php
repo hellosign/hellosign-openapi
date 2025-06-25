@@ -63,6 +63,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         'file_urls' => 'string[]',
         'allow_ccs' => 'bool',
         'allow_reassign' => 'bool',
+        'allow_form_view' => 'bool',
         'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_roles' => 'string[]',
         'editor_options' => '\Dropbox\Sign\Model\SubEditorOptions',
@@ -98,6 +99,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         'file_urls' => null,
         'allow_ccs' => null,
         'allow_reassign' => null,
+        'allow_form_view' => null,
         'attachments' => null,
         'cc_roles' => null,
         'editor_options' => null,
@@ -131,6 +133,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         'file_urls' => false,
         'allow_ccs' => false,
         'allow_reassign' => false,
+        'allow_form_view' => false,
         'attachments' => false,
         'cc_roles' => false,
         'editor_options' => false,
@@ -236,6 +239,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         'file_urls' => 'file_urls',
         'allow_ccs' => 'allow_ccs',
         'allow_reassign' => 'allow_reassign',
+        'allow_form_view' => 'allow_form_view',
         'attachments' => 'attachments',
         'cc_roles' => 'cc_roles',
         'editor_options' => 'editor_options',
@@ -269,6 +273,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         'file_urls' => 'setFileUrls',
         'allow_ccs' => 'setAllowCcs',
         'allow_reassign' => 'setAllowReassign',
+        'allow_form_view' => 'setAllowFormView',
         'attachments' => 'setAttachments',
         'cc_roles' => 'setCcRoles',
         'editor_options' => 'setEditorOptions',
@@ -302,6 +307,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         'file_urls' => 'getFileUrls',
         'allow_ccs' => 'getAllowCcs',
         'allow_reassign' => 'getAllowReassign',
+        'allow_form_view' => 'getAllowFormView',
         'attachments' => 'getAttachments',
         'cc_roles' => 'getCcRoles',
         'editor_options' => 'getEditorOptions',
@@ -385,6 +391,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         $this->setIfExists('file_urls', $data ?? [], null);
         $this->setIfExists('allow_ccs', $data ?? [], true);
         $this->setIfExists('allow_reassign', $data ?? [], false);
+        $this->setIfExists('allow_form_view', $data ?? [], false);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('cc_roles', $data ?? [], null);
         $this->setIfExists('editor_options', $data ?? [], null);
@@ -608,6 +615,33 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
             throw new InvalidArgumentException('non-nullable allow_reassign cannot be null');
         }
         $this->container['allow_reassign'] = $allow_reassign;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_form_view
+     *
+     * @return bool|null
+     */
+    public function getAllowFormView()
+    {
+        return $this->container['allow_form_view'];
+    }
+
+    /**
+     * Sets allow_form_view
+     *
+     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setAllowFormView(?bool $allow_form_view)
+    {
+        if (is_null($allow_form_view)) {
+            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
+        }
+        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }

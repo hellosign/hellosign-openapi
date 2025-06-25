@@ -7840,6 +7840,10 @@ components:
           description: 'This allows the requester to enable/disable to add or change CC roles when editing the template.'
           type: boolean
           default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
         cc_roles:
           description: 'The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.'
           type: array
@@ -8361,6 +8365,10 @@ components:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean
           default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -8595,6 +8603,10 @@ components:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean
           default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -8749,6 +8761,10 @@ components:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         allow_reassign:
@@ -9090,6 +9106,10 @@ components:
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
             **NOTE:** Only available for Premium plan and higher.
+          type: boolean
+          default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         attachments:
@@ -10453,6 +10473,10 @@ components:
             **NOTE:** Only available for Premium plan and higher.
           type: boolean
           default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
         attachments:
           description: 'A list describing the attachments'
           type: array
@@ -10567,6 +10591,10 @@ components:
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
             **NOTE:** Only available for Premium plan and higher.
+          type: boolean
+          default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         attachments:
@@ -10750,6 +10778,10 @@ components:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean
           default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
         attachments:
           description: 'A list describing the attachments'
           type: array
@@ -10894,6 +10926,10 @@ components:
           default: true
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         allow_reassign:

@@ -67,6 +67,10 @@ class UnclaimedDraftCreateRequest(BaseModel):
         default=False,
         description="Allows signers to decline to sign a document if `true`. Defaults to `false`.",
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     attachments: Optional[List[SubAttachment]] = Field(
         default=None, description="A list describing the attachments"
     )
@@ -144,6 +148,7 @@ class UnclaimedDraftCreateRequest(BaseModel):
         "files",
         "file_urls",
         "allow_decline",
+        "allow_form_view",
         "attachments",
         "cc_email_addresses",
         "client_id",
@@ -294,6 +299,11 @@ class UnclaimedDraftCreateRequest(BaseModel):
                     if obj.get("allow_decline") is not None
                     else False
                 ),
+                "allow_form_view": (
+                    obj.get("allow_form_view")
+                    if obj.get("allow_form_view") is not None
+                    else False
+                ),
                 "attachments": (
                     [SubAttachment.from_dict(_item) for _item in obj["attachments"]]
                     if obj.get("attachments") is not None
@@ -397,6 +407,7 @@ class UnclaimedDraftCreateRequest(BaseModel):
             "files": "(List[io.IOBase],)",
             "file_urls": "(List[str],)",
             "allow_decline": "(bool,)",
+            "allow_form_view": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_email_addresses": "(List[str],)",
             "client_id": "(str,)",

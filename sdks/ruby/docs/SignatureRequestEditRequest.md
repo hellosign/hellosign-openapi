@@ -11,6 +11,7 @@
 | `signers` | [```Array<SubSignatureRequestSigner>```](SubSignatureRequestSigner.md) |  Add Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
 | `grouped_signers` | [```Array<SubSignatureRequestGroupedSigners>```](SubSignatureRequestGroupedSigners.md) |  Add Grouped Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
 | `allow_decline` | ```Boolean``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  [default to false] |
+| `allow_form_view` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
 | `allow_reassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
 | `attachments` | [```Array<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
 | `cc_email_addresses` | ```Array<String>``` |  The email addresses that should be CCed.  |  |

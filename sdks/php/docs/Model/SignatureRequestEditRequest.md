@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 | `signers` | [```\Dropbox\Sign\Model\SubSignatureRequestSigner[]```](SubSignatureRequestSigner.md) |  Add Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
 | `grouped_signers` | [```\Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]```](SubSignatureRequestGroupedSigners.md) |  Add Grouped Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
 | `allow_decline` | ```bool``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  [default to false] |
+| `allow_form_view` | ```bool``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
 | `allow_reassign` | ```bool``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
 | `attachments` | [```\Dropbox\Sign\Model\SubAttachment[]```](SubAttachment.md) |  A list describing the attachments  |  |
 | `cc_email_addresses` | ```string[]``` |  The email addresses that should be CCed.  |  |

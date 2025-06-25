@@ -3,6 +3,7 @@ import { SubEditorOptions } from "./subEditorOptions";
 import { SubMergeField } from "./subMergeField";
 export declare class EmbeddedEditUrlRequest {
     "allowEditCcs"?: boolean;
+    "allowFormView"?: boolean;
     "ccRoles"?: Array<string>;
     "editorOptions"?: SubEditorOptions;
     "forceSignerRoles"?: boolean;

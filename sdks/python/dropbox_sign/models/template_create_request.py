@@ -62,6 +62,10 @@ class TemplateCreateRequest(BaseModel):
         default=False,
         description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.",
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     attachments: Optional[List[SubAttachment]] = Field(
         default=None, description="A list describing the attachments"
     )
@@ -114,6 +118,7 @@ class TemplateCreateRequest(BaseModel):
         "files",
         "file_urls",
         "allow_reassign",
+        "allow_form_view",
         "attachments",
         "cc_roles",
         "client_id",
@@ -257,6 +262,11 @@ class TemplateCreateRequest(BaseModel):
                     if obj.get("allow_reassign") is not None
                     else False
                 ),
+                "allow_form_view": (
+                    obj.get("allow_form_view")
+                    if obj.get("allow_form_view") is not None
+                    else False
+                ),
                 "attachments": (
                     [SubAttachment.from_dict(_item) for _item in obj["attachments"]]
                     if obj.get("attachments") is not None
@@ -324,6 +334,7 @@ class TemplateCreateRequest(BaseModel):
             "files": "(List[io.IOBase],)",
             "file_urls": "(List[str],)",
             "allow_reassign": "(bool,)",
+            "allow_form_view": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_roles": "(List[str],)",
             "client_id": "(str,)",

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 | `file_urls` | ```string[]``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allow_ccs` | ```bool``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.  |  [default to true] |
 | `allow_reassign` | ```bool``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
+| `allow_form_view` | ```bool``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
 | `attachments` | [```\Dropbox\Sign\Model\SubAttachment[]```](SubAttachment.md) |  A list describing the attachments  |  |
 | `cc_roles` | ```string[]``` |  The CC roles that must be assigned when using the template to send a signature request  |  |
 | `editor_options` | [```\Dropbox\Sign\Model\SubEditorOptions```](SubEditorOptions.md) |    |  |
