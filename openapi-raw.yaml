@@ -8021,6 +8021,7 @@ components:
             enum:
               - user_activity
               - document_status
+              - sms_activity
           maxItems: 2
           minItems: 1
         start_date:
@@ -11224,6 +11225,7 @@ components:
             enum:
               - user_activity
               - document_status
+              - sms_activity
       type: object
       x-internal-class: true
     SignatureRequestResponse:

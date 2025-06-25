@@ -12,6 +12,7 @@ export declare class ReportResponse {
 export declare namespace ReportResponse {
     enum ReportTypeEnum {
         UserActivity = "user_activity",
-        DocumentStatus = "document_status"
+        DocumentStatus = "document_status",
+        SmsActivity = "sms_activity"
     }
 }

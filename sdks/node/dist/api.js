@@ -19239,6 +19239,7 @@ var ReportCreateRequest = class _ReportCreateRequest {
   ((ReportTypeEnum2) => {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
+    ReportTypeEnum2["SmsActivity"] = "sms_activity";
   })(ReportTypeEnum = ReportCreateRequest2.ReportTypeEnum || (ReportCreateRequest2.ReportTypeEnum = {}));
 })(ReportCreateRequest || (ReportCreateRequest = {}));
 
@@ -19312,6 +19313,7 @@ var ReportResponse = class _ReportResponse {
   ((ReportTypeEnum2) => {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
+    ReportTypeEnum2["SmsActivity"] = "sms_activity";
   })(ReportTypeEnum = ReportResponse2.ReportTypeEnum || (ReportResponse2.ReportTypeEnum = {}));
 })(ReportResponse || (ReportResponse = {}));
 
