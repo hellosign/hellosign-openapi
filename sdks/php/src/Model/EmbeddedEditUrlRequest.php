@@ -58,6 +58,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static $openAPITypes = [
         'allow_edit_ccs' => 'bool',
+        'allow_form_view' => 'bool',
         'cc_roles' => 'string[]',
         'editor_options' => '\Dropbox\Sign\Model\SubEditorOptions',
         'force_signer_roles' => 'bool',
@@ -78,6 +79,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static $openAPIFormats = [
         'allow_edit_ccs' => null,
+        'allow_form_view' => null,
         'cc_roles' => null,
         'editor_options' => null,
         'force_signer_roles' => null,
@@ -96,6 +98,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static array $openAPINullables = [
         'allow_edit_ccs' => false,
+        'allow_form_view' => false,
         'cc_roles' => false,
         'editor_options' => false,
         'force_signer_roles' => false,
@@ -186,6 +189,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static $attributeMap = [
         'allow_edit_ccs' => 'allow_edit_ccs',
+        'allow_form_view' => 'allow_form_view',
         'cc_roles' => 'cc_roles',
         'editor_options' => 'editor_options',
         'force_signer_roles' => 'force_signer_roles',
@@ -204,6 +208,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static $setters = [
         'allow_edit_ccs' => 'setAllowEditCcs',
+        'allow_form_view' => 'setAllowFormView',
         'cc_roles' => 'setCcRoles',
         'editor_options' => 'setEditorOptions',
         'force_signer_roles' => 'setForceSignerRoles',
@@ -222,6 +227,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      */
     protected static $getters = [
         'allow_edit_ccs' => 'getAllowEditCcs',
+        'allow_form_view' => 'getAllowFormView',
         'cc_roles' => 'getCcRoles',
         'editor_options' => 'getEditorOptions',
         'force_signer_roles' => 'getForceSignerRoles',
@@ -290,6 +296,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     public function __construct(?array $data = null)
     {
         $this->setIfExists('allow_edit_ccs', $data ?? [], false);
+        $this->setIfExists('allow_form_view', $data ?? [], false);
         $this->setIfExists('cc_roles', $data ?? [], null);
         $this->setIfExists('editor_options', $data ?? [], null);
         $this->setIfExists('force_signer_roles', $data ?? [], false);
@@ -381,6 +388,33 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
             throw new InvalidArgumentException('non-nullable allow_edit_ccs cannot be null');
         }
         $this->container['allow_edit_ccs'] = $allow_edit_ccs;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_form_view
+     *
+     * @return bool|null
+     */
+    public function getAllowFormView()
+    {
+        return $this->container['allow_form_view'];
+    }
+
+    /**
+     * Sets allow_form_view
+     *
+     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setAllowFormView(?bool $allow_form_view)
+    {
+        if (is_null($allow_form_view)) {
+            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
+        }
+        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }

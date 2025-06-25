@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 | `file_urls` | ```string[]``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allow_ccs` | ```bool``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.  |  [default to true] |
 | `allow_decline` | ```bool``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  [default to false] |
+| `allow_form_view` | ```bool``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
 | `allow_reassign` | ```bool``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
 | `attachments` | [```\Dropbox\Sign\Model\SubAttachment[]```](SubAttachment.md) |  A list describing the attachments  |  |
 | `cc_email_addresses` | ```string[]``` |  The email addresses that should be CCed.  |  |

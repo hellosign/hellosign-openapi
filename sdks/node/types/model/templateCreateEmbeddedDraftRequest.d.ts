@@ -13,6 +13,7 @@ export declare class TemplateCreateEmbeddedDraftRequest {
     "fileUrls"?: Array<string>;
     "allowCcs"?: boolean;
     "allowReassign"?: boolean;
+    "allowFormView"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccRoles"?: Array<string>;
     "editorOptions"?: SubEditorOptions;

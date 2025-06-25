@@ -43,6 +43,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_decline
 
+    # Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+    # @return [Boolean]
+    attr_accessor :allow_form_view
+
     # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
     # @return [Boolean]
     attr_accessor :allow_reassign
@@ -191,6 +195,7 @@ module Dropbox::Sign
         :'file_urls' => :'file_urls',
         :'allow_ccs' => :'allow_ccs',
         :'allow_decline' => :'allow_decline',
+        :'allow_form_view' => :'allow_form_view',
         :'allow_reassign' => :'allow_reassign',
         :'attachments' => :'attachments',
         :'cc_email_addresses' => :'cc_email_addresses',
@@ -243,6 +248,7 @@ module Dropbox::Sign
         :'file_urls' => :'Array<String>',
         :'allow_ccs' => :'Boolean',
         :'allow_decline' => :'Boolean',
+        :'allow_form_view' => :'Boolean',
         :'allow_reassign' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
         :'cc_email_addresses' => :'Array<String>',
@@ -354,6 +360,12 @@ module Dropbox::Sign
         self.allow_decline = attributes[:'allow_decline']
       else
         self.allow_decline = false
+      end
+
+      if attributes.key?(:'allow_form_view')
+        self.allow_form_view = attributes[:'allow_form_view']
+      else
+        self.allow_form_view = false
       end
 
       if attributes.key?(:'allow_reassign')
@@ -621,6 +633,7 @@ module Dropbox::Sign
           file_urls == o.file_urls &&
           allow_ccs == o.allow_ccs &&
           allow_decline == o.allow_decline &&
+          allow_form_view == o.allow_form_view &&
           allow_reassign == o.allow_reassign &&
           attachments == o.attachments &&
           cc_email_addresses == o.cc_email_addresses &&
@@ -662,7 +675,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, requester_email_address, files, file_urls, allow_ccs, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, editor_options, field_options, force_signer_page, force_subject_message, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, hold_request, is_for_embedded_signing, message, metadata, requesting_redirect_url, show_preview, show_progress_stepper, signers, signing_options, signing_redirect_url, skip_me_now, subject, test_mode, type, use_preexisting_fields, use_text_tags, populate_auto_fill_fields, expires_at].hash
+      [client_id, requester_email_address, files, file_urls, allow_ccs, allow_decline, allow_form_view, allow_reassign, attachments, cc_email_addresses, custom_fields, editor_options, field_options, force_signer_page, force_subject_message, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, hold_request, is_for_embedded_signing, message, metadata, requesting_redirect_url, show_preview, show_progress_stepper, signers, signing_options, signing_redirect_url, skip_me_now, subject, test_mode, type, use_preexisting_fields, use_text_tags, populate_auto_fill_fields, expires_at].hash
     end
 
     # Builds the object from hash

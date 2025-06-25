@@ -11,6 +11,7 @@
 | `files` | ```Array<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `file_urls` | ```Array<String>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allow_reassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
+| `allow_form_view` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
 | `attachments` | [```Array<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
 | `cc_roles` | ```Array<String>``` |  The CC roles that must be assigned when using the template to send a signature request  |  |
 | `client_id` | ```String``` |  Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app.  |  |

@@ -64,6 +64,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'grouped_signers' => '\Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
+        'allow_form_view' => 'bool',
         'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
         'client_id' => 'string',
@@ -100,6 +101,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'grouped_signers' => null,
         'allow_decline' => null,
         'allow_reassign' => null,
+        'allow_form_view' => null,
         'attachments' => null,
         'cc_email_addresses' => 'email',
         'client_id' => null,
@@ -134,6 +136,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'grouped_signers' => false,
         'allow_decline' => false,
         'allow_reassign' => false,
+        'allow_form_view' => false,
         'attachments' => false,
         'cc_email_addresses' => false,
         'client_id' => false,
@@ -240,6 +243,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'grouped_signers' => 'grouped_signers',
         'allow_decline' => 'allow_decline',
         'allow_reassign' => 'allow_reassign',
+        'allow_form_view' => 'allow_form_view',
         'attachments' => 'attachments',
         'cc_email_addresses' => 'cc_email_addresses',
         'client_id' => 'client_id',
@@ -274,6 +278,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'grouped_signers' => 'setGroupedSigners',
         'allow_decline' => 'setAllowDecline',
         'allow_reassign' => 'setAllowReassign',
+        'allow_form_view' => 'setAllowFormView',
         'attachments' => 'setAttachments',
         'cc_email_addresses' => 'setCcEmailAddresses',
         'client_id' => 'setClientId',
@@ -308,6 +313,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'grouped_signers' => 'getGroupedSigners',
         'allow_decline' => 'getAllowDecline',
         'allow_reassign' => 'getAllowReassign',
+        'allow_form_view' => 'getAllowFormView',
         'attachments' => 'getAttachments',
         'cc_email_addresses' => 'getCcEmailAddresses',
         'client_id' => 'getClientId',
@@ -392,6 +398,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('grouped_signers', $data ?? [], null);
         $this->setIfExists('allow_decline', $data ?? [], false);
         $this->setIfExists('allow_reassign', $data ?? [], false);
+        $this->setIfExists('allow_form_view', $data ?? [], false);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('cc_email_addresses', $data ?? [], null);
         $this->setIfExists('client_id', $data ?? [], null);
@@ -643,6 +650,33 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
             throw new InvalidArgumentException('non-nullable allow_reassign cannot be null');
         }
         $this->container['allow_reassign'] = $allow_reassign;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_form_view
+     *
+     * @return bool|null
+     */
+    public function getAllowFormView()
+    {
+        return $this->container['allow_form_view'];
+    }
+
+    /**
+     * Sets allow_form_view
+     *
+     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setAllowFormView(?bool $allow_form_view)
+    {
+        if (is_null($allow_form_view)) {
+            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
+        }
+        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }

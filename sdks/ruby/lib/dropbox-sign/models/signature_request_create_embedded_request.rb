@@ -42,6 +42,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_decline
 
+    # Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+    # @return [Boolean]
+    attr_accessor :allow_form_view
+
     # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
     # @return [Boolean]
     attr_accessor :allow_reassign
@@ -121,6 +125,7 @@ module Dropbox::Sign
         :'signers' => :'signers',
         :'grouped_signers' => :'grouped_signers',
         :'allow_decline' => :'allow_decline',
+        :'allow_form_view' => :'allow_form_view',
         :'allow_reassign' => :'allow_reassign',
         :'attachments' => :'attachments',
         :'cc_email_addresses' => :'cc_email_addresses',
@@ -161,6 +166,7 @@ module Dropbox::Sign
         :'signers' => :'Array<SubSignatureRequestSigner>',
         :'grouped_signers' => :'Array<SubSignatureRequestGroupedSigners>',
         :'allow_decline' => :'Boolean',
+        :'allow_form_view' => :'Boolean',
         :'allow_reassign' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
         :'cc_email_addresses' => :'Array<String>',
@@ -262,6 +268,12 @@ module Dropbox::Sign
         self.allow_decline = attributes[:'allow_decline']
       else
         self.allow_decline = false
+      end
+
+      if attributes.key?(:'allow_form_view')
+        self.allow_form_view = attributes[:'allow_form_view']
+      else
+        self.allow_form_view = false
       end
 
       if attributes.key?(:'allow_reassign')
@@ -451,6 +463,7 @@ module Dropbox::Sign
           signers == o.signers &&
           grouped_signers == o.grouped_signers &&
           allow_decline == o.allow_decline &&
+          allow_form_view == o.allow_form_view &&
           allow_reassign == o.allow_reassign &&
           attachments == o.attachments &&
           cc_email_addresses == o.cc_email_addresses &&
@@ -480,7 +493,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at].hash
+      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_form_view, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at].hash
     end
 
     # Builds the object from hash

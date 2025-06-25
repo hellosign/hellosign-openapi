@@ -12,6 +12,7 @@
 | `files` | ```List<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `fileUrls` | ```List<String>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allowDecline` | ```Boolean``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  |
+| `allowFormView` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  |
 | `attachments` | [```List<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
 | `ccEmailAddresses` | ```List<String>``` |  The email addresses that should be CCed.  |  |
 | `clientId` | ```String``` |  Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.  |  |

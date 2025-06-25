@@ -53,6 +53,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_SIGNERS,
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_GROUPED_SIGNERS,
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_ALLOW_DECLINE,
+  SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_ALLOW_REASSIGN,
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_ATTACHMENTS,
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
@@ -98,6 +99,10 @@ public class SignatureRequestEditEmbeddedRequest {
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   @jakarta.annotation.Nullable
   private Boolean allowDecline = false;
+
+  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
+  @jakarta.annotation.Nullable
+  private Boolean allowFormView = false;
 
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
   @jakarta.annotation.Nullable
@@ -368,6 +373,31 @@ public class SignatureRequestEditEmbeddedRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowDecline(@jakarta.annotation.Nullable Boolean allowDecline) {
     this.allowDecline = allowDecline;
+  }
+
+
+  public SignatureRequestEditEmbeddedRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
+    return this;
+  }
+
+  /**
+   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+   * @return allowFormView
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowFormView() {
+    return allowFormView;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
   }
 
 
@@ -895,6 +925,7 @@ public class SignatureRequestEditEmbeddedRequest {
         Objects.equals(this.signers, signatureRequestEditEmbeddedRequest.signers) &&
         Objects.equals(this.groupedSigners, signatureRequestEditEmbeddedRequest.groupedSigners) &&
         Objects.equals(this.allowDecline, signatureRequestEditEmbeddedRequest.allowDecline) &&
+        Objects.equals(this.allowFormView, signatureRequestEditEmbeddedRequest.allowFormView) &&
         Objects.equals(this.allowReassign, signatureRequestEditEmbeddedRequest.allowReassign) &&
         Objects.equals(this.attachments, signatureRequestEditEmbeddedRequest.attachments) &&
         Objects.equals(this.ccEmailAddresses, signatureRequestEditEmbeddedRequest.ccEmailAddresses) &&
@@ -917,7 +948,7 @@ public class SignatureRequestEditEmbeddedRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt);
+    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowFormView, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt);
   }
 
   @Override
@@ -930,6 +961,7 @@ public class SignatureRequestEditEmbeddedRequest {
     sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
     sb.append("    groupedSigners: ").append(toIndentedString(groupedSigners)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
+    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
@@ -1068,6 +1100,25 @@ public class SignatureRequestEditEmbeddedRequest {
         }
         else {
             map.put("allow_decline", JSON.getDefault().getMapper().writeValueAsString(allowDecline));
+        }
+    }
+    if (allowFormView != null) {
+        if (isFileTypeOrListOfFiles(allowFormView)) {
+            fileTypeFound = true;
+        }
+
+        if (allowFormView.getClass().equals(java.io.File.class) ||
+            allowFormView.getClass().equals(Integer.class) ||
+            allowFormView.getClass().equals(String.class) ||
+            allowFormView.getClass().isEnum()) {
+            map.put("allow_form_view", allowFormView);
+        } else if (isListOfFile(allowFormView)) {
+            for(int i = 0; i< getListSize(allowFormView); i++) {
+                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
+            }
+        }
+        else {
+            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (allowReassign != null) {

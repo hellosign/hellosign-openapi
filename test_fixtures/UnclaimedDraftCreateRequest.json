@@ -1,6 +1,7 @@
 {
   "default": {
     "allow_decline": true,
+    "allow_form_view": false,
     "attachments": [
       {
         "name": "Attachment1",
