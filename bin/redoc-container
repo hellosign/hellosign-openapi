@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# instructions:
+#   run this script
+#   open http://127.0.0.1:8081
+#
+# Prefer to use ./redoc - this version does not auto-reload changes
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+ROOT_DIR="${DIR}/.."
+
+echo "Docs will be available at http://localhost:8081/"
+
+docker run -it --rm -p 8081:80 \
+  -v "${ROOT_DIR}:/usr/share/nginx/html/swagger/" \
+  -e SPEC_URL=swagger/openapi.yaml \
+  -e REDOC_OPTIONS="required-props-first=1 path-in-middle-panel=1" \
+  redocly/redoc
