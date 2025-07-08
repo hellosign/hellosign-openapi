@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonSerializable
 {

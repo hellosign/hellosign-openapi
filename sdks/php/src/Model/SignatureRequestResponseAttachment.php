@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Signer attachments.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess, JsonSerializable
 {

@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAccess, JsonSerializable
 {

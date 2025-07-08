@@ -38,7 +38,7 @@ use ReturnTypeWillChange;
  *
  * @category Class
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SubAttachment implements ModelInterface, ArrayAccess, JsonSerializable
 {

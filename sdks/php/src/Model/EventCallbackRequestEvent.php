@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Basic information about the event that occurred.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSerializable
 {

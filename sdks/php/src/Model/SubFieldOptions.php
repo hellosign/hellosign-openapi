@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description This allows the requester to specify field options for a signature request.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
 {

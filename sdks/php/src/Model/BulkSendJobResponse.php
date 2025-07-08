@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {

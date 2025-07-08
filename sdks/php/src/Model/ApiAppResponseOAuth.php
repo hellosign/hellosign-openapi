@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An object describing the app&#39;s OAuth properties, or null if OAuth is not configured for the app.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializable
 {
