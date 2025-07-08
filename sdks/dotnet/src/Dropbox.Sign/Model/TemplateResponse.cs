@@ -57,7 +57,8 @@ namespace Dropbox.Sign.Model
         /// <param name="namedFormFields">Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
         /// <param name="accounts">An array of the Accounts that can use this Template..</param>
         /// <param name="attachments">Signer attachments..</param>
-        public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool isCreator = default(bool), bool canEdit = default(bool), bool isLocked = default(bool), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>))
+        /// <param name="allowFormView">Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;..</param>
+        public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool isCreator = default(bool), bool canEdit = default(bool), bool isLocked = default(bool), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), bool allowFormView = default(bool))
         {
 
             this.TemplateId = templateId;
@@ -76,6 +77,7 @@ namespace Dropbox.Sign.Model
             this.NamedFormFields = namedFormFields;
             this.Accounts = accounts;
             this.Attachments = attachments;
+            this.AllowFormView = allowFormView;
         }
 
         /// <summary>
@@ -209,6 +211,13 @@ namespace Dropbox.Sign.Model
         public List<SignatureRequestResponseAttachment> Attachments { get; set; }
 
         /// <summary>
+        /// Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+        /// </summary>
+        /// <value>Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
+        [DataMember(Name = "allow_form_view", EmitDefaultValue = true)]
+        public bool AllowFormView { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -232,6 +241,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  NamedFormFields: ").Append(NamedFormFields).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
+            sb.Append("  AllowFormView: ").Append(AllowFormView).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -350,6 +360,10 @@ namespace Dropbox.Sign.Model
                     this.Attachments != null &&
                     input.Attachments != null &&
                     this.Attachments.SequenceEqual(input.Attachments)
+                ) &&
+                (
+                    this.AllowFormView == input.AllowFormView ||
+                    this.AllowFormView.Equals(input.AllowFormView)
                 );
         }
 
@@ -414,6 +428,7 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.AllowFormView.GetHashCode();
                 return hashCode;
             }
         }
@@ -541,6 +556,13 @@ namespace Dropbox.Sign.Model
                 Property = "Attachments",
                 Type = "List<SignatureRequestResponseAttachment>",
                 Value = Attachments,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "allow_form_view",
+                Property = "AllowFormView",
+                Type = "bool",
+                Value = AllowFormView,
             });
 
             return types;
