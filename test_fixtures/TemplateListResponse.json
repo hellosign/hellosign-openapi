@@ -16,6 +16,7 @@
         "is_creator": true,
         "is_embedded": false,
         "is_locked": false,
+        "allow_form_view": false,
         "metadata": {
           "metadata_name_1": "metadata_value_1",
           "metadata_name_2": {
@@ -97,6 +98,7 @@
         "is_creator": true,
         "is_embedded": false,
         "is_locked": false,
+        "allow_form_view": false,
         "metadata": {},
         "signer_roles": [
           {
