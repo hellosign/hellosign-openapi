@@ -24597,6 +24597,11 @@ var TemplateResponse = class _TemplateResponse {
         name: "attachments",
         baseName: "attachments",
         type: "Array<SignatureRequestResponseAttachment>"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
+        type: "boolean"
       }
     ];
   }

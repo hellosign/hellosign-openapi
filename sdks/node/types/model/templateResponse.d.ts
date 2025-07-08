@@ -25,6 +25,7 @@ export declare class TemplateResponse {
     "namedFormFields"?: Array<TemplateResponseDocumentFormFieldBase> | null;
     "accounts"?: Array<TemplateResponseAccount>;
     "attachments"?: Array<SignatureRequestResponseAttachment>;
+    "allowFormView"?: boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

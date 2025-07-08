@@ -103,6 +103,10 @@ export class TemplateResponse {
    * Signer attachments.
    */
   "attachments"?: Array<SignatureRequestResponseAttachment>;
+  /**
+   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+   */
+  "allowFormView"?: boolean;
 
   static discriminator: string | undefined = undefined;
 
@@ -186,6 +190,11 @@ export class TemplateResponse {
       name: "attachments",
       baseName: "attachments",
       type: "Array<SignatureRequestResponseAttachment>",
+    },
+    {
+      name: "allowFormView",
+      baseName: "allow_form_view",
+      type: "boolean",
     },
   ];
 

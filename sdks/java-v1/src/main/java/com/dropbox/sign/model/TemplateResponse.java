@@ -42,7 +42,8 @@ import java.util.Objects;
     TemplateResponse.JSON_PROPERTY_CUSTOM_FIELDS,
     TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS,
     TemplateResponse.JSON_PROPERTY_ACCOUNTS,
-    TemplateResponse.JSON_PROPERTY_ATTACHMENTS
+    TemplateResponse.JSON_PROPERTY_ATTACHMENTS,
+    TemplateResponse.JSON_PROPERTY_ALLOW_FORM_VIEW
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -98,6 +99,9 @@ public class TemplateResponse {
 
     public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
     @javax.annotation.Nullable private List<SignatureRequestResponseAttachment> attachments = null;
+
+    public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
+    @javax.annotation.Nullable private Boolean allowFormView;
 
     public TemplateResponse() {}
 
@@ -568,6 +572,29 @@ public class TemplateResponse {
         this.attachments = attachments;
     }
 
+    public TemplateResponse allowFormView(@javax.annotation.Nullable Boolean allowFormView) {
+        this.allowFormView = allowFormView;
+        return this;
+    }
+
+    /**
+     * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to
+     * &#x60;false&#x60;.
+     *
+     * @return allowFormView
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getAllowFormView() {
+        return allowFormView;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setAllowFormView(@javax.annotation.Nullable Boolean allowFormView) {
+        this.allowFormView = allowFormView;
+    }
+
     /** Return true if this TemplateResponse object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -593,7 +620,8 @@ public class TemplateResponse {
                 && Objects.equals(this.customFields, templateResponse.customFields)
                 && Objects.equals(this.namedFormFields, templateResponse.namedFormFields)
                 && Objects.equals(this.accounts, templateResponse.accounts)
-                && Objects.equals(this.attachments, templateResponse.attachments);
+                && Objects.equals(this.attachments, templateResponse.attachments)
+                && Objects.equals(this.allowFormView, templateResponse.allowFormView);
     }
 
     @Override
@@ -614,7 +642,8 @@ public class TemplateResponse {
                 customFields,
                 namedFormFields,
                 accounts,
-                attachments);
+                attachments,
+                allowFormView);
     }
 
     @Override
@@ -637,6 +666,7 @@ public class TemplateResponse {
         sb.append("    namedFormFields: ").append(toIndentedString(namedFormFields)).append("\n");
         sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
         sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+        sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -951,6 +981,26 @@ public class TemplateResponse {
                     map.put(
                             "attachments",
                             JSON.getDefault().getMapper().writeValueAsString(attachments));
+                }
+            }
+            if (allowFormView != null) {
+                if (isFileTypeOrListOfFiles(allowFormView)) {
+                    fileTypeFound = true;
+                }
+
+                if (allowFormView.getClass().equals(java.io.File.class)
+                        || allowFormView.getClass().equals(Integer.class)
+                        || allowFormView.getClass().equals(String.class)
+                        || allowFormView.getClass().isEnum()) {
+                    map.put("allow_form_view", allowFormView);
+                } else if (isListOfFile(allowFormView)) {
+                    for (int i = 0; i < getListSize(allowFormView); i++) {
+                        map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
+                    }
+                } else {
+                    map.put(
+                            "allow_form_view",
+                            JSON.getDefault().getMapper().writeValueAsString(allowFormView));
                 }
             }
         } catch (Exception e) {
