@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description A list of warnings.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class WarningResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {

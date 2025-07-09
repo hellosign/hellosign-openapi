@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description OAuth related parameters.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SubOAuth implements ModelInterface, ArrayAccess, JsonSerializable
 {

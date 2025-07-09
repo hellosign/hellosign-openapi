@@ -11893,6 +11893,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
+        allow_form_view:
+          description: '_t__TemplateResponse::ALLOW_FORM_VIEW'
+          type: boolean
+          nullable: false
       type: object
       x-internal-class: true
     TemplateResponseAccount:

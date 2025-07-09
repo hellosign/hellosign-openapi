@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Contains information about the templates you and your team have created.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
@@ -74,6 +74,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
         'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
         'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
+        'allow_form_view' => 'bool',
     ];
 
     /**
@@ -100,6 +101,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => null,
         'accounts' => null,
         'attachments' => null,
+        'allow_form_view' => null,
     ];
 
     /**
@@ -124,6 +126,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => true,
         'accounts' => false,
         'attachments' => false,
+        'allow_form_view' => false,
     ];
 
     /**
@@ -220,6 +223,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'named_form_fields',
         'accounts' => 'accounts',
         'attachments' => 'attachments',
+        'allow_form_view' => 'allow_form_view',
     ];
 
     /**
@@ -244,6 +248,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'setNamedFormFields',
         'accounts' => 'setAccounts',
         'attachments' => 'setAttachments',
+        'allow_form_view' => 'setAllowFormView',
     ];
 
     /**
@@ -268,6 +273,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'getNamedFormFields',
         'accounts' => 'getAccounts',
         'attachments' => 'getAttachments',
+        'allow_form_view' => 'getAllowFormView',
     ];
 
     /**
@@ -342,6 +348,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('named_form_fields', $data ?? [], null);
         $this->setIfExists('accounts', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
+        $this->setIfExists('allow_form_view', $data ?? [], null);
     }
 
     /**
@@ -854,6 +861,33 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_form_view
+     *
+     * @return bool|null
+     */
+    public function getAllowFormView()
+    {
+        return $this->container['allow_form_view'];
+    }
+
+    /**
+     * Sets allow_form_view
+     *
+     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setAllowFormView(?bool $allow_form_view)
+    {
+        if (is_null($allow_form_view)) {
+            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
+        }
+        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }

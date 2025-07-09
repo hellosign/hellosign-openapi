@@ -1526,6 +1526,7 @@
 "TemplateResponse::ACCOUNTS": An array of the Accounts that can use this Template.
 "TemplateResponse::TITLE": The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::UPDATED_AT": Time the template was last updated.
+"TemplateResponse::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "TemplateListResponse::DESCRIPTION": List of templates that the API caller has access to.
 

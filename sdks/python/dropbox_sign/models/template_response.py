@@ -104,6 +104,10 @@ class TemplateResponse(BaseModel):
     attachments: Optional[List[SignatureRequestResponseAttachment]] = Field(
         default=None, description="Signer attachments."
     )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=None,
+        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
+    )
     __properties: ClassVar[List[str]] = [
         "template_id",
         "title",
@@ -121,6 +125,7 @@ class TemplateResponse(BaseModel):
         "named_form_fields",
         "accounts",
         "attachments",
+        "allow_form_view",
     ]
 
     model_config = ConfigDict(
@@ -300,6 +305,7 @@ class TemplateResponse(BaseModel):
                     if obj.get("attachments") is not None
                     else None
                 ),
+                "allow_form_view": obj.get("allow_form_view"),
             }
         )
         return _obj
@@ -333,6 +339,7 @@ class TemplateResponse(BaseModel):
             "named_form_fields": "(List[TemplateResponseDocumentFormFieldBase],)",
             "accounts": "(List[TemplateResponseAccount],)",
             "attachments": "(List[SignatureRequestResponseAttachment],)",
+            "allow_form_view": "(bool,)",
         }
 
     @classmethod

@@ -12622,6 +12622,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
+          type: boolean
+          nullable: false
       type: object
       x-internal-class: true
     TemplateResponseAccount:

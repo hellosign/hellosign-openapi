@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An object with options to customize the app&#39;s signer page
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerializable
 {

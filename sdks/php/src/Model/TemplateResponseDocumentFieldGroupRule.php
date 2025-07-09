@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAccess, JsonSerializable
 {
