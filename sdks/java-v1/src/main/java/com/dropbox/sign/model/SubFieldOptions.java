@@ -10,208 +10,213 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-/** This allows the requester to specify field options for a signature request. */
-@JsonPropertyOrder({SubFieldOptions.JSON_PROPERTY_DATE_FORMAT})
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
-@JsonIgnoreProperties(ignoreUnknown = true)
+
+import com.dropbox.sign.ApiException;
+/**
+ * This allows the requester to specify field options for a signature request.
+ */
+@JsonPropertyOrder({
+  SubFieldOptions.JSON_PROPERTY_DATE_FORMAT
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFieldOptions {
-    /**
-     * Allows requester to specify the date format (see list of allowed
-     * [formats](/api/reference/constants/#date-formats)) **NOTE:** Only available for Premium and
-     * higher.
-     */
-    public enum DateFormatEnum {
-        MMDDYYYY(String.valueOf("MM / DD / YYYY")),
+  /**
+   * Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
+   */
+  public enum DateFormatEnum {
+    MMDDYYYY(String.valueOf("MM / DD / YYYY")),
+    
+    MM_DD_YYYY(String.valueOf("MM - DD - YYYY")),
+    
+    DDMMYYYY(String.valueOf("DD / MM / YYYY")),
+    
+    DD_MM_YYYY(String.valueOf("DD - MM - YYYY")),
+    
+    YYYYMMDD(String.valueOf("YYYY / MM / DD")),
+    
+    YYYY_MM_DD(String.valueOf("YYYY - MM - DD"));
 
-        MM_DD_YYYY(String.valueOf("MM - DD - YYYY")),
+    private String value;
 
-        DDMMYYYY(String.valueOf("DD / MM / YYYY")),
-
-        DD_MM_YYYY(String.valueOf("DD - MM - YYYY")),
-
-        YYYYMMDD(String.valueOf("YYYY / MM / DD")),
-
-        YYYY_MM_DD(String.valueOf("YYYY - MM - DD"));
-
-        private String value;
-
-        DateFormatEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static DateFormatEnum fromValue(String value) {
-            for (DateFormatEnum b : DateFormatEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
+    DateFormatEnum(String value) {
+      this.value = value;
     }
 
-    public static final String JSON_PROPERTY_DATE_FORMAT = "date_format";
-    @javax.annotation.Nonnull private DateFormatEnum dateFormat;
-
-    public SubFieldOptions() {}
-
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static SubFieldOptions init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, SubFieldOptions.class);
-    }
-
-    public static SubFieldOptions init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(new ObjectMapper().writeValueAsString(data), SubFieldOptions.class);
-    }
-
-    public SubFieldOptions dateFormat(@javax.annotation.Nonnull DateFormatEnum dateFormat) {
-        this.dateFormat = dateFormat;
-        return this;
-    }
-
-    /**
-     * Allows requester to specify the date format (see list of allowed
-     * [formats](/api/reference/constants/#date-formats)) **NOTE:** Only available for Premium and
-     * higher.
-     *
-     * @return dateFormat
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public DateFormatEnum getDateFormat() {
-        return dateFormat;
-    }
-
-    @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDateFormat(@javax.annotation.Nonnull DateFormatEnum dateFormat) {
-        this.dateFormat = dateFormat;
-    }
-
-    /** Return true if this SubFieldOptions object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SubFieldOptions subFieldOptions = (SubFieldOptions) o;
-        return Objects.equals(this.dateFormat, subFieldOptions.dateFormat);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(dateFormat);
+    @JsonValue
+    public String getValue() {
+      return value;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubFieldOptions {\n");
-        sb.append("    dateFormat: ").append(toIndentedString(dateFormat)).append("\n");
-        sb.append("}");
-        return sb.toString();
+      return String.valueOf(value);
     }
 
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        try {
-            if (dateFormat != null) {
-                if (isFileTypeOrListOfFiles(dateFormat)) {
-                    fileTypeFound = true;
-                }
+    @JsonCreator
+    public static DateFormatEnum fromValue(String value) {
+      for (DateFormatEnum b : DateFormatEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
 
-                if (dateFormat.getClass().equals(java.io.File.class)
-                        || dateFormat.getClass().equals(Integer.class)
-                        || dateFormat.getClass().equals(String.class)
-                        || dateFormat.getClass().isEnum()) {
-                    map.put("date_format", dateFormat);
-                } else if (isListOfFile(dateFormat)) {
-                    for (int i = 0; i < getListSize(dateFormat); i++) {
-                        map.put("date_format[" + i + "]", getFromList(dateFormat, i));
-                    }
-                } else {
-                    map.put(
-                            "date_format",
-                            JSON.getDefault().getMapper().writeValueAsString(dateFormat));
-                }
+  public static final String JSON_PROPERTY_DATE_FORMAT = "date_format";
+  @javax.annotation.Nonnull
+  private DateFormatEnum dateFormat;
+
+  public SubFieldOptions() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubFieldOptions init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubFieldOptions.class);
+  }
+
+  static public SubFieldOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFieldOptions.class
+    );
+  }
+
+  public SubFieldOptions dateFormat(@javax.annotation.Nonnull DateFormatEnum dateFormat) {
+    this.dateFormat = dateFormat;
+    return this;
+  }
+
+  /**
+   * Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
+   * @return dateFormat
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public DateFormatEnum getDateFormat() {
+    return dateFormat;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDateFormat(@javax.annotation.Nonnull DateFormatEnum dateFormat) {
+    this.dateFormat = dateFormat;
+  }
+
+
+  /**
+   * Return true if this SubFieldOptions object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SubFieldOptions subFieldOptions = (SubFieldOptions) o;
+    return Objects.equals(this.dateFormat, subFieldOptions.dateFormat);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(dateFormat);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SubFieldOptions {\n");
+    sb.append("    dateFormat: ").append(toIndentedString(dateFormat)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    try {
+    if (dateFormat != null) {
+        if (isFileTypeOrListOfFiles(dateFormat)) {
+            fileTypeFound = true;
+        }
+
+        if (dateFormat.getClass().equals(java.io.File.class) ||
+            dateFormat.getClass().equals(Integer.class) ||
+            dateFormat.getClass().equals(String.class) ||
+            dateFormat.getClass().isEnum()) {
+            map.put("date_format", dateFormat);
+        } else if (isListOfFile(dateFormat)) {
+            for(int i = 0; i< getListSize(dateFormat); i++) {
+                map.put("date_format[" + i + "]", getFromList(dateFormat, i));
             }
-        } catch (Exception e) {
-            throw new ApiException(e);
         }
-
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        else {
+            map.put("date_format", JSON.getDefault().getMapper().writeValueAsString(dateFormat));
         }
-        return o.toString().replace("\n", "\n    ");
     }
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

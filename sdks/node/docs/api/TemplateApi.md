@@ -8,6 +8,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateCreate()**](TemplateApi.md#templateCreate) | **POST** /template/create | Create Template |
 | [**templateCreateEmbeddedDraft()**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**templateDelete()**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template |
+| [**templateEdit()**](TemplateApi.md#templateEdit) | **POST** /template/edit/{template_id} | _t__TemplateEdit::SUMMARY |
 | [**templateFiles()**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files |
 | [**templateFilesAsDataUri()**](TemplateApi.md#templateFilesAsDataUri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri |
 | [**templateFilesAsFileUrl()**](TemplateApi.md#templateFilesAsFileUrl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url |
@@ -373,6 +374,46 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `templateEdit()`
+
+```typescript
+templateEdit(templateId: string, templateEditRequest: TemplateEditRequest): TemplateEditResponse
+```
+
+_t__TemplateEdit::SUMMARY
+
+_t__TemplateEdit::DESCRIPTION
+
+### TypeScript Example
+
+```typescript
+REPLACE_ME_WITH_EXAMPLE_FOR__templateEdit_TypeScript_CODE
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **templateId** | **string**| _t__TemplateEdit::TEMPLATE_ID | |
+| **templateEditRequest** | [**TemplateEditRequest**](../model/TemplateEditRequest.md)|  | |
+
+### Return type
+
+[**TemplateEditResponse**](../model/TemplateEditResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

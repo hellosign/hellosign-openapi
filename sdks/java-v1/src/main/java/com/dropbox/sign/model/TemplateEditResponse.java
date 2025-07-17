@@ -10,159 +10,233 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.dropbox.sign.model.TemplateEditResponseTemplate;
+import com.dropbox.sign.model.WarningResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-/** TemplateEditResponse */
-@JsonPropertyOrder({TemplateEditResponse.JSON_PROPERTY_TEMPLATE_ID})
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
-@JsonIgnoreProperties(ignoreUnknown = true)
+
+import com.dropbox.sign.ApiException;
+/**
+ * TemplateEditResponse
+ */
+@JsonPropertyOrder({
+  TemplateEditResponse.JSON_PROPERTY_TEMPLATE,
+  TemplateEditResponse.JSON_PROPERTY_WARNINGS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateEditResponse {
-    public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
-    @javax.annotation.Nonnull private String templateId;
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  @javax.annotation.Nullable
+  private TemplateEditResponseTemplate template;
 
-    public TemplateEditResponse() {}
+  public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @javax.annotation.Nullable
+  private List<WarningResponse> warnings = null;
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static TemplateEditResponse init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, TemplateEditResponse.class);
+  public TemplateEditResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateEditResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateEditResponse.class);
+  }
+
+  static public TemplateEditResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateEditResponse.class
+    );
+  }
+
+  public TemplateEditResponse template(@javax.annotation.Nullable TemplateEditResponseTemplate template) {
+    this.template = template;
+    return this;
+  }
+
+  /**
+   * Get template
+   * @return template
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TemplateEditResponseTemplate getTemplate() {
+    return template;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTemplate(@javax.annotation.Nullable TemplateEditResponseTemplate template) {
+    this.template = template;
+  }
+
+
+  public TemplateEditResponse warnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public TemplateEditResponse addWarningsItem(WarningResponse warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<>();
     }
+    this.warnings.add(warningsItem);
+    return this;
+  }
 
-    public static TemplateEditResponse init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(new ObjectMapper().writeValueAsString(data), TemplateEditResponse.class);
+  /**
+   * A list of warnings.
+   * @return warnings
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WarningResponse> getWarnings() {
+    return warnings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
+    this.warnings = warnings;
+  }
+
+
+  /**
+   * Return true if this TemplateEditResponse object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public TemplateEditResponse templateId(@javax.annotation.Nonnull String templateId) {
-        this.templateId = templateId;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    TemplateEditResponse templateEditResponse = (TemplateEditResponse) o;
+    return Objects.equals(this.template, templateEditResponse.template) &&
+        Objects.equals(this.warnings, templateEditResponse.warnings);
+  }
 
-    /**
-     * The id of the Template.
-     *
-     * @return templateId
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getTemplateId() {
-        return templateId;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(template, warnings);
+  }
 
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setTemplateId(@javax.annotation.Nonnull String templateId) {
-        this.templateId = templateId;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TemplateEditResponse {\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /** Return true if this TemplateEditResponse object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    try {
+    if (template != null) {
+        if (isFileTypeOrListOfFiles(template)) {
+            fileTypeFound = true;
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TemplateEditResponse templateEditResponse = (TemplateEditResponse) o;
-        return Objects.equals(this.templateId, templateEditResponse.templateId);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(templateId);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TemplateEditResponse {\n");
-        sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        try {
-            if (templateId != null) {
-                if (isFileTypeOrListOfFiles(templateId)) {
-                    fileTypeFound = true;
-                }
-
-                if (templateId.getClass().equals(java.io.File.class)
-                        || templateId.getClass().equals(Integer.class)
-                        || templateId.getClass().equals(String.class)
-                        || templateId.getClass().isEnum()) {
-                    map.put("template_id", templateId);
-                } else if (isListOfFile(templateId)) {
-                    for (int i = 0; i < getListSize(templateId); i++) {
-                        map.put("template_id[" + i + "]", getFromList(templateId, i));
-                    }
-                } else {
-                    map.put(
-                            "template_id",
-                            JSON.getDefault().getMapper().writeValueAsString(templateId));
-                }
+        if (template.getClass().equals(java.io.File.class) ||
+            template.getClass().equals(Integer.class) ||
+            template.getClass().equals(String.class) ||
+            template.getClass().isEnum()) {
+            map.put("template", template);
+        } else if (isListOfFile(template)) {
+            for(int i = 0; i< getListSize(template); i++) {
+                map.put("template[" + i + "]", getFromList(template, i));
             }
-        } catch (Exception e) {
-            throw new ApiException(e);
+        }
+        else {
+            map.put("template", JSON.getDefault().getMapper().writeValueAsString(template));
+        }
+    }
+    if (warnings != null) {
+        if (isFileTypeOrListOfFiles(warnings)) {
+            fileTypeFound = true;
         }
 
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        if (warnings.getClass().equals(java.io.File.class) ||
+            warnings.getClass().equals(Integer.class) ||
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
+            map.put("warnings", warnings);
+        } else if (isListOfFile(warnings)) {
+            for(int i = 0; i< getListSize(warnings); i++) {
+                map.put("warnings[" + i + "]", getFromList(warnings, i));
+            }
         }
-        return o.toString().replace("\n", "\n    ");
+        else {
+            map.put("warnings", JSON.getDefault().getMapper().writeValueAsString(warnings));
+        }
     }
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

@@ -10,555 +10,528 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.dropbox.sign.model.SubEditorOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-/** UnclaimedDraftEditAndResendRequest */
+
+import com.dropbox.sign.ApiException;
+/**
+ * UnclaimedDraftEditAndResendRequest
+ */
 @JsonPropertyOrder({
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_CLIENT_ID,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_EDITOR_OPTIONS,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_TEST_MODE
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_CLIENT_ID,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_EDITOR_OPTIONS,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_TEST_MODE
 })
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftEditAndResendRequest {
-    public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    @javax.annotation.Nonnull private String clientId;
+  public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @javax.annotation.Nonnull
+  private String clientId;
 
-    public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
-    @javax.annotation.Nullable private SubEditorOptions editorOptions;
+  public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
+  @javax.annotation.Nullable
+  private SubEditorOptions editorOptions;
 
-    public static final String JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING = "is_for_embedded_signing";
-    @javax.annotation.Nullable private Boolean isForEmbeddedSigning;
+  public static final String JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING = "is_for_embedded_signing";
+  @javax.annotation.Nullable
+  private Boolean isForEmbeddedSigning;
 
-    public static final String JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS = "requester_email_address";
-    @javax.annotation.Nullable private String requesterEmailAddress;
+  public static final String JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS = "requester_email_address";
+  @javax.annotation.Nullable
+  private String requesterEmailAddress;
 
-    public static final String JSON_PROPERTY_REQUESTING_REDIRECT_URL = "requesting_redirect_url";
-    @javax.annotation.Nullable private String requestingRedirectUrl;
+  public static final String JSON_PROPERTY_REQUESTING_REDIRECT_URL = "requesting_redirect_url";
+  @javax.annotation.Nullable
+  private String requestingRedirectUrl;
 
-    public static final String JSON_PROPERTY_SHOW_PROGRESS_STEPPER = "show_progress_stepper";
-    @javax.annotation.Nullable private Boolean showProgressStepper = true;
+  public static final String JSON_PROPERTY_SHOW_PROGRESS_STEPPER = "show_progress_stepper";
+  @javax.annotation.Nullable
+  private Boolean showProgressStepper = true;
 
-    public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
-    @javax.annotation.Nullable private String signingRedirectUrl;
+  public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
+  @javax.annotation.Nullable
+  private String signingRedirectUrl;
 
-    public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    @javax.annotation.Nullable private Boolean testMode = false;
+  public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+  @javax.annotation.Nullable
+  private Boolean testMode = false;
 
-    public UnclaimedDraftEditAndResendRequest() {}
+  public UnclaimedDraftEditAndResendRequest() { 
+  }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static UnclaimedDraftEditAndResendRequest init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, UnclaimedDraftEditAndResendRequest.class);
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public UnclaimedDraftEditAndResendRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, UnclaimedDraftEditAndResendRequest.class);
+  }
+
+  static public UnclaimedDraftEditAndResendRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      UnclaimedDraftEditAndResendRequest.class
+    );
+  }
+
+  public UnclaimedDraftEditAndResendRequest clientId(@javax.annotation.Nonnull String clientId) {
+    this.clientId = clientId;
+    return this;
+  }
+
+  /**
+   * Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
+   * @return clientId
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getClientId() {
+    return clientId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setClientId(@javax.annotation.Nonnull String clientId) {
+    this.clientId = clientId;
+  }
+
+
+  public UnclaimedDraftEditAndResendRequest editorOptions(@javax.annotation.Nullable SubEditorOptions editorOptions) {
+    this.editorOptions = editorOptions;
+    return this;
+  }
+
+  /**
+   * Get editorOptions
+   * @return editorOptions
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubEditorOptions getEditorOptions() {
+    return editorOptions;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditorOptions(@javax.annotation.Nullable SubEditorOptions editorOptions) {
+    this.editorOptions = editorOptions;
+  }
+
+
+  public UnclaimedDraftEditAndResendRequest isForEmbeddedSigning(@javax.annotation.Nullable Boolean isForEmbeddedSigning) {
+    this.isForEmbeddedSigning = isForEmbeddedSigning;
+    return this;
+  }
+
+  /**
+   * The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;.
+   * @return isForEmbeddedSigning
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsForEmbeddedSigning() {
+    return isForEmbeddedSigning;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsForEmbeddedSigning(@javax.annotation.Nullable Boolean isForEmbeddedSigning) {
+    this.isForEmbeddedSigning = isForEmbeddedSigning;
+  }
+
+
+  public UnclaimedDraftEditAndResendRequest requesterEmailAddress(@javax.annotation.Nullable String requesterEmailAddress) {
+    this.requesterEmailAddress = requesterEmailAddress;
+    return this;
+  }
+
+  /**
+   * The email address of the user that should be designated as the requester of this draft. If not set, original requester&#39;s email address will be used.
+   * @return requesterEmailAddress
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRequesterEmailAddress() {
+    return requesterEmailAddress;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRequesterEmailAddress(@javax.annotation.Nullable String requesterEmailAddress) {
+    this.requesterEmailAddress = requesterEmailAddress;
+  }
+
+
+  public UnclaimedDraftEditAndResendRequest requestingRedirectUrl(@javax.annotation.Nullable String requestingRedirectUrl) {
+    this.requestingRedirectUrl = requestingRedirectUrl;
+    return this;
+  }
+
+  /**
+   * The URL you want signers redirected to after they successfully request a signature.
+   * @return requestingRedirectUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRequestingRedirectUrl() {
+    return requestingRedirectUrl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRequestingRedirectUrl(@javax.annotation.Nullable String requestingRedirectUrl) {
+    this.requestingRedirectUrl = requestingRedirectUrl;
+  }
+
+
+  public UnclaimedDraftEditAndResendRequest showProgressStepper(@javax.annotation.Nullable Boolean showProgressStepper) {
+    this.showProgressStepper = showProgressStepper;
+    return this;
+  }
+
+  /**
+   * When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
+   * @return showProgressStepper
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getShowProgressStepper() {
+    return showProgressStepper;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShowProgressStepper(@javax.annotation.Nullable Boolean showProgressStepper) {
+    this.showProgressStepper = showProgressStepper;
+  }
+
+
+  public UnclaimedDraftEditAndResendRequest signingRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
+    this.signingRedirectUrl = signingRedirectUrl;
+    return this;
+  }
+
+  /**
+   * The URL you want signers redirected to after they successfully sign.
+   * @return signingRedirectUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSigningRedirectUrl() {
+    return signingRedirectUrl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
+    this.signingRedirectUrl = signingRedirectUrl;
+  }
+
+
+  public UnclaimedDraftEditAndResendRequest testMode(@javax.annotation.Nullable Boolean testMode) {
+    this.testMode = testMode;
+    return this;
+  }
+
+  /**
+   * Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+   * @return testMode
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getTestMode() {
+    return testMode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
+    this.testMode = testMode;
+  }
+
+
+  /**
+   * Return true if this UnclaimedDraftEditAndResendRequest object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public static UnclaimedDraftEditAndResendRequest init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(
-                        new ObjectMapper().writeValueAsString(data),
-                        UnclaimedDraftEditAndResendRequest.class);
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest = (UnclaimedDraftEditAndResendRequest) o;
+    return Objects.equals(this.clientId, unclaimedDraftEditAndResendRequest.clientId) &&
+        Objects.equals(this.editorOptions, unclaimedDraftEditAndResendRequest.editorOptions) &&
+        Objects.equals(this.isForEmbeddedSigning, unclaimedDraftEditAndResendRequest.isForEmbeddedSigning) &&
+        Objects.equals(this.requesterEmailAddress, unclaimedDraftEditAndResendRequest.requesterEmailAddress) &&
+        Objects.equals(this.requestingRedirectUrl, unclaimedDraftEditAndResendRequest.requestingRedirectUrl) &&
+        Objects.equals(this.showProgressStepper, unclaimedDraftEditAndResendRequest.showProgressStepper) &&
+        Objects.equals(this.signingRedirectUrl, unclaimedDraftEditAndResendRequest.signingRedirectUrl) &&
+        Objects.equals(this.testMode, unclaimedDraftEditAndResendRequest.testMode);
+  }
 
-    public UnclaimedDraftEditAndResendRequest clientId(@javax.annotation.Nonnull String clientId) {
-        this.clientId = clientId;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(clientId, editorOptions, isForEmbeddedSigning, requesterEmailAddress, requestingRedirectUrl, showProgressStepper, signingRedirectUrl, testMode);
+  }
 
-    /**
-     * Client id of the app used to create the draft. Used to apply the branding and callback url
-     * defined for the app.
-     *
-     * @return clientId
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getClientId() {
-        return clientId;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UnclaimedDraftEditAndResendRequest {\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    editorOptions: ").append(toIndentedString(editorOptions)).append("\n");
+    sb.append("    isForEmbeddedSigning: ").append(toIndentedString(isForEmbeddedSigning)).append("\n");
+    sb.append("    requesterEmailAddress: ").append(toIndentedString(requesterEmailAddress)).append("\n");
+    sb.append("    requestingRedirectUrl: ").append(toIndentedString(requestingRedirectUrl)).append("\n");
+    sb.append("    showProgressStepper: ").append(toIndentedString(showProgressStepper)).append("\n");
+    sb.append("    signingRedirectUrl: ").append(toIndentedString(signingRedirectUrl)).append("\n");
+    sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setClientId(@javax.annotation.Nonnull String clientId) {
-        this.clientId = clientId;
-    }
-
-    public UnclaimedDraftEditAndResendRequest editorOptions(
-            @javax.annotation.Nullable SubEditorOptions editorOptions) {
-        this.editorOptions = editorOptions;
-        return this;
-    }
-
-    /**
-     * Get editorOptions
-     *
-     * @return editorOptions
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SubEditorOptions getEditorOptions() {
-        return editorOptions;
-    }
-
-    @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEditorOptions(@javax.annotation.Nullable SubEditorOptions editorOptions) {
-        this.editorOptions = editorOptions;
-    }
-
-    public UnclaimedDraftEditAndResendRequest isForEmbeddedSigning(
-            @javax.annotation.Nullable Boolean isForEmbeddedSigning) {
-        this.isForEmbeddedSigning = isForEmbeddedSigning;
-        return this;
-    }
-
-    /**
-     * The request created from this draft will also be signable in embedded mode if set to
-     * &#x60;true&#x60;.
-     *
-     * @return isForEmbeddedSigning
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getIsForEmbeddedSigning() {
-        return isForEmbeddedSigning;
-    }
-
-    @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsForEmbeddedSigning(@javax.annotation.Nullable Boolean isForEmbeddedSigning) {
-        this.isForEmbeddedSigning = isForEmbeddedSigning;
-    }
-
-    public UnclaimedDraftEditAndResendRequest requesterEmailAddress(
-            @javax.annotation.Nullable String requesterEmailAddress) {
-        this.requesterEmailAddress = requesterEmailAddress;
-        return this;
-    }
-
-    /**
-     * The email address of the user that should be designated as the requester of this draft. If
-     * not set, original requester&#39;s email address will be used.
-     *
-     * @return requesterEmailAddress
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getRequesterEmailAddress() {
-        return requesterEmailAddress;
-    }
-
-    @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequesterEmailAddress(@javax.annotation.Nullable String requesterEmailAddress) {
-        this.requesterEmailAddress = requesterEmailAddress;
-    }
-
-    public UnclaimedDraftEditAndResendRequest requestingRedirectUrl(
-            @javax.annotation.Nullable String requestingRedirectUrl) {
-        this.requestingRedirectUrl = requestingRedirectUrl;
-        return this;
-    }
-
-    /**
-     * The URL you want signers redirected to after they successfully request a signature.
-     *
-     * @return requestingRedirectUrl
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getRequestingRedirectUrl() {
-        return requestingRedirectUrl;
-    }
-
-    @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequestingRedirectUrl(@javax.annotation.Nullable String requestingRedirectUrl) {
-        this.requestingRedirectUrl = requestingRedirectUrl;
-    }
-
-    public UnclaimedDraftEditAndResendRequest showProgressStepper(
-            @javax.annotation.Nullable Boolean showProgressStepper) {
-        this.showProgressStepper = showProgressStepper;
-        return this;
-    }
-
-    /**
-     * When only one step remains in the signature request process and this parameter is set to
-     * &#x60;false&#x60; then the progress stepper will be hidden.
-     *
-     * @return showProgressStepper
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getShowProgressStepper() {
-        return showProgressStepper;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setShowProgressStepper(@javax.annotation.Nullable Boolean showProgressStepper) {
-        this.showProgressStepper = showProgressStepper;
-    }
-
-    public UnclaimedDraftEditAndResendRequest signingRedirectUrl(
-            @javax.annotation.Nullable String signingRedirectUrl) {
-        this.signingRedirectUrl = signingRedirectUrl;
-        return this;
-    }
-
-    /**
-     * The URL you want signers redirected to after they successfully sign.
-     *
-     * @return signingRedirectUrl
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getSigningRedirectUrl() {
-        return signingRedirectUrl;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
-        this.signingRedirectUrl = signingRedirectUrl;
-    }
-
-    public UnclaimedDraftEditAndResendRequest testMode(
-            @javax.annotation.Nullable Boolean testMode) {
-        this.testMode = testMode;
-        return this;
-    }
-
-    /**
-     * Whether this is a test, the signature request created from this draft will not be legally
-     * binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-     *
-     * @return testMode
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getTestMode() {
-        return testMode;
-    }
-
-    @JsonProperty(JSON_PROPERTY_TEST_MODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
-        this.testMode = testMode;
-    }
-
-    /** Return true if this UnclaimedDraftEditAndResendRequest object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest =
-                (UnclaimedDraftEditAndResendRequest) o;
-        return Objects.equals(this.clientId, unclaimedDraftEditAndResendRequest.clientId)
-                && Objects.equals(
-                        this.editorOptions, unclaimedDraftEditAndResendRequest.editorOptions)
-                && Objects.equals(
-                        this.isForEmbeddedSigning,
-                        unclaimedDraftEditAndResendRequest.isForEmbeddedSigning)
-                && Objects.equals(
-                        this.requesterEmailAddress,
-                        unclaimedDraftEditAndResendRequest.requesterEmailAddress)
-                && Objects.equals(
-                        this.requestingRedirectUrl,
-                        unclaimedDraftEditAndResendRequest.requestingRedirectUrl)
-                && Objects.equals(
-                        this.showProgressStepper,
-                        unclaimedDraftEditAndResendRequest.showProgressStepper)
-                && Objects.equals(
-                        this.signingRedirectUrl,
-                        unclaimedDraftEditAndResendRequest.signingRedirectUrl)
-                && Objects.equals(this.testMode, unclaimedDraftEditAndResendRequest.testMode);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(
-                clientId,
-                editorOptions,
-                isForEmbeddedSigning,
-                requesterEmailAddress,
-                requestingRedirectUrl,
-                showProgressStepper,
-                signingRedirectUrl,
-                testMode);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UnclaimedDraftEditAndResendRequest {\n");
-        sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-        sb.append("    editorOptions: ").append(toIndentedString(editorOptions)).append("\n");
-        sb.append("    isForEmbeddedSigning: ")
-                .append(toIndentedString(isForEmbeddedSigning))
-                .append("\n");
-        sb.append("    requesterEmailAddress: ")
-                .append(toIndentedString(requesterEmailAddress))
-                .append("\n");
-        sb.append("    requestingRedirectUrl: ")
-                .append(toIndentedString(requestingRedirectUrl))
-                .append("\n");
-        sb.append("    showProgressStepper: ")
-                .append(toIndentedString(showProgressStepper))
-                .append("\n");
-        sb.append("    signingRedirectUrl: ")
-                .append(toIndentedString(signingRedirectUrl))
-                .append("\n");
-        sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        try {
-            if (clientId != null) {
-                if (isFileTypeOrListOfFiles(clientId)) {
-                    fileTypeFound = true;
-                }
-
-                if (clientId.getClass().equals(java.io.File.class)
-                        || clientId.getClass().equals(Integer.class)
-                        || clientId.getClass().equals(String.class)
-                        || clientId.getClass().isEnum()) {
-                    map.put("client_id", clientId);
-                } else if (isListOfFile(clientId)) {
-                    for (int i = 0; i < getListSize(clientId); i++) {
-                        map.put("client_id[" + i + "]", getFromList(clientId, i));
-                    }
-                } else {
-                    map.put(
-                            "client_id",
-                            JSON.getDefault().getMapper().writeValueAsString(clientId));
-                }
-            }
-            if (editorOptions != null) {
-                if (isFileTypeOrListOfFiles(editorOptions)) {
-                    fileTypeFound = true;
-                }
-
-                if (editorOptions.getClass().equals(java.io.File.class)
-                        || editorOptions.getClass().equals(Integer.class)
-                        || editorOptions.getClass().equals(String.class)
-                        || editorOptions.getClass().isEnum()) {
-                    map.put("editor_options", editorOptions);
-                } else if (isListOfFile(editorOptions)) {
-                    for (int i = 0; i < getListSize(editorOptions); i++) {
-                        map.put("editor_options[" + i + "]", getFromList(editorOptions, i));
-                    }
-                } else {
-                    map.put(
-                            "editor_options",
-                            JSON.getDefault().getMapper().writeValueAsString(editorOptions));
-                }
-            }
-            if (isForEmbeddedSigning != null) {
-                if (isFileTypeOrListOfFiles(isForEmbeddedSigning)) {
-                    fileTypeFound = true;
-                }
-
-                if (isForEmbeddedSigning.getClass().equals(java.io.File.class)
-                        || isForEmbeddedSigning.getClass().equals(Integer.class)
-                        || isForEmbeddedSigning.getClass().equals(String.class)
-                        || isForEmbeddedSigning.getClass().isEnum()) {
-                    map.put("is_for_embedded_signing", isForEmbeddedSigning);
-                } else if (isListOfFile(isForEmbeddedSigning)) {
-                    for (int i = 0; i < getListSize(isForEmbeddedSigning); i++) {
-                        map.put(
-                                "is_for_embedded_signing[" + i + "]",
-                                getFromList(isForEmbeddedSigning, i));
-                    }
-                } else {
-                    map.put(
-                            "is_for_embedded_signing",
-                            JSON.getDefault().getMapper().writeValueAsString(isForEmbeddedSigning));
-                }
-            }
-            if (requesterEmailAddress != null) {
-                if (isFileTypeOrListOfFiles(requesterEmailAddress)) {
-                    fileTypeFound = true;
-                }
-
-                if (requesterEmailAddress.getClass().equals(java.io.File.class)
-                        || requesterEmailAddress.getClass().equals(Integer.class)
-                        || requesterEmailAddress.getClass().equals(String.class)
-                        || requesterEmailAddress.getClass().isEnum()) {
-                    map.put("requester_email_address", requesterEmailAddress);
-                } else if (isListOfFile(requesterEmailAddress)) {
-                    for (int i = 0; i < getListSize(requesterEmailAddress); i++) {
-                        map.put(
-                                "requester_email_address[" + i + "]",
-                                getFromList(requesterEmailAddress, i));
-                    }
-                } else {
-                    map.put(
-                            "requester_email_address",
-                            JSON.getDefault()
-                                    .getMapper()
-                                    .writeValueAsString(requesterEmailAddress));
-                }
-            }
-            if (requestingRedirectUrl != null) {
-                if (isFileTypeOrListOfFiles(requestingRedirectUrl)) {
-                    fileTypeFound = true;
-                }
-
-                if (requestingRedirectUrl.getClass().equals(java.io.File.class)
-                        || requestingRedirectUrl.getClass().equals(Integer.class)
-                        || requestingRedirectUrl.getClass().equals(String.class)
-                        || requestingRedirectUrl.getClass().isEnum()) {
-                    map.put("requesting_redirect_url", requestingRedirectUrl);
-                } else if (isListOfFile(requestingRedirectUrl)) {
-                    for (int i = 0; i < getListSize(requestingRedirectUrl); i++) {
-                        map.put(
-                                "requesting_redirect_url[" + i + "]",
-                                getFromList(requestingRedirectUrl, i));
-                    }
-                } else {
-                    map.put(
-                            "requesting_redirect_url",
-                            JSON.getDefault()
-                                    .getMapper()
-                                    .writeValueAsString(requestingRedirectUrl));
-                }
-            }
-            if (showProgressStepper != null) {
-                if (isFileTypeOrListOfFiles(showProgressStepper)) {
-                    fileTypeFound = true;
-                }
-
-                if (showProgressStepper.getClass().equals(java.io.File.class)
-                        || showProgressStepper.getClass().equals(Integer.class)
-                        || showProgressStepper.getClass().equals(String.class)
-                        || showProgressStepper.getClass().isEnum()) {
-                    map.put("show_progress_stepper", showProgressStepper);
-                } else if (isListOfFile(showProgressStepper)) {
-                    for (int i = 0; i < getListSize(showProgressStepper); i++) {
-                        map.put(
-                                "show_progress_stepper[" + i + "]",
-                                getFromList(showProgressStepper, i));
-                    }
-                } else {
-                    map.put(
-                            "show_progress_stepper",
-                            JSON.getDefault().getMapper().writeValueAsString(showProgressStepper));
-                }
-            }
-            if (signingRedirectUrl != null) {
-                if (isFileTypeOrListOfFiles(signingRedirectUrl)) {
-                    fileTypeFound = true;
-                }
-
-                if (signingRedirectUrl.getClass().equals(java.io.File.class)
-                        || signingRedirectUrl.getClass().equals(Integer.class)
-                        || signingRedirectUrl.getClass().equals(String.class)
-                        || signingRedirectUrl.getClass().isEnum()) {
-                    map.put("signing_redirect_url", signingRedirectUrl);
-                } else if (isListOfFile(signingRedirectUrl)) {
-                    for (int i = 0; i < getListSize(signingRedirectUrl); i++) {
-                        map.put(
-                                "signing_redirect_url[" + i + "]",
-                                getFromList(signingRedirectUrl, i));
-                    }
-                } else {
-                    map.put(
-                            "signing_redirect_url",
-                            JSON.getDefault().getMapper().writeValueAsString(signingRedirectUrl));
-                }
-            }
-            if (testMode != null) {
-                if (isFileTypeOrListOfFiles(testMode)) {
-                    fileTypeFound = true;
-                }
-
-                if (testMode.getClass().equals(java.io.File.class)
-                        || testMode.getClass().equals(Integer.class)
-                        || testMode.getClass().equals(String.class)
-                        || testMode.getClass().isEnum()) {
-                    map.put("test_mode", testMode);
-                } else if (isListOfFile(testMode)) {
-                    for (int i = 0; i < getListSize(testMode); i++) {
-                        map.put("test_mode[" + i + "]", getFromList(testMode, i));
-                    }
-                } else {
-                    map.put(
-                            "test_mode",
-                            JSON.getDefault().getMapper().writeValueAsString(testMode));
-                }
-            }
-        } catch (Exception e) {
-            throw new ApiException(e);
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    try {
+    if (clientId != null) {
+        if (isFileTypeOrListOfFiles(clientId)) {
+            fileTypeFound = true;
         }
 
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        if (clientId.getClass().equals(java.io.File.class) ||
+            clientId.getClass().equals(Integer.class) ||
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
+            map.put("client_id", clientId);
+        } else if (isListOfFile(clientId)) {
+            for(int i = 0; i< getListSize(clientId); i++) {
+                map.put("client_id[" + i + "]", getFromList(clientId, i));
+            }
         }
-        return o.toString().replace("\n", "\n    ");
+        else {
+            map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
+        }
     }
+    if (editorOptions != null) {
+        if (isFileTypeOrListOfFiles(editorOptions)) {
+            fileTypeFound = true;
+        }
+
+        if (editorOptions.getClass().equals(java.io.File.class) ||
+            editorOptions.getClass().equals(Integer.class) ||
+            editorOptions.getClass().equals(String.class) ||
+            editorOptions.getClass().isEnum()) {
+            map.put("editor_options", editorOptions);
+        } else if (isListOfFile(editorOptions)) {
+            for(int i = 0; i< getListSize(editorOptions); i++) {
+                map.put("editor_options[" + i + "]", getFromList(editorOptions, i));
+            }
+        }
+        else {
+            map.put("editor_options", JSON.getDefault().getMapper().writeValueAsString(editorOptions));
+        }
+    }
+    if (isForEmbeddedSigning != null) {
+        if (isFileTypeOrListOfFiles(isForEmbeddedSigning)) {
+            fileTypeFound = true;
+        }
+
+        if (isForEmbeddedSigning.getClass().equals(java.io.File.class) ||
+            isForEmbeddedSigning.getClass().equals(Integer.class) ||
+            isForEmbeddedSigning.getClass().equals(String.class) ||
+            isForEmbeddedSigning.getClass().isEnum()) {
+            map.put("is_for_embedded_signing", isForEmbeddedSigning);
+        } else if (isListOfFile(isForEmbeddedSigning)) {
+            for(int i = 0; i< getListSize(isForEmbeddedSigning); i++) {
+                map.put("is_for_embedded_signing[" + i + "]", getFromList(isForEmbeddedSigning, i));
+            }
+        }
+        else {
+            map.put("is_for_embedded_signing", JSON.getDefault().getMapper().writeValueAsString(isForEmbeddedSigning));
+        }
+    }
+    if (requesterEmailAddress != null) {
+        if (isFileTypeOrListOfFiles(requesterEmailAddress)) {
+            fileTypeFound = true;
+        }
+
+        if (requesterEmailAddress.getClass().equals(java.io.File.class) ||
+            requesterEmailAddress.getClass().equals(Integer.class) ||
+            requesterEmailAddress.getClass().equals(String.class) ||
+            requesterEmailAddress.getClass().isEnum()) {
+            map.put("requester_email_address", requesterEmailAddress);
+        } else if (isListOfFile(requesterEmailAddress)) {
+            for(int i = 0; i< getListSize(requesterEmailAddress); i++) {
+                map.put("requester_email_address[" + i + "]", getFromList(requesterEmailAddress, i));
+            }
+        }
+        else {
+            map.put("requester_email_address", JSON.getDefault().getMapper().writeValueAsString(requesterEmailAddress));
+        }
+    }
+    if (requestingRedirectUrl != null) {
+        if (isFileTypeOrListOfFiles(requestingRedirectUrl)) {
+            fileTypeFound = true;
+        }
+
+        if (requestingRedirectUrl.getClass().equals(java.io.File.class) ||
+            requestingRedirectUrl.getClass().equals(Integer.class) ||
+            requestingRedirectUrl.getClass().equals(String.class) ||
+            requestingRedirectUrl.getClass().isEnum()) {
+            map.put("requesting_redirect_url", requestingRedirectUrl);
+        } else if (isListOfFile(requestingRedirectUrl)) {
+            for(int i = 0; i< getListSize(requestingRedirectUrl); i++) {
+                map.put("requesting_redirect_url[" + i + "]", getFromList(requestingRedirectUrl, i));
+            }
+        }
+        else {
+            map.put("requesting_redirect_url", JSON.getDefault().getMapper().writeValueAsString(requestingRedirectUrl));
+        }
+    }
+    if (showProgressStepper != null) {
+        if (isFileTypeOrListOfFiles(showProgressStepper)) {
+            fileTypeFound = true;
+        }
+
+        if (showProgressStepper.getClass().equals(java.io.File.class) ||
+            showProgressStepper.getClass().equals(Integer.class) ||
+            showProgressStepper.getClass().equals(String.class) ||
+            showProgressStepper.getClass().isEnum()) {
+            map.put("show_progress_stepper", showProgressStepper);
+        } else if (isListOfFile(showProgressStepper)) {
+            for(int i = 0; i< getListSize(showProgressStepper); i++) {
+                map.put("show_progress_stepper[" + i + "]", getFromList(showProgressStepper, i));
+            }
+        }
+        else {
+            map.put("show_progress_stepper", JSON.getDefault().getMapper().writeValueAsString(showProgressStepper));
+        }
+    }
+    if (signingRedirectUrl != null) {
+        if (isFileTypeOrListOfFiles(signingRedirectUrl)) {
+            fileTypeFound = true;
+        }
+
+        if (signingRedirectUrl.getClass().equals(java.io.File.class) ||
+            signingRedirectUrl.getClass().equals(Integer.class) ||
+            signingRedirectUrl.getClass().equals(String.class) ||
+            signingRedirectUrl.getClass().isEnum()) {
+            map.put("signing_redirect_url", signingRedirectUrl);
+        } else if (isListOfFile(signingRedirectUrl)) {
+            for(int i = 0; i< getListSize(signingRedirectUrl); i++) {
+                map.put("signing_redirect_url[" + i + "]", getFromList(signingRedirectUrl, i));
+            }
+        }
+        else {
+            map.put("signing_redirect_url", JSON.getDefault().getMapper().writeValueAsString(signingRedirectUrl));
+        }
+    }
+    if (testMode != null) {
+        if (isFileTypeOrListOfFiles(testMode)) {
+            fileTypeFound = true;
+        }
+
+        if (testMode.getClass().equals(java.io.File.class) ||
+            testMode.getClass().equals(Integer.class) ||
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
+            map.put("test_mode", testMode);
+        } else if (isListOfFile(testMode)) {
+            for(int i = 0; i< getListSize(testMode); i++) {
+                map.put("test_mode[" + i + "]", getFromList(testMode, i));
+            }
+        }
+        else {
+            map.put("test_mode", JSON.getDefault().getMapper().writeValueAsString(testMode));
+        }
+    }
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

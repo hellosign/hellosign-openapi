@@ -10,1178 +10,1180 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.dropbox.sign.model.SubAttachment;
+import com.dropbox.sign.model.SubFieldOptions;
+import com.dropbox.sign.model.SubFormFieldGroup;
+import com.dropbox.sign.model.SubFormFieldRule;
+import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
+import com.dropbox.sign.model.SubMergeField;
+import com.dropbox.sign.model.SubTemplateRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-/** TemplateCreateRequest */
+
+import com.dropbox.sign.ApiException;
+/**
+ * TemplateCreateRequest
+ */
 @JsonPropertyOrder({
-    TemplateCreateRequest.JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT,
-    TemplateCreateRequest.JSON_PROPERTY_SIGNER_ROLES,
-    TemplateCreateRequest.JSON_PROPERTY_FILES,
-    TemplateCreateRequest.JSON_PROPERTY_FILE_URLS,
-    TemplateCreateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
-    TemplateCreateRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
-    TemplateCreateRequest.JSON_PROPERTY_ATTACHMENTS,
-    TemplateCreateRequest.JSON_PROPERTY_CC_ROLES,
-    TemplateCreateRequest.JSON_PROPERTY_CLIENT_ID,
-    TemplateCreateRequest.JSON_PROPERTY_FIELD_OPTIONS,
-    TemplateCreateRequest.JSON_PROPERTY_FORM_FIELD_GROUPS,
-    TemplateCreateRequest.JSON_PROPERTY_FORM_FIELD_RULES,
-    TemplateCreateRequest.JSON_PROPERTY_MERGE_FIELDS,
-    TemplateCreateRequest.JSON_PROPERTY_MESSAGE,
-    TemplateCreateRequest.JSON_PROPERTY_METADATA,
-    TemplateCreateRequest.JSON_PROPERTY_SUBJECT,
-    TemplateCreateRequest.JSON_PROPERTY_TEST_MODE,
-    TemplateCreateRequest.JSON_PROPERTY_TITLE,
-    TemplateCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
+  TemplateCreateRequest.JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT,
+  TemplateCreateRequest.JSON_PROPERTY_SIGNER_ROLES,
+  TemplateCreateRequest.JSON_PROPERTY_FILES,
+  TemplateCreateRequest.JSON_PROPERTY_FILE_URLS,
+  TemplateCreateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
+  TemplateCreateRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
+  TemplateCreateRequest.JSON_PROPERTY_ATTACHMENTS,
+  TemplateCreateRequest.JSON_PROPERTY_CC_ROLES,
+  TemplateCreateRequest.JSON_PROPERTY_CLIENT_ID,
+  TemplateCreateRequest.JSON_PROPERTY_FIELD_OPTIONS,
+  TemplateCreateRequest.JSON_PROPERTY_FORM_FIELD_GROUPS,
+  TemplateCreateRequest.JSON_PROPERTY_FORM_FIELD_RULES,
+  TemplateCreateRequest.JSON_PROPERTY_MERGE_FIELDS,
+  TemplateCreateRequest.JSON_PROPERTY_MESSAGE,
+  TemplateCreateRequest.JSON_PROPERTY_METADATA,
+  TemplateCreateRequest.JSON_PROPERTY_SUBJECT,
+  TemplateCreateRequest.JSON_PROPERTY_TEST_MODE,
+  TemplateCreateRequest.JSON_PROPERTY_TITLE,
+  TemplateCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
 })
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateCreateRequest {
-    public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
-
-    @javax.annotation.Nonnull
-    private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = new ArrayList<>();
-
-    public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
-    @javax.annotation.Nonnull private List<SubTemplateRole> signerRoles = new ArrayList<>();
-
-    public static final String JSON_PROPERTY_FILES = "files";
-    @javax.annotation.Nullable private List<File> files = null;
-
-    public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-    @javax.annotation.Nullable private List<String> fileUrls = null;
-
-    public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
-    @javax.annotation.Nullable private Boolean allowReassign = false;
-
-    public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
-    @javax.annotation.Nullable private Boolean allowFormView = false;
-
-    public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-    @javax.annotation.Nullable private List<SubAttachment> attachments = null;
-
-    public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
-    @javax.annotation.Nullable private List<String> ccRoles = null;
-
-    public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-    @javax.annotation.Nullable private String clientId;
-
-    public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
-    @javax.annotation.Nullable private SubFieldOptions fieldOptions;
-
-    public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
-    @javax.annotation.Nullable private List<SubFormFieldGroup> formFieldGroups = null;
-
-    public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
-    @javax.annotation.Nullable private List<SubFormFieldRule> formFieldRules = null;
-
-    public static final String JSON_PROPERTY_MERGE_FIELDS = "merge_fields";
-    @javax.annotation.Nullable private List<SubMergeField> mergeFields = null;
-
-    public static final String JSON_PROPERTY_MESSAGE = "message";
-    @javax.annotation.Nullable private String message;
-
-    public static final String JSON_PROPERTY_METADATA = "metadata";
-    @javax.annotation.Nullable private Map<String, Object> metadata = null;
-
-    public static final String JSON_PROPERTY_SUBJECT = "subject";
-    @javax.annotation.Nullable private String subject;
-
-    public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-    @javax.annotation.Nullable private Boolean testMode = false;
-
-    public static final String JSON_PROPERTY_TITLE = "title";
-    @javax.annotation.Nullable private String title;
-
-    public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
-    @javax.annotation.Nullable private Boolean usePreexistingFields = false;
-
-    public TemplateCreateRequest() {}
-
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static TemplateCreateRequest init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, TemplateCreateRequest.class);
-    }
-
-    public static TemplateCreateRequest init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(
-                        new ObjectMapper().writeValueAsString(data), TemplateCreateRequest.class);
-    }
-
-    public TemplateCreateRequest formFieldsPerDocument(
-            @javax.annotation.Nonnull List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
-        this.formFieldsPerDocument = formFieldsPerDocument;
-        return this;
-    }
-
-    public TemplateCreateRequest addFormFieldsPerDocumentItem(
-            SubFormFieldsPerDocumentBase formFieldsPerDocumentItem) {
-        if (this.formFieldsPerDocument == null) {
-            this.formFieldsPerDocument = new ArrayList<>();
-        }
-        this.formFieldsPerDocument.add(formFieldsPerDocumentItem);
-        return this;
-    }
-
-    /**
-     * The fields that should appear on the document, expressed as an array of objects. (For more
-     * details you can read about it here: [Using Form Fields per
-     * Document](/docs/openapi/form-fields-per-document).) **NOTE:** Fields like **text**,
-     * **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and
-     * optional parameters. Check out the list of [additional
-     * parameters](/api/reference/constants/#form-fields-per-document) for these field types. * Text
-     * Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use
-     * &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use
-     * &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use
-     * &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use
-     * &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use
-     * &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use
-     * &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use
-     * &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use
-     * &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use
-     * &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
-     *
-     * @return formFieldsPerDocument
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<SubFormFieldsPerDocumentBase> getFormFieldsPerDocument() {
-        return formFieldsPerDocument;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFormFieldsPerDocument(
-            @javax.annotation.Nonnull List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
-        this.formFieldsPerDocument = formFieldsPerDocument;
-    }
-
-    public TemplateCreateRequest signerRoles(
-            @javax.annotation.Nonnull List<SubTemplateRole> signerRoles) {
-        this.signerRoles = signerRoles;
-        return this;
-    }
-
-    public TemplateCreateRequest addSignerRolesItem(SubTemplateRole signerRolesItem) {
-        if (this.signerRoles == null) {
-            this.signerRoles = new ArrayList<>();
-        }
-        this.signerRoles.add(signerRolesItem);
-        return this;
-    }
-
-    /**
-     * An array of the designated signer roles that must be specified when sending a
-     * SignatureRequest using this Template.
-     *
-     * @return signerRoles
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<SubTemplateRole> getSignerRoles() {
-        return signerRoles;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setSignerRoles(@javax.annotation.Nonnull List<SubTemplateRole> signerRoles) {
-        this.signerRoles = signerRoles;
-    }
-
-    public TemplateCreateRequest files(@javax.annotation.Nullable List<File> files) {
-        this.files = files;
-        return this;
-    }
-
-    public TemplateCreateRequest addFilesItem(File filesItem) {
-        if (this.files == null) {
-            this.files = new ArrayList<>();
-        }
-        this.files.add(filesItem);
-        return this;
-    }
-
-    /**
-     * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature. This endpoint
-     * requires either **files** or **file_urls[]**, but not both.
-     *
-     * @return files
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<File> getFiles() {
-        return files;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FILES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFiles(@javax.annotation.Nullable List<File> files) {
-        this.files = files;
-    }
-
-    public TemplateCreateRequest fileUrls(@javax.annotation.Nullable List<String> fileUrls) {
-        this.fileUrls = fileUrls;
-        return this;
-    }
-
-    public TemplateCreateRequest addFileUrlsItem(String fileUrlsItem) {
-        if (this.fileUrls == null) {
-            this.fileUrls = new ArrayList<>();
-        }
-        this.fileUrls.add(fileUrlsItem);
-        return this;
-    }
-
-    /**
-     * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.
-     * This endpoint requires either **files** or **file_urls[]**, but not both.
-     *
-     * @return fileUrls
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILE_URLS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getFileUrls() {
-        return fileUrls;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FILE_URLS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
-        this.fileUrls = fileUrls;
-    }
-
-    public TemplateCreateRequest allowReassign(@javax.annotation.Nullable Boolean allowReassign) {
-        this.allowReassign = allowReassign;
-        return this;
-    }
-
-    /**
-     * Allows signers to reassign their signature requests to other signers if set to
-     * &#x60;true&#x60;. Defaults to &#x60;false&#x60;. **NOTE:** Only available for Premium plan
-     * and higher.
-     *
-     * @return allowReassign
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getAllowReassign() {
-        return allowReassign;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowReassign(@javax.annotation.Nullable Boolean allowReassign) {
-        this.allowReassign = allowReassign;
-    }
-
-    public TemplateCreateRequest allowFormView(@javax.annotation.Nullable Boolean allowFormView) {
-        this.allowFormView = allowFormView;
-        return this;
-    }
-
-    /**
-     * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to
-     * &#x60;false&#x60;.
-     *
-     * @return allowFormView
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getAllowFormView() {
-        return allowFormView;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowFormView(@javax.annotation.Nullable Boolean allowFormView) {
-        this.allowFormView = allowFormView;
-    }
-
-    public TemplateCreateRequest attachments(
-            @javax.annotation.Nullable List<SubAttachment> attachments) {
-        this.attachments = attachments;
-        return this;
-    }
-
-    public TemplateCreateRequest addAttachmentsItem(SubAttachment attachmentsItem) {
-        if (this.attachments == null) {
-            this.attachments = new ArrayList<>();
-        }
-        this.attachments.add(attachmentsItem);
-        return this;
-    }
-
-    /**
-     * A list describing the attachments
-     *
-     * @return attachments
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<SubAttachment> getAttachments() {
-        return attachments;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAttachments(@javax.annotation.Nullable List<SubAttachment> attachments) {
-        this.attachments = attachments;
-    }
-
-    public TemplateCreateRequest ccRoles(@javax.annotation.Nullable List<String> ccRoles) {
-        this.ccRoles = ccRoles;
-        return this;
-    }
-
-    public TemplateCreateRequest addCcRolesItem(String ccRolesItem) {
-        if (this.ccRoles == null) {
-            this.ccRoles = new ArrayList<>();
-        }
-        this.ccRoles.add(ccRolesItem);
-        return this;
-    }
-
-    /**
-     * The CC roles that must be assigned when using the template to send a signature request
-     *
-     * @return ccRoles
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CC_ROLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getCcRoles() {
-        return ccRoles;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CC_ROLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCcRoles(@javax.annotation.Nullable List<String> ccRoles) {
-        this.ccRoles = ccRoles;
-    }
-
-    public TemplateCreateRequest clientId(@javax.annotation.Nullable String clientId) {
-        this.clientId = clientId;
-        return this;
-    }
-
-    /**
-     * Client id of the app you&#39;re using to create this draft. Used to apply the branding and
-     * callback url defined for the app.
-     *
-     * @return clientId
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getClientId() {
-        return clientId;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setClientId(@javax.annotation.Nullable String clientId) {
-        this.clientId = clientId;
-    }
-
-    public TemplateCreateRequest fieldOptions(
-            @javax.annotation.Nullable SubFieldOptions fieldOptions) {
-        this.fieldOptions = fieldOptions;
-        return this;
-    }
-
-    /**
-     * Get fieldOptions
-     *
-     * @return fieldOptions
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SubFieldOptions getFieldOptions() {
-        return fieldOptions;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFieldOptions(@javax.annotation.Nullable SubFieldOptions fieldOptions) {
-        this.fieldOptions = fieldOptions;
-    }
-
-    public TemplateCreateRequest formFieldGroups(
-            @javax.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
-        this.formFieldGroups = formFieldGroups;
-        return this;
-    }
-
-    public TemplateCreateRequest addFormFieldGroupsItem(SubFormFieldGroup formFieldGroupsItem) {
-        if (this.formFieldGroups == null) {
-            this.formFieldGroups = new ArrayList<>();
-        }
-        this.formFieldGroups.add(formFieldGroupsItem);
-        return this;
-    }
-
-    /**
-     * Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed
-     * JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys.
-     * &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in
-     * &#x60;form_field_groups&#x60;.
-     *
-     * @return formFieldGroups
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<SubFormFieldGroup> getFormFieldGroups() {
-        return formFieldGroups;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFormFieldGroups(
-            @javax.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
-        this.formFieldGroups = formFieldGroups;
-    }
-
-    public TemplateCreateRequest formFieldRules(
-            @javax.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
-        this.formFieldRules = formFieldRules;
-        return this;
-    }
-
-    public TemplateCreateRequest addFormFieldRulesItem(SubFormFieldRule formFieldRulesItem) {
-        if (this.formFieldRules == null) {
-            this.formFieldRules = new ArrayList<>();
-        }
-        this.formFieldRules.add(formFieldRulesItem);
-        return this;
-    }
-
-    /**
-     * Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.
-     *
-     * @return formFieldRules
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<SubFormFieldRule> getFormFieldRules() {
-        return formFieldRules;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFormFieldRules(
-            @javax.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
-        this.formFieldRules = formFieldRules;
-    }
-
-    public TemplateCreateRequest mergeFields(
-            @javax.annotation.Nullable List<SubMergeField> mergeFields) {
-        this.mergeFields = mergeFields;
-        return this;
-    }
-
-    public TemplateCreateRequest addMergeFieldsItem(SubMergeField mergeFieldsItem) {
-        if (this.mergeFields == null) {
-            this.mergeFields = new ArrayList<>();
-        }
-        this.mergeFields.add(mergeFieldsItem);
-        return this;
-    }
-
-    /**
-     * Add merge fields to the template. Merge fields are placed by the user creating the template
-     * and used to pre-fill data by passing values into signature requests with the
-     * &#x60;custom_fields&#x60; parameter. If the signature request using that template *does not*
-     * pass a value into a merge field, then an empty field remains in the document.
-     *
-     * @return mergeFields
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<SubMergeField> getMergeFields() {
-        return mergeFields;
-    }
-
-    @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMergeFields(@javax.annotation.Nullable List<SubMergeField> mergeFields) {
-        this.mergeFields = mergeFields;
-    }
-
-    public TemplateCreateRequest message(@javax.annotation.Nullable String message) {
-        this.message = message;
-        return this;
-    }
-
-    /**
-     * The default template email message.
-     *
-     * @return message
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMessage() {
-        return message;
-    }
-
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMessage(@javax.annotation.Nullable String message) {
-        this.message = message;
-    }
-
-    public TemplateCreateRequest metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
-        this.metadata = metadata;
-        return this;
-    }
-
-    public TemplateCreateRequest putMetadataItem(String key, Object metadataItem) {
-        if (this.metadata == null) {
-            this.metadata = new HashMap<>();
-        }
-        this.metadata.put(key, metadataItem);
-        return this;
-    }
-
-    /**
-     * Key-value data that should be attached to the signature request. This metadata is included in
-     * all API responses and events involving the signature request. For example, use the metadata
-     * field to store a signer&#39;s order number for look up when receiving events for the
-     * signature request. Each request can include up to 10 metadata keys (or 50 nested metadata
-     * keys), with key names up to 40 characters long and values up to 1000 characters long.
-     *
-     * @return metadata
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-    public Map<String, Object> getMetadata() {
-        return metadata;
-    }
-
-    @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
-        this.metadata = metadata;
-    }
-
-    public TemplateCreateRequest subject(@javax.annotation.Nullable String subject) {
-        this.subject = subject;
-        return this;
-    }
-
-    /**
-     * The template title (alias).
-     *
-     * @return subject
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SUBJECT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getSubject() {
-        return subject;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SUBJECT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSubject(@javax.annotation.Nullable String subject) {
-        this.subject = subject;
-    }
-
-    public TemplateCreateRequest testMode(@javax.annotation.Nullable Boolean testMode) {
-        this.testMode = testMode;
-        return this;
-    }
-
-    /**
-     * Whether this is a test, the signature request created from this draft will not be legally
-     * binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-     *
-     * @return testMode
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getTestMode() {
-        return testMode;
-    }
-
-    @JsonProperty(JSON_PROPERTY_TEST_MODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
-        this.testMode = testMode;
-    }
-
-    public TemplateCreateRequest title(@javax.annotation.Nullable String title) {
-        this.title = title;
-        return this;
-    }
-
-    /**
-     * The title you want to assign to the SignatureRequest.
-     *
-     * @return title
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTitle() {
-        return title;
-    }
-
-    @JsonProperty(JSON_PROPERTY_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setTitle(@javax.annotation.Nullable String title) {
-        this.title = title;
-    }
-
-    public TemplateCreateRequest usePreexistingFields(
-            @javax.annotation.Nullable Boolean usePreexistingFields) {
-        this.usePreexistingFields = usePreexistingFields;
-        return this;
-    }
-
-    /**
-     * Enable the detection of predefined PDF fields by setting the
-     * &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or
-     * &#x60;false&#x60;).
-     *
-     * @return usePreexistingFields
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getUsePreexistingFields() {
-        return usePreexistingFields;
-    }
-
-    @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setUsePreexistingFields(@javax.annotation.Nullable Boolean usePreexistingFields) {
-        this.usePreexistingFields = usePreexistingFields;
-    }
-
-    /** Return true if this TemplateCreateRequest object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TemplateCreateRequest templateCreateRequest = (TemplateCreateRequest) o;
-        return Objects.equals(
-                        this.formFieldsPerDocument, templateCreateRequest.formFieldsPerDocument)
-                && Objects.equals(this.signerRoles, templateCreateRequest.signerRoles)
-                && Objects.equals(this.files, templateCreateRequest.files)
-                && Objects.equals(this.fileUrls, templateCreateRequest.fileUrls)
-                && Objects.equals(this.allowReassign, templateCreateRequest.allowReassign)
-                && Objects.equals(this.allowFormView, templateCreateRequest.allowFormView)
-                && Objects.equals(this.attachments, templateCreateRequest.attachments)
-                && Objects.equals(this.ccRoles, templateCreateRequest.ccRoles)
-                && Objects.equals(this.clientId, templateCreateRequest.clientId)
-                && Objects.equals(this.fieldOptions, templateCreateRequest.fieldOptions)
-                && Objects.equals(this.formFieldGroups, templateCreateRequest.formFieldGroups)
-                && Objects.equals(this.formFieldRules, templateCreateRequest.formFieldRules)
-                && Objects.equals(this.mergeFields, templateCreateRequest.mergeFields)
-                && Objects.equals(this.message, templateCreateRequest.message)
-                && Objects.equals(this.metadata, templateCreateRequest.metadata)
-                && Objects.equals(this.subject, templateCreateRequest.subject)
-                && Objects.equals(this.testMode, templateCreateRequest.testMode)
-                && Objects.equals(this.title, templateCreateRequest.title)
-                && Objects.equals(
-                        this.usePreexistingFields, templateCreateRequest.usePreexistingFields);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(
-                formFieldsPerDocument,
-                signerRoles,
-                files,
-                fileUrls,
-                allowReassign,
-                allowFormView,
-                attachments,
-                ccRoles,
-                clientId,
-                fieldOptions,
-                formFieldGroups,
-                formFieldRules,
-                mergeFields,
-                message,
-                metadata,
-                subject,
-                testMode,
-                title,
-                usePreexistingFields);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TemplateCreateRequest {\n");
-        sb.append("    formFieldsPerDocument: ")
-                .append(toIndentedString(formFieldsPerDocument))
-                .append("\n");
-        sb.append("    signerRoles: ").append(toIndentedString(signerRoles)).append("\n");
-        sb.append("    files: ").append(toIndentedString(files)).append("\n");
-        sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
-        sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
-        sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
-        sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
-        sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
-        sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-        sb.append("    fieldOptions: ").append(toIndentedString(fieldOptions)).append("\n");
-        sb.append("    formFieldGroups: ").append(toIndentedString(formFieldGroups)).append("\n");
-        sb.append("    formFieldRules: ").append(toIndentedString(formFieldRules)).append("\n");
-        sb.append("    mergeFields: ").append(toIndentedString(mergeFields)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
-        sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    usePreexistingFields: ")
-                .append(toIndentedString(usePreexistingFields))
-                .append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        try {
-            if (formFieldsPerDocument != null) {
-                if (isFileTypeOrListOfFiles(formFieldsPerDocument)) {
-                    fileTypeFound = true;
-                }
-
-                if (formFieldsPerDocument.getClass().equals(java.io.File.class)
-                        || formFieldsPerDocument.getClass().equals(Integer.class)
-                        || formFieldsPerDocument.getClass().equals(String.class)
-                        || formFieldsPerDocument.getClass().isEnum()) {
-                    map.put("form_fields_per_document", formFieldsPerDocument);
-                } else if (isListOfFile(formFieldsPerDocument)) {
-                    for (int i = 0; i < getListSize(formFieldsPerDocument); i++) {
-                        map.put(
-                                "form_fields_per_document[" + i + "]",
-                                getFromList(formFieldsPerDocument, i));
-                    }
-                } else {
-                    map.put(
-                            "form_fields_per_document",
-                            JSON.getDefault()
-                                    .getMapper()
-                                    .writeValueAsString(formFieldsPerDocument));
-                }
-            }
-            if (signerRoles != null) {
-                if (isFileTypeOrListOfFiles(signerRoles)) {
-                    fileTypeFound = true;
-                }
-
-                if (signerRoles.getClass().equals(java.io.File.class)
-                        || signerRoles.getClass().equals(Integer.class)
-                        || signerRoles.getClass().equals(String.class)
-                        || signerRoles.getClass().isEnum()) {
-                    map.put("signer_roles", signerRoles);
-                } else if (isListOfFile(signerRoles)) {
-                    for (int i = 0; i < getListSize(signerRoles); i++) {
-                        map.put("signer_roles[" + i + "]", getFromList(signerRoles, i));
-                    }
-                } else {
-                    map.put(
-                            "signer_roles",
-                            JSON.getDefault().getMapper().writeValueAsString(signerRoles));
-                }
-            }
-            if (files != null) {
-                if (isFileTypeOrListOfFiles(files)) {
-                    fileTypeFound = true;
-                }
-
-                if (files.getClass().equals(java.io.File.class)
-                        || files.getClass().equals(Integer.class)
-                        || files.getClass().equals(String.class)
-                        || files.getClass().isEnum()) {
-                    map.put("files", files);
-                } else if (isListOfFile(files)) {
-                    for (int i = 0; i < getListSize(files); i++) {
-                        map.put("files[" + i + "]", getFromList(files, i));
-                    }
-                } else {
-                    map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
-                }
-            }
-            if (fileUrls != null) {
-                if (isFileTypeOrListOfFiles(fileUrls)) {
-                    fileTypeFound = true;
-                }
-
-                if (fileUrls.getClass().equals(java.io.File.class)
-                        || fileUrls.getClass().equals(Integer.class)
-                        || fileUrls.getClass().equals(String.class)
-                        || fileUrls.getClass().isEnum()) {
-                    map.put("file_urls", fileUrls);
-                } else if (isListOfFile(fileUrls)) {
-                    for (int i = 0; i < getListSize(fileUrls); i++) {
-                        map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
-                    }
-                } else {
-                    map.put(
-                            "file_urls",
-                            JSON.getDefault().getMapper().writeValueAsString(fileUrls));
-                }
-            }
-            if (allowReassign != null) {
-                if (isFileTypeOrListOfFiles(allowReassign)) {
-                    fileTypeFound = true;
-                }
-
-                if (allowReassign.getClass().equals(java.io.File.class)
-                        || allowReassign.getClass().equals(Integer.class)
-                        || allowReassign.getClass().equals(String.class)
-                        || allowReassign.getClass().isEnum()) {
-                    map.put("allow_reassign", allowReassign);
-                } else if (isListOfFile(allowReassign)) {
-                    for (int i = 0; i < getListSize(allowReassign); i++) {
-                        map.put("allow_reassign[" + i + "]", getFromList(allowReassign, i));
-                    }
-                } else {
-                    map.put(
-                            "allow_reassign",
-                            JSON.getDefault().getMapper().writeValueAsString(allowReassign));
-                }
-            }
-            if (allowFormView != null) {
-                if (isFileTypeOrListOfFiles(allowFormView)) {
-                    fileTypeFound = true;
-                }
-
-                if (allowFormView.getClass().equals(java.io.File.class)
-                        || allowFormView.getClass().equals(Integer.class)
-                        || allowFormView.getClass().equals(String.class)
-                        || allowFormView.getClass().isEnum()) {
-                    map.put("allow_form_view", allowFormView);
-                } else if (isListOfFile(allowFormView)) {
-                    for (int i = 0; i < getListSize(allowFormView); i++) {
-                        map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
-                    }
-                } else {
-                    map.put(
-                            "allow_form_view",
-                            JSON.getDefault().getMapper().writeValueAsString(allowFormView));
-                }
-            }
-            if (attachments != null) {
-                if (isFileTypeOrListOfFiles(attachments)) {
-                    fileTypeFound = true;
-                }
-
-                if (attachments.getClass().equals(java.io.File.class)
-                        || attachments.getClass().equals(Integer.class)
-                        || attachments.getClass().equals(String.class)
-                        || attachments.getClass().isEnum()) {
-                    map.put("attachments", attachments);
-                } else if (isListOfFile(attachments)) {
-                    for (int i = 0; i < getListSize(attachments); i++) {
-                        map.put("attachments[" + i + "]", getFromList(attachments, i));
-                    }
-                } else {
-                    map.put(
-                            "attachments",
-                            JSON.getDefault().getMapper().writeValueAsString(attachments));
-                }
-            }
-            if (ccRoles != null) {
-                if (isFileTypeOrListOfFiles(ccRoles)) {
-                    fileTypeFound = true;
-                }
-
-                if (ccRoles.getClass().equals(java.io.File.class)
-                        || ccRoles.getClass().equals(Integer.class)
-                        || ccRoles.getClass().equals(String.class)
-                        || ccRoles.getClass().isEnum()) {
-                    map.put("cc_roles", ccRoles);
-                } else if (isListOfFile(ccRoles)) {
-                    for (int i = 0; i < getListSize(ccRoles); i++) {
-                        map.put("cc_roles[" + i + "]", getFromList(ccRoles, i));
-                    }
-                } else {
-                    map.put("cc_roles", JSON.getDefault().getMapper().writeValueAsString(ccRoles));
-                }
-            }
-            if (clientId != null) {
-                if (isFileTypeOrListOfFiles(clientId)) {
-                    fileTypeFound = true;
-                }
-
-                if (clientId.getClass().equals(java.io.File.class)
-                        || clientId.getClass().equals(Integer.class)
-                        || clientId.getClass().equals(String.class)
-                        || clientId.getClass().isEnum()) {
-                    map.put("client_id", clientId);
-                } else if (isListOfFile(clientId)) {
-                    for (int i = 0; i < getListSize(clientId); i++) {
-                        map.put("client_id[" + i + "]", getFromList(clientId, i));
-                    }
-                } else {
-                    map.put(
-                            "client_id",
-                            JSON.getDefault().getMapper().writeValueAsString(clientId));
-                }
-            }
-            if (fieldOptions != null) {
-                if (isFileTypeOrListOfFiles(fieldOptions)) {
-                    fileTypeFound = true;
-                }
-
-                if (fieldOptions.getClass().equals(java.io.File.class)
-                        || fieldOptions.getClass().equals(Integer.class)
-                        || fieldOptions.getClass().equals(String.class)
-                        || fieldOptions.getClass().isEnum()) {
-                    map.put("field_options", fieldOptions);
-                } else if (isListOfFile(fieldOptions)) {
-                    for (int i = 0; i < getListSize(fieldOptions); i++) {
-                        map.put("field_options[" + i + "]", getFromList(fieldOptions, i));
-                    }
-                } else {
-                    map.put(
-                            "field_options",
-                            JSON.getDefault().getMapper().writeValueAsString(fieldOptions));
-                }
-            }
-            if (formFieldGroups != null) {
-                if (isFileTypeOrListOfFiles(formFieldGroups)) {
-                    fileTypeFound = true;
-                }
-
-                if (formFieldGroups.getClass().equals(java.io.File.class)
-                        || formFieldGroups.getClass().equals(Integer.class)
-                        || formFieldGroups.getClass().equals(String.class)
-                        || formFieldGroups.getClass().isEnum()) {
-                    map.put("form_field_groups", formFieldGroups);
-                } else if (isListOfFile(formFieldGroups)) {
-                    for (int i = 0; i < getListSize(formFieldGroups); i++) {
-                        map.put("form_field_groups[" + i + "]", getFromList(formFieldGroups, i));
-                    }
-                } else {
-                    map.put(
-                            "form_field_groups",
-                            JSON.getDefault().getMapper().writeValueAsString(formFieldGroups));
-                }
-            }
-            if (formFieldRules != null) {
-                if (isFileTypeOrListOfFiles(formFieldRules)) {
-                    fileTypeFound = true;
-                }
-
-                if (formFieldRules.getClass().equals(java.io.File.class)
-                        || formFieldRules.getClass().equals(Integer.class)
-                        || formFieldRules.getClass().equals(String.class)
-                        || formFieldRules.getClass().isEnum()) {
-                    map.put("form_field_rules", formFieldRules);
-                } else if (isListOfFile(formFieldRules)) {
-                    for (int i = 0; i < getListSize(formFieldRules); i++) {
-                        map.put("form_field_rules[" + i + "]", getFromList(formFieldRules, i));
-                    }
-                } else {
-                    map.put(
-                            "form_field_rules",
-                            JSON.getDefault().getMapper().writeValueAsString(formFieldRules));
-                }
-            }
-            if (mergeFields != null) {
-                if (isFileTypeOrListOfFiles(mergeFields)) {
-                    fileTypeFound = true;
-                }
-
-                if (mergeFields.getClass().equals(java.io.File.class)
-                        || mergeFields.getClass().equals(Integer.class)
-                        || mergeFields.getClass().equals(String.class)
-                        || mergeFields.getClass().isEnum()) {
-                    map.put("merge_fields", mergeFields);
-                } else if (isListOfFile(mergeFields)) {
-                    for (int i = 0; i < getListSize(mergeFields); i++) {
-                        map.put("merge_fields[" + i + "]", getFromList(mergeFields, i));
-                    }
-                } else {
-                    map.put(
-                            "merge_fields",
-                            JSON.getDefault().getMapper().writeValueAsString(mergeFields));
-                }
-            }
-            if (message != null) {
-                if (isFileTypeOrListOfFiles(message)) {
-                    fileTypeFound = true;
-                }
-
-                if (message.getClass().equals(java.io.File.class)
-                        || message.getClass().equals(Integer.class)
-                        || message.getClass().equals(String.class)
-                        || message.getClass().isEnum()) {
-                    map.put("message", message);
-                } else if (isListOfFile(message)) {
-                    for (int i = 0; i < getListSize(message); i++) {
-                        map.put("message[" + i + "]", getFromList(message, i));
-                    }
-                } else {
-                    map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
-                }
-            }
-            if (metadata != null) {
-                if (isFileTypeOrListOfFiles(metadata)) {
-                    fileTypeFound = true;
-                }
-
-                if (metadata.getClass().equals(java.io.File.class)
-                        || metadata.getClass().equals(Integer.class)
-                        || metadata.getClass().equals(String.class)
-                        || metadata.getClass().isEnum()) {
-                    map.put("metadata", metadata);
-                } else if (isListOfFile(metadata)) {
-                    for (int i = 0; i < getListSize(metadata); i++) {
-                        map.put("metadata[" + i + "]", getFromList(metadata, i));
-                    }
-                } else {
-                    map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
-                }
-            }
-            if (subject != null) {
-                if (isFileTypeOrListOfFiles(subject)) {
-                    fileTypeFound = true;
-                }
-
-                if (subject.getClass().equals(java.io.File.class)
-                        || subject.getClass().equals(Integer.class)
-                        || subject.getClass().equals(String.class)
-                        || subject.getClass().isEnum()) {
-                    map.put("subject", subject);
-                } else if (isListOfFile(subject)) {
-                    for (int i = 0; i < getListSize(subject); i++) {
-                        map.put("subject[" + i + "]", getFromList(subject, i));
-                    }
-                } else {
-                    map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
-                }
-            }
-            if (testMode != null) {
-                if (isFileTypeOrListOfFiles(testMode)) {
-                    fileTypeFound = true;
-                }
-
-                if (testMode.getClass().equals(java.io.File.class)
-                        || testMode.getClass().equals(Integer.class)
-                        || testMode.getClass().equals(String.class)
-                        || testMode.getClass().isEnum()) {
-                    map.put("test_mode", testMode);
-                } else if (isListOfFile(testMode)) {
-                    for (int i = 0; i < getListSize(testMode); i++) {
-                        map.put("test_mode[" + i + "]", getFromList(testMode, i));
-                    }
-                } else {
-                    map.put(
-                            "test_mode",
-                            JSON.getDefault().getMapper().writeValueAsString(testMode));
-                }
-            }
-            if (title != null) {
-                if (isFileTypeOrListOfFiles(title)) {
-                    fileTypeFound = true;
-                }
-
-                if (title.getClass().equals(java.io.File.class)
-                        || title.getClass().equals(Integer.class)
-                        || title.getClass().equals(String.class)
-                        || title.getClass().isEnum()) {
-                    map.put("title", title);
-                } else if (isListOfFile(title)) {
-                    for (int i = 0; i < getListSize(title); i++) {
-                        map.put("title[" + i + "]", getFromList(title, i));
-                    }
-                } else {
-                    map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
-                }
-            }
-            if (usePreexistingFields != null) {
-                if (isFileTypeOrListOfFiles(usePreexistingFields)) {
-                    fileTypeFound = true;
-                }
-
-                if (usePreexistingFields.getClass().equals(java.io.File.class)
-                        || usePreexistingFields.getClass().equals(Integer.class)
-                        || usePreexistingFields.getClass().equals(String.class)
-                        || usePreexistingFields.getClass().isEnum()) {
-                    map.put("use_preexisting_fields", usePreexistingFields);
-                } else if (isListOfFile(usePreexistingFields)) {
-                    for (int i = 0; i < getListSize(usePreexistingFields); i++) {
-                        map.put(
-                                "use_preexisting_fields[" + i + "]",
-                                getFromList(usePreexistingFields, i));
-                    }
-                } else {
-                    map.put(
-                            "use_preexisting_fields",
-                            JSON.getDefault().getMapper().writeValueAsString(usePreexistingFields));
-                }
-            }
-        } catch (Exception e) {
-            throw new ApiException(e);
+  public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
+  @javax.annotation.Nonnull
+  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
+  @javax.annotation.Nonnull
+  private List<SubTemplateRole> signerRoles = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_FILES = "files";
+  @javax.annotation.Nullable
+  private List<File> files = null;
+
+  public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  @javax.annotation.Nullable
+  private List<String> fileUrls = null;
+
+  public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
+  @javax.annotation.Nullable
+  private Boolean allowReassign = false;
+
+  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
+  @javax.annotation.Nullable
+  private Boolean allowFormView = false;
+
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @javax.annotation.Nullable
+  private List<SubAttachment> attachments = null;
+
+  public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
+  @javax.annotation.Nullable
+  private List<String> ccRoles = null;
+
+  public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @javax.annotation.Nullable
+  private String clientId;
+
+  public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
+  @javax.annotation.Nullable
+  private SubFieldOptions fieldOptions;
+
+  public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
+  @javax.annotation.Nullable
+  private List<SubFormFieldGroup> formFieldGroups = null;
+
+  public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
+  @javax.annotation.Nullable
+  private List<SubFormFieldRule> formFieldRules = null;
+
+  public static final String JSON_PROPERTY_MERGE_FIELDS = "merge_fields";
+  @javax.annotation.Nullable
+  private List<SubMergeField> mergeFields = null;
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  @javax.annotation.Nullable
+  private String message;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  @javax.annotation.Nullable
+  private Map<String, Object> metadata = null;
+
+  public static final String JSON_PROPERTY_SUBJECT = "subject";
+  @javax.annotation.Nullable
+  private String subject;
+
+  public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+  @javax.annotation.Nullable
+  private Boolean testMode = false;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
+  private String title;
+
+  public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
+  @javax.annotation.Nullable
+  private Boolean usePreexistingFields = false;
+
+  public TemplateCreateRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateCreateRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateCreateRequest.class);
+  }
+
+  static public TemplateCreateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateCreateRequest.class
+    );
+  }
+
+  public TemplateCreateRequest formFieldsPerDocument(@javax.annotation.Nonnull List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+    this.formFieldsPerDocument = formFieldsPerDocument;
+    return this;
+  }
+
+  public TemplateCreateRequest addFormFieldsPerDocumentItem(SubFormFieldsPerDocumentBase formFieldsPerDocumentItem) {
+    if (this.formFieldsPerDocument == null) {
+      this.formFieldsPerDocument = new ArrayList<>();
+    }
+    this.formFieldsPerDocument.add(formFieldsPerDocumentItem);
+    return this;
+  }
+
+  /**
+   * The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
+   * @return formFieldsPerDocument
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<SubFormFieldsPerDocumentBase> getFormFieldsPerDocument() {
+    return formFieldsPerDocument;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setFormFieldsPerDocument(@javax.annotation.Nonnull List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+    this.formFieldsPerDocument = formFieldsPerDocument;
+  }
+
+
+  public TemplateCreateRequest signerRoles(@javax.annotation.Nonnull List<SubTemplateRole> signerRoles) {
+    this.signerRoles = signerRoles;
+    return this;
+  }
+
+  public TemplateCreateRequest addSignerRolesItem(SubTemplateRole signerRolesItem) {
+    if (this.signerRoles == null) {
+      this.signerRoles = new ArrayList<>();
+    }
+    this.signerRoles.add(signerRolesItem);
+    return this;
+  }
+
+  /**
+   * An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+   * @return signerRoles
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<SubTemplateRole> getSignerRoles() {
+    return signerRoles;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSignerRoles(@javax.annotation.Nonnull List<SubTemplateRole> signerRoles) {
+    this.signerRoles = signerRoles;
+  }
+
+
+  public TemplateCreateRequest files(@javax.annotation.Nullable List<File> files) {
+    this.files = files;
+    return this;
+  }
+
+  public TemplateCreateRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
+    }
+    this.files.add(filesItem);
+    return this;
+  }
+
+  /**
+   * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+   * @return files
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<File> getFiles() {
+    return files;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFiles(@javax.annotation.Nullable List<File> files) {
+    this.files = files;
+  }
+
+
+  public TemplateCreateRequest fileUrls(@javax.annotation.Nullable List<String> fileUrls) {
+    this.fileUrls = fileUrls;
+    return this;
+  }
+
+  public TemplateCreateRequest addFileUrlsItem(String fileUrlsItem) {
+    if (this.fileUrls == null) {
+      this.fileUrls = new ArrayList<>();
+    }
+    this.fileUrls.add(fileUrlsItem);
+    return this;
+  }
+
+  /**
+   * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+   * @return fileUrls
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getFileUrls() {
+    return fileUrls;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
+    this.fileUrls = fileUrls;
+  }
+
+
+  public TemplateCreateRequest allowReassign(@javax.annotation.Nullable Boolean allowReassign) {
+    this.allowReassign = allowReassign;
+    return this;
+  }
+
+  /**
+   * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
+   * @return allowReassign
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowReassign() {
+    return allowReassign;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowReassign(@javax.annotation.Nullable Boolean allowReassign) {
+    this.allowReassign = allowReassign;
+  }
+
+
+  public TemplateCreateRequest allowFormView(@javax.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
+    return this;
+  }
+
+  /**
+   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+   * @return allowFormView
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowFormView() {
+    return allowFormView;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowFormView(@javax.annotation.Nullable Boolean allowFormView) {
+    this.allowFormView = allowFormView;
+  }
+
+
+  public TemplateCreateRequest attachments(@javax.annotation.Nullable List<SubAttachment> attachments) {
+    this.attachments = attachments;
+    return this;
+  }
+
+  public TemplateCreateRequest addAttachmentsItem(SubAttachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+  /**
+   * A list describing the attachments
+   * @return attachments
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubAttachment> getAttachments() {
+    return attachments;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAttachments(@javax.annotation.Nullable List<SubAttachment> attachments) {
+    this.attachments = attachments;
+  }
+
+
+  public TemplateCreateRequest ccRoles(@javax.annotation.Nullable List<String> ccRoles) {
+    this.ccRoles = ccRoles;
+    return this;
+  }
+
+  public TemplateCreateRequest addCcRolesItem(String ccRolesItem) {
+    if (this.ccRoles == null) {
+      this.ccRoles = new ArrayList<>();
+    }
+    this.ccRoles.add(ccRolesItem);
+    return this;
+  }
+
+  /**
+   * The CC roles that must be assigned when using the template to send a signature request
+   * @return ccRoles
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CC_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getCcRoles() {
+    return ccRoles;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CC_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCcRoles(@javax.annotation.Nullable List<String> ccRoles) {
+    this.ccRoles = ccRoles;
+  }
+
+
+  public TemplateCreateRequest clientId(@javax.annotation.Nullable String clientId) {
+    this.clientId = clientId;
+    return this;
+  }
+
+  /**
+   * Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app.
+   * @return clientId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getClientId() {
+    return clientId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setClientId(@javax.annotation.Nullable String clientId) {
+    this.clientId = clientId;
+  }
+
+
+  public TemplateCreateRequest fieldOptions(@javax.annotation.Nullable SubFieldOptions fieldOptions) {
+    this.fieldOptions = fieldOptions;
+    return this;
+  }
+
+  /**
+   * Get fieldOptions
+   * @return fieldOptions
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubFieldOptions getFieldOptions() {
+    return fieldOptions;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFieldOptions(@javax.annotation.Nullable SubFieldOptions fieldOptions) {
+    this.fieldOptions = fieldOptions;
+  }
+
+
+  public TemplateCreateRequest formFieldGroups(@javax.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
+    this.formFieldGroups = formFieldGroups;
+    return this;
+  }
+
+  public TemplateCreateRequest addFormFieldGroupsItem(SubFormFieldGroup formFieldGroupsItem) {
+    if (this.formFieldGroups == null) {
+      this.formFieldGroups = new ArrayList<>();
+    }
+    this.formFieldGroups.add(formFieldGroupsItem);
+    return this;
+  }
+
+  /**
+   * Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;.
+   * @return formFieldGroups
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubFormFieldGroup> getFormFieldGroups() {
+    return formFieldGroups;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFieldGroups(@javax.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
+    this.formFieldGroups = formFieldGroups;
+  }
+
+
+  public TemplateCreateRequest formFieldRules(@javax.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
+    this.formFieldRules = formFieldRules;
+    return this;
+  }
+
+  public TemplateCreateRequest addFormFieldRulesItem(SubFormFieldRule formFieldRulesItem) {
+    if (this.formFieldRules == null) {
+      this.formFieldRules = new ArrayList<>();
+    }
+    this.formFieldRules.add(formFieldRulesItem);
+    return this;
+  }
+
+  /**
+   * Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.
+   * @return formFieldRules
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubFormFieldRule> getFormFieldRules() {
+    return formFieldRules;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFieldRules(@javax.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
+    this.formFieldRules = formFieldRules;
+  }
+
+
+  public TemplateCreateRequest mergeFields(@javax.annotation.Nullable List<SubMergeField> mergeFields) {
+    this.mergeFields = mergeFields;
+    return this;
+  }
+
+  public TemplateCreateRequest addMergeFieldsItem(SubMergeField mergeFieldsItem) {
+    if (this.mergeFields == null) {
+      this.mergeFields = new ArrayList<>();
+    }
+    this.mergeFields.add(mergeFieldsItem);
+    return this;
+  }
+
+  /**
+   * Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the &#x60;custom_fields&#x60; parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
+   * @return mergeFields
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubMergeField> getMergeFields() {
+    return mergeFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMergeFields(@javax.annotation.Nullable List<SubMergeField> mergeFields) {
+    this.mergeFields = mergeFields;
+  }
+
+
+  public TemplateCreateRequest message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * The default template email message.
+   * @return message
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMessage() {
+    return message;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
+  }
+
+
+  public TemplateCreateRequest metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public TemplateCreateRequest putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
+    return this;
+  }
+
+  /**
+   * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, Object> getMetadata() {
+    return metadata;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    this.metadata = metadata;
+  }
+
+
+  public TemplateCreateRequest subject(@javax.annotation.Nullable String subject) {
+    this.subject = subject;
+    return this;
+  }
+
+  /**
+   * The template title (alias).
+   * @return subject
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSubject() {
+    return subject;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubject(@javax.annotation.Nullable String subject) {
+    this.subject = subject;
+  }
+
+
+  public TemplateCreateRequest testMode(@javax.annotation.Nullable Boolean testMode) {
+    this.testMode = testMode;
+    return this;
+  }
+
+  /**
+   * Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+   * @return testMode
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getTestMode() {
+    return testMode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
+    this.testMode = testMode;
+  }
+
+
+  public TemplateCreateRequest title(@javax.annotation.Nullable String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * The title you want to assign to the SignatureRequest.
+   * @return title
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = title;
+  }
+
+
+  public TemplateCreateRequest usePreexistingFields(@javax.annotation.Nullable Boolean usePreexistingFields) {
+    this.usePreexistingFields = usePreexistingFields;
+    return this;
+  }
+
+  /**
+   * Enable the detection of predefined PDF fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;).
+   * @return usePreexistingFields
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getUsePreexistingFields() {
+    return usePreexistingFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUsePreexistingFields(@javax.annotation.Nullable Boolean usePreexistingFields) {
+    this.usePreexistingFields = usePreexistingFields;
+  }
+
+
+  /**
+   * Return true if this TemplateCreateRequest object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    TemplateCreateRequest templateCreateRequest = (TemplateCreateRequest) o;
+    return Objects.equals(this.formFieldsPerDocument, templateCreateRequest.formFieldsPerDocument) &&
+        Objects.equals(this.signerRoles, templateCreateRequest.signerRoles) &&
+        Objects.equals(this.files, templateCreateRequest.files) &&
+        Objects.equals(this.fileUrls, templateCreateRequest.fileUrls) &&
+        Objects.equals(this.allowReassign, templateCreateRequest.allowReassign) &&
+        Objects.equals(this.allowFormView, templateCreateRequest.allowFormView) &&
+        Objects.equals(this.attachments, templateCreateRequest.attachments) &&
+        Objects.equals(this.ccRoles, templateCreateRequest.ccRoles) &&
+        Objects.equals(this.clientId, templateCreateRequest.clientId) &&
+        Objects.equals(this.fieldOptions, templateCreateRequest.fieldOptions) &&
+        Objects.equals(this.formFieldGroups, templateCreateRequest.formFieldGroups) &&
+        Objects.equals(this.formFieldRules, templateCreateRequest.formFieldRules) &&
+        Objects.equals(this.mergeFields, templateCreateRequest.mergeFields) &&
+        Objects.equals(this.message, templateCreateRequest.message) &&
+        Objects.equals(this.metadata, templateCreateRequest.metadata) &&
+        Objects.equals(this.subject, templateCreateRequest.subject) &&
+        Objects.equals(this.testMode, templateCreateRequest.testMode) &&
+        Objects.equals(this.title, templateCreateRequest.title) &&
+        Objects.equals(this.usePreexistingFields, templateCreateRequest.usePreexistingFields);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(formFieldsPerDocument, signerRoles, files, fileUrls, allowReassign, allowFormView, attachments, ccRoles, clientId, fieldOptions, formFieldGroups, formFieldRules, mergeFields, message, metadata, subject, testMode, title, usePreexistingFields);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TemplateCreateRequest {\n");
+    sb.append("    formFieldsPerDocument: ").append(toIndentedString(formFieldsPerDocument)).append("\n");
+    sb.append("    signerRoles: ").append(toIndentedString(signerRoles)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
+    sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
+    sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
+    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    fieldOptions: ").append(toIndentedString(fieldOptions)).append("\n");
+    sb.append("    formFieldGroups: ").append(toIndentedString(formFieldGroups)).append("\n");
+    sb.append("    formFieldRules: ").append(toIndentedString(formFieldRules)).append("\n");
+    sb.append("    mergeFields: ").append(toIndentedString(mergeFields)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    usePreexistingFields: ").append(toIndentedString(usePreexistingFields)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    try {
+    if (formFieldsPerDocument != null) {
+        if (isFileTypeOrListOfFiles(formFieldsPerDocument)) {
+            fileTypeFound = true;
         }
 
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        if (formFieldsPerDocument.getClass().equals(java.io.File.class) ||
+            formFieldsPerDocument.getClass().equals(Integer.class) ||
+            formFieldsPerDocument.getClass().equals(String.class) ||
+            formFieldsPerDocument.getClass().isEnum()) {
+            map.put("form_fields_per_document", formFieldsPerDocument);
+        } else if (isListOfFile(formFieldsPerDocument)) {
+            for(int i = 0; i< getListSize(formFieldsPerDocument); i++) {
+                map.put("form_fields_per_document[" + i + "]", getFromList(formFieldsPerDocument, i));
+            }
         }
-        return o.toString().replace("\n", "\n    ");
+        else {
+            map.put("form_fields_per_document", JSON.getDefault().getMapper().writeValueAsString(formFieldsPerDocument));
+        }
     }
+    if (signerRoles != null) {
+        if (isFileTypeOrListOfFiles(signerRoles)) {
+            fileTypeFound = true;
+        }
+
+        if (signerRoles.getClass().equals(java.io.File.class) ||
+            signerRoles.getClass().equals(Integer.class) ||
+            signerRoles.getClass().equals(String.class) ||
+            signerRoles.getClass().isEnum()) {
+            map.put("signer_roles", signerRoles);
+        } else if (isListOfFile(signerRoles)) {
+            for(int i = 0; i< getListSize(signerRoles); i++) {
+                map.put("signer_roles[" + i + "]", getFromList(signerRoles, i));
+            }
+        }
+        else {
+            map.put("signer_roles", JSON.getDefault().getMapper().writeValueAsString(signerRoles));
+        }
+    }
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
+            fileTypeFound = true;
+        }
+
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
+            }
+        }
+        else {
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
+        }
+    }
+    if (fileUrls != null) {
+        if (isFileTypeOrListOfFiles(fileUrls)) {
+            fileTypeFound = true;
+        }
+
+        if (fileUrls.getClass().equals(java.io.File.class) ||
+            fileUrls.getClass().equals(Integer.class) ||
+            fileUrls.getClass().equals(String.class) ||
+            fileUrls.getClass().isEnum()) {
+            map.put("file_urls", fileUrls);
+        } else if (isListOfFile(fileUrls)) {
+            for(int i = 0; i< getListSize(fileUrls); i++) {
+                map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
+            }
+        }
+        else {
+            map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
+        }
+    }
+    if (allowReassign != null) {
+        if (isFileTypeOrListOfFiles(allowReassign)) {
+            fileTypeFound = true;
+        }
+
+        if (allowReassign.getClass().equals(java.io.File.class) ||
+            allowReassign.getClass().equals(Integer.class) ||
+            allowReassign.getClass().equals(String.class) ||
+            allowReassign.getClass().isEnum()) {
+            map.put("allow_reassign", allowReassign);
+        } else if (isListOfFile(allowReassign)) {
+            for(int i = 0; i< getListSize(allowReassign); i++) {
+                map.put("allow_reassign[" + i + "]", getFromList(allowReassign, i));
+            }
+        }
+        else {
+            map.put("allow_reassign", JSON.getDefault().getMapper().writeValueAsString(allowReassign));
+        }
+    }
+    if (allowFormView != null) {
+        if (isFileTypeOrListOfFiles(allowFormView)) {
+            fileTypeFound = true;
+        }
+
+        if (allowFormView.getClass().equals(java.io.File.class) ||
+            allowFormView.getClass().equals(Integer.class) ||
+            allowFormView.getClass().equals(String.class) ||
+            allowFormView.getClass().isEnum()) {
+            map.put("allow_form_view", allowFormView);
+        } else if (isListOfFile(allowFormView)) {
+            for(int i = 0; i< getListSize(allowFormView); i++) {
+                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
+            }
+        }
+        else {
+            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
+        }
+    }
+    if (attachments != null) {
+        if (isFileTypeOrListOfFiles(attachments)) {
+            fileTypeFound = true;
+        }
+
+        if (attachments.getClass().equals(java.io.File.class) ||
+            attachments.getClass().equals(Integer.class) ||
+            attachments.getClass().equals(String.class) ||
+            attachments.getClass().isEnum()) {
+            map.put("attachments", attachments);
+        } else if (isListOfFile(attachments)) {
+            for(int i = 0; i< getListSize(attachments); i++) {
+                map.put("attachments[" + i + "]", getFromList(attachments, i));
+            }
+        }
+        else {
+            map.put("attachments", JSON.getDefault().getMapper().writeValueAsString(attachments));
+        }
+    }
+    if (ccRoles != null) {
+        if (isFileTypeOrListOfFiles(ccRoles)) {
+            fileTypeFound = true;
+        }
+
+        if (ccRoles.getClass().equals(java.io.File.class) ||
+            ccRoles.getClass().equals(Integer.class) ||
+            ccRoles.getClass().equals(String.class) ||
+            ccRoles.getClass().isEnum()) {
+            map.put("cc_roles", ccRoles);
+        } else if (isListOfFile(ccRoles)) {
+            for(int i = 0; i< getListSize(ccRoles); i++) {
+                map.put("cc_roles[" + i + "]", getFromList(ccRoles, i));
+            }
+        }
+        else {
+            map.put("cc_roles", JSON.getDefault().getMapper().writeValueAsString(ccRoles));
+        }
+    }
+    if (clientId != null) {
+        if (isFileTypeOrListOfFiles(clientId)) {
+            fileTypeFound = true;
+        }
+
+        if (clientId.getClass().equals(java.io.File.class) ||
+            clientId.getClass().equals(Integer.class) ||
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
+            map.put("client_id", clientId);
+        } else if (isListOfFile(clientId)) {
+            for(int i = 0; i< getListSize(clientId); i++) {
+                map.put("client_id[" + i + "]", getFromList(clientId, i));
+            }
+        }
+        else {
+            map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
+        }
+    }
+    if (fieldOptions != null) {
+        if (isFileTypeOrListOfFiles(fieldOptions)) {
+            fileTypeFound = true;
+        }
+
+        if (fieldOptions.getClass().equals(java.io.File.class) ||
+            fieldOptions.getClass().equals(Integer.class) ||
+            fieldOptions.getClass().equals(String.class) ||
+            fieldOptions.getClass().isEnum()) {
+            map.put("field_options", fieldOptions);
+        } else if (isListOfFile(fieldOptions)) {
+            for(int i = 0; i< getListSize(fieldOptions); i++) {
+                map.put("field_options[" + i + "]", getFromList(fieldOptions, i));
+            }
+        }
+        else {
+            map.put("field_options", JSON.getDefault().getMapper().writeValueAsString(fieldOptions));
+        }
+    }
+    if (formFieldGroups != null) {
+        if (isFileTypeOrListOfFiles(formFieldGroups)) {
+            fileTypeFound = true;
+        }
+
+        if (formFieldGroups.getClass().equals(java.io.File.class) ||
+            formFieldGroups.getClass().equals(Integer.class) ||
+            formFieldGroups.getClass().equals(String.class) ||
+            formFieldGroups.getClass().isEnum()) {
+            map.put("form_field_groups", formFieldGroups);
+        } else if (isListOfFile(formFieldGroups)) {
+            for(int i = 0; i< getListSize(formFieldGroups); i++) {
+                map.put("form_field_groups[" + i + "]", getFromList(formFieldGroups, i));
+            }
+        }
+        else {
+            map.put("form_field_groups", JSON.getDefault().getMapper().writeValueAsString(formFieldGroups));
+        }
+    }
+    if (formFieldRules != null) {
+        if (isFileTypeOrListOfFiles(formFieldRules)) {
+            fileTypeFound = true;
+        }
+
+        if (formFieldRules.getClass().equals(java.io.File.class) ||
+            formFieldRules.getClass().equals(Integer.class) ||
+            formFieldRules.getClass().equals(String.class) ||
+            formFieldRules.getClass().isEnum()) {
+            map.put("form_field_rules", formFieldRules);
+        } else if (isListOfFile(formFieldRules)) {
+            for(int i = 0; i< getListSize(formFieldRules); i++) {
+                map.put("form_field_rules[" + i + "]", getFromList(formFieldRules, i));
+            }
+        }
+        else {
+            map.put("form_field_rules", JSON.getDefault().getMapper().writeValueAsString(formFieldRules));
+        }
+    }
+    if (mergeFields != null) {
+        if (isFileTypeOrListOfFiles(mergeFields)) {
+            fileTypeFound = true;
+        }
+
+        if (mergeFields.getClass().equals(java.io.File.class) ||
+            mergeFields.getClass().equals(Integer.class) ||
+            mergeFields.getClass().equals(String.class) ||
+            mergeFields.getClass().isEnum()) {
+            map.put("merge_fields", mergeFields);
+        } else if (isListOfFile(mergeFields)) {
+            for(int i = 0; i< getListSize(mergeFields); i++) {
+                map.put("merge_fields[" + i + "]", getFromList(mergeFields, i));
+            }
+        }
+        else {
+            map.put("merge_fields", JSON.getDefault().getMapper().writeValueAsString(mergeFields));
+        }
+    }
+    if (message != null) {
+        if (isFileTypeOrListOfFiles(message)) {
+            fileTypeFound = true;
+        }
+
+        if (message.getClass().equals(java.io.File.class) ||
+            message.getClass().equals(Integer.class) ||
+            message.getClass().equals(String.class) ||
+            message.getClass().isEnum()) {
+            map.put("message", message);
+        } else if (isListOfFile(message)) {
+            for(int i = 0; i< getListSize(message); i++) {
+                map.put("message[" + i + "]", getFromList(message, i));
+            }
+        }
+        else {
+            map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
+        }
+    }
+    if (metadata != null) {
+        if (isFileTypeOrListOfFiles(metadata)) {
+            fileTypeFound = true;
+        }
+
+        if (metadata.getClass().equals(java.io.File.class) ||
+            metadata.getClass().equals(Integer.class) ||
+            metadata.getClass().equals(String.class) ||
+            metadata.getClass().isEnum()) {
+            map.put("metadata", metadata);
+        } else if (isListOfFile(metadata)) {
+            for(int i = 0; i< getListSize(metadata); i++) {
+                map.put("metadata[" + i + "]", getFromList(metadata, i));
+            }
+        }
+        else {
+            map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
+        }
+    }
+    if (subject != null) {
+        if (isFileTypeOrListOfFiles(subject)) {
+            fileTypeFound = true;
+        }
+
+        if (subject.getClass().equals(java.io.File.class) ||
+            subject.getClass().equals(Integer.class) ||
+            subject.getClass().equals(String.class) ||
+            subject.getClass().isEnum()) {
+            map.put("subject", subject);
+        } else if (isListOfFile(subject)) {
+            for(int i = 0; i< getListSize(subject); i++) {
+                map.put("subject[" + i + "]", getFromList(subject, i));
+            }
+        }
+        else {
+            map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
+        }
+    }
+    if (testMode != null) {
+        if (isFileTypeOrListOfFiles(testMode)) {
+            fileTypeFound = true;
+        }
+
+        if (testMode.getClass().equals(java.io.File.class) ||
+            testMode.getClass().equals(Integer.class) ||
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
+            map.put("test_mode", testMode);
+        } else if (isListOfFile(testMode)) {
+            for(int i = 0; i< getListSize(testMode); i++) {
+                map.put("test_mode[" + i + "]", getFromList(testMode, i));
+            }
+        }
+        else {
+            map.put("test_mode", JSON.getDefault().getMapper().writeValueAsString(testMode));
+        }
+    }
+    if (title != null) {
+        if (isFileTypeOrListOfFiles(title)) {
+            fileTypeFound = true;
+        }
+
+        if (title.getClass().equals(java.io.File.class) ||
+            title.getClass().equals(Integer.class) ||
+            title.getClass().equals(String.class) ||
+            title.getClass().isEnum()) {
+            map.put("title", title);
+        } else if (isListOfFile(title)) {
+            for(int i = 0; i< getListSize(title); i++) {
+                map.put("title[" + i + "]", getFromList(title, i));
+            }
+        }
+        else {
+            map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
+        }
+    }
+    if (usePreexistingFields != null) {
+        if (isFileTypeOrListOfFiles(usePreexistingFields)) {
+            fileTypeFound = true;
+        }
+
+        if (usePreexistingFields.getClass().equals(java.io.File.class) ||
+            usePreexistingFields.getClass().equals(Integer.class) ||
+            usePreexistingFields.getClass().equals(String.class) ||
+            usePreexistingFields.getClass().isEnum()) {
+            map.put("use_preexisting_fields", usePreexistingFields);
+        } else if (isListOfFile(usePreexistingFields)) {
+            for(int i = 0; i< getListSize(usePreexistingFields); i++) {
+                map.put("use_preexisting_fields[" + i + "]", getFromList(usePreexistingFields, i));
+            }
+        }
+        else {
+            map.put("use_preexisting_fields", JSON.getDefault().getMapper().writeValueAsString(usePreexistingFields));
+        }
+    }
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

@@ -16,12 +16,16 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.dropbox.sign.model.TemplateEditResponseTemplate;
+import com.dropbox.sign.model.WarningResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,14 +37,19 @@ import com.dropbox.sign.ApiException;
  * TemplateEditResponse
  */
 @JsonPropertyOrder({
-  TemplateEditResponse.JSON_PROPERTY_TEMPLATE_ID
+  TemplateEditResponse.JSON_PROPERTY_TEMPLATE,
+  TemplateEditResponse.JSON_PROPERTY_WARNINGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateEditResponse {
-  public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
-  @jakarta.annotation.Nonnull
-  private String templateId;
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  @jakarta.annotation.Nullable
+  private TemplateEditResponseTemplate template;
+
+  public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @jakarta.annotation.Nullable
+  private List<WarningResponse> warnings = null;
 
   public TemplateEditResponse() { 
   }
@@ -60,28 +69,61 @@ public class TemplateEditResponse {
     );
   }
 
-  public TemplateEditResponse templateId(@jakarta.annotation.Nonnull String templateId) {
-    this.templateId = templateId;
+  public TemplateEditResponse template(@jakarta.annotation.Nullable TemplateEditResponseTemplate template) {
+    this.template = template;
     return this;
   }
 
   /**
-   * The id of the Template.
-   * @return templateId
+   * Get template
+   * @return template
    */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getTemplateId() {
-    return templateId;
+  public TemplateEditResponseTemplate getTemplate() {
+    return template;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplateId(@jakarta.annotation.Nonnull String templateId) {
-    this.templateId = templateId;
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTemplate(@jakarta.annotation.Nullable TemplateEditResponseTemplate template) {
+    this.template = template;
+  }
+
+
+  public TemplateEditResponse warnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public TemplateEditResponse addWarningsItem(WarningResponse warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<>();
+    }
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+  /**
+   * A list of warnings.
+   * @return warnings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WarningResponse> getWarnings() {
+    return warnings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
+    this.warnings = warnings;
   }
 
 
@@ -97,19 +139,21 @@ public class TemplateEditResponse {
       return false;
     }
     TemplateEditResponse templateEditResponse = (TemplateEditResponse) o;
-    return Objects.equals(this.templateId, templateEditResponse.templateId);
+    return Objects.equals(this.template, templateEditResponse.template) &&
+        Objects.equals(this.warnings, templateEditResponse.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId);
+    return Objects.hash(template, warnings);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateEditResponse {\n");
-    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -118,23 +162,42 @@ public class TemplateEditResponse {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
     try {
-    if (templateId != null) {
-        if (isFileTypeOrListOfFiles(templateId)) {
+    if (template != null) {
+        if (isFileTypeOrListOfFiles(template)) {
             fileTypeFound = true;
         }
 
-        if (templateId.getClass().equals(java.io.File.class) ||
-            templateId.getClass().equals(Integer.class) ||
-            templateId.getClass().equals(String.class) ||
-            templateId.getClass().isEnum()) {
-            map.put("template_id", templateId);
-        } else if (isListOfFile(templateId)) {
-            for(int i = 0; i< getListSize(templateId); i++) {
-                map.put("template_id[" + i + "]", getFromList(templateId, i));
+        if (template.getClass().equals(java.io.File.class) ||
+            template.getClass().equals(Integer.class) ||
+            template.getClass().equals(String.class) ||
+            template.getClass().isEnum()) {
+            map.put("template", template);
+        } else if (isListOfFile(template)) {
+            for(int i = 0; i< getListSize(template); i++) {
+                map.put("template[" + i + "]", getFromList(template, i));
             }
         }
         else {
-            map.put("template_id", JSON.getDefault().getMapper().writeValueAsString(templateId));
+            map.put("template", JSON.getDefault().getMapper().writeValueAsString(template));
+        }
+    }
+    if (warnings != null) {
+        if (isFileTypeOrListOfFiles(warnings)) {
+            fileTypeFound = true;
+        }
+
+        if (warnings.getClass().equals(java.io.File.class) ||
+            warnings.getClass().equals(Integer.class) ||
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
+            map.put("warnings", warnings);
+        } else if (isListOfFile(warnings)) {
+            for(int i = 0; i< getListSize(warnings); i++) {
+                map.put("warnings[" + i + "]", getFromList(warnings, i));
+            }
+        }
+        else {
+            map.put("warnings", JSON.getDefault().getMapper().writeValueAsString(warnings));
         }
     }
     } catch (Exception e) {

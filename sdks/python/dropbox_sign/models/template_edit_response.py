@@ -18,8 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from dropbox_sign.models.template_edit_response_template import (
+    TemplateEditResponseTemplate,
+)
+from dropbox_sign.models.warning_response import WarningResponse
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
@@ -32,8 +36,11 @@ class TemplateEditResponse(BaseModel):
     TemplateEditResponse
     """  # noqa: E501
 
-    template_id: StrictStr = Field(description="The id of the Template.")
-    __properties: ClassVar[List[str]] = ["template_id"]
+    template: Optional[TemplateEditResponseTemplate] = None
+    warnings: Optional[List[WarningResponse]] = Field(
+        default=None, description="A list of warnings."
+    )
+    __properties: ClassVar[List[str]] = ["template", "warnings"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +92,16 @@ class TemplateEditResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of template
+        if self.template:
+            _dict["template"] = self.template.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in warnings (list)
+        _items = []
+        if self.warnings:
+            for _item_warnings in self.warnings:
+                if _item_warnings:
+                    _items.append(_item_warnings.to_dict())
+            _dict["warnings"] = _items
         return _dict
 
     @classmethod
@@ -96,7 +113,20 @@ class TemplateEditResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({"template_id": obj.get("template_id")})
+        _obj = cls.model_validate(
+            {
+                "template": (
+                    TemplateEditResponseTemplate.from_dict(obj["template"])
+                    if obj.get("template") is not None
+                    else None
+                ),
+                "warnings": (
+                    [WarningResponse.from_dict(_item) for _item in obj["warnings"]]
+                    if obj.get("warnings") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -112,9 +142,12 @@ class TemplateEditResponse(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "template_id": "(str,)",
+            "template": "(TemplateEditResponseTemplate,)",
+            "warnings": "(List[WarningResponse],)",
         }
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in []
+        return property_name in [
+            "warnings",
+        ]

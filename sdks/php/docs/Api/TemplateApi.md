@@ -8,6 +8,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateCreate()**](TemplateApi.md#templateCreate) | **POST** /template/create | Create Template |
 | [**templateCreateEmbeddedDraft()**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**templateDelete()**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template |
+| [**templateEdit()**](TemplateApi.md#templateEdit) | **POST** /template/edit/{template_id} | Edit Template |
 | [**templateFiles()**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files |
 | [**templateFilesAsDataUri()**](TemplateApi.md#templateFilesAsDataUri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri |
 | [**templateFilesAsFileUrl()**](TemplateApi.md#templateFilesAsFileUrl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url |
@@ -376,6 +377,45 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `templateEdit()`
+
+```php
+templateEdit($template_id, $template_edit_request): \Dropbox\Sign\Model\TemplateEditResponse
+```
+Edit Template
+
+Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### Example
+
+```php
+REPLACE_ME_WITH_EXAMPLE_FOR__templateEdit_PHP_CODE
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **string**| The ID of the template to update. | |
+| **template_edit_request** | [**\Dropbox\Sign\Model\TemplateEditRequest**](../Model/TemplateEditRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\TemplateEditResponse**](../Model/TemplateEditResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

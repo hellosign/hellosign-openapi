@@ -17,6 +17,8 @@ import com.dropbox.sign.model.TemplateCreateEmbeddedDraftRequest;
 import com.dropbox.sign.model.TemplateCreateEmbeddedDraftResponse;
 import com.dropbox.sign.model.TemplateCreateRequest;
 import com.dropbox.sign.model.TemplateCreateResponse;
+import com.dropbox.sign.model.TemplateEditRequest;
+import com.dropbox.sign.model.TemplateEditResponse;
 import com.dropbox.sign.model.TemplateGetResponse;
 import com.dropbox.sign.model.TemplateListResponse;
 import com.dropbox.sign.model.TemplateRemoveUserRequest;
@@ -319,6 +321,78 @@ public class TemplateApi {
         localVarContentType,
         localVarAuthNames,
         null,
+        false
+    );
+  }
+  /**
+   * _t__TemplateEdit::SUMMARY
+   * _t__TemplateEdit::DESCRIPTION
+   * @param templateId _t__TemplateEdit::TEMPLATE_ID (required)
+   * @param templateEditRequest  (required)
+   * @return TemplateEditResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public TemplateEditResponse templateEdit(String templateId, TemplateEditRequest templateEditRequest) throws ApiException {
+    return templateEditWithHttpInfo(templateId, templateEditRequest).getData();
+  }
+
+
+  /**
+   * _t__TemplateEdit::SUMMARY
+   * _t__TemplateEdit::DESCRIPTION
+   * @param templateId _t__TemplateEdit::TEMPLATE_ID (required)
+   * @param templateEditRequest  (required)
+   * @return ApiResponse&lt;TemplateEditResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<TemplateEditResponse> templateEditWithHttpInfo(String templateId, TemplateEditRequest templateEditRequest) throws ApiException {
+    
+    // Check required parameters
+    if (templateId == null) {
+      throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateEdit");
+    }
+    if (templateEditRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'templateEditRequest' when calling templateEdit");
+    }
+
+    // Path parameters
+    String localVarPath = "/template/edit/{template_id}"
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = templateEditRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    GenericType<TemplateEditResponse> localVarReturnType = new GenericType<TemplateEditResponse>() {};
+    return apiClient.invokeAPI(
+        "TemplateApi.templateEdit",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateEditRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
         false
     );
   }

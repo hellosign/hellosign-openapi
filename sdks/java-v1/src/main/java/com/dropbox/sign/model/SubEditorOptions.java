@@ -10,213 +10,221 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-/** This allows the requester to specify editor options when a preparing a document */
+
+import com.dropbox.sign.ApiException;
+/**
+ * This allows the requester to specify editor options when a preparing a document
+ */
 @JsonPropertyOrder({
-    SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_SIGNERS,
-    SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS
+  SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_SIGNERS,
+  SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS
 })
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SubEditorOptions {
-    public static final String JSON_PROPERTY_ALLOW_EDIT_SIGNERS = "allow_edit_signers";
-    @javax.annotation.Nullable private Boolean allowEditSigners = false;
+  public static final String JSON_PROPERTY_ALLOW_EDIT_SIGNERS = "allow_edit_signers";
+  @javax.annotation.Nullable
+  private Boolean allowEditSigners = false;
 
-    public static final String JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS = "allow_edit_documents";
-    @javax.annotation.Nullable private Boolean allowEditDocuments = false;
+  public static final String JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS = "allow_edit_documents";
+  @javax.annotation.Nullable
+  private Boolean allowEditDocuments = false;
 
-    public SubEditorOptions() {}
+  public SubEditorOptions() { 
+  }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static SubEditorOptions init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, SubEditorOptions.class);
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubEditorOptions init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubEditorOptions.class);
+  }
+
+  static public SubEditorOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubEditorOptions.class
+    );
+  }
+
+  public SubEditorOptions allowEditSigners(@javax.annotation.Nullable Boolean allowEditSigners) {
+    this.allowEditSigners = allowEditSigners;
+    return this;
+  }
+
+  /**
+   * Allows requesters to edit the list of signers
+   * @return allowEditSigners
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowEditSigners() {
+    return allowEditSigners;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowEditSigners(@javax.annotation.Nullable Boolean allowEditSigners) {
+    this.allowEditSigners = allowEditSigners;
+  }
+
+
+  public SubEditorOptions allowEditDocuments(@javax.annotation.Nullable Boolean allowEditDocuments) {
+    this.allowEditDocuments = allowEditDocuments;
+    return this;
+  }
+
+  /**
+   * Allows requesters to edit documents, including delete and add
+   * @return allowEditDocuments
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowEditDocuments() {
+    return allowEditDocuments;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowEditDocuments(@javax.annotation.Nullable Boolean allowEditDocuments) {
+    this.allowEditDocuments = allowEditDocuments;
+  }
+
+
+  /**
+   * Return true if this SubEditorOptions object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public static SubEditorOptions init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(new ObjectMapper().writeValueAsString(data), SubEditorOptions.class);
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SubEditorOptions subEditorOptions = (SubEditorOptions) o;
+    return Objects.equals(this.allowEditSigners, subEditorOptions.allowEditSigners) &&
+        Objects.equals(this.allowEditDocuments, subEditorOptions.allowEditDocuments);
+  }
 
-    public SubEditorOptions allowEditSigners(@javax.annotation.Nullable Boolean allowEditSigners) {
-        this.allowEditSigners = allowEditSigners;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(allowEditSigners, allowEditDocuments);
+  }
 
-    /**
-     * Allows requesters to edit the list of signers
-     *
-     * @return allowEditSigners
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getAllowEditSigners() {
-        return allowEditSigners;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SubEditorOptions {\n");
+    sb.append("    allowEditSigners: ").append(toIndentedString(allowEditSigners)).append("\n");
+    sb.append("    allowEditDocuments: ").append(toIndentedString(allowEditDocuments)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowEditSigners(@javax.annotation.Nullable Boolean allowEditSigners) {
-        this.allowEditSigners = allowEditSigners;
-    }
-
-    public SubEditorOptions allowEditDocuments(
-            @javax.annotation.Nullable Boolean allowEditDocuments) {
-        this.allowEditDocuments = allowEditDocuments;
-        return this;
-    }
-
-    /**
-     * Allows requesters to edit documents, including delete and add
-     *
-     * @return allowEditDocuments
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getAllowEditDocuments() {
-        return allowEditDocuments;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowEditDocuments(@javax.annotation.Nullable Boolean allowEditDocuments) {
-        this.allowEditDocuments = allowEditDocuments;
-    }
-
-    /** Return true if this SubEditorOptions object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    try {
+    if (allowEditSigners != null) {
+        if (isFileTypeOrListOfFiles(allowEditSigners)) {
+            fileTypeFound = true;
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SubEditorOptions subEditorOptions = (SubEditorOptions) o;
-        return Objects.equals(this.allowEditSigners, subEditorOptions.allowEditSigners)
-                && Objects.equals(this.allowEditDocuments, subEditorOptions.allowEditDocuments);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(allowEditSigners, allowEditDocuments);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubEditorOptions {\n");
-        sb.append("    allowEditSigners: ").append(toIndentedString(allowEditSigners)).append("\n");
-        sb.append("    allowEditDocuments: ")
-                .append(toIndentedString(allowEditDocuments))
-                .append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        try {
-            if (allowEditSigners != null) {
-                if (isFileTypeOrListOfFiles(allowEditSigners)) {
-                    fileTypeFound = true;
-                }
-
-                if (allowEditSigners.getClass().equals(java.io.File.class)
-                        || allowEditSigners.getClass().equals(Integer.class)
-                        || allowEditSigners.getClass().equals(String.class)
-                        || allowEditSigners.getClass().isEnum()) {
-                    map.put("allow_edit_signers", allowEditSigners);
-                } else if (isListOfFile(allowEditSigners)) {
-                    for (int i = 0; i < getListSize(allowEditSigners); i++) {
-                        map.put("allow_edit_signers[" + i + "]", getFromList(allowEditSigners, i));
-                    }
-                } else {
-                    map.put(
-                            "allow_edit_signers",
-                            JSON.getDefault().getMapper().writeValueAsString(allowEditSigners));
-                }
+        if (allowEditSigners.getClass().equals(java.io.File.class) ||
+            allowEditSigners.getClass().equals(Integer.class) ||
+            allowEditSigners.getClass().equals(String.class) ||
+            allowEditSigners.getClass().isEnum()) {
+            map.put("allow_edit_signers", allowEditSigners);
+        } else if (isListOfFile(allowEditSigners)) {
+            for(int i = 0; i< getListSize(allowEditSigners); i++) {
+                map.put("allow_edit_signers[" + i + "]", getFromList(allowEditSigners, i));
             }
-            if (allowEditDocuments != null) {
-                if (isFileTypeOrListOfFiles(allowEditDocuments)) {
-                    fileTypeFound = true;
-                }
+        }
+        else {
+            map.put("allow_edit_signers", JSON.getDefault().getMapper().writeValueAsString(allowEditSigners));
+        }
+    }
+    if (allowEditDocuments != null) {
+        if (isFileTypeOrListOfFiles(allowEditDocuments)) {
+            fileTypeFound = true;
+        }
 
-                if (allowEditDocuments.getClass().equals(java.io.File.class)
-                        || allowEditDocuments.getClass().equals(Integer.class)
-                        || allowEditDocuments.getClass().equals(String.class)
-                        || allowEditDocuments.getClass().isEnum()) {
-                    map.put("allow_edit_documents", allowEditDocuments);
-                } else if (isListOfFile(allowEditDocuments)) {
-                    for (int i = 0; i < getListSize(allowEditDocuments); i++) {
-                        map.put(
-                                "allow_edit_documents[" + i + "]",
-                                getFromList(allowEditDocuments, i));
-                    }
-                } else {
-                    map.put(
-                            "allow_edit_documents",
-                            JSON.getDefault().getMapper().writeValueAsString(allowEditDocuments));
-                }
+        if (allowEditDocuments.getClass().equals(java.io.File.class) ||
+            allowEditDocuments.getClass().equals(Integer.class) ||
+            allowEditDocuments.getClass().equals(String.class) ||
+            allowEditDocuments.getClass().isEnum()) {
+            map.put("allow_edit_documents", allowEditDocuments);
+        } else if (isListOfFile(allowEditDocuments)) {
+            for(int i = 0; i< getListSize(allowEditDocuments); i++) {
+                map.put("allow_edit_documents[" + i + "]", getFromList(allowEditDocuments, i));
             }
-        } catch (Exception e) {
-            throw new ApiException(e);
         }
-
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        else {
+            map.put("allow_edit_documents", JSON.getDefault().getMapper().writeValueAsString(allowEditDocuments));
         }
-        return o.toString().replace("\n", "\n    ");
     }
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

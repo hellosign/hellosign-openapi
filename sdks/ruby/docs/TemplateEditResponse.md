@@ -6,5 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `template_id`<sup>*_required_</sup> | ```String``` |  The id of the Template.  |  |
+| `template` | [```TemplateEditResponseTemplate```](TemplateEditResponseTemplate.md) |    |  |
+| `warnings` | [```Array<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
 

@@ -50,10 +50,8 @@ public class SubFormFieldRuleAction {
    */
   public enum TypeEnum {
     CHANGE_FIELD_VISIBILITY(String.valueOf("change-field-visibility")),
-    FIELD_VISIBILITY(String.valueOf("change-field-visibility")),
     
-    CHANGE_GROUP_VISIBILITY(String.valueOf("change-group-visibility")),
-    GROUP_VISIBILITY(String.valueOf("change-group-visibility"));
+    CHANGE_GROUP_VISIBILITY(String.valueOf("change-group-visibility"));
 
     private String value;
 

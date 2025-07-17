@@ -10,675 +10,648 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.dropbox.sign.model.TemplateResponseDocumentFormFieldBase;
+import com.dropbox.sign.model.TemplateResponseFieldAvgTextLength;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-/** This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60; */
+
+import com.dropbox.sign.ApiException;
+/**
+ * This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
+ */
 @JsonPropertyOrder({
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_TYPE,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_AVG_TEXT_LENGTH,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_IS_MULTILINE,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_FONT_FAMILY,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_GROUP
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_TYPE,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_AVG_TEXT_LENGTH,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_IS_MULTILINE,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_FONT_FAMILY,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_GROUP
 })
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(
-        allowSetters = true, // allows the type to be set during deserialization
-        ignoreUnknown = true)
-@JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.EXISTING_PROPERTY,
-        property = "type",
-        visible = true)
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
+
 public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentFormFieldBase {
-    public static final String JSON_PROPERTY_TYPE = "type";
-    @javax.annotation.Nonnull private String type = "text";
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
+  private String type = "text";
 
-    public static final String JSON_PROPERTY_AVG_TEXT_LENGTH = "avg_text_length";
-    @javax.annotation.Nullable private TemplateResponseFieldAvgTextLength avgTextLength;
+  public static final String JSON_PROPERTY_AVG_TEXT_LENGTH = "avg_text_length";
+  @javax.annotation.Nullable
+  private TemplateResponseFieldAvgTextLength avgTextLength;
 
-    public static final String JSON_PROPERTY_IS_MULTILINE = "isMultiline";
-    @javax.annotation.Nullable private Boolean isMultiline;
+  public static final String JSON_PROPERTY_IS_MULTILINE = "isMultiline";
+  @javax.annotation.Nullable
+  private Boolean isMultiline;
 
-    public static final String JSON_PROPERTY_ORIGINAL_FONT_SIZE = "originalFontSize";
-    @javax.annotation.Nullable private Integer originalFontSize;
+  public static final String JSON_PROPERTY_ORIGINAL_FONT_SIZE = "originalFontSize";
+  @javax.annotation.Nullable
+  private Integer originalFontSize;
 
-    public static final String JSON_PROPERTY_FONT_FAMILY = "fontFamily";
-    @javax.annotation.Nullable private String fontFamily;
+  public static final String JSON_PROPERTY_FONT_FAMILY = "fontFamily";
+  @javax.annotation.Nullable
+  private String fontFamily;
 
-    /**
-     * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of
-     * [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about
-     * the possible values.
-     */
-    public enum ValidationTypeEnum {
-        NUMBERS_ONLY(String.valueOf("numbers_only")),
+  /**
+   * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
+   */
+  public enum ValidationTypeEnum {
+    NUMBERS_ONLY(String.valueOf("numbers_only")),
+    
+    LETTERS_ONLY(String.valueOf("letters_only")),
+    
+    PHONE_NUMBER(String.valueOf("phone_number")),
+    
+    BANK_ROUTING_NUMBER(String.valueOf("bank_routing_number")),
+    
+    BANK_ACCOUNT_NUMBER(String.valueOf("bank_account_number")),
+    
+    EMAIL_ADDRESS(String.valueOf("email_address")),
+    
+    ZIP_CODE(String.valueOf("zip_code")),
+    
+    SOCIAL_SECURITY_NUMBER(String.valueOf("social_security_number")),
+    
+    EMPLOYER_IDENTIFICATION_NUMBER(String.valueOf("employer_identification_number")),
+    
+    CUSTOM_REGEX(String.valueOf("custom_regex"));
 
-        LETTERS_ONLY(String.valueOf("letters_only")),
+    private String value;
 
-        PHONE_NUMBER(String.valueOf("phone_number")),
-
-        BANK_ROUTING_NUMBER(String.valueOf("bank_routing_number")),
-
-        BANK_ACCOUNT_NUMBER(String.valueOf("bank_account_number")),
-
-        EMAIL_ADDRESS(String.valueOf("email_address")),
-
-        ZIP_CODE(String.valueOf("zip_code")),
-
-        SOCIAL_SECURITY_NUMBER(String.valueOf("social_security_number")),
-
-        EMPLOYER_IDENTIFICATION_NUMBER(String.valueOf("employer_identification_number")),
-
-        CUSTOM_REGEX(String.valueOf("custom_regex"));
-
-        private String value;
-
-        ValidationTypeEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static ValidationTypeEnum fromValue(String value) {
-            for (ValidationTypeEnum b : ValidationTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            return null;
-        }
+    ValidationTypeEnum(String value) {
+      this.value = value;
     }
 
-    public static final String JSON_PROPERTY_VALIDATION_TYPE = "validation_type";
-    @javax.annotation.Nullable private ValidationTypeEnum validationType;
-
-    public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX = "validation_custom_regex";
-    @javax.annotation.Nullable private String validationCustomRegex;
-
-    public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL =
-            "validation_custom_regex_format_label";
-    @javax.annotation.Nullable private String validationCustomRegexFormatLabel;
-
-    public static final String JSON_PROPERTY_GROUP = "group";
-    @javax.annotation.Nullable private String group;
-
-    public TemplateResponseDocumentFormFieldText() {}
-
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static TemplateResponseDocumentFormFieldText init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentFormFieldText.class);
-    }
-
-    public static TemplateResponseDocumentFormFieldText init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(
-                        new ObjectMapper().writeValueAsString(data),
-                        TemplateResponseDocumentFormFieldText.class);
-    }
-
-    public TemplateResponseDocumentFormFieldText type(@javax.annotation.Nonnull String type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * The type of this form field. See [field types](/api/reference/constants/#field-types). * Text
-     * Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses
-     * &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses
-     * &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses
-     * &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses
-     * &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses
-     * &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses
-     * &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses
-     * &#x60;TemplateResponseDocumentFormFieldInitials&#x60;
-     *
-     * @return type
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getType() {
-        return type;
-    }
-
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setType(@javax.annotation.Nonnull String type) {
-        this.type = type;
-    }
-
-    public TemplateResponseDocumentFormFieldText avgTextLength(
-            @javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
-        this.avgTextLength = avgTextLength;
-        return this;
-    }
-
-    /**
-     * Get avgTextLength
-     *
-     * @return avgTextLength
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public TemplateResponseFieldAvgTextLength getAvgTextLength() {
-        return avgTextLength;
-    }
-
-    @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAvgTextLength(
-            @javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
-        this.avgTextLength = avgTextLength;
-    }
-
-    public TemplateResponseDocumentFormFieldText isMultiline(
-            @javax.annotation.Nullable Boolean isMultiline) {
-        this.isMultiline = isMultiline;
-        return this;
-    }
-
-    /**
-     * Whether this form field is multiline text.
-     *
-     * @return isMultiline
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getIsMultiline() {
-        return isMultiline;
-    }
-
-    @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setIsMultiline(@javax.annotation.Nullable Boolean isMultiline) {
-        this.isMultiline = isMultiline;
-    }
-
-    public TemplateResponseDocumentFormFieldText originalFontSize(
-            @javax.annotation.Nullable Integer originalFontSize) {
-        this.originalFontSize = originalFontSize;
-        return this;
-    }
-
-    /**
-     * Original font size used in this form field&#39;s text.
-     *
-     * @return originalFontSize
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Integer getOriginalFontSize() {
-        return originalFontSize;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setOriginalFontSize(@javax.annotation.Nullable Integer originalFontSize) {
-        this.originalFontSize = originalFontSize;
-    }
-
-    public TemplateResponseDocumentFormFieldText fontFamily(
-            @javax.annotation.Nullable String fontFamily) {
-        this.fontFamily = fontFamily;
-        return this;
-    }
-
-    /**
-     * Font family used in this form field&#39;s text.
-     *
-     * @return fontFamily
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getFontFamily() {
-        return fontFamily;
-    }
-
-    @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setFontFamily(@javax.annotation.Nullable String fontFamily) {
-        this.fontFamily = fontFamily;
-    }
-
-    public TemplateResponseDocumentFormFieldText validationType(
-            @javax.annotation.Nullable ValidationTypeEnum validationType) {
-        this.validationType = validationType;
-        return this;
-    }
-
-    /**
-     * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of
-     * [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about
-     * the possible values.
-     *
-     * @return validationType
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public ValidationTypeEnum getValidationType() {
-        return validationType;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValidationType(@javax.annotation.Nullable ValidationTypeEnum validationType) {
-        this.validationType = validationType;
-    }
-
-    public TemplateResponseDocumentFormFieldText validationCustomRegex(
-            @javax.annotation.Nullable String validationCustomRegex) {
-        this.validationCustomRegex = validationCustomRegex;
-        return this;
-    }
-
-    /**
-     * When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the
-     * custom regular expression pattern that will be used to validate the text field.
-     *
-     * @return validationCustomRegex
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getValidationCustomRegex() {
-        return validationCustomRegex;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValidationCustomRegex(@javax.annotation.Nullable String validationCustomRegex) {
-        this.validationCustomRegex = validationCustomRegex;
-    }
-
-    public TemplateResponseDocumentFormFieldText validationCustomRegexFormatLabel(
-            @javax.annotation.Nullable String validationCustomRegexFormatLabel) {
-        this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
-        return this;
-    }
-
-    /**
-     * When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error
-     * message displayed to the signer when the text does not match the provided regex pattern.
-     *
-     * @return validationCustomRegexFormatLabel
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getValidationCustomRegexFormatLabel() {
-        return validationCustomRegexFormatLabel;
-    }
-
-    @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setValidationCustomRegexFormatLabel(
-            @javax.annotation.Nullable String validationCustomRegexFormatLabel) {
-        this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
-    }
-
-    public TemplateResponseDocumentFormFieldText group(@javax.annotation.Nullable String group) {
-        this.group = group;
-        return this;
-    }
-
-    /**
-     * The name of the group this field is in. If this field is not a group, this defaults to
-     * &#x60;null&#x60; except for Radio fields.
-     *
-     * @return group
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_GROUP)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getGroup() {
-        return group;
-    }
-
-    @JsonProperty(JSON_PROPERTY_GROUP)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setGroup(@javax.annotation.Nullable String group) {
-        this.group = group;
-    }
-
-    /** Return true if this TemplateResponseDocumentFormFieldText object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TemplateResponseDocumentFormFieldText templateResponseDocumentFormFieldText =
-                (TemplateResponseDocumentFormFieldText) o;
-        return Objects.equals(this.type, templateResponseDocumentFormFieldText.type)
-                && Objects.equals(
-                        this.avgTextLength, templateResponseDocumentFormFieldText.avgTextLength)
-                && Objects.equals(
-                        this.isMultiline, templateResponseDocumentFormFieldText.isMultiline)
-                && Objects.equals(
-                        this.originalFontSize,
-                        templateResponseDocumentFormFieldText.originalFontSize)
-                && Objects.equals(this.fontFamily, templateResponseDocumentFormFieldText.fontFamily)
-                && Objects.equals(
-                        this.validationType, templateResponseDocumentFormFieldText.validationType)
-                && Objects.equals(
-                        this.validationCustomRegex,
-                        templateResponseDocumentFormFieldText.validationCustomRegex)
-                && Objects.equals(
-                        this.validationCustomRegexFormatLabel,
-                        templateResponseDocumentFormFieldText.validationCustomRegexFormatLabel)
-                && Objects.equals(this.group, templateResponseDocumentFormFieldText.group)
-                && super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(
-                type,
-                avgTextLength,
-                isMultiline,
-                originalFontSize,
-                fontFamily,
-                validationType,
-                validationCustomRegex,
-                validationCustomRegexFormatLabel,
-                group,
-                super.hashCode());
+    @JsonValue
+    public String getValue() {
+      return value;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TemplateResponseDocumentFormFieldText {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    avgTextLength: ").append(toIndentedString(avgTextLength)).append("\n");
-        sb.append("    isMultiline: ").append(toIndentedString(isMultiline)).append("\n");
-        sb.append("    originalFontSize: ").append(toIndentedString(originalFontSize)).append("\n");
-        sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
-        sb.append("    validationType: ").append(toIndentedString(validationType)).append("\n");
-        sb.append("    validationCustomRegex: ")
-                .append(toIndentedString(validationCustomRegex))
-                .append("\n");
-        sb.append("    validationCustomRegexFormatLabel: ")
-                .append(toIndentedString(validationCustomRegexFormatLabel))
-                .append("\n");
-        sb.append("    group: ").append(toIndentedString(group)).append("\n");
-        sb.append("}");
-        return sb.toString();
+      return String.valueOf(value);
     }
 
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        map.putAll(super.createFormData());
-        try {
-            if (type != null) {
-                if (isFileTypeOrListOfFiles(type)) {
-                    fileTypeFound = true;
-                }
+    @JsonCreator
+    public static ValidationTypeEnum fromValue(String value) {
+      for (ValidationTypeEnum b : ValidationTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
 
-                if (type.getClass().equals(java.io.File.class)
-                        || type.getClass().equals(Integer.class)
-                        || type.getClass().equals(String.class)
-                        || type.getClass().isEnum()) {
-                    map.put("type", type);
-                } else if (isListOfFile(type)) {
-                    for (int i = 0; i < getListSize(type); i++) {
-                        map.put("type[" + i + "]", getFromList(type, i));
-                    }
-                } else {
-                    map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
-                }
-            }
-            if (avgTextLength != null) {
-                if (isFileTypeOrListOfFiles(avgTextLength)) {
-                    fileTypeFound = true;
-                }
+  public static final String JSON_PROPERTY_VALIDATION_TYPE = "validation_type";
+  @javax.annotation.Nullable
+  private ValidationTypeEnum validationType;
 
-                if (avgTextLength.getClass().equals(java.io.File.class)
-                        || avgTextLength.getClass().equals(Integer.class)
-                        || avgTextLength.getClass().equals(String.class)
-                        || avgTextLength.getClass().isEnum()) {
-                    map.put("avg_text_length", avgTextLength);
-                } else if (isListOfFile(avgTextLength)) {
-                    for (int i = 0; i < getListSize(avgTextLength); i++) {
-                        map.put("avg_text_length[" + i + "]", getFromList(avgTextLength, i));
-                    }
-                } else {
-                    map.put(
-                            "avg_text_length",
-                            JSON.getDefault().getMapper().writeValueAsString(avgTextLength));
-                }
-            }
-            if (isMultiline != null) {
-                if (isFileTypeOrListOfFiles(isMultiline)) {
-                    fileTypeFound = true;
-                }
+  public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX = "validation_custom_regex";
+  @javax.annotation.Nullable
+  private String validationCustomRegex;
 
-                if (isMultiline.getClass().equals(java.io.File.class)
-                        || isMultiline.getClass().equals(Integer.class)
-                        || isMultiline.getClass().equals(String.class)
-                        || isMultiline.getClass().isEnum()) {
-                    map.put("isMultiline", isMultiline);
-                } else if (isListOfFile(isMultiline)) {
-                    for (int i = 0; i < getListSize(isMultiline); i++) {
-                        map.put("isMultiline[" + i + "]", getFromList(isMultiline, i));
-                    }
-                } else {
-                    map.put(
-                            "isMultiline",
-                            JSON.getDefault().getMapper().writeValueAsString(isMultiline));
-                }
-            }
-            if (originalFontSize != null) {
-                if (isFileTypeOrListOfFiles(originalFontSize)) {
-                    fileTypeFound = true;
-                }
+  public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL = "validation_custom_regex_format_label";
+  @javax.annotation.Nullable
+  private String validationCustomRegexFormatLabel;
 
-                if (originalFontSize.getClass().equals(java.io.File.class)
-                        || originalFontSize.getClass().equals(Integer.class)
-                        || originalFontSize.getClass().equals(String.class)
-                        || originalFontSize.getClass().isEnum()) {
-                    map.put("originalFontSize", originalFontSize);
-                } else if (isListOfFile(originalFontSize)) {
-                    for (int i = 0; i < getListSize(originalFontSize); i++) {
-                        map.put("originalFontSize[" + i + "]", getFromList(originalFontSize, i));
-                    }
-                } else {
-                    map.put(
-                            "originalFontSize",
-                            JSON.getDefault().getMapper().writeValueAsString(originalFontSize));
-                }
-            }
-            if (fontFamily != null) {
-                if (isFileTypeOrListOfFiles(fontFamily)) {
-                    fileTypeFound = true;
-                }
+  public static final String JSON_PROPERTY_GROUP = "group";
+  @javax.annotation.Nullable
+  private String group;
 
-                if (fontFamily.getClass().equals(java.io.File.class)
-                        || fontFamily.getClass().equals(Integer.class)
-                        || fontFamily.getClass().equals(String.class)
-                        || fontFamily.getClass().isEnum()) {
-                    map.put("fontFamily", fontFamily);
-                } else if (isListOfFile(fontFamily)) {
-                    for (int i = 0; i < getListSize(fontFamily); i++) {
-                        map.put("fontFamily[" + i + "]", getFromList(fontFamily, i));
-                    }
-                } else {
-                    map.put(
-                            "fontFamily",
-                            JSON.getDefault().getMapper().writeValueAsString(fontFamily));
-                }
-            }
-            if (validationType != null) {
-                if (isFileTypeOrListOfFiles(validationType)) {
-                    fileTypeFound = true;
-                }
+  public TemplateResponseDocumentFormFieldText() { 
+  }
 
-                if (validationType.getClass().equals(java.io.File.class)
-                        || validationType.getClass().equals(Integer.class)
-                        || validationType.getClass().equals(String.class)
-                        || validationType.getClass().isEnum()) {
-                    map.put("validation_type", validationType);
-                } else if (isListOfFile(validationType)) {
-                    for (int i = 0; i < getListSize(validationType); i++) {
-                        map.put("validation_type[" + i + "]", getFromList(validationType, i));
-                    }
-                } else {
-                    map.put(
-                            "validation_type",
-                            JSON.getDefault().getMapper().writeValueAsString(validationType));
-                }
-            }
-            if (validationCustomRegex != null) {
-                if (isFileTypeOrListOfFiles(validationCustomRegex)) {
-                    fileTypeFound = true;
-                }
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateResponseDocumentFormFieldText init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentFormFieldText.class);
+  }
 
-                if (validationCustomRegex.getClass().equals(java.io.File.class)
-                        || validationCustomRegex.getClass().equals(Integer.class)
-                        || validationCustomRegex.getClass().equals(String.class)
-                        || validationCustomRegex.getClass().isEnum()) {
-                    map.put("validation_custom_regex", validationCustomRegex);
-                } else if (isListOfFile(validationCustomRegex)) {
-                    for (int i = 0; i < getListSize(validationCustomRegex); i++) {
-                        map.put(
-                                "validation_custom_regex[" + i + "]",
-                                getFromList(validationCustomRegex, i));
-                    }
-                } else {
-                    map.put(
-                            "validation_custom_regex",
-                            JSON.getDefault()
-                                    .getMapper()
-                                    .writeValueAsString(validationCustomRegex));
-                }
-            }
-            if (validationCustomRegexFormatLabel != null) {
-                if (isFileTypeOrListOfFiles(validationCustomRegexFormatLabel)) {
-                    fileTypeFound = true;
-                }
+  static public TemplateResponseDocumentFormFieldText init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseDocumentFormFieldText.class
+    );
+  }
 
-                if (validationCustomRegexFormatLabel.getClass().equals(java.io.File.class)
-                        || validationCustomRegexFormatLabel.getClass().equals(Integer.class)
-                        || validationCustomRegexFormatLabel.getClass().equals(String.class)
-                        || validationCustomRegexFormatLabel.getClass().isEnum()) {
-                    map.put(
-                            "validation_custom_regex_format_label",
-                            validationCustomRegexFormatLabel);
-                } else if (isListOfFile(validationCustomRegexFormatLabel)) {
-                    for (int i = 0; i < getListSize(validationCustomRegexFormatLabel); i++) {
-                        map.put(
-                                "validation_custom_regex_format_label[" + i + "]",
-                                getFromList(validationCustomRegexFormatLabel, i));
-                    }
-                } else {
-                    map.put(
-                            "validation_custom_regex_format_label",
-                            JSON.getDefault()
-                                    .getMapper()
-                                    .writeValueAsString(validationCustomRegexFormatLabel));
-                }
-            }
-            if (group != null) {
-                if (isFileTypeOrListOfFiles(group)) {
-                    fileTypeFound = true;
-                }
+  public TemplateResponseDocumentFormFieldText type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
 
-                if (group.getClass().equals(java.io.File.class)
-                        || group.getClass().equals(Integer.class)
-                        || group.getClass().equals(String.class)
-                        || group.getClass().isEnum()) {
-                    map.put("group", group);
-                } else if (isListOfFile(group)) {
-                    for (int i = 0; i < getListSize(group); i++) {
-                        map.put("group[" + i + "]", getFromList(group, i));
-                    }
-                } else {
-                    map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
-                }
-            }
-        } catch (Exception e) {
-            throw new ApiException(e);
+  /**
+   * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60;
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getType() {
+    return type;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText avgTextLength(@javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
+    this.avgTextLength = avgTextLength;
+    return this;
+  }
+
+  /**
+   * Get avgTextLength
+   * @return avgTextLength
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TemplateResponseFieldAvgTextLength getAvgTextLength() {
+    return avgTextLength;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAvgTextLength(@javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
+    this.avgTextLength = avgTextLength;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText isMultiline(@javax.annotation.Nullable Boolean isMultiline) {
+    this.isMultiline = isMultiline;
+    return this;
+  }
+
+  /**
+   * Whether this form field is multiline text.
+   * @return isMultiline
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsMultiline() {
+    return isMultiline;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsMultiline(@javax.annotation.Nullable Boolean isMultiline) {
+    this.isMultiline = isMultiline;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText originalFontSize(@javax.annotation.Nullable Integer originalFontSize) {
+    this.originalFontSize = originalFontSize;
+    return this;
+  }
+
+  /**
+   * Original font size used in this form field&#39;s text.
+   * @return originalFontSize
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getOriginalFontSize() {
+    return originalFontSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOriginalFontSize(@javax.annotation.Nullable Integer originalFontSize) {
+    this.originalFontSize = originalFontSize;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText fontFamily(@javax.annotation.Nullable String fontFamily) {
+    this.fontFamily = fontFamily;
+    return this;
+  }
+
+  /**
+   * Font family used in this form field&#39;s text.
+   * @return fontFamily
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFontFamily() {
+    return fontFamily;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFontFamily(@javax.annotation.Nullable String fontFamily) {
+    this.fontFamily = fontFamily;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText validationType(@javax.annotation.Nullable ValidationTypeEnum validationType) {
+    this.validationType = validationType;
+    return this;
+  }
+
+  /**
+   * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
+   * @return validationType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ValidationTypeEnum getValidationType() {
+    return validationType;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValidationType(@javax.annotation.Nullable ValidationTypeEnum validationType) {
+    this.validationType = validationType;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText validationCustomRegex(@javax.annotation.Nullable String validationCustomRegex) {
+    this.validationCustomRegex = validationCustomRegex;
+    return this;
+  }
+
+  /**
+   * When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the custom regular expression pattern that will be used to validate the text field.
+   * @return validationCustomRegex
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getValidationCustomRegex() {
+    return validationCustomRegex;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValidationCustomRegex(@javax.annotation.Nullable String validationCustomRegex) {
+    this.validationCustomRegex = validationCustomRegex;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText validationCustomRegexFormatLabel(@javax.annotation.Nullable String validationCustomRegexFormatLabel) {
+    this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
+    return this;
+  }
+
+  /**
+   * When &#x60;validation_type&#x60; is set to &#x60;custom_regex&#x60;, this specifies the error message displayed to the signer when the text does not match the provided regex pattern.
+   * @return validationCustomRegexFormatLabel
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getValidationCustomRegexFormatLabel() {
+    return validationCustomRegexFormatLabel;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValidationCustomRegexFormatLabel(@javax.annotation.Nullable String validationCustomRegexFormatLabel) {
+    this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
+  }
+
+
+  public TemplateResponseDocumentFormFieldText group(@javax.annotation.Nullable String group) {
+    this.group = group;
+    return this;
+  }
+
+  /**
+   * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
+   * @return group
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getGroup() {
+    return group;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGroup(@javax.annotation.Nullable String group) {
+    this.group = group;
+  }
+
+
+  /**
+   * Return true if this TemplateResponseDocumentFormFieldText object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    TemplateResponseDocumentFormFieldText templateResponseDocumentFormFieldText = (TemplateResponseDocumentFormFieldText) o;
+    return Objects.equals(this.type, templateResponseDocumentFormFieldText.type) &&
+        Objects.equals(this.avgTextLength, templateResponseDocumentFormFieldText.avgTextLength) &&
+        Objects.equals(this.isMultiline, templateResponseDocumentFormFieldText.isMultiline) &&
+        Objects.equals(this.originalFontSize, templateResponseDocumentFormFieldText.originalFontSize) &&
+        Objects.equals(this.fontFamily, templateResponseDocumentFormFieldText.fontFamily) &&
+        Objects.equals(this.validationType, templateResponseDocumentFormFieldText.validationType) &&
+        Objects.equals(this.validationCustomRegex, templateResponseDocumentFormFieldText.validationCustomRegex) &&
+        Objects.equals(this.validationCustomRegexFormatLabel, templateResponseDocumentFormFieldText.validationCustomRegexFormatLabel) &&
+        Objects.equals(this.group, templateResponseDocumentFormFieldText.group) &&
+        super.equals(o);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(type, avgTextLength, isMultiline, originalFontSize, fontFamily, validationType, validationCustomRegex, validationCustomRegexFormatLabel, group, super.hashCode());
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TemplateResponseDocumentFormFieldText {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    avgTextLength: ").append(toIndentedString(avgTextLength)).append("\n");
+    sb.append("    isMultiline: ").append(toIndentedString(isMultiline)).append("\n");
+    sb.append("    originalFontSize: ").append(toIndentedString(originalFontSize)).append("\n");
+    sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
+    sb.append("    validationType: ").append(toIndentedString(validationType)).append("\n");
+    sb.append("    validationCustomRegex: ").append(toIndentedString(validationCustomRegex)).append("\n");
+    sb.append("    validationCustomRegexFormatLabel: ").append(toIndentedString(validationCustomRegexFormatLabel)).append("\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+     map.putAll(super.createFormData());
+    try {
+    if (type != null) {
+        if (isFileTypeOrListOfFiles(type)) {
+            fileTypeFound = true;
         }
 
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        if (type.getClass().equals(java.io.File.class) ||
+            type.getClass().equals(Integer.class) ||
+            type.getClass().equals(String.class) ||
+            type.getClass().isEnum()) {
+            map.put("type", type);
+        } else if (isListOfFile(type)) {
+            for(int i = 0; i< getListSize(type); i++) {
+                map.put("type[" + i + "]", getFromList(type, i));
+            }
         }
-        return o.toString().replace("\n", "\n    ");
+        else {
+            map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
+        }
+    }
+    if (avgTextLength != null) {
+        if (isFileTypeOrListOfFiles(avgTextLength)) {
+            fileTypeFound = true;
+        }
+
+        if (avgTextLength.getClass().equals(java.io.File.class) ||
+            avgTextLength.getClass().equals(Integer.class) ||
+            avgTextLength.getClass().equals(String.class) ||
+            avgTextLength.getClass().isEnum()) {
+            map.put("avg_text_length", avgTextLength);
+        } else if (isListOfFile(avgTextLength)) {
+            for(int i = 0; i< getListSize(avgTextLength); i++) {
+                map.put("avg_text_length[" + i + "]", getFromList(avgTextLength, i));
+            }
+        }
+        else {
+            map.put("avg_text_length", JSON.getDefault().getMapper().writeValueAsString(avgTextLength));
+        }
+    }
+    if (isMultiline != null) {
+        if (isFileTypeOrListOfFiles(isMultiline)) {
+            fileTypeFound = true;
+        }
+
+        if (isMultiline.getClass().equals(java.io.File.class) ||
+            isMultiline.getClass().equals(Integer.class) ||
+            isMultiline.getClass().equals(String.class) ||
+            isMultiline.getClass().isEnum()) {
+            map.put("isMultiline", isMultiline);
+        } else if (isListOfFile(isMultiline)) {
+            for(int i = 0; i< getListSize(isMultiline); i++) {
+                map.put("isMultiline[" + i + "]", getFromList(isMultiline, i));
+            }
+        }
+        else {
+            map.put("isMultiline", JSON.getDefault().getMapper().writeValueAsString(isMultiline));
+        }
+    }
+    if (originalFontSize != null) {
+        if (isFileTypeOrListOfFiles(originalFontSize)) {
+            fileTypeFound = true;
+        }
+
+        if (originalFontSize.getClass().equals(java.io.File.class) ||
+            originalFontSize.getClass().equals(Integer.class) ||
+            originalFontSize.getClass().equals(String.class) ||
+            originalFontSize.getClass().isEnum()) {
+            map.put("originalFontSize", originalFontSize);
+        } else if (isListOfFile(originalFontSize)) {
+            for(int i = 0; i< getListSize(originalFontSize); i++) {
+                map.put("originalFontSize[" + i + "]", getFromList(originalFontSize, i));
+            }
+        }
+        else {
+            map.put("originalFontSize", JSON.getDefault().getMapper().writeValueAsString(originalFontSize));
+        }
+    }
+    if (fontFamily != null) {
+        if (isFileTypeOrListOfFiles(fontFamily)) {
+            fileTypeFound = true;
+        }
+
+        if (fontFamily.getClass().equals(java.io.File.class) ||
+            fontFamily.getClass().equals(Integer.class) ||
+            fontFamily.getClass().equals(String.class) ||
+            fontFamily.getClass().isEnum()) {
+            map.put("fontFamily", fontFamily);
+        } else if (isListOfFile(fontFamily)) {
+            for(int i = 0; i< getListSize(fontFamily); i++) {
+                map.put("fontFamily[" + i + "]", getFromList(fontFamily, i));
+            }
+        }
+        else {
+            map.put("fontFamily", JSON.getDefault().getMapper().writeValueAsString(fontFamily));
+        }
+    }
+    if (validationType != null) {
+        if (isFileTypeOrListOfFiles(validationType)) {
+            fileTypeFound = true;
+        }
+
+        if (validationType.getClass().equals(java.io.File.class) ||
+            validationType.getClass().equals(Integer.class) ||
+            validationType.getClass().equals(String.class) ||
+            validationType.getClass().isEnum()) {
+            map.put("validation_type", validationType);
+        } else if (isListOfFile(validationType)) {
+            for(int i = 0; i< getListSize(validationType); i++) {
+                map.put("validation_type[" + i + "]", getFromList(validationType, i));
+            }
+        }
+        else {
+            map.put("validation_type", JSON.getDefault().getMapper().writeValueAsString(validationType));
+        }
+    }
+    if (validationCustomRegex != null) {
+        if (isFileTypeOrListOfFiles(validationCustomRegex)) {
+            fileTypeFound = true;
+        }
+
+        if (validationCustomRegex.getClass().equals(java.io.File.class) ||
+            validationCustomRegex.getClass().equals(Integer.class) ||
+            validationCustomRegex.getClass().equals(String.class) ||
+            validationCustomRegex.getClass().isEnum()) {
+            map.put("validation_custom_regex", validationCustomRegex);
+        } else if (isListOfFile(validationCustomRegex)) {
+            for(int i = 0; i< getListSize(validationCustomRegex); i++) {
+                map.put("validation_custom_regex[" + i + "]", getFromList(validationCustomRegex, i));
+            }
+        }
+        else {
+            map.put("validation_custom_regex", JSON.getDefault().getMapper().writeValueAsString(validationCustomRegex));
+        }
+    }
+    if (validationCustomRegexFormatLabel != null) {
+        if (isFileTypeOrListOfFiles(validationCustomRegexFormatLabel)) {
+            fileTypeFound = true;
+        }
+
+        if (validationCustomRegexFormatLabel.getClass().equals(java.io.File.class) ||
+            validationCustomRegexFormatLabel.getClass().equals(Integer.class) ||
+            validationCustomRegexFormatLabel.getClass().equals(String.class) ||
+            validationCustomRegexFormatLabel.getClass().isEnum()) {
+            map.put("validation_custom_regex_format_label", validationCustomRegexFormatLabel);
+        } else if (isListOfFile(validationCustomRegexFormatLabel)) {
+            for(int i = 0; i< getListSize(validationCustomRegexFormatLabel); i++) {
+                map.put("validation_custom_regex_format_label[" + i + "]", getFromList(validationCustomRegexFormatLabel, i));
+            }
+        }
+        else {
+            map.put("validation_custom_regex_format_label", JSON.getDefault().getMapper().writeValueAsString(validationCustomRegexFormatLabel));
+        }
+    }
+    if (group != null) {
+        if (isFileTypeOrListOfFiles(group)) {
+            fileTypeFound = true;
+        }
+
+        if (group.getClass().equals(java.io.File.class) ||
+            group.getClass().equals(Integer.class) ||
+            group.getClass().equals(String.class) ||
+            group.getClass().isEnum()) {
+            map.put("group", group);
+        } else if (isListOfFile(group)) {
+            for(int i = 0; i< getListSize(group); i++) {
+                map.put("group[" + i + "]", getFromList(group, i));
+            }
+        }
+        else {
+            map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
+        }
+    }
+    } catch (Exception e) {
+        throw new ApiException(e);
     }
 
-    static {
-        // Initialize and register the discriminator mappings.
-        Map<String, Class<?>> mappings = new HashMap<>();
-        mappings.put(
-                "TemplateResponseDocumentFormFieldText",
-                TemplateResponseDocumentFormFieldText.class);
-        JSON.registerDiscriminator(TemplateResponseDocumentFormFieldText.class, "type", mappings);
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("TemplateResponseDocumentFormFieldText", TemplateResponseDocumentFormFieldText.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentFormFieldText.class, "type", mappings);
+  }
 }
+

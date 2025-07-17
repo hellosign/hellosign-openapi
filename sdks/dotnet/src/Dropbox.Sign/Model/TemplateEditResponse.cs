@@ -41,16 +41,13 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateEditResponse" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template. (required).</param>
-        public TemplateEditResponse(string templateId = default(string))
+        /// <param name="template">template.</param>
+        /// <param name="warnings">A list of warnings..</param>
+        public TemplateEditResponse(TemplateEditResponseTemplate template = default(TemplateEditResponseTemplate), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
-            // to ensure "templateId" is required (not null)
-            if (templateId == null)
-            {
-                throw new ArgumentNullException("templateId is a required property for TemplateEditResponse and cannot be null");
-            }
-            this.TemplateId = templateId;
+            this.Template = template;
+            this.Warnings = warnings;
         }
 
         /// <summary>
@@ -70,11 +67,17 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the Template.
+        /// Gets or Sets Template
         /// </summary>
-        /// <value>The id of the Template.</value>
-        [DataMember(Name = "template_id", IsRequired = true, EmitDefaultValue = true)]
-        public string TemplateId { get; set; }
+        [DataMember(Name = "template", EmitDefaultValue = true)]
+        public TemplateEditResponseTemplate Template { get; set; }
+
+        /// <summary>
+        /// A list of warnings.
+        /// </summary>
+        /// <value>A list of warnings.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<WarningResponse> Warnings { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,7 +87,8 @@ namespace Dropbox.Sign.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TemplateEditResponse {\n");
-            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
+            sb.Append("  Template: ").Append(Template).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,9 +125,15 @@ namespace Dropbox.Sign.Model
             }
             return
                 (
-                    this.TemplateId == input.TemplateId ||
-                    (this.TemplateId != null &&
-                    this.TemplateId.Equals(input.TemplateId))
+                    this.Template == input.Template ||
+                    (this.Template != null &&
+                    this.Template.Equals(input.Template))
+                ) &&
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -136,9 +146,13 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TemplateId != null)
+                if (this.Template != null)
                 {
-                    hashCode = (hashCode * 59) + this.TemplateId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
                 }
                 return hashCode;
             }
@@ -158,10 +172,17 @@ namespace Dropbox.Sign.Model
             var types = new List<OpenApiType>();
             types.Add(new OpenApiType()
             {
-                Name = "template_id",
-                Property = "TemplateId",
-                Type = "string",
-                Value = TemplateId,
+                Name = "template",
+                Property = "Template",
+                Type = "TemplateEditResponseTemplate",
+                Value = Template,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "warnings",
+                Property = "Warnings",
+                Type = "List<WarningResponse>",
+                Value = Warnings,
             });
 
             return types;

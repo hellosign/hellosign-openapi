@@ -65,6 +65,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -167,6 +169,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -263,6 +267,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 4XX_example:
@@ -363,6 +369,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -462,6 +470,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -560,10 +570,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                404_example:
-                  $ref: '#/components/examples/Error404Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -671,10 +681,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                409_example:
-                  $ref: '#/components/examples/Error409Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -763,6 +773,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -867,6 +879,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -977,6 +991,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -1080,6 +1096,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -1186,6 +1204,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -1284,12 +1304,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -1386,10 +1406,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                404_example:
-                  $ref: '#/components/examples/Error404Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -1475,10 +1495,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                404_example:
-                  $ref: '#/components/examples/Error404Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -1570,12 +1590,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 410_example:
                   $ref: '#/components/examples/Error410Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -1669,6 +1689,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -1852,6 +1874,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -1945,6 +1969,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -2040,6 +2066,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -2129,6 +2157,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -2245,6 +2275,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -2338,6 +2370,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -2444,6 +2478,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -2540,10 +2576,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                404_example:
-                  $ref: '#/components/examples/Error404Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -2637,6 +2673,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security: []
@@ -2732,6 +2770,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security: []
@@ -2827,6 +2867,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -2923,12 +2965,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -3025,6 +3067,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -3119,6 +3163,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
@@ -3227,10 +3273,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                409_example:
-                  $ref: '#/components/examples/Error409Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -3330,10 +3376,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                409_example:
-                  $ref: '#/components/examples/Error409Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -3444,12 +3490,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -3561,12 +3607,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -3675,12 +3721,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -3789,12 +3835,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -3904,14 +3950,14 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 410_example:
                   $ref: '#/components/examples/Error410Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -4009,14 +4055,14 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 410_example:
                   $ref: '#/components/examples/Error410Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -4121,14 +4167,14 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 410_example:
                   $ref: '#/components/examples/Error410Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -4226,6 +4272,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 410_example:
@@ -4346,6 +4394,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 4XX_example:
@@ -4445,6 +4495,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -4552,14 +4604,14 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 410_example:
                   $ref: '#/components/examples/Error410Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -4652,6 +4704,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
@@ -4756,10 +4810,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                409_example:
-                  $ref: '#/components/examples/Error409Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -4968,6 +5022,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -5077,6 +5133,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -5175,6 +5233,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -5255,6 +5315,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -5342,6 +5404,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -5439,6 +5503,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -5535,10 +5601,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                409_example:
-                  $ref: '#/components/examples/Error409Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -5634,6 +5700,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -5747,10 +5815,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                409_example:
-                  $ref: '#/components/examples/Error409Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -5849,6 +5917,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -5963,10 +6033,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                409_example:
-                  $ref: '#/components/examples/Error409Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -6072,6 +6142,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -6179,6 +6251,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
@@ -6288,6 +6362,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
@@ -6383,6 +6459,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
@@ -6435,6 +6513,80 @@ paths:
         seo:
           title: '_t__TemplateDelete::SEO::TITLE'
           description: '_t__TemplateDelete::SEO::DESCRIPTION'
+  '/template/edit/{template_id}':
+    post:
+      tags:
+        - Template
+      summary: '_t__TemplateEdit::SUMMARY'
+      description: '_t__TemplateEdit::DESCRIPTION'
+      operationId: templateEdit
+      parameters:
+        -
+          name: template_id
+          in: path
+          description: '_t__TemplateEdit::TEMPLATE_ID'
+          required: true
+          schema:
+            type: string
+          example: f57db65d3f933b5316d398057a36176831451a35
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateEditRequest'
+            examples:
+              example:
+                $ref: '#/components/examples/TemplateEditRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateEditRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateEditResponse'
+              examples:
+                example:
+                  $ref: '#/components/examples/TemplateEditResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - template_access
   '/template/files/{template_id}':
     get:
       tags:
@@ -6494,14 +6646,14 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 422_example:
                   $ref: '#/components/examples/Error422Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -6598,14 +6750,14 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 422_example:
                   $ref: '#/components/examples/Error422Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -6709,14 +6861,14 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
                 422_example:
                   $ref: '#/components/examples/Error422Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -6813,10 +6965,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                404_example:
-                  $ref: '#/components/examples/Error404Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -6933,10 +7085,10 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
-                409_example:
-                  $ref: '#/components/examples/Error409Response'
                 429_example:
                   $ref: '#/components/examples/Error429Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -7042,6 +7194,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 4XX_example:
@@ -7152,12 +7306,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -7263,6 +7417,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -7368,6 +7524,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
@@ -7472,12 +7630,12 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
                   $ref: '#/components/examples/Error409Response'
-                429_example:
-                  $ref: '#/components/examples/Error429Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -7583,6 +7741,8 @@ paths:
                   $ref: '#/components/examples/Error402Response'
                 403_example:
                   $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
                 409_example:
@@ -10093,6 +10253,29 @@ components:
           type: boolean
           default: false
       type: object
+    TemplateEditRequest:
+      required: []
+      properties:
+        cc_roles:
+          description: '_t__TemplateEdit::CC_ROLES'
+          type: array
+          items:
+            type: string
+        allow_form_view:
+          description: '_t__TemplateEdit::ALLOW_FORM_VIEW'
+          type: boolean
+        title:
+          description: '_t__TemplateEdit::TITLE'
+          type: string
+        subject:
+          description: '_t__TemplateEdit::SUBJECT'
+          type: string
+          maxLength: 200
+        message:
+          description: '_t__TemplateEdit::MESSAGE'
+          type: string
+          maxLength: 5000
+      type: object
     TemplateRemoveUserRequest:
       properties:
         account_id:
@@ -12503,6 +12686,14 @@ components:
               type: string
               default: text
           type: object
+    TemplateEditResponseTemplate:
+      description: '_t__TemplateEditResponseTemplate::DESCRIPTION'
+      properties:
+        template_id:
+          description: '_t__TemplateResponse::TEMPLATE_ID'
+          type: string
+      type: object
+      x-internal-class: true
     TemplateResponseFieldAvgTextLength:
       description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
       properties:
@@ -12685,9 +12876,13 @@ components:
       required:
         - template_id
       properties:
-        template_id:
-          description: '_t__TemplateResponse::TEMPLATE_ID'
-          type: string
+        template:
+          $ref: '#/components/schemas/TemplateEditResponseTemplate'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
     TemplateGetResponse:
       required:
@@ -13012,6 +13207,10 @@ components:
       summary: 'Form Fields Per Document and Rules Example'
       value:
         $ref: examples/json/TemplateCreateEmbeddedDraftRequestFormFieldRules.json
+    TemplateEditRequest:
+      summary: '_t__TemplateEditRequestExample::SUMMARY'
+      value:
+        $ref: examples/json/TemplateEditRequest.json
     TemplateRemoveUserRequest:
       summary: 'Default Example'
       value:
@@ -13308,6 +13507,10 @@ components:
       summary: '_t__TemplateCreateEmbeddedDraftResponseExample::SUMMARY'
       value:
         $ref: examples/json/TemplateCreateEmbeddedDraftResponse.json
+    TemplateEditResponse:
+      summary: '_t__TemplateEditResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TemplateEditResponse.json
     TemplateGetResponse:
       summary: '_t__TemplateGetResponseExample::SUMMARY'
       value:

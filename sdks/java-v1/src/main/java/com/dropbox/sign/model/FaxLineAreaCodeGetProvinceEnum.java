@@ -10,62 +10,76 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
+
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Gets or Sets FaxLineAreaCodeGetProvinceEnum */
+/**
+ * Gets or Sets FaxLineAreaCodeGetProvinceEnum
+ */
 public enum FaxLineAreaCodeGetProvinceEnum {
-    AB("AB"),
+  
+  AB("AB"),
+  
+  BC("BC"),
+  
+  MB("MB"),
+  
+  NB("NB"),
+  
+  NL("NL"),
+  
+  NT("NT"),
+  
+  NS("NS"),
+  
+  NU("NU"),
+  
+  ON("ON"),
+  
+  PE("PE"),
+  
+  QC("QC"),
+  
+  SK("SK"),
+  
+  YT("YT");
 
-    BC("BC"),
+  private String value;
 
-    MB("MB"),
+  FaxLineAreaCodeGetProvinceEnum(String value) {
+    this.value = value;
+  }
 
-    NB("NB"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    NL("NL"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    NT("NT"),
-
-    NS("NS"),
-
-    NU("NU"),
-
-    ON("ON"),
-
-    PE("PE"),
-
-    QC("QC"),
-
-    SK("SK"),
-
-    YT("YT");
-
-    private String value;
-
-    FaxLineAreaCodeGetProvinceEnum(String value) {
-        this.value = value;
+  @JsonCreator
+  public static FaxLineAreaCodeGetProvinceEnum fromValue(String value) {
+    for (FaxLineAreaCodeGetProvinceEnum b : FaxLineAreaCodeGetProvinceEnum.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static FaxLineAreaCodeGetProvinceEnum fromValue(String value) {
-        for (FaxLineAreaCodeGetProvinceEnum b : FaxLineAreaCodeGetProvinceEnum.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
+

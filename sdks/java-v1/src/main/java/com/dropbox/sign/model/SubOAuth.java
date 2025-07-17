@@ -10,262 +10,278 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-/** OAuth related parameters. */
-@JsonPropertyOrder({SubOAuth.JSON_PROPERTY_CALLBACK_URL, SubOAuth.JSON_PROPERTY_SCOPES})
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
-@JsonIgnoreProperties(ignoreUnknown = true)
+
+import com.dropbox.sign.ApiException;
+/**
+ * OAuth related parameters.
+ */
+@JsonPropertyOrder({
+  SubOAuth.JSON_PROPERTY_CALLBACK_URL,
+  SubOAuth.JSON_PROPERTY_SCOPES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SubOAuth {
-    public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
-    @javax.annotation.Nullable private String callbackUrl;
+  public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
+  @javax.annotation.Nullable
+  private String callbackUrl;
 
-    /** Gets or Sets scopes */
-    public enum ScopesEnum {
-        REQUEST_SIGNATURE(String.valueOf("request_signature")),
+  /**
+   * Gets or Sets scopes
+   */
+  public enum ScopesEnum {
+    REQUEST_SIGNATURE(String.valueOf("request_signature")),
+    
+    BASIC_ACCOUNT_INFO(String.valueOf("basic_account_info")),
+    
+    ACCOUNT_ACCESS(String.valueOf("account_access")),
+    
+    SIGNATURE_REQUEST_ACCESS(String.valueOf("signature_request_access")),
+    
+    TEMPLATE_ACCESS(String.valueOf("template_access")),
+    
+    TEAM_ACCESS(String.valueOf("team_access")),
+    
+    API_APP_ACCESS(String.valueOf("api_app_access")),
+    
+    EMPTY(String.valueOf(""));
 
-        BASIC_ACCOUNT_INFO(String.valueOf("basic_account_info")),
+    private String value;
 
-        ACCOUNT_ACCESS(String.valueOf("account_access")),
-
-        SIGNATURE_REQUEST_ACCESS(String.valueOf("signature_request_access")),
-
-        TEMPLATE_ACCESS(String.valueOf("template_access")),
-
-        TEAM_ACCESS(String.valueOf("team_access")),
-
-        API_APP_ACCESS(String.valueOf("api_app_access")),
-
-        EMPTY(String.valueOf(""));
-
-        private String value;
-
-        ScopesEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static ScopesEnum fromValue(String value) {
-            for (ScopesEnum b : ScopesEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
+    ScopesEnum(String value) {
+      this.value = value;
     }
 
-    public static final String JSON_PROPERTY_SCOPES = "scopes";
-    @javax.annotation.Nullable private List<ScopesEnum> scopes = null;
-
-    public SubOAuth() {}
-
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static SubOAuth init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, SubOAuth.class);
-    }
-
-    public static SubOAuth init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(new ObjectMapper().writeValueAsString(data), SubOAuth.class);
-    }
-
-    public SubOAuth callbackUrl(@javax.annotation.Nullable String callbackUrl) {
-        this.callbackUrl = callbackUrl;
-        return this;
-    }
-
-    /**
-     * The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is
-     * provided)
-     *
-     * @return callbackUrl
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getCallbackUrl() {
-        return callbackUrl;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
-        this.callbackUrl = callbackUrl;
-    }
-
-    public SubOAuth scopes(@javax.annotation.Nullable List<ScopesEnum> scopes) {
-        this.scopes = scopes;
-        return this;
-    }
-
-    public SubOAuth addScopesItem(ScopesEnum scopesItem) {
-        if (this.scopes == null) {
-            this.scopes = new ArrayList<>();
-        }
-        this.scopes.add(scopesItem);
-        return this;
-    }
-
-    /**
-     * A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if
-     * &#x60;oauth[callback_url]&#x60; is provided).
-     *
-     * @return scopes
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SCOPES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<ScopesEnum> getScopes() {
-        return scopes;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SCOPES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setScopes(@javax.annotation.Nullable List<ScopesEnum> scopes) {
-        this.scopes = scopes;
-    }
-
-    /** Return true if this SubOAuth object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SubOAuth subOAuth = (SubOAuth) o;
-        return Objects.equals(this.callbackUrl, subOAuth.callbackUrl)
-                && Objects.equals(this.scopes, subOAuth.scopes);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(callbackUrl, scopes);
+    @JsonValue
+    public String getValue() {
+      return value;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubOAuth {\n");
-        sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
-        sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
-        sb.append("}");
-        return sb.toString();
+      return String.valueOf(value);
     }
 
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        try {
-            if (callbackUrl != null) {
-                if (isFileTypeOrListOfFiles(callbackUrl)) {
-                    fileTypeFound = true;
-                }
+    @JsonCreator
+    public static ScopesEnum fromValue(String value) {
+      for (ScopesEnum b : ScopesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
 
-                if (callbackUrl.getClass().equals(java.io.File.class)
-                        || callbackUrl.getClass().equals(Integer.class)
-                        || callbackUrl.getClass().equals(String.class)
-                        || callbackUrl.getClass().isEnum()) {
-                    map.put("callback_url", callbackUrl);
-                } else if (isListOfFile(callbackUrl)) {
-                    for (int i = 0; i < getListSize(callbackUrl); i++) {
-                        map.put("callback_url[" + i + "]", getFromList(callbackUrl, i));
-                    }
-                } else {
-                    map.put(
-                            "callback_url",
-                            JSON.getDefault().getMapper().writeValueAsString(callbackUrl));
-                }
-            }
-            if (scopes != null) {
-                if (isFileTypeOrListOfFiles(scopes)) {
-                    fileTypeFound = true;
-                }
+  public static final String JSON_PROPERTY_SCOPES = "scopes";
+  @javax.annotation.Nullable
+  private List<ScopesEnum> scopes = null;
 
-                if (scopes.getClass().equals(java.io.File.class)
-                        || scopes.getClass().equals(Integer.class)
-                        || scopes.getClass().equals(String.class)
-                        || scopes.getClass().isEnum()) {
-                    map.put("scopes", scopes);
-                } else if (isListOfFile(scopes)) {
-                    for (int i = 0; i < getListSize(scopes); i++) {
-                        map.put("scopes[" + i + "]", getFromList(scopes, i));
-                    }
-                } else {
-                    map.put("scopes", JSON.getDefault().getMapper().writeValueAsString(scopes));
-                }
-            }
-        } catch (Exception e) {
-            throw new ApiException(e);
+  public SubOAuth() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubOAuth init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubOAuth.class);
+  }
+
+  static public SubOAuth init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubOAuth.class
+    );
+  }
+
+  public SubOAuth callbackUrl(@javax.annotation.Nullable String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+    return this;
+  }
+
+  /**
+   * The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)
+   * @return callbackUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCallbackUrl() {
+    return callbackUrl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+  }
+
+
+  public SubOAuth scopes(@javax.annotation.Nullable List<ScopesEnum> scopes) {
+    this.scopes = scopes;
+    return this;
+  }
+
+  public SubOAuth addScopesItem(ScopesEnum scopesItem) {
+    if (this.scopes == null) {
+      this.scopes = new ArrayList<>();
+    }
+    this.scopes.add(scopesItem);
+    return this;
+  }
+
+  /**
+   * A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
+   * @return scopes
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<ScopesEnum> getScopes() {
+    return scopes;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setScopes(@javax.annotation.Nullable List<ScopesEnum> scopes) {
+    this.scopes = scopes;
+  }
+
+
+  /**
+   * Return true if this SubOAuth object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SubOAuth subOAuth = (SubOAuth) o;
+    return Objects.equals(this.callbackUrl, subOAuth.callbackUrl) &&
+        Objects.equals(this.scopes, subOAuth.scopes);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(callbackUrl, scopes);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SubOAuth {\n");
+    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    try {
+    if (callbackUrl != null) {
+        if (isFileTypeOrListOfFiles(callbackUrl)) {
+            fileTypeFound = true;
         }
 
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        if (callbackUrl.getClass().equals(java.io.File.class) ||
+            callbackUrl.getClass().equals(Integer.class) ||
+            callbackUrl.getClass().equals(String.class) ||
+            callbackUrl.getClass().isEnum()) {
+            map.put("callback_url", callbackUrl);
+        } else if (isListOfFile(callbackUrl)) {
+            for(int i = 0; i< getListSize(callbackUrl); i++) {
+                map.put("callback_url[" + i + "]", getFromList(callbackUrl, i));
+            }
         }
-        return o.toString().replace("\n", "\n    ");
+        else {
+            map.put("callback_url", JSON.getDefault().getMapper().writeValueAsString(callbackUrl));
+        }
     }
+    if (scopes != null) {
+        if (isFileTypeOrListOfFiles(scopes)) {
+            fileTypeFound = true;
+        }
+
+        if (scopes.getClass().equals(java.io.File.class) ||
+            scopes.getClass().equals(Integer.class) ||
+            scopes.getClass().equals(String.class) ||
+            scopes.getClass().isEnum()) {
+            map.put("scopes", scopes);
+        } else if (isListOfFile(scopes)) {
+            for(int i = 0; i< getListSize(scopes); i++) {
+                map.put("scopes[" + i + "]", getFromList(scopes, i));
+            }
+        }
+        else {
+            map.put("scopes", JSON.getDefault().getMapper().writeValueAsString(scopes));
+        }
+    }
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

@@ -8,6 +8,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TemplateCreate**](TemplateApi.md#templatecreate) | **POST** /template/create | Create Template |
 | [**TemplateCreateEmbeddedDraft**](TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**TemplateDelete**](TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
+| [**TemplateEdit**](TemplateApi.md#templateedit) | **POST** /template/edit/{template_id} | _t__TemplateEdit::SUMMARY |
 | [**TemplateFiles**](TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |
 | [**TemplateFilesAsDataUri**](TemplateApi.md#templatefilesasdatauri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri |
 | [**TemplateFilesAsFileUrl**](TemplateApi.md#templatefilesasfileurl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url |
@@ -541,6 +542,68 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="templateedit"></a>
+# **TemplateEdit**
+> TemplateEditResponse TemplateEdit (string templateId, TemplateEditRequest templateEditRequest)
+
+_t__TemplateEdit::SUMMARY
+
+_t__TemplateEdit::DESCRIPTION
+
+### Example
+```csharp
+REPLACE_ME_WITH_EXAMPLE_FOR__TemplateEdit_C#_CODE
+```
+
+#### Using the TemplateEditWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // _t__TemplateEdit::SUMMARY
+    ApiResponse<TemplateEditResponse> response = apiInstance.TemplateEditWithHttpInfo(templateId, templateEditRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplateApi.TemplateEditWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **templateId** | **string** | _t__TemplateEdit::TEMPLATE_ID |  |
+| **templateEditRequest** | [**TemplateEditRequest**](TemplateEditRequest.md) |  |  |
+
+### Return type
+
+[**TemplateEditResponse**](TemplateEditResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

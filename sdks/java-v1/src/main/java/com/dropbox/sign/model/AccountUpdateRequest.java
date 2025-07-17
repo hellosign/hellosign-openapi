@@ -10,256 +10,272 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-/** AccountUpdateRequest */
+
+import com.dropbox.sign.ApiException;
+/**
+ * AccountUpdateRequest
+ */
 @JsonPropertyOrder({
-    AccountUpdateRequest.JSON_PROPERTY_ACCOUNT_ID,
-    AccountUpdateRequest.JSON_PROPERTY_CALLBACK_URL,
-    AccountUpdateRequest.JSON_PROPERTY_LOCALE
+  AccountUpdateRequest.JSON_PROPERTY_ACCOUNT_ID,
+  AccountUpdateRequest.JSON_PROPERTY_CALLBACK_URL,
+  AccountUpdateRequest.JSON_PROPERTY_LOCALE
 })
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountUpdateRequest {
-    public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    @javax.annotation.Nullable private String accountId;
+  public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  @javax.annotation.Nullable
+  private String accountId;
 
-    public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
-    @javax.annotation.Nullable private String callbackUrl;
+  public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
+  @javax.annotation.Nullable
+  private String callbackUrl;
 
-    public static final String JSON_PROPERTY_LOCALE = "locale";
-    @javax.annotation.Nullable private String locale;
+  public static final String JSON_PROPERTY_LOCALE = "locale";
+  @javax.annotation.Nullable
+  private String locale;
 
-    public AccountUpdateRequest() {}
+  public AccountUpdateRequest() { 
+  }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static AccountUpdateRequest init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, AccountUpdateRequest.class);
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public AccountUpdateRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, AccountUpdateRequest.class);
+  }
+
+  static public AccountUpdateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      AccountUpdateRequest.class
+    );
+  }
+
+  public AccountUpdateRequest accountId(@javax.annotation.Nullable String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+  /**
+   * The ID of the Account
+   * @return accountId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAccountId() {
+    return accountId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccountId(@javax.annotation.Nullable String accountId) {
+    this.accountId = accountId;
+  }
+
+
+  public AccountUpdateRequest callbackUrl(@javax.annotation.Nullable String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+    return this;
+  }
+
+  /**
+   * The URL that Dropbox Sign should POST events to.
+   * @return callbackUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCallbackUrl() {
+    return callbackUrl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+  }
+
+
+  public AccountUpdateRequest locale(@javax.annotation.Nullable String locale) {
+    this.locale = locale;
+    return this;
+  }
+
+  /**
+   * The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
+   * @return locale
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOCALE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLocale() {
+    return locale;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LOCALE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLocale(@javax.annotation.Nullable String locale) {
+    this.locale = locale;
+  }
+
+
+  /**
+   * Return true if this AccountUpdateRequest object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public static AccountUpdateRequest init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(new ObjectMapper().writeValueAsString(data), AccountUpdateRequest.class);
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    AccountUpdateRequest accountUpdateRequest = (AccountUpdateRequest) o;
+    return Objects.equals(this.accountId, accountUpdateRequest.accountId) &&
+        Objects.equals(this.callbackUrl, accountUpdateRequest.callbackUrl) &&
+        Objects.equals(this.locale, accountUpdateRequest.locale);
+  }
 
-    public AccountUpdateRequest accountId(@javax.annotation.Nullable String accountId) {
-        this.accountId = accountId;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(accountId, callbackUrl, locale);
+  }
 
-    /**
-     * The ID of the Account
-     *
-     * @return accountId
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getAccountId() {
-        return accountId;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AccountUpdateRequest {\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAccountId(@javax.annotation.Nullable String accountId) {
-        this.accountId = accountId;
-    }
-
-    public AccountUpdateRequest callbackUrl(@javax.annotation.Nullable String callbackUrl) {
-        this.callbackUrl = callbackUrl;
-        return this;
-    }
-
-    /**
-     * The URL that Dropbox Sign should POST events to.
-     *
-     * @return callbackUrl
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getCallbackUrl() {
-        return callbackUrl;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
-        this.callbackUrl = callbackUrl;
-    }
-
-    public AccountUpdateRequest locale(@javax.annotation.Nullable String locale) {
-        this.locale = locale;
-        return this;
-    }
-
-    /**
-     * The locale used in this Account. Check out the list of [supported
-     * locales](/api/reference/constants/#supported-locales) to learn more about the possible
-     * values.
-     *
-     * @return locale
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_LOCALE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getLocale() {
-        return locale;
-    }
-
-    @JsonProperty(JSON_PROPERTY_LOCALE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLocale(@javax.annotation.Nullable String locale) {
-        this.locale = locale;
-    }
-
-    /** Return true if this AccountUpdateRequest object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    try {
+    if (accountId != null) {
+        if (isFileTypeOrListOfFiles(accountId)) {
+            fileTypeFound = true;
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AccountUpdateRequest accountUpdateRequest = (AccountUpdateRequest) o;
-        return Objects.equals(this.accountId, accountUpdateRequest.accountId)
-                && Objects.equals(this.callbackUrl, accountUpdateRequest.callbackUrl)
-                && Objects.equals(this.locale, accountUpdateRequest.locale);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(accountId, callbackUrl, locale);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountUpdateRequest {\n");
-        sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-        sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
-        sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        try {
-            if (accountId != null) {
-                if (isFileTypeOrListOfFiles(accountId)) {
-                    fileTypeFound = true;
-                }
-
-                if (accountId.getClass().equals(java.io.File.class)
-                        || accountId.getClass().equals(Integer.class)
-                        || accountId.getClass().equals(String.class)
-                        || accountId.getClass().isEnum()) {
-                    map.put("account_id", accountId);
-                } else if (isListOfFile(accountId)) {
-                    for (int i = 0; i < getListSize(accountId); i++) {
-                        map.put("account_id[" + i + "]", getFromList(accountId, i));
-                    }
-                } else {
-                    map.put(
-                            "account_id",
-                            JSON.getDefault().getMapper().writeValueAsString(accountId));
-                }
+        if (accountId.getClass().equals(java.io.File.class) ||
+            accountId.getClass().equals(Integer.class) ||
+            accountId.getClass().equals(String.class) ||
+            accountId.getClass().isEnum()) {
+            map.put("account_id", accountId);
+        } else if (isListOfFile(accountId)) {
+            for(int i = 0; i< getListSize(accountId); i++) {
+                map.put("account_id[" + i + "]", getFromList(accountId, i));
             }
-            if (callbackUrl != null) {
-                if (isFileTypeOrListOfFiles(callbackUrl)) {
-                    fileTypeFound = true;
-                }
-
-                if (callbackUrl.getClass().equals(java.io.File.class)
-                        || callbackUrl.getClass().equals(Integer.class)
-                        || callbackUrl.getClass().equals(String.class)
-                        || callbackUrl.getClass().isEnum()) {
-                    map.put("callback_url", callbackUrl);
-                } else if (isListOfFile(callbackUrl)) {
-                    for (int i = 0; i < getListSize(callbackUrl); i++) {
-                        map.put("callback_url[" + i + "]", getFromList(callbackUrl, i));
-                    }
-                } else {
-                    map.put(
-                            "callback_url",
-                            JSON.getDefault().getMapper().writeValueAsString(callbackUrl));
-                }
-            }
-            if (locale != null) {
-                if (isFileTypeOrListOfFiles(locale)) {
-                    fileTypeFound = true;
-                }
-
-                if (locale.getClass().equals(java.io.File.class)
-                        || locale.getClass().equals(Integer.class)
-                        || locale.getClass().equals(String.class)
-                        || locale.getClass().isEnum()) {
-                    map.put("locale", locale);
-                } else if (isListOfFile(locale)) {
-                    for (int i = 0; i < getListSize(locale); i++) {
-                        map.put("locale[" + i + "]", getFromList(locale, i));
-                    }
-                } else {
-                    map.put("locale", JSON.getDefault().getMapper().writeValueAsString(locale));
-                }
-            }
-        } catch (Exception e) {
-            throw new ApiException(e);
+        }
+        else {
+            map.put("account_id", JSON.getDefault().getMapper().writeValueAsString(accountId));
+        }
+    }
+    if (callbackUrl != null) {
+        if (isFileTypeOrListOfFiles(callbackUrl)) {
+            fileTypeFound = true;
         }
 
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        if (callbackUrl.getClass().equals(java.io.File.class) ||
+            callbackUrl.getClass().equals(Integer.class) ||
+            callbackUrl.getClass().equals(String.class) ||
+            callbackUrl.getClass().isEnum()) {
+            map.put("callback_url", callbackUrl);
+        } else if (isListOfFile(callbackUrl)) {
+            for(int i = 0; i< getListSize(callbackUrl); i++) {
+                map.put("callback_url[" + i + "]", getFromList(callbackUrl, i));
+            }
         }
-        return o.toString().replace("\n", "\n    ");
+        else {
+            map.put("callback_url", JSON.getDefault().getMapper().writeValueAsString(callbackUrl));
+        }
     }
+    if (locale != null) {
+        if (isFileTypeOrListOfFiles(locale)) {
+            fileTypeFound = true;
+        }
+
+        if (locale.getClass().equals(java.io.File.class) ||
+            locale.getClass().equals(Integer.class) ||
+            locale.getClass().equals(String.class) ||
+            locale.getClass().isEnum()) {
+            map.put("locale", locale);
+        } else if (isListOfFile(locale)) {
+            for(int i = 0; i< getListSize(locale); i++) {
+                map.put("locale[" + i + "]", getFromList(locale, i));
+            }
+        }
+        else {
+            map.put("locale", JSON.getDefault().getMapper().writeValueAsString(locale));
+        }
+    }
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

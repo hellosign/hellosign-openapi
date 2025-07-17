@@ -8,6 +8,7 @@ Method | HTTP request | Description
 |[```template_create```](TemplateApi.md#template_create) | ```POST /template/create``` | Create Template|
 |[```template_create_embedded_draft```](TemplateApi.md#template_create_embedded_draft) | ```POST /template/create_embedded_draft``` | Create Embedded Template Draft|
 |[```template_delete```](TemplateApi.md#template_delete) | ```POST /template/delete/{template_id}``` | Delete Template|
+|[```template_edit```](TemplateApi.md#template_edit) | ```POST /template/edit/{template_id}``` | _t__TemplateEdit::SUMMARY|
 |[```template_files```](TemplateApi.md#template_files) | ```GET /template/files/{template_id}``` | Get Template Files|
 |[```template_files_as_data_uri```](TemplateApi.md#template_files_as_data_uri) | ```GET /template/files_as_data_uri/{template_id}``` | Get Template Files as Data Uri|
 |[```template_files_as_file_url```](TemplateApi.md#template_files_as_file_url) | ```GET /template/files_as_file_url/{template_id}``` | Get Template Files as File Url|
@@ -407,6 +408,51 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```template_edit```
+> ```TemplateEditResponse template_edit(template_id, template_edit_request)```
+
+_t__TemplateEdit::SUMMARY
+
+_t__TemplateEdit::DESCRIPTION
+
+### Example
+
+* Basic Authentication (api_key):
+* Bearer (JWT) Authentication (oauth2):
+
+```python
+REPLACE_ME_WITH_EXAMPLE_FOR__template_edit_Python_CODE
+```
+```
+
+### Parameters
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `template_id` | **str** | _t__TemplateEdit::TEMPLATE_ID |  |
+| `template_edit_request` | [**TemplateEditRequest**](TemplateEditRequest.md) |  |  |
+
+### Return type
+
+[**TemplateEditResponse**](TemplateEditResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

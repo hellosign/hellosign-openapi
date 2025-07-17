@@ -18,14 +18,18 @@ end
 
 module Dropbox::Sign
   class TemplateEditResponse
-    # The id of the Template.
-    # @return [String]
-    attr_accessor :template_id
+    # @return [TemplateEditResponseTemplate]
+    attr_accessor :template
+
+    # A list of warnings.
+    # @return [Array<WarningResponse>]
+    attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'template_id' => :'template_id'
+        :'template' => :'template',
+        :'warnings' => :'warnings'
       }
     end
 
@@ -42,7 +46,8 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'template_id' => :'String'
+        :'template' => :'TemplateEditResponseTemplate',
+        :'warnings' => :'Array<WarningResponse>'
       }
     end
 
@@ -93,8 +98,14 @@ module Dropbox::Sign
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'template_id')
-        self.template_id = attributes[:'template_id']
+      if attributes.key?(:'template')
+        self.template = attributes[:'template']
+      end
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
       end
     end
 
@@ -102,28 +113,13 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @template_id.nil?
-        invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @template_id.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] template_id Value to be assigned
-    def template_id=(template_id)
-      if template_id.nil?
-        fail ArgumentError, 'template_id cannot be nil'
-      end
-
-      @template_id = template_id
     end
 
     # Checks equality by comparing each attribute.
@@ -131,7 +127,8 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          template_id == o.template_id
+          template == o.template &&
+          warnings == o.warnings
     end
 
     # @see the `==` method
@@ -143,7 +140,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id].hash
+      [template, warnings].hash
     end
 
     # Builds the object from hash

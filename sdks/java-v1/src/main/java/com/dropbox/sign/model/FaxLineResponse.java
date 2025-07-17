@@ -10,202 +10,223 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.dropbox.sign.model.FaxLineResponseFaxLine;
+import com.dropbox.sign.model.WarningResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-/** FaxLineResponse */
-@JsonPropertyOrder({FaxLineResponse.JSON_PROPERTY_FAX_LINE, FaxLineResponse.JSON_PROPERTY_WARNINGS})
-@javax.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
-@JsonIgnoreProperties(ignoreUnknown = true)
+
+import com.dropbox.sign.ApiException;
+/**
+ * FaxLineResponse
+ */
+@JsonPropertyOrder({
+  FaxLineResponse.JSON_PROPERTY_FAX_LINE,
+  FaxLineResponse.JSON_PROPERTY_WARNINGS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineResponse {
-    public static final String JSON_PROPERTY_FAX_LINE = "fax_line";
-    @javax.annotation.Nonnull private FaxLineResponseFaxLine faxLine;
+  public static final String JSON_PROPERTY_FAX_LINE = "fax_line";
+  @javax.annotation.Nonnull
+  private FaxLineResponseFaxLine faxLine;
 
-    public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    @javax.annotation.Nullable private WarningResponse warnings;
+  public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @javax.annotation.Nullable
+  private WarningResponse warnings;
 
-    public FaxLineResponse() {}
+  public FaxLineResponse() { 
+  }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     *
-     * @param jsonData String of JSON data representing target object
-     */
-    public static FaxLineResponse init(String jsonData) throws Exception {
-        return new ObjectMapper().readValue(jsonData, FaxLineResponse.class);
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public FaxLineResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, FaxLineResponse.class);
+  }
+
+  static public FaxLineResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      FaxLineResponse.class
+    );
+  }
+
+  public FaxLineResponse faxLine(@javax.annotation.Nonnull FaxLineResponseFaxLine faxLine) {
+    this.faxLine = faxLine;
+    return this;
+  }
+
+  /**
+   * Get faxLine
+   * @return faxLine
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FAX_LINE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public FaxLineResponseFaxLine getFaxLine() {
+    return faxLine;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FAX_LINE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setFaxLine(@javax.annotation.Nonnull FaxLineResponseFaxLine faxLine) {
+    this.faxLine = faxLine;
+  }
+
+
+  public FaxLineResponse warnings(@javax.annotation.Nullable WarningResponse warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  /**
+   * Get warnings
+   * @return warnings
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WarningResponse getWarnings() {
+    return warnings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWarnings(@javax.annotation.Nullable WarningResponse warnings) {
+    this.warnings = warnings;
+  }
+
+
+  /**
+   * Return true if this FaxLineResponse object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public static FaxLineResponse init(HashMap data) throws Exception {
-        return new ObjectMapper()
-                .readValue(new ObjectMapper().writeValueAsString(data), FaxLineResponse.class);
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    FaxLineResponse faxLineResponse = (FaxLineResponse) o;
+    return Objects.equals(this.faxLine, faxLineResponse.faxLine) &&
+        Objects.equals(this.warnings, faxLineResponse.warnings);
+  }
 
-    public FaxLineResponse faxLine(@javax.annotation.Nonnull FaxLineResponseFaxLine faxLine) {
-        this.faxLine = faxLine;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(faxLine, warnings);
+  }
 
-    /**
-     * Get faxLine
-     *
-     * @return faxLine
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FAX_LINE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public FaxLineResponseFaxLine getFaxLine() {
-        return faxLine;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class FaxLineResponse {\n");
+    sb.append("    faxLine: ").append(toIndentedString(faxLine)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @JsonProperty(JSON_PROPERTY_FAX_LINE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFaxLine(@javax.annotation.Nonnull FaxLineResponseFaxLine faxLine) {
-        this.faxLine = faxLine;
-    }
-
-    public FaxLineResponse warnings(@javax.annotation.Nullable WarningResponse warnings) {
-        this.warnings = warnings;
-        return this;
-    }
-
-    /**
-     * Get warnings
-     *
-     * @return warnings
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WarningResponse getWarnings() {
-        return warnings;
-    }
-
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(@javax.annotation.Nullable WarningResponse warnings) {
-        this.warnings = warnings;
-    }
-
-    /** Return true if this FaxLineResponse object is equal to o. */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    try {
+    if (faxLine != null) {
+        if (isFileTypeOrListOfFiles(faxLine)) {
+            fileTypeFound = true;
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        FaxLineResponse faxLineResponse = (FaxLineResponse) o;
-        return Objects.equals(this.faxLine, faxLineResponse.faxLine)
-                && Objects.equals(this.warnings, faxLineResponse.warnings);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(faxLine, warnings);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class FaxLineResponse {\n");
-        sb.append("    faxLine: ").append(toIndentedString(faxLine)).append("\n");
-        sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    public Map<String, Object> createFormData() throws ApiException {
-        Map<String, Object> map = new HashMap<>();
-        boolean fileTypeFound = false;
-        try {
-            if (faxLine != null) {
-                if (isFileTypeOrListOfFiles(faxLine)) {
-                    fileTypeFound = true;
-                }
-
-                if (faxLine.getClass().equals(java.io.File.class)
-                        || faxLine.getClass().equals(Integer.class)
-                        || faxLine.getClass().equals(String.class)
-                        || faxLine.getClass().isEnum()) {
-                    map.put("fax_line", faxLine);
-                } else if (isListOfFile(faxLine)) {
-                    for (int i = 0; i < getListSize(faxLine); i++) {
-                        map.put("fax_line[" + i + "]", getFromList(faxLine, i));
-                    }
-                } else {
-                    map.put("fax_line", JSON.getDefault().getMapper().writeValueAsString(faxLine));
-                }
+        if (faxLine.getClass().equals(java.io.File.class) ||
+            faxLine.getClass().equals(Integer.class) ||
+            faxLine.getClass().equals(String.class) ||
+            faxLine.getClass().isEnum()) {
+            map.put("fax_line", faxLine);
+        } else if (isListOfFile(faxLine)) {
+            for(int i = 0; i< getListSize(faxLine); i++) {
+                map.put("fax_line[" + i + "]", getFromList(faxLine, i));
             }
-            if (warnings != null) {
-                if (isFileTypeOrListOfFiles(warnings)) {
-                    fileTypeFound = true;
-                }
+        }
+        else {
+            map.put("fax_line", JSON.getDefault().getMapper().writeValueAsString(faxLine));
+        }
+    }
+    if (warnings != null) {
+        if (isFileTypeOrListOfFiles(warnings)) {
+            fileTypeFound = true;
+        }
 
-                if (warnings.getClass().equals(java.io.File.class)
-                        || warnings.getClass().equals(Integer.class)
-                        || warnings.getClass().equals(String.class)
-                        || warnings.getClass().isEnum()) {
-                    map.put("warnings", warnings);
-                } else if (isListOfFile(warnings)) {
-                    for (int i = 0; i < getListSize(warnings); i++) {
-                        map.put("warnings[" + i + "]", getFromList(warnings, i));
-                    }
-                } else {
-                    map.put("warnings", JSON.getDefault().getMapper().writeValueAsString(warnings));
-                }
+        if (warnings.getClass().equals(java.io.File.class) ||
+            warnings.getClass().equals(Integer.class) ||
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
+            map.put("warnings", warnings);
+        } else if (isListOfFile(warnings)) {
+            for(int i = 0; i< getListSize(warnings); i++) {
+                map.put("warnings[" + i + "]", getFromList(warnings, i));
             }
-        } catch (Exception e) {
-            throw new ApiException(e);
         }
-
-        return fileTypeFound ? map : new HashMap<>();
-    }
-
-    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-    }
-
-    private boolean isListOfFile(Object obj) throws Exception {
-        return obj instanceof java.util.List
-                && !isListEmpty(obj)
-                && getFromList(obj, 0) instanceof java.io.File;
-    }
-
-    private boolean isListEmpty(Object obj) throws Exception {
-        return (boolean)
-                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-    }
-
-    private Object getFromList(Object obj, int index) throws Exception {
-        return Class.forName(java.util.List.class.getName())
-                .getMethod("get", int.class)
-                .invoke(obj, index);
-    }
-
-    private int getListSize(Object obj) throws Exception {
-        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
+        else {
+            map.put("warnings", JSON.getDefault().getMapper().writeValueAsString(warnings));
         }
-        return o.toString().replace("\n", "\n    ");
     }
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

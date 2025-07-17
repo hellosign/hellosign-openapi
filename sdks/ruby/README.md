@@ -169,6 +169,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::TemplateApi* | [**template_create**](docs/TemplateApi.md#template_create) | **POST** /template/create | Create Template |
 |*Dropbox::Sign::TemplateApi* | [**template_create_embedded_draft**](docs/TemplateApi.md#template_create_embedded_draft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 |*Dropbox::Sign::TemplateApi* | [**template_delete**](docs/TemplateApi.md#template_delete) | **POST** /template/delete/{template_id} | Delete Template |
+|*Dropbox::Sign::TemplateApi* | [**template_edit**](docs/TemplateApi.md#template_edit) | **POST** /template/edit/{template_id} | _t__TemplateEdit::SUMMARY |
 |*Dropbox::Sign::TemplateApi* | [**template_files**](docs/TemplateApi.md#template_files) | **GET** /template/files/{template_id} | Get Template Files |
 |*Dropbox::Sign::TemplateApi* | [**template_files_as_data_uri**](docs/TemplateApi.md#template_files_as_data_uri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri |
 |*Dropbox::Sign::TemplateApi* | [**template_files_as_file_url**](docs/TemplateApi.md#template_files_as_file_url) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url |
@@ -332,7 +333,9 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::TemplateCreateRequest](docs/TemplateCreateRequest.md)
  - [Dropbox::Sign::TemplateCreateResponse](docs/TemplateCreateResponse.md)
  - [Dropbox::Sign::TemplateCreateResponseTemplate](docs/TemplateCreateResponseTemplate.md)
+ - [Dropbox::Sign::TemplateEditRequest](docs/TemplateEditRequest.md)
  - [Dropbox::Sign::TemplateEditResponse](docs/TemplateEditResponse.md)
+ - [Dropbox::Sign::TemplateEditResponseTemplate](docs/TemplateEditResponseTemplate.md)
  - [Dropbox::Sign::TemplateGetResponse](docs/TemplateGetResponse.md)
  - [Dropbox::Sign::TemplateListResponse](docs/TemplateListResponse.md)
  - [Dropbox::Sign::TemplateRemoveUserRequest](docs/TemplateRemoveUserRequest.md)

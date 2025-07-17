@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign;
 
 import java.util.List;

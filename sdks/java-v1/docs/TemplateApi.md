@@ -8,6 +8,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 [**templateCreate**](TemplateApi.md#templateCreate) | **POST** /template/create | Create Template
 [**templateCreateEmbeddedDraft**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
 [**templateDelete**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template
+[**templateEdit**](TemplateApi.md#templateEdit) | **POST** /template/edit/{template_id} | _t__TemplateEdit::SUMMARY
 [**templateFiles**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files
 [**templateFilesAsDataUri**](TemplateApi.md#templateFilesAsDataUri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri
 [**templateFilesAsFileUrl**](TemplateApi.md#templateFilesAsFileUrl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url
@@ -464,6 +465,48 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## templateEdit
+
+> TemplateEditResponse templateEdit(templateId, templateEditRequest)
+
+_t__TemplateEdit::SUMMARY
+
+_t__TemplateEdit::DESCRIPTION
+
+### Example
+
+```java
+REPLACE_ME_WITH_EXAMPLE_FOR__templateEdit_Java_CODE
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **templateId** | **String**| _t__TemplateEdit::TEMPLATE_ID |
+ **templateEditRequest** | [**TemplateEditRequest**](TemplateEditRequest.md)|  |
+
+### Return type
+
+[**TemplateEditResponse**](TemplateEditResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 ### HTTP response details

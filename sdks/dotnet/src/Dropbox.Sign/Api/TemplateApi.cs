@@ -122,6 +122,31 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TemplateDeleteWithHttpInfo(string templateId, int operationIndex = 0);
         /// <summary>
+        /// _t__TemplateEdit::SUMMARY
+        /// </summary>
+        /// <remarks>
+        /// _t__TemplateEdit::DESCRIPTION
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">_t__TemplateEdit::TEMPLATE_ID</param>
+        /// <param name="templateEditRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TemplateEditResponse</returns>
+        TemplateEditResponse TemplateEdit(string templateId, TemplateEditRequest templateEditRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// _t__TemplateEdit::SUMMARY
+        /// </summary>
+        /// <remarks>
+        /// _t__TemplateEdit::DESCRIPTION
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">_t__TemplateEdit::TEMPLATE_ID</param>
+        /// <param name="templateEditRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TemplateEditResponse</returns>
+        ApiResponse<TemplateEditResponse> TemplateEditWithHttpInfo(string templateId, TemplateEditRequest templateEditRequest, int operationIndex = 0);
+        /// <summary>
         /// Get Template Files
         /// </summary>
         /// <remarks>
@@ -407,6 +432,33 @@ namespace Dropbox.Sign.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// _t__TemplateEdit::SUMMARY
+        /// </summary>
+        /// <remarks>
+        /// _t__TemplateEdit::DESCRIPTION
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">_t__TemplateEdit::TEMPLATE_ID</param>
+        /// <param name="templateEditRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TemplateEditResponse</returns>
+        System.Threading.Tasks.Task<TemplateEditResponse> TemplateEditAsync(string templateId, TemplateEditRequest templateEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// _t__TemplateEdit::SUMMARY
+        /// </summary>
+        /// <remarks>
+        /// _t__TemplateEdit::DESCRIPTION
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">_t__TemplateEdit::TEMPLATE_ID</param>
+        /// <param name="templateEditRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TemplateEditResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TemplateEditResponse>> TemplateEditWithHttpInfoAsync(string templateId, TemplateEditRequest templateEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files
         /// </summary>
@@ -1443,6 +1495,208 @@ namespace Dropbox.Sign.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateDelete", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// _t__TemplateEdit::SUMMARY _t__TemplateEdit::DESCRIPTION
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">_t__TemplateEdit::TEMPLATE_ID</param>
+        /// <param name="templateEditRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TemplateEditResponse</returns>
+        public TemplateEditResponse TemplateEdit(string templateId, TemplateEditRequest templateEditRequest, int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<TemplateEditResponse> localVarResponse = TemplateEditWithHttpInfo(templateId, templateEditRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// _t__TemplateEdit::SUMMARY _t__TemplateEdit::DESCRIPTION
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">_t__TemplateEdit::TEMPLATE_ID</param>
+        /// <param name="templateEditRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TemplateEditResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<TemplateEditResponse> TemplateEditWithHttpInfo(string templateId, TemplateEditRequest templateEditRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'templateId' is set
+            if (templateId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateEdit");
+            }
+
+            // verify the required parameter 'templateEditRequest' is set
+            if (templateEditRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateEditRequest' when calling TemplateApi->TemplateEdit");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = templateEditRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = templateEditRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
+            localVarRequestOptions.Operation = "TemplateApi.TemplateEdit";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TemplateEditResponse>("/template/edit/{template_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TemplateEdit", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// _t__TemplateEdit::SUMMARY _t__TemplateEdit::DESCRIPTION
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">_t__TemplateEdit::TEMPLATE_ID</param>
+        /// <param name="templateEditRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TemplateEditResponse</returns>
+        public async System.Threading.Tasks.Task<TemplateEditResponse> TemplateEditAsync(string templateId, TemplateEditRequest templateEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<TemplateEditResponse> localVarResponse = await TemplateEditWithHttpInfoAsync(templateId, templateEditRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// _t__TemplateEdit::SUMMARY _t__TemplateEdit::DESCRIPTION
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">_t__TemplateEdit::TEMPLATE_ID</param>
+        /// <param name="templateEditRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TemplateEditResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateEditResponse>> TemplateEditWithHttpInfoAsync(string templateId, TemplateEditRequest templateEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'templateId' is set
+            if (templateId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateEdit");
+            }
+
+            // verify the required parameter 'templateEditRequest' is set
+            if (templateEditRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateEditRequest' when calling TemplateApi->TemplateEdit");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = templateEditRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = templateEditRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
+            localVarRequestOptions.Operation = "TemplateApi.TemplateEdit";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplateEditResponse>("/template/edit/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TemplateEdit", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

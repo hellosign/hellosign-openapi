@@ -23,20 +23,28 @@
  */
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
+import { TemplateEditResponseTemplate } from "./templateEditResponseTemplate";
+import { WarningResponse } from "./warningResponse";
 
 export class TemplateEditResponse {
+  "template"?: TemplateEditResponseTemplate;
   /**
-   * The id of the Template.
+   * A list of warnings.
    */
-  "templateId": string;
+  "warnings"?: Array<WarningResponse>;
 
   static discriminator: string | undefined = undefined;
 
   static attributeTypeMap: AttributeTypeMap = [
     {
-      name: "templateId",
-      baseName: "template_id",
-      type: "string",
+      name: "template",
+      baseName: "template",
+      type: "TemplateEditResponseTemplate",
+    },
+    {
+      name: "warnings",
+      baseName: "warnings",
+      type: "Array<WarningResponse>",
     },
   ];
 

@@ -1,9 +1,0 @@
-import { AttributeTypeMap } from "./";
-export declare class SubTemplateRole {
-    "name"?: string;
-    "order"?: number | null;
-    static discriminator: string | undefined;
-    static attributeTypeMap: AttributeTypeMap;
-    static getAttributeTypeMap(): AttributeTypeMap;
-    static init(data: any): SubTemplateRole;
-}

@@ -57,7 +57,8 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template_id' => 'string',
+        'template' => '\Dropbox\Sign\Model\TemplateEditResponseTemplate',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**
@@ -68,7 +69,8 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'template_id' => null,
+        'template' => null,
+        'warnings' => null,
     ];
 
     /**
@@ -77,7 +79,8 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'template_id' => false,
+        'template' => false,
+        'warnings' => false,
     ];
 
     /**
@@ -158,7 +161,8 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'template_id' => 'template_id',
+        'template' => 'template',
+        'warnings' => 'warnings',
     ];
 
     /**
@@ -167,7 +171,8 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'template_id' => 'setTemplateId',
+        'template' => 'setTemplate',
+        'warnings' => 'setWarnings',
     ];
 
     /**
@@ -176,7 +181,8 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'template_id' => 'getTemplateId',
+        'template' => 'getTemplate',
+        'warnings' => 'getWarnings',
     ];
 
     /**
@@ -235,7 +241,8 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('template', $data ?? [], null);
+        $this->setIfExists('warnings', $data ?? [], null);
     }
 
     /**
@@ -281,12 +288,7 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['template_id'] === null) {
-            $invalidProperties[] = "'template_id' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -301,28 +303,55 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
     }
 
     /**
-     * Gets template_id
+     * Gets template
      *
-     * @return string
+     * @return TemplateEditResponseTemplate|null
      */
-    public function getTemplateId()
+    public function getTemplate()
     {
-        return $this->container['template_id'];
+        return $this->container['template'];
     }
 
     /**
-     * Sets template_id
+     * Sets template
      *
-     * @param string $template_id the id of the Template
+     * @param TemplateEditResponseTemplate|null $template template
      *
      * @return self
      */
-    public function setTemplateId(string $template_id)
+    public function setTemplate(?TemplateEditResponseTemplate $template)
     {
-        if (is_null($template_id)) {
-            throw new InvalidArgumentException('non-nullable template_id cannot be null');
+        if (is_null($template)) {
+            throw new InvalidArgumentException('non-nullable template cannot be null');
         }
-        $this->container['template_id'] = $template_id;
+        $this->container['template'] = $template;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return WarningResponse[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param WarningResponse[]|null $warnings a list of warnings
+     *
+     * @return self
+     */
+    public function setWarnings(?array $warnings)
+    {
+        if (is_null($warnings)) {
+            throw new InvalidArgumentException('non-nullable warnings cannot be null');
+        }
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

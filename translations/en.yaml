@@ -805,6 +805,18 @@
 "TemplateUpdateFiles::TEMPLATE_ID": The ID of the template whose files to update.
 "TemplateUpdateFiles::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 
+"TemplateEdit::SUMMARY": Edit Template
+"TemplateEdit::DESCRIPTION": Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+"TemplateEdit::TEMPLATE_ID": The ID of the template to update.
+"TemplateEdit::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request.
+"TemplateEdit::ALLOW_FORM_VIEW": "The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names."
+"TemplateEdit::TITLE": The title you want to assign to the SignatureRequest.
+"TemplateEdit::SUBJECT": The new default template email subject.
+"TemplateEdit::MESSAGE": The new default template email message.
+"TemplateEditResponseTemplate::DESCRIPTION": "Template object with parameters: `template_id`."
+"TemplateEditRequestExample::SUMMARY": Edit template request example
+"TemplateEditResponseExample::SUMMARY": Edit template response example.
+
 "UnclaimedDraftCreate::SUMMARY": Create Unclaimed Draft
 "UnclaimedDraftCreate::DESCRIPTION": Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the "Sign and send" or the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
 "UnclaimedDraftCreate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
