@@ -6685,6 +6685,7 @@ paths:
         seo:
           title: 'Edit Template | API Documentation | Dropbox Sign for Developers'
           description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to edit a template, click here.'
+      x-hideOn: doc
   '/template/files/{template_id}':
     get:
       tags:
