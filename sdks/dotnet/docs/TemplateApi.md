@@ -8,6 +8,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TemplateCreate**](TemplateApi.md#templatecreate) | **POST** /template/create | Create Template |
 | [**TemplateCreateEmbeddedDraft**](TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**TemplateDelete**](TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
+| [**TemplateEdit**](TemplateApi.md#templateedit) | **POST** /template/edit/{template_id} | Edit Template |
 | [**TemplateFiles**](TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |
 | [**TemplateFilesAsDataUri**](TemplateApi.md#templatefilesasdatauri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri |
 | [**TemplateFilesAsFileUrl**](TemplateApi.md#templatefilesasfileurl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url |
@@ -541,6 +542,111 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="templateedit"></a>
+# **TemplateEdit**
+> TemplateGetResponse TemplateEdit (string templateId, TemplateEditRequest templateEditRequest)
+
+Edit Template
+
+Edits an existing template.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+namespace Dropbox.SignSandbox;
+
+public class TemplateEditExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+        var templateEditRequest = new TemplateEditRequest(
+            ccRoles: [
+                "Role 1",
+                "Role 2",
+            ]
+        );
+
+        try
+        {
+            var response = new TemplateApi(config).TemplateEdit(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35",
+                templateEditRequest: templateEditRequest
+            );
+
+            Console.WriteLine(response);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling TemplateApi#TemplateEdit: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the TemplateEditWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Edit Template
+    ApiResponse<TemplateGetResponse> response = apiInstance.TemplateEditWithHttpInfo(templateId, templateEditRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplateApi.TemplateEditWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **templateId** | **string** | The id of the Template to edit. |  |
+| **templateEditRequest** | [**TemplateEditRequest**](TemplateEditRequest.md) |  |  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

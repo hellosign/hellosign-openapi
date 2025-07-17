@@ -193,6 +193,7 @@ Class | Method | HTTP request | Description
 *TemplateApi* | [**TemplateCreate**](docs/TemplateApi.md#templatecreate) | **POST** /template/create | Create Template
 *TemplateApi* | [**TemplateCreateEmbeddedDraft**](docs/TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
 *TemplateApi* | [**TemplateDelete**](docs/TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template
+*TemplateApi* | [**TemplateEdit**](docs/TemplateApi.md#templateedit) | **POST** /template/edit/{template_id} | Edit Template
 *TemplateApi* | [**TemplateFiles**](docs/TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files
 *TemplateApi* | [**TemplateFilesAsDataUri**](docs/TemplateApi.md#templatefilesasdatauri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri
 *TemplateApi* | [**TemplateFilesAsFileUrl**](docs/TemplateApi.md#templatefilesasfileurl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url
@@ -357,7 +358,7 @@ Class | Method | HTTP request | Description
  - [Model.TemplateCreateRequest](docs/TemplateCreateRequest.md)
  - [Model.TemplateCreateResponse](docs/TemplateCreateResponse.md)
  - [Model.TemplateCreateResponseTemplate](docs/TemplateCreateResponseTemplate.md)
- - [Model.TemplateEditResponse](docs/TemplateEditResponse.md)
+ - [Model.TemplateEditRequest](docs/TemplateEditRequest.md)
  - [Model.TemplateGetResponse](docs/TemplateGetResponse.md)
  - [Model.TemplateListResponse](docs/TemplateListResponse.md)
  - [Model.TemplateRemoveUserRequest](docs/TemplateRemoveUserRequest.md)

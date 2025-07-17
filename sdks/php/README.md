@@ -209,6 +209,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *TemplateApi* | [**templateCreate**](docs/Api/TemplateApi.md#templatecreate) | **POST** /template/create | Create Template |
 | *TemplateApi* | [**templateCreateEmbeddedDraft**](docs/Api/TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | *TemplateApi* | [**templateDelete**](docs/Api/TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
+| *TemplateApi* | [**templateEdit**](docs/Api/TemplateApi.md#templateedit) | **POST** /template/edit/{template_id} | Edit Template |
 | *TemplateApi* | [**templateFiles**](docs/Api/TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |
 | *TemplateApi* | [**templateFilesAsDataUri**](docs/Api/TemplateApi.md#templatefilesasdatauri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri |
 | *TemplateApi* | [**templateFilesAsFileUrl**](docs/Api/TemplateApi.md#templatefilesasfileurl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url |
@@ -372,7 +373,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [TemplateCreateRequest](docs/Model/TemplateCreateRequest.md)
 - [TemplateCreateResponse](docs/Model/TemplateCreateResponse.md)
 - [TemplateCreateResponseTemplate](docs/Model/TemplateCreateResponseTemplate.md)
-- [TemplateEditResponse](docs/Model/TemplateEditResponse.md)
+- [TemplateEditRequest](docs/Model/TemplateEditRequest.md)
 - [TemplateGetResponse](docs/Model/TemplateGetResponse.md)
 - [TemplateListResponse](docs/Model/TemplateListResponse.md)
 - [TemplateRemoveUserRequest](docs/Model/TemplateRemoveUserRequest.md)

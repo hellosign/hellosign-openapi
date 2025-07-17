@@ -27,54 +27,58 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// TemplateEditResponse
+    /// TemplateEditRequest
     /// </summary>
-    [DataContract(Name = "TemplateEditResponse")]
+    [DataContract(Name = "TemplateEditRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateEditResponse : IEquatable<TemplateEditResponse>, IValidatableObject
+    public partial class TemplateEditRequest : IEquatable<TemplateEditRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TemplateEditResponse" /> class.
+        /// Initializes a new instance of the <see cref="TemplateEditRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TemplateEditResponse() { }
+        protected TemplateEditRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TemplateEditResponse" /> class.
+        /// Initializes a new instance of the <see cref="TemplateEditRequest" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template. (required).</param>
-        public TemplateEditResponse(string templateId = default(string))
+        /// <param name="ccRoles">The CC roles that must be assigned when using the template to send a signature request.</param>
+        /// <param name="allowFormView">Allows signers to view the form fields before signing if set to &#x60;true&#x60;..</param>
+        public TemplateEditRequest(List<string> ccRoles = default(List<string>), bool allowFormView = default(bool))
         {
 
-            // to ensure "templateId" is required (not null)
-            if (templateId == null)
-            {
-                throw new ArgumentNullException("templateId is a required property for TemplateEditResponse and cannot be null");
-            }
-            this.TemplateId = templateId;
+            this.CcRoles = ccRoles;
+            this.AllowFormView = allowFormView;
         }
 
         /// <summary>
         /// Attempt to instantiate and hydrate a new instance of this class
         /// </summary>
         /// <param name="jsonData">String of JSON data representing target object</param>
-        public static TemplateEditResponse Init(string jsonData)
+        public static TemplateEditRequest Init(string jsonData)
         {
-            var obj = JsonConvert.DeserializeObject<TemplateEditResponse>(jsonData);
+            var obj = JsonConvert.DeserializeObject<TemplateEditRequest>(jsonData);
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TemplateEditResponse");
+                throw new Exception("Unable to deserialize JSON to instance of TemplateEditRequest");
             }
 
             return obj;
         }
 
         /// <summary>
-        /// The id of the Template.
+        /// The CC roles that must be assigned when using the template to send a signature request
         /// </summary>
-        /// <value>The id of the Template.</value>
-        [DataMember(Name = "template_id", IsRequired = true, EmitDefaultValue = true)]
-        public string TemplateId { get; set; }
+        /// <value>The CC roles that must be assigned when using the template to send a signature request</value>
+        [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
+        public List<string> CcRoles { get; set; }
+
+        /// <summary>
+        /// Allows signers to view the form fields before signing if set to &#x60;true&#x60;.
+        /// </summary>
+        /// <value>Allows signers to view the form fields before signing if set to &#x60;true&#x60;.</value>
+        [DataMember(Name = "allow_form_view", EmitDefaultValue = true)]
+        public bool AllowFormView { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,8 +87,9 @@ namespace Dropbox.Sign.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TemplateEditResponse {\n");
-            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
+            sb.Append("class TemplateEditRequest {\n");
+            sb.Append("  CcRoles: ").Append(CcRoles).Append("\n");
+            sb.Append("  AllowFormView: ").Append(AllowFormView).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,15 +110,15 @@ namespace Dropbox.Sign.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TemplateEditResponse);
+            return this.Equals(input as TemplateEditRequest);
         }
 
         /// <summary>
-        /// Returns true if TemplateEditResponse instances are equal
+        /// Returns true if TemplateEditRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of TemplateEditResponse to be compared</param>
+        /// <param name="input">Instance of TemplateEditRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TemplateEditResponse input)
+        public bool Equals(TemplateEditRequest input)
         {
             if (input == null)
             {
@@ -121,9 +126,14 @@ namespace Dropbox.Sign.Model
             }
             return
                 (
-                    this.TemplateId == input.TemplateId ||
-                    (this.TemplateId != null &&
-                    this.TemplateId.Equals(input.TemplateId))
+                    this.CcRoles == input.CcRoles ||
+                    this.CcRoles != null &&
+                    input.CcRoles != null &&
+                    this.CcRoles.SequenceEqual(input.CcRoles)
+                ) &&
+                (
+                    this.AllowFormView == input.AllowFormView ||
+                    this.AllowFormView.Equals(input.AllowFormView)
                 );
         }
 
@@ -136,10 +146,11 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TemplateId != null)
+                if (this.CcRoles != null)
                 {
-                    hashCode = (hashCode * 59) + this.TemplateId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CcRoles.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.AllowFormView.GetHashCode();
                 return hashCode;
             }
         }
@@ -158,10 +169,17 @@ namespace Dropbox.Sign.Model
             var types = new List<OpenApiType>();
             types.Add(new OpenApiType()
             {
-                Name = "template_id",
-                Property = "TemplateId",
-                Type = "string",
-                Value = TemplateId,
+                Name = "cc_roles",
+                Property = "CcRoles",
+                Type = "List<string>",
+                Value = CcRoles,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "allow_form_view",
+                Property = "AllowFormView",
+                Type = "bool",
+                Value = AllowFormView,
             });
 
             return types;

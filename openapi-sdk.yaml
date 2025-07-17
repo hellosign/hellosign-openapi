@@ -6574,6 +6574,117 @@ paths:
         seo:
           title: 'Delete Template | API Documentation | Dropbox Sign for Developers'
           description: 'The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to completely delete a template from the account, click here.'
+  '/template/edit/{template_id}':
+    post:
+      tags:
+        - Template
+      summary: 'Edit Template'
+      description: 'Edits an existing template.'
+      operationId: templateEdit
+      parameters:
+        -
+          name: template_id
+          in: path
+          description: 'The id of the Template to edit.'
+          required: true
+          schema:
+            type: string
+          example: f57db65d3f933b5316d398057a36176831451a35
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateEditRequest'
+            examples:
+              example:
+                $ref: '#/components/examples/TemplateEditRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateGetResponse'
+              examples:
+                example:
+                  $ref: '#/components/examples/TemplateGetResponse'
+        '4XX':
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - template_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TemplateEditExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TemplateEditExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TemplateEditExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TemplateEditExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TemplateEditExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateEditExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateEditExample.sh
+      x-meta:
+        seo:
+          title: 'Edit Template | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to edit a template, click here.'
   '/template/files/{template_id}':
     get:
       tags:
@@ -10816,6 +10927,17 @@ components:
           type: boolean
           default: false
       type: object
+    TemplateEditRequest:
+      properties:
+        cc_roles:
+          description: 'The CC roles that must be assigned when using the template to send a signature request'
+          type: array
+          items:
+            type: string
+        allow_form_view:
+          description: 'Allows signers to view the form fields before signing if set to `true`.'
+          type: boolean
+      type: object
     TemplateRemoveUserRequest:
       properties:
         account_id:
@@ -13691,14 +13813,6 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal-class: true
-    TemplateEditResponse:
-      required:
-        - template_id
-      properties:
-        template_id:
-          description: 'The id of the Template.'
-          type: string
-      type: object
     TemplateGetResponse:
       required:
         - template
@@ -14022,6 +14136,10 @@ components:
       summary: 'Form Fields Per Document and Rules Example'
       value:
         $ref: examples/json/TemplateCreateEmbeddedDraftRequestFormFieldRules.json
+    TemplateEditRequest:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/TemplateEditRequest.json
     TemplateRemoveUserRequest:
       summary: 'Default Example'
       value:

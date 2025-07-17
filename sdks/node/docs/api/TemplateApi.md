@@ -8,6 +8,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateCreate()**](TemplateApi.md#templateCreate) | **POST** /template/create | Create Template |
 | [**templateCreateEmbeddedDraft()**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**templateDelete()**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template |
+| [**templateEdit()**](TemplateApi.md#templateEdit) | **POST** /template/edit/{template_id} | Edit Template |
 | [**templateFiles()**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files |
 | [**templateFilesAsDataUri()**](TemplateApi.md#templateFilesAsDataUri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri |
 | [**templateFilesAsFileUrl()**](TemplateApi.md#templateFilesAsFileUrl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url |
@@ -373,6 +374,70 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `templateEdit()`
+
+```typescript
+templateEdit(templateId: string, templateEditRequest: TemplateEditRequest): TemplateGetResponse
+```
+
+Edit Template
+
+Edits an existing template.
+
+### TypeScript Example
+
+```typescript
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+const templateEditRequest: models.TemplateEditRequest = {
+  ccRoles: [
+    "Role 1",
+    "Role 2",
+  ],
+};
+
+apiCaller.templateEdit(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateEditRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling TemplateApi#templateEdit:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **templateId** | **string**| The id of the Template to edit. | |
+| **templateEditRequest** | [**TemplateEditRequest**](../model/TemplateEditRequest.md)|  | |
+
+### Return type
+
+[**TemplateGetResponse**](../model/TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

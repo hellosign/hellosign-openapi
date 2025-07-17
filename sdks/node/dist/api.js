@@ -13310,7 +13310,7 @@ __export(api_exports, {
   TemplateCreateRequest: () => TemplateCreateRequest,
   TemplateCreateResponse: () => TemplateCreateResponse,
   TemplateCreateResponseTemplate: () => TemplateCreateResponseTemplate,
-  TemplateEditResponse: () => TemplateEditResponse,
+  TemplateEditRequest: () => TemplateEditRequest,
   TemplateGetResponse: () => TemplateGetResponse,
   TemplateListResponse: () => TemplateListResponse,
   TemplateRemoveUserRequest: () => TemplateRemoveUserRequest,
@@ -24399,26 +24399,31 @@ var TemplateCreateResponseTemplate = class _TemplateCreateResponseTemplate {
   }
 };
 
-// model/templateEditResponse.ts
-var TemplateEditResponse = class _TemplateEditResponse {
+// model/templateEditRequest.ts
+var TemplateEditRequest = class _TemplateEditRequest {
   static {
     this.discriminator = void 0;
   }
   static {
     this.attributeTypeMap = [
       {
-        name: "templateId",
-        baseName: "template_id",
-        type: "string"
+        name: "ccRoles",
+        baseName: "cc_roles",
+        type: "Array<string>"
+      },
+      {
+        name: "allowFormView",
+        baseName: "allow_form_view",
+        type: "boolean"
       }
     ];
   }
   static getAttributeTypeMap() {
-    return _TemplateEditResponse.attributeTypeMap;
+    return _TemplateEditRequest.attributeTypeMap;
   }
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
-    return ObjectSerializer.deserialize(data, "TemplateEditResponse");
+    return ObjectSerializer.deserialize(data, "TemplateEditRequest");
   }
 };
 
@@ -27025,7 +27030,7 @@ var typeMap = {
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
+  TemplateEditRequest,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -34890,6 +34895,137 @@ var TemplateApi = class {
     });
   }
   /**
+   * Edits an existing template.
+   * @summary Edit Template
+   * @param templateId The id of the Template to edit.
+   * @param templateEditRequest
+   * @param options
+   */
+  async templateEdit(templateId, templateEditRequest, options = { headers: {} }) {
+    templateEditRequest = deserializeIfNeeded10(
+      templateEditRequest,
+      "TemplateEditRequest"
+    );
+    const localVarPath = this.basePath + "/template/edit/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId))
+    );
+    let localVarQueryParameters = {};
+    let localVarHeaderParams = Object.assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams = {};
+    let localVarBodyParams = void 0;
+    if (templateId === null || templateId === void 0) {
+      throw new Error(
+        "Required parameter templateId was null or undefined when calling templateEdit."
+      );
+    }
+    if (templateEditRequest === null || templateEditRequest === void 0) {
+      throw new Error(
+        "Required parameter templateEditRequest was null or undefined when calling templateEdit."
+      );
+    }
+    Object.assign(localVarHeaderParams, options.headers);
+    let localVarUseFormData = false;
+    const result = generateFormData(
+      templateEditRequest,
+      TemplateEditRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+    let data = {};
+    if (localVarUseFormData) {
+      const formData2 = toFormData3(result.data);
+      data = formData2;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData2.getHeaders()
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        templateEditRequest,
+        "TemplateEditRequest"
+      );
+    }
+    let localVarRequestOptions = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data
+    };
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(
+      () => this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(
+        () => interceptor(localVarRequestOptions)
+      );
+    }
+    return interceptorPromise.then(() => {
+      return new Promise(
+        (resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse11(
+                resolve,
+                reject,
+                response,
+                "TemplateGetResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse11(
+                reject,
+                error.response,
+                200,
+                "TemplateGetResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse11(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files
    * @param templateId The id of the template files to retrieve.
@@ -36562,7 +36698,7 @@ var APIS = [
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
+  TemplateEditRequest,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,

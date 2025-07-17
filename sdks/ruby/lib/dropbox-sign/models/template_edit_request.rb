@@ -17,15 +17,20 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  class TemplateEditResponse
-    # The id of the Template.
-    # @return [String]
-    attr_accessor :template_id
+  class TemplateEditRequest
+    # The CC roles that must be assigned when using the template to send a signature request
+    # @return [Array<String>]
+    attr_accessor :cc_roles
+
+    # Allows signers to view the form fields before signing if set to `true`.
+    # @return [Boolean]
+    attr_accessor :allow_form_view
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'template_id' => :'template_id'
+        :'cc_roles' => :'cc_roles',
+        :'allow_form_view' => :'allow_form_view'
       }
     end
 
@@ -42,7 +47,8 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'template_id' => :'String'
+        :'cc_roles' => :'Array<String>',
+        :'allow_form_view' => :'Boolean'
       }
     end
 
@@ -69,32 +75,38 @@ module Dropbox::Sign
 
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
-    # @return [TemplateEditResponse]
+    # @return [TemplateEditRequest]
     def self.init(data)
       ApiClient.default.convert_to_type(
         data,
-        "TemplateEditResponse"
-      ) || TemplateEditResponse.new
+        "TemplateEditRequest"
+      ) || TemplateEditRequest.new
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::TemplateEditResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::TemplateEditRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.merged_attributes.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::TemplateEditResponse`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::TemplateEditRequest`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'template_id')
-        self.template_id = attributes[:'template_id']
+      if attributes.key?(:'cc_roles')
+        if (value = attributes[:'cc_roles']).is_a?(Array)
+          self.cc_roles = value
+        end
+      end
+
+      if attributes.key?(:'allow_form_view')
+        self.allow_form_view = attributes[:'allow_form_view']
       end
     end
 
@@ -102,28 +114,13 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @template_id.nil?
-        invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @template_id.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] template_id Value to be assigned
-    def template_id=(template_id)
-      if template_id.nil?
-        fail ArgumentError, 'template_id cannot be nil'
-      end
-
-      @template_id = template_id
     end
 
     # Checks equality by comparing each attribute.
@@ -131,7 +128,8 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          template_id == o.template_id
+          cc_roles == o.cc_roles &&
+          allow_form_view == o.allow_form_view
     end
 
     # @see the `==` method
@@ -143,7 +141,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id].hash
+      [cc_roles, allow_form_view].hash
     end
 
     # Builds the object from hash

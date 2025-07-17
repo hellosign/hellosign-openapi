@@ -8,6 +8,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 [**templateCreate**](TemplateApi.md#templateCreate) | **POST** /template/create | Create Template
 [**templateCreateEmbeddedDraft**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
 [**templateDelete**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template
+[**templateEdit**](TemplateApi.md#templateEdit) | **POST** /template/edit/{template_id} | Edit Template
 [**templateFiles**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files
 [**templateFilesAsDataUri**](TemplateApi.md#templateFilesAsDataUri) | **GET** /template/files_as_data_uri/{template_id} | Get Template Files as Data Uri
 [**templateFilesAsFileUrl**](TemplateApi.md#templateFilesAsFileUrl) | **GET** /template/files_as_file_url/{template_id} | Get Template Files as File Url
@@ -464,6 +465,96 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## templateEdit
+
+> TemplateGetResponse templateEdit(templateId, templateEditRequest)
+
+Edit Template
+
+Edits an existing template.
+
+### Example
+
+```java
+package com.dropbox.sign_sandbox;
+
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
+import com.dropbox.sign.model.*;
+
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class TemplateEditExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+        var templateEditRequest = new TemplateEditRequest();
+        templateEditRequest.ccRoles(List.of (
+            "Role 1",
+            "Role 2"
+        ));
+
+        try
+        {
+            var response = new TemplateApi(config).templateEdit(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                templateEditRequest
+            );
+
+            System.out.println(response);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TemplateApi#templateEdit");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **templateId** | **String**| The id of the Template to edit. |
+ **templateEditRequest** | [**TemplateEditRequest**](TemplateEditRequest.md)|  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

@@ -1,4 +1,4 @@
-import { Authentication, FileResponse, FileResponseDataUri, HttpBasicAuth, HttpBearerAuth, Interceptor, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateCreateRequest, TemplateCreateResponse, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse } from "../model";
+import { Authentication, FileResponse, FileResponseDataUri, HttpBasicAuth, HttpBearerAuth, Interceptor, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateCreateRequest, TemplateCreateResponse, TemplateEditRequest, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse } from "../model";
 import { optionsI, returnTypeI, returnTypeT } from "./";
 export declare enum TemplateApiApiKeys {
 }
@@ -28,6 +28,7 @@ export declare class TemplateApi {
     templateCreate(templateCreateRequest: TemplateCreateRequest, options?: optionsI): Promise<returnTypeT<TemplateCreateResponse>>;
     templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest, options?: optionsI): Promise<returnTypeT<TemplateCreateEmbeddedDraftResponse>>;
     templateDelete(templateId: string, options?: optionsI): Promise<returnTypeI>;
+    templateEdit(templateId: string, templateEditRequest: TemplateEditRequest, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
     templateFiles(templateId: string, fileType?: "pdf" | "zip", options?: optionsI): Promise<returnTypeT<Buffer>>;
     templateFilesAsDataUri(templateId: string, options?: optionsI): Promise<returnTypeT<FileResponseDataUri>>;
     templateFilesAsFileUrl(templateId: string, forceDownload?: number, options?: optionsI): Promise<returnTypeT<FileResponse>>;

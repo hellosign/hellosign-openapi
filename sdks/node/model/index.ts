@@ -160,7 +160,7 @@ import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmb
 import { TemplateCreateRequest } from "./templateCreateRequest";
 import { TemplateCreateResponse } from "./templateCreateResponse";
 import { TemplateCreateResponseTemplate } from "./templateCreateResponseTemplate";
-import { TemplateEditResponse } from "./templateEditResponse";
+import { TemplateEditRequest } from "./templateEditRequest";
 import { TemplateGetResponse } from "./templateGetResponse";
 import { TemplateListResponse } from "./templateListResponse";
 import { TemplateRemoveUserRequest } from "./templateRemoveUserRequest";
@@ -415,7 +415,7 @@ export let typeMap: { [index: string]: any } = {
   TemplateCreateRequest: TemplateCreateRequest,
   TemplateCreateResponse: TemplateCreateResponse,
   TemplateCreateResponseTemplate: TemplateCreateResponseTemplate,
-  TemplateEditResponse: TemplateEditResponse,
+  TemplateEditRequest: TemplateEditRequest,
   TemplateGetResponse: TemplateGetResponse,
   TemplateListResponse: TemplateListResponse,
   TemplateRemoveUserRequest: TemplateRemoveUserRequest,
@@ -642,7 +642,7 @@ export {
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
+  TemplateEditRequest,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,

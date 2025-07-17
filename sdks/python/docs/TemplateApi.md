@@ -8,6 +8,7 @@ Method | HTTP request | Description
 |[```template_create```](TemplateApi.md#template_create) | ```POST /template/create``` | Create Template|
 |[```template_create_embedded_draft```](TemplateApi.md#template_create_embedded_draft) | ```POST /template/create_embedded_draft``` | Create Embedded Template Draft|
 |[```template_delete```](TemplateApi.md#template_delete) | ```POST /template/delete/{template_id}``` | Delete Template|
+|[```template_edit```](TemplateApi.md#template_edit) | ```POST /template/edit/{template_id}``` | Edit Template|
 |[```template_files```](TemplateApi.md#template_files) | ```GET /template/files/{template_id}``` | Get Template Files|
 |[```template_files_as_data_uri```](TemplateApi.md#template_files_as_data_uri) | ```GET /template/files_as_data_uri/{template_id}``` | Get Template Files as Data Uri|
 |[```template_files_as_file_url```](TemplateApi.md#template_files_as_file_url) | ```GET /template/files_as_file_url/{template_id}``` | Get Template Files as File Url|
@@ -407,6 +408,79 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```template_edit```
+> ```TemplateGetResponse template_edit(template_id, template_edit_request)```
+
+Edit Template
+
+Edits an existing template.
+
+### Example
+
+* Basic Authentication (api_key):
+* Bearer (JWT) Authentication (oauth2):
+
+```python
+import json
+from datetime import date, datetime
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
+
+configuration = Configuration(
+    username="YOUR_API_KEY",
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_edit_request = models.TemplateEditRequest(
+        cc_roles=[
+            "Role 1",
+            "Role 2",
+        ],
+    )
+
+    try:
+        response = api.TemplateApi(api_client).template_edit(
+            template_id="f57db65d3f933b5316d398057a36176831451a35",
+            template_edit_request=template_edit_request,
+        )
+
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling TemplateApi#template_edit: %s\n" % e)
+
+```
+```
+
+### Parameters
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `template_id` | **str** | The id of the Template to edit. |  |
+| `template_edit_request` | [**TemplateEditRequest**](TemplateEditRequest.md) |  |  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

@@ -805,6 +805,12 @@
 "TemplateUpdateFiles::TEMPLATE_ID": The ID of the template whose files to update.
 "TemplateUpdateFiles::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 
+"TemplateEdit::SUMMARY": Edit Template
+"TemplateEdit::DESCRIPTION": Edits an existing template.
+"TemplateEdit::TEMPLATE_ID": The id of the Template to edit.
+"TemplateEdit::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request
+"TemplateEdit::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`.
+
 "UnclaimedDraftCreate::SUMMARY": Create Unclaimed Draft
 "UnclaimedDraftCreate::DESCRIPTION": Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the "Sign and send" or the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
 "UnclaimedDraftCreate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
@@ -1528,6 +1534,8 @@
 "TemplateResponse::UPDATED_AT": Time the template was last updated.
 "TemplateResponse::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
+"TemplateEditResponseTemplate::DESCRIPTION": Contains information about the template you and your team have edited.
+
 "TemplateListResponse::DESCRIPTION": List of templates that the API caller has access to.
 
 "TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION": "Template object with parameters: `template_id`, `edit_url`, `expires_at`."
@@ -1821,6 +1829,8 @@
 "TemplateCreate::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an template, click here."
 "TemplateDelete::SEO::TITLE": "Delete Template | API Documentation | Dropbox Sign for Developers"
 "TemplateDelete::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to completely delete a template from the account, click here."
+"TemplateEdit::SEO::TITLE": "Edit Template | API Documentation | Dropbox Sign for Developers"
+"TemplateEdit::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to edit a template, click here."
 "TemplateFiles::SEO::TITLE": "Get Template Files | API Documentation | Dropbox Sign for Developers"
 "TemplateFiles::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to get a copy of the current specified documents, click here."
 "TemplateGet::SEO::TITLE": "Get Template | API Documentation | Dropbox Sign for Developers"

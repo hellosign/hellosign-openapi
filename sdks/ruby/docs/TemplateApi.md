@@ -8,6 +8,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [`template_create`](TemplateApi.md#template_create) | **POST** `/template/create` | Create Template |
 | [`template_create_embedded_draft`](TemplateApi.md#template_create_embedded_draft) | **POST** `/template/create_embedded_draft` | Create Embedded Template Draft |
 | [`template_delete`](TemplateApi.md#template_delete) | **POST** `/template/delete/{template_id}` | Delete Template |
+| [`template_edit`](TemplateApi.md#template_edit) | **POST** `/template/edit/{template_id}` | Edit Template |
 | [`template_files`](TemplateApi.md#template_files) | **GET** `/template/files/{template_id}` | Get Template Files |
 | [`template_files_as_data_uri`](TemplateApi.md#template_files_as_data_uri) | **GET** `/template/files_as_data_uri/{template_id}` | Get Template Files as Data Uri |
 | [`template_files_as_file_url`](TemplateApi.md#template_files_as_file_url) | **GET** `/template/files_as_file_url/{template_id}` | Get Template Files as File Url |
@@ -417,6 +418,83 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## `template_edit`
+
+> `<TemplateGetResponse> template_edit(template_id, template_edit_request)`
+
+Edit Template
+
+Edits an existing template.
+
+### Examples
+
+```ruby
+require "json"
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+template_edit_request = Dropbox::Sign::TemplateEditRequest.new
+template_edit_request.cc_roles = [
+    "Role 1",
+    "Role 2",
+]
+
+begin
+  response = Dropbox::Sign::TemplateApi.new.template_edit(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+      template_edit_request,
+  )
+
+  p response
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling TemplateApi#template_edit: #{e}"
+end
+
+```
+
+#### Using the `template_edit_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<TemplateGetResponse>, Integer, Hash)> template_edit_with_http_info(template_id, template_edit_request)`
+
+```ruby
+begin
+  # Edit Template
+  data, status_code, headers = api_instance.template_edit_with_http_info(template_id, template_edit_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TemplateGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling TemplateApi->template_edit_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `template_id` | **String** | The id of the Template to edit. |  |
+| `template_edit_request` | [**TemplateEditRequest**](TemplateEditRequest.md) |  |  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

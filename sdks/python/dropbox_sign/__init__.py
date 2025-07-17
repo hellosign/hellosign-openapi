@@ -306,7 +306,7 @@ from dropbox_sign.models.template_create_response import TemplateCreateResponse
 from dropbox_sign.models.template_create_response_template import (
     TemplateCreateResponseTemplate,
 )
-from dropbox_sign.models.template_edit_response import TemplateEditResponse
+from dropbox_sign.models.template_edit_request import TemplateEditRequest
 from dropbox_sign.models.template_get_response import TemplateGetResponse
 from dropbox_sign.models.template_list_response import TemplateListResponse
 from dropbox_sign.models.template_remove_user_request import TemplateRemoveUserRequest

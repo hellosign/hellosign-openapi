@@ -24,28 +24,37 @@
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
-export class TemplateEditResponse {
+export class TemplateEditRequest {
   /**
-   * The id of the Template.
+   * The CC roles that must be assigned when using the template to send a signature request
    */
-  "templateId": string;
+  "ccRoles"?: Array<string>;
+  /**
+   * Allows signers to view the form fields before signing if set to `true`.
+   */
+  "allowFormView"?: boolean;
 
   static discriminator: string | undefined = undefined;
 
   static attributeTypeMap: AttributeTypeMap = [
     {
-      name: "templateId",
-      baseName: "template_id",
-      type: "string",
+      name: "ccRoles",
+      baseName: "cc_roles",
+      type: "Array<string>",
+    },
+    {
+      name: "allowFormView",
+      baseName: "allow_form_view",
+      type: "boolean",
     },
   ];
 
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TemplateEditResponse.attributeTypeMap;
+    return TemplateEditRequest.attributeTypeMap;
   }
 
   /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data: any): TemplateEditResponse {
-    return ObjectSerializer.deserialize(data, "TemplateEditResponse");
+  static init(data: any): TemplateEditRequest {
+    return ObjectSerializer.deserialize(data, "TemplateEditRequest");
   }
 }

@@ -165,6 +165,7 @@ Class | Method | HTTP request | Description
 ```TemplateApi``` | [```template_create```](docs/TemplateApi.md#template_create) | ```POST /template/create``` | Create Template|
 ```TemplateApi``` | [```template_create_embedded_draft```](docs/TemplateApi.md#template_create_embedded_draft) | ```POST /template/create_embedded_draft``` | Create Embedded Template Draft|
 ```TemplateApi``` | [```template_delete```](docs/TemplateApi.md#template_delete) | ```POST /template/delete/{template_id}``` | Delete Template|
+```TemplateApi``` | [```template_edit```](docs/TemplateApi.md#template_edit) | ```POST /template/edit/{template_id}``` | Edit Template|
 ```TemplateApi``` | [```template_files```](docs/TemplateApi.md#template_files) | ```GET /template/files/{template_id}``` | Get Template Files|
 ```TemplateApi``` | [```template_files_as_data_uri```](docs/TemplateApi.md#template_files_as_data_uri) | ```GET /template/files_as_data_uri/{template_id}``` | Get Template Files as Data Uri|
 ```TemplateApi``` | [```template_files_as_file_url```](docs/TemplateApi.md#template_files_as_file_url) | ```GET /template/files_as_file_url/{template_id}``` | Get Template Files as File Url|
@@ -328,7 +329,7 @@ Class | Method | HTTP request | Description
  - [TemplateCreateRequest](docs/TemplateCreateRequest.md)
  - [TemplateCreateResponse](docs/TemplateCreateResponse.md)
  - [TemplateCreateResponseTemplate](docs/TemplateCreateResponseTemplate.md)
- - [TemplateEditResponse](docs/TemplateEditResponse.md)
+ - [TemplateEditRequest](docs/TemplateEditRequest.md)
  - [TemplateGetResponse](docs/TemplateGetResponse.md)
  - [TemplateListResponse](docs/TemplateListResponse.md)
  - [TemplateRemoveUserRequest](docs/TemplateRemoveUserRequest.md)
