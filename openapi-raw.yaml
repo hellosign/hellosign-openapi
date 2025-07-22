@@ -7286,6 +7286,7 @@ paths:
         seo:
           title: '_t__TemplateUpdate::SEO::TITLE'
           description: '_t__TemplateUpdate::SEO::DESCRIPTION'
+      x-hideOn: doc
   '/template/update_files/{template_id}':
     post:
       tags:
