@@ -777,6 +777,15 @@
 "TemplateRemoveUser::EMAIL_ADDRESS": The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
 "TemplateRemoveUser::TEMPLATE_ID": The id of the Template to remove the Account's access to.
 
+"TemplateUpdate::SUMMARY": Edit Template
+"TemplateUpdate::DESCRIPTION": Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+"TemplateUpdate::TEMPLATE_ID": The ID of the template to update.
+"TemplateUpdate::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request.
+"TemplateUpdate::ALLOW_FORM_VIEW": "The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names."
+"TemplateUpdate::TITLE": The title you want to assign to the SignatureRequest.
+"TemplateUpdate::SUBJECT": The new default template email subject.
+"TemplateUpdate::MESSAGE": The new default template email message.
+
 "TemplateUpdateFiles::SUMMARY": Update Template Files
 "TemplateUpdateFiles::DESCRIPTION": |-
   Overlays a new file with the overlay of an existing template. The new file(s) must:
@@ -1829,6 +1838,8 @@
 "TemplateList::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to return a list of the Templates that can be accessed by you, click here."
 "TemplateRemoveUser::SEO::TITLE": "Remove User from Template | REST API | Dropbox Sign for Developers"
 "TemplateRemoveUser::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to remove a specified Account's access to a Template, click here."
+"TemplateUpdate::SEO::TITLE": "Update Template | REST API | Dropbox Sign for Developers"
+"TemplateUpdate::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to update properties of an existing template, click here."
 "TemplateUpdateFiles::SEO::TITLE": "Update Template Files | REST API | Dropbox Sign for Developers"
 "TemplateUpdateFiles::SEO::DESCRIPTION": "Overlays a new file with the overlay of an existing template"
 "UnclaimedDraftCreate::SEO::TITLE": "Create Unclaimed Draft | REST API | Dropbox Sign for Developers"

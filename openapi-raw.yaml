@@ -7172,6 +7172,120 @@ paths:
         seo:
           title: '_t__TemplateRemoveUser::SEO::TITLE'
           description: '_t__TemplateRemoveUser::SEO::DESCRIPTION'
+  '/template/update/{template_id}':
+    post:
+      tags:
+        - Template
+      summary: '_t__TemplateUpdate::SUMMARY'
+      description: '_t__TemplateUpdate::DESCRIPTION'
+      operationId: templateUpdate
+      parameters:
+        -
+          name: template_id
+          in: path
+          description: '_t__TemplateUpdate::TEMPLATE_ID'
+          required: true
+          schema:
+            type: string
+          example: f57db65d3f933b5316d398057a36176831451a35
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateUpdateRequest'
+            examples:
+              example:
+                $ref: '#/components/examples/TemplateUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TemplateUpdateRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateGetResponse'
+              examples:
+                example:
+                  $ref: '#/components/examples/TemplateGetResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - template_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TemplateUpdateExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TemplateUpdateExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TemplateUpdateExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TemplateUpdateExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TemplateUpdateExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateUpdateExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateUpdateExample.sh
+      x-meta:
+        seo:
+          title: '_t__TemplateUpdate::SEO::TITLE'
+          description: '_t__TemplateUpdate::SEO::DESCRIPTION'
   '/template/update_files/{template_id}':
     post:
       tags:
@@ -10189,6 +10303,28 @@ components:
           type: string
           format: email
       type: object
+    TemplateUpdateRequest:
+      properties:
+        cc_roles:
+          description: '_t__TemplateUpdate::CC_ROLES'
+          type: array
+          items:
+            type: string
+        allow_form_view:
+          description: '_t__TemplateUpdate::ALLOW_FORM_VIEW'
+          type: boolean
+        title:
+          description: '_t__TemplateUpdate::TITLE'
+          type: string
+        subject:
+          description: '_t__TemplateUpdate::SUBJECT'
+          type: string
+          maxLength: 200
+        message:
+          description: '_t__TemplateUpdate::MESSAGE'
+          type: string
+          maxLength: 5000
+      type: object
     TemplateUpdateFilesRequest:
       properties:
         client_id:
@@ -12767,14 +12903,6 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal-class: true
-    TemplateEditResponse:
-      required:
-        - template_id
-      properties:
-        template_id:
-          description: '_t__TemplateResponse::TEMPLATE_ID'
-          type: string
-      type: object
     TemplateGetResponse:
       required:
         - template
@@ -13102,6 +13230,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/TemplateRemoveUserRequest.json
+    TemplateUpdateRequest:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/TemplateUpdateRequest.json
     TemplateUpdateFilesRequest:
       summary: 'Default Example'
       value:
