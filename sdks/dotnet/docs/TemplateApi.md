@@ -14,6 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TemplateGet**](TemplateApi.md#templateget) | **GET** /template/{template_id} | Get Template |
 | [**TemplateList**](TemplateApi.md#templatelist) | **GET** /template/list | List Templates |
 | [**TemplateRemoveUser**](TemplateApi.md#templateremoveuser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
+| [**TemplateUpdate**](TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Edit Template |
 | [**TemplateUpdateFiles**](TemplateApi.md#templateupdatefiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 <a id="templateadduser"></a>
@@ -1132,6 +1133,115 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="templateupdate"></a>
+# **TemplateUpdate**
+> TemplateGetResponse TemplateUpdate (string templateId, TemplateUpdateRequest templateUpdateRequest)
+
+Edit Template
+
+Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+namespace Dropbox.SignSandbox;
+
+public class TemplateUpdateExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+        var templateUpdateRequest = new TemplateUpdateRequest(
+            allowFormView: false,
+            title: "Test Title",
+            subject: "Test Subject",
+            message: "Test Message",
+            ccRoles: [
+                "CC Role 1",
+                "CC Role 2",
+            ]
+        );
+
+        try
+        {
+            var response = new TemplateApi(config).TemplateUpdate(
+                templateId: "f57db65d3f933b5316d398057a36176831451a35",
+                templateUpdateRequest: templateUpdateRequest
+            );
+
+            Console.WriteLine(response);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling TemplateApi#TemplateUpdate: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the TemplateUpdateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Edit Template
+    ApiResponse<TemplateGetResponse> response = apiInstance.TemplateUpdateWithHttpInfo(templateId, templateUpdateRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplateApi.TemplateUpdateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **templateId** | **string** | The ID of the template to update. |  |
+| **templateUpdateRequest** | [**TemplateUpdateRequest**](TemplateUpdateRequest.md) |  |  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

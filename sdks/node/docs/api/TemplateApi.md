@@ -14,6 +14,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateGet()**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template |
 | [**templateList()**](TemplateApi.md#templateList) | **GET** /template/list | List Templates |
 | [**templateRemoveUser()**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
+| [**templateUpdate()**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Edit Template |
 | [**templateUpdateFiles()**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 
@@ -719,6 +720,74 @@ apiCaller.templateRemoveUser(
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `templateUpdate()`
+
+```typescript
+templateUpdate(templateId: string, templateUpdateRequest: TemplateUpdateRequest): TemplateGetResponse
+```
+
+Edit Template
+
+Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### TypeScript Example
+
+```typescript
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+const templateUpdateRequest: models.TemplateUpdateRequest = {
+  allowFormView: false,
+  title: "Test Title",
+  subject: "Test Subject",
+  message: "Test Message",
+  ccRoles: [
+    "CC Role 1",
+    "CC Role 2",
+  ],
+};
+
+apiCaller.templateUpdate(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateUpdateRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling TemplateApi#templateUpdate:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **templateId** | **string**| The ID of the template to update. | |
+| **templateUpdateRequest** | [**TemplateUpdateRequest**](../model/TemplateUpdateRequest.md)|  | |
+
+### Return type
+
+[**TemplateGetResponse**](../model/TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
