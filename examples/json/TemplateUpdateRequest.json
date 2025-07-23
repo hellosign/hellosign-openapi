@@ -3,5 +3,5 @@
   "title": "Test Title",
   "subject": "Test Subject",
   "message": "Test Message",
-  "cc_roles": ["one", "two"]
+  "cc_roles": ["CC Role 1", "CC Role 2"]
 }
