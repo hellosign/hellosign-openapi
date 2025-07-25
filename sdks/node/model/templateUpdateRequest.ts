@@ -24,28 +24,64 @@
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
-export class TemplateEditResponse {
+export class TemplateUpdateRequest {
   /**
-   * The id of the Template.
+   * The CC roles that must be assigned when using the template to send a signature request.
    */
-  "templateId": string;
+  "ccRoles"?: Array<string>;
+  /**
+   * The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.
+   */
+  "allowFormView"?: boolean;
+  /**
+   * The title you want to assign to the SignatureRequest.
+   */
+  "title"?: string;
+  /**
+   * The new default template email subject.
+   */
+  "subject"?: string;
+  /**
+   * The new default template email message.
+   */
+  "message"?: string;
 
   static discriminator: string | undefined = undefined;
 
   static attributeTypeMap: AttributeTypeMap = [
     {
-      name: "templateId",
-      baseName: "template_id",
+      name: "ccRoles",
+      baseName: "cc_roles",
+      type: "Array<string>",
+    },
+    {
+      name: "allowFormView",
+      baseName: "allow_form_view",
+      type: "boolean",
+    },
+    {
+      name: "title",
+      baseName: "title",
+      type: "string",
+    },
+    {
+      name: "subject",
+      baseName: "subject",
+      type: "string",
+    },
+    {
+      name: "message",
+      baseName: "message",
       type: "string",
     },
   ];
 
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TemplateEditResponse.attributeTypeMap;
+    return TemplateUpdateRequest.attributeTypeMap;
   }
 
   /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data: any): TemplateEditResponse {
-    return ObjectSerializer.deserialize(data, "TemplateEditResponse");
+  static init(data: any): TemplateUpdateRequest {
+    return ObjectSerializer.deserialize(data, "TemplateUpdateRequest");
   }
 }

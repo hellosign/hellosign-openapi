@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateEditResponse
+ * TemplateUpdateRequest
  *
  * PHP version 7.4
  *
@@ -34,13 +34,13 @@ use JsonSerializable;
 use ReturnTypeWillChange;
 
 /**
- * TemplateEditResponse Class Doc Comment
+ * TemplateUpdateRequest Class Doc Comment
  *
  * @category Class
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TemplateEditResponse';
+    protected static $openAPIModelName = 'TemplateUpdateRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,11 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template_id' => 'string',
+        'cc_roles' => 'string[]',
+        'allow_form_view' => 'bool',
+        'title' => 'string',
+        'subject' => 'string',
+        'message' => 'string',
     ];
 
     /**
@@ -68,7 +72,11 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'template_id' => null,
+        'cc_roles' => null,
+        'allow_form_view' => null,
+        'title' => null,
+        'subject' => null,
+        'message' => null,
     ];
 
     /**
@@ -77,7 +85,11 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'template_id' => false,
+        'cc_roles' => false,
+        'allow_form_view' => false,
+        'title' => false,
+        'subject' => false,
+        'message' => false,
     ];
 
     /**
@@ -158,7 +170,11 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'template_id' => 'template_id',
+        'cc_roles' => 'cc_roles',
+        'allow_form_view' => 'allow_form_view',
+        'title' => 'title',
+        'subject' => 'subject',
+        'message' => 'message',
     ];
 
     /**
@@ -167,7 +183,11 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'template_id' => 'setTemplateId',
+        'cc_roles' => 'setCcRoles',
+        'allow_form_view' => 'setAllowFormView',
+        'title' => 'setTitle',
+        'subject' => 'setSubject',
+        'message' => 'setMessage',
     ];
 
     /**
@@ -176,7 +196,11 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'template_id' => 'getTemplateId',
+        'cc_roles' => 'getCcRoles',
+        'allow_form_view' => 'getAllowFormView',
+        'title' => 'getTitle',
+        'subject' => 'getSubject',
+        'message' => 'getMessage',
     ];
 
     /**
@@ -235,13 +259,17 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('cc_roles', $data ?? [], null);
+        $this->setIfExists('allow_form_view', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('subject', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
     }
 
     /**
      * @deprecated use ::init()
      */
-    public static function fromArray(array $data): TemplateEditResponse
+    public static function fromArray(array $data): TemplateUpdateRequest
     {
         return self::init($data);
     }
@@ -249,12 +277,12 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Attempt to instantiate and hydrate a new instance of this class
      */
-    public static function init(array $data): TemplateEditResponse
+    public static function init(array $data): TemplateUpdateRequest
     {
-        /** @var TemplateEditResponse */
+        /** @var TemplateUpdateRequest */
         return ObjectSerializer::deserialize(
             $data,
-            TemplateEditResponse::class,
+            TemplateUpdateRequest::class,
         );
     }
 
@@ -283,9 +311,14 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['template_id'] === null) {
-            $invalidProperties[] = "'template_id' can't be null";
+        if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) > 200)) {
+            $invalidProperties[] = "invalid value for 'subject', the character length must be smaller than or equal to 200.";
         }
+
+        if (!is_null($this->container['message']) && (mb_strlen($this->container['message']) > 5000)) {
+            $invalidProperties[] = "invalid value for 'message', the character length must be smaller than or equal to 5000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -301,28 +334,144 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
     }
 
     /**
-     * Gets template_id
+     * Gets cc_roles
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getTemplateId()
+    public function getCcRoles()
     {
-        return $this->container['template_id'];
+        return $this->container['cc_roles'];
     }
 
     /**
-     * Sets template_id
+     * Sets cc_roles
      *
-     * @param string $template_id the id of the Template
+     * @param string[]|null $cc_roles the CC roles that must be assigned when using the template to send a signature request
      *
      * @return self
      */
-    public function setTemplateId(string $template_id)
+    public function setCcRoles(?array $cc_roles)
     {
-        if (is_null($template_id)) {
-            throw new InvalidArgumentException('non-nullable template_id cannot be null');
+        if (is_null($cc_roles)) {
+            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
         }
-        $this->container['template_id'] = $template_id;
+        $this->container['cc_roles'] = $cc_roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_form_view
+     *
+     * @return bool|null
+     */
+    public function getAllowFormView()
+    {
+        return $this->container['allow_form_view'];
+    }
+
+    /**
+     * Sets allow_form_view
+     *
+     * @param bool|null $allow_form_view The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.
+     *
+     * @return self
+     */
+    public function setAllowFormView(?bool $allow_form_view)
+    {
+        if (is_null($allow_form_view)) {
+            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
+        }
+        $this->container['allow_form_view'] = $allow_form_view;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title the title you want to assign to the SignatureRequest
+     *
+     * @return self
+     */
+    public function setTitle(?string $title)
+    {
+        if (is_null($title)) {
+            throw new InvalidArgumentException('non-nullable title cannot be null');
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject
+     *
+     * @return string|null
+     */
+    public function getSubject()
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     *
+     * @param string|null $subject the new default template email subject
+     *
+     * @return self
+     */
+    public function setSubject(?string $subject)
+    {
+        if (is_null($subject)) {
+            throw new InvalidArgumentException('non-nullable subject cannot be null');
+        }
+        if (mb_strlen($subject) > 200) {
+            throw new InvalidArgumentException('invalid length for $subject when calling TemplateUpdateRequest., must be smaller than or equal to 200.');
+        }
+
+        $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message the new default template email message
+     *
+     * @return self
+     */
+    public function setMessage(?string $message)
+    {
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
+        }
+        if (mb_strlen($message) > 5000) {
+            throw new InvalidArgumentException('invalid length for $message when calling TemplateUpdateRequest., must be smaller than or equal to 5000.');
+        }
+
+        $this->container['message'] = $message;
 
         return $this;
     }

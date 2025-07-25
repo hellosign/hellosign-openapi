@@ -10804,6 +10804,28 @@ components:
           type: string
           format: email
       type: object
+    TemplateUpdateRequest:
+      properties:
+        cc_roles:
+          description: 'The CC roles that must be assigned when using the template to send a signature request.'
+          type: array
+          items:
+            type: string
+        allow_form_view:
+          description: 'The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.'
+          type: boolean
+        title:
+          description: 'The title you want to assign to the SignatureRequest.'
+          type: string
+        subject:
+          description: 'The new default template email subject.'
+          type: string
+          maxLength: 200
+        message:
+          description: 'The new default template email message.'
+          type: string
+          maxLength: 5000
+      type: object
     TemplateUpdateFilesRequest:
       properties:
         client_id:
@@ -13669,14 +13691,6 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal-class: true
-    TemplateEditResponse:
-      required:
-        - template_id
-      properties:
-        template_id:
-          description: 'The id of the Template.'
-          type: string
-      type: object
     TemplateGetResponse:
       required:
         - template
@@ -14004,6 +14018,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/TemplateRemoveUserRequest.json
+    TemplateUpdateRequest:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/TemplateUpdateRequest.json
     TemplateUpdateFilesRequest:
       summary: 'Default Example'
       value:

@@ -42,6 +42,7 @@ import {
   TemplateRemoveUserRequest,
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
+  TemplateUpdateRequest,
   VoidAuth,
 } from "../model";
 
@@ -1420,6 +1421,165 @@ export class TemplateApi {
       data = ObjectSerializer.serialize(
         templateRemoveUserRequest,
         "TemplateRemoveUserRequest"
+      );
+    }
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data,
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<TemplateGetResponse>>(
+        (resolve, reject) => {
+          axios.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse<TemplateGetResponse>(
+                resolve,
+                reject,
+                response,
+                "TemplateGetResponse"
+              );
+            },
+            (error: AxiosError) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
+                  "TemplateGetResponse"
+                )
+              ) {
+                return;
+              }
+
+              if (
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )
+              ) {
+                return;
+              }
+
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
+   * Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+   * @summary Edit Template
+   * @param templateId The ID of the template to update.
+   * @param templateUpdateRequest
+   * @param options
+   */
+  public async templateUpdate(
+    templateId: string,
+    templateUpdateRequest: TemplateUpdateRequest,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<TemplateGetResponse>> {
+    templateUpdateRequest = deserializeIfNeeded(
+      templateUpdateRequest,
+      "TemplateUpdateRequest"
+    );
+    const localVarPath =
+      this.basePath +
+      "/template/update/{template_id}".replace(
+        "{" + "template_id" + "}",
+        encodeURIComponent(String(templateId))
+      );
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    // verify required parameter 'templateId' is not null or undefined
+    if (templateId === null || templateId === undefined) {
+      throw new Error(
+        "Required parameter templateId was null or undefined when calling templateUpdate."
+      );
+    }
+
+    // verify required parameter 'templateUpdateRequest' is not null or undefined
+    if (templateUpdateRequest === null || templateUpdateRequest === undefined) {
+      throw new Error(
+        "Required parameter templateUpdateRequest was null or undefined when calling templateUpdate."
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    const result = generateFormData(
+      templateUpdateRequest,
+      TemplateUpdateRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+
+    let data = {};
+    if (localVarUseFormData) {
+      const formData = toFormData(result.data);
+      data = formData;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData.getHeaders(),
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        templateUpdateRequest,
+        "TemplateUpdateRequest"
       );
     }
 

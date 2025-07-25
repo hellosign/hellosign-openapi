@@ -272,6 +272,31 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of TemplateGetResponse</returns>
         ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0);
         /// <summary>
+        /// Edit Template
+        /// </summary>
+        /// <remarks>
+        /// Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">The ID of the template to update.</param>
+        /// <param name="templateUpdateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TemplateGetResponse</returns>
+        TemplateGetResponse TemplateUpdate(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Edit Template
+        /// </summary>
+        /// <remarks>
+        /// Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">The ID of the template to update.</param>
+        /// <param name="templateUpdateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TemplateGetResponse</returns>
+        ApiResponse<TemplateGetResponse> TemplateUpdateWithHttpInfo(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0);
+        /// <summary>
         /// Update Template Files
         /// </summary>
         /// <remarks>
@@ -569,6 +594,33 @@ namespace Dropbox.Sign.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Edit Template
+        /// </summary>
+        /// <remarks>
+        /// Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">The ID of the template to update.</param>
+        /// <param name="templateUpdateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TemplateGetResponse</returns>
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateUpdateAsync(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Edit Template
+        /// </summary>
+        /// <remarks>
+        /// Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">The ID of the template to update.</param>
+        /// <param name="templateUpdateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateUpdateWithHttpInfoAsync(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Template Files
         /// </summary>
@@ -2543,6 +2595,208 @@ namespace Dropbox.Sign.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateRemoveUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Edit Template Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">The ID of the template to update.</param>
+        /// <param name="templateUpdateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TemplateGetResponse</returns>
+        public TemplateGetResponse TemplateUpdate(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateUpdateWithHttpInfo(templateId, templateUpdateRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit Template Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">The ID of the template to update.</param>
+        /// <param name="templateUpdateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TemplateGetResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateUpdateWithHttpInfo(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'templateId' is set
+            if (templateId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateUpdate");
+            }
+
+            // verify the required parameter 'templateUpdateRequest' is set
+            if (templateUpdateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateUpdateRequest' when calling TemplateApi->TemplateUpdate");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = templateUpdateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = templateUpdateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
+            localVarRequestOptions.Operation = "TemplateApi.TemplateUpdate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TemplateGetResponse>("/template/update/{template_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TemplateUpdate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Edit Template Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">The ID of the template to update.</param>
+        /// <param name="templateUpdateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TemplateGetResponse</returns>
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateUpdateAsync(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateUpdateWithHttpInfoAsync(templateId, templateUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit Template Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateId">The ID of the template to update.</param>
+        /// <param name="templateUpdateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateUpdateWithHttpInfoAsync(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'templateId' is set
+            if (templateId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateUpdate");
+            }
+
+            // verify the required parameter 'templateUpdateRequest' is set
+            if (templateUpdateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateUpdateRequest' when calling TemplateApi->TemplateUpdate");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = templateUpdateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = templateUpdateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
+            localVarRequestOptions.Operation = "TemplateApi.TemplateUpdate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplateGetResponse>("/template/update/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TemplateUpdate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

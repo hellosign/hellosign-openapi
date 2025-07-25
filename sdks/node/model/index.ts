@@ -160,7 +160,6 @@ import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmb
 import { TemplateCreateRequest } from "./templateCreateRequest";
 import { TemplateCreateResponse } from "./templateCreateResponse";
 import { TemplateCreateResponseTemplate } from "./templateCreateResponseTemplate";
-import { TemplateEditResponse } from "./templateEditResponse";
 import { TemplateGetResponse } from "./templateGetResponse";
 import { TemplateListResponse } from "./templateListResponse";
 import { TemplateRemoveUserRequest } from "./templateRemoveUserRequest";
@@ -197,6 +196,7 @@ import { TemplateResponseSignerRole } from "./templateResponseSignerRole";
 import { TemplateUpdateFilesRequest } from "./templateUpdateFilesRequest";
 import { TemplateUpdateFilesResponse } from "./templateUpdateFilesResponse";
 import { TemplateUpdateFilesResponseTemplate } from "./templateUpdateFilesResponseTemplate";
+import { TemplateUpdateRequest } from "./templateUpdateRequest";
 import { UnclaimedDraftCreateEmbeddedRequest } from "./unclaimedDraftCreateEmbeddedRequest";
 import { UnclaimedDraftCreateEmbeddedWithTemplateRequest } from "./unclaimedDraftCreateEmbeddedWithTemplateRequest";
 import { UnclaimedDraftCreateRequest } from "./unclaimedDraftCreateRequest";
@@ -415,7 +415,6 @@ export let typeMap: { [index: string]: any } = {
   TemplateCreateRequest: TemplateCreateRequest,
   TemplateCreateResponse: TemplateCreateResponse,
   TemplateCreateResponseTemplate: TemplateCreateResponseTemplate,
-  TemplateEditResponse: TemplateEditResponse,
   TemplateGetResponse: TemplateGetResponse,
   TemplateListResponse: TemplateListResponse,
   TemplateRemoveUserRequest: TemplateRemoveUserRequest,
@@ -472,6 +471,7 @@ export let typeMap: { [index: string]: any } = {
   TemplateUpdateFilesRequest: TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate: TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest: TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest:
     UnclaimedDraftCreateEmbeddedWithTemplateRequest,
@@ -642,7 +642,6 @@ export {
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -679,6 +678,7 @@ export {
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest,
   UnclaimedDraftCreateRequest,

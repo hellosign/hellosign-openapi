@@ -171,6 +171,7 @@ Class | Method | HTTP request | Description
 ```TemplateApi``` | [```template_get```](docs/TemplateApi.md#template_get) | ```GET /template/{template_id}``` | Get Template|
 ```TemplateApi``` | [```template_list```](docs/TemplateApi.md#template_list) | ```GET /template/list``` | List Templates|
 ```TemplateApi``` | [```template_remove_user```](docs/TemplateApi.md#template_remove_user) | ```POST /template/remove_user/{template_id}``` | Remove User from Template|
+```TemplateApi``` | [```template_update```](docs/TemplateApi.md#template_update) | ```POST /template/update/{template_id}``` | Edit Template|
 ```TemplateApi``` | [```template_update_files```](docs/TemplateApi.md#template_update_files) | ```POST /template/update_files/{template_id}``` | Update Template Files|
 |```UnclaimedDraftApi``` | [```unclaimed_draft_create```](docs/UnclaimedDraftApi.md#unclaimed_draft_create) | ```POST /unclaimed_draft/create``` | Create Unclaimed Draft|
 ```UnclaimedDraftApi``` | [```unclaimed_draft_create_embedded```](docs/UnclaimedDraftApi.md#unclaimed_draft_create_embedded) | ```POST /unclaimed_draft/create_embedded``` | Create Embedded Unclaimed Draft|
@@ -328,7 +329,6 @@ Class | Method | HTTP request | Description
  - [TemplateCreateRequest](docs/TemplateCreateRequest.md)
  - [TemplateCreateResponse](docs/TemplateCreateResponse.md)
  - [TemplateCreateResponseTemplate](docs/TemplateCreateResponseTemplate.md)
- - [TemplateEditResponse](docs/TemplateEditResponse.md)
  - [TemplateGetResponse](docs/TemplateGetResponse.md)
  - [TemplateListResponse](docs/TemplateListResponse.md)
  - [TemplateRemoveUserRequest](docs/TemplateRemoveUserRequest.md)
@@ -365,6 +365,7 @@ Class | Method | HTTP request | Description
  - [TemplateUpdateFilesRequest](docs/TemplateUpdateFilesRequest.md)
  - [TemplateUpdateFilesResponse](docs/TemplateUpdateFilesResponse.md)
  - [TemplateUpdateFilesResponseTemplate](docs/TemplateUpdateFilesResponseTemplate.md)
+ - [TemplateUpdateRequest](docs/TemplateUpdateRequest.md)
  - [UnclaimedDraftCreateEmbeddedRequest](docs/UnclaimedDraftCreateEmbeddedRequest.md)
  - [UnclaimedDraftCreateEmbeddedWithTemplateRequest](docs/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)
  - [UnclaimedDraftCreateRequest](docs/UnclaimedDraftCreateRequest.md)

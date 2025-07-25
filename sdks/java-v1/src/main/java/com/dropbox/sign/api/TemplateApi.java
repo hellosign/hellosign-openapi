@@ -17,6 +17,7 @@ import com.dropbox.sign.model.TemplateListResponse;
 import com.dropbox.sign.model.TemplateRemoveUserRequest;
 import com.dropbox.sign.model.TemplateUpdateFilesRequest;
 import com.dropbox.sign.model.TemplateUpdateFilesResponse;
+import com.dropbox.sign.model.TemplateUpdateRequest;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -987,6 +988,92 @@ public class TemplateApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : templateRemoveUserRequest,
+                new LinkedHashMap<>(),
+                new LinkedHashMap<>(),
+                localVarFormParams,
+                localVarAccept,
+                localVarContentType,
+                localVarAuthNames,
+                localVarReturnType,
+                false);
+    }
+
+    /**
+     * Edit Template Edit template fields. Every field is optional and the endpoint will only change
+     * whatever is provided. The fields not included in the request payload will remain unchanged.
+     *
+     * @param templateId The ID of the template to update. (required)
+     * @param templateUpdateRequest (required)
+     * @return TemplateGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     * </table>
+     */
+    public TemplateGetResponse templateUpdate(
+            String templateId, TemplateUpdateRequest templateUpdateRequest) throws ApiException {
+        return templateUpdateWithHttpInfo(templateId, templateUpdateRequest).getData();
+    }
+
+    /**
+     * Edit Template Edit template fields. Every field is optional and the endpoint will only change
+     * whatever is provided. The fields not included in the request payload will remain unchanged.
+     *
+     * @param templateId The ID of the template to update. (required)
+     * @param templateUpdateRequest (required)
+     * @return ApiResponse&lt;TemplateGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<TemplateGetResponse> templateUpdateWithHttpInfo(
+            String templateId, TemplateUpdateRequest templateUpdateRequest) throws ApiException {
+
+        // Check required parameters
+        if (templateId == null) {
+            throw new ApiException(
+                    400, "Missing the required parameter 'templateId' when calling templateUpdate");
+        }
+        if (templateUpdateRequest == null) {
+            throw new ApiException(
+                    400,
+                    "Missing the required parameter 'templateUpdateRequest' when calling"
+                            + " templateUpdate");
+        }
+
+        // Path parameters
+        String localVarPath =
+                "/template/update/{template_id}"
+                        .replaceAll(
+                                "\\{template_id}", apiClient.escapeString(templateId.toString()));
+
+        String localVarAccept = apiClient.selectHeaderAccept("application/json");
+        Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+        localVarFormParams = templateUpdateRequest.createFormData();
+        boolean isFileTypeFound = !localVarFormParams.isEmpty();
+        String localVarContentType =
+                isFileTypeFound
+                        ? "multipart/form-data"
+                        : apiClient.selectHeaderContentType(
+                                "application/json", "multipart/form-data");
+        String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+        GenericType<TemplateGetResponse> localVarReturnType =
+                new GenericType<TemplateGetResponse>() {};
+        return apiClient.invokeAPI(
+                "TemplateApi.templateUpdate",
+                localVarPath,
+                "POST",
+                new ArrayList<>(),
+                isFileTypeFound ? null : templateUpdateRequest,
                 new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,

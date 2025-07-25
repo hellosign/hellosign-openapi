@@ -1,4 +1,4 @@
-import { Authentication, FileResponse, FileResponseDataUri, HttpBasicAuth, HttpBearerAuth, Interceptor, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateCreateRequest, TemplateCreateResponse, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse } from "../model";
+import { Authentication, FileResponse, FileResponseDataUri, HttpBasicAuth, HttpBearerAuth, Interceptor, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateCreateRequest, TemplateCreateResponse, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse, TemplateUpdateRequest } from "../model";
 import { optionsI, returnTypeI, returnTypeT } from "./";
 export declare enum TemplateApiApiKeys {
 }
@@ -34,5 +34,6 @@ export declare class TemplateApi {
     templateGet(templateId: string, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
     templateList(accountId?: string, page?: number, pageSize?: number, query?: string, options?: optionsI): Promise<returnTypeT<TemplateListResponse>>;
     templateRemoveUser(templateId: string, templateRemoveUserRequest: TemplateRemoveUserRequest, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
+    templateUpdate(templateId: string, templateUpdateRequest: TemplateUpdateRequest, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
     templateUpdateFiles(templateId: string, templateUpdateFilesRequest: TemplateUpdateFilesRequest, options?: optionsI): Promise<returnTypeT<TemplateUpdateFilesResponse>>;
 }

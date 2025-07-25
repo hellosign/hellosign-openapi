@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
@@ -27,13 +28,36 @@ import io
 from pydantic import StrictBool
 
 
-class TemplateEditResponse(BaseModel):
+class TemplateUpdateRequest(BaseModel):
     """
-    TemplateEditResponse
+    TemplateUpdateRequest
     """  # noqa: E501
 
-    template_id: StrictStr = Field(description="The id of the Template.")
-    __properties: ClassVar[List[str]] = ["template_id"]
+    cc_roles: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="The CC roles that must be assigned when using the template to send a signature request.",
+    )
+    allow_form_view: Optional[StrictBool] = Field(
+        default=None,
+        description="The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.",
+    )
+    title: Optional[StrictStr] = Field(
+        default=None,
+        description="The title you want to assign to the SignatureRequest.",
+    )
+    subject: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(
+        default=None, description="The new default template email subject."
+    )
+    message: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = Field(
+        default=None, description="The new default template email message."
+    )
+    __properties: ClassVar[List[str]] = [
+        "cc_roles",
+        "allow_form_view",
+        "title",
+        "subject",
+        "message",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,7 +90,7 @@ class TemplateEditResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TemplateEditResponse from a JSON string"""
+        """Create an instance of TemplateUpdateRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self, excluded_fields: Set[str] = None) -> Dict[str, Any]:
@@ -89,14 +113,22 @@ class TemplateEditResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TemplateEditResponse from a dict"""
+        """Create an instance of TemplateUpdateRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({"template_id": obj.get("template_id")})
+        _obj = cls.model_validate(
+            {
+                "cc_roles": obj.get("cc_roles"),
+                "allow_form_view": obj.get("allow_form_view"),
+                "title": obj.get("title"),
+                "subject": obj.get("subject"),
+                "message": obj.get("message"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -112,9 +144,15 @@ class TemplateEditResponse(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "template_id": "(str,)",
+            "cc_roles": "(List[str],)",
+            "allow_form_view": "(bool,)",
+            "title": "(str,)",
+            "subject": "(str,)",
+            "message": "(str,)",
         }
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in []
+        return property_name in [
+            "cc_roles",
+        ]

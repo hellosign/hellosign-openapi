@@ -215,6 +215,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *TemplateApi* | [**templateGet**](docs/Api/TemplateApi.md#templateget) | **GET** /template/{template_id} | Get Template |
 | *TemplateApi* | [**templateList**](docs/Api/TemplateApi.md#templatelist) | **GET** /template/list | List Templates |
 | *TemplateApi* | [**templateRemoveUser**](docs/Api/TemplateApi.md#templateremoveuser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
+| *TemplateApi* | [**templateUpdate**](docs/Api/TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Edit Template |
 | *TemplateApi* | [**templateUpdateFiles**](docs/Api/TemplateApi.md#templateupdatefiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 | *UnclaimedDraftApi* | [**unclaimedDraftCreate**](docs/Api/UnclaimedDraftApi.md#unclaimeddraftcreate) | **POST** /unclaimed_draft/create | Create Unclaimed Draft |
 | *UnclaimedDraftApi* | [**unclaimedDraftCreateEmbedded**](docs/Api/UnclaimedDraftApi.md#unclaimeddraftcreateembedded) | **POST** /unclaimed_draft/create_embedded | Create Embedded Unclaimed Draft |
@@ -372,7 +373,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [TemplateCreateRequest](docs/Model/TemplateCreateRequest.md)
 - [TemplateCreateResponse](docs/Model/TemplateCreateResponse.md)
 - [TemplateCreateResponseTemplate](docs/Model/TemplateCreateResponseTemplate.md)
-- [TemplateEditResponse](docs/Model/TemplateEditResponse.md)
 - [TemplateGetResponse](docs/Model/TemplateGetResponse.md)
 - [TemplateListResponse](docs/Model/TemplateListResponse.md)
 - [TemplateRemoveUserRequest](docs/Model/TemplateRemoveUserRequest.md)
@@ -409,6 +409,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [TemplateUpdateFilesRequest](docs/Model/TemplateUpdateFilesRequest.md)
 - [TemplateUpdateFilesResponse](docs/Model/TemplateUpdateFilesResponse.md)
 - [TemplateUpdateFilesResponseTemplate](docs/Model/TemplateUpdateFilesResponseTemplate.md)
+- [TemplateUpdateRequest](docs/Model/TemplateUpdateRequest.md)
 - [UnclaimedDraftCreateEmbeddedRequest](docs/Model/UnclaimedDraftCreateEmbeddedRequest.md)
 - [UnclaimedDraftCreateEmbeddedWithTemplateRequest](docs/Model/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)
 - [UnclaimedDraftCreateRequest](docs/Model/UnclaimedDraftCreateRequest.md)

@@ -1,0 +1,7 @@
+{
+  "allow_form_view": false,
+  "title": "Test Title",
+  "subject": "Test Subject",
+  "message": "Test Message",
+  "cc_roles": ["CC Role 1", "CC Role 2"]
+}

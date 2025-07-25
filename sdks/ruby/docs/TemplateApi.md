@@ -14,6 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [`template_get`](TemplateApi.md#template_get) | **GET** `/template/{template_id}` | Get Template |
 | [`template_list`](TemplateApi.md#template_list) | **GET** `/template/list` | List Templates |
 | [`template_remove_user`](TemplateApi.md#template_remove_user) | **POST** `/template/remove_user/{template_id}` | Remove User from Template |
+| [`template_update`](TemplateApi.md#template_update) | **POST** `/template/update/{template_id}` | Edit Template |
 | [`template_update_files`](TemplateApi.md#template_update_files) | **POST** `/template/update_files/{template_id}` | Update Template Files |
 
 
@@ -849,6 +850,87 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## `template_update`
+
+> `<TemplateGetResponse> template_update(template_id, template_update_request)`
+
+Edit Template
+
+Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### Examples
+
+```ruby
+require "json"
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+template_update_request = Dropbox::Sign::TemplateUpdateRequest.new
+template_update_request.allow_form_view = false
+template_update_request.title = "Test Title"
+template_update_request.subject = "Test Subject"
+template_update_request.message = "Test Message"
+template_update_request.cc_roles = [
+    "CC Role 1",
+    "CC Role 2",
+]
+
+begin
+  response = Dropbox::Sign::TemplateApi.new.template_update(
+    "f57db65d3f933b5316d398057a36176831451a35", # template_id
+      template_update_request,
+  )
+
+  p response
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling TemplateApi#template_update: #{e}"
+end
+
+```
+
+#### Using the `template_update_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<TemplateGetResponse>, Integer, Hash)> template_update_with_http_info(template_id, template_update_request)`
+
+```ruby
+begin
+  # Edit Template
+  data, status_code, headers = api_instance.template_update_with_http_info(template_id, template_update_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TemplateGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling TemplateApi->template_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `template_id` | **String** | The ID of the template to update. |  |
+| `template_update_request` | [**TemplateUpdateRequest**](TemplateUpdateRequest.md) |  |  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 

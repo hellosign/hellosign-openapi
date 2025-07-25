@@ -14,6 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 [**templateGet**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template
 [**templateList**](TemplateApi.md#templateList) | **GET** /template/list | List Templates
 [**templateRemoveUser**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template
+[**templateUpdate**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Edit Template
 [**templateUpdateFiles**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files
 
 
@@ -978,6 +979,100 @@ public class TemplateRemoveUserExample
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## templateUpdate
+
+> TemplateGetResponse templateUpdate(templateId, templateUpdateRequest)
+
+Edit Template
+
+Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### Example
+
+```java
+package com.dropbox.sign_sandbox;
+
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
+import com.dropbox.sign.model.*;
+
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class TemplateUpdateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+        var templateUpdateRequest = new TemplateUpdateRequest();
+        templateUpdateRequest.allowFormView(false);
+        templateUpdateRequest.title("Test Title");
+        templateUpdateRequest.subject("Test Subject");
+        templateUpdateRequest.message("Test Message");
+        templateUpdateRequest.ccRoles(List.of (
+            "CC Role 1",
+            "CC Role 2"
+        ));
+
+        try
+        {
+            var response = new TemplateApi(config).templateUpdate(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                templateUpdateRequest
+            );
+
+            System.out.println(response);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TemplateApi#templateUpdate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **templateId** | **String**| The ID of the template to update. |
+ **templateUpdateRequest** | [**TemplateUpdateRequest**](TemplateUpdateRequest.md)|  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 ### HTTP response details
