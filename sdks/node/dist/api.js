@@ -13286,6 +13286,7 @@ __export(api_exports, {
   SubTemplateRole: () => SubTemplateRole,
   SubUnclaimedDraftSigner: () => SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner: () => SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField: () => SubUpdateFormField,
   SubWhiteLabelingOptions: () => SubWhiteLabelingOptions,
   TeamAddMemberRequest: () => TeamAddMemberRequest,
   TeamApi: () => TeamApi,
@@ -23311,6 +23312,34 @@ var SubUnclaimedDraftTemplateSigner = class _SubUnclaimedDraftTemplateSigner {
   }
 };
 
+// model/subUpdateFormField.ts
+var SubUpdateFormField = class _SubUpdateFormField {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "apiId",
+        baseName: "api_id",
+        type: "string"
+      },
+      {
+        name: "name",
+        baseName: "name",
+        type: "string"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _SubUpdateFormField.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "SubUpdateFormField");
+  }
+};
+
 // model/subWhiteLabelingOptions.ts
 var SubWhiteLabelingOptions = class _SubWhiteLabelingOptions {
   constructor() {
@@ -25997,6 +26026,11 @@ var TemplateUpdateRequest = class _TemplateUpdateRequest {
         name: "message",
         baseName: "message",
         type: "string"
+      },
+      {
+        name: "formFields",
+        baseName: "form_fields",
+        type: "Array<SubUpdateFormField>"
       }
     ];
   }
@@ -27023,6 +27057,7 @@ var typeMap = {
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamCreateRequest,
@@ -35575,8 +35610,8 @@ var TemplateApi = class {
     });
   }
   /**
-   * Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
-   * @summary Edit Template
+   * Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+   * @summary Update Template
    * @param templateId The ID of the template to update.
    * @param templateUpdateRequest
    * @param options
@@ -36689,6 +36724,7 @@ var APIS = [
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamApi,

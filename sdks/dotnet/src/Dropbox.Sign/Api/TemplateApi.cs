@@ -272,10 +272,10 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of TemplateGetResponse</returns>
         ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0);
         /// <summary>
-        /// Edit Template
+        /// Update Template
         /// </summary>
         /// <remarks>
-        /// Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template to update.</param>
@@ -285,10 +285,10 @@ namespace Dropbox.Sign.Api
         TemplateGetResponse TemplateUpdate(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0);
 
         /// <summary>
-        /// Edit Template
+        /// Update Template
         /// </summary>
         /// <remarks>
-        /// Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template to update.</param>
@@ -595,10 +595,10 @@ namespace Dropbox.Sign.Api
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Edit Template
+        /// Update Template
         /// </summary>
         /// <remarks>
-        /// Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template to update.</param>
@@ -609,10 +609,10 @@ namespace Dropbox.Sign.Api
         System.Threading.Tasks.Task<TemplateGetResponse> TemplateUpdateAsync(string templateId, TemplateUpdateRequest templateUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Edit Template
+        /// Update Template
         /// </summary>
         /// <remarks>
-        /// Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template to update.</param>
@@ -2605,7 +2605,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Template Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// Update Template Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template to update.</param>
@@ -2619,7 +2619,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Template Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// Update Template Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template to update.</param>
@@ -2704,7 +2704,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Template Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// Update Template Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template to update.</param>
@@ -2719,7 +2719,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Template Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        /// Update Template Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template to update.</param>

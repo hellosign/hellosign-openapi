@@ -14,7 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TemplateGet**](TemplateApi.md#templateget) | **GET** /template/{template_id} | Get Template |
 | [**TemplateList**](TemplateApi.md#templatelist) | **GET** /template/list | List Templates |
 | [**TemplateRemoveUser**](TemplateApi.md#templateremoveuser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
-| [**TemplateUpdate**](TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Edit Template |
+| [**TemplateUpdate**](TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Update Template |
 | [**TemplateUpdateFiles**](TemplateApi.md#templateupdatefiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 <a id="templateadduser"></a>
@@ -1148,9 +1148,9 @@ catch (ApiException e)
 # **TemplateUpdate**
 > TemplateGetResponse TemplateUpdate (string templateId, TemplateUpdateRequest templateUpdateRequest)
 
-Edit Template
+Update Template
 
-Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
 ### Example
 ```csharp
@@ -1210,7 +1210,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Edit Template
+    // Update Template
     ApiResponse<TemplateGetResponse> response = apiInstance.TemplateUpdateWithHttpInfo(templateId, templateUpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

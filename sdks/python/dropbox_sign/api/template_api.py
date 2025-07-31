@@ -2916,9 +2916,9 @@ class TemplateApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> TemplateGetResponse:
-        """Edit Template
+        """Update Template
 
-        Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
         :param template_id: The ID of the template to update. (required)
         :type template_id: str
@@ -2987,9 +2987,9 @@ class TemplateApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[TemplateGetResponse]:
-        """Edit Template
+        """Update Template
 
-        Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
         :param template_id: The ID of the template to update. (required)
         :type template_id: str
@@ -3058,9 +3058,9 @@ class TemplateApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Edit Template
+        """Update Template
 
-        Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+        Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
         :param template_id: The ID of the template to update. (required)
         :type template_id: str

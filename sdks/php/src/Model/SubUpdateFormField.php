@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateUpdateRequest
+ * SubUpdateFormField
  *
  * PHP version 7.4
  *
@@ -34,13 +34,13 @@ use JsonSerializable;
 use ReturnTypeWillChange;
 
 /**
- * TemplateUpdateRequest Class Doc Comment
+ * SubUpdateFormField Class Doc Comment
  *
  * @category Class
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class SubUpdateFormField implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TemplateUpdateRequest';
+    protected static $openAPIModelName = 'SubUpdateFormField';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,8 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $openAPITypes = [
-        'cc_roles' => 'string[]',
-        'allow_form_view' => 'bool',
-        'title' => 'string',
-        'subject' => 'string',
-        'message' => 'string',
-        'form_fields' => '\Dropbox\Sign\Model\SubUpdateFormField[]',
+        'api_id' => 'string',
+        'name' => 'string',
     ];
 
     /**
@@ -73,12 +69,8 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'cc_roles' => null,
-        'allow_form_view' => null,
-        'title' => null,
-        'subject' => null,
-        'message' => null,
-        'form_fields' => null,
+        'api_id' => null,
+        'name' => null,
     ];
 
     /**
@@ -87,12 +79,8 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'cc_roles' => false,
-        'allow_form_view' => false,
-        'title' => false,
-        'subject' => false,
-        'message' => false,
-        'form_fields' => false,
+        'api_id' => false,
+        'name' => false,
     ];
 
     /**
@@ -173,12 +161,8 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'cc_roles' => 'cc_roles',
-        'allow_form_view' => 'allow_form_view',
-        'title' => 'title',
-        'subject' => 'subject',
-        'message' => 'message',
-        'form_fields' => 'form_fields',
+        'api_id' => 'api_id',
+        'name' => 'name',
     ];
 
     /**
@@ -187,12 +171,8 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'cc_roles' => 'setCcRoles',
-        'allow_form_view' => 'setAllowFormView',
-        'title' => 'setTitle',
-        'subject' => 'setSubject',
-        'message' => 'setMessage',
-        'form_fields' => 'setFormFields',
+        'api_id' => 'setApiId',
+        'name' => 'setName',
     ];
 
     /**
@@ -201,12 +181,8 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'cc_roles' => 'getCcRoles',
-        'allow_form_view' => 'getAllowFormView',
-        'title' => 'getTitle',
-        'subject' => 'getSubject',
-        'message' => 'getMessage',
-        'form_fields' => 'getFormFields',
+        'api_id' => 'getApiId',
+        'name' => 'getName',
     ];
 
     /**
@@ -265,18 +241,14 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('cc_roles', $data ?? [], null);
-        $this->setIfExists('allow_form_view', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('subject', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('form_fields', $data ?? [], null);
+        $this->setIfExists('api_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
      * @deprecated use ::init()
      */
-    public static function fromArray(array $data): TemplateUpdateRequest
+    public static function fromArray(array $data): SubUpdateFormField
     {
         return self::init($data);
     }
@@ -284,12 +256,12 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Attempt to instantiate and hydrate a new instance of this class
      */
-    public static function init(array $data): TemplateUpdateRequest
+    public static function init(array $data): SubUpdateFormField
     {
-        /** @var TemplateUpdateRequest */
+        /** @var SubUpdateFormField */
         return ObjectSerializer::deserialize(
             $data,
-            TemplateUpdateRequest::class,
+            SubUpdateFormField::class,
         );
     }
 
@@ -318,14 +290,9 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) > 200)) {
-            $invalidProperties[] = "invalid value for 'subject', the character length must be smaller than or equal to 200.";
+        if ($this->container['api_id'] === null) {
+            $invalidProperties[] = "'api_id' can't be null";
         }
-
-        if (!is_null($this->container['message']) && (mb_strlen($this->container['message']) > 5000)) {
-            $invalidProperties[] = "invalid value for 'message', the character length must be smaller than or equal to 5000.";
-        }
-
         return $invalidProperties;
     }
 
@@ -341,171 +308,55 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     }
 
     /**
-     * Gets cc_roles
+     * Gets api_id
      *
-     * @return string[]|null
+     * @return string
      */
-    public function getCcRoles()
+    public function getApiId()
     {
-        return $this->container['cc_roles'];
+        return $this->container['api_id'];
     }
 
     /**
-     * Sets cc_roles
+     * Sets api_id
      *
-     * @param string[]|null $cc_roles the CC roles that must be assigned when using the template to send a signature request
+     * @param string $api_id The unique ID for this field. The endpoint will update an existing field with matching `api_id`, and warn you if no matches are found
      *
      * @return self
      */
-    public function setCcRoles(?array $cc_roles)
+    public function setApiId(string $api_id)
     {
-        if (is_null($cc_roles)) {
-            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
+        if (is_null($api_id)) {
+            throw new InvalidArgumentException('non-nullable api_id cannot be null');
         }
-        $this->container['cc_roles'] = $cc_roles;
+        $this->container['api_id'] = $api_id;
 
         return $this;
     }
 
     /**
-     * Gets allow_form_view
-     *
-     * @return bool|null
-     */
-    public function getAllowFormView()
-    {
-        return $this->container['allow_form_view'];
-    }
-
-    /**
-     * Sets allow_form_view
-     *
-     * @param bool|null $allow_form_view The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.
-     *
-     * @return self
-     */
-    public function setAllowFormView(?bool $allow_form_view)
-    {
-        if (is_null($allow_form_view)) {
-            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
-        }
-        $this->container['allow_form_view'] = $allow_form_view;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
+     * Gets name
      *
      * @return string|null
      */
-    public function getTitle()
+    public function getName()
     {
-        return $this->container['title'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets title
+     * Sets name
      *
-     * @param string|null $title the title you want to assign to the SignatureRequest
+     * @param string|null $name The new name of the field. If not passed the name will remain unchanged.
      *
      * @return self
      */
-    public function setTitle(?string $title)
+    public function setName(?string $name)
     {
-        if (is_null($title)) {
-            throw new InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets subject
-     *
-     * @return string|null
-     */
-    public function getSubject()
-    {
-        return $this->container['subject'];
-    }
-
-    /**
-     * Sets subject
-     *
-     * @param string|null $subject the new default template email subject
-     *
-     * @return self
-     */
-    public function setSubject(?string $subject)
-    {
-        if (is_null($subject)) {
-            throw new InvalidArgumentException('non-nullable subject cannot be null');
-        }
-        if (mb_strlen($subject) > 200) {
-            throw new InvalidArgumentException('invalid length for $subject when calling TemplateUpdateRequest., must be smaller than or equal to 200.');
-        }
-
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message the new default template email message
-     *
-     * @return self
-     */
-    public function setMessage(?string $message)
-    {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
-        }
-        if (mb_strlen($message) > 5000) {
-            throw new InvalidArgumentException('invalid length for $message when calling TemplateUpdateRequest., must be smaller than or equal to 5000.');
-        }
-
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets form_fields
-     *
-     * @return SubUpdateFormField[]|null
-     */
-    public function getFormFields()
-    {
-        return $this->container['form_fields'];
-    }
-
-    /**
-     * Sets form_fields
-     *
-     * @param SubUpdateFormField[]|null $form_fields A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.
-     *
-     * @return self
-     */
-    public function setFormFields(?array $form_fields)
-    {
-        if (is_null($form_fields)) {
-            throw new InvalidArgumentException('non-nullable form_fields cannot be null');
-        }
-        $this->container['form_fields'] = $form_fields;
+        $this->container['name'] = $name;
 
         return $this;
     }

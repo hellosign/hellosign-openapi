@@ -175,7 +175,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::TemplateApi* | [**template_get**](docs/TemplateApi.md#template_get) | **GET** /template/{template_id} | Get Template |
 |*Dropbox::Sign::TemplateApi* | [**template_list**](docs/TemplateApi.md#template_list) | **GET** /template/list | List Templates |
 |*Dropbox::Sign::TemplateApi* | [**template_remove_user**](docs/TemplateApi.md#template_remove_user) | **POST** /template/remove_user/{template_id} | Remove User from Template |
-|*Dropbox::Sign::TemplateApi* | [**template_update**](docs/TemplateApi.md#template_update) | **POST** /template/update/{template_id} | Edit Template |
+|*Dropbox::Sign::TemplateApi* | [**template_update**](docs/TemplateApi.md#template_update) | **POST** /template/update/{template_id} | Update Template |
 |*Dropbox::Sign::TemplateApi* | [**template_update_files**](docs/TemplateApi.md#template_update_files) | **POST** /template/update_files/{template_id} | Update Template Files |
 |*Dropbox::Sign::UnclaimedDraftApi* | [**unclaimed_draft_create**](docs/UnclaimedDraftApi.md#unclaimed_draft_create) | **POST** /unclaimed_draft/create | Create Unclaimed Draft |
 |*Dropbox::Sign::UnclaimedDraftApi* | [**unclaimed_draft_create_embedded**](docs/UnclaimedDraftApi.md#unclaimed_draft_create_embedded) | **POST** /unclaimed_draft/create_embedded | Create Embedded Unclaimed Draft |
@@ -311,6 +311,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SubTemplateRole](docs/SubTemplateRole.md)
  - [Dropbox::Sign::SubUnclaimedDraftSigner](docs/SubUnclaimedDraftSigner.md)
  - [Dropbox::Sign::SubUnclaimedDraftTemplateSigner](docs/SubUnclaimedDraftTemplateSigner.md)
+ - [Dropbox::Sign::SubUpdateFormField](docs/SubUpdateFormField.md)
  - [Dropbox::Sign::SubWhiteLabelingOptions](docs/SubWhiteLabelingOptions.md)
  - [Dropbox::Sign::TeamAddMemberRequest](docs/TeamAddMemberRequest.md)
  - [Dropbox::Sign::TeamCreateRequest](docs/TeamCreateRequest.md)

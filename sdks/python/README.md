@@ -171,7 +171,7 @@ Class | Method | HTTP request | Description
 ```TemplateApi``` | [```template_get```](docs/TemplateApi.md#template_get) | ```GET /template/{template_id}``` | Get Template|
 ```TemplateApi``` | [```template_list```](docs/TemplateApi.md#template_list) | ```GET /template/list``` | List Templates|
 ```TemplateApi``` | [```template_remove_user```](docs/TemplateApi.md#template_remove_user) | ```POST /template/remove_user/{template_id}``` | Remove User from Template|
-```TemplateApi``` | [```template_update```](docs/TemplateApi.md#template_update) | ```POST /template/update/{template_id}``` | Edit Template|
+```TemplateApi``` | [```template_update```](docs/TemplateApi.md#template_update) | ```POST /template/update/{template_id}``` | Update Template|
 ```TemplateApi``` | [```template_update_files```](docs/TemplateApi.md#template_update_files) | ```POST /template/update_files/{template_id}``` | Update Template Files|
 |```UnclaimedDraftApi``` | [```unclaimed_draft_create```](docs/UnclaimedDraftApi.md#unclaimed_draft_create) | ```POST /unclaimed_draft/create``` | Create Unclaimed Draft|
 ```UnclaimedDraftApi``` | [```unclaimed_draft_create_embedded```](docs/UnclaimedDraftApi.md#unclaimed_draft_create_embedded) | ```POST /unclaimed_draft/create_embedded``` | Create Embedded Unclaimed Draft|
@@ -307,6 +307,7 @@ Class | Method | HTTP request | Description
  - [SubTemplateRole](docs/SubTemplateRole.md)
  - [SubUnclaimedDraftSigner](docs/SubUnclaimedDraftSigner.md)
  - [SubUnclaimedDraftTemplateSigner](docs/SubUnclaimedDraftTemplateSigner.md)
+ - [SubUpdateFormField](docs/SubUpdateFormField.md)
  - [SubWhiteLabelingOptions](docs/SubWhiteLabelingOptions.md)
  - [TeamAddMemberRequest](docs/TeamAddMemberRequest.md)
  - [TeamCreateRequest](docs/TeamCreateRequest.md)

@@ -3531,7 +3531,7 @@ class TemplateApi
     /**
      * Operation templateUpdate
      *
-     * Edit Template
+     * Update Template
      *
      * @param string                      $template_id             The ID of the template to update. (required)
      * @param Model\TemplateUpdateRequest $template_update_request template_update_request (required)
@@ -3549,7 +3549,7 @@ class TemplateApi
     /**
      * Operation templateUpdateWithHttpInfo
      *
-     * Edit Template
+     * Update Template
      *
      * @param string                      $template_id             The ID of the template to update. (required)
      * @param Model\TemplateUpdateRequest $template_update_request (required)
@@ -3687,7 +3687,7 @@ class TemplateApi
     /**
      * Operation templateUpdateAsync
      *
-     * Edit Template
+     * Update Template
      *
      * @param string                      $template_id             The ID of the template to update. (required)
      * @param Model\TemplateUpdateRequest $template_update_request (required)
@@ -3710,7 +3710,7 @@ class TemplateApi
     /**
      * Operation templateUpdateAsyncWithHttpInfo
      *
-     * Edit Template
+     * Update Template
      *
      * @param string                      $template_id             The ID of the template to update. (required)
      * @param Model\TemplateUpdateRequest $template_update_request (required)

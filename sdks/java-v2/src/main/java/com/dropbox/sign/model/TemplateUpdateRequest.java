@@ -16,6 +16,7 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.dropbox.sign.model.SubUpdateFormField;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,7 +40,8 @@ import com.dropbox.sign.ApiException;
   TemplateUpdateRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   TemplateUpdateRequest.JSON_PROPERTY_TITLE,
   TemplateUpdateRequest.JSON_PROPERTY_SUBJECT,
-  TemplateUpdateRequest.JSON_PROPERTY_MESSAGE
+  TemplateUpdateRequest.JSON_PROPERTY_MESSAGE,
+  TemplateUpdateRequest.JSON_PROPERTY_FORM_FIELDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -63,6 +65,10 @@ public class TemplateUpdateRequest {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   @jakarta.annotation.Nullable
   private String message;
+
+  public static final String JSON_PROPERTY_FORM_FIELDS = "form_fields";
+  @jakarta.annotation.Nullable
+  private List<SubUpdateFormField> formFields = null;
 
   public TemplateUpdateRequest() { 
   }
@@ -215,6 +221,39 @@ public class TemplateUpdateRequest {
   }
 
 
+  public TemplateUpdateRequest formFields(@jakarta.annotation.Nullable List<SubUpdateFormField> formFields) {
+    this.formFields = formFields;
+    return this;
+  }
+
+  public TemplateUpdateRequest addFormFieldsItem(SubUpdateFormField formFieldsItem) {
+    if (this.formFields == null) {
+      this.formFields = new ArrayList<>();
+    }
+    this.formFields.add(formFieldsItem);
+    return this;
+  }
+
+  /**
+   * A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by &#x60;api_id&#x60;, and the only supported change is renaming the field.
+   * @return formFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubUpdateFormField> getFormFields() {
+    return formFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFormFields(@jakarta.annotation.Nullable List<SubUpdateFormField> formFields) {
+    this.formFields = formFields;
+  }
+
+
   /**
    * Return true if this TemplateUpdateRequest object is equal to o.
    */
@@ -231,12 +270,13 @@ public class TemplateUpdateRequest {
         Objects.equals(this.allowFormView, templateUpdateRequest.allowFormView) &&
         Objects.equals(this.title, templateUpdateRequest.title) &&
         Objects.equals(this.subject, templateUpdateRequest.subject) &&
-        Objects.equals(this.message, templateUpdateRequest.message);
+        Objects.equals(this.message, templateUpdateRequest.message) &&
+        Objects.equals(this.formFields, templateUpdateRequest.formFields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccRoles, allowFormView, title, subject, message);
+    return Objects.hash(ccRoles, allowFormView, title, subject, message, formFields);
   }
 
   @Override
@@ -248,6 +288,7 @@ public class TemplateUpdateRequest {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    formFields: ").append(toIndentedString(formFields)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -349,6 +390,25 @@ public class TemplateUpdateRequest {
         }
         else {
             map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
+        }
+    }
+    if (formFields != null) {
+        if (isFileTypeOrListOfFiles(formFields)) {
+            fileTypeFound = true;
+        }
+
+        if (formFields.getClass().equals(java.io.File.class) ||
+            formFields.getClass().equals(Integer.class) ||
+            formFields.getClass().equals(String.class) ||
+            formFields.getClass().isEnum()) {
+            map.put("form_fields", formFields);
+        } else if (isListOfFile(formFields)) {
+            for(int i = 0; i< getListSize(formFields); i++) {
+                map.put("form_fields[" + i + "]", getFromList(formFields, i));
+            }
+        }
+        else {
+            map.put("form_fields", JSON.getDefault().getMapper().writeValueAsString(formFields));
         }
     }
     } catch (Exception e) {

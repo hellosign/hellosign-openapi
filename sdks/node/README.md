@@ -147,7 +147,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *TemplateApi* | [**templateGet**](./docs/api/TemplateApi.md#templateget) | **GET** /template/{template_id} | Get Template |
 | *TemplateApi* | [**templateList**](./docs/api/TemplateApi.md#templatelist) | **GET** /template/list | List Templates |
 | *TemplateApi* | [**templateRemoveUser**](./docs/api/TemplateApi.md#templateremoveuser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
-| *TemplateApi* | [**templateUpdate**](./docs/api/TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Edit Template |
+| *TemplateApi* | [**templateUpdate**](./docs/api/TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Update Template |
 | *TemplateApi* | [**templateUpdateFiles**](./docs/api/TemplateApi.md#templateupdatefiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 | *UnclaimedDraftApi* | [**unclaimedDraftCreate**](./docs/api/UnclaimedDraftApi.md#unclaimeddraftcreate) | **POST** /unclaimed_draft/create | Create Unclaimed Draft |
 | *UnclaimedDraftApi* | [**unclaimedDraftCreateEmbedded**](./docs/api/UnclaimedDraftApi.md#unclaimeddraftcreateembedded) | **POST** /unclaimed_draft/create_embedded | Create Embedded Unclaimed Draft |
@@ -282,6 +282,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SubTemplateRole](./docs/model/SubTemplateRole.md)
 - [SubUnclaimedDraftSigner](./docs/model/SubUnclaimedDraftSigner.md)
 - [SubUnclaimedDraftTemplateSigner](./docs/model/SubUnclaimedDraftTemplateSigner.md)
+- [SubUpdateFormField](./docs/model/SubUpdateFormField.md)
 - [SubWhiteLabelingOptions](./docs/model/SubWhiteLabelingOptions.md)
 - [TeamAddMemberRequest](./docs/model/TeamAddMemberRequest.md)
 - [TeamCreateRequest](./docs/model/TeamCreateRequest.md)

@@ -138,6 +138,7 @@ import { SubTeamResponse } from "./subTeamResponse";
 import { SubTemplateRole } from "./subTemplateRole";
 import { SubUnclaimedDraftSigner } from "./subUnclaimedDraftSigner";
 import { SubUnclaimedDraftTemplateSigner } from "./subUnclaimedDraftTemplateSigner";
+import { SubUpdateFormField } from "./subUpdateFormField";
 import { SubWhiteLabelingOptions } from "./subWhiteLabelingOptions";
 import { TeamAddMemberRequest } from "./teamAddMemberRequest";
 import { TeamCreateRequest } from "./teamCreateRequest";
@@ -392,6 +393,7 @@ export let typeMap: { [index: string]: any } = {
   SubTemplateRole: SubTemplateRole,
   SubUnclaimedDraftSigner: SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner: SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField: SubUpdateFormField,
   SubWhiteLabelingOptions: SubWhiteLabelingOptions,
   TeamAddMemberRequest: TeamAddMemberRequest,
   TeamCreateRequest: TeamCreateRequest,
@@ -620,6 +622,7 @@ export {
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamCreateRequest,

@@ -882,8 +882,8 @@ public class TemplateApi {
     );
   }
   /**
-   * Edit Template
-   * Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+   * Update Template
+   * Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
    * @param templateId The ID of the template to update. (required)
    * @param templateUpdateRequest  (required)
    * @return TemplateGetResponse
@@ -902,8 +902,8 @@ public class TemplateApi {
 
 
   /**
-   * Edit Template
-   * Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+   * Update Template
+   * Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
    * @param templateId The ID of the template to update. (required)
    * @param templateUpdateRequest  (required)
    * @return ApiResponse&lt;TemplateGetResponse&gt;

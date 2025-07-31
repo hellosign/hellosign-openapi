@@ -18,10 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
-from dropbox_sign.models.sub_update_form_field import SubUpdateFormField
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
@@ -29,41 +27,19 @@ import io
 from pydantic import StrictBool
 
 
-class TemplateUpdateRequest(BaseModel):
+class SubUpdateFormField(BaseModel):
     """
-    TemplateUpdateRequest
+    SubUpdateFormField
     """  # noqa: E501
 
-    cc_roles: Optional[List[StrictStr]] = Field(
+    api_id: StrictStr = Field(
+        description="The unique ID for this field. The endpoint will update an existing field with matching `api_id`, and warn you if no matches are found"
+    )
+    name: Optional[StrictStr] = Field(
         default=None,
-        description="The CC roles that must be assigned when using the template to send a signature request.",
+        description="The new name of the field. If not passed the name will remain unchanged.",
     )
-    allow_form_view: Optional[StrictBool] = Field(
-        default=None,
-        description="The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.",
-    )
-    title: Optional[StrictStr] = Field(
-        default=None,
-        description="The title you want to assign to the SignatureRequest.",
-    )
-    subject: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(
-        default=None, description="The new default template email subject."
-    )
-    message: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = Field(
-        default=None, description="The new default template email message."
-    )
-    form_fields: Optional[List[SubUpdateFormField]] = Field(
-        default=None,
-        description="A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.",
-    )
-    __properties: ClassVar[List[str]] = [
-        "cc_roles",
-        "allow_form_view",
-        "title",
-        "subject",
-        "message",
-        "form_fields",
-    ]
+    __properties: ClassVar[List[str]] = ["api_id", "name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,7 +72,7 @@ class TemplateUpdateRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TemplateUpdateRequest from a JSON string"""
+        """Create an instance of SubUpdateFormField from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self, excluded_fields: Set[str] = None) -> Dict[str, Any]:
@@ -115,18 +91,11 @@ class TemplateUpdateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in form_fields (list)
-        _items = []
-        if self.form_fields:
-            for _item_form_fields in self.form_fields:
-                if _item_form_fields:
-                    _items.append(_item_form_fields.to_dict())
-            _dict["form_fields"] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TemplateUpdateRequest from a dict"""
+        """Create an instance of SubUpdateFormField from a dict"""
         if obj is None:
             return None
 
@@ -134,21 +103,7 @@ class TemplateUpdateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate(
-            {
-                "cc_roles": obj.get("cc_roles"),
-                "allow_form_view": obj.get("allow_form_view"),
-                "title": obj.get("title"),
-                "subject": obj.get("subject"),
-                "message": obj.get("message"),
-                "form_fields": (
-                    [
-                        SubUpdateFormField.from_dict(_item)
-                        for _item in obj["form_fields"]
-                    ]
-                    if obj.get("form_fields") is not None
-                    else None
-                ),
-            }
+            {"api_id": obj.get("api_id"), "name": obj.get("name")}
         )
         return _obj
 
@@ -165,17 +120,10 @@ class TemplateUpdateRequest(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "cc_roles": "(List[str],)",
-            "allow_form_view": "(bool,)",
-            "title": "(str,)",
-            "subject": "(str,)",
-            "message": "(str,)",
-            "form_fields": "(List[SubUpdateFormField],)",
+            "api_id": "(str,)",
+            "name": "(str,)",
         }
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-            "cc_roles",
-            "form_fields",
-        ]
+        return property_name in []

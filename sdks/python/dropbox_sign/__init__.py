@@ -276,6 +276,7 @@ from dropbox_sign.models.sub_unclaimed_draft_signer import SubUnclaimedDraftSign
 from dropbox_sign.models.sub_unclaimed_draft_template_signer import (
     SubUnclaimedDraftTemplateSigner,
 )
+from dropbox_sign.models.sub_update_form_field import SubUpdateFormField
 from dropbox_sign.models.sub_white_labeling_options import SubWhiteLabelingOptions
 from dropbox_sign.models.team_add_member_request import TeamAddMemberRequest
 from dropbox_sign.models.team_create_request import TeamCreateRequest

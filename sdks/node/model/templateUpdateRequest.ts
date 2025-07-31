@@ -23,6 +23,7 @@
  */
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
+import { SubUpdateFormField } from "./subUpdateFormField";
 
 export class TemplateUpdateRequest {
   /**
@@ -45,6 +46,10 @@ export class TemplateUpdateRequest {
    * The new default template email message.
    */
   "message"?: string;
+  /**
+   * A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.
+   */
+  "formFields"?: Array<SubUpdateFormField>;
 
   static discriminator: string | undefined = undefined;
 
@@ -73,6 +78,11 @@ export class TemplateUpdateRequest {
       name: "message",
       baseName: "message",
       type: "string",
+    },
+    {
+      name: "formFields",
+      baseName: "form_fields",
+      type: "Array<SubUpdateFormField>",
     },
   ];
 
