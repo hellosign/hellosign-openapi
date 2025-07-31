@@ -3,5 +3,15 @@
   "title": "Test Title",
   "subject": "Test Subject",
   "message": "Test Message",
-  "cc_roles": ["CC Role 1", "CC Role 2"]
+  "cc_roles": ["CC Role 1", "CC Role 2"],
+  "form_fields": [
+    {
+      "api_id": "uniqueIdHere_1",
+      "name": "New name 1"
+    },
+    {
+      "api_id": "uniqueIdHere_2",
+      "name": "New name 2"
+    }
+  ]
 }

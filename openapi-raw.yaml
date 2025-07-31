@@ -9467,6 +9467,17 @@ components:
               type: integer
               default: 12
           type: object
+    SubUpdateFormField:
+      required:
+        - api_id
+      properties:
+        api_id:
+          description: '_t__Sub::UpdateFormField::API_ID'
+          type: string
+        name:
+          description: '_t__Sub::UpdateFormField::NAME'
+          type: string
+      type: object
     SubFormFieldsPerDocumentHyperlink:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
       allOf:
@@ -10325,6 +10336,11 @@ components:
           description: '_t__TemplateUpdate::MESSAGE'
           type: string
           maxLength: 5000
+        form_fields:
+          description: '_t__TemplateUpdate::FORM_FIELDS'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubUpdateFormField'
       type: object
     TemplateUpdateFilesRequest:
       properties:
