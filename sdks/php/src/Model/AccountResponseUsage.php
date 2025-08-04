@@ -38,7 +38,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Details concerning monthly usage
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializable
 {

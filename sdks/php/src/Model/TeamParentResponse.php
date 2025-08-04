@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Information about the parent team if a team has one, set to &#x60;null&#x60; otherwise.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TeamParentResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {

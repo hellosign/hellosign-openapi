@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An object describing the app&#39;s owner
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSerializable
 {

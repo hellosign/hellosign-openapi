@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An embedded template object.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class EmbeddedEditUrlResponseEmbedded implements ModelInterface, ArrayAccess, JsonSerializable
 {

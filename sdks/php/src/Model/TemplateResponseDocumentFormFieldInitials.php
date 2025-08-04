@@ -27,6 +27,7 @@
 
 namespace Dropbox\Sign\Model;
 
+use ArrayAccess;
 use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use ReturnTypeWillChange;
@@ -37,7 +38,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateResponseDocumentFormFieldInitials extends TemplateResponseDocumentFormFieldBase
 {

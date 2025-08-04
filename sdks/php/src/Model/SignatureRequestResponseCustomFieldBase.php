@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAccess, JsonSerializable
 {

@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, ArrayAccess, JsonSerializable
 {
