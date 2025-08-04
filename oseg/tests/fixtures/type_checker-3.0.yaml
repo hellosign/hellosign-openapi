@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Fixture - Type Checker OAS v3.0
+tags:
+  - name: pet
+paths:
+  /default:
+    post:
+      tags:
+        - pet
+      operationId: default
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Together:
+      type: object
+      properties:
+        prop_nullable:
+          type: string
+          nullable: true
+        prop_nullable_array:
+          type: array
+          nullable: true
+          items:
+            type: string

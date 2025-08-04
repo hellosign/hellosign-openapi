@@ -1,0 +1,213 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Component Resolver Examples
+paths:
+  /inline_nested_schema_root:
+    post:
+      tags:
+        - pet
+      operationId: inline_nested_schema_root
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                labels:
+                  type: array
+                  description: Array of labels (comma-separated strings)
+                  items:
+                    type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+  /another_inline_nested_schema_root_2:
+    post:
+      tags:
+        - pet
+      operationId: another_inline_nested_schema_root_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                labels:
+                  type: array
+                  description: Array of labels (comma-separated strings)
+                  items:
+                    type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+  /inline_nested_schema_nested:
+    post:
+      tags:
+        - pet
+      operationId: inline_nested_schema_nested
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nested_inline:
+                  type: object
+                  properties:
+                    labels:
+                      type: array
+                      description: Array of labels (comma-separated strings)
+                      items:
+                        type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+  inline_nested_schema_identical_name_1:
+    post:
+      tags:
+        - pet
+      operationId: inline_nested_schema_identical_name_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                some_property_name:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Shared description for name property
+                  description: Shared description for this object
+      responses:
+        '200':
+          description: Success
+components:
+  responses:
+    SomeResponseRef:
+      $ref: '#/components/responses/SomeResponse'
+    SomeResponse:
+      description: 'successful operation'
+      content:
+        text/plain:
+          schema:
+            type: string
+            default: 'Response value'
+  schemas:
+    SomeSchemaRef:
+      $ref: '#/components/schemas/SomeSchema'
+    SomeSchema:
+      type: object
+      properties:
+        prop_1:
+          type: string
+    # to match inline_nested_schema_identical_name_1.some_property_name
+    SomeSchemaWithDupe1:
+      type: object
+      properties:
+        prop_1:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Shared description for name property
+          description: Shared description for this object
+    SomeSchemaWithDupe2:
+      type: object
+      properties:
+        prop_1:
+          type: object
+          properties:
+            # to match inline_nested_schema_identical_name_1.some_property_name
+            prop_2:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Shared description for name property
+              description: Shared description for this object
+    SchemaWithInner:
+      type: object
+      properties:
+        prop_1:
+          type: object
+          description: Some random description SchemaWithInner 1
+          properties:
+            prop_2:
+              type: array
+              description: Some random description SchemaWithInner 2
+              items:
+                type: object
+                properties:
+                  prop_3:
+                    type: object
+                    description: Some random description SchemaWithInner 3
+                    properties:
+                      name:
+                        type: string
+                        description: Some random description SchemaWithInner 4
+    SchemaWithInnerInner:
+      type: object
+      properties:
+        prop_1:
+          type: object
+          description: Some random description SchemaWithInnerInner 1
+          properties:
+            prop_2:
+              type: array
+              description: Some random description SchemaWithInnerInner 2
+              items:
+                type: object
+                properties:
+                  prop_3:
+                    type: array
+                    description: Some random description SchemaWithInnerInner 3
+                    items:
+                      type: object
+                      properties:
+                        prop_4:
+                          type: object
+                          description: Some random description SchemaWithInner 4
+                          properties:
+                            name:
+                              type: string
+                              description: Some random description SchemaWithInner 5
+  parameters:
+    SomeParameterRef:
+      $ref: '#/components/parameters/SomeParameter'
+    SomeParameter:
+      name: some_parameter
+      in: query
+      schema:
+        type: string
+  requestBodies:
+    SomeRequestBodyRef:
+      $ref: '#/components/requestBodies/SomeRequestBody'
+    SomeRequestBody:
+      content:
+        multipart/form-data: {}
+  examples:
+    SomeExampleRef:
+      $ref: '#/components/examples/SomeExample'
+    SomeExample:
+      summary: 'Some Example'
+      value:
+        key_1: value_1
+  securitySchemes:
+    petstore_auth_ref:
+      $ref: '#/components/securitySchemes/petstore_auth'
+    api_key_ref:
+      $ref: '#/components/securitySchemes/api_key'
+    petstore_auth:
+      type: oauth2
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header

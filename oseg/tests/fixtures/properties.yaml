@@ -1,0 +1,941 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Property Examples
+tags:
+  - name: pet
+paths:
+  /default:
+    post:
+      tags:
+        - pet
+      operationId: default
+      parameters:
+        # generates class, expected name default_paramObject_parameter
+        - name: paramObject
+          in: path
+          required: true
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+        # generates class, expected name default_paramArrayObject_parameter
+        - name: paramArrayObject
+          in: path
+          required: true
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+        # does not generate class
+        - name: paramString
+          in: query
+          schema:
+            type: string
+        # does not generate class
+        - $ref: "#/components/parameters/ParamComponentObject"
+        # does not generate class
+        - $ref: "#/components/parameters/ParamComponentArrayObject"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        '200':
+          description: Successful operation
+  /inline_request_body_properties:
+    post:
+      tags:
+        - pet
+      operationId: inline_request_body_properties
+      requestBody:
+        content:
+          application/json:
+            # class inline_request_body_properties_request
+            schema:
+              type: object
+              properties:
+                # inline_request_body_properties_request_prop_object
+                prop_object:
+                  type: object
+                  properties:
+                    key_1:
+                      type: string
+                      description: some random description to make this object unique - 1
+                prop_ref_object:
+                  $ref: '#/components/schemas/PropRefObject'
+                prop_array_ref_object:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropRefObject'
+                # inline_request_body_properties_request_prop_nested_object
+                prop_nested_object:
+                  type: object
+                  description: some random description to make this object unique - 2
+                  properties:
+                    # inline_request_body_properties_request_prop_nested_object_key_1
+                    key_1:
+                      type: object
+                      description: some random description to make this object unique - 3
+                      properties:
+                        key_2:
+                          type: string
+                prop_ref_nested_object:
+                  $ref: '#/components/schemas/PropRefNestedObject'
+                prop_array_ref_nested_object:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropRefNestedObject'
+                prop_string:
+                  type: string
+                prop_array_string:
+                  type: array
+                  items:
+                    type: string
+                prop_ref_string:
+                  $ref: '#/components/schemas/PropRefString'
+                prop_array_ref_string:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropRefString'
+                prop_integer:
+                  type: integer
+                prop_array_integer:
+                  type: array
+                  items:
+                    type: integer
+                prop_ref_integer:
+                  $ref: '#/components/schemas/PropRefInteger'
+                prop_array_ref_integer:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropRefInteger'
+                prop_number:
+                  type: number
+                prop_array_number:
+                  type: array
+                  items:
+                    type: number
+                prop_ref_number:
+                  $ref: '#/components/schemas/PropRefNumber'
+                prop_array_ref_number:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropRefNumber'
+                prop_boolean:
+                  type: boolean
+                prop_array_boolean:
+                  type: array
+                  items:
+                    type: boolean
+                prop_ref_boolean:
+                  $ref: '#/components/schemas/PropRefBoolean'
+                prop_array_ref_boolean:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropRefBoolean'
+                prop_file:
+                  type: string
+                  format: binary
+                prop_array_file:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                prop_ref_file:
+                  $ref: '#/components/schemas/PropRefFile'
+                prop_array_ref_file:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropRefFile'
+                prop_free_form:
+                  type: object
+                  additionalProperties: {}
+                prop_array_free_form:
+                  type: array
+                  items:
+                    type: object
+                    additionalProperties: {}
+                prop_ref_free_form:
+                  $ref: '#/components/schemas/PropRefFreeForm'
+                prop_array_ref_free_form:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropRefFreeForm'
+      responses:
+        '200':
+          description: Successful operation
+  /response_named_response:
+    post:
+      tags:
+        - pet
+      operationId: response_named_response
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          $ref: "#/components/responses/PropRefResponse"
+  /response_inline_response_named_object:
+    post:
+      tags:
+        - pet
+      operationId: response_inline_response_named_object
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropRefObject'
+  /response_inline_response_inline_object:
+    post:
+      tags:
+        - pet
+      operationId: response_inline_response_inline_object
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              # class post_response_inline_response_inline_object_200_response
+              schema:
+                type: object
+                properties:
+                  key_1:
+                    type: string
+  /sorted:
+    post:
+      tags:
+        - pet
+      operationId: sorted
+      responses:
+        '200':
+          description: Successful operation
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: queryParam
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: try
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: while
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: with
+          in: query
+          schema:
+            type: string
+            default: "foo"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+  /sorted_formdata:
+    post:
+      tags:
+        - pet
+      operationId: sorted_formdata
+      responses:
+        '200':
+          description: Successful operation
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: queryParam
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: try
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: while
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: with
+          in: query
+          schema:
+            type: string
+            default: "foo"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dog'
+  /using_title:
+    post:
+      tags:
+        - pet
+      operationId: using_title
+      parameters:
+        # generates class, expected name using_title_paramObject_parameter
+        - name: paramObject
+          in: path
+          required: true
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+        # generates class using title
+        - name: paramObjectCustom
+          in: path
+          required: true
+          schema:
+            title: custom_paramObject_parameter
+            type: object
+            properties:
+              id:
+                type: integer
+        # generates class using title
+        - name: paramArrayObject
+          in: path
+          required: true
+          schema:
+            title: custom_paramArrayObject_parameter
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+        # does not generate class, ignores title
+        - name: paramString
+          in: query
+          schema:
+            title: custom_paramString_parameter
+            type: string
+        - $ref: "#/components/parameters/ParamComponentObject"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: "MyCustomRequestBodyClass"
+              properties:
+                # MyCustomRequestBodyClass_prop_object
+                prop_object:
+                  type: object
+                  description: some random description to make this object unique - 4
+                  properties:
+                    key_1:
+                      type: string
+                prop_object_2:
+                  title: "CustomPropObjectName"
+                  type: object
+                  properties:
+                    key_1:
+                      type: string
+      responses:
+        '200':
+          description: Successful operation
+  /using_title_formdata:
+    post:
+      tags:
+        - pet
+      operationId: using_title_formdata
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              title: "MyCustomRequestBodyClass" # used but endpoint does not use it
+              properties:
+                # MyCustomRequestBodyClass_prop_object
+                prop_object:
+                  type: object
+                  description: some random description to make this object unique - 5
+                  properties:
+                    key_1:
+                      type: string
+                prop_object_2:
+                  title: "CustomPropObjectName"
+                  type: object
+                  properties:
+                    key_1:
+                      type: string
+      responses:
+        '200':
+          description: Successful operation
+  /multiple_dogs:
+    post:
+      tags:
+        - pet
+      operationId: multiple_dogs
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipleDogs'
+  /array_dogs:
+    post:
+      tags:
+        - pet
+      operationId: array_dogs
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+          $ref: '#/components/requestBodies/DogArray'
+  /parameters_no_values_not_required:
+    post:
+      tags:
+        - pet
+      operationId: parameters_no_values_not_required
+      parameters:
+        - name: param_1
+          in: query
+          schema:
+            type: string
+        - name: param_2
+          in: query
+          schema:
+            type: string
+        - name: param_3
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+  /parameters_no_values_required:
+    post:
+      tags:
+        - pet
+      operationId: parameters_no_values_required
+      parameters:
+        - name: param_1
+          in: query
+          schema:
+            type: string
+        - name: param_2
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: param_3
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+  /parameters_and_required_body:
+    post:
+      tags:
+        - pet
+      operationId: parameters_and_required_body
+      parameters:
+        - name: param_1
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/requestBodies/PropRefNestedObject'
+  /codegen_request_body_name_json:
+    post:
+      tags:
+        - pet
+      operationId: codegen_request_body_name_json
+      responses:
+        '200':
+          description: Successful operation
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: queryParam
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: try
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: while
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: with
+          in: query
+          schema:
+            type: string
+            default: "foo"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      x-codegen-request-body-name: some_new_name
+  /codegen_request_body_name_formdata:
+    post:
+      tags:
+        - pet
+      operationId: codegen_request_body_name_formdata
+      responses:
+        '200':
+          description: Successful operation
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: queryParam
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: try
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: while
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: with
+          in: query
+          schema:
+            type: string
+            default: "foo"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      x-codegen-request-body-name: some_new_name
+  /free_form_string_object_value:
+    post:
+      tags:
+        - pet
+      operationId: free_form_string_object_value
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FreeFormWithStringObjectValue"
+      responses:
+        '200':
+          description: Successful operation
+  /property_with_all_required_for_default_value:
+    post:
+      tags:
+        - pet
+      operationId: property_with_all_required_for_default_value
+      parameters:
+        - name: petId
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: queryParam
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: try
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: while
+          in: query
+          schema:
+            type: string
+            default: "foo"
+        - name: with
+          in: query
+          schema:
+            type: string
+            default: "foo"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyWithAllRequiredForDefaultValue'
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        # class, Pet_prop_object
+        prop_object:
+          type: object
+          properties:
+            key_1:
+              type: string
+        # class, PropRefObject
+        prop_ref_object:
+          $ref: '#/components/schemas/PropRefObject'
+        # class, array<PropRefObject>
+        prop_array_ref_object:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropRefObject'
+        # class, Pet_prop_nested_object
+        prop_nested_object:
+          type: object
+          properties:
+            # class, Pet_prop_nested_object_key_1
+            key_1:
+              type: object
+              properties:
+                key_2:
+                  type: string
+        prop_ref_nested_object:
+          $ref: '#/components/schemas/PropRefNestedObject'
+        prop_array_ref_nested_object:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropRefNestedObject'
+        prop_string:
+          type: string
+        prop_array_string:
+          type: array
+          items:
+            type: string
+        prop_ref_string:
+          $ref: '#/components/schemas/PropRefString'
+        prop_array_ref_string:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropRefString'
+        prop_integer:
+          type: integer
+        prop_array_integer:
+          type: array
+          items:
+            type: integer
+        prop_ref_integer:
+          $ref: '#/components/schemas/PropRefInteger'
+        prop_array_ref_integer:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropRefInteger'
+        prop_number:
+          type: number
+        prop_array_number:
+          type: array
+          items:
+            type: number
+        prop_ref_number:
+          $ref: '#/components/schemas/PropRefNumber'
+        prop_array_ref_number:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropRefNumber'
+        prop_boolean:
+          type: boolean
+        prop_array_boolean:
+          type: array
+          items:
+            type: boolean
+        prop_ref_boolean:
+          $ref: '#/components/schemas/PropRefBoolean'
+        prop_array_ref_boolean:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropRefBoolean'
+        prop_file:
+          type: string
+          format: binary
+        prop_array_file:
+          type: array
+          items:
+            type: string
+            format: binary
+        prop_ref_file:
+          $ref: '#/components/schemas/PropRefFile'
+        prop_array_ref_file:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropRefFile'
+        prop_free_form:
+          type: object
+          additionalProperties: {}
+        prop_array_free_form:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+        prop_ref_free_form:
+          $ref: '#/components/schemas/PropRefFreeForm'
+        prop_array_ref_free_form:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropRefFreeForm'
+    PropRefObject:
+      type: object
+      properties:
+        key_1:
+          type: string
+    PropRefNestedObject:
+      type: object
+      properties:
+        key_1:
+          type: object
+          description: some random description to make this object unique - 6
+          properties:
+            key_2:
+              type: string
+    # no class
+    PropRefString:
+      type: string
+    PropRefInteger:
+      type: integer
+    # no class
+    PropRefNumber:
+      type: number
+    # no class
+    PropRefBoolean:
+      type: boolean
+    # no class
+    PropRefFile:
+      type: string
+      format: binary
+    # no class
+    PropRefFreeForm:
+      type: object
+      additionalProperties: {}
+    Dog:
+      title: a dog
+      type: object
+      required:
+        - name
+        - photoUrls
+      properties:
+        id:
+          type: integer
+          format: int64
+        category:
+          $ref: '#/components/schemas/Category'
+        name:
+          type: string
+          example: doggie
+        photoUrls:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        status:
+          type: string
+          description: pet status in the store
+          deprecated: true
+          enum:
+            - available
+            - pending
+            - sold
+        try:
+          type: string
+        while:
+          type: string
+        with:
+          type: string
+        configuration:
+          type: string
+        version:
+          type: string
+    MultipleDogs:
+      type: object
+      properties:
+        dog_1:
+          $ref: '#/components/schemas/Dog'
+        dog_2:
+          $ref: '#/components/schemas/Dog'
+    Tag:
+      title: Pet Tag
+      description: A tag for a pet
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Category:
+      title: Pet category
+      description: A category for a pet
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          pattern: '^[a-zA-Z0-9]+[a-zA-Z0-9\.\-_]*[a-zA-Z0-9]+$'
+    PropertyForFormData:
+      title: a dog
+      type: object
+      required:
+        - name
+        - photoUrls
+      properties:
+        id:
+          type: integer
+          format: int64
+        category:
+          $ref: '#/components/schemas/Category'
+        name:
+          type: string
+          example: doggie
+        photoUrls:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        status:
+          type: string
+          description: pet status in the store
+          deprecated: true
+          enum:
+            - available
+            - pending
+            - sold
+        try:
+          type: string
+        while:
+          type: string
+        with:
+          type: string
+    PropertyWithAllRequiredForDefaultValue:
+      type: object
+      required:
+        - id
+        - name
+        - is_available
+        - photoUrls
+        - status
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        is_available:
+          type: boolean
+        photoUrls:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          description: pet status in the store
+          enum:
+            - available
+            - pending
+            - sold
+    FreeFormWithStringObjectValue:
+      type: object
+      properties:
+        prop_object:
+          type: object
+          example: "{}"
+  parameters:
+    ParamString:
+      name: paramString
+      in: query
+      schema:
+        type: string
+    ParamComponentObject:
+      name: paramComponentObject
+      in: query
+      schema:
+        title: "title is ignored"
+        type: object
+        properties:
+          id:
+            type: integer
+    ParamComponentArrayObject:
+      name: paramComponentArrayObject
+      in: query
+      schema:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+  requestBodies:
+    DogArray:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Dog'
+  responses:
+    PropRefResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PropRefObject'
+    PropRefFileResponse:
+      description: Successful operation
+      content:
+        application/pdf:
+          schema:
+            $ref: '#/components/schemas/PropRefFile'

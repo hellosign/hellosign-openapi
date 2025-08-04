@@ -1,0 +1,19 @@
+{%- macro parse_security_macro(indent_count) -%}
+    {{- caller(parse_security(indent_count)) }}
+{%- endmacro -%}
+
+{%- macro parse_objects_macro() -%}
+    {{- caller(parse_objects()) }}
+{%- endmacro -%}
+
+{%- macro parse_object_properties_macro(obj, indent_count) -%}
+    {{- caller(parse_object_properties(obj, indent_count)) }}
+{%- endmacro -%}
+
+{%- macro parse_object_list_properties_macro(obj, indent_count) -%}
+    {{- caller(parse_object_list_properties(obj, indent_count)) }}
+{%- endmacro -%}
+
+{%- macro parse_api_call_properties_macro(indent_count, required_flag) -%}
+    {{- caller(parse_api_call_properties(indent_count, required_flag)) }}
+{%- endmacro -%}

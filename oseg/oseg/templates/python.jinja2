@@ -1,0 +1,138 @@
+{%- macro print_scalar(printable) -%}
+{{ printable.value }}
+{%- endmacro -%}
+
+{%- macro print_scalar_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+[
+        {% for i in printable.value %}
+    {{ i }},
+        {% endfor %}
+]
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_file(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+open("{{ printable.value }}", "rb").read()
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_file_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+[
+        {% for i in printable.value %}
+    open("{{ i }}", "rb").read(),
+        {% endfor %}
+]
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_free_form(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}
+    {%- elif not printable.value %}{}{%- else %}
+json.loads("""
+    {{ printable.value|tojson(4)|indent(4) }}
+""")
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_free_form_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}
+    {%- elif not printable.value %}[]{%- else %}
+json.loads("""
+    {{ printable.value|tojson(4)|indent(4) }}
+""")
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_object(printable) -%}
+{{ printable.value|print_variablename }}
+{%- endmacro -%}
+
+{%- macro print_object_array(printable) -%}
+[
+    {% for i in printable.value %}
+    {{ i|print_variablename }},
+    {% endfor %}
+]
+{%- endmacro -%}
+
+{%- macro print_security(printable) -%}
+    {% set comment = "" %}
+    {% if not printable.is_primary %}{% set comment = "# " %}{% endif %}
+{%- if printable.method == "api_key" %}{{ comment }}api_key={"{{ printable.key }}": {{ printable.value|tojson }}},
+{%- elif printable.method == "access_token" %}{{ comment }}access_token={{ printable.value|tojson }},
+{%- else %}{{ comment }}username={{ printable.value|tojson }},{% if printable.value_2 != None %}{{ "" }}
+{{ comment }}password={{ printable.value_2|tojson }},{% endif %}
+{%- endif %}
+{%-endmacro -%}
+
+{%- import "_macros.jinja2" as m with context -%}
+
+import json
+from datetime import date, datetime
+from pprint import pprint
+
+from {{ config.packageName }} import ApiClient, ApiException, Configuration, api, models
+
+configuration = Configuration({% if not operation.security %}){% else %}
+
+    {% if operation.security.is_optional %}
+    # Authentication is optional for this API endpoint
+    {% endif %}
+    {% call(security_schemes) m.parse_security_macro(4) %}
+        {% for _, security in security_schemes.items() %}
+    {{ security }}
+        {% endfor %}
+    {% endcall %}
+)
+{% endif %}
+
+with ApiClient(configuration) as api_client:
+{% call(objects) m.parse_objects_macro() %}
+    {% for obj_name, obj in objects.items() %}
+        {% if not obj.is_array %}
+    {{ obj_name|print_variablename }} = models.{{ obj.type|print_classname }}(
+            {% call(properties) m.parse_object_properties_macro(obj, 8) %}
+                {% for name, value in properties.items() %}
+        {{ name|print_propname }}={{ value }},
+                {% endfor %}
+            {% endcall %}
+    )
+        {% else %}
+    {{ obj_name|print_variablename }} = {{ "" }}
+            {%- call(value) m.parse_object_list_properties_macro(obj, 4) %}
+            {{- value }}
+            {% endcall %}
+        {% endif %}
+
+    {% endfor %}
+{% endcall %}
+    try:
+        {{ "" -}}
+{% call(properties) m.parse_api_call_properties_macro(12) %}
+        {% if operation.response and operation.response.body %}response = {% endif -%}
+        api.{{ operation.api_name|print_apiname }}(api_client).{{ operation.operation_id|print_methodname }}({%- if not properties %})
+{% else %}
+
+    {% for name, value in properties.items() %}
+        {#
+            Use print_variablename here because Python generator uses property name aliases
+            but only for Model objects, not the API call method.
+        #}
+            {{ name|print_variablename }}={{ value }},
+    {% endfor %}
+        )
+{% endif %}
+{% endcall %}
+    {% if operation.response and operation.response.body and not operation.response.is_binary %}
+
+        pprint(response)
+    {% elif operation.response and operation.response.is_binary %}
+
+        open("./file_response", "wb").write(response.read())
+    {% endif %}
+    except ApiException as e:
+        print("Exception when calling {{ operation.api_name|print_apiname }}#{{ operation.operation_id|print_methodname }}: %s\n" % e)
+{{ "" }}
