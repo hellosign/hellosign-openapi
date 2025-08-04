@@ -26,11 +26,11 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :refresh_token
 
-    # The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+    # The client ID for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.
     # @return [String]
     attr_accessor :client_id
 
-    # The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+    # The client secret for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.
     # @return [String]
     attr_accessor :client_secret
 
