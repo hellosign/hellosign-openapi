@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Contains information about a signature request.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {

@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description This allows the requester to specify editor options when a preparing a document
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SubEditorOptions implements ModelInterface, ArrayAccess, JsonSerializable
 {

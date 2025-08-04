@@ -38,7 +38,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Details concerning remaining monthly quotas.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializable
 {

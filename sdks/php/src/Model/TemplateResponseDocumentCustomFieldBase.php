@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An array of Form Field objects containing the name and type of each named field.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAccess, JsonSerializable
 {

@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An array of signature objects, 1 for each signer.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess, JsonSerializable
 {

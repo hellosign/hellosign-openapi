@@ -39,7 +39,7 @@ use SplFileObject;
  *
  * @category Class
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {

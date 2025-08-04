@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Contains information about an error that occurred.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializable
 {

@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Average text length in this field.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess, JsonSerializable
 {

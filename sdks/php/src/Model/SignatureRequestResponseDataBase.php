@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, JsonSerializable
 {

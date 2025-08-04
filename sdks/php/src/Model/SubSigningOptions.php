@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
 {
