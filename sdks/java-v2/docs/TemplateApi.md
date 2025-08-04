@@ -1024,6 +1024,19 @@ public class TemplateUpdateExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+        var formFields1 = new SubUpdateFormField();
+        formFields1.apiId("uniqueIdHere_1");
+        formFields1.name("New name 1");
+
+        var formFields2 = new SubUpdateFormField();
+        formFields2.apiId("uniqueIdHere_2");
+        formFields2.name("New name 2");
+
+        var formFields = new ArrayList<SubUpdateFormField>(List.of (
+            formFields1,
+            formFields2
+        ));
+
         var templateUpdateRequest = new TemplateUpdateRequest();
         templateUpdateRequest.allowFormView(false);
         templateUpdateRequest.title("Test Title");
@@ -1033,6 +1046,7 @@ public class TemplateUpdateExample
             "CC Role 1",
             "CC Role 2"
         ));
+        templateUpdateRequest.formFields(formFields);
 
         try
         {
