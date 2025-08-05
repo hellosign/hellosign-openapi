@@ -43,8 +43,8 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="grantType">When refreshing an existing token use &#x60;refresh_token&#x60;. (required) (default to &quot;refresh_token&quot;).</param>
         /// <param name="refreshToken">The token provided when you got the expired access token. (required).</param>
-        /// <param name="clientId">The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled..</param>
-        /// <param name="clientSecret">The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled..</param>
+        /// <param name="clientId">The client ID for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings..</param>
+        /// <param name="clientSecret">The client secret for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings..</param>
         public OAuthTokenRefreshRequest(string grantType = @"refresh_token", string refreshToken = default(string), string clientId = default(string), string clientSecret = default(string))
         {
 
@@ -95,16 +95,16 @@ namespace Dropbox.Sign.Model
         public string RefreshToken { get; set; }
 
         /// <summary>
-        /// The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.
+        /// The client ID for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.
         /// </summary>
-        /// <value>The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.</value>
+        /// <value>The client ID for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
-        /// The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.
+        /// The client secret for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.
         /// </summary>
-        /// <value>The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.</value>
+        /// <value>The client secret for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.</value>
         [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
 

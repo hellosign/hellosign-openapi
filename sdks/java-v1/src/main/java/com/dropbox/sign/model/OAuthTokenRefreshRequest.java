@@ -117,9 +117,8 @@ public class OAuthTokenRefreshRequest {
     }
 
     /**
-     * The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the
-     * \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if
-     * disabled.
+     * The client ID for your API app. Required for new API apps. To enhance security, we recommend
+     * making it required for existing apps in your app settings.
      *
      * @return clientId
      */
@@ -141,9 +140,8 @@ public class OAuthTokenRefreshRequest {
     }
 
     /**
-     * The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if
-     * the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional
-     * if disabled.
+     * The client secret for your API app. Required for new API apps. To enhance security, we
+     * recommend making it required for existing apps in your app settings.
      *
      * @return clientSecret
      */
