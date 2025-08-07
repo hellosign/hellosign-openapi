@@ -14,7 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 [**templateGet**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template
 [**templateList**](TemplateApi.md#templateList) | **GET** /template/list | List Templates
 [**templateRemoveUser**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template
-[**templateUpdate**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Edit Template
+[**templateUpdate**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template
 [**templateUpdateFiles**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files
 
 
@@ -992,9 +992,9 @@ public class TemplateRemoveUserExample
 
 > TemplateGetResponse templateUpdate(templateId, templateUpdateRequest)
 
-Edit Template
+Update Template
 
-Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
 ### Example
 
@@ -1024,6 +1024,19 @@ public class TemplateUpdateExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+        var formFields1 = new SubUpdateFormField();
+        formFields1.apiId("uniqueIdHere_1");
+        formFields1.name("New name 1");
+
+        var formFields2 = new SubUpdateFormField();
+        formFields2.apiId("uniqueIdHere_2");
+        formFields2.name("New name 2");
+
+        var formFields = new ArrayList<SubUpdateFormField>(List.of (
+            formFields1,
+            formFields2
+        ));
+
         var templateUpdateRequest = new TemplateUpdateRequest();
         templateUpdateRequest.allowFormView(false);
         templateUpdateRequest.title("Test Title");
@@ -1033,6 +1046,7 @@ public class TemplateUpdateExample
             "CC Role 1",
             "CC Role 2"
         ));
+        templateUpdateRequest.formFields(formFields);
 
         try
         {

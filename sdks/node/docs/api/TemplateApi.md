@@ -14,7 +14,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateGet()**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template |
 | [**templateList()**](TemplateApi.md#templateList) | **GET** /template/list | List Templates |
 | [**templateRemoveUser()**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
-| [**templateUpdate()**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Edit Template |
+| [**templateUpdate()**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template |
 | [**templateUpdateFiles()**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 
@@ -732,9 +732,9 @@ apiCaller.templateRemoveUser(
 templateUpdate(templateId: string, templateUpdateRequest: TemplateUpdateRequest): TemplateGetResponse
 ```
 
-Edit Template
+Update Template
 
-Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
 ### TypeScript Example
 
@@ -747,6 +747,21 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
+const formFields1: models.SubUpdateFormField = {
+  apiId: "uniqueIdHere_1",
+  name: "New name 1",
+};
+
+const formFields2: models.SubUpdateFormField = {
+  apiId: "uniqueIdHere_2",
+  name: "New name 2",
+};
+
+const formFields = [
+  formFields1,
+  formFields2,
+];
+
 const templateUpdateRequest: models.TemplateUpdateRequest = {
   allowFormView: false,
   title: "Test Title",
@@ -756,6 +771,7 @@ const templateUpdateRequest: models.TemplateUpdateRequest = {
     "CC Role 1",
     "CC Role 2",
   ],
+  formFields: formFields,
 };
 
 apiCaller.templateUpdate(

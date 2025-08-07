@@ -1031,8 +1031,8 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
-    # Edit Template
-    # Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+    # Update Template
+    # Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
     # @param template_id [String] The ID of the template to update.
     # @param template_update_request [TemplateUpdateRequest] 
     # @param [Hash] opts the optional parameters
@@ -1042,8 +1042,8 @@ module Dropbox::Sign
       data
     end
 
-    # Edit Template
-    # Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+    # Update Template
+    # Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
     # @param template_id [String] The ID of the template to update.
     # @param template_update_request [TemplateUpdateRequest] 
     # @param [Hash] opts the optional parameters

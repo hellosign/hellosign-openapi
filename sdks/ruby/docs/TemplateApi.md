@@ -14,7 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [`template_get`](TemplateApi.md#template_get) | **GET** `/template/{template_id}` | Get Template |
 | [`template_list`](TemplateApi.md#template_list) | **GET** `/template/list` | List Templates |
 | [`template_remove_user`](TemplateApi.md#template_remove_user) | **POST** `/template/remove_user/{template_id}` | Remove User from Template |
-| [`template_update`](TemplateApi.md#template_update) | **POST** `/template/update/{template_id}` | Edit Template |
+| [`template_update`](TemplateApi.md#template_update) | **POST** `/template/update/{template_id}` | Update Template |
 | [`template_update_files`](TemplateApi.md#template_update_files) | **POST** `/template/update_files/{template_id}` | Update Template Files |
 
 
@@ -857,9 +857,9 @@ end
 
 > `<TemplateGetResponse> template_update(template_id, template_update_request)`
 
-Edit Template
+Update Template
 
-Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
 ### Examples
 
@@ -872,6 +872,19 @@ Dropbox::Sign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
+form_fields_1 = Dropbox::Sign::SubUpdateFormField.new
+form_fields_1.api_id = "uniqueIdHere_1"
+form_fields_1.name = "New name 1"
+
+form_fields_2 = Dropbox::Sign::SubUpdateFormField.new
+form_fields_2.api_id = "uniqueIdHere_2"
+form_fields_2.name = "New name 2"
+
+form_fields = [
+    form_fields_1,
+    form_fields_2,
+]
+
 template_update_request = Dropbox::Sign::TemplateUpdateRequest.new
 template_update_request.allow_form_view = false
 template_update_request.title = "Test Title"
@@ -881,6 +894,7 @@ template_update_request.cc_roles = [
     "CC Role 1",
     "CC Role 2",
 ]
+template_update_request.form_fields = form_fields
 
 begin
   response = Dropbox::Sign::TemplateApi.new.template_update(
@@ -903,7 +917,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Edit Template
+  # Update Template
   data, status_code, headers = api_instance.template_update_with_http_info(template_id, template_update_request)
   p status_code # => 2xx
   p headers # => { ... }

@@ -1508,8 +1508,8 @@ export class TemplateApi {
     });
   }
   /**
-   * Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
-   * @summary Edit Template
+   * Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+   * @summary Update Template
    * @param templateId The ID of the template to update.
    * @param templateUpdateRequest
    * @param options

@@ -14,7 +14,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateGet()**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template |
 | [**templateList()**](TemplateApi.md#templateList) | **GET** /template/list | List Templates |
 | [**templateRemoveUser()**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
-| [**templateUpdate()**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Edit Template |
+| [**templateUpdate()**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template |
 | [**templateUpdateFiles()**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 
@@ -760,9 +760,9 @@ try {
 ```php
 templateUpdate($template_id, $template_update_request): \Dropbox\Sign\Model\TemplateGetResponse
 ```
-Edit Template
+Update Template
 
-Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
 ### Example
 
@@ -780,6 +780,19 @@ $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 $config->setUsername("YOUR_API_KEY");
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
+$form_fields_1 = (new Dropbox\Sign\Model\SubUpdateFormField())
+    ->setApiId("uniqueIdHere_1")
+    ->setName("New name 1");
+
+$form_fields_2 = (new Dropbox\Sign\Model\SubUpdateFormField())
+    ->setApiId("uniqueIdHere_2")
+    ->setName("New name 2");
+
+$form_fields = [
+    $form_fields_1,
+    $form_fields_2,
+];
+
 $template_update_request = (new Dropbox\Sign\Model\TemplateUpdateRequest())
     ->setAllowFormView(false)
     ->setTitle("Test Title")
@@ -788,7 +801,8 @@ $template_update_request = (new Dropbox\Sign\Model\TemplateUpdateRequest())
     ->setCcRoles([
         "CC Role 1",
         "CC Role 2",
-    ]);
+    ])
+    ->setFormFields($form_fields);
 
 try {
     $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateUpdate(

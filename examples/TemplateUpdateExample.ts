@@ -6,6 +6,21 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
+const formFields1: models.SubUpdateFormField = {
+  apiId: "uniqueIdHere_1",
+  name: "New name 1",
+};
+
+const formFields2: models.SubUpdateFormField = {
+  apiId: "uniqueIdHere_2",
+  name: "New name 2",
+};
+
+const formFields = [
+  formFields1,
+  formFields2,
+];
+
 const templateUpdateRequest: models.TemplateUpdateRequest = {
   allowFormView: false,
   title: "Test Title",
@@ -15,6 +30,7 @@ const templateUpdateRequest: models.TemplateUpdateRequest = {
     "CC Role 1",
     "CC Role 2",
   ],
+  formFields: formFields,
 };
 
 apiCaller.templateUpdate(

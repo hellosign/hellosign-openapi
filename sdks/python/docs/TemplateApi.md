@@ -14,7 +14,7 @@ Method | HTTP request | Description
 |[```template_get```](TemplateApi.md#template_get) | ```GET /template/{template_id}``` | Get Template|
 |[```template_list```](TemplateApi.md#template_list) | ```GET /template/list``` | List Templates|
 |[```template_remove_user```](TemplateApi.md#template_remove_user) | ```POST /template/remove_user/{template_id}``` | Remove User from Template|
-|[```template_update```](TemplateApi.md#template_update) | ```POST /template/update/{template_id}``` | Edit Template|
+|[```template_update```](TemplateApi.md#template_update) | ```POST /template/update/{template_id}``` | Update Template|
 |[```template_update_files```](TemplateApi.md#template_update_files) | ```POST /template/update_files/{template_id}``` | Update Template Files|
 
 
@@ -827,9 +827,9 @@ with ApiClient(configuration) as api_client:
 # ```template_update```
 > ```TemplateGetResponse template_update(template_id, template_update_request)```
 
-Edit Template
+Update Template
 
-Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
 ### Example
 
@@ -849,6 +849,21 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
+    form_fields_1 = models.SubUpdateFormField(
+        api_id="uniqueIdHere_1",
+        name="New name 1",
+    )
+
+    form_fields_2 = models.SubUpdateFormField(
+        api_id="uniqueIdHere_2",
+        name="New name 2",
+    )
+
+    form_fields = [
+        form_fields_1,
+        form_fields_2,
+    ]
+
     template_update_request = models.TemplateUpdateRequest(
         allow_form_view=False,
         title="Test Title",
@@ -858,6 +873,7 @@ with ApiClient(configuration) as api_client:
             "CC Role 1",
             "CC Role 2",
         ],
+        form_fields=form_fields,
     )
 
     try:

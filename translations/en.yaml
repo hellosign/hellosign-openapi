@@ -777,11 +777,12 @@
 "TemplateRemoveUser::EMAIL_ADDRESS": The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
 "TemplateRemoveUser::TEMPLATE_ID": The id of the Template to remove the Account's access to.
 
-"TemplateUpdate::SUMMARY": Edit Template
-"TemplateUpdate::DESCRIPTION": Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+"TemplateUpdate::SUMMARY": Update Template
+"TemplateUpdate::DESCRIPTION": Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 "TemplateUpdate::TEMPLATE_ID": The ID of the template to update.
 "TemplateUpdate::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request.
 "TemplateUpdate::ALLOW_FORM_VIEW": "The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names."
+"TemplateUpdate::FORM_FIELDS": A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.
 "TemplateUpdate::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateUpdate::SUBJECT": The new default template email subject.
 "TemplateUpdate::MESSAGE": The new default template email message.
@@ -1229,6 +1230,9 @@
 "Sub::SigningOptions::PHONE": Allows using a smartphone to email the signature
 "Sub::SigningOptions::TYPE": Allows typing the signature
 "Sub::SigningOptions::UPLOAD": Allows uploading the signature
+
+"Sub::UpdateFormField::API_ID": The unique ID for this field. The endpoint will update an existing field with matching `api_id`, and warn you if no matches are found
+"Sub::UpdateFormField::NAME": The new name of the field. If not passed the name will remain unchanged.
 
 "Sub::UnclaimedDraftSigner::DESCRIPTION": Add Signers to your Unclaimed Draft Signature Request.
 "Sub::UnclaimedDraftSigner::EMAIL_ADDRESS": The email address of the signer.

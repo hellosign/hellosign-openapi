@@ -17,40 +17,20 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  class TemplateUpdateRequest
-    # The CC roles that must be assigned when using the template to send a signature request.
-    # @return [Array<String>]
-    attr_accessor :cc_roles
-
-    # The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.
-    # @return [Boolean]
-    attr_accessor :allow_form_view
-
-    # The title you want to assign to the SignatureRequest.
+  class SubUpdateFormField
+    # The unique ID for this field. The endpoint will update an existing field with matching `api_id`, and warn you if no matches are found
     # @return [String]
-    attr_accessor :title
+    attr_accessor :api_id
 
-    # The new default template email subject.
+    # The new name of the field. If not passed the name will remain unchanged.
     # @return [String]
-    attr_accessor :subject
-
-    # The new default template email message.
-    # @return [String]
-    attr_accessor :message
-
-    # A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.
-    # @return [Array<SubUpdateFormField>]
-    attr_accessor :form_fields
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'cc_roles' => :'cc_roles',
-        :'allow_form_view' => :'allow_form_view',
-        :'title' => :'title',
-        :'subject' => :'subject',
-        :'message' => :'message',
-        :'form_fields' => :'form_fields'
+        :'api_id' => :'api_id',
+        :'name' => :'name'
       }
     end
 
@@ -67,12 +47,8 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'cc_roles' => :'Array<String>',
-        :'allow_form_view' => :'Boolean',
-        :'title' => :'String',
-        :'subject' => :'String',
-        :'message' => :'String',
-        :'form_fields' => :'Array<SubUpdateFormField>'
+        :'api_id' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -99,56 +75,36 @@ module Dropbox::Sign
 
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
-    # @return [TemplateUpdateRequest]
+    # @return [SubUpdateFormField]
     def self.init(data)
       ApiClient.default.convert_to_type(
         data,
-        "TemplateUpdateRequest"
-      ) || TemplateUpdateRequest.new
+        "SubUpdateFormField"
+      ) || SubUpdateFormField.new
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::TemplateUpdateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::SubUpdateFormField` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.merged_attributes.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::TemplateUpdateRequest`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::SubUpdateFormField`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'cc_roles')
-        if (value = attributes[:'cc_roles']).is_a?(Array)
-          self.cc_roles = value
-        end
+      if attributes.key?(:'api_id')
+        self.api_id = attributes[:'api_id']
       end
 
-      if attributes.key?(:'allow_form_view')
-        self.allow_form_view = attributes[:'allow_form_view']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'subject')
-        self.subject = attributes[:'subject']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'form_fields')
-        if (value = attributes[:'form_fields']).is_a?(Array)
-          self.form_fields = value
-        end
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -156,12 +112,8 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@subject.nil? && @subject.to_s.length > 200
-        invalid_properties.push('invalid value for "subject", the character length must be smaller than or equal to 200.')
-      end
-
-      if !@message.nil? && @message.to_s.length > 5000
-        invalid_properties.push('invalid value for "message", the character length must be smaller than or equal to 5000.')
+      if @api_id.nil?
+        invalid_properties.push('invalid value for "api_id", api_id cannot be nil.')
       end
 
       invalid_properties
@@ -170,29 +122,18 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@subject.nil? && @subject.to_s.length > 200
-      return false if !@message.nil? && @message.to_s.length > 5000
+      return false if @api_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] subject Value to be assigned
-    def subject=(subject)
-      if subject.to_s.length > 200
-        fail ArgumentError, 'invalid value for "subject", the character length must be smaller than or equal to 200.'
+    # @param [Object] api_id Value to be assigned
+    def api_id=(api_id)
+      if api_id.nil?
+        fail ArgumentError, 'api_id cannot be nil'
       end
 
-      @subject = subject
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] message Value to be assigned
-    def message=(message)
-      if message.to_s.length > 5000
-        fail ArgumentError, 'invalid value for "message", the character length must be smaller than or equal to 5000.'
-      end
-
-      @message = message
+      @api_id = api_id
     end
 
     # Checks equality by comparing each attribute.
@@ -200,12 +141,8 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cc_roles == o.cc_roles &&
-          allow_form_view == o.allow_form_view &&
-          title == o.title &&
-          subject == o.subject &&
-          message == o.message &&
-          form_fields == o.form_fields
+          api_id == o.api_id &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -217,7 +154,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cc_roles, allow_form_view, title, subject, message, form_fields].hash
+      [api_id, name].hash
     end
 
     # Builds the object from hash

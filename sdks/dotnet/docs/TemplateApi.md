@@ -14,7 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TemplateGet**](TemplateApi.md#templateget) | **GET** /template/{template_id} | Get Template |
 | [**TemplateList**](TemplateApi.md#templatelist) | **GET** /template/list | List Templates |
 | [**TemplateRemoveUser**](TemplateApi.md#templateremoveuser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
-| [**TemplateUpdate**](TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Edit Template |
+| [**TemplateUpdate**](TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Update Template |
 | [**TemplateUpdateFiles**](TemplateApi.md#templateupdatefiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 <a id="templateadduser"></a>
@@ -1148,9 +1148,9 @@ catch (ApiException e)
 # **TemplateUpdate**
 > TemplateGetResponse TemplateUpdate (string templateId, TemplateUpdateRequest templateUpdateRequest)
 
-Edit Template
+Update Template
 
-Edit template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
 
 ### Example
 ```csharp
@@ -1173,6 +1173,22 @@ public class TemplateUpdateExample
         config.Username = "YOUR_API_KEY";
         // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
+        var formFields1 = new SubUpdateFormField(
+            apiId: "uniqueIdHere_1",
+            name: "New name 1"
+        );
+
+        var formFields2 = new SubUpdateFormField(
+            apiId: "uniqueIdHere_2",
+            name: "New name 2"
+        );
+
+        var formFields = new List<SubUpdateFormField>
+        {
+            formFields1,
+            formFields2,
+        };
+
         var templateUpdateRequest = new TemplateUpdateRequest(
             allowFormView: false,
             title: "Test Title",
@@ -1181,7 +1197,8 @@ public class TemplateUpdateExample
             ccRoles: [
                 "CC Role 1",
                 "CC Role 2",
-            ]
+            ],
+            formFields: formFields
         );
 
         try
@@ -1210,7 +1227,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Edit Template
+    // Update Template
     ApiResponse<TemplateGetResponse> response = apiInstance.TemplateUpdateWithHttpInfo(templateId, templateUpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

@@ -17,6 +17,22 @@ public class TemplateUpdateExample
         config.Username = "YOUR_API_KEY";
         // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
+        var formFields1 = new SubUpdateFormField(
+            apiId: "uniqueIdHere_1",
+            name: "New name 1"
+        );
+
+        var formFields2 = new SubUpdateFormField(
+            apiId: "uniqueIdHere_2",
+            name: "New name 2"
+        );
+
+        var formFields = new List<SubUpdateFormField>
+        {
+            formFields1,
+            formFields2,
+        };
+
         var templateUpdateRequest = new TemplateUpdateRequest(
             allowFormView: false,
             title: "Test Title",
@@ -25,7 +41,8 @@ public class TemplateUpdateExample
             ccRoles: [
                 "CC Role 1",
                 "CC Role 2",
-            ]
+            ],
+            formFields: formFields
         );
 
         try

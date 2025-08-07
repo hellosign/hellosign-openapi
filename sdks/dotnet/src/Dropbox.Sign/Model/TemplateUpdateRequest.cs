@@ -46,7 +46,8 @@ namespace Dropbox.Sign.Model
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="subject">The new default template email subject..</param>
         /// <param name="message">The new default template email message..</param>
-        public TemplateUpdateRequest(List<string> ccRoles = default(List<string>), bool allowFormView = default(bool), string title = default(string), string subject = default(string), string message = default(string))
+        /// <param name="formFields">A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by &#x60;api_id&#x60;, and the only supported change is renaming the field..</param>
+        public TemplateUpdateRequest(List<string> ccRoles = default(List<string>), bool allowFormView = default(bool), string title = default(string), string subject = default(string), string message = default(string), List<SubUpdateFormField> formFields = default(List<SubUpdateFormField>))
         {
 
             this.CcRoles = ccRoles;
@@ -54,6 +55,7 @@ namespace Dropbox.Sign.Model
             this.Title = title;
             this.Subject = subject;
             this.Message = message;
+            this.FormFields = formFields;
         }
 
         /// <summary>
@@ -108,6 +110,13 @@ namespace Dropbox.Sign.Model
         public string Message { get; set; }
 
         /// <summary>
+        /// A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by &#x60;api_id&#x60;, and the only supported change is renaming the field.
+        /// </summary>
+        /// <value>A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by &#x60;api_id&#x60;, and the only supported change is renaming the field.</value>
+        [DataMember(Name = "form_fields", EmitDefaultValue = true)]
+        public List<SubUpdateFormField> FormFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -120,6 +129,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  FormFields: ").Append(FormFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -179,6 +189,12 @@ namespace Dropbox.Sign.Model
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
+                ) &&
+                (
+                    this.FormFields == input.FormFields ||
+                    this.FormFields != null &&
+                    input.FormFields != null &&
+                    this.FormFields.SequenceEqual(input.FormFields)
                 );
         }
 
@@ -207,6 +223,10 @@ namespace Dropbox.Sign.Model
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                if (this.FormFields != null)
+                {
+                    hashCode = (hashCode * 59) + this.FormFields.GetHashCode();
                 }
                 return hashCode;
             }
@@ -270,6 +290,13 @@ namespace Dropbox.Sign.Model
                 Property = "Message",
                 Type = "string",
                 Value = Message,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "form_fields",
+                Property = "FormFields",
+                Type = "List<SubUpdateFormField>",
+                Value = FormFields,
             });
 
             return types;
