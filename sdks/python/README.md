@@ -186,6 +186,7 @@ Class | Method | HTTP request | Description
  - [AccountGetResponse](docs/AccountGetResponse.md)
  - [AccountResponse](docs/AccountResponse.md)
  - [AccountResponseQuotas](docs/AccountResponseQuotas.md)
+ - [AccountResponseSettings](docs/AccountResponseSettings.md)
  - [AccountResponseUsage](docs/AccountResponseUsage.md)
  - [AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [AccountVerifyRequest](docs/AccountVerifyRequest.md)

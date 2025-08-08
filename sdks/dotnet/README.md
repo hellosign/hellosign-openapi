@@ -215,6 +215,7 @@ Class | Method | HTTP request | Description
  - [Model.AccountGetResponse](docs/AccountGetResponse.md)
  - [Model.AccountResponse](docs/AccountResponse.md)
  - [Model.AccountResponseQuotas](docs/AccountResponseQuotas.md)
+ - [Model.AccountResponseSettings](docs/AccountResponseSettings.md)
  - [Model.AccountResponseUsage](docs/AccountResponseUsage.md)
  - [Model.AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [Model.AccountVerifyRequest](docs/AccountVerifyRequest.md)

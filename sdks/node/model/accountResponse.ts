@@ -24,6 +24,7 @@
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
 import { AccountResponseQuotas } from "./accountResponseQuotas";
+import { AccountResponseSettings } from "./accountResponseSettings";
 import { AccountResponseUsage } from "./accountResponseUsage";
 
 export class AccountResponse {
@@ -65,6 +66,7 @@ export class AccountResponse {
    */
   "locale"?: string | null;
   "usage"?: AccountResponseUsage;
+  "settings"?: AccountResponseSettings;
 
   static discriminator: string | undefined = undefined;
 
@@ -123,6 +125,11 @@ export class AccountResponse {
       name: "usage",
       baseName: "usage",
       type: "AccountResponseUsage",
+    },
+    {
+      name: "settings",
+      baseName: "settings",
+      type: "AccountResponseSettings",
     },
   ];
 

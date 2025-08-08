@@ -37,6 +37,7 @@ from dropbox_sign.models.account_create_response import AccountCreateResponse
 from dropbox_sign.models.account_get_response import AccountGetResponse
 from dropbox_sign.models.account_response import AccountResponse
 from dropbox_sign.models.account_response_quotas import AccountResponseQuotas
+from dropbox_sign.models.account_response_settings import AccountResponseSettings
 from dropbox_sign.models.account_response_usage import AccountResponseUsage
 from dropbox_sign.models.account_update_request import AccountUpdateRequest
 from dropbox_sign.models.account_verify_request import AccountVerifyRequest

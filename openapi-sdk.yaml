@@ -11865,6 +11865,8 @@ components:
           nullable: true
         usage:
           $ref: '#/components/schemas/AccountResponseUsage'
+        settings:
+          $ref: '#/components/schemas/AccountResponseSettings'
       type: object
       x-internal-class: true
     OAuthTokenResponse:
@@ -11910,6 +11912,20 @@ components:
           description: 'Number of fax pages left'
           type: integer
           nullable: true
+      type: object
+      x-internal-class: true
+    AccountResponseSettings:
+      description: '_t__Account::SETTINGS'
+      properties:
+        signer_access_codes:
+          description: '_t__AccountSettings::SIGNER_ACCESS_CODES'
+          type: boolean
+        sms_delivery:
+          description: '_t__AccountSettings::SMS_DELIVERY'
+          type: boolean
+        sms_authentication:
+          description: '_t__AccountSettings::SMS_AUTHENTICATION'
+          type: boolean
       type: object
       x-internal-class: true
     AccountResponseUsage:

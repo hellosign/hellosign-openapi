@@ -35,7 +35,8 @@ import java.util.Objects;
     AccountResponse.JSON_PROPERTY_ROLE_CODE,
     AccountResponse.JSON_PROPERTY_TEAM_ID,
     AccountResponse.JSON_PROPERTY_LOCALE,
-    AccountResponse.JSON_PROPERTY_USAGE
+    AccountResponse.JSON_PROPERTY_USAGE,
+    AccountResponse.JSON_PROPERTY_SETTINGS
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -74,6 +75,9 @@ public class AccountResponse {
 
     public static final String JSON_PROPERTY_USAGE = "usage";
     @javax.annotation.Nullable private AccountResponseUsage usage;
+
+    public static final String JSON_PROPERTY_SETTINGS = "settings";
+    @javax.annotation.Nullable private AccountResponseSettings settings;
 
     public AccountResponse() {}
 
@@ -335,6 +339,28 @@ public class AccountResponse {
         this.usage = usage;
     }
 
+    public AccountResponse settings(@javax.annotation.Nullable AccountResponseSettings settings) {
+        this.settings = settings;
+        return this;
+    }
+
+    /**
+     * Get settings
+     *
+     * @return settings
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SETTINGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public AccountResponseSettings getSettings() {
+        return settings;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SETTINGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSettings(@javax.annotation.Nullable AccountResponseSettings settings) {
+        this.settings = settings;
+    }
+
     /** Return true if this AccountResponse object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -355,7 +381,8 @@ public class AccountResponse {
                 && Objects.equals(this.roleCode, accountResponse.roleCode)
                 && Objects.equals(this.teamId, accountResponse.teamId)
                 && Objects.equals(this.locale, accountResponse.locale)
-                && Objects.equals(this.usage, accountResponse.usage);
+                && Objects.equals(this.usage, accountResponse.usage)
+                && Objects.equals(this.settings, accountResponse.settings);
     }
 
     @Override
@@ -371,7 +398,8 @@ public class AccountResponse {
                 roleCode,
                 teamId,
                 locale,
-                usage);
+                usage,
+                settings);
     }
 
     @Override
@@ -389,6 +417,7 @@ public class AccountResponse {
         sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
         sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
         sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+        sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -607,6 +636,24 @@ public class AccountResponse {
                     }
                 } else {
                     map.put("usage", JSON.getDefault().getMapper().writeValueAsString(usage));
+                }
+            }
+            if (settings != null) {
+                if (isFileTypeOrListOfFiles(settings)) {
+                    fileTypeFound = true;
+                }
+
+                if (settings.getClass().equals(java.io.File.class)
+                        || settings.getClass().equals(Integer.class)
+                        || settings.getClass().equals(String.class)
+                        || settings.getClass().isEnum()) {
+                    map.put("settings", settings);
+                } else if (isListOfFile(settings)) {
+                    for (int i = 0; i < getListSize(settings); i++) {
+                        map.put("settings[" + i + "]", getFromList(settings, i));
+                    }
+                } else {
+                    map.put("settings", JSON.getDefault().getMapper().writeValueAsString(settings));
                 }
             }
         } catch (Exception e) {
