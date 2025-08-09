@@ -1,0 +1,266 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - ExampleDataParser - Path & Query Parameters
+tags:
+  - name: tag_1
+paths:
+  /param_with_example:
+    get:
+      tags:
+        - tag_1
+      operationId: param_with_example
+      parameters:
+        -
+          name: param_name_1
+          in: query
+          required: false
+          schema:
+            type: string
+          example: value_1
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /param_with_example_with_default:
+    get:
+      tags:
+        - tag_1
+      operationId: param_with_example_with_default
+      parameters:
+        -
+          name: param_name_1
+          in: query
+          required: false
+          schema:
+            type: string
+          default: value_2
+          example: value_1
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /param_without_example_with_default_is_required:
+    get:
+      tags:
+        - tag_1
+      operationId: param_without_example_with_default_is_required
+      parameters:
+        -
+          name: param_name_1
+          in: query
+          required: true
+          schema:
+            type: string
+            default: value_2
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /param_without_example_with_default_not_required:
+    get:
+      tags:
+        - tag_1
+      operationId: param_without_example_with_default_not_required
+      parameters:
+        -
+          name: param_name_1
+          in: query
+          required: false
+          schema:
+            type: string
+            default: value_2
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /param_without_example_without_default_is_required:
+    get:
+      tags:
+        - tag_1
+      operationId: param_without_example_without_default_is_required
+      parameters:
+        -
+          name: param_name_1
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /param_without_example_without_default_not_required:
+    get:
+      tags:
+        - tag_1
+      operationId: param_without_example_without_default_not_required
+      parameters:
+        -
+          name: param_name_1
+          in: query
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /param_as_array:
+    get:
+      tags:
+        - tag_1
+      operationId: param_as_array
+      parameters:
+        -
+          name: param_name_1
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          example:
+            - value_1
+            - value_2
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /mixed_params:
+    get:
+      tags:
+        - tag_1
+      operationId: mixed_params
+      parameters:
+        -
+          name: param_with_example
+          in: query
+          required: false
+          schema:
+            type: string
+          example: value_1
+        -
+          name: param_with_example_with_default
+          in: query
+          required: false
+          schema:
+            type: string
+          default: value_2
+          example: value_1
+        -
+          name: param_without_example_with_default_is_required
+          in: query
+          required: true
+          schema:
+            type: string
+            default: value_2
+        -
+          name: param_without_example_with_default_not_required
+          in: query
+          required: false
+          schema:
+            type: string
+            default: value_2
+        -
+          name: param_without_example_without_default_is_required
+          in: query
+          required: true
+          schema:
+            type: string
+        -
+          name: param_without_example_without_default_not_required
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: param_as_array
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          example:
+            - value_1
+            - value_2
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /param_not_in_query_or_path:
+    get:
+      tags:
+        - tag_1
+      operationId: param_not_in_query_or_path
+      parameters:
+        -
+          name: param_name_1
+          in: header
+          required: false
+          schema:
+            type: string
+          example: value_1
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+  /different_param_in:
+    get:
+      tags:
+        - tag_1
+      operationId: different_param_in
+      parameters:
+        -
+          name: param_name_1
+          in: path
+          required: true
+          schema:
+            type: string
+          example: path_value
+        -
+          name: param_name_1
+          in: query
+          required: false
+          schema:
+            type: string
+          example: query_value
+        -
+          name: param_name_1
+          in: header
+          required: false
+          schema:
+            type: string
+          example: header_value
+        -
+          name: param_name_1
+          in: cookie
+          required: false
+          schema:
+            type: string
+          example: cookie_value
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation

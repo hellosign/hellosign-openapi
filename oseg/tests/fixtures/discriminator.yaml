@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Discriminator Examples
+tags:
+  - name: pet
+paths:
+  /default:
+    post:
+      tags:
+        - pet
+      operationId: default
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+    # array of discriminators
+    Dogs:
+      type: object
+      properties:
+        dogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dog'
+    # single discriminator
+    Dog:
+      type: object
+      properties:
+        id:
+          type: integer
+        breed:
+          type: string
+        mans_best_friend:
+          $ref: '#/components/schemas/MansBestFriend'
+      discriminator:
+        propertyName: breed
+        mapping:
+          beagle: '#/components/schemas/Beagle'
+          terrier: '#/components/schemas/Terrier'
+    Beagle:
+      allOf:
+        - $ref: '#/components/schemas/Dog'
+        -
+          type: object
+          properties:
+            group:
+              type: string
+              default: hound
+    Terrier:
+      allOf:
+        - $ref: '#/components/schemas/Dog'
+        -
+          type: object
+          properties:
+            group:
+              type: string
+              default: hunting
+    # array of allOf without discriminator
+    Terriers:
+      type: object
+      properties:
+        terriers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Terrier'
+    MansBestFriend:
+      type: boolean

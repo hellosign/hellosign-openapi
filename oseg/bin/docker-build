@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+VERSION=$1
+
+if [[ -z "${VERSION-}" ]]; then
+  echo "Must provide version"
+  exit 1
+fi
+
+pushd "${DIR}/.."
+
+docker image build \
+  -f Dockerfile \
+  -t dropbox/oseg:${VERSION} .
+
+popd

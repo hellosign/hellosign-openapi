@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - ExampleDataParser - Single requestBody
+tags:
+  - name: pet
+paths:
+  /single_request_body:
+    post:
+      tags:
+        - pet
+      operationId: single_request_body
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /multiple_request_body:
+    post:
+      tags:
+        - pet
+      operationId: multiple_request_body
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+components:
+  schemas:
+    Customer:
+      properties:
+        id:
+          type: integer
+          example: 100000
+      type: object
+    Pet:
+      properties:
+        id:
+          type: integer
+          example: 10
+      type: object

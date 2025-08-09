@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Property Examples
+tags:
+  - name: pet
+paths:
+  /security_all:
+    post:
+      tags:
+        - pet
+      operationId: security_all
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+  /security_optional:
+    post:
+      tags:
+        - pet
+      operationId: security_optional
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+      security:
+        - api_key_scheme: []
+        - http_basic_scheme: []
+        - http_bearer_scheme: []
+        - oauth2_scheme:
+            - some_permission
+        - {}
+  /security_override:
+    post:
+      tags:
+        - pet
+      operationId: security_override
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+      security:
+        - http_basic_scheme: []
+  /security_disabled:
+    post:
+      tags:
+        - pet
+      operationId: security_disabled
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+      security: []
+  /security_and:
+    post:
+      tags:
+        - pet
+      operationId: security_and
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+      security:
+        - api_key_scheme: []
+          http_basic_scheme: []
+  /security_or:
+    post:
+      tags:
+        - pet
+      operationId: security_or
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+      security:
+        - api_key_scheme: []
+        - http_basic_scheme: []
+components:
+  securitySchemes:
+    api_key_scheme:
+      type: apiKey
+    http_basic_scheme:
+      type: http
+      scheme: basic
+    http_bearer_scheme:
+      type: http
+      scheme: bearer
+    oauth2_scheme:
+      type: oauth2
+security:
+  - api_key_scheme: []
+  - http_basic_scheme: []
+  - http_bearer_scheme: []
+  - oauth2_scheme:
+      - some_permission

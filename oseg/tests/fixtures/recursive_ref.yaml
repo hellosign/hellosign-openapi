@@ -1,0 +1,37 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Recursive Ref
+tags:
+  - name: pet
+paths:
+  /default:
+    post:
+      tags:
+        - pet
+      operationId: default
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        id:
+          type: integer
+          default: 100
+        dog:
+          $ref: '#/components/schemas/Dog'
+    Dog:
+      type: object
+      properties:
+        id:
+          type: integer
+        pet:
+          $ref: '#/components/schemas/Pet'
