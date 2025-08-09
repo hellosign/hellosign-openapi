@@ -68,15 +68,12 @@ class UnclaimedDraftApi
      */
     public const contentTypes = [
         'unclaimedDraftCreate' => [
-            'application/json',
             'multipart/form-data',
         ],
         'unclaimedDraftCreateEmbedded' => [
-            'application/json',
             'multipart/form-data',
         ],
         'unclaimedDraftCreateEmbeddedWithTemplate' => [
-            'application/json',
             'multipart/form-data',
         ],
         'unclaimedDraftEditAndResend' => [
@@ -395,27 +392,20 @@ class UnclaimedDraftApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $unclaimed_draft_create_request
-        );
+        // form params
+        if ($unclaimed_draft_create_request !== null) {
+            $formParams['unclaimed_draft_create_request'] = ObjectSerializer::toFormValue($unclaimed_draft_create_request);
+        }
 
-        $multipart = !empty($formParams);
-
+        $multipart = true;
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_request));
-            } else {
-                $httpBody = $unclaimed_draft_create_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -428,17 +418,6 @@ class UnclaimedDraftApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -734,27 +713,20 @@ class UnclaimedDraftApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $unclaimed_draft_create_embedded_request
-        );
+        // form params
+        if ($unclaimed_draft_create_embedded_request !== null) {
+            $formParams['unclaimed_draft_create_embedded_request'] = ObjectSerializer::toFormValue($unclaimed_draft_create_embedded_request);
+        }
 
-        $multipart = !empty($formParams);
-
+        $multipart = true;
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_embedded_request));
-            } else {
-                $httpBody = $unclaimed_draft_create_embedded_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -767,17 +739,6 @@ class UnclaimedDraftApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_embedded_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1073,27 +1034,20 @@ class UnclaimedDraftApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $unclaimed_draft_create_embedded_with_template_request
-        );
+        // form params
+        if ($unclaimed_draft_create_embedded_with_template_request !== null) {
+            $formParams['unclaimed_draft_create_embedded_with_template_request'] = ObjectSerializer::toFormValue($unclaimed_draft_create_embedded_with_template_request);
+        }
 
-        $multipart = !empty($formParams);
-
+        $multipart = true;
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_embedded_with_template_request));
-            } else {
-                $httpBody = $unclaimed_draft_create_embedded_with_template_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1106,17 +1060,6 @@ class UnclaimedDraftApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_embedded_with_template_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1424,12 +1367,6 @@ class UnclaimedDraftApi
         $httpBody = '';
         $multipart = false;
 
-        $formParams = ObjectSerializer::getFormParams(
-            $unclaimed_draft_edit_and_resend_request
-        );
-
-        $multipart = !empty($formParams);
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
@@ -1440,13 +1377,13 @@ class UnclaimedDraftApi
         }
 
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) === 0) {
+        if (isset($unclaimed_draft_edit_and_resend_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_edit_and_resend_request));
@@ -1466,17 +1403,6 @@ class UnclaimedDraftApi
                     }
                 }
                 // for HTTP post (form)
-                if (!empty($body)) {
-                    $multipartContents[] = [
-                        'name'     => 'body',
-                        'contents' => $body,
-                        'headers'  => ['Content-Type' => 'application/json'],
-                    ];
-                }
-
-                if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $unclaimed_draft_edit_and_resend_request);
-                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

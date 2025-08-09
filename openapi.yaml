@@ -443,7 +443,12 @@ paths:
                 $ref: '#/components/examples/ApiAppCreateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ApiAppCreateRequest'
+              required:
+                - api_app_create_request
+              properties:
+                api_app_create_request:
+                  $ref: '#/components/schemas/ApiAppCreateRequest'
+              type: object
       responses:
         '201':
           description: 'successful operation'
@@ -654,7 +659,12 @@ paths:
                 $ref: '#/components/examples/ApiAppUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ApiAppUpdateRequest'
+              required:
+                - api_app_update_request
+              properties:
+                api_app_update_request:
+                  $ref: '#/components/schemas/ApiAppUpdateRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -2549,7 +2559,12 @@ paths:
                 $ref: '#/components/examples/FaxSendRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/FaxSendRequest'
+              required:
+                - fax_send_request
+              properties:
+                fax_send_request:
+                  $ref: '#/components/schemas/FaxSendRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -2944,7 +2959,12 @@ paths:
                 $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
+              required:
+                - signature_request_bulk_create_embedded_with_template_request
+              properties:
+                signature_request_bulk_create_embedded_with_template_request:
+                  $ref: '#/components/schemas/SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -3049,7 +3069,12 @@ paths:
                 $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SignatureRequestBulkSendWithTemplateRequest'
+              required:
+                - signature_request_bulk_send_with_template_request
+              properties:
+                signature_request_bulk_send_with_template_request:
+                  $ref: '#/components/schemas/SignatureRequestBulkSendWithTemplateRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -3264,7 +3289,12 @@ paths:
                 $ref: '#/components/examples/SignatureRequestCreateEmbeddedRequestGroupedSigners'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SignatureRequestCreateEmbeddedRequest'
+              required:
+                - signature_request_create_embedded_request
+              properties:
+                signature_request_create_embedded_request:
+                  $ref: '#/components/schemas/SignatureRequestCreateEmbeddedRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -3367,7 +3397,12 @@ paths:
                 $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SignatureRequestCreateEmbeddedWithTemplateRequest'
+              required:
+                - signature_request_create_embedded_with_template_request
+              properties:
+                signature_request_create_embedded_with_template_request:
+                  $ref: '#/components/schemas/SignatureRequestCreateEmbeddedWithTemplateRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -4833,7 +4868,12 @@ paths:
                 $ref: '#/components/examples/SignatureRequestSendRequestGroupedSigners'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SignatureRequestSendRequest'
+              required:
+                - signature_request_send_request
+              properties:
+                signature_request_send_request:
+                  $ref: '#/components/schemas/SignatureRequestSendRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -4937,7 +4977,12 @@ paths:
                 $ref: '#/components/examples/SignatureRequestSendWithTemplateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SignatureRequestSendWithTemplateRequest'
+              required:
+                - signature_request_send_with_template_request
+              properties:
+                signature_request_send_with_template_request:
+                  $ref: '#/components/schemas/SignatureRequestSendWithTemplateRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -6279,7 +6324,12 @@ paths:
                 $ref: '#/components/examples/TemplateCreateRequestFormFieldRules'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TemplateCreateRequest'
+              required:
+                - template_create_request
+              properties:
+                template_create_request:
+                  $ref: '#/components/schemas/TemplateCreateRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -6390,7 +6440,12 @@ paths:
                 $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormFieldRules'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TemplateCreateEmbeddedDraftRequest'
+              required:
+                - template_create_embedded_draft_request
+              properties:
+                template_create_embedded_draft_request:
+                  $ref: '#/components/schemas/TemplateCreateEmbeddedDraftRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -7284,7 +7339,12 @@ paths:
                 $ref: '#/components/examples/TemplateUpdateFilesRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TemplateUpdateFilesRequest'
+              required:
+                - template_update_files_request
+              properties:
+                template_update_files_request:
+                  $ref: '#/components/schemas/TemplateUpdateFilesRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -7395,7 +7455,12 @@ paths:
                 $ref: '#/components/examples/UnclaimedDraftCreateRequestFormFieldRules'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/UnclaimedDraftCreateRequest'
+              required:
+                - unclaimed_draft_create_request
+              properties:
+                unclaimed_draft_create_request:
+                  $ref: '#/components/schemas/UnclaimedDraftCreateRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -7505,7 +7570,12 @@ paths:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedRequestFormFieldRules'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedRequest'
+              required:
+                - unclaimed_draft_create_embedded_request
+              properties:
+                unclaimed_draft_create_embedded_request:
+                  $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
@@ -7614,7 +7684,12 @@ paths:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedWithTemplateRequest'
+              required:
+                - unclaimed_draft_create_embedded_with_template_request
+              properties:
+                unclaimed_draft_create_embedded_with_template_request:
+                  $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedWithTemplateRequest'
+              type: object
       responses:
         '200':
           description: 'successful operation'
