@@ -1,0 +1,159 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - ExampleDataParser - Array Body
+tags:
+  - name: pet
+paths:
+  /single_body:
+    post:
+      tags:
+        - pet
+      operationId: single_body
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /array_body:
+    post:
+      tags:
+        - pet
+      operationId: array_body
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Pet'
+  /discriminator:
+    post:
+      tags:
+        - pet
+      operationId: discriminator
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+  /all_of:
+    post:
+      tags:
+        - pet
+      operationId: all_of
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Terrier'
+  /content_example:
+    post:
+      tags:
+        - pet
+      operationId: content_example
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            example:
+              id: 50
+              name: fish
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /content_examples:
+    post:
+      tags:
+        - pet
+      operationId: content_examples
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            examples:
+              example_name:
+                value:
+                  id: 500
+                  name: birds
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /body_with_examples:
+    post:
+      tags:
+        - pet
+      operationId: body_with_examples
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SchemaWithExamples"
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Pet:
+      properties:
+        id:
+          type: integer
+          example: 10
+        name:
+          type: string
+          example: doggie
+      type: object
+    Dog:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        breed:
+          type: string
+          example: terrier
+      discriminator:
+        propertyName: breed
+        mapping:
+          beagle: '#/components/schemas/Beagle'
+          terrier: '#/components/schemas/Terrier'
+    Beagle:
+      allOf:
+        - $ref: '#/components/schemas/Dog'
+        -
+          type: object
+          properties:
+            group:
+              type: string
+              default: hound
+    Terrier:
+      allOf:
+        - $ref: '#/components/schemas/Dog'
+        -
+          type: object
+          properties:
+            group:
+              type: string
+              default: hunting
+    SchemaWithExamples:
+      type: object
+      properties:
+        key_1:
+          type: string
+      examples:
+        - key_1: value_1
+        - key_1: value_2

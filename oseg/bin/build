@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+BASE_DIR="${DIR}/.."
+
+pushd "${BASE_DIR}"
+uv build
+popd
