@@ -11778,16 +11778,16 @@ components:
       type: object
       x-internal-class: true
     AccountResponseSettings:
-      description: '_t__Account::SETTINGS'
+      description: 'Subset of configured settings'
       properties:
         signer_access_codes:
-          description: '_t__AccountSettings::SIGNER_ACCESS_CODES'
+          description: 'Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).'
           type: boolean
         sms_delivery:
-          description: '_t__AccountSettings::SMS_DELIVERY'
+          description: 'Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).'
           type: boolean
         sms_authentication:
-          description: '_t__AccountSettings::SMS_AUTHENTICATION'
+          description: 'Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).'
           type: boolean
       type: object
       x-internal-class: true
