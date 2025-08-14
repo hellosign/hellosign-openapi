@@ -17,17 +17,17 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # _t__Account::SETTINGS
+  # Subset of configured settings
   class AccountResponseSettings
-    # _t__AccountSettings::SIGNER_ACCESS_CODES
+    # Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
     # @return [Boolean]
     attr_accessor :signer_access_codes
 
-    # _t__AccountSettings::SMS_DELIVERY
+    # Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
     # @return [Boolean]
     attr_accessor :sms_delivery
 
-    # _t__AccountSettings::SMS_AUTHENTICATION
+    # Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
     # @return [Boolean]
     attr_accessor :sms_authentication
 

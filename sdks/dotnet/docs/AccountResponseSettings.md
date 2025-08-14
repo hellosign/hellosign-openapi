@@ -1,11 +1,11 @@
 # Dropbox.Sign.Model.AccountResponseSettings
-_t__Account::SETTINGS
+Subset of configured settings
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SignerAccessCodes** | **bool** |  _t__AccountSettings::SIGNER_ACCESS_CODES  | [optional] **SmsDelivery** | **bool** |  _t__AccountSettings::SMS_DELIVERY  | [optional] **SmsAuthentication** | **bool** |  _t__AccountSettings::SMS_AUTHENTICATION  | [optional] 
+**SignerAccessCodes** | **bool** |  Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  | [optional] **SmsDelivery** | **bool** |  Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  | [optional] **SmsAuthentication** | **bool** |  Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

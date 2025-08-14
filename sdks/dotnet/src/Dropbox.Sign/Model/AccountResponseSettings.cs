@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// _t__Account::SETTINGS
+    /// Subset of configured settings
     /// </summary>
     [DataContract(Name = "AccountResponseSettings")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseSettings" /> class.
         /// </summary>
-        /// <param name="signerAccessCodes">_t__AccountSettings::SIGNER_ACCESS_CODES.</param>
-        /// <param name="smsDelivery">_t__AccountSettings::SMS_DELIVERY.</param>
-        /// <param name="smsAuthentication">_t__AccountSettings::SMS_AUTHENTICATION.</param>
+        /// <param name="signerAccessCodes">Returns &#x60;true&#x60; if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough)..</param>
+        /// <param name="smsDelivery">Returns &#x60;true&#x60; if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough)..</param>
+        /// <param name="smsAuthentication">Returns &#x60;true&#x60; if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough)..</param>
         public AccountResponseSettings(bool signerAccessCodes = default(bool), bool smsDelivery = default(bool), bool smsAuthentication = default(bool))
         {
 
@@ -69,23 +69,23 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// _t__AccountSettings::SIGNER_ACCESS_CODES
+        /// Returns &#x60;true&#x60; if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
         /// </summary>
-        /// <value>_t__AccountSettings::SIGNER_ACCESS_CODES</value>
+        /// <value>Returns &#x60;true&#x60; if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).</value>
         [DataMember(Name = "signer_access_codes", EmitDefaultValue = true)]
         public bool SignerAccessCodes { get; set; }
 
         /// <summary>
-        /// _t__AccountSettings::SMS_DELIVERY
+        /// Returns &#x60;true&#x60; if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
         /// </summary>
-        /// <value>_t__AccountSettings::SMS_DELIVERY</value>
+        /// <value>Returns &#x60;true&#x60; if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).</value>
         [DataMember(Name = "sms_delivery", EmitDefaultValue = true)]
         public bool SmsDelivery { get; set; }
 
         /// <summary>
-        /// _t__AccountSettings::SMS_AUTHENTICATION
+        /// Returns &#x60;true&#x60; if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
         /// </summary>
-        /// <value>_t__AccountSettings::SMS_AUTHENTICATION</value>
+        /// <value>Returns &#x60;true&#x60; if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).</value>
         [DataMember(Name = "sms_authentication", EmitDefaultValue = true)]
         public bool SmsAuthentication { get; set; }
 

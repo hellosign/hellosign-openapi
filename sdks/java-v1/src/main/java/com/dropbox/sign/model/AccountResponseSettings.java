@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** _t__Account::SETTINGS */
+/** Subset of configured settings */
 @JsonPropertyOrder({
     AccountResponseSettings.JSON_PROPERTY_SIGNER_ACCESS_CODES,
     AccountResponseSettings.JSON_PROPERTY_SMS_DELIVERY,
@@ -67,7 +67,8 @@ public class AccountResponseSettings {
     }
 
     /**
-     * _t__AccountSettings::SIGNER_ACCESS_CODES
+     * Returns &#x60;true&#x60; if _Custom access codes_ is enabled in Admin Console. [Read
+     * more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
      *
      * @return signerAccessCodes
      */
@@ -89,7 +90,8 @@ public class AccountResponseSettings {
     }
 
     /**
-     * _t__AccountSettings::SMS_DELIVERY
+     * Returns &#x60;true&#x60; if _Text message_ is enabled in Admin Console. [Read
+     * more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
      *
      * @return smsDelivery
      */
@@ -112,7 +114,8 @@ public class AccountResponseSettings {
     }
 
     /**
-     * _t__AccountSettings::SMS_AUTHENTICATION
+     * Returns &#x60;true&#x60; if _Signer authentication_ is enabled in Admin Console. [Read
+     * more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
      *
      * @return smsAuthentication
      */

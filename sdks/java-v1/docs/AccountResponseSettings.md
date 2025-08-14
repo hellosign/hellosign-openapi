@@ -2,15 +2,15 @@
 
 # AccountResponseSettings
 
-_t__Account::SETTINGS
+Subset of configured settings
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `signerAccessCodes` | ```Boolean``` |  _t__AccountSettings::SIGNER_ACCESS_CODES  |  |
-| `smsDelivery` | ```Boolean``` |  _t__AccountSettings::SMS_DELIVERY  |  |
-| `smsAuthentication` | ```Boolean``` |  _t__AccountSettings::SMS_AUTHENTICATION  |  |
+| `signerAccessCodes` | ```Boolean``` |  Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  |  |
+| `smsDelivery` | ```Boolean``` |  Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  |  |
+| `smsAuthentication` | ```Boolean``` |  Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  |  |
 
 
 

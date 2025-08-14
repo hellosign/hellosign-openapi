@@ -29,17 +29,20 @@ from pydantic import StrictBool
 
 class AccountResponseSettings(BaseModel):
     """
-    _t__Account::SETTINGS
+    Subset of configured settings
     """  # noqa: E501
 
     signer_access_codes: Optional[StrictBool] = Field(
-        default=None, description="_t__AccountSettings::SIGNER_ACCESS_CODES"
+        default=None,
+        description="Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).",
     )
     sms_delivery: Optional[StrictBool] = Field(
-        default=None, description="_t__AccountSettings::SMS_DELIVERY"
+        default=None,
+        description="Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).",
     )
     sms_authentication: Optional[StrictBool] = Field(
-        default=None, description="_t__AccountSettings::SMS_AUTHENTICATION"
+        default=None,
+        description="Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).",
     )
     __properties: ClassVar[List[str]] = [
         "signer_access_codes",

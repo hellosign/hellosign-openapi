@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * AccountResponseSettings Class Doc Comment
  *
  * @category Class
- * @description _t__Account::SETTINGS
+ * @description Subset of configured settings
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
@@ -323,7 +323,7 @@ class AccountResponseSettings implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets signer_access_codes
      *
-     * @param bool|null $signer_access_codes _t__AccountSettings::SIGNER_ACCESS_CODES
+     * @param bool|null $signer_access_codes Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
      *
      * @return self
      */
@@ -350,7 +350,7 @@ class AccountResponseSettings implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets sms_delivery
      *
-     * @param bool|null $sms_delivery _t__AccountSettings::SMS_DELIVERY
+     * @param bool|null $sms_delivery Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
      *
      * @return self
      */
@@ -377,7 +377,7 @@ class AccountResponseSettings implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets sms_authentication
      *
-     * @param bool|null $sms_authentication _t__AccountSettings::SMS_AUTHENTICATION
+     * @param bool|null $sms_authentication Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
      *
      * @return self
      */

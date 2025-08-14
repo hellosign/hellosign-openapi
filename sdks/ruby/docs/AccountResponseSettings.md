@@ -1,12 +1,12 @@
 # Dropbox::Sign::AccountResponseSettings
 
-_t__Account::SETTINGS
+Subset of configured settings
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `signer_access_codes` | ```Boolean``` |  _t__AccountSettings::SIGNER_ACCESS_CODES  |  |
-| `sms_delivery` | ```Boolean``` |  _t__AccountSettings::SMS_DELIVERY  |  |
-| `sms_authentication` | ```Boolean``` |  _t__AccountSettings::SMS_AUTHENTICATION  |  |
+| `signer_access_codes` | ```Boolean``` |  Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  |  |
+| `sms_delivery` | ```Boolean``` |  Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  |  |
+| `sms_authentication` | ```Boolean``` |  Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).  |  |
 
