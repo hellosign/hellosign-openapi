@@ -13150,6 +13150,7 @@ __export(api_exports, {
   AccountGetResponse: () => AccountGetResponse,
   AccountResponse: () => AccountResponse,
   AccountResponseQuotas: () => AccountResponseQuotas,
+  AccountResponseSettings: () => AccountResponseSettings,
   AccountResponseUsage: () => AccountResponseUsage,
   AccountUpdateRequest: () => AccountUpdateRequest,
   AccountVerifyRequest: () => AccountVerifyRequest,
@@ -16824,6 +16825,11 @@ var AccountResponse = class _AccountResponse {
         name: "usage",
         baseName: "usage",
         type: "AccountResponseUsage"
+      },
+      {
+        name: "settings",
+        baseName: "settings",
+        type: "AccountResponseSettings"
       }
     ];
   }
@@ -16881,6 +16887,39 @@ var AccountResponseQuotas = class _AccountResponseQuotas {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "AccountResponseQuotas");
+  }
+};
+
+// model/accountResponseSettings.ts
+var AccountResponseSettings = class _AccountResponseSettings {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "signerAccessCodes",
+        baseName: "signer_access_codes",
+        type: "boolean"
+      },
+      {
+        name: "smsDelivery",
+        baseName: "sms_delivery",
+        type: "boolean"
+      },
+      {
+        name: "smsAuthentication",
+        baseName: "sms_authentication",
+        type: "boolean"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _AccountResponseSettings.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "AccountResponseSettings");
   }
 };
 
@@ -26943,6 +26982,7 @@ var typeMap = {
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
@@ -36588,6 +36628,7 @@ var APIS = [
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,

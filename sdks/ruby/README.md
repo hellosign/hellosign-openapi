@@ -190,6 +190,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::AccountGetResponse](docs/AccountGetResponse.md)
  - [Dropbox::Sign::AccountResponse](docs/AccountResponse.md)
  - [Dropbox::Sign::AccountResponseQuotas](docs/AccountResponseQuotas.md)
+ - [Dropbox::Sign::AccountResponseSettings](docs/AccountResponseSettings.md)
  - [Dropbox::Sign::AccountResponseUsage](docs/AccountResponseUsage.md)
  - [Dropbox::Sign::AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [Dropbox::Sign::AccountVerifyRequest](docs/AccountVerifyRequest.md)

@@ -11728,6 +11728,8 @@ components:
           nullable: true
         usage:
           $ref: '#/components/schemas/AccountResponseUsage'
+        settings:
+          $ref: '#/components/schemas/AccountResponseSettings'
       type: object
       x-internal-class: true
     OAuthTokenResponse:
@@ -11773,6 +11775,20 @@ components:
           description: 'Number of fax pages left'
           type: integer
           nullable: true
+      type: object
+      x-internal-class: true
+    AccountResponseSettings:
+      description: 'Subset of configured settings'
+      properties:
+        signer_access_codes:
+          description: 'Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).'
+          type: boolean
+        sms_delivery:
+          description: 'Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).'
+          type: boolean
+        sms_authentication:
+          description: 'Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).'
+          type: boolean
       type: object
       x-internal-class: true
     AccountResponseUsage:

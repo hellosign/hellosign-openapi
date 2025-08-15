@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.AccountResponseQuotas;
+import com.dropbox.sign.model.AccountResponseSettings;
 import com.dropbox.sign.model.AccountResponseUsage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -45,7 +46,8 @@ import com.dropbox.sign.ApiException;
   AccountResponse.JSON_PROPERTY_ROLE_CODE,
   AccountResponse.JSON_PROPERTY_TEAM_ID,
   AccountResponse.JSON_PROPERTY_LOCALE,
-  AccountResponse.JSON_PROPERTY_USAGE
+  AccountResponse.JSON_PROPERTY_USAGE,
+  AccountResponse.JSON_PROPERTY_SETTINGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -93,6 +95,10 @@ public class AccountResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
   @jakarta.annotation.Nullable
   private AccountResponseUsage usage;
+
+  public static final String JSON_PROPERTY_SETTINGS = "settings";
+  @jakarta.annotation.Nullable
+  private AccountResponseSettings settings;
 
   public AccountResponse() { 
   }
@@ -387,6 +393,31 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse settings(@jakarta.annotation.Nullable AccountResponseSettings settings) {
+    this.settings = settings;
+    return this;
+  }
+
+  /**
+   * Get settings
+   * @return settings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AccountResponseSettings getSettings() {
+    return settings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSettings(@jakarta.annotation.Nullable AccountResponseSettings settings) {
+    this.settings = settings;
+  }
+
+
   /**
    * Return true if this AccountResponse object is equal to o.
    */
@@ -409,12 +440,13 @@ public class AccountResponse {
         Objects.equals(this.roleCode, accountResponse.roleCode) &&
         Objects.equals(this.teamId, accountResponse.teamId) &&
         Objects.equals(this.locale, accountResponse.locale) &&
-        Objects.equals(this.usage, accountResponse.usage);
+        Objects.equals(this.usage, accountResponse.usage) &&
+        Objects.equals(this.settings, accountResponse.settings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, emailAddress, isLocked, isPaidHs, isPaidHf, quotas, callbackUrl, roleCode, teamId, locale, usage);
+    return Objects.hash(accountId, emailAddress, isLocked, isPaidHs, isPaidHf, quotas, callbackUrl, roleCode, teamId, locale, usage, settings);
   }
 
   @Override
@@ -432,6 +464,7 @@ public class AccountResponse {
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -647,6 +680,25 @@ public class AccountResponse {
         }
         else {
             map.put("usage", JSON.getDefault().getMapper().writeValueAsString(usage));
+        }
+    }
+    if (settings != null) {
+        if (isFileTypeOrListOfFiles(settings)) {
+            fileTypeFound = true;
+        }
+
+        if (settings.getClass().equals(java.io.File.class) ||
+            settings.getClass().equals(Integer.class) ||
+            settings.getClass().equals(String.class) ||
+            settings.getClass().isEnum()) {
+            map.put("settings", settings);
+        } else if (isListOfFile(settings)) {
+            for(int i = 0; i< getListSize(settings); i++) {
+                map.put("settings[" + i + "]", getFromList(settings, i));
+            }
+        }
+        else {
+            map.put("settings", JSON.getDefault().getMapper().writeValueAsString(settings));
         }
     }
     } catch (Exception e) {

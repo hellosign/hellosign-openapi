@@ -1273,6 +1273,7 @@
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 "Account::QUOTA": Details concerning remaining monthly quotas.
 "Account::USAGE": Details concerning monthly usage
+"Account::SETTINGS": Subset of configured settings
 "AccountQuota::TEMPLATES_LEFT": API templates remaining.
 "AccountQuota::TEMPLATES_TOTAL": Total API templates allowed.
 "AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
@@ -1280,6 +1281,9 @@
 "AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications remaining.
 "AccountQuota::NUM_FAX_PAGES_LEFT": Number of fax pages left
 "AccountUsage::FAX_PAGES_SENT": Number of fax pages sent
+"AccountSettings::SIGNER_ACCESS_CODES": Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
+"AccountSettings::SMS_DELIVERY": Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
+"AccountSettings::SMS_AUTHENTICATION": Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
 
 "ApiAppCreateResponseExample::SUMMARY": API App
 "ApiAppGetResponseExample::SUMMARY": API App

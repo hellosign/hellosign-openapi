@@ -52,7 +52,8 @@ namespace Dropbox.Sign.Model
         /// <param name="teamId">The id of the team account belongs to..</param>
         /// <param name="locale">The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values..</param>
         /// <param name="usage">usage.</param>
-        public AccountResponse(string accountId = default(string), string emailAddress = default(string), bool isLocked = default(bool), bool isPaidHs = default(bool), bool isPaidHf = default(bool), AccountResponseQuotas quotas = default(AccountResponseQuotas), string callbackUrl = default(string), string roleCode = default(string), string teamId = default(string), string locale = default(string), AccountResponseUsage usage = default(AccountResponseUsage))
+        /// <param name="settings">settings.</param>
+        public AccountResponse(string accountId = default(string), string emailAddress = default(string), bool isLocked = default(bool), bool isPaidHs = default(bool), bool isPaidHf = default(bool), AccountResponseQuotas quotas = default(AccountResponseQuotas), string callbackUrl = default(string), string roleCode = default(string), string teamId = default(string), string locale = default(string), AccountResponseUsage usage = default(AccountResponseUsage), AccountResponseSettings settings = default(AccountResponseSettings))
         {
 
             this.AccountId = accountId;
@@ -66,6 +67,7 @@ namespace Dropbox.Sign.Model
             this.TeamId = teamId;
             this.Locale = locale;
             this.Usage = usage;
+            this.Settings = settings;
         }
 
         /// <summary>
@@ -160,6 +162,12 @@ namespace Dropbox.Sign.Model
         public AccountResponseUsage Usage { get; set; }
 
         /// <summary>
+        /// Gets or Sets Settings
+        /// </summary>
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
+        public AccountResponseSettings Settings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -178,6 +186,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  TeamId: ").Append(TeamId).Append("\n");
             sb.Append("  Locale: ").Append(Locale).Append("\n");
             sb.Append("  Usage: ").Append(Usage).Append("\n");
+            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -264,6 +273,11 @@ namespace Dropbox.Sign.Model
                     this.Usage == input.Usage ||
                     (this.Usage != null &&
                     this.Usage.Equals(input.Usage))
+                ) &&
+                (
+                    this.Settings == input.Settings ||
+                    (this.Settings != null &&
+                    this.Settings.Equals(input.Settings))
                 );
         }
 
@@ -310,6 +324,10 @@ namespace Dropbox.Sign.Model
                 if (this.Usage != null)
                 {
                     hashCode = (hashCode * 59) + this.Usage.GetHashCode();
+                }
+                if (this.Settings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
                 }
                 return hashCode;
             }
@@ -403,6 +421,13 @@ namespace Dropbox.Sign.Model
                 Property = "Usage",
                 Type = "AccountResponseUsage",
                 Value = Usage,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "settings",
+                Property = "Settings",
+                Type = "AccountResponseSettings",
+                Value = Settings,
             });
 
             return types;

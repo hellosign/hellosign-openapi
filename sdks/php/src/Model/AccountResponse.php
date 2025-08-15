@@ -68,6 +68,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_id' => 'string',
         'locale' => 'string',
         'usage' => '\Dropbox\Sign\Model\AccountResponseUsage',
+        'settings' => '\Dropbox\Sign\Model\AccountResponseSettings',
     ];
 
     /**
@@ -89,6 +90,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_id' => null,
         'locale' => null,
         'usage' => null,
+        'settings' => null,
     ];
 
     /**
@@ -108,6 +110,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_id' => true,
         'locale' => true,
         'usage' => false,
+        'settings' => false,
     ];
 
     /**
@@ -199,6 +202,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_id' => 'team_id',
         'locale' => 'locale',
         'usage' => 'usage',
+        'settings' => 'settings',
     ];
 
     /**
@@ -218,6 +222,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_id' => 'setTeamId',
         'locale' => 'setLocale',
         'usage' => 'setUsage',
+        'settings' => 'setSettings',
     ];
 
     /**
@@ -237,6 +242,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_id' => 'getTeamId',
         'locale' => 'getLocale',
         'usage' => 'getUsage',
+        'settings' => 'getSettings',
     ];
 
     /**
@@ -306,6 +312,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('team_id', $data ?? [], null);
         $this->setIfExists('locale', $data ?? [], null);
         $this->setIfExists('usage', $data ?? [], null);
+        $this->setIfExists('settings', $data ?? [], null);
     }
 
     /**
@@ -686,6 +693,33 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable usage cannot be null');
         }
         $this->container['usage'] = $usage;
+
+        return $this;
+    }
+
+    /**
+     * Gets settings
+     *
+     * @return AccountResponseSettings|null
+     */
+    public function getSettings()
+    {
+        return $this->container['settings'];
+    }
+
+    /**
+     * Sets settings
+     *
+     * @param AccountResponseSettings|null $settings settings
+     *
+     * @return self
+     */
+    public function setSettings(?AccountResponseSettings $settings)
+    {
+        if (is_null($settings)) {
+            throw new InvalidArgumentException('non-nullable settings cannot be null');
+        }
+        $this->container['settings'] = $settings;
 
         return $this;
     }

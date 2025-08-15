@@ -17,67 +17,26 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  class AccountResponse
-    # The ID of the Account
-    # @return [String]
-    attr_accessor :account_id
-
-    # The email address associated with the Account.
-    # @return [String]
-    attr_accessor :email_address
-
-    # Returns `true` if the user has been locked out of their account by a team admin.
+  # Subset of configured settings
+  class AccountResponseSettings
+    # Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
     # @return [Boolean]
-    attr_accessor :is_locked
+    attr_accessor :signer_access_codes
 
-    # Returns `true` if the user has a paid Dropbox Sign account.
+    # Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
     # @return [Boolean]
-    attr_accessor :is_paid_hs
+    attr_accessor :sms_delivery
 
-    # Returns `true` if the user has a paid HelloFax account.
+    # Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
     # @return [Boolean]
-    attr_accessor :is_paid_hf
-
-    # @return [AccountResponseQuotas]
-    attr_accessor :quotas
-
-    # The URL that Dropbox Sign events will `POST` to.
-    # @return [String, nil]
-    attr_accessor :callback_url
-
-    # The membership role for the team.
-    # @return [String, nil]
-    attr_accessor :role_code
-
-    # The id of the team account belongs to.
-    # @return [String, nil]
-    attr_accessor :team_id
-
-    # The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
-    # @return [String, nil]
-    attr_accessor :locale
-
-    # @return [AccountResponseUsage]
-    attr_accessor :usage
-
-    # @return [AccountResponseSettings]
-    attr_accessor :settings
+    attr_accessor :sms_authentication
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
-        :'email_address' => :'email_address',
-        :'is_locked' => :'is_locked',
-        :'is_paid_hs' => :'is_paid_hs',
-        :'is_paid_hf' => :'is_paid_hf',
-        :'quotas' => :'quotas',
-        :'callback_url' => :'callback_url',
-        :'role_code' => :'role_code',
-        :'team_id' => :'team_id',
-        :'locale' => :'locale',
-        :'usage' => :'usage',
-        :'settings' => :'settings'
+        :'signer_access_codes' => :'signer_access_codes',
+        :'sms_delivery' => :'sms_delivery',
+        :'sms_authentication' => :'sms_authentication'
       }
     end
 
@@ -94,28 +53,15 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
-        :'email_address' => :'String',
-        :'is_locked' => :'Boolean',
-        :'is_paid_hs' => :'Boolean',
-        :'is_paid_hf' => :'Boolean',
-        :'quotas' => :'AccountResponseQuotas',
-        :'callback_url' => :'String',
-        :'role_code' => :'String',
-        :'team_id' => :'String',
-        :'locale' => :'String',
-        :'usage' => :'AccountResponseUsage',
-        :'settings' => :'AccountResponseSettings'
+        :'signer_access_codes' => :'Boolean',
+        :'sms_delivery' => :'Boolean',
+        :'sms_authentication' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'callback_url',
-        :'role_code',
-        :'team_id',
-        :'locale',
       ])
     end
 
@@ -136,76 +82,40 @@ module Dropbox::Sign
 
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
-    # @return [AccountResponse]
+    # @return [AccountResponseSettings]
     def self.init(data)
       ApiClient.default.convert_to_type(
         data,
-        "AccountResponse"
-      ) || AccountResponse.new
+        "AccountResponseSettings"
+      ) || AccountResponseSettings.new
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::AccountResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::AccountResponseSettings` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.merged_attributes.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::AccountResponse`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::AccountResponseSettings`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
+      if attributes.key?(:'signer_access_codes')
+        self.signer_access_codes = attributes[:'signer_access_codes']
       end
 
-      if attributes.key?(:'email_address')
-        self.email_address = attributes[:'email_address']
+      if attributes.key?(:'sms_delivery')
+        self.sms_delivery = attributes[:'sms_delivery']
       end
 
-      if attributes.key?(:'is_locked')
-        self.is_locked = attributes[:'is_locked']
-      end
-
-      if attributes.key?(:'is_paid_hs')
-        self.is_paid_hs = attributes[:'is_paid_hs']
-      end
-
-      if attributes.key?(:'is_paid_hf')
-        self.is_paid_hf = attributes[:'is_paid_hf']
-      end
-
-      if attributes.key?(:'quotas')
-        self.quotas = attributes[:'quotas']
-      end
-
-      if attributes.key?(:'callback_url')
-        self.callback_url = attributes[:'callback_url']
-      end
-
-      if attributes.key?(:'role_code')
-        self.role_code = attributes[:'role_code']
-      end
-
-      if attributes.key?(:'team_id')
-        self.team_id = attributes[:'team_id']
-      end
-
-      if attributes.key?(:'locale')
-        self.locale = attributes[:'locale']
-      end
-
-      if attributes.key?(:'usage')
-        self.usage = attributes[:'usage']
-      end
-
-      if attributes.key?(:'settings')
-        self.settings = attributes[:'settings']
+      if attributes.key?(:'sms_authentication')
+        self.sms_authentication = attributes[:'sms_authentication']
       end
     end
 
@@ -227,18 +137,9 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
-          email_address == o.email_address &&
-          is_locked == o.is_locked &&
-          is_paid_hs == o.is_paid_hs &&
-          is_paid_hf == o.is_paid_hf &&
-          quotas == o.quotas &&
-          callback_url == o.callback_url &&
-          role_code == o.role_code &&
-          team_id == o.team_id &&
-          locale == o.locale &&
-          usage == o.usage &&
-          settings == o.settings
+          signer_access_codes == o.signer_access_codes &&
+          sms_delivery == o.sms_delivery &&
+          sms_authentication == o.sms_authentication
     end
 
     # @see the `==` method
@@ -250,7 +151,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, email_address, is_locked, is_paid_hs, is_paid_hf, quotas, callback_url, role_code, team_id, locale, usage, settings].hash
+      [signer_access_codes, sms_delivery, sms_authentication].hash
     end
 
     # Builds the object from hash

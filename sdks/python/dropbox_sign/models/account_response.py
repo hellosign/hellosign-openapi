@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.account_response_quotas import AccountResponseQuotas
+from dropbox_sign.models.account_response_settings import AccountResponseSettings
 from dropbox_sign.models.account_response_usage import AccountResponseUsage
 from typing import Optional, Set
 from typing_extensions import Self
@@ -67,6 +68,7 @@ class AccountResponse(BaseModel):
         description="The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.",
     )
     usage: Optional[AccountResponseUsage] = None
+    settings: Optional[AccountResponseSettings] = None
     __properties: ClassVar[List[str]] = [
         "account_id",
         "email_address",
@@ -79,6 +81,7 @@ class AccountResponse(BaseModel):
         "team_id",
         "locale",
         "usage",
+        "settings",
     ]
 
     model_config = ConfigDict(
@@ -137,6 +140,9 @@ class AccountResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of usage
         if self.usage:
             _dict["usage"] = self.usage.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of settings
+        if self.settings:
+            _dict["settings"] = self.settings.to_dict()
         return _dict
 
     @classmethod
@@ -169,6 +175,11 @@ class AccountResponse(BaseModel):
                     if obj.get("usage") is not None
                     else None
                 ),
+                "settings": (
+                    AccountResponseSettings.from_dict(obj["settings"])
+                    if obj.get("settings") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -197,6 +208,7 @@ class AccountResponse(BaseModel):
             "team_id": "(str,)",
             "locale": "(str,)",
             "usage": "(AccountResponseUsage,)",
+            "settings": "(AccountResponseSettings,)",
         }
 
     @classmethod
