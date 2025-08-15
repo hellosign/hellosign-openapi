@@ -25,7 +25,7 @@ buildscript {
 
 {{#useCustomTemplateCode}}
 plugins {
-    id 'com.vanniktech.maven.publish' version '0.24.0'
+    id 'com.vanniktech.maven.publish' version '0.34.0'
     id 'com.diffplug.spotless' version '6.25.0'
 }
 
@@ -136,17 +136,17 @@ if (JavaVersion.current().isJava8Compatible()) {
 }
 
 task javadocJar(type: Jar) {
-    classifier = 'javadoc'
+    archiveClassifier.set('javadoc')
     from javadoc
 }
 
 task sourcesJar(type: Jar) {
-    classifier = 'sources'
+    archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
 
 task fatJar(type: Jar) {
-    classifier = 'all'
+    archiveClassifier.set('all')
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
