@@ -7926,10 +7926,6 @@ components:
           description: 'This allows the requester to enable/disable to add or change CC roles when editing the template.'
           type: boolean
           default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
-          type: boolean
-          default: false
         cc_roles:
           description: 'The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.'
           type: array
@@ -7972,6 +7968,8 @@ components:
           description: 'Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     FaxLineAddUserRequest:
       required:
@@ -8452,10 +8450,6 @@ components:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean
           default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
-          type: boolean
-          default: false
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -8562,6 +8556,8 @@ components:
             **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
         expires_at:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
@@ -8650,6 +8646,8 @@ components:
             **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditRequest:
       properties:
@@ -8688,10 +8686,6 @@ components:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         allow_reassign:
@@ -8808,6 +8802,8 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditEmbeddedRequest:
       required:
@@ -8848,10 +8844,6 @@ components:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         allow_reassign:
@@ -8964,6 +8956,8 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditEmbeddedWithTemplateRequest:
       required:
@@ -9048,6 +9042,8 @@ components:
             **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditWithTemplateRequest:
       description: ''
@@ -9136,6 +9132,8 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -9193,10 +9191,6 @@ components:
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
             **NOTE:** Only available for Premium plan and higher.
-          type: boolean
-          default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         attachments:
@@ -9306,6 +9300,8 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -9394,6 +9390,8 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -10349,6 +10347,18 @@ components:
           type: string
           format: email
       type: object
+    SubSignerExperience:
+      description: 'Signer experience description'
+      properties:
+        form_view:
+          description: 'Signer experience default'
+          type: string
+          enum:
+            - disabled
+            - enabled
+            - enabled_by_default
+            - forced
+      type: object
     SubTemplateRole:
       properties:
         name:
@@ -10571,10 +10581,6 @@ components:
             **NOTE:** Only available for Premium plan and higher.
           type: boolean
           default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
-          type: boolean
-          default: false
         attachments:
           description: 'A list describing the attachments'
           type: array
@@ -10658,6 +10664,8 @@ components:
           description: 'Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
@@ -10689,10 +10697,6 @@ components:
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
             **NOTE:** Only available for Premium plan and higher.
-          type: boolean
-          default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         attachments:
@@ -10804,6 +10808,8 @@ components:
           description: 'Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateRemoveUserRequest:
       properties:
@@ -10822,9 +10828,6 @@ components:
           type: array
           items:
             type: string
-        allow_form_view:
-          description: 'The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.'
-          type: boolean
         title:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
@@ -10841,6 +10844,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubUpdateFormField'
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateUpdateFilesRequest:
       properties:
@@ -10901,10 +10906,6 @@ components:
             type: string
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         attachments:
@@ -11021,6 +11022,8 @@ components:
             **NOTE:** This does not correspond to the **expires_at** returned in the response.
           type: integer
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -11051,10 +11054,6 @@ components:
           default: true
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
           type: boolean
           default: false
         allow_reassign:
@@ -12230,6 +12229,8 @@ components:
           description: 'The ID of the Bulk Send job which sent the signature request, if applicable.'
           type: string
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SignatureRequestSignerExperience'
       type: object
       x-internal-class: true
     SignatureRequestResponseAttachment:
@@ -12591,6 +12592,21 @@ components:
           nullable: true
       type: object
       x-internal-class: true
+    SignatureRequestSignerExperience:
+      description: 'Response signer experience description'
+      required:
+        - form_view
+      properties:
+        form_view:
+          description: 'Signer experience default'
+          type: string
+          enum:
+            - disabled
+            - enabled
+            - enabled_by_default
+            - forced
+      type: object
+      x-internal-class: true
     TeamResponse:
       description: 'Contains information about your team and its members'
       properties:
@@ -12762,10 +12778,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
-        allow_form_view:
-          description: 'Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.'
-          type: boolean
-          nullable: false
+        signer_experience:
+          $ref: '#/components/schemas/SignatureRequestSignerExperience'
       type: object
       x-internal-class: true
     TemplateResponseAccount:
