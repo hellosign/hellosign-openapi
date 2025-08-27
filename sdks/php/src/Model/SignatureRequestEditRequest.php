@@ -63,7 +63,6 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => '\Dropbox\Sign\Model\SubSignatureRequestSigner[]',
         'grouped_signers' => '\Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]',
         'allow_decline' => 'bool',
-        'allow_form_view' => 'bool',
         'allow_reassign' => 'bool',
         'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
@@ -84,6 +83,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'string',
         'use_text_tags' => 'bool',
         'expires_at' => 'int',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -99,7 +99,6 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => null,
         'grouped_signers' => null,
         'allow_decline' => null,
-        'allow_form_view' => null,
         'allow_reassign' => null,
         'attachments' => null,
         'cc_email_addresses' => 'email',
@@ -120,6 +119,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => null,
         'use_text_tags' => null,
         'expires_at' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -133,7 +133,6 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => false,
         'grouped_signers' => false,
         'allow_decline' => false,
-        'allow_form_view' => false,
         'allow_reassign' => false,
         'attachments' => false,
         'cc_email_addresses' => false,
@@ -154,6 +153,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => false,
         'use_text_tags' => false,
         'expires_at' => true,
+        'signer_experience' => false,
     ];
 
     /**
@@ -239,7 +239,6 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => 'signers',
         'grouped_signers' => 'grouped_signers',
         'allow_decline' => 'allow_decline',
-        'allow_form_view' => 'allow_form_view',
         'allow_reassign' => 'allow_reassign',
         'attachments' => 'attachments',
         'cc_email_addresses' => 'cc_email_addresses',
@@ -260,6 +259,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'title',
         'use_text_tags' => 'use_text_tags',
         'expires_at' => 'expires_at',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -273,7 +273,6 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => 'setSigners',
         'grouped_signers' => 'setGroupedSigners',
         'allow_decline' => 'setAllowDecline',
-        'allow_form_view' => 'setAllowFormView',
         'allow_reassign' => 'setAllowReassign',
         'attachments' => 'setAttachments',
         'cc_email_addresses' => 'setCcEmailAddresses',
@@ -294,6 +293,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'setTitle',
         'use_text_tags' => 'setUseTextTags',
         'expires_at' => 'setExpiresAt',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -307,7 +307,6 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'signers' => 'getSigners',
         'grouped_signers' => 'getGroupedSigners',
         'allow_decline' => 'getAllowDecline',
-        'allow_form_view' => 'getAllowFormView',
         'allow_reassign' => 'getAllowReassign',
         'attachments' => 'getAttachments',
         'cc_email_addresses' => 'getCcEmailAddresses',
@@ -328,6 +327,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'getTitle',
         'use_text_tags' => 'getUseTextTags',
         'expires_at' => 'getExpiresAt',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -391,7 +391,6 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('signers', $data ?? [], null);
         $this->setIfExists('grouped_signers', $data ?? [], null);
         $this->setIfExists('allow_decline', $data ?? [], false);
-        $this->setIfExists('allow_form_view', $data ?? [], false);
         $this->setIfExists('allow_reassign', $data ?? [], false);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('cc_email_addresses', $data ?? [], null);
@@ -412,6 +411,7 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('use_text_tags', $data ?? [], false);
         $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -616,33 +616,6 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
             throw new InvalidArgumentException('non-nullable allow_decline cannot be null');
         }
         $this->container['allow_decline'] = $allow_decline;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_form_view
-     *
-     * @return bool|null
-     */
-    public function getAllowFormView()
-    {
-        return $this->container['allow_form_view'];
-    }
-
-    /**
-     * Sets allow_form_view
-     *
-     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     *
-     * @return self
-     */
-    public function setAllowFormView(?bool $allow_form_view)
-    {
-        if (is_null($allow_form_view)) {
-            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
-        }
-        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }
@@ -1203,6 +1176,33 @@ class SignatureRequestEditRequest implements ModelInterface, ArrayAccess, JsonSe
             }
         }
         $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

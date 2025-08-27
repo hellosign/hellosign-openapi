@@ -22,6 +22,6 @@ Name | Type | Description | Notes
 | `named_form_fields` | [```\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]```](TemplateResponseDocumentFormFieldBase.md) |  Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
 | `accounts` | [```\Dropbox\Sign\Model\TemplateResponseAccount[]```](TemplateResponseAccount.md) |  An array of the Accounts that can use this Template.  |  |
 | `attachments` | [```\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |
-| `allow_form_view` | ```bool``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  |
+| `signer_experience` | [```\Dropbox\Sign\Model\SignatureRequestSignerExperience```](SignatureRequestSignerExperience.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -64,7 +64,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'signers' => '\Dropbox\Sign\Model\SubSignatureRequestSigner[]',
         'grouped_signers' => '\Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]',
         'allow_decline' => 'bool',
-        'allow_form_view' => 'bool',
         'allow_reassign' => 'bool',
         'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
@@ -82,6 +81,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'title' => 'string',
         'use_text_tags' => 'bool',
         'populate_auto_fill_fields' => 'bool',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
         'expires_at' => 'int',
     ];
 
@@ -99,7 +99,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'signers' => null,
         'grouped_signers' => null,
         'allow_decline' => null,
-        'allow_form_view' => null,
         'allow_reassign' => null,
         'attachments' => null,
         'cc_email_addresses' => 'email',
@@ -117,6 +116,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'title' => null,
         'use_text_tags' => null,
         'populate_auto_fill_fields' => null,
+        'signer_experience' => null,
         'expires_at' => null,
     ];
 
@@ -132,7 +132,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'signers' => false,
         'grouped_signers' => false,
         'allow_decline' => false,
-        'allow_form_view' => false,
         'allow_reassign' => false,
         'attachments' => false,
         'cc_email_addresses' => false,
@@ -150,6 +149,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'title' => false,
         'use_text_tags' => false,
         'populate_auto_fill_fields' => false,
+        'signer_experience' => false,
         'expires_at' => true,
     ];
 
@@ -237,7 +237,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'signers' => 'signers',
         'grouped_signers' => 'grouped_signers',
         'allow_decline' => 'allow_decline',
-        'allow_form_view' => 'allow_form_view',
         'allow_reassign' => 'allow_reassign',
         'attachments' => 'attachments',
         'cc_email_addresses' => 'cc_email_addresses',
@@ -255,6 +254,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'title' => 'title',
         'use_text_tags' => 'use_text_tags',
         'populate_auto_fill_fields' => 'populate_auto_fill_fields',
+        'signer_experience' => 'signer_experience',
         'expires_at' => 'expires_at',
     ];
 
@@ -270,7 +270,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'signers' => 'setSigners',
         'grouped_signers' => 'setGroupedSigners',
         'allow_decline' => 'setAllowDecline',
-        'allow_form_view' => 'setAllowFormView',
         'allow_reassign' => 'setAllowReassign',
         'attachments' => 'setAttachments',
         'cc_email_addresses' => 'setCcEmailAddresses',
@@ -288,6 +287,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'title' => 'setTitle',
         'use_text_tags' => 'setUseTextTags',
         'populate_auto_fill_fields' => 'setPopulateAutoFillFields',
+        'signer_experience' => 'setSignerExperience',
         'expires_at' => 'setExpiresAt',
     ];
 
@@ -303,7 +303,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'signers' => 'getSigners',
         'grouped_signers' => 'getGroupedSigners',
         'allow_decline' => 'getAllowDecline',
-        'allow_form_view' => 'getAllowFormView',
         'allow_reassign' => 'getAllowReassign',
         'attachments' => 'getAttachments',
         'cc_email_addresses' => 'getCcEmailAddresses',
@@ -321,6 +320,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'title' => 'getTitle',
         'use_text_tags' => 'getUseTextTags',
         'populate_auto_fill_fields' => 'getPopulateAutoFillFields',
+        'signer_experience' => 'getSignerExperience',
         'expires_at' => 'getExpiresAt',
     ];
 
@@ -386,7 +386,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         $this->setIfExists('signers', $data ?? [], null);
         $this->setIfExists('grouped_signers', $data ?? [], null);
         $this->setIfExists('allow_decline', $data ?? [], false);
-        $this->setIfExists('allow_form_view', $data ?? [], false);
         $this->setIfExists('allow_reassign', $data ?? [], false);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('cc_email_addresses', $data ?? [], null);
@@ -404,6 +403,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('use_text_tags', $data ?? [], false);
         $this->setIfExists('populate_auto_fill_fields', $data ?? [], false);
+        $this->setIfExists('signer_experience', $data ?? [], null);
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
@@ -639,33 +639,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
             throw new InvalidArgumentException('non-nullable allow_decline cannot be null');
         }
         $this->container['allow_decline'] = $allow_decline;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_form_view
-     *
-     * @return bool|null
-     */
-    public function getAllowFormView()
-    {
-        return $this->container['allow_form_view'];
-    }
-
-    /**
-     * Sets allow_form_view
-     *
-     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     *
-     * @return self
-     */
-    public function setAllowFormView(?bool $allow_form_view)
-    {
-        if (is_null($allow_form_view)) {
-            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
-        }
-        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }
@@ -1138,6 +1111,33 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
             throw new InvalidArgumentException('non-nullable populate_auto_fill_fields cannot be null');
         }
         $this->container['populate_auto_fill_fields'] = $populate_auto_fill_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

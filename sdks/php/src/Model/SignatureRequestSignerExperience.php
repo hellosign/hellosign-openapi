@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateUpdateRequest
+ * SignatureRequestSignerExperience
  *
  * PHP version 7.4
  *
@@ -34,13 +34,14 @@ use JsonSerializable;
 use ReturnTypeWillChange;
 
 /**
- * TemplateUpdateRequest Class Doc Comment
+ * SignatureRequestSignerExperience Class Doc Comment
  *
  * @category Class
+ * @description Response signer experience description
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class SignatureRequestSignerExperience implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TemplateUpdateRequest';
+    protected static $openAPIModelName = 'SignatureRequestSignerExperience';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +58,7 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $openAPITypes = [
-        'cc_roles' => 'string[]',
-        'title' => 'string',
-        'subject' => 'string',
-        'message' => 'string',
-        'form_fields' => '\Dropbox\Sign\Model\SubUpdateFormField[]',
-        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
+        'form_view' => 'string',
     ];
 
     /**
@@ -73,12 +69,7 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'cc_roles' => null,
-        'title' => null,
-        'subject' => null,
-        'message' => null,
-        'form_fields' => null,
-        'signer_experience' => null,
+        'form_view' => null,
     ];
 
     /**
@@ -87,12 +78,7 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'cc_roles' => false,
-        'title' => false,
-        'subject' => false,
-        'message' => false,
-        'form_fields' => false,
-        'signer_experience' => false,
+        'form_view' => false,
     ];
 
     /**
@@ -173,12 +159,7 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'cc_roles' => 'cc_roles',
-        'title' => 'title',
-        'subject' => 'subject',
-        'message' => 'message',
-        'form_fields' => 'form_fields',
-        'signer_experience' => 'signer_experience',
+        'form_view' => 'form_view',
     ];
 
     /**
@@ -187,12 +168,7 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'cc_roles' => 'setCcRoles',
-        'title' => 'setTitle',
-        'subject' => 'setSubject',
-        'message' => 'setMessage',
-        'form_fields' => 'setFormFields',
-        'signer_experience' => 'setSignerExperience',
+        'form_view' => 'setFormView',
     ];
 
     /**
@@ -201,12 +177,7 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'cc_roles' => 'getCcRoles',
-        'title' => 'getTitle',
-        'subject' => 'getSubject',
-        'message' => 'getMessage',
-        'form_fields' => 'getFormFields',
-        'signer_experience' => 'getSignerExperience',
+        'form_view' => 'getFormView',
     ];
 
     /**
@@ -250,6 +221,26 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const FORM_VIEW_DISABLED = 'disabled';
+    public const FORM_VIEW_ENABLED = 'enabled';
+    public const FORM_VIEW_ENABLED_BY_DEFAULT = 'enabled_by_default';
+    public const FORM_VIEW_FORCED = 'forced';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFormViewAllowableValues()
+    {
+        return [
+            self::FORM_VIEW_DISABLED,
+            self::FORM_VIEW_ENABLED,
+            self::FORM_VIEW_ENABLED_BY_DEFAULT,
+            self::FORM_VIEW_FORCED,
+        ];
+    }
+
     /**
      * Associative array for storing property values
      *
@@ -265,18 +256,13 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('cc_roles', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('subject', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('form_fields', $data ?? [], null);
-        $this->setIfExists('signer_experience', $data ?? [], null);
+        $this->setIfExists('form_view', $data ?? [], null);
     }
 
     /**
      * @deprecated use ::init()
      */
-    public static function fromArray(array $data): TemplateUpdateRequest
+    public static function fromArray(array $data): SignatureRequestSignerExperience
     {
         return self::init($data);
     }
@@ -284,12 +270,12 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Attempt to instantiate and hydrate a new instance of this class
      */
-    public static function init(array $data): TemplateUpdateRequest
+    public static function init(array $data): SignatureRequestSignerExperience
     {
-        /** @var TemplateUpdateRequest */
+        /** @var SignatureRequestSignerExperience */
         return ObjectSerializer::deserialize(
             $data,
-            TemplateUpdateRequest::class,
+            SignatureRequestSignerExperience::class,
         );
     }
 
@@ -318,12 +304,16 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) > 200)) {
-            $invalidProperties[] = "invalid value for 'subject', the character length must be smaller than or equal to 200.";
+        if ($this->container['form_view'] === null) {
+            $invalidProperties[] = "'form_view' can't be null";
         }
-
-        if (!is_null($this->container['message']) && (mb_strlen($this->container['message']) > 5000)) {
-            $invalidProperties[] = "invalid value for 'message', the character length must be smaller than or equal to 5000.";
+        $allowedValues = $this->getFormViewAllowableValues();
+        if (!is_null($this->container['form_view']) && !in_array($this->container['form_view'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'form_view', must be one of '%s'",
+                $this->container['form_view'],
+                implode("', '", $allowedValues)
+            );
         }
 
         return $invalidProperties;
@@ -341,171 +331,38 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     }
 
     /**
-     * Gets cc_roles
+     * Gets form_view
      *
-     * @return string[]|null
+     * @return string
      */
-    public function getCcRoles()
+    public function getFormView()
     {
-        return $this->container['cc_roles'];
+        return $this->container['form_view'];
     }
 
     /**
-     * Sets cc_roles
+     * Sets form_view
      *
-     * @param string[]|null $cc_roles the CC roles that must be assigned when using the template to send a signature request
+     * @param string $form_view Signer experience default
      *
      * @return self
      */
-    public function setCcRoles(?array $cc_roles)
+    public function setFormView(string $form_view)
     {
-        if (is_null($cc_roles)) {
-            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
+        if (is_null($form_view)) {
+            throw new InvalidArgumentException('non-nullable form_view cannot be null');
         }
-        $this->container['cc_roles'] = $cc_roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string|null
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string|null $title the title you want to assign to the SignatureRequest
-     *
-     * @return self
-     */
-    public function setTitle(?string $title)
-    {
-        if (is_null($title)) {
-            throw new InvalidArgumentException('non-nullable title cannot be null');
+        $allowedValues = $this->getFormViewAllowableValues();
+        if (!in_array($form_view, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'form_view', must be one of '%s'",
+                    $form_view,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets subject
-     *
-     * @return string|null
-     */
-    public function getSubject()
-    {
-        return $this->container['subject'];
-    }
-
-    /**
-     * Sets subject
-     *
-     * @param string|null $subject the new default template email subject
-     *
-     * @return self
-     */
-    public function setSubject(?string $subject)
-    {
-        if (is_null($subject)) {
-            throw new InvalidArgumentException('non-nullable subject cannot be null');
-        }
-        if (mb_strlen($subject) > 200) {
-            throw new InvalidArgumentException('invalid length for $subject when calling TemplateUpdateRequest., must be smaller than or equal to 200.');
-        }
-
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message the new default template email message
-     *
-     * @return self
-     */
-    public function setMessage(?string $message)
-    {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
-        }
-        if (mb_strlen($message) > 5000) {
-            throw new InvalidArgumentException('invalid length for $message when calling TemplateUpdateRequest., must be smaller than or equal to 5000.');
-        }
-
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets form_fields
-     *
-     * @return SubUpdateFormField[]|null
-     */
-    public function getFormFields()
-    {
-        return $this->container['form_fields'];
-    }
-
-    /**
-     * Sets form_fields
-     *
-     * @param SubUpdateFormField[]|null $form_fields A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.
-     *
-     * @return self
-     */
-    public function setFormFields(?array $form_fields)
-    {
-        if (is_null($form_fields)) {
-            throw new InvalidArgumentException('non-nullable form_fields cannot be null');
-        }
-        $this->container['form_fields'] = $form_fields;
-
-        return $this;
-    }
-
-    /**
-     * Gets signer_experience
-     *
-     * @return SubSignerExperience|null
-     */
-    public function getSignerExperience()
-    {
-        return $this->container['signer_experience'];
-    }
-
-    /**
-     * Sets signer_experience
-     *
-     * @param SubSignerExperience|null $signer_experience signer_experience
-     *
-     * @return self
-     */
-    public function setSignerExperience(?SubSignerExperience $signer_experience)
-    {
-        if (is_null($signer_experience)) {
-            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
-        }
-        $this->container['signer_experience'] = $signer_experience;
+        $this->container['form_view'] = $form_view;
 
         return $this;
     }

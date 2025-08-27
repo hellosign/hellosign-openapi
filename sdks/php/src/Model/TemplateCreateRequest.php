@@ -63,7 +63,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
         'allow_reassign' => 'bool',
-        'allow_form_view' => 'bool',
         'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_roles' => 'string[]',
         'client_id' => 'string',
@@ -77,6 +76,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'bool',
         'title' => 'string',
         'use_preexisting_fields' => 'bool',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -92,7 +92,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'files' => 'binary',
         'file_urls' => null,
         'allow_reassign' => null,
-        'allow_form_view' => null,
         'attachments' => null,
         'cc_roles' => null,
         'client_id' => null,
@@ -106,6 +105,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => null,
         'title' => null,
         'use_preexisting_fields' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -119,7 +119,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'files' => false,
         'file_urls' => false,
         'allow_reassign' => false,
-        'allow_form_view' => false,
         'attachments' => false,
         'cc_roles' => false,
         'client_id' => false,
@@ -133,6 +132,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => false,
         'title' => false,
         'use_preexisting_fields' => false,
+        'signer_experience' => false,
     ];
 
     /**
@@ -218,7 +218,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'files' => 'files',
         'file_urls' => 'file_urls',
         'allow_reassign' => 'allow_reassign',
-        'allow_form_view' => 'allow_form_view',
         'attachments' => 'attachments',
         'cc_roles' => 'cc_roles',
         'client_id' => 'client_id',
@@ -232,6 +231,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'test_mode',
         'title' => 'title',
         'use_preexisting_fields' => 'use_preexisting_fields',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -245,7 +245,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'files' => 'setFiles',
         'file_urls' => 'setFileUrls',
         'allow_reassign' => 'setAllowReassign',
-        'allow_form_view' => 'setAllowFormView',
         'attachments' => 'setAttachments',
         'cc_roles' => 'setCcRoles',
         'client_id' => 'setClientId',
@@ -259,6 +258,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'use_preexisting_fields' => 'setUsePreexistingFields',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -272,7 +272,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'files' => 'getFiles',
         'file_urls' => 'getFileUrls',
         'allow_reassign' => 'getAllowReassign',
-        'allow_form_view' => 'getAllowFormView',
         'attachments' => 'getAttachments',
         'cc_roles' => 'getCcRoles',
         'client_id' => 'getClientId',
@@ -286,6 +285,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'use_preexisting_fields' => 'getUsePreexistingFields',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -349,7 +349,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('file_urls', $data ?? [], null);
         $this->setIfExists('allow_reassign', $data ?? [], false);
-        $this->setIfExists('allow_form_view', $data ?? [], false);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('cc_roles', $data ?? [], null);
         $this->setIfExists('client_id', $data ?? [], null);
@@ -363,6 +362,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('use_preexisting_fields', $data ?? [], false);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -569,33 +569,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
             throw new InvalidArgumentException('non-nullable allow_reassign cannot be null');
         }
         $this->container['allow_reassign'] = $allow_reassign;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_form_view
-     *
-     * @return bool|null
-     */
-    public function getAllowFormView()
-    {
-        return $this->container['allow_form_view'];
-    }
-
-    /**
-     * Sets allow_form_view
-     *
-     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     *
-     * @return self
-     */
-    public function setAllowFormView(?bool $allow_form_view)
-    {
-        if (is_null($allow_form_view)) {
-            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
-        }
-        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }
@@ -956,6 +929,33 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
             throw new InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
         }
         $this->container['use_preexisting_fields'] = $use_preexisting_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

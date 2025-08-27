@@ -1,9 +1,6 @@
 {
   "default": {
     "allow_ccs": true,
-    "signer_experience": {
-      "form_view": "disabled"
-    },
     "allow_decline": true,
     "allow_reassign": true,
     "attachments": [
