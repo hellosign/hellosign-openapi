@@ -22,10 +22,6 @@ module Dropbox::Sign
     # @return [Array<String>]
     attr_accessor :cc_roles
 
-    # The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.
-    # @return [Boolean]
-    attr_accessor :allow_form_view
-
     # The title you want to assign to the SignatureRequest.
     # @return [String]
     attr_accessor :title
@@ -42,15 +38,18 @@ module Dropbox::Sign
     # @return [Array<SubUpdateFormField>]
     attr_accessor :form_fields
 
+    # @return [SubSignerExperience]
+    attr_accessor :signer_experience
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'cc_roles' => :'cc_roles',
-        :'allow_form_view' => :'allow_form_view',
         :'title' => :'title',
         :'subject' => :'subject',
         :'message' => :'message',
-        :'form_fields' => :'form_fields'
+        :'form_fields' => :'form_fields',
+        :'signer_experience' => :'signer_experience'
       }
     end
 
@@ -68,11 +67,11 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'cc_roles' => :'Array<String>',
-        :'allow_form_view' => :'Boolean',
         :'title' => :'String',
         :'subject' => :'String',
         :'message' => :'String',
-        :'form_fields' => :'Array<SubUpdateFormField>'
+        :'form_fields' => :'Array<SubUpdateFormField>',
+        :'signer_experience' => :'SubSignerExperience'
       }
     end
 
@@ -129,10 +128,6 @@ module Dropbox::Sign
         end
       end
 
-      if attributes.key?(:'allow_form_view')
-        self.allow_form_view = attributes[:'allow_form_view']
-      end
-
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -149,6 +144,10 @@ module Dropbox::Sign
         if (value = attributes[:'form_fields']).is_a?(Array)
           self.form_fields = value
         end
+      end
+
+      if attributes.key?(:'signer_experience')
+        self.signer_experience = attributes[:'signer_experience']
       end
     end
 
@@ -201,11 +200,11 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           cc_roles == o.cc_roles &&
-          allow_form_view == o.allow_form_view &&
           title == o.title &&
           subject == o.subject &&
           message == o.message &&
-          form_fields == o.form_fields
+          form_fields == o.form_fields &&
+          signer_experience == o.signer_experience
     end
 
     # @see the `==` method
@@ -217,7 +216,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cc_roles, allow_form_view, title, subject, message, form_fields].hash
+      [cc_roles, title, subject, message, form_fields, signer_experience].hash
     end
 
     # Builds the object from hash

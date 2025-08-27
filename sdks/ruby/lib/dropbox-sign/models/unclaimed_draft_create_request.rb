@@ -35,10 +35,6 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_decline
 
-    # Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-    # @return [Boolean]
-    attr_accessor :allow_form_view
-
     # A list describing the attachments
     # @return [Array<SubAttachment>]
     attr_accessor :attachments
@@ -117,6 +113,9 @@ module Dropbox::Sign
     # @return [Integer, nil]
     attr_accessor :expires_at
 
+    # @return [SubSignerExperience]
+    attr_accessor :signer_experience
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -146,7 +145,6 @@ module Dropbox::Sign
         :'files' => :'files',
         :'file_urls' => :'file_urls',
         :'allow_decline' => :'allow_decline',
-        :'allow_form_view' => :'allow_form_view',
         :'attachments' => :'attachments',
         :'cc_email_addresses' => :'cc_email_addresses',
         :'client_id' => :'client_id',
@@ -166,7 +164,8 @@ module Dropbox::Sign
         :'test_mode' => :'test_mode',
         :'use_preexisting_fields' => :'use_preexisting_fields',
         :'use_text_tags' => :'use_text_tags',
-        :'expires_at' => :'expires_at'
+        :'expires_at' => :'expires_at',
+        :'signer_experience' => :'signer_experience'
       }
     end
 
@@ -187,7 +186,6 @@ module Dropbox::Sign
         :'files' => :'Array<File>',
         :'file_urls' => :'Array<String>',
         :'allow_decline' => :'Boolean',
-        :'allow_form_view' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
         :'cc_email_addresses' => :'Array<String>',
         :'client_id' => :'String',
@@ -207,14 +205,15 @@ module Dropbox::Sign
         :'test_mode' => :'Boolean',
         :'use_preexisting_fields' => :'Boolean',
         :'use_text_tags' => :'Boolean',
-        :'expires_at' => :'Integer'
+        :'expires_at' => :'Integer',
+        :'signer_experience' => :'SubSignerExperience'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'expires_at'
+        :'expires_at',
       ])
     end
 
@@ -279,12 +278,6 @@ module Dropbox::Sign
         self.allow_decline = attributes[:'allow_decline']
       else
         self.allow_decline = false
-      end
-
-      if attributes.key?(:'allow_form_view')
-        self.allow_form_view = attributes[:'allow_form_view']
-      else
-        self.allow_form_view = false
       end
 
       if attributes.key?(:'attachments')
@@ -392,6 +385,10 @@ module Dropbox::Sign
       if attributes.key?(:'expires_at')
         self.expires_at = attributes[:'expires_at']
       end
+
+      if attributes.key?(:'signer_experience')
+        self.signer_experience = attributes[:'signer_experience']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -469,7 +466,6 @@ module Dropbox::Sign
           files == o.files &&
           file_urls == o.file_urls &&
           allow_decline == o.allow_decline &&
-          allow_form_view == o.allow_form_view &&
           attachments == o.attachments &&
           cc_email_addresses == o.cc_email_addresses &&
           client_id == o.client_id &&
@@ -489,7 +485,8 @@ module Dropbox::Sign
           test_mode == o.test_mode &&
           use_preexisting_fields == o.use_preexisting_fields &&
           use_text_tags == o.use_text_tags &&
-          expires_at == o.expires_at
+          expires_at == o.expires_at &&
+          signer_experience == o.signer_experience
     end
 
     # @see the `==` method
@@ -501,7 +498,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, files, file_urls, allow_decline, allow_form_view, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, show_progress_stepper, signers, signing_options, signing_redirect_url, subject, test_mode, use_preexisting_fields, use_text_tags, expires_at].hash
+      [type, files, file_urls, allow_decline, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, show_progress_stepper, signers, signing_options, signing_redirect_url, subject, test_mode, use_preexisting_fields, use_text_tags, expires_at, signer_experience].hash
     end
 
     # Builds the object from hash

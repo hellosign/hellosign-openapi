@@ -17,63 +17,38 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  class EmbeddedEditUrlRequest
-    # This allows the requester to enable/disable to add or change CC roles when editing the template.
-    # @return [Boolean]
-    attr_accessor :allow_edit_ccs
+  # Signer experience description
+  class SubSignerExperience
+    # Signer experience default
+    # @return [String]
+    attr_accessor :form_view
 
-    # The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
-    # @return [Array<String>]
-    attr_accessor :cc_roles
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
 
-    # @return [SubEditorOptions]
-    attr_accessor :editor_options
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
 
-    # Provide users the ability to review/edit the template signer roles.
-    # @return [Boolean]
-    attr_accessor :force_signer_roles
-
-    # Provide users the ability to review/edit the template subject and message.
-    # @return [Boolean]
-    attr_accessor :force_subject_message
-
-    # Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.
-    # @return [Array<SubMergeField>]
-    attr_accessor :merge_fields
-
-    # This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites `show_preview=true` (if set).
-    # @return [Boolean]
-    attr_accessor :preview_only
-
-    # This allows the requester to enable the editor/preview experience.
-    # @return [Boolean]
-    attr_accessor :show_preview
-
-    # When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
-    # @return [Boolean]
-    attr_accessor :show_progress_stepper
-
-    # Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
-    # @return [Boolean]
-    attr_accessor :test_mode
-
-    # @return [SubSignerExperience]
-    attr_accessor :signer_experience
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'allow_edit_ccs' => :'allow_edit_ccs',
-        :'cc_roles' => :'cc_roles',
-        :'editor_options' => :'editor_options',
-        :'force_signer_roles' => :'force_signer_roles',
-        :'force_subject_message' => :'force_subject_message',
-        :'merge_fields' => :'merge_fields',
-        :'preview_only' => :'preview_only',
-        :'show_preview' => :'show_preview',
-        :'show_progress_stepper' => :'show_progress_stepper',
-        :'test_mode' => :'test_mode',
-        :'signer_experience' => :'signer_experience'
+        :'form_view' => :'form_view'
       }
     end
 
@@ -90,17 +65,7 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'allow_edit_ccs' => :'Boolean',
-        :'cc_roles' => :'Array<String>',
-        :'editor_options' => :'SubEditorOptions',
-        :'force_signer_roles' => :'Boolean',
-        :'force_subject_message' => :'Boolean',
-        :'merge_fields' => :'Array<SubMergeField>',
-        :'preview_only' => :'Boolean',
-        :'show_preview' => :'Boolean',
-        :'show_progress_stepper' => :'Boolean',
-        :'test_mode' => :'Boolean',
-        :'signer_experience' => :'SubSignerExperience'
+        :'form_view' => :'String'
       }
     end
 
@@ -127,90 +92,32 @@ module Dropbox::Sign
 
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
-    # @return [EmbeddedEditUrlRequest]
+    # @return [SubSignerExperience]
     def self.init(data)
       ApiClient.default.convert_to_type(
         data,
-        "EmbeddedEditUrlRequest"
-      ) || EmbeddedEditUrlRequest.new
+        "SubSignerExperience"
+      ) || SubSignerExperience.new
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::EmbeddedEditUrlRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::SubSignerExperience` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.merged_attributes.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::EmbeddedEditUrlRequest`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::SubSignerExperience`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'allow_edit_ccs')
-        self.allow_edit_ccs = attributes[:'allow_edit_ccs']
-      else
-        self.allow_edit_ccs = false
-      end
-
-      if attributes.key?(:'cc_roles')
-        if (value = attributes[:'cc_roles']).is_a?(Array)
-          self.cc_roles = value
-        end
-      end
-
-      if attributes.key?(:'editor_options')
-        self.editor_options = attributes[:'editor_options']
-      end
-
-      if attributes.key?(:'force_signer_roles')
-        self.force_signer_roles = attributes[:'force_signer_roles']
-      else
-        self.force_signer_roles = false
-      end
-
-      if attributes.key?(:'force_subject_message')
-        self.force_subject_message = attributes[:'force_subject_message']
-      else
-        self.force_subject_message = false
-      end
-
-      if attributes.key?(:'merge_fields')
-        if (value = attributes[:'merge_fields']).is_a?(Array)
-          self.merge_fields = value
-        end
-      end
-
-      if attributes.key?(:'preview_only')
-        self.preview_only = attributes[:'preview_only']
-      else
-        self.preview_only = false
-      end
-
-      if attributes.key?(:'show_preview')
-        self.show_preview = attributes[:'show_preview']
-      else
-        self.show_preview = false
-      end
-
-      if attributes.key?(:'show_progress_stepper')
-        self.show_progress_stepper = attributes[:'show_progress_stepper']
-      else
-        self.show_progress_stepper = true
-      end
-
-      if attributes.key?(:'test_mode')
-        self.test_mode = attributes[:'test_mode']
-      else
-        self.test_mode = false
-      end
-
-      if attributes.key?(:'signer_experience')
-        self.signer_experience = attributes[:'signer_experience']
+      if attributes.key?(:'form_view')
+        self.form_view = attributes[:'form_view']
       end
     end
 
@@ -224,7 +131,19 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      form_view_validator = EnumAttributeValidator.new('String', ["disabled", "enabled", "enabled_by_default", "forced"])
+      return false unless form_view_validator.valid?(@form_view)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] form_view Object to be assigned
+    def form_view=(form_view)
+      validator = EnumAttributeValidator.new('String', ["disabled", "enabled", "enabled_by_default", "forced"])
+      unless validator.valid?(form_view)
+        fail ArgumentError, "invalid value for \"form_view\", must be one of #{validator.allowable_values}."
+      end
+      @form_view = form_view
     end
 
     # Checks equality by comparing each attribute.
@@ -232,17 +151,7 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          allow_edit_ccs == o.allow_edit_ccs &&
-          cc_roles == o.cc_roles &&
-          editor_options == o.editor_options &&
-          force_signer_roles == o.force_signer_roles &&
-          force_subject_message == o.force_subject_message &&
-          merge_fields == o.merge_fields &&
-          preview_only == o.preview_only &&
-          show_preview == o.show_preview &&
-          show_progress_stepper == o.show_progress_stepper &&
-          test_mode == o.test_mode &&
-          signer_experience == o.signer_experience
+          form_view == o.form_view
     end
 
     # @see the `==` method
@@ -254,7 +163,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_edit_ccs, cc_roles, editor_options, force_signer_roles, force_subject_message, merge_fields, preview_only, show_preview, show_progress_stepper, test_mode, signer_experience].hash
+      [form_view].hash
     end
 
     # Builds the object from hash

@@ -42,10 +42,6 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_decline
 
-    # Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-    # @return [Boolean]
-    attr_accessor :allow_form_view
-
     # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
     # @return [Boolean]
     attr_accessor :allow_reassign
@@ -116,6 +112,9 @@ module Dropbox::Sign
     # @return [Integer, nil]
     attr_accessor :expires_at
 
+    # @return [SubSignerExperience]
+    attr_accessor :signer_experience
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -125,7 +124,6 @@ module Dropbox::Sign
         :'signers' => :'signers',
         :'grouped_signers' => :'grouped_signers',
         :'allow_decline' => :'allow_decline',
-        :'allow_form_view' => :'allow_form_view',
         :'allow_reassign' => :'allow_reassign',
         :'attachments' => :'attachments',
         :'cc_email_addresses' => :'cc_email_addresses',
@@ -143,7 +141,8 @@ module Dropbox::Sign
         :'title' => :'title',
         :'use_text_tags' => :'use_text_tags',
         :'populate_auto_fill_fields' => :'populate_auto_fill_fields',
-        :'expires_at' => :'expires_at'
+        :'expires_at' => :'expires_at',
+        :'signer_experience' => :'signer_experience'
       }
     end
 
@@ -166,7 +165,6 @@ module Dropbox::Sign
         :'signers' => :'Array<SubSignatureRequestSigner>',
         :'grouped_signers' => :'Array<SubSignatureRequestGroupedSigners>',
         :'allow_decline' => :'Boolean',
-        :'allow_form_view' => :'Boolean',
         :'allow_reassign' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
         :'cc_email_addresses' => :'Array<String>',
@@ -184,14 +182,15 @@ module Dropbox::Sign
         :'title' => :'String',
         :'use_text_tags' => :'Boolean',
         :'populate_auto_fill_fields' => :'Boolean',
-        :'expires_at' => :'Integer'
+        :'expires_at' => :'Integer',
+        :'signer_experience' => :'SubSignerExperience'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'expires_at'
+        :'expires_at',
       ])
     end
 
@@ -268,12 +267,6 @@ module Dropbox::Sign
         self.allow_decline = attributes[:'allow_decline']
       else
         self.allow_decline = false
-      end
-
-      if attributes.key?(:'allow_form_view')
-        self.allow_form_view = attributes[:'allow_form_view']
-      else
-        self.allow_form_view = false
       end
 
       if attributes.key?(:'allow_reassign')
@@ -371,6 +364,10 @@ module Dropbox::Sign
       if attributes.key?(:'expires_at')
         self.expires_at = attributes[:'expires_at']
       end
+
+      if attributes.key?(:'signer_experience')
+        self.signer_experience = attributes[:'signer_experience']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -463,7 +460,6 @@ module Dropbox::Sign
           signers == o.signers &&
           grouped_signers == o.grouped_signers &&
           allow_decline == o.allow_decline &&
-          allow_form_view == o.allow_form_view &&
           allow_reassign == o.allow_reassign &&
           attachments == o.attachments &&
           cc_email_addresses == o.cc_email_addresses &&
@@ -481,7 +477,8 @@ module Dropbox::Sign
           title == o.title &&
           use_text_tags == o.use_text_tags &&
           populate_auto_fill_fields == o.populate_auto_fill_fields &&
-          expires_at == o.expires_at
+          expires_at == o.expires_at &&
+          signer_experience == o.signer_experience
     end
 
     # @see the `==` method
@@ -493,7 +490,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_form_view, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at].hash
+      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at, signer_experience].hash
     end
 
     # Builds the object from hash
