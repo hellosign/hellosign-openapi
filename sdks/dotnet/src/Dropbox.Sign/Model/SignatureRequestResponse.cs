@@ -66,7 +66,8 @@ namespace Dropbox.Sign.Model
         /// <param name="responseData">An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers..</param>
         /// <param name="signatures">An array of signature objects, 1 for each signer..</param>
         /// <param name="bulkSendJobId">The ID of the Bulk Send job which sent the signature request, if applicable..</param>
-        public SignatureRequestResponse(bool testMode = false, string signatureRequestId = default(string), string requesterEmailAddress = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), int? expiresAt = default(int?), bool isComplete = default(bool), bool isDeclined = default(bool), bool hasError = default(bool), string filesUrl = default(string), string signingUrl = default(string), string detailsUrl = default(string), List<string> ccEmailAddresses = default(List<string>), string signingRedirectUrl = default(string), string finalCopyUri = default(string), List<string> templateIds = default(List<string>), List<SignatureRequestResponseCustomFieldBase> customFields = default(List<SignatureRequestResponseCustomFieldBase>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), List<SignatureRequestResponseDataBase> responseData = default(List<SignatureRequestResponseDataBase>), List<SignatureRequestResponseSignatures> signatures = default(List<SignatureRequestResponseSignatures>), string bulkSendJobId = default(string))
+        /// <param name="signerExperience">signerExperience.</param>
+        public SignatureRequestResponse(bool testMode = false, string signatureRequestId = default(string), string requesterEmailAddress = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), int? expiresAt = default(int?), bool isComplete = default(bool), bool isDeclined = default(bool), bool hasError = default(bool), string filesUrl = default(string), string signingUrl = default(string), string detailsUrl = default(string), List<string> ccEmailAddresses = default(List<string>), string signingRedirectUrl = default(string), string finalCopyUri = default(string), List<string> templateIds = default(List<string>), List<SignatureRequestResponseCustomFieldBase> customFields = default(List<SignatureRequestResponseCustomFieldBase>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), List<SignatureRequestResponseDataBase> responseData = default(List<SignatureRequestResponseDataBase>), List<SignatureRequestResponseSignatures> signatures = default(List<SignatureRequestResponseSignatures>), string bulkSendJobId = default(string), SignatureRequestSignerExperience signerExperience = default(SignatureRequestSignerExperience))
         {
 
             this.TestMode = testMode;
@@ -94,6 +95,7 @@ namespace Dropbox.Sign.Model
             this.ResponseData = responseData;
             this.Signatures = signatures;
             this.BulkSendJobId = bulkSendJobId;
+            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -288,6 +290,12 @@ namespace Dropbox.Sign.Model
         public string BulkSendJobId { get; set; }
 
         /// <summary>
+        /// Gets or Sets SignerExperience
+        /// </summary>
+        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
+        public SignatureRequestSignerExperience SignerExperience { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -320,6 +328,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  ResponseData: ").Append(ResponseData).Append("\n");
             sb.Append("  Signatures: ").Append(Signatures).Append("\n");
             sb.Append("  BulkSendJobId: ").Append(BulkSendJobId).Append("\n");
+            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -481,6 +490,11 @@ namespace Dropbox.Sign.Model
                     this.BulkSendJobId == input.BulkSendJobId ||
                     (this.BulkSendJobId != null &&
                     this.BulkSendJobId.Equals(input.BulkSendJobId))
+                ) &&
+                (
+                    this.SignerExperience == input.SignerExperience ||
+                    (this.SignerExperience != null &&
+                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -577,6 +591,10 @@ namespace Dropbox.Sign.Model
                 if (this.BulkSendJobId != null)
                 {
                     hashCode = (hashCode * 59) + this.BulkSendJobId.GetHashCode();
+                }
+                if (this.SignerExperience != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
                 }
                 return hashCode;
             }
@@ -768,6 +786,13 @@ namespace Dropbox.Sign.Model
                 Property = "BulkSendJobId",
                 Type = "string",
                 Value = BulkSendJobId,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "signer_experience",
+                Property = "SignerExperience",
+                Type = "SignatureRequestSignerExperience",
+                Value = SignerExperience,
             });
 
             return types;

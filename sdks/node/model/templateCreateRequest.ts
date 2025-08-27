@@ -29,6 +29,7 @@ import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubMergeField } from "./subMergeField";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubTemplateRole } from "./subTemplateRole";
 
 export class TemplateCreateRequest {
@@ -52,10 +53,6 @@ export class TemplateCreateRequest {
    * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
    */
   "allowReassign"?: boolean = false;
-  /**
-   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-   */
-  "allowFormView"?: boolean = false;
   /**
    * A list describing the attachments
    */
@@ -105,6 +102,7 @@ export class TemplateCreateRequest {
    * Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
    */
   "usePreexistingFields"?: boolean = false;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -132,11 +130,6 @@ export class TemplateCreateRequest {
     {
       name: "allowReassign",
       baseName: "allow_reassign",
-      type: "boolean",
-    },
-    {
-      name: "allowFormView",
-      baseName: "allow_form_view",
       type: "boolean",
     },
     {
@@ -203,6 +196,11 @@ export class TemplateCreateRequest {
       name: "usePreexistingFields",
       baseName: "use_preexisting_fields",
       type: "boolean",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

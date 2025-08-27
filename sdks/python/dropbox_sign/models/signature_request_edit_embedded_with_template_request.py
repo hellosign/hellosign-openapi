@@ -26,6 +26,7 @@ from dropbox_sign.models.sub_custom_field import SubCustomField
 from dropbox_sign.models.sub_signature_request_template_signer import (
     SubSignatureRequestTemplateSigner,
 )
+from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from typing import Optional, Set
 from typing_extensions import Self
@@ -95,6 +96,7 @@ class SignatureRequestEditEmbeddedWithTemplateRequest(BaseModel):
         default=False,
         description="Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.",
     )
+    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "template_ids",
         "client_id",
@@ -111,6 +113,7 @@ class SignatureRequestEditEmbeddedWithTemplateRequest(BaseModel):
         "test_mode",
         "title",
         "populate_auto_fill_fields",
+        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -187,6 +190,9 @@ class SignatureRequestEditEmbeddedWithTemplateRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
             _dict["signing_options"] = self.signing_options.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of signer_experience
+        if self.signer_experience:
+            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -244,6 +250,11 @@ class SignatureRequestEditEmbeddedWithTemplateRequest(BaseModel):
                     if obj.get("populate_auto_fill_fields") is not None
                     else False
                 ),
+                "signer_experience": (
+                    SubSignerExperience.from_dict(obj["signer_experience"])
+                    if obj.get("signer_experience") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -276,6 +287,7 @@ class SignatureRequestEditEmbeddedWithTemplateRequest(BaseModel):
             "test_mode": "(bool,)",
             "title": "(str,)",
             "populate_auto_fill_fields": "(bool,)",
+            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

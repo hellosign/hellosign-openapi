@@ -16,6 +16,7 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.dropbox.sign.model.SubSignerExperience;
 import com.dropbox.sign.model.SubUpdateFormField;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -37,11 +38,11 @@ import com.dropbox.sign.ApiException;
  */
 @JsonPropertyOrder({
   TemplateUpdateRequest.JSON_PROPERTY_CC_ROLES,
-  TemplateUpdateRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   TemplateUpdateRequest.JSON_PROPERTY_TITLE,
   TemplateUpdateRequest.JSON_PROPERTY_SUBJECT,
   TemplateUpdateRequest.JSON_PROPERTY_MESSAGE,
-  TemplateUpdateRequest.JSON_PROPERTY_FORM_FIELDS
+  TemplateUpdateRequest.JSON_PROPERTY_FORM_FIELDS,
+  TemplateUpdateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -49,10 +50,6 @@ public class TemplateUpdateRequest {
   public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
   @jakarta.annotation.Nullable
   private List<String> ccRoles = null;
-
-  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
-  @jakarta.annotation.Nullable
-  private Boolean allowFormView;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   @jakarta.annotation.Nullable
@@ -69,6 +66,10 @@ public class TemplateUpdateRequest {
   public static final String JSON_PROPERTY_FORM_FIELDS = "form_fields";
   @jakarta.annotation.Nullable
   private List<SubUpdateFormField> formFields = null;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SubSignerExperience signerExperience;
 
   public TemplateUpdateRequest() { 
   }
@@ -118,31 +119,6 @@ public class TemplateUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCcRoles(@jakarta.annotation.Nullable List<String> ccRoles) {
     this.ccRoles = ccRoles;
-  }
-
-
-  public TemplateUpdateRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
-    return this;
-  }
-
-  /**
-   * The CC roles that must be assigned when using the template to send a signature request. If set to &#x60;true&#x60; all the form fields on template document must have non-empty names.
-   * @return allowFormView
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowFormView() {
-    return allowFormView;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
   }
 
 
@@ -254,6 +230,31 @@ public class TemplateUpdateRequest {
   }
 
 
+  public TemplateUpdateRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   /**
    * Return true if this TemplateUpdateRequest object is equal to o.
    */
@@ -267,16 +268,16 @@ public class TemplateUpdateRequest {
     }
     TemplateUpdateRequest templateUpdateRequest = (TemplateUpdateRequest) o;
     return Objects.equals(this.ccRoles, templateUpdateRequest.ccRoles) &&
-        Objects.equals(this.allowFormView, templateUpdateRequest.allowFormView) &&
         Objects.equals(this.title, templateUpdateRequest.title) &&
         Objects.equals(this.subject, templateUpdateRequest.subject) &&
         Objects.equals(this.message, templateUpdateRequest.message) &&
-        Objects.equals(this.formFields, templateUpdateRequest.formFields);
+        Objects.equals(this.formFields, templateUpdateRequest.formFields) &&
+        Objects.equals(this.signerExperience, templateUpdateRequest.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccRoles, allowFormView, title, subject, message, formFields);
+    return Objects.hash(ccRoles, title, subject, message, formFields, signerExperience);
   }
 
   @Override
@@ -284,11 +285,11 @@ public class TemplateUpdateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateUpdateRequest {\n");
     sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
-    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    formFields: ").append(toIndentedString(formFields)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -314,25 +315,6 @@ public class TemplateUpdateRequest {
         }
         else {
             map.put("cc_roles", JSON.getDefault().getMapper().writeValueAsString(ccRoles));
-        }
-    }
-    if (allowFormView != null) {
-        if (isFileTypeOrListOfFiles(allowFormView)) {
-            fileTypeFound = true;
-        }
-
-        if (allowFormView.getClass().equals(java.io.File.class) ||
-            allowFormView.getClass().equals(Integer.class) ||
-            allowFormView.getClass().equals(String.class) ||
-            allowFormView.getClass().isEnum()) {
-            map.put("allow_form_view", allowFormView);
-        } else if (isListOfFile(allowFormView)) {
-            for(int i = 0; i< getListSize(allowFormView); i++) {
-                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
-            }
-        }
-        else {
-            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (title != null) {
@@ -409,6 +391,25 @@ public class TemplateUpdateRequest {
         }
         else {
             map.put("form_fields", JSON.getDefault().getMapper().writeValueAsString(formFields));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

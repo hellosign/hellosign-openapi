@@ -6,6 +6,7 @@ import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubMergeField } from "./subMergeField";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubTemplateRole } from "./subTemplateRole";
 export declare class TemplateCreateEmbeddedDraftRequest {
     "clientId": string;
@@ -13,7 +14,6 @@ export declare class TemplateCreateEmbeddedDraftRequest {
     "fileUrls"?: Array<string>;
     "allowCcs"?: boolean;
     "allowReassign"?: boolean;
-    "allowFormView"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccRoles"?: Array<string>;
     "editorOptions"?: SubEditorOptions;
@@ -36,6 +36,7 @@ export declare class TemplateCreateEmbeddedDraftRequest {
     "testMode"?: boolean;
     "title"?: string;
     "usePreexistingFields"?: boolean;
+    "signerExperience"?: SubSignerExperience;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

@@ -31,6 +31,7 @@ import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 
 export class SignatureRequestSendRequest {
@@ -58,10 +59,6 @@ export class SignatureRequestSendRequest {
    * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
    */
   "allowReassign"?: boolean = false;
-  /**
-   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-   */
-  "allowFormView"?: boolean = false;
   /**
    * A list describing the attachments
    */
@@ -138,6 +135,7 @@ export class SignatureRequestSendRequest {
    * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
   "expiresAt"?: number | null;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -170,11 +168,6 @@ export class SignatureRequestSendRequest {
     {
       name: "allowReassign",
       baseName: "allow_reassign",
-      type: "boolean",
-    },
-    {
-      name: "allowFormView",
-      baseName: "allow_form_view",
       type: "boolean",
     },
     {
@@ -276,6 +269,11 @@ export class SignatureRequestSendRequest {
       name: "expiresAt",
       baseName: "expires_at",
       type: "number",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

@@ -103,6 +103,7 @@ import { SignatureRequestResponseDataValueTextMerge } from "./signatureRequestRe
 import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSignatures";
 import { SignatureRequestSendRequest } from "./signatureRequestSendRequest";
 import { SignatureRequestSendWithTemplateRequest } from "./signatureRequestSendWithTemplateRequest";
+import { SignatureRequestSignerExperience } from "./signatureRequestSignerExperience";
 import { SignatureRequestUpdateRequest } from "./signatureRequestUpdateRequest";
 import { SubAttachment } from "./subAttachment";
 import { SubBulkSignerList } from "./subBulkSignerList";
@@ -134,6 +135,7 @@ import { SubOptions } from "./subOptions";
 import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 import { SubTeamResponse } from "./subTeamResponse";
 import { SubTemplateRole } from "./subTemplateRole";
@@ -221,6 +223,8 @@ export let enumsMap: { [index: string]: any } = {
   SignatureRequestResponseCustomFieldTypeEnum:
     SignatureRequestResponseCustomFieldTypeEnum,
   SignatureRequestResponseDataTypeEnum: SignatureRequestResponseDataTypeEnum,
+  "SignatureRequestSignerExperience.FormViewEnum":
+    SignatureRequestSignerExperience.FormViewEnum,
   "SubFieldOptions.DateFormatEnum": SubFieldOptions.DateFormatEnum,
   "SubFormFieldRuleAction.TypeEnum": SubFormFieldRuleAction.TypeEnum,
   "SubFormFieldRuleTrigger.OperatorEnum": SubFormFieldRuleTrigger.OperatorEnum,
@@ -244,6 +248,7 @@ export let enumsMap: { [index: string]: any } = {
     SubSignatureRequestSigner.SmsPhoneNumberTypeEnum,
   "SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum":
     SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum,
+  "SubSignerExperience.FormViewEnum": SubSignerExperience.FormViewEnum,
   "SubSigningOptions.DefaultTypeEnum": SubSigningOptions.DefaultTypeEnum,
   "SubWhiteLabelingOptions.LegalVersionEnum":
     SubWhiteLabelingOptions.LegalVersionEnum,
@@ -361,6 +366,7 @@ export let typeMap: { [index: string]: any } = {
   SignatureRequestSendRequest: SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest:
     SignatureRequestSendWithTemplateRequest,
+  SignatureRequestSignerExperience: SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest: SignatureRequestUpdateRequest,
   SubAttachment: SubAttachment,
   SubBulkSignerList: SubBulkSignerList,
@@ -390,6 +396,7 @@ export let typeMap: { [index: string]: any } = {
   SubSignatureRequestGroupedSigners: SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner: SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner: SubSignatureRequestTemplateSigner,
+  SubSignerExperience: SubSignerExperience,
   SubSigningOptions: SubSigningOptions,
   SubTeamResponse: SubTeamResponse,
   SubTemplateRole: SubTemplateRole,
@@ -589,6 +596,7 @@ export {
   SignatureRequestResponseSignatures,
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
+  SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest,
   SubAttachment,
   SubBulkSignerList,
@@ -620,6 +628,7 @@ export {
   SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
+  SubSignerExperience,
   SubSigningOptions,
   SubTeamResponse,
   SubTemplateRole,

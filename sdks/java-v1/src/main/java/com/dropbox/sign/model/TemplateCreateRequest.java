@@ -33,7 +33,6 @@ import java.util.Objects;
     TemplateCreateRequest.JSON_PROPERTY_FILES,
     TemplateCreateRequest.JSON_PROPERTY_FILE_URLS,
     TemplateCreateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
-    TemplateCreateRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
     TemplateCreateRequest.JSON_PROPERTY_ATTACHMENTS,
     TemplateCreateRequest.JSON_PROPERTY_CC_ROLES,
     TemplateCreateRequest.JSON_PROPERTY_CLIENT_ID,
@@ -46,7 +45,8 @@ import java.util.Objects;
     TemplateCreateRequest.JSON_PROPERTY_SUBJECT,
     TemplateCreateRequest.JSON_PROPERTY_TEST_MODE,
     TemplateCreateRequest.JSON_PROPERTY_TITLE,
-    TemplateCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
+    TemplateCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
+    TemplateCreateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -69,9 +69,6 @@ public class TemplateCreateRequest {
 
     public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
     @javax.annotation.Nullable private Boolean allowReassign = false;
-
-    public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
-    @javax.annotation.Nullable private Boolean allowFormView = false;
 
     public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
     @javax.annotation.Nullable private List<SubAttachment> attachments = null;
@@ -111,6 +108,9 @@ public class TemplateCreateRequest {
 
     public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
     @javax.annotation.Nullable private Boolean usePreexistingFields = false;
+
+    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+    @javax.annotation.Nullable private SubSignerExperience signerExperience;
 
     public TemplateCreateRequest() {}
 
@@ -295,29 +295,6 @@ public class TemplateCreateRequest {
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAllowReassign(@javax.annotation.Nullable Boolean allowReassign) {
         this.allowReassign = allowReassign;
-    }
-
-    public TemplateCreateRequest allowFormView(@javax.annotation.Nullable Boolean allowFormView) {
-        this.allowFormView = allowFormView;
-        return this;
-    }
-
-    /**
-     * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to
-     * &#x60;false&#x60;.
-     *
-     * @return allowFormView
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getAllowFormView() {
-        return allowFormView;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowFormView(@javax.annotation.Nullable Boolean allowFormView) {
-        this.allowFormView = allowFormView;
     }
 
     public TemplateCreateRequest attachments(
@@ -676,6 +653,30 @@ public class TemplateCreateRequest {
         this.usePreexistingFields = usePreexistingFields;
     }
 
+    public TemplateCreateRequest signerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+        return this;
+    }
+
+    /**
+     * Get signerExperience
+     *
+     * @return signerExperience
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubSignerExperience getSignerExperience() {
+        return signerExperience;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSignerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+    }
+
     /** Return true if this TemplateCreateRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -692,7 +693,6 @@ public class TemplateCreateRequest {
                 && Objects.equals(this.files, templateCreateRequest.files)
                 && Objects.equals(this.fileUrls, templateCreateRequest.fileUrls)
                 && Objects.equals(this.allowReassign, templateCreateRequest.allowReassign)
-                && Objects.equals(this.allowFormView, templateCreateRequest.allowFormView)
                 && Objects.equals(this.attachments, templateCreateRequest.attachments)
                 && Objects.equals(this.ccRoles, templateCreateRequest.ccRoles)
                 && Objects.equals(this.clientId, templateCreateRequest.clientId)
@@ -706,7 +706,8 @@ public class TemplateCreateRequest {
                 && Objects.equals(this.testMode, templateCreateRequest.testMode)
                 && Objects.equals(this.title, templateCreateRequest.title)
                 && Objects.equals(
-                        this.usePreexistingFields, templateCreateRequest.usePreexistingFields);
+                        this.usePreexistingFields, templateCreateRequest.usePreexistingFields)
+                && Objects.equals(this.signerExperience, templateCreateRequest.signerExperience);
     }
 
     @Override
@@ -717,7 +718,6 @@ public class TemplateCreateRequest {
                 files,
                 fileUrls,
                 allowReassign,
-                allowFormView,
                 attachments,
                 ccRoles,
                 clientId,
@@ -730,7 +730,8 @@ public class TemplateCreateRequest {
                 subject,
                 testMode,
                 title,
-                usePreexistingFields);
+                usePreexistingFields,
+                signerExperience);
     }
 
     @Override
@@ -744,7 +745,6 @@ public class TemplateCreateRequest {
         sb.append("    files: ").append(toIndentedString(files)).append("\n");
         sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
         sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
-        sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
         sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
         sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
         sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
@@ -760,6 +760,7 @@ public class TemplateCreateRequest {
         sb.append("    usePreexistingFields: ")
                 .append(toIndentedString(usePreexistingFields))
                 .append("\n");
+        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -868,26 +869,6 @@ public class TemplateCreateRequest {
                     map.put(
                             "allow_reassign",
                             JSON.getDefault().getMapper().writeValueAsString(allowReassign));
-                }
-            }
-            if (allowFormView != null) {
-                if (isFileTypeOrListOfFiles(allowFormView)) {
-                    fileTypeFound = true;
-                }
-
-                if (allowFormView.getClass().equals(java.io.File.class)
-                        || allowFormView.getClass().equals(Integer.class)
-                        || allowFormView.getClass().equals(String.class)
-                        || allowFormView.getClass().isEnum()) {
-                    map.put("allow_form_view", allowFormView);
-                } else if (isListOfFile(allowFormView)) {
-                    for (int i = 0; i < getListSize(allowFormView); i++) {
-                        map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
-                    }
-                } else {
-                    map.put(
-                            "allow_form_view",
-                            JSON.getDefault().getMapper().writeValueAsString(allowFormView));
                 }
             }
             if (attachments != null) {
@@ -1140,6 +1121,26 @@ public class TemplateCreateRequest {
                     map.put(
                             "use_preexisting_fields",
                             JSON.getDefault().getMapper().writeValueAsString(usePreexistingFields));
+                }
+            }
+            if (signerExperience != null) {
+                if (isFileTypeOrListOfFiles(signerExperience)) {
+                    fileTypeFound = true;
+                }
+
+                if (signerExperience.getClass().equals(java.io.File.class)
+                        || signerExperience.getClass().equals(Integer.class)
+                        || signerExperience.getClass().equals(String.class)
+                        || signerExperience.getClass().isEnum()) {
+                    map.put("signer_experience", signerExperience);
+                } else if (isListOfFile(signerExperience)) {
+                    for (int i = 0; i < getListSize(signerExperience); i++) {
+                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+                    }
+                } else {
+                    map.put(
+                            "signer_experience",
+                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

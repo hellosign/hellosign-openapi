@@ -15,7 +15,6 @@ export declare class UnclaimedDraftCreateEmbeddedRequest {
     "fileUrls"?: Array<string>;
     "allowCcs"?: boolean;
     "allowDecline"?: boolean;
-    "allowFormView"?: boolean;
     "allowReassign"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccEmailAddresses"?: Array<string>;

@@ -31,6 +31,7 @@ import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 
 export class SignatureRequestCreateEmbeddedRequest {
@@ -58,10 +59,6 @@ export class SignatureRequestCreateEmbeddedRequest {
    * Allows signers to decline to sign a document if `true`. Defaults to `false`.
    */
   "allowDecline"?: boolean = false;
-  /**
-   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-   */
-  "allowFormView"?: boolean = false;
   /**
    * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
    */
@@ -124,6 +121,7 @@ export class SignatureRequestCreateEmbeddedRequest {
    * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  **NOTE:** Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    */
   "populateAutoFillFields"?: boolean = false;
+  "signerExperience"?: SubSignerExperience;
   /**
    * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
@@ -160,11 +158,6 @@ export class SignatureRequestCreateEmbeddedRequest {
     {
       name: "allowDecline",
       baseName: "allow_decline",
-      type: "boolean",
-    },
-    {
-      name: "allowFormView",
-      baseName: "allow_form_view",
       type: "boolean",
     },
     {
@@ -251,6 +244,11 @@ export class SignatureRequestCreateEmbeddedRequest {
       name: "populateAutoFillFields",
       baseName: "populate_auto_fill_fields",
       type: "boolean",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
     {
       name: "expiresAt",

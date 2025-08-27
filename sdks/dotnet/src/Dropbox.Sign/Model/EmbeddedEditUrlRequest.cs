@@ -42,7 +42,6 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="EmbeddedEditUrlRequest" /> class.
         /// </summary>
         /// <param name="allowEditCcs">This allows the requester to enable/disable to add or change CC roles when editing the template. (default to false).</param>
-        /// <param name="allowFormView">Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="ccRoles">The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request..</param>
         /// <param name="editorOptions">editorOptions.</param>
         /// <param name="forceSignerRoles">Provide users the ability to review/edit the template signer roles. (default to false).</param>
@@ -52,11 +51,11 @@ namespace Dropbox.Sign.Model
         /// <param name="showPreview">This allows the requester to enable the editor/preview experience. (default to false).</param>
         /// <param name="showProgressStepper">When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden. (default to true).</param>
         /// <param name="testMode">Whether this is a test, locked templates will only be available for editing if this is set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
-        public EmbeddedEditUrlRequest(bool allowEditCcs = false, bool allowFormView = false, List<string> ccRoles = default(List<string>), SubEditorOptions editorOptions = default(SubEditorOptions), bool forceSignerRoles = false, bool forceSubjectMessage = false, List<SubMergeField> mergeFields = default(List<SubMergeField>), bool previewOnly = false, bool showPreview = false, bool showProgressStepper = true, bool testMode = false)
+        /// <param name="signerExperience">signerExperience.</param>
+        public EmbeddedEditUrlRequest(bool allowEditCcs = false, List<string> ccRoles = default(List<string>), SubEditorOptions editorOptions = default(SubEditorOptions), bool forceSignerRoles = false, bool forceSubjectMessage = false, List<SubMergeField> mergeFields = default(List<SubMergeField>), bool previewOnly = false, bool showPreview = false, bool showProgressStepper = true, bool testMode = false, SubSignerExperience signerExperience = default(SubSignerExperience))
         {
 
             this.AllowEditCcs = allowEditCcs;
-            this.AllowFormView = allowFormView;
             this.CcRoles = ccRoles;
             this.EditorOptions = editorOptions;
             this.ForceSignerRoles = forceSignerRoles;
@@ -66,6 +65,7 @@ namespace Dropbox.Sign.Model
             this.ShowPreview = showPreview;
             this.ShowProgressStepper = showProgressStepper;
             this.TestMode = testMode;
+            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -90,13 +90,6 @@ namespace Dropbox.Sign.Model
         /// <value>This allows the requester to enable/disable to add or change CC roles when editing the template.</value>
         [DataMember(Name = "allow_edit_ccs", EmitDefaultValue = true)]
         public bool AllowEditCcs { get; set; }
-
-        /// <summary>
-        /// Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-        /// </summary>
-        /// <value>Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
-        [DataMember(Name = "allow_form_view", EmitDefaultValue = true)]
-        public bool AllowFormView { get; set; }
 
         /// <summary>
         /// The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
@@ -161,6 +154,12 @@ namespace Dropbox.Sign.Model
         public bool TestMode { get; set; }
 
         /// <summary>
+        /// Gets or Sets SignerExperience
+        /// </summary>
+        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
+        public SubSignerExperience SignerExperience { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -169,7 +168,6 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class EmbeddedEditUrlRequest {\n");
             sb.Append("  AllowEditCcs: ").Append(AllowEditCcs).Append("\n");
-            sb.Append("  AllowFormView: ").Append(AllowFormView).Append("\n");
             sb.Append("  CcRoles: ").Append(CcRoles).Append("\n");
             sb.Append("  EditorOptions: ").Append(EditorOptions).Append("\n");
             sb.Append("  ForceSignerRoles: ").Append(ForceSignerRoles).Append("\n");
@@ -179,6 +177,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  ShowPreview: ").Append(ShowPreview).Append("\n");
             sb.Append("  ShowProgressStepper: ").Append(ShowProgressStepper).Append("\n");
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
+            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -217,10 +216,6 @@ namespace Dropbox.Sign.Model
                 (
                     this.AllowEditCcs == input.AllowEditCcs ||
                     this.AllowEditCcs.Equals(input.AllowEditCcs)
-                ) &&
-                (
-                    this.AllowFormView == input.AllowFormView ||
-                    this.AllowFormView.Equals(input.AllowFormView)
                 ) &&
                 (
                     this.CcRoles == input.CcRoles ||
@@ -262,6 +257,11 @@ namespace Dropbox.Sign.Model
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
+                ) &&
+                (
+                    this.SignerExperience == input.SignerExperience ||
+                    (this.SignerExperience != null &&
+                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -275,7 +275,6 @@ namespace Dropbox.Sign.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.AllowEditCcs.GetHashCode();
-                hashCode = (hashCode * 59) + this.AllowFormView.GetHashCode();
                 if (this.CcRoles != null)
                 {
                     hashCode = (hashCode * 59) + this.CcRoles.GetHashCode();
@@ -294,6 +293,10 @@ namespace Dropbox.Sign.Model
                 hashCode = (hashCode * 59) + this.ShowPreview.GetHashCode();
                 hashCode = (hashCode * 59) + this.ShowProgressStepper.GetHashCode();
                 hashCode = (hashCode * 59) + this.TestMode.GetHashCode();
+                if (this.SignerExperience != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -316,13 +319,6 @@ namespace Dropbox.Sign.Model
                 Property = "AllowEditCcs",
                 Type = "bool",
                 Value = AllowEditCcs,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "allow_form_view",
-                Property = "AllowFormView",
-                Type = "bool",
-                Value = AllowFormView,
             });
             types.Add(new OpenApiType()
             {
@@ -386,6 +382,13 @@ namespace Dropbox.Sign.Model
                 Property = "TestMode",
                 Type = "bool",
                 Value = TestMode,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "signer_experience",
+                Property = "SignerExperience",
+                Type = "SubSignerExperience",
+                Value = SignerExperience,
             });
 
             return types;

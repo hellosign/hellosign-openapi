@@ -23,6 +23,7 @@ import com.dropbox.sign.model.SubFormFieldGroup;
 import com.dropbox.sign.model.SubFormFieldRule;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
 import com.dropbox.sign.model.SubMergeField;
+import com.dropbox.sign.model.SubSignerExperience;
 import com.dropbox.sign.model.SubTemplateRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -51,7 +52,6 @@ import com.dropbox.sign.ApiException;
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FILE_URLS,
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_CCS,
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_REASSIGN,
-  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ATTACHMENTS,
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_CC_ROLES,
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_EDITOR_OPTIONS,
@@ -71,7 +71,8 @@ import com.dropbox.sign.ApiException;
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SUBJECT,
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TEST_MODE,
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TITLE,
-  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -95,10 +96,6 @@ public class TemplateCreateEmbeddedDraftRequest {
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
   @jakarta.annotation.Nullable
   private Boolean allowReassign = false;
-
-  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
-  @jakarta.annotation.Nullable
-  private Boolean allowFormView = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   @jakarta.annotation.Nullable
@@ -179,6 +176,10 @@ public class TemplateCreateEmbeddedDraftRequest {
   public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
   @jakarta.annotation.Nullable
   private Boolean usePreexistingFields = false;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SubSignerExperience signerExperience;
 
   public TemplateCreateEmbeddedDraftRequest() { 
   }
@@ -336,31 +337,6 @@ public class TemplateCreateEmbeddedDraftRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
-  }
-
-
-  public TemplateCreateEmbeddedDraftRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
-    return this;
-  }
-
-  /**
-   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return allowFormView
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowFormView() {
-    return allowFormView;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
   }
 
 
@@ -928,6 +904,31 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
+  public TemplateCreateEmbeddedDraftRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   /**
    * Return true if this TemplateCreateEmbeddedDraftRequest object is equal to o.
    */
@@ -945,7 +946,6 @@ public class TemplateCreateEmbeddedDraftRequest {
         Objects.equals(this.fileUrls, templateCreateEmbeddedDraftRequest.fileUrls) &&
         Objects.equals(this.allowCcs, templateCreateEmbeddedDraftRequest.allowCcs) &&
         Objects.equals(this.allowReassign, templateCreateEmbeddedDraftRequest.allowReassign) &&
-        Objects.equals(this.allowFormView, templateCreateEmbeddedDraftRequest.allowFormView) &&
         Objects.equals(this.attachments, templateCreateEmbeddedDraftRequest.attachments) &&
         Objects.equals(this.ccRoles, templateCreateEmbeddedDraftRequest.ccRoles) &&
         Objects.equals(this.editorOptions, templateCreateEmbeddedDraftRequest.editorOptions) &&
@@ -965,12 +965,13 @@ public class TemplateCreateEmbeddedDraftRequest {
         Objects.equals(this.subject, templateCreateEmbeddedDraftRequest.subject) &&
         Objects.equals(this.testMode, templateCreateEmbeddedDraftRequest.testMode) &&
         Objects.equals(this.title, templateCreateEmbeddedDraftRequest.title) &&
-        Objects.equals(this.usePreexistingFields, templateCreateEmbeddedDraftRequest.usePreexistingFields);
+        Objects.equals(this.usePreexistingFields, templateCreateEmbeddedDraftRequest.usePreexistingFields) &&
+        Objects.equals(this.signerExperience, templateCreateEmbeddedDraftRequest.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, files, fileUrls, allowCcs, allowReassign, allowFormView, attachments, ccRoles, editorOptions, fieldOptions, forceSignerRoles, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, mergeFields, message, metadata, showPreview, showProgressStepper, signerRoles, skipMeNow, subject, testMode, title, usePreexistingFields);
+    return Objects.hash(clientId, files, fileUrls, allowCcs, allowReassign, attachments, ccRoles, editorOptions, fieldOptions, forceSignerRoles, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, mergeFields, message, metadata, showPreview, showProgressStepper, signerRoles, skipMeNow, subject, testMode, title, usePreexistingFields, signerExperience);
   }
 
   @Override
@@ -982,7 +983,6 @@ public class TemplateCreateEmbeddedDraftRequest {
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    allowCcs: ").append(toIndentedString(allowCcs)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
-    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
     sb.append("    editorOptions: ").append(toIndentedString(editorOptions)).append("\n");
@@ -1003,6 +1003,7 @@ public class TemplateCreateEmbeddedDraftRequest {
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    usePreexistingFields: ").append(toIndentedString(usePreexistingFields)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1104,25 +1105,6 @@ public class TemplateCreateEmbeddedDraftRequest {
         }
         else {
             map.put("allow_reassign", JSON.getDefault().getMapper().writeValueAsString(allowReassign));
-        }
-    }
-    if (allowFormView != null) {
-        if (isFileTypeOrListOfFiles(allowFormView)) {
-            fileTypeFound = true;
-        }
-
-        if (allowFormView.getClass().equals(java.io.File.class) ||
-            allowFormView.getClass().equals(Integer.class) ||
-            allowFormView.getClass().equals(String.class) ||
-            allowFormView.getClass().isEnum()) {
-            map.put("allow_form_view", allowFormView);
-        } else if (isListOfFile(allowFormView)) {
-            for(int i = 0; i< getListSize(allowFormView); i++) {
-                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
-            }
-        }
-        else {
-            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (attachments != null) {
@@ -1503,6 +1485,25 @@ public class TemplateCreateEmbeddedDraftRequest {
         }
         else {
             map.put("use_preexisting_fields", JSON.getDefault().getMapper().writeValueAsString(usePreexistingFields));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

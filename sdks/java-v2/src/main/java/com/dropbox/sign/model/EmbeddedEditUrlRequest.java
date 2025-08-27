@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubEditorOptions;
 import com.dropbox.sign.model.SubMergeField;
+import com.dropbox.sign.model.SubSignerExperience;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,7 +39,6 @@ import com.dropbox.sign.ApiException;
  */
 @JsonPropertyOrder({
   EmbeddedEditUrlRequest.JSON_PROPERTY_ALLOW_EDIT_CCS,
-  EmbeddedEditUrlRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   EmbeddedEditUrlRequest.JSON_PROPERTY_CC_ROLES,
   EmbeddedEditUrlRequest.JSON_PROPERTY_EDITOR_OPTIONS,
   EmbeddedEditUrlRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
@@ -47,7 +47,8 @@ import com.dropbox.sign.ApiException;
   EmbeddedEditUrlRequest.JSON_PROPERTY_PREVIEW_ONLY,
   EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PREVIEW,
   EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
-  EmbeddedEditUrlRequest.JSON_PROPERTY_TEST_MODE
+  EmbeddedEditUrlRequest.JSON_PROPERTY_TEST_MODE,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -55,10 +56,6 @@ public class EmbeddedEditUrlRequest {
   public static final String JSON_PROPERTY_ALLOW_EDIT_CCS = "allow_edit_ccs";
   @jakarta.annotation.Nullable
   private Boolean allowEditCcs = false;
-
-  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
-  @jakarta.annotation.Nullable
-  private Boolean allowFormView = false;
 
   public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
   @jakarta.annotation.Nullable
@@ -95,6 +92,10 @@ public class EmbeddedEditUrlRequest {
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
   @jakarta.annotation.Nullable
   private Boolean testMode = false;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SubSignerExperience signerExperience;
 
   public EmbeddedEditUrlRequest() { 
   }
@@ -136,31 +137,6 @@ public class EmbeddedEditUrlRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowEditCcs(@jakarta.annotation.Nullable Boolean allowEditCcs) {
     this.allowEditCcs = allowEditCcs;
-  }
-
-
-  public EmbeddedEditUrlRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
-    return this;
-  }
-
-  /**
-   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return allowFormView
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowFormView() {
-    return allowFormView;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
   }
 
 
@@ -405,6 +381,31 @@ public class EmbeddedEditUrlRequest {
   }
 
 
+  public EmbeddedEditUrlRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   /**
    * Return true if this EmbeddedEditUrlRequest object is equal to o.
    */
@@ -418,7 +419,6 @@ public class EmbeddedEditUrlRequest {
     }
     EmbeddedEditUrlRequest embeddedEditUrlRequest = (EmbeddedEditUrlRequest) o;
     return Objects.equals(this.allowEditCcs, embeddedEditUrlRequest.allowEditCcs) &&
-        Objects.equals(this.allowFormView, embeddedEditUrlRequest.allowFormView) &&
         Objects.equals(this.ccRoles, embeddedEditUrlRequest.ccRoles) &&
         Objects.equals(this.editorOptions, embeddedEditUrlRequest.editorOptions) &&
         Objects.equals(this.forceSignerRoles, embeddedEditUrlRequest.forceSignerRoles) &&
@@ -427,12 +427,13 @@ public class EmbeddedEditUrlRequest {
         Objects.equals(this.previewOnly, embeddedEditUrlRequest.previewOnly) &&
         Objects.equals(this.showPreview, embeddedEditUrlRequest.showPreview) &&
         Objects.equals(this.showProgressStepper, embeddedEditUrlRequest.showProgressStepper) &&
-        Objects.equals(this.testMode, embeddedEditUrlRequest.testMode);
+        Objects.equals(this.testMode, embeddedEditUrlRequest.testMode) &&
+        Objects.equals(this.signerExperience, embeddedEditUrlRequest.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEditCcs, allowFormView, ccRoles, editorOptions, forceSignerRoles, forceSubjectMessage, mergeFields, previewOnly, showPreview, showProgressStepper, testMode);
+    return Objects.hash(allowEditCcs, ccRoles, editorOptions, forceSignerRoles, forceSubjectMessage, mergeFields, previewOnly, showPreview, showProgressStepper, testMode, signerExperience);
   }
 
   @Override
@@ -440,7 +441,6 @@ public class EmbeddedEditUrlRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmbeddedEditUrlRequest {\n");
     sb.append("    allowEditCcs: ").append(toIndentedString(allowEditCcs)).append("\n");
-    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
     sb.append("    editorOptions: ").append(toIndentedString(editorOptions)).append("\n");
     sb.append("    forceSignerRoles: ").append(toIndentedString(forceSignerRoles)).append("\n");
@@ -450,6 +450,7 @@ public class EmbeddedEditUrlRequest {
     sb.append("    showPreview: ").append(toIndentedString(showPreview)).append("\n");
     sb.append("    showProgressStepper: ").append(toIndentedString(showProgressStepper)).append("\n");
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -475,25 +476,6 @@ public class EmbeddedEditUrlRequest {
         }
         else {
             map.put("allow_edit_ccs", JSON.getDefault().getMapper().writeValueAsString(allowEditCcs));
-        }
-    }
-    if (allowFormView != null) {
-        if (isFileTypeOrListOfFiles(allowFormView)) {
-            fileTypeFound = true;
-        }
-
-        if (allowFormView.getClass().equals(java.io.File.class) ||
-            allowFormView.getClass().equals(Integer.class) ||
-            allowFormView.getClass().equals(String.class) ||
-            allowFormView.getClass().isEnum()) {
-            map.put("allow_form_view", allowFormView);
-        } else if (isListOfFile(allowFormView)) {
-            for(int i = 0; i< getListSize(allowFormView); i++) {
-                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
-            }
-        }
-        else {
-            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (ccRoles != null) {
@@ -665,6 +647,25 @@ public class EmbeddedEditUrlRequest {
         }
         else {
             map.put("test_mode", JSON.getDefault().getMapper().writeValueAsString(testMode));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

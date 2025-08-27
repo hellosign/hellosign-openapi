@@ -25,16 +25,13 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 import { SubEditorOptions } from "./subEditorOptions";
 import { SubMergeField } from "./subMergeField";
+import { SubSignerExperience } from "./subSignerExperience";
 
 export class EmbeddedEditUrlRequest {
   /**
    * This allows the requester to enable/disable to add or change CC roles when editing the template.
    */
   "allowEditCcs"?: boolean = false;
-  /**
-   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-   */
-  "allowFormView"?: boolean = false;
   /**
    * The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
    */
@@ -68,6 +65,7 @@ export class EmbeddedEditUrlRequest {
    * Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
    */
   "testMode"?: boolean = false;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -75,11 +73,6 @@ export class EmbeddedEditUrlRequest {
     {
       name: "allowEditCcs",
       baseName: "allow_edit_ccs",
-      type: "boolean",
-    },
-    {
-      name: "allowFormView",
-      baseName: "allow_form_view",
       type: "boolean",
     },
     {
@@ -126,6 +119,11 @@ export class EmbeddedEditUrlRequest {
       name: "testMode",
       baseName: "test_mode",
       type: "boolean",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

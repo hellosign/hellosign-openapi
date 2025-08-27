@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 | `subject` | ```string``` |  The subject in the email that will be sent to the signers.  |  |
 | `testMode` | ```boolean``` |  Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.  |  [default to false] |
 | `title` | ```string``` |  The title you want to assign to the SignatureRequest.  |  |
+| `signerExperience` | [```SubSignerExperience```](SubSignerExperience.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

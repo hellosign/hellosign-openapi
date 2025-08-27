@@ -42,20 +42,20 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TemplateUpdateRequest" /> class.
         /// </summary>
         /// <param name="ccRoles">The CC roles that must be assigned when using the template to send a signature request..</param>
-        /// <param name="allowFormView">The CC roles that must be assigned when using the template to send a signature request. If set to &#x60;true&#x60; all the form fields on template document must have non-empty names..</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="subject">The new default template email subject..</param>
         /// <param name="message">The new default template email message..</param>
         /// <param name="formFields">A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by &#x60;api_id&#x60;, and the only supported change is renaming the field..</param>
-        public TemplateUpdateRequest(List<string> ccRoles = default(List<string>), bool allowFormView = default(bool), string title = default(string), string subject = default(string), string message = default(string), List<SubUpdateFormField> formFields = default(List<SubUpdateFormField>))
+        /// <param name="signerExperience">signerExperience.</param>
+        public TemplateUpdateRequest(List<string> ccRoles = default(List<string>), string title = default(string), string subject = default(string), string message = default(string), List<SubUpdateFormField> formFields = default(List<SubUpdateFormField>), SubSignerExperience signerExperience = default(SubSignerExperience))
         {
 
             this.CcRoles = ccRoles;
-            this.AllowFormView = allowFormView;
             this.Title = title;
             this.Subject = subject;
             this.Message = message;
             this.FormFields = formFields;
+            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -80,13 +80,6 @@ namespace Dropbox.Sign.Model
         /// <value>The CC roles that must be assigned when using the template to send a signature request.</value>
         [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
         public List<string> CcRoles { get; set; }
-
-        /// <summary>
-        /// The CC roles that must be assigned when using the template to send a signature request. If set to &#x60;true&#x60; all the form fields on template document must have non-empty names.
-        /// </summary>
-        /// <value>The CC roles that must be assigned when using the template to send a signature request. If set to &#x60;true&#x60; all the form fields on template document must have non-empty names.</value>
-        [DataMember(Name = "allow_form_view", EmitDefaultValue = true)]
-        public bool AllowFormView { get; set; }
 
         /// <summary>
         /// The title you want to assign to the SignatureRequest.
@@ -117,6 +110,12 @@ namespace Dropbox.Sign.Model
         public List<SubUpdateFormField> FormFields { get; set; }
 
         /// <summary>
+        /// Gets or Sets SignerExperience
+        /// </summary>
+        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
+        public SubSignerExperience SignerExperience { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,11 +124,11 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TemplateUpdateRequest {\n");
             sb.Append("  CcRoles: ").Append(CcRoles).Append("\n");
-            sb.Append("  AllowFormView: ").Append(AllowFormView).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  FormFields: ").Append(FormFields).Append("\n");
+            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,10 +171,6 @@ namespace Dropbox.Sign.Model
                     this.CcRoles.SequenceEqual(input.CcRoles)
                 ) &&
                 (
-                    this.AllowFormView == input.AllowFormView ||
-                    this.AllowFormView.Equals(input.AllowFormView)
-                ) &&
-                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
@@ -195,6 +190,11 @@ namespace Dropbox.Sign.Model
                     this.FormFields != null &&
                     input.FormFields != null &&
                     this.FormFields.SequenceEqual(input.FormFields)
+                ) &&
+                (
+                    this.SignerExperience == input.SignerExperience ||
+                    (this.SignerExperience != null &&
+                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -211,7 +211,6 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.CcRoles.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.AllowFormView.GetHashCode();
                 if (this.Title != null)
                 {
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
@@ -227,6 +226,10 @@ namespace Dropbox.Sign.Model
                 if (this.FormFields != null)
                 {
                     hashCode = (hashCode * 59) + this.FormFields.GetHashCode();
+                }
+                if (this.SignerExperience != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
                 }
                 return hashCode;
             }
@@ -265,13 +268,6 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
-                Name = "allow_form_view",
-                Property = "AllowFormView",
-                Type = "bool",
-                Value = AllowFormView,
-            });
-            types.Add(new OpenApiType()
-            {
                 Name = "title",
                 Property = "Title",
                 Type = "string",
@@ -297,6 +293,13 @@ namespace Dropbox.Sign.Model
                 Property = "FormFields",
                 Type = "List<SubUpdateFormField>",
                 Value = FormFields,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "signer_experience",
+                Property = "SignerExperience",
+                Type = "SubSignerExperience",
+                Value = SignerExperience,
             });
 
             return types;

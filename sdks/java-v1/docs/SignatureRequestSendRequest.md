@@ -14,7 +14,6 @@
 | `groupedSigners` | [```List<SubSignatureRequestGroupedSigners>```](SubSignatureRequestGroupedSigners.md) |  Add Grouped Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
 | `allowDecline` | ```Boolean``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  |
 | `allowReassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  |
-| `allowFormView` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  |
 | `attachments` | [```List<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
 | `ccEmailAddresses` | ```List<String>``` |  The email addresses that should be CCed.  |  |
 | `clientId` | ```String``` |  The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.  |  |
@@ -35,6 +34,7 @@
 | `title` | ```String``` |  The title you want to assign to the SignatureRequest.  |  |
 | `useTextTags` | ```Boolean``` |  Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.  |  |
 | `expiresAt` | ```Integer``` |  When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
+| `signerExperience` | [```SubSignerExperience```](SubSignerExperience.md) |    |  |
 
 
 

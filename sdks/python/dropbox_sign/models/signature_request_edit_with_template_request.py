@@ -26,6 +26,7 @@ from dropbox_sign.models.sub_custom_field import SubCustomField
 from dropbox_sign.models.sub_signature_request_template_signer import (
     SubSignatureRequestTemplateSigner,
 )
+from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from typing import Optional, Set
 from typing_extensions import Self
@@ -98,6 +99,7 @@ class SignatureRequestEditWithTemplateRequest(BaseModel):
         default=None,
         description="The title you want to assign to the SignatureRequest.",
     )
+    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "template_ids",
         "signers",
@@ -115,6 +117,7 @@ class SignatureRequestEditWithTemplateRequest(BaseModel):
         "subject",
         "test_mode",
         "title",
+        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -191,6 +194,9 @@ class SignatureRequestEditWithTemplateRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
             _dict["signing_options"] = self.signing_options.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of signer_experience
+        if self.signer_experience:
+            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -245,6 +251,11 @@ class SignatureRequestEditWithTemplateRequest(BaseModel):
                     obj.get("test_mode") if obj.get("test_mode") is not None else False
                 ),
                 "title": obj.get("title"),
+                "signer_experience": (
+                    SubSignerExperience.from_dict(obj["signer_experience"])
+                    if obj.get("signer_experience") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -278,6 +289,7 @@ class SignatureRequestEditWithTemplateRequest(BaseModel):
             "subject": "(str,)",
             "test_mode": "(bool,)",
             "title": "(str,)",
+            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

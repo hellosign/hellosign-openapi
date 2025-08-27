@@ -23,6 +23,9 @@ from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.signature_request_response_attachment import (
     SignatureRequestResponseAttachment,
 )
+from dropbox_sign.models.signature_request_signer_experience import (
+    SignatureRequestSignerExperience,
+)
 from dropbox_sign.models.template_response_account import TemplateResponseAccount
 from dropbox_sign.models.template_response_cc_role import TemplateResponseCCRole
 from dropbox_sign.models.template_response_document import TemplateResponseDocument
@@ -104,10 +107,7 @@ class TemplateResponse(BaseModel):
     attachments: Optional[List[SignatureRequestResponseAttachment]] = Field(
         default=None, description="Signer attachments."
     )
-    allow_form_view: Optional[StrictBool] = Field(
-        default=None,
-        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
-    )
+    signer_experience: Optional[SignatureRequestSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "template_id",
         "title",
@@ -125,7 +125,7 @@ class TemplateResponse(BaseModel):
         "named_form_fields",
         "accounts",
         "attachments",
-        "allow_form_view",
+        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -227,6 +227,9 @@ class TemplateResponse(BaseModel):
                 if _item_attachments:
                     _items.append(_item_attachments.to_dict())
             _dict["attachments"] = _items
+        # override the default output from pydantic by calling `to_dict()` of signer_experience
+        if self.signer_experience:
+            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -305,7 +308,11 @@ class TemplateResponse(BaseModel):
                     if obj.get("attachments") is not None
                     else None
                 ),
-                "allow_form_view": obj.get("allow_form_view"),
+                "signer_experience": (
+                    SignatureRequestSignerExperience.from_dict(obj["signer_experience"])
+                    if obj.get("signer_experience") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -339,7 +346,7 @@ class TemplateResponse(BaseModel):
             "named_form_fields": "(List[TemplateResponseDocumentFormFieldBase],)",
             "accounts": "(List[TemplateResponseAccount],)",
             "attachments": "(List[SignatureRequestResponseAttachment],)",
-            "allow_form_view": "(bool,)",
+            "signer_experience": "(SignatureRequestSignerExperience,)",
         }
 
     @classmethod

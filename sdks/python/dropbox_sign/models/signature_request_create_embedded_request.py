@@ -41,6 +41,7 @@ from dropbox_sign.models.sub_signature_request_grouped_signers import (
     SubSignatureRequestGroupedSigners,
 )
 from dropbox_sign.models.sub_signature_request_signer import SubSignatureRequestSigner
+from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from typing import Optional, Set
 from typing_extensions import Self
@@ -78,10 +79,6 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
     allow_decline: Optional[StrictBool] = Field(
         default=False,
         description="Allows signers to decline to sign a document if `true`. Defaults to `false`.",
-    )
-    allow_form_view: Optional[StrictBool] = Field(
-        default=False,
-        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
     )
     allow_reassign: Optional[StrictBool] = Field(
         default=False,
@@ -143,6 +140,7 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
         default=False,
         description="Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.",
     )
+    signer_experience: Optional[SubSignerExperience] = None
     expires_at: Optional[StrictInt] = Field(
         default=None,
         description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.",
@@ -154,7 +152,6 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
         "signers",
         "grouped_signers",
         "allow_decline",
-        "allow_form_view",
         "allow_reassign",
         "attachments",
         "cc_email_addresses",
@@ -172,6 +169,7 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
         "title",
         "use_text_tags",
         "populate_auto_fill_fields",
+        "signer_experience",
         "expires_at",
     ]
 
@@ -280,6 +278,9 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
             _dict["signing_options"] = self.signing_options.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of signer_experience
+        if self.signer_experience:
+            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -315,11 +316,6 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
                 "allow_decline": (
                     obj.get("allow_decline")
                     if obj.get("allow_decline") is not None
-                    else False
-                ),
-                "allow_form_view": (
-                    obj.get("allow_form_view")
-                    if obj.get("allow_form_view") is not None
                     else False
                 ),
                 "allow_reassign": (
@@ -394,6 +390,11 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
                     if obj.get("populate_auto_fill_fields") is not None
                     else False
                 ),
+                "signer_experience": (
+                    SubSignerExperience.from_dict(obj["signer_experience"])
+                    if obj.get("signer_experience") is not None
+                    else None
+                ),
                 "expires_at": obj.get("expires_at"),
             }
         )
@@ -418,7 +419,6 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
             "signers": "(List[SubSignatureRequestSigner],)",
             "grouped_signers": "(List[SubSignatureRequestGroupedSigners],)",
             "allow_decline": "(bool,)",
-            "allow_form_view": "(bool,)",
             "allow_reassign": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_email_addresses": "(List[str],)",
@@ -436,6 +436,7 @@ class SignatureRequestCreateEmbeddedRequest(BaseModel):
             "title": "(str,)",
             "use_text_tags": "(bool,)",
             "populate_auto_fill_fields": "(bool,)",
+            "signer_experience": "(SubSignerExperience,)",
             "expires_at": "(int,)",
         }
 

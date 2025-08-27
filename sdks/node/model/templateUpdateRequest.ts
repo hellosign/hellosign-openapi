@@ -23,6 +23,7 @@
  */
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubUpdateFormField } from "./subUpdateFormField";
 
 export class TemplateUpdateRequest {
@@ -30,10 +31,6 @@ export class TemplateUpdateRequest {
    * The CC roles that must be assigned when using the template to send a signature request.
    */
   "ccRoles"?: Array<string>;
-  /**
-   * The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.
-   */
-  "allowFormView"?: boolean;
   /**
    * The title you want to assign to the SignatureRequest.
    */
@@ -50,6 +47,7 @@ export class TemplateUpdateRequest {
    * A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.
    */
   "formFields"?: Array<SubUpdateFormField>;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -58,11 +56,6 @@ export class TemplateUpdateRequest {
       name: "ccRoles",
       baseName: "cc_roles",
       type: "Array<string>",
-    },
-    {
-      name: "allowFormView",
-      baseName: "allow_form_view",
-      type: "boolean",
     },
     {
       name: "title",
@@ -83,6 +76,11 @@ export class TemplateUpdateRequest {
       name: "formFields",
       baseName: "form_fields",
       type: "Array<SubUpdateFormField>",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

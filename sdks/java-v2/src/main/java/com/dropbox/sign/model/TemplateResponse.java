@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SignatureRequestResponseAttachment;
+import com.dropbox.sign.model.SignatureRequestSignerExperience;
 import com.dropbox.sign.model.TemplateResponseAccount;
 import com.dropbox.sign.model.TemplateResponseCCRole;
 import com.dropbox.sign.model.TemplateResponseDocument;
@@ -60,7 +61,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS,
   TemplateResponse.JSON_PROPERTY_ACCOUNTS,
   TemplateResponse.JSON_PROPERTY_ATTACHMENTS,
-  TemplateResponse.JSON_PROPERTY_ALLOW_FORM_VIEW
+  TemplateResponse.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -131,9 +132,9 @@ public class TemplateResponse {
   @jakarta.annotation.Nullable
   private List<SignatureRequestResponseAttachment> attachments = null;
 
-  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
   @jakarta.annotation.Nullable
-  private Boolean allowFormView;
+  private SignatureRequestSignerExperience signerExperience;
 
   public TemplateResponse() { 
   }
@@ -625,28 +626,28 @@ public class TemplateResponse {
   }
 
 
-  public TemplateResponse allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
+  public TemplateResponse signerExperience(@jakarta.annotation.Nullable SignatureRequestSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
     return this;
   }
 
   /**
-   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return allowFormView
+   * Get signerExperience
+   * @return signerExperience
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getAllowFormView() {
-    return allowFormView;
+  public SignatureRequestSignerExperience getSignerExperience() {
+    return signerExperience;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
+  public void setSignerExperience(@jakarta.annotation.Nullable SignatureRequestSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
   }
 
 
@@ -678,12 +679,12 @@ public class TemplateResponse {
         Objects.equals(this.namedFormFields, templateResponse.namedFormFields) &&
         Objects.equals(this.accounts, templateResponse.accounts) &&
         Objects.equals(this.attachments, templateResponse.attachments) &&
-        Objects.equals(this.allowFormView, templateResponse.allowFormView);
+        Objects.equals(this.signerExperience, templateResponse.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId, title, message, updatedAt, isEmbedded, isCreator, canEdit, isLocked, metadata, signerRoles, ccRoles, documents, customFields, namedFormFields, accounts, attachments, allowFormView);
+    return Objects.hash(templateId, title, message, updatedAt, isEmbedded, isCreator, canEdit, isLocked, metadata, signerRoles, ccRoles, documents, customFields, namedFormFields, accounts, attachments, signerExperience);
   }
 
   @Override
@@ -706,7 +707,7 @@ public class TemplateResponse {
     sb.append("    namedFormFields: ").append(toIndentedString(namedFormFields)).append("\n");
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
-    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1019,23 +1020,23 @@ public class TemplateResponse {
             map.put("attachments", JSON.getDefault().getMapper().writeValueAsString(attachments));
         }
     }
-    if (allowFormView != null) {
-        if (isFileTypeOrListOfFiles(allowFormView)) {
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
             fileTypeFound = true;
         }
 
-        if (allowFormView.getClass().equals(java.io.File.class) ||
-            allowFormView.getClass().equals(Integer.class) ||
-            allowFormView.getClass().equals(String.class) ||
-            allowFormView.getClass().isEnum()) {
-            map.put("allow_form_view", allowFormView);
-        } else if (isListOfFile(allowFormView)) {
-            for(int i = 0; i< getListSize(allowFormView); i++) {
-                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
             }
         }
         else {
-            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

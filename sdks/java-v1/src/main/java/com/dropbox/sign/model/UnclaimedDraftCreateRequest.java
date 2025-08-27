@@ -34,7 +34,6 @@ import java.util.Objects;
     UnclaimedDraftCreateRequest.JSON_PROPERTY_FILES,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_FILE_URLS,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_ALLOW_DECLINE,
-    UnclaimedDraftCreateRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_ATTACHMENTS,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_CLIENT_ID,
@@ -54,7 +53,8 @@ import java.util.Objects;
     UnclaimedDraftCreateRequest.JSON_PROPERTY_TEST_MODE,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_TEXT_TAGS,
-    UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -109,9 +109,6 @@ public class UnclaimedDraftCreateRequest {
 
     public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
     @javax.annotation.Nullable private Boolean allowDecline = false;
-
-    public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
-    @javax.annotation.Nullable private Boolean allowFormView = false;
 
     public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
     @javax.annotation.Nullable private List<SubAttachment> attachments = null;
@@ -173,6 +170,9 @@ public class UnclaimedDraftCreateRequest {
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
     @javax.annotation.Nullable private Integer expiresAt;
+
+    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+    @javax.annotation.Nullable private SubSignerExperience signerExperience;
 
     public UnclaimedDraftCreateRequest() {}
 
@@ -301,30 +301,6 @@ public class UnclaimedDraftCreateRequest {
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAllowDecline(@javax.annotation.Nullable Boolean allowDecline) {
         this.allowDecline = allowDecline;
-    }
-
-    public UnclaimedDraftCreateRequest allowFormView(
-            @javax.annotation.Nullable Boolean allowFormView) {
-        this.allowFormView = allowFormView;
-        return this;
-    }
-
-    /**
-     * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to
-     * &#x60;false&#x60;.
-     *
-     * @return allowFormView
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getAllowFormView() {
-        return allowFormView;
-    }
-
-    @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setAllowFormView(@javax.annotation.Nullable Boolean allowFormView) {
-        this.allowFormView = allowFormView;
     }
 
     public UnclaimedDraftCreateRequest attachments(
@@ -905,6 +881,30 @@ public class UnclaimedDraftCreateRequest {
         this.expiresAt = expiresAt;
     }
 
+    public UnclaimedDraftCreateRequest signerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+        return this;
+    }
+
+    /**
+     * Get signerExperience
+     *
+     * @return signerExperience
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubSignerExperience getSignerExperience() {
+        return signerExperience;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSignerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+    }
+
     /** Return true if this UnclaimedDraftCreateRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -919,7 +919,6 @@ public class UnclaimedDraftCreateRequest {
                 && Objects.equals(this.files, unclaimedDraftCreateRequest.files)
                 && Objects.equals(this.fileUrls, unclaimedDraftCreateRequest.fileUrls)
                 && Objects.equals(this.allowDecline, unclaimedDraftCreateRequest.allowDecline)
-                && Objects.equals(this.allowFormView, unclaimedDraftCreateRequest.allowFormView)
                 && Objects.equals(this.attachments, unclaimedDraftCreateRequest.attachments)
                 && Objects.equals(
                         this.ccEmailAddresses, unclaimedDraftCreateRequest.ccEmailAddresses)
@@ -945,7 +944,9 @@ public class UnclaimedDraftCreateRequest {
                 && Objects.equals(
                         this.usePreexistingFields, unclaimedDraftCreateRequest.usePreexistingFields)
                 && Objects.equals(this.useTextTags, unclaimedDraftCreateRequest.useTextTags)
-                && Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt);
+                && Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt)
+                && Objects.equals(
+                        this.signerExperience, unclaimedDraftCreateRequest.signerExperience);
     }
 
     @Override
@@ -955,7 +956,6 @@ public class UnclaimedDraftCreateRequest {
                 files,
                 fileUrls,
                 allowDecline,
-                allowFormView,
                 attachments,
                 ccEmailAddresses,
                 clientId,
@@ -975,7 +975,8 @@ public class UnclaimedDraftCreateRequest {
                 testMode,
                 usePreexistingFields,
                 useTextTags,
-                expiresAt);
+                expiresAt,
+                signerExperience);
     }
 
     @Override
@@ -986,7 +987,6 @@ public class UnclaimedDraftCreateRequest {
         sb.append("    files: ").append(toIndentedString(files)).append("\n");
         sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
         sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
-        sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
         sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
         sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
         sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
@@ -1015,6 +1015,7 @@ public class UnclaimedDraftCreateRequest {
                 .append("\n");
         sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -1097,26 +1098,6 @@ public class UnclaimedDraftCreateRequest {
                     map.put(
                             "allow_decline",
                             JSON.getDefault().getMapper().writeValueAsString(allowDecline));
-                }
-            }
-            if (allowFormView != null) {
-                if (isFileTypeOrListOfFiles(allowFormView)) {
-                    fileTypeFound = true;
-                }
-
-                if (allowFormView.getClass().equals(java.io.File.class)
-                        || allowFormView.getClass().equals(Integer.class)
-                        || allowFormView.getClass().equals(String.class)
-                        || allowFormView.getClass().isEnum()) {
-                    map.put("allow_form_view", allowFormView);
-                } else if (isListOfFile(allowFormView)) {
-                    for (int i = 0; i < getListSize(allowFormView); i++) {
-                        map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
-                    }
-                } else {
-                    map.put(
-                            "allow_form_view",
-                            JSON.getDefault().getMapper().writeValueAsString(allowFormView));
                 }
             }
             if (attachments != null) {
@@ -1519,6 +1500,26 @@ public class UnclaimedDraftCreateRequest {
                     map.put(
                             "expires_at",
                             JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+                }
+            }
+            if (signerExperience != null) {
+                if (isFileTypeOrListOfFiles(signerExperience)) {
+                    fileTypeFound = true;
+                }
+
+                if (signerExperience.getClass().equals(java.io.File.class)
+                        || signerExperience.getClass().equals(Integer.class)
+                        || signerExperience.getClass().equals(String.class)
+                        || signerExperience.getClass().isEnum()) {
+                    map.put("signer_experience", signerExperience);
+                } else if (isListOfFile(signerExperience)) {
+                    for (int i = 0; i < getListSize(signerExperience); i++) {
+                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+                    }
+                } else {
+                    map.put(
+                            "signer_experience",
+                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

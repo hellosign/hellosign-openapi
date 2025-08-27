@@ -32,6 +32,9 @@ from dropbox_sign.models.signature_request_response_data_base import (
 from dropbox_sign.models.signature_request_response_signatures import (
     SignatureRequestResponseSignatures,
 )
+from dropbox_sign.models.signature_request_signer_experience import (
+    SignatureRequestSignerExperience,
+)
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
@@ -138,6 +141,7 @@ class SignatureRequestResponse(BaseModel):
         default=None,
         description="The ID of the Bulk Send job which sent the signature request, if applicable.",
     )
+    signer_experience: Optional[SignatureRequestSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "test_mode",
         "signature_request_id",
@@ -164,6 +168,7 @@ class SignatureRequestResponse(BaseModel):
         "response_data",
         "signatures",
         "bulk_send_job_id",
+        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -244,6 +249,9 @@ class SignatureRequestResponse(BaseModel):
                 if _item_signatures:
                     _items.append(_item_signatures.to_dict())
             _dict["signatures"] = _items
+        # override the default output from pydantic by calling `to_dict()` of signer_experience
+        if self.signer_experience:
+            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -312,6 +320,11 @@ class SignatureRequestResponse(BaseModel):
                     else None
                 ),
                 "bulk_send_job_id": obj.get("bulk_send_job_id"),
+                "signer_experience": (
+                    SignatureRequestSignerExperience.from_dict(obj["signer_experience"])
+                    if obj.get("signer_experience") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -354,6 +367,7 @@ class SignatureRequestResponse(BaseModel):
             "response_data": "(List[SignatureRequestResponseDataBase],)",
             "signatures": "(List[SignatureRequestResponseSignatures],)",
             "bulk_send_job_id": "(str,)",
+            "signer_experience": "(SignatureRequestSignerExperience,)",
         }
 
     @classmethod

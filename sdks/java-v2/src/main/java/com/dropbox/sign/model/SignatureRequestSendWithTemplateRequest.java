@@ -19,6 +19,7 @@ import java.util.HashMap;
 import com.dropbox.sign.model.SubCC;
 import com.dropbox.sign.model.SubCustomField;
 import com.dropbox.sign.model.SubSignatureRequestTemplateSigner;
+import com.dropbox.sign.model.SubSignerExperience;
 import com.dropbox.sign.model.SubSigningOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -58,7 +59,8 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SUBJECT,
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
-  SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE
+  SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE,
+  SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -131,6 +133,10 @@ public class SignatureRequestSendWithTemplateRequest {
   public static final String JSON_PROPERTY_TITLE = "title";
   @jakarta.annotation.Nullable
   private String title;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SubSignerExperience signerExperience;
 
   public SignatureRequestSendWithTemplateRequest() { 
   }
@@ -635,6 +641,31 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
 
+  public SignatureRequestSendWithTemplateRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   /**
    * Return true if this SignatureRequestSendWithTemplateRequest object is equal to o.
    */
@@ -663,12 +694,13 @@ public class SignatureRequestSendWithTemplateRequest {
         Objects.equals(this.signingRedirectUrl, signatureRequestSendWithTemplateRequest.signingRedirectUrl) &&
         Objects.equals(this.subject, signatureRequestSendWithTemplateRequest.subject) &&
         Objects.equals(this.testMode, signatureRequestSendWithTemplateRequest.testMode) &&
-        Objects.equals(this.title, signatureRequestSendWithTemplateRequest.title);
+        Objects.equals(this.title, signatureRequestSendWithTemplateRequest.title) &&
+        Objects.equals(this.signerExperience, signatureRequestSendWithTemplateRequest.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
+    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, signerExperience);
   }
 
   @Override
@@ -692,6 +724,7 @@ public class SignatureRequestSendWithTemplateRequest {
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1021,6 +1054,25 @@ public class SignatureRequestSendWithTemplateRequest {
         }
         else {
             map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

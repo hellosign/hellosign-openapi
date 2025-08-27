@@ -56,7 +56,8 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
-        public SignatureRequestEditEmbeddedWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool populateAutoFillFields = false)
+        /// <param name="signerExperience">signerExperience.</param>
+        public SignatureRequestEditEmbeddedWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool populateAutoFillFields = false, SubSignerExperience signerExperience = default(SubSignerExperience))
         {
 
             // to ensure "templateIds" is required (not null)
@@ -89,6 +90,7 @@ namespace Dropbox.Sign.Model
             this.TestMode = testMode;
             this.Title = title;
             this.PopulateAutoFillFields = populateAutoFillFields;
+            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -212,6 +214,12 @@ namespace Dropbox.Sign.Model
         public bool PopulateAutoFillFields { get; set; }
 
         /// <summary>
+        /// Gets or Sets SignerExperience
+        /// </summary>
+        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
+        public SubSignerExperience SignerExperience { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -234,6 +242,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  PopulateAutoFillFields: ").Append(PopulateAutoFillFields).Append("\n");
+            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -347,6 +356,11 @@ namespace Dropbox.Sign.Model
                 (
                     this.PopulateAutoFillFields == input.PopulateAutoFillFields ||
                     this.PopulateAutoFillFields.Equals(input.PopulateAutoFillFields)
+                ) &&
+                (
+                    this.SignerExperience == input.SignerExperience ||
+                    (this.SignerExperience != null &&
+                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -410,6 +424,10 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.PopulateAutoFillFields.GetHashCode();
+                if (this.SignerExperience != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -548,6 +566,13 @@ namespace Dropbox.Sign.Model
                 Property = "PopulateAutoFillFields",
                 Type = "bool",
                 Value = PopulateAutoFillFields,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "signer_experience",
+                Property = "SignerExperience",
+                Type = "SubSignerExperience",
+                Value = SignerExperience,
             });
 
             return types;
