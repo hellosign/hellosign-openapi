@@ -1,5 +1,7 @@
 {
-  "allow_form_view": false,
+  "signer_experience": {
+    "form_view": "disabled"
+  },
   "title": "Test Title",
   "subject": "Test Subject",
   "message": "Test Message",

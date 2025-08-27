@@ -16,7 +16,9 @@
         "is_creator": true,
         "is_embedded": false,
         "is_locked": false,
-        "allow_form_view": false,
+        "signer_experience": {
+        "form_view": "disabled"
+      },
         "metadata": {
           "metadata_name_1": "metadata_value_1",
           "metadata_name_2": {
@@ -98,7 +100,9 @@
         "is_creator": true,
         "is_embedded": false,
         "is_locked": false,
-        "allow_form_view": false,
+        "signer_experience": {
+        "form_view": "disabled"
+      },
         "metadata": {},
         "signer_roles": [
           {

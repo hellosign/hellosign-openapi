@@ -1,7 +1,9 @@
 {
   "default": {
     "allow_decline": true,
-    "allow_form_view": false,
+    "signer_experience": {
+      "form_view": "disabled"
+    },
     "allow_reassign": true,
     "attachments": [
       {
@@ -126,7 +128,9 @@
   },
   "with_grouped_signers": {
     "allow_decline": true,
-    "allow_form_view": false,
+    "signer_experience": {
+      "form_view": "disabled"
+    },
     "allow_reassign": true,
     "attachments": [
       {
