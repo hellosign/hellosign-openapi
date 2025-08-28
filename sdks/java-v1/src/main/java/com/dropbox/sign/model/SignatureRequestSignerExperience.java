@@ -25,14 +25,24 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response signer experience description */
+/**
+ * Configuration options for modifying the settings of the signer application. Supports changing the
+ * form view behavior.
+ */
 @JsonPropertyOrder({SignatureRequestSignerExperience.JSON_PROPERTY_FORM_VIEW})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestSignerExperience {
-    /** Signer experience default */
+    /**
+     * Changes the form view setting experienced by the signer. Supported versions are: -
+     * &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it -
+     * &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a
+     * toggle - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn
+     * it off using a toggle - &#x60;forced&#x60; - Form view is enabled initially. The signer
+     * cannot change it, the toggle is hidden.
+     */
     public enum FormViewEnum {
         DISABLED(String.valueOf("disabled")),
 
@@ -97,7 +107,12 @@ public class SignatureRequestSignerExperience {
     }
 
     /**
-     * Signer experience default
+     * Changes the form view setting experienced by the signer. Supported versions are: -
+     * &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it -
+     * &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a
+     * toggle - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn
+     * it off using a toggle - &#x60;forced&#x60; - Form view is enabled initially. The signer
+     * cannot change it, the toggle is hidden.
      *
      * @return formView
      */

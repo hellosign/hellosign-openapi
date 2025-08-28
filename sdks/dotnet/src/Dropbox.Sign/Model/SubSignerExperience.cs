@@ -27,16 +27,16 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Signer experience description
+    /// Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
     /// </summary>
     [DataContract(Name = "SubSignerExperience")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class SubSignerExperience : IEquatable<SubSignerExperience>, IValidatableObject
     {
         /// <summary>
-        /// Signer experience default
+        /// Changes the form view setting experienced by the signer. Supported versions are:  - &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it  - &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a toggle  - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn it off using a toggle  - &#x60;forced&#x60; - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
         /// </summary>
-        /// <value>Signer experience default</value>
+        /// <value>Changes the form view setting experienced by the signer. Supported versions are:  - &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it  - &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a toggle  - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn it off using a toggle  - &#x60;forced&#x60; - Form view is enabled initially. The signer cannot change it, the toggle is hidden.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FormViewEnum
         {
@@ -67,9 +67,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// Signer experience default
+        /// Changes the form view setting experienced by the signer. Supported versions are:  - &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it  - &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a toggle  - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn it off using a toggle  - &#x60;forced&#x60; - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
         /// </summary>
-        /// <value>Signer experience default</value>
+        /// <value>Changes the form view setting experienced by the signer. Supported versions are:  - &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it  - &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a toggle  - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn it off using a toggle  - &#x60;forced&#x60; - Form view is enabled initially. The signer cannot change it, the toggle is hidden.</value>
         [DataMember(Name = "form_view", EmitDefaultValue = true)]
         public FormViewEnum? FormView { get; set; }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSignerExperience" /> class.
         /// </summary>
-        /// <param name="formView">Signer experience default.</param>
+        /// <param name="formView">Changes the form view setting experienced by the signer. Supported versions are:  - &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it  - &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a toggle  - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn it off using a toggle  - &#x60;forced&#x60; - Form view is enabled initially. The signer cannot change it, the toggle is hidden..</param>
         public SubSignerExperience(FormViewEnum? formView = default(FormViewEnum?))
         {
 

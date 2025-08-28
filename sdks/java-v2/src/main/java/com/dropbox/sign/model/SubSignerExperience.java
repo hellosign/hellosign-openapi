@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Signer experience description
+ * Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
  */
 @JsonPropertyOrder({
   SubSignerExperience.JSON_PROPERTY_FORM_VIEW
@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubSignerExperience {
   /**
-   * Signer experience default
+   * Changes the form view setting experienced by the signer. Supported versions are:  - &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it  - &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a toggle  - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn it off using a toggle  - &#x60;forced&#x60; - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
    */
   public enum FormViewEnum {
     DISABLED(String.valueOf("disabled")),
@@ -105,7 +105,7 @@ public class SubSignerExperience {
   }
 
   /**
-   * Signer experience default
+   * Changes the form view setting experienced by the signer. Supported versions are:  - &#x60;disabled&#x60; - Form view is disabled, and the signer cannot change it  - &#x60;enabled&#x60; - Form view is disabled initially, the signer can turn it on using a toggle  - &#x60;enabled_by_default&#x60; - Form view is enabled initially. The signer car turn it off using a toggle  - &#x60;forced&#x60; - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
    * @return formView
    */
   @jakarta.annotation.Nullable

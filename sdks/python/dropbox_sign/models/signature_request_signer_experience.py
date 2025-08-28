@@ -29,10 +29,12 @@ from pydantic import StrictBool
 
 class SignatureRequestSignerExperience(BaseModel):
     """
-    Response signer experience description
+    Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
     """  # noqa: E501
 
-    form_view: StrictStr = Field(description="Signer experience default")
+    form_view: StrictStr = Field(
+        description="Changes the form view setting experienced by the signer. Supported versions are:  - `disabled` - Form view is disabled, and the signer cannot change it  - `enabled` - Form view is disabled initially, the signer can turn it on using a toggle  - `enabled_by_default` - Form view is enabled initially. The signer car turn it off using a toggle  - `forced` - Form view is enabled initially. The signer cannot change it, the toggle is hidden."
+    )
     __properties: ClassVar[List[str]] = ["form_view"]
 
     @field_validator("form_view")

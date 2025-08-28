@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SignatureRequestSignerExperience Class Doc Comment
  *
  * @category Class
- * @description Response signer experience description
+ * @description Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
@@ -343,7 +343,7 @@ class SignatureRequestSignerExperience implements ModelInterface, ArrayAccess, J
     /**
      * Sets form_view
      *
-     * @param string $form_view Signer experience default
+     * @param string $form_view Changes the form view setting experienced by the signer. Supported versions are:  - `disabled` - Form view is disabled, and the signer cannot change it  - `enabled` - Form view is disabled initially, the signer can turn it on using a toggle  - `enabled_by_default` - Form view is enabled initially. The signer car turn it off using a toggle  - `forced` - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
      *
      * @return self
      */
