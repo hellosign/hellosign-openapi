@@ -48,6 +48,10 @@ with ApiClient(configuration) as api_client:
         upload=True,
     )
 
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     grouped_signers_1 = models.SubSignatureRequestGroupedSigners(
         group="Group #1",
         order=0,
@@ -79,6 +83,7 @@ with ApiClient(configuration) as api_client:
             "lawyer2@dropboxsign.com",
         ],
         signing_options=signing_options,
+        signer_experience=signer_experience,
         grouped_signers=grouped_signers,
     )
 

@@ -6,6 +6,10 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
+};
+
 const formFields1: models.SubUpdateFormField = {
   apiId: "uniqueIdHere_1",
   name: "New name 1",
@@ -22,7 +26,6 @@ const formFields = [
 ];
 
 const templateUpdateRequest: models.TemplateUpdateRequest = {
-  allowFormView: false,
   title: "Test Title",
   subject: "Test Subject",
   message: "Test Message",
@@ -30,6 +33,7 @@ const templateUpdateRequest: models.TemplateUpdateRequest = {
     "CC Role 1",
     "CC Role 2",
   ],
+  signerExperience: signerExperience,
   formFields: formFields,
 };
 

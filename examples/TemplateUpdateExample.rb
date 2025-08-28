@@ -6,6 +6,9 @@ Dropbox::Sign.configure do |config|
     # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 form_fields_1 = Dropbox::Sign::SubUpdateFormField.new
 form_fields_1.api_id = "uniqueIdHere_1"
 form_fields_1.name = "New name 1"
@@ -20,7 +23,6 @@ form_fields = [
 ]
 
 template_update_request = Dropbox::Sign::TemplateUpdateRequest.new
-template_update_request.allow_form_view = false
 template_update_request.title = "Test Title"
 template_update_request.subject = "Test Subject"
 template_update_request.message = "Test Message"
@@ -28,6 +30,7 @@ template_update_request.cc_roles = [
     "CC Role 1",
     "CC Role 2",
 ]
+template_update_request.signer_experience = signer_experience
 template_update_request.form_fields = form_fields
 
 begin

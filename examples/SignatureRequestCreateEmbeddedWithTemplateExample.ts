@@ -14,6 +14,10 @@ const signingOptions: models.SubSigningOptions = {
   upload: true,
 };
 
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
+};
+
 const signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "George",
@@ -33,6 +37,7 @@ const signatureRequestCreateEmbeddedWithTemplateRequest: models.SignatureRequest
   subject: "Purchase Order",
   testMode: true,
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   signers: signers,
 };
 
