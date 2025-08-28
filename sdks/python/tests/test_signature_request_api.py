@@ -131,9 +131,9 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         fields = self.mock_pool.get_fields()
 
-        title_result = fields[10]
-        subject_result = fields[8]
-        message_result = fields[7]
+        title_result = fields[9]
+        subject_result = fields[7]
+        message_result = fields[6]
 
         self.assertEqual(title_result[1], title)
         self.assertEqual(subject_result[1], subject)
