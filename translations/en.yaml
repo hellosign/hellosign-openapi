@@ -1199,7 +1199,7 @@
 
   If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
 
-"SignatureRequestSignerExperience::DESCRIPTION": Response signer experience description
+"SignatureRequestSignerExperience::DESCRIPTION": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
 "Sub::SignatureRequestTemplateSigner::NAME": The name of the signer.
@@ -1219,8 +1219,13 @@
 
   If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
 
-"Sub::SignerExperience::DESCRIPTION": Signer experience description
-"Sub::SignerExperience::DEFAULT": Signer experience default
+"Sub::SignerExperience::DESCRIPTION": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
+"Sub::SignerExperience::DEFAULT": |- 
+  Changes the form view setting experienced by the signer. Supported versions are:
+   - `disabled` - Form view is disabled, and the signer cannot change it
+   - `enabled` - Form view is disabled initially, the signer can turn it on using a toggle
+   - `enabled_by_default` - Form view is enabled initially. The signer car turn it off using a toggle
+   - `forced` - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
