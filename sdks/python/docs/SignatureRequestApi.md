@@ -427,6 +427,10 @@ with ApiClient(configuration) as api_client:
         upload=True,
     )
 
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     signers_1 = models.SubSignatureRequestSigner(
         name="Jack",
         email_address="jack@example.com",
@@ -458,6 +462,7 @@ with ApiClient(configuration) as api_client:
             open("./example_signature_request.pdf", "rb").read(),
         ],
         signing_options=signing_options,
+        signer_experience=signer_experience,
         signers=signers,
     )
 
@@ -538,6 +543,10 @@ with ApiClient(configuration) as api_client:
         upload=True,
     )
 
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     signers_1 = models.SubSignatureRequestTemplateSigner(
         role="Client",
         name="George",
@@ -558,6 +567,7 @@ with ApiClient(configuration) as api_client:
             subject="Purchase Order",
             test_mode=True,
             signing_options=signing_options,
+            signer_experience=signer_experience,
             signers=signers,
         )
     )
@@ -645,6 +655,10 @@ with ApiClient(configuration) as api_client:
         upload=True,
     )
 
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     signers_1 = models.SubSignatureRequestSigner(
         name="Jack",
         email_address="jack@example.com",
@@ -684,6 +698,7 @@ with ApiClient(configuration) as api_client:
         ),
         field_options=field_options,
         signing_options=signing_options,
+        signer_experience=signer_experience,
         signers=signers,
     )
 
@@ -766,6 +781,10 @@ with ApiClient(configuration) as api_client:
         upload=True,
     )
 
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     signers_1 = models.SubSignatureRequestSigner(
         name="Jack",
         email_address="jack@example.com",
@@ -797,6 +816,7 @@ with ApiClient(configuration) as api_client:
             open("./example_signature_request.pdf", "rb").read(),
         ],
         signing_options=signing_options,
+        signer_experience=signer_experience,
         signers=signers,
     )
 
@@ -879,6 +899,10 @@ with ApiClient(configuration) as api_client:
         upload=True,
     )
 
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     signers_1 = models.SubSignatureRequestTemplateSigner(
         role="Client",
         name="George",
@@ -899,6 +923,7 @@ with ApiClient(configuration) as api_client:
             subject="Purchase Order",
             test_mode=True,
             signing_options=signing_options,
+            signer_experience=signer_experience,
             signers=signers,
         )
     )

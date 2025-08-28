@@ -117,6 +117,10 @@ with ApiClient(configuration) as api_client:
         date_format="DD - MM - YYYY",
     )
 
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     signer_roles_1 = models.SubTemplateRole(
         name="Client",
         order=0,
@@ -195,6 +199,7 @@ with ApiClient(configuration) as api_client:
             open("./example_signature_request.pdf", "rb").read(),
         ],
         field_options=field_options,
+        signer_experience=signer_experience,
         signer_roles=signer_roles,
         form_fields_per_document=form_fields_per_document,
         merge_fields=merge_fields,
@@ -849,6 +854,10 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     form_fields_1 = models.SubUpdateFormField(
         api_id="uniqueIdHere_1",
         name="New name 1",
@@ -865,7 +874,6 @@ with ApiClient(configuration) as api_client:
     ]
 
     template_update_request = models.TemplateUpdateRequest(
-        allow_form_view=False,
         title="Test Title",
         subject="Test Subject",
         message="Test Message",
@@ -873,6 +881,7 @@ with ApiClient(configuration) as api_client:
             "CC Role 1",
             "CC Role 2",
         ],
+        signer_experience=signer_experience,
         form_fields=form_fields,
     )
 

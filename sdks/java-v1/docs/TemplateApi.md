@@ -145,6 +145,9 @@ public class TemplateCreateExample
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
         var signerRoles1 = new SubTemplateRole();
         signerRoles1.name("Client");
         signerRoles1.order(0);
@@ -217,6 +220,7 @@ public class TemplateCreateExample
             new File("./example_signature_request.pdf")
         ));
         templateCreateRequest.fieldOptions(fieldOptions);
+        templateCreateRequest.signerExperience(signerExperience);
         templateCreateRequest.signerRoles(signerRoles);
         templateCreateRequest.formFieldsPerDocument(formFieldsPerDocument);
         templateCreateRequest.mergeFields(mergeFields);
@@ -1024,6 +1028,9 @@ public class TemplateUpdateExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
         var formFields1 = new SubUpdateFormField();
         formFields1.apiId("uniqueIdHere_1");
         formFields1.name("New name 1");
@@ -1038,7 +1045,6 @@ public class TemplateUpdateExample
         ));
 
         var templateUpdateRequest = new TemplateUpdateRequest();
-        templateUpdateRequest.allowFormView(false);
         templateUpdateRequest.title("Test Title");
         templateUpdateRequest.subject("Test Subject");
         templateUpdateRequest.message("Test Message");
@@ -1046,6 +1052,7 @@ public class TemplateUpdateExample
             "CC Role 1",
             "CC Role 2"
         ));
+        templateUpdateRequest.signerExperience(signerExperience);
         templateUpdateRequest.formFields(formFields);
 
         try

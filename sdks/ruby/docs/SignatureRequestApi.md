@@ -391,6 +391,9 @@ signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
 signers_1.name = "Jack"
 signers_1.email_address = "jack@example.com"
@@ -420,6 +423,7 @@ signature_request_create_embedded_request.files = [
     File.new("./example_signature_request.pdf", "r"),
 ]
 signature_request_create_embedded_request.signing_options = signing_options
+signature_request_create_embedded_request.signer_experience = signer_experience
 signature_request_create_embedded_request.signers = signers
 
 begin
@@ -498,6 +502,9 @@ signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signers_1.role = "Client"
 signers_1.name = "George"
@@ -516,6 +523,7 @@ signature_request_create_embedded_with_template_request.message = "Glad we could
 signature_request_create_embedded_with_template_request.subject = "Purchase Order"
 signature_request_create_embedded_with_template_request.test_mode = true
 signature_request_create_embedded_with_template_request.signing_options = signing_options
+signature_request_create_embedded_with_template_request.signer_experience = signer_experience
 signature_request_create_embedded_with_template_request.signers = signers
 
 begin
@@ -597,6 +605,9 @@ signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
 signers_1.name = "Jack"
 signers_1.email_address = "jack@example.com"
@@ -633,6 +644,7 @@ signature_request_edit_request.metadata = JSON.parse(<<-EOD
 )
 signature_request_edit_request.field_options = field_options
 signature_request_edit_request.signing_options = signing_options
+signature_request_edit_request.signer_experience = signer_experience
 signature_request_edit_request.signers = signers
 
 begin
@@ -713,6 +725,9 @@ signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
 signers_1.name = "Jack"
 signers_1.email_address = "jack@example.com"
@@ -742,6 +757,7 @@ signature_request_edit_embedded_request.files = [
     File.new("./example_signature_request.pdf", "r"),
 ]
 signature_request_edit_embedded_request.signing_options = signing_options
+signature_request_edit_embedded_request.signer_experience = signer_experience
 signature_request_edit_embedded_request.signers = signers
 
 begin
@@ -822,6 +838,9 @@ signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signers_1.role = "Client"
 signers_1.name = "George"
@@ -840,6 +859,7 @@ signature_request_edit_embedded_with_template_request.message = "Glad we could c
 signature_request_edit_embedded_with_template_request.subject = "Purchase Order"
 signature_request_edit_embedded_with_template_request.test_mode = true
 signature_request_edit_embedded_with_template_request.signing_options = signing_options
+signature_request_edit_embedded_with_template_request.signer_experience = signer_experience
 signature_request_edit_embedded_with_template_request.signers = signers
 
 begin

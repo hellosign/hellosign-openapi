@@ -44,6 +44,10 @@ const signingOptions: models.SubSigningOptions = {
   upload: true,
 };
 
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
+};
+
 const groupedSigners1: models.SubSignatureRequestGroupedSigners = {
   group: "Group #1",
   order: 0,
@@ -75,6 +79,7 @@ const signatureRequestEditEmbeddedRequest: models.SignatureRequestEditEmbeddedRe
     "lawyer2@dropboxsign.com",
   ],
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   groupedSigners: groupedSigners,
 };
 

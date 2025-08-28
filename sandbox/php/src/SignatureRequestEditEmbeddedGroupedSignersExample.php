@@ -44,6 +44,9 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setType(true)
     ->setUpload(true);
 
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
+
 $grouped_signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestGroupedSigners())
     ->setGroup("Group #1")
     ->setOrder(0)
@@ -73,6 +76,7 @@ $signature_request_edit_embedded_request = (new Dropbox\Sign\Model\SignatureRequ
         "lawyer2@dropboxsign.com",
     ])
     ->setSigningOptions($signing_options)
+    ->setSignerExperience($signer_experience)
     ->setGroupedSigners($grouped_signers);
 
 try {

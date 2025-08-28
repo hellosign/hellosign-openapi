@@ -25,6 +25,10 @@ public class SignatureRequestCreateEmbeddedExample
             upload: true
         );
 
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
+        );
+
         var signers1 = new SubSignatureRequestSigner(
             name: "Jack",
             emailAddress: "jack@example.com",
@@ -61,6 +65,7 @@ public class SignatureRequestCreateEmbeddedExample
                 ),
             },
             signingOptions: signingOptions,
+            signerExperience: signerExperience,
             signers: signers
         );
 

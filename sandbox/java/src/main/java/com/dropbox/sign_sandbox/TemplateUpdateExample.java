@@ -23,6 +23,9 @@ public class TemplateUpdateExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
         var formFields1 = new SubUpdateFormField();
         formFields1.apiId("uniqueIdHere_1");
         formFields1.name("New name 1");
@@ -37,7 +40,6 @@ public class TemplateUpdateExample
         ));
 
         var templateUpdateRequest = new TemplateUpdateRequest();
-        templateUpdateRequest.allowFormView(false);
         templateUpdateRequest.title("Test Title");
         templateUpdateRequest.subject("Test Subject");
         templateUpdateRequest.message("Test Message");
@@ -45,6 +47,7 @@ public class TemplateUpdateExample
             "CC Role 1",
             "CC Role 2"
         ));
+        templateUpdateRequest.signerExperience(signerExperience);
         templateUpdateRequest.formFields(formFields);
 
         try
