@@ -1,7 +1,7 @@
 {
   "client_id": "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
-  "files": [
-    "./example_signature_request.pdf"
+  "file_urls": [
+    "https://www.dropbox.com/scl/fi/j8yrxtphhpqkfe3fe1u1a/Mutual-Non-Disclosure-Agreement.paper?rlkey=ryqm23prsnr59icnxuu8u6iyz&st=descw16j&dl=0"
   ],
   "requester_email_address": "jack@dropboxsign.com",
   "test_mode": true

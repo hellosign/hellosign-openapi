@@ -18,8 +18,8 @@
     "lawyer1@dropboxsign.com",
     "lawyer2@dropboxsign.com"
   ],
-  "files": [
-    "./example_signature_request.pdf"
+  "file_urls": [
+    "https://www.dropbox.com/scl/fi/j8yrxtphhpqkfe3fe1u1a/Mutual-Non-Disclosure-Agreement.paper?rlkey=ryqm23prsnr59icnxuu8u6iyz&st=descw16j&dl=0"
   ],
   "metadata": {
     "custom_id": 1234,
