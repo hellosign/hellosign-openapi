@@ -1,7 +1,7 @@
 {
   "client_id": "37dee8d8440c66d54cfa05d92c160882",
-  "files": [
-    "./example_signature_request.pdf"
+  "file_urls": [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
   ],
   "title": "Test Template",
   "subject": "Please sign this document",
