@@ -22,5 +22,5 @@ Contains information about the templates you and your team have created.
 | `named_form_fields` | [```Array<TemplateResponseDocumentFormFieldBase>```](TemplateResponseDocumentFormFieldBase.md) |  Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
 | `accounts` | [```Array<TemplateResponseAccount>```](TemplateResponseAccount.md) |  An array of the Accounts that can use this Template.  |  |
 | `attachments` | [```Array<SignatureRequestResponseAttachment>```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |
-| `allow_form_view` | ```Boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  |
+| `signer_experience` | [```SignatureRequestSignerExperience```](SignatureRequestSignerExperience.md) |    |  |
 

@@ -507,6 +507,10 @@ public class SignatureRequestCreateEmbeddedExample
             upload: true
         );
 
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
+        );
+
         var signers1 = new SubSignatureRequestSigner(
             name: "Jack",
             emailAddress: "jack@example.com",
@@ -543,6 +547,7 @@ public class SignatureRequestCreateEmbeddedExample
                 ),
             },
             signingOptions: signingOptions,
+            signerExperience: signerExperience,
             signers: signers
         );
 
@@ -650,6 +655,10 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
             upload: true
         );
 
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
+        );
+
         var signers1 = new SubSignatureRequestTemplateSigner(
             role: "Client",
             name: "George",
@@ -670,6 +679,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
             subject: "Purchase Order",
             testMode: true,
             signingOptions: signingOptions,
+            signerExperience: signerExperience,
             signers: signers
         );
 
@@ -781,6 +791,10 @@ public class SignatureRequestEditExample
             upload: true
         );
 
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
+        );
+
         var signers1 = new SubSignatureRequestSigner(
             name: "Jack",
             emailAddress: "jack@example.com",
@@ -823,6 +837,7 @@ public class SignatureRequestEditExample
             """),
             fieldOptions: fieldOptions,
             signingOptions: signingOptions,
+            signerExperience: signerExperience,
             signers: signers
         );
 
@@ -932,6 +947,10 @@ public class SignatureRequestEditEmbeddedExample
             upload: true
         );
 
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
+        );
+
         var signers1 = new SubSignatureRequestSigner(
             name: "Jack",
             emailAddress: "jack@example.com",
@@ -968,6 +987,7 @@ public class SignatureRequestEditEmbeddedExample
                 ),
             },
             signingOptions: signingOptions,
+            signerExperience: signerExperience,
             signers: signers
         );
 
@@ -1077,6 +1097,10 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
             upload: true
         );
 
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
+        );
+
         var signers1 = new SubSignatureRequestTemplateSigner(
             role: "Client",
             name: "George",
@@ -1097,6 +1121,7 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
             subject: "Purchase Order",
             testMode: true,
             signingOptions: signingOptions,
+            signerExperience: signerExperience,
             signers: signers
         );
 

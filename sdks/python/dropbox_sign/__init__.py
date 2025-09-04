@@ -205,6 +205,9 @@ from dropbox_sign.models.signature_request_send_request import (
 from dropbox_sign.models.signature_request_send_with_template_request import (
     SignatureRequestSendWithTemplateRequest,
 )
+from dropbox_sign.models.signature_request_signer_experience import (
+    SignatureRequestSignerExperience,
+)
 from dropbox_sign.models.signature_request_update_request import (
     SignatureRequestUpdateRequest,
 )
@@ -270,6 +273,7 @@ from dropbox_sign.models.sub_signature_request_signer import SubSignatureRequest
 from dropbox_sign.models.sub_signature_request_template_signer import (
     SubSignatureRequestTemplateSigner,
 )
+from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from dropbox_sign.models.sub_team_response import SubTeamResponse
 from dropbox_sign.models.sub_template_role import SubTemplateRole

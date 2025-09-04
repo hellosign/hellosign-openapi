@@ -46,7 +46,6 @@ namespace Dropbox.Sign.Model
         /// <param name="signers">Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
         /// <param name="groupedSigners">Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
-        /// <param name="allowFormView">Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan. (default to false).</param>
         /// <param name="attachments">A list describing the attachments.</param>
         /// <param name="ccEmailAddresses">The email addresses that should be CCed..</param>
@@ -66,7 +65,8 @@ namespace Dropbox.Sign.Model
         /// <param name="useTextTags">Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;. (default to false).</param>
         /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
-        public SignatureRequestEditEmbeddedRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowFormView = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, bool populateAutoFillFields = false, int? expiresAt = default(int?))
+        /// <param name="signerExperience">signerExperience.</param>
+        public SignatureRequestEditEmbeddedRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, bool populateAutoFillFields = false, int? expiresAt = default(int?), SubSignerExperience signerExperience = default(SubSignerExperience))
         {
 
             // to ensure "clientId" is required (not null)
@@ -80,7 +80,6 @@ namespace Dropbox.Sign.Model
             this.Signers = signers;
             this.GroupedSigners = groupedSigners;
             this.AllowDecline = allowDecline;
-            this.AllowFormView = allowFormView;
             this.AllowReassign = allowReassign;
             this.Attachments = attachments;
             this.CcEmailAddresses = ccEmailAddresses;
@@ -99,6 +98,7 @@ namespace Dropbox.Sign.Model
             this.UseTextTags = useTextTags;
             this.PopulateAutoFillFields = populateAutoFillFields;
             this.ExpiresAt = expiresAt;
+            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -158,13 +158,6 @@ namespace Dropbox.Sign.Model
         /// <value>Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "allow_decline", EmitDefaultValue = true)]
         public bool AllowDecline { get; set; }
-
-        /// <summary>
-        /// Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-        /// </summary>
-        /// <value>Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
-        [DataMember(Name = "allow_form_view", EmitDefaultValue = true)]
-        public bool AllowFormView { get; set; }
 
         /// <summary>
         /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan.
@@ -291,6 +284,12 @@ namespace Dropbox.Sign.Model
         public int? ExpiresAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets SignerExperience
+        /// </summary>
+        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
+        public SubSignerExperience SignerExperience { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -304,7 +303,6 @@ namespace Dropbox.Sign.Model
             sb.Append("  Signers: ").Append(Signers).Append("\n");
             sb.Append("  GroupedSigners: ").Append(GroupedSigners).Append("\n");
             sb.Append("  AllowDecline: ").Append(AllowDecline).Append("\n");
-            sb.Append("  AllowFormView: ").Append(AllowFormView).Append("\n");
             sb.Append("  AllowReassign: ").Append(AllowReassign).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
             sb.Append("  CcEmailAddresses: ").Append(CcEmailAddresses).Append("\n");
@@ -323,6 +321,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  UseTextTags: ").Append(UseTextTags).Append("\n");
             sb.Append("  PopulateAutoFillFields: ").Append(PopulateAutoFillFields).Append("\n");
             sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
+            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -390,10 +389,6 @@ namespace Dropbox.Sign.Model
                 (
                     this.AllowDecline == input.AllowDecline ||
                     this.AllowDecline.Equals(input.AllowDecline)
-                ) &&
-                (
-                    this.AllowFormView == input.AllowFormView ||
-                    this.AllowFormView.Equals(input.AllowFormView)
                 ) &&
                 (
                     this.AllowReassign == input.AllowReassign ||
@@ -486,6 +481,11 @@ namespace Dropbox.Sign.Model
                     this.ExpiresAt == input.ExpiresAt ||
                     (this.ExpiresAt != null &&
                     this.ExpiresAt.Equals(input.ExpiresAt))
+                ) &&
+                (
+                    this.SignerExperience == input.SignerExperience ||
+                    (this.SignerExperience != null &&
+                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -519,7 +519,6 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.GroupedSigners.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.AllowDecline.GetHashCode();
-                hashCode = (hashCode * 59) + this.AllowFormView.GetHashCode();
                 hashCode = (hashCode * 59) + this.AllowReassign.GetHashCode();
                 if (this.Attachments != null)
                 {
@@ -576,6 +575,10 @@ namespace Dropbox.Sign.Model
                 if (this.ExpiresAt != null)
                 {
                     hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
+                }
+                if (this.SignerExperience != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
                 }
                 return hashCode;
             }
@@ -652,13 +655,6 @@ namespace Dropbox.Sign.Model
                 Property = "AllowDecline",
                 Type = "bool",
                 Value = AllowDecline,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "allow_form_view",
-                Property = "AllowFormView",
-                Type = "bool",
-                Value = AllowFormView,
             });
             types.Add(new OpenApiType()
             {
@@ -785,6 +781,13 @@ namespace Dropbox.Sign.Model
                 Property = "ExpiresAt",
                 Type = "int?",
                 Value = ExpiresAt,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "signer_experience",
+                Property = "SignerExperience",
+                Type = "SubSignerExperience",
+                Value = SignerExperience,
             });
 
             return types;

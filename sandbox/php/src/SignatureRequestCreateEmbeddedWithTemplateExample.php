@@ -18,6 +18,9 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setType(true)
     ->setUpload(true);
 
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
+
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
     ->setRole("Client")
     ->setName("George")
@@ -36,6 +39,7 @@ $signature_request_create_embedded_with_template_request = (new Dropbox\Sign\Mod
     ->setSubject("Purchase Order")
     ->setTestMode(true)
     ->setSigningOptions($signing_options)
+    ->setSignerExperience($signer_experience)
     ->setSigners($signers);
 
 try {

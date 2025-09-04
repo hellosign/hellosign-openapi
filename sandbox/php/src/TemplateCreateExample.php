@@ -14,6 +14,9 @@ $config->setUsername("YOUR_API_KEY");
 $field_options = (new Dropbox\Sign\Model\SubFieldOptions())
     ->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
+
 $signer_roles_1 = (new Dropbox\Sign\Model\SubTemplateRole())
     ->setName("Client")
     ->setOrder(0);
@@ -85,6 +88,7 @@ $template_create_request = (new Dropbox\Sign\Model\TemplateCreateRequest())
     ->setFiles([
     ])
     ->setFieldOptions($field_options)
+    ->setSignerExperience($signer_experience)
     ->setSignerRoles($signer_roles)
     ->setFormFieldsPerDocument($form_fields_per_document)
     ->setMergeFields($merge_fields);

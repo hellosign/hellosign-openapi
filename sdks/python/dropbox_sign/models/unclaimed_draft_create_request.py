@@ -38,6 +38,7 @@ from dropbox_sign.models.sub_form_field_rule import SubFormFieldRule
 from dropbox_sign.models.sub_form_fields_per_document_base import (
     SubFormFieldsPerDocumentBase,
 )
+from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from dropbox_sign.models.sub_unclaimed_draft_signer import SubUnclaimedDraftSigner
 from typing import Optional, Set
@@ -66,10 +67,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
     allow_decline: Optional[StrictBool] = Field(
         default=False,
         description="Allows signers to decline to sign a document if `true`. Defaults to `false`.",
-    )
-    allow_form_view: Optional[StrictBool] = Field(
-        default=False,
-        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
     )
     attachments: Optional[List[SubAttachment]] = Field(
         default=None, description="A list describing the attachments"
@@ -143,12 +140,12 @@ class UnclaimedDraftCreateRequest(BaseModel):
         default=None,
         description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.",
     )
+    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "type",
         "files",
         "file_urls",
         "allow_decline",
-        "allow_form_view",
         "attachments",
         "cc_email_addresses",
         "client_id",
@@ -169,6 +166,7 @@ class UnclaimedDraftCreateRequest(BaseModel):
         "use_preexisting_fields",
         "use_text_tags",
         "expires_at",
+        "signer_experience",
     ]
 
     @field_validator("type")
@@ -278,6 +276,9 @@ class UnclaimedDraftCreateRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
             _dict["signing_options"] = self.signing_options.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of signer_experience
+        if self.signer_experience:
+            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -297,11 +298,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
                 "allow_decline": (
                     obj.get("allow_decline")
                     if obj.get("allow_decline") is not None
-                    else False
-                ),
-                "allow_form_view": (
-                    obj.get("allow_form_view")
-                    if obj.get("allow_form_view") is not None
                     else False
                 ),
                 "attachments": (
@@ -386,6 +382,11 @@ class UnclaimedDraftCreateRequest(BaseModel):
                     else False
                 ),
                 "expires_at": obj.get("expires_at"),
+                "signer_experience": (
+                    SubSignerExperience.from_dict(obj["signer_experience"])
+                    if obj.get("signer_experience") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -407,7 +408,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
             "files": "(List[io.IOBase],)",
             "file_urls": "(List[str],)",
             "allow_decline": "(bool,)",
-            "allow_form_view": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_email_addresses": "(List[str],)",
             "client_id": "(str,)",
@@ -428,6 +428,7 @@ class UnclaimedDraftCreateRequest(BaseModel):
             "use_preexisting_fields": "(bool,)",
             "use_text_tags": "(bool,)",
             "expires_at": "(int,)",
+            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

@@ -21,6 +21,10 @@ public class TemplateCreateExample
             dateFormat: SubFieldOptions.DateFormatEnum.DD_MM_YYYY
         );
 
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
+        );
+
         var signerRoles1 = new SubTemplateRole(
             name: "Client",
             order: 0
@@ -106,6 +110,7 @@ public class TemplateCreateExample
                 ),
             },
             fieldOptions: fieldOptions,
+            signerExperience: signerExperience,
             signerRoles: signerRoles,
             formFieldsPerDocument: formFieldsPerDocument,
             mergeFields: mergeFields

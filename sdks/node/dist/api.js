@@ -13251,6 +13251,7 @@ __export(api_exports, {
   SignatureRequestResponseSignatures: () => SignatureRequestResponseSignatures,
   SignatureRequestSendRequest: () => SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest: () => SignatureRequestSendWithTemplateRequest,
+  SignatureRequestSignerExperience: () => SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest: () => SignatureRequestUpdateRequest,
   SubAttachment: () => SubAttachment,
   SubBulkSignerList: () => SubBulkSignerList,
@@ -13282,6 +13283,7 @@ __export(api_exports, {
   SubSignatureRequestGroupedSigners: () => SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner: () => SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner: () => SubSignatureRequestTemplateSigner,
+  SubSignerExperience: () => SubSignerExperience,
   SubSigningOptions: () => SubSigningOptions,
   SubTeamResponse: () => SubTeamResponse,
   SubTemplateRole: () => SubTemplateRole,
@@ -17643,6 +17645,11 @@ var BulkSendJobGetResponseSignatureRequests = class _BulkSendJobGetResponseSigna
         name: "bulkSendJobId",
         baseName: "bulk_send_job_id",
         type: "string"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SignatureRequestSignerExperience"
       }
     ];
   }
@@ -17765,10 +17772,6 @@ var EmbeddedEditUrlRequest = class _EmbeddedEditUrlRequest {
      */
     this["allowEditCcs"] = false;
     /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
-    /**
      * Provide users the ability to review/edit the template signer roles.
      */
     this["forceSignerRoles"] = false;
@@ -17801,11 +17804,6 @@ var EmbeddedEditUrlRequest = class _EmbeddedEditUrlRequest {
       {
         name: "allowEditCcs",
         baseName: "allow_edit_ccs",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -17852,6 +17850,11 @@ var EmbeddedEditUrlRequest = class _EmbeddedEditUrlRequest {
         name: "testMode",
         baseName: "test_mode",
         type: "boolean"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -19566,10 +19569,6 @@ var SignatureRequestCreateEmbeddedRequest = class _SignatureRequestCreateEmbedde
      */
     this["allowDecline"] = false;
     /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
-    /**
      * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
      */
     this["allowReassign"] = false;
@@ -19623,11 +19622,6 @@ var SignatureRequestCreateEmbeddedRequest = class _SignatureRequestCreateEmbedde
       {
         name: "allowDecline",
         baseName: "allow_decline",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -19714,6 +19708,11 @@ var SignatureRequestCreateEmbeddedRequest = class _SignatureRequestCreateEmbedde
         name: "populateAutoFillFields",
         baseName: "populate_auto_fill_fields",
         type: "boolean"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       },
       {
         name: "expiresAt",
@@ -19829,6 +19828,11 @@ var SignatureRequestCreateEmbeddedWithTemplateRequest = class _SignatureRequestC
         name: "populateAutoFillFields",
         baseName: "populate_auto_fill_fields",
         type: "boolean"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -19851,10 +19855,6 @@ var SignatureRequestEditEmbeddedRequest = class _SignatureRequestEditEmbeddedReq
      * Allows signers to decline to sign a document if `true`. Defaults to `false`.
      */
     this["allowDecline"] = false;
-    /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
     /**
      * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
      */
@@ -19909,11 +19909,6 @@ var SignatureRequestEditEmbeddedRequest = class _SignatureRequestEditEmbeddedReq
       {
         name: "allowDecline",
         baseName: "allow_decline",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -20005,6 +20000,11 @@ var SignatureRequestEditEmbeddedRequest = class _SignatureRequestEditEmbeddedReq
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -20115,6 +20115,11 @@ var SignatureRequestEditEmbeddedWithTemplateRequest = class _SignatureRequestEdi
         name: "populateAutoFillFields",
         baseName: "populate_auto_fill_fields",
         type: "boolean"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -20137,10 +20142,6 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
      * Allows signers to decline to sign a document if `true`. Defaults to `false`.
      */
     this["allowDecline"] = false;
-    /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
     /**
      * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
      */
@@ -20190,11 +20191,6 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
       {
         name: "allowDecline",
         baseName: "allow_decline",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -20296,6 +20292,11 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -20408,6 +20409,11 @@ var SignatureRequestEditWithTemplateRequest = class _SignatureRequestEditWithTem
         name: "title",
         baseName: "title",
         type: "string"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -20649,6 +20655,11 @@ var SignatureRequestResponse = class _SignatureRequestResponse {
         name: "bulkSendJobId",
         baseName: "bulk_send_job_id",
         type: "string"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SignatureRequestSignerExperience"
       }
     ];
   }
@@ -21412,10 +21423,6 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
      */
     this["allowReassign"] = false;
     /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
-    /**
      * Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
      */
     this["hideTextTags"] = false;
@@ -21471,11 +21478,6 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
       {
         name: "allowReassign",
         baseName: "allow_reassign",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -21577,6 +21579,11 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -21700,6 +21707,11 @@ var SignatureRequestSendWithTemplateRequest = class _SignatureRequestSendWithTem
         name: "title",
         baseName: "title",
         type: "string"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -21714,6 +21726,41 @@ var SignatureRequestSendWithTemplateRequest = class _SignatureRequestSendWithTem
     );
   }
 };
+
+// model/signatureRequestSignerExperience.ts
+var SignatureRequestSignerExperience = class _SignatureRequestSignerExperience {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "formView",
+        baseName: "form_view",
+        type: "SignatureRequestSignerExperience.FormViewEnum"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _SignatureRequestSignerExperience.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestSignerExperience"
+    );
+  }
+};
+((SignatureRequestSignerExperience2) => {
+  let FormViewEnum;
+  ((FormViewEnum2) => {
+    FormViewEnum2["Disabled"] = "disabled";
+    FormViewEnum2["Enabled"] = "enabled";
+    FormViewEnum2["EnabledByDefault"] = "enabled_by_default";
+    FormViewEnum2["Forced"] = "forced";
+  })(FormViewEnum = SignatureRequestSignerExperience2.FormViewEnum || (SignatureRequestSignerExperience2.FormViewEnum = {}));
+})(SignatureRequestSignerExperience || (SignatureRequestSignerExperience = {}));
 
 // model/signatureRequestUpdateRequest.ts
 var SignatureRequestUpdateRequest = class _SignatureRequestUpdateRequest {
@@ -23156,6 +23203,38 @@ var SubSignatureRequestTemplateSigner = class _SubSignatureRequestTemplateSigner
   })(SmsPhoneNumberTypeEnum = SubSignatureRequestTemplateSigner2.SmsPhoneNumberTypeEnum || (SubSignatureRequestTemplateSigner2.SmsPhoneNumberTypeEnum = {}));
 })(SubSignatureRequestTemplateSigner || (SubSignatureRequestTemplateSigner = {}));
 
+// model/subSignerExperience.ts
+var SubSignerExperience = class _SubSignerExperience {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "formView",
+        baseName: "form_view",
+        type: "SubSignerExperience.FormViewEnum"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _SubSignerExperience.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "SubSignerExperience");
+  }
+};
+((SubSignerExperience2) => {
+  let FormViewEnum;
+  ((FormViewEnum2) => {
+    FormViewEnum2["Disabled"] = "disabled";
+    FormViewEnum2["Enabled"] = "enabled";
+    FormViewEnum2["EnabledByDefault"] = "enabled_by_default";
+    FormViewEnum2["Forced"] = "forced";
+  })(FormViewEnum = SubSignerExperience2.FormViewEnum || (SubSignerExperience2.FormViewEnum = {}));
+})(SubSignerExperience || (SubSignerExperience = {}));
+
 // model/subSigningOptions.ts
 var SubSigningOptions = class _SubSigningOptions {
   constructor() {
@@ -24032,10 +24111,6 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
      */
     this["allowReassign"] = false;
     /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
-    /**
      * Provide users the ability to review/edit the template signer roles.
      */
     this["forceSignerRoles"] = false;
@@ -24092,11 +24167,6 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
       {
         name: "allowReassign",
         baseName: "allow_reassign",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -24198,6 +24268,11 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
         name: "usePreexistingFields",
         baseName: "use_preexisting_fields",
         type: "boolean"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -24293,10 +24368,6 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
      */
     this["allowReassign"] = false;
     /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
-    /**
      * Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
      */
     this["testMode"] = false;
@@ -24333,11 +24404,6 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
       {
         name: "allowReassign",
         baseName: "allow_reassign",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -24404,6 +24470,11 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
         name: "usePreexistingFields",
         baseName: "use_preexisting_fields",
         type: "boolean"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -24644,9 +24715,9 @@ var TemplateResponse = class _TemplateResponse {
         type: "Array<SignatureRequestResponseAttachment>"
       },
       {
-        name: "allowFormView",
-        baseName: "allow_form_view",
-        type: "boolean"
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SignatureRequestSignerExperience"
       }
     ];
   }
@@ -26047,11 +26118,6 @@ var TemplateUpdateRequest = class _TemplateUpdateRequest {
         type: "Array<string>"
       },
       {
-        name: "allowFormView",
-        baseName: "allow_form_view",
-        type: "boolean"
-      },
-      {
         name: "title",
         baseName: "title",
         type: "string"
@@ -26070,6 +26136,11 @@ var TemplateUpdateRequest = class _TemplateUpdateRequest {
         name: "formFields",
         baseName: "form_fields",
         type: "Array<SubUpdateFormField>"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -26093,10 +26164,6 @@ var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedReq
      * Allows signers to decline to sign a document if `true`. Defaults to `false`.
      */
     this["allowDecline"] = false;
-    /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
     /**
      * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
      */
@@ -26183,11 +26250,6 @@ var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedReq
       {
         name: "allowDecline",
         baseName: "allow_decline",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -26594,10 +26656,6 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
      */
     this["allowDecline"] = false;
     /**
-     * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     */
-    this["allowFormView"] = false;
-    /**
      * Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
      */
     this["hideTextTags"] = false;
@@ -26641,11 +26699,6 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
       {
         name: "allowDecline",
         baseName: "allow_decline",
-        type: "boolean"
-      },
-      {
-        name: "allowFormView",
-        baseName: "allow_form_view",
         type: "boolean"
       },
       {
@@ -26747,6 +26800,11 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
+      },
+      {
+        name: "signerExperience",
+        baseName: "signer_experience",
+        type: "SubSignerExperience"
       }
     ];
   }
@@ -26953,6 +27011,7 @@ var enumsMap = {
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
   SignatureRequestResponseDataTypeEnum,
+  "SignatureRequestSignerExperience.FormViewEnum": SignatureRequestSignerExperience.FormViewEnum,
   "SubFieldOptions.DateFormatEnum": SubFieldOptions.DateFormatEnum,
   "SubFormFieldRuleAction.TypeEnum": SubFormFieldRuleAction.TypeEnum,
   "SubFormFieldRuleTrigger.OperatorEnum": SubFormFieldRuleTrigger.OperatorEnum,
@@ -26968,6 +27027,7 @@ var enumsMap = {
   "SubOAuth.ScopesEnum": SubOAuth.ScopesEnum,
   "SubSignatureRequestSigner.SmsPhoneNumberTypeEnum": SubSignatureRequestSigner.SmsPhoneNumberTypeEnum,
   "SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum": SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum,
+  "SubSignerExperience.FormViewEnum": SubSignerExperience.FormViewEnum,
   "SubSigningOptions.DefaultTypeEnum": SubSigningOptions.DefaultTypeEnum,
   "SubWhiteLabelingOptions.LegalVersionEnum": SubWhiteLabelingOptions.LegalVersionEnum,
   "TeamAddMemberRequest.RoleEnum": TeamAddMemberRequest.RoleEnum,
@@ -27063,6 +27123,7 @@ var typeMap = {
   SignatureRequestResponseSignatures,
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
+  SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest,
   SubAttachment,
   SubBulkSignerList,
@@ -27092,6 +27153,7 @@ var typeMap = {
   SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
+  SubSignerExperience,
   SubSigningOptions,
   SubTeamResponse,
   SubTemplateRole,
@@ -36729,6 +36791,7 @@ var APIS = [
   SignatureRequestResponseSignatures,
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
+  SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest,
   SubAttachment,
   SubBulkSignerList,
@@ -36760,6 +36823,7 @@ var APIS = [
   SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
+  SubSignerExperience,
   SubSigningOptions,
   SubTeamResponse,
   SubTemplateRole,

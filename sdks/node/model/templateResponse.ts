@@ -24,6 +24,7 @@
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
 import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAttachment";
+import { SignatureRequestSignerExperience } from "./signatureRequestSignerExperience";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
 import { TemplateResponseDocument } from "./templateResponseDocument";
@@ -103,10 +104,7 @@ export class TemplateResponse {
    * Signer attachments.
    */
   "attachments"?: Array<SignatureRequestResponseAttachment>;
-  /**
-   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-   */
-  "allowFormView"?: boolean;
+  "signerExperience"?: SignatureRequestSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -192,9 +190,9 @@ export class TemplateResponse {
       type: "Array<SignatureRequestResponseAttachment>",
     },
     {
-      name: "allowFormView",
-      baseName: "allow_form_view",
-      type: "boolean",
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SignatureRequestSignerExperience",
     },
   ];
 

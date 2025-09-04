@@ -150,6 +150,9 @@
         "lawyer@dropboxsign.com",
         "lawyer@example.com"
       ],
+      "signer_experience": {
+        "form_view": "disabled"
+      },
       "test_mode": false
     }
   }

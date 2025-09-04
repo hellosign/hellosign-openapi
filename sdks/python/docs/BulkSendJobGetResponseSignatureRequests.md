@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 | `response_data` | [```List[SignatureRequestResponseDataBase]```](SignatureRequestResponseDataBase.md) |  An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.  |  |
 | `signatures` | [```List[SignatureRequestResponseSignatures]```](SignatureRequestResponseSignatures.md) |  An array of signature objects, 1 for each signer.  |  |
 | `bulk_send_job_id` | ```str``` |  The id of the BulkSendJob.  |  |
+| `signer_experience` | [```SignatureRequestSignerExperience```](SignatureRequestSignerExperience.md) |    |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

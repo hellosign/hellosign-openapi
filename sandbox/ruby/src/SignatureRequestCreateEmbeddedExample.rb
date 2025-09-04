@@ -13,6 +13,9 @@ signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
 signers_1.name = "Jack"
 signers_1.email_address = "jack@example.com"
@@ -42,6 +45,7 @@ signature_request_create_embedded_request.files = [
     File.new("./example_signature_request.pdf", "r"),
 ]
 signature_request_create_embedded_request.signing_options = signing_options
+signature_request_create_embedded_request.signer_experience = signer_experience
 signature_request_create_embedded_request.signers = signers
 
 begin

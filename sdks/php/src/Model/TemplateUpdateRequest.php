@@ -58,11 +58,11 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static $openAPITypes = [
         'cc_roles' => 'string[]',
-        'allow_form_view' => 'bool',
         'title' => 'string',
         'subject' => 'string',
         'message' => 'string',
         'form_fields' => '\Dropbox\Sign\Model\SubUpdateFormField[]',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -74,11 +74,11 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static $openAPIFormats = [
         'cc_roles' => null,
-        'allow_form_view' => null,
         'title' => null,
         'subject' => null,
         'message' => null,
         'form_fields' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -88,11 +88,11 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static array $openAPINullables = [
         'cc_roles' => false,
-        'allow_form_view' => false,
         'title' => false,
         'subject' => false,
         'message' => false,
         'form_fields' => false,
+        'signer_experience' => false,
     ];
 
     /**
@@ -174,11 +174,11 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static $attributeMap = [
         'cc_roles' => 'cc_roles',
-        'allow_form_view' => 'allow_form_view',
         'title' => 'title',
         'subject' => 'subject',
         'message' => 'message',
         'form_fields' => 'form_fields',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -188,11 +188,11 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static $setters = [
         'cc_roles' => 'setCcRoles',
-        'allow_form_view' => 'setAllowFormView',
         'title' => 'setTitle',
         'subject' => 'setSubject',
         'message' => 'setMessage',
         'form_fields' => 'setFormFields',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -202,11 +202,11 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static $getters = [
         'cc_roles' => 'getCcRoles',
-        'allow_form_view' => 'getAllowFormView',
         'title' => 'getTitle',
         'subject' => 'getSubject',
         'message' => 'getMessage',
         'form_fields' => 'getFormFields',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -266,11 +266,11 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     public function __construct(?array $data = null)
     {
         $this->setIfExists('cc_roles', $data ?? [], null);
-        $this->setIfExists('allow_form_view', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('form_fields', $data ?? [], null);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -363,33 +363,6 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
             throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
         }
         $this->container['cc_roles'] = $cc_roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_form_view
-     *
-     * @return bool|null
-     */
-    public function getAllowFormView()
-    {
-        return $this->container['allow_form_view'];
-    }
-
-    /**
-     * Sets allow_form_view
-     *
-     * @param bool|null $allow_form_view The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names.
-     *
-     * @return self
-     */
-    public function setAllowFormView(?bool $allow_form_view)
-    {
-        if (is_null($allow_form_view)) {
-            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
-        }
-        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }
@@ -506,6 +479,33 @@ class TemplateUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializ
             throw new InvalidArgumentException('non-nullable form_fields cannot be null');
         }
         $this->container['form_fields'] = $form_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

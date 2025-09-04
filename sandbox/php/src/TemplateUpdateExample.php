@@ -11,6 +11,9 @@ $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 $config->setUsername("YOUR_API_KEY");
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
+
 $form_fields_1 = (new Dropbox\Sign\Model\SubUpdateFormField())
     ->setApiId("uniqueIdHere_1")
     ->setName("New name 1");
@@ -25,7 +28,6 @@ $form_fields = [
 ];
 
 $template_update_request = (new Dropbox\Sign\Model\TemplateUpdateRequest())
-    ->setAllowFormView(false)
     ->setTitle("Test Title")
     ->setSubject("Test Subject")
     ->setMessage("Test Message")
@@ -33,6 +35,7 @@ $template_update_request = (new Dropbox\Sign\Model\TemplateUpdateRequest())
         "CC Role 1",
         "CC Role 2",
     ])
+    ->setSignerExperience($signer_experience)
     ->setFormFields($form_fields);
 
 try {

@@ -26,6 +26,7 @@ import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 
 export class SignatureRequestEditEmbeddedWithTemplateRequest {
@@ -86,6 +87,7 @@ export class SignatureRequestEditEmbeddedWithTemplateRequest {
    * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  **NOTE:** Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    */
   "populateAutoFillFields"?: boolean = false;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -164,6 +166,11 @@ export class SignatureRequestEditEmbeddedWithTemplateRequest {
       name: "populateAutoFillFields",
       baseName: "populate_auto_fill_fields",
       type: "boolean",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

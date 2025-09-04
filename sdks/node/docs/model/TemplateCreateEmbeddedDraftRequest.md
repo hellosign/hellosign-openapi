@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 | `fileUrls` | ```Array<string>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allowCcs` | ```boolean``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.  |  [default to true] |
 | `allowReassign` | ```boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
-| `allowFormView` | ```boolean``` |  Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.  |  [default to false] |
 | `attachments` | [```Array<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
 | `ccRoles` | ```Array<string>``` |  The CC roles that must be assigned when using the template to send a signature request  |  |
 | `editorOptions` | [```SubEditorOptions```](SubEditorOptions.md) |    |  |
@@ -32,5 +31,6 @@ Name | Type | Description | Notes
 | `testMode` | ```boolean``` |  Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.  |  [default to false] |
 | `title` | ```string``` |  The title you want to assign to the SignatureRequest.  |  |
 | `usePreexistingFields` | ```boolean``` |  Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).  |  [default to false] |
+| `signerExperience` | [```SubSignerExperience```](SubSignerExperience.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

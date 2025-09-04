@@ -368,6 +368,10 @@ const signingOptions: models.SubSigningOptions = {
   upload: true,
 };
 
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
+};
+
 const signers1: models.SubSignatureRequestSigner = {
   name: "Jack",
   emailAddress: "jack@example.com",
@@ -399,6 +403,7 @@ const signatureRequestCreateEmbeddedRequest: models.SignatureRequestCreateEmbedd
     fs.createReadStream("./example_signature_request.pdf"),
   ],
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   signers: signers,
 };
 
@@ -465,6 +470,10 @@ const signingOptions: models.SubSigningOptions = {
   upload: true,
 };
 
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
+};
+
 const signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "George",
@@ -484,6 +493,7 @@ const signatureRequestCreateEmbeddedWithTemplateRequest: models.SignatureRequest
   subject: "Purchase Order",
   testMode: true,
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   signers: signers,
 };
 
@@ -554,6 +564,10 @@ const signingOptions: models.SubSigningOptions = {
   upload: true,
 };
 
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
+};
+
 const signers1: models.SubSignatureRequestSigner = {
   name: "Jack",
   emailAddress: "jack@example.com",
@@ -589,6 +603,7 @@ const signatureRequestEditRequest: models.SignatureRequestEditRequest = {
   },
   fieldOptions: fieldOptions,
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   signers: signers,
 };
 
@@ -657,6 +672,10 @@ const signingOptions: models.SubSigningOptions = {
   upload: true,
 };
 
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
+};
+
 const signers1: models.SubSignatureRequestSigner = {
   name: "Jack",
   emailAddress: "jack@example.com",
@@ -688,6 +707,7 @@ const signatureRequestEditEmbeddedRequest: models.SignatureRequestEditEmbeddedRe
     fs.createReadStream("./example_signature_request.pdf"),
   ],
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   signers: signers,
 };
 
@@ -756,6 +776,10 @@ const signingOptions: models.SubSigningOptions = {
   upload: true,
 };
 
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
+};
+
 const signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "George",
@@ -775,6 +799,7 @@ const signatureRequestEditEmbeddedWithTemplateRequest: models.SignatureRequestEd
   subject: "Purchase Order",
   testMode: true,
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   signers: signers,
 };
 

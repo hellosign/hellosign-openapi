@@ -74,7 +74,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
         'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
         'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
-        'allow_form_view' => 'bool',
+        'signer_experience' => '\Dropbox\Sign\Model\SignatureRequestSignerExperience',
     ];
 
     /**
@@ -101,7 +101,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => null,
         'accounts' => null,
         'attachments' => null,
-        'allow_form_view' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -126,7 +126,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => true,
         'accounts' => false,
         'attachments' => false,
-        'allow_form_view' => false,
+        'signer_experience' => false,
     ];
 
     /**
@@ -223,7 +223,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'named_form_fields',
         'accounts' => 'accounts',
         'attachments' => 'attachments',
-        'allow_form_view' => 'allow_form_view',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -248,7 +248,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'setNamedFormFields',
         'accounts' => 'setAccounts',
         'attachments' => 'setAttachments',
-        'allow_form_view' => 'setAllowFormView',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -273,7 +273,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'getNamedFormFields',
         'accounts' => 'getAccounts',
         'attachments' => 'getAttachments',
-        'allow_form_view' => 'getAllowFormView',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -348,7 +348,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('named_form_fields', $data ?? [], null);
         $this->setIfExists('accounts', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
-        $this->setIfExists('allow_form_view', $data ?? [], null);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -866,28 +866,28 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets allow_form_view
+     * Gets signer_experience
      *
-     * @return bool|null
+     * @return SignatureRequestSignerExperience|null
      */
-    public function getAllowFormView()
+    public function getSignerExperience()
     {
-        return $this->container['allow_form_view'];
+        return $this->container['signer_experience'];
     }
 
     /**
-     * Sets allow_form_view
+     * Sets signer_experience
      *
-     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+     * @param SignatureRequestSignerExperience|null $signer_experience signer_experience
      *
      * @return self
      */
-    public function setAllowFormView(?bool $allow_form_view)
+    public function setSignerExperience(?SignatureRequestSignerExperience $signer_experience)
     {
-        if (is_null($allow_form_view)) {
-            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
         }
-        $this->container['allow_form_view'] = $allow_form_view;
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

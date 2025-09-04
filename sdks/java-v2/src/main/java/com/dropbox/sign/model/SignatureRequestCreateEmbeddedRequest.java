@@ -24,6 +24,7 @@ import com.dropbox.sign.model.SubFormFieldRule;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
 import com.dropbox.sign.model.SubSignatureRequestGroupedSigners;
 import com.dropbox.sign.model.SubSignatureRequestSigner;
+import com.dropbox.sign.model.SubSignerExperience;
 import com.dropbox.sign.model.SubSigningOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -53,7 +54,6 @@ import com.dropbox.sign.ApiException;
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_SIGNERS,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_GROUPED_SIGNERS,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_DECLINE,
-  SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_REASSIGN,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ATTACHMENTS,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
@@ -71,6 +71,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_TITLE,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_USE_TEXT_TAGS,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
+  SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_SIGNER_EXPERIENCE,
   SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
@@ -99,10 +100,6 @@ public class SignatureRequestCreateEmbeddedRequest {
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   @jakarta.annotation.Nullable
   private Boolean allowDecline = false;
-
-  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
-  @jakarta.annotation.Nullable
-  private Boolean allowFormView = false;
 
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
   @jakarta.annotation.Nullable
@@ -171,6 +168,10 @@ public class SignatureRequestCreateEmbeddedRequest {
   public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS = "populate_auto_fill_fields";
   @jakarta.annotation.Nullable
   private Boolean populateAutoFillFields = false;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SubSignerExperience signerExperience;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   @jakarta.annotation.Nullable
@@ -373,31 +374,6 @@ public class SignatureRequestCreateEmbeddedRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowDecline(@jakarta.annotation.Nullable Boolean allowDecline) {
     this.allowDecline = allowDecline;
-  }
-
-
-  public SignatureRequestCreateEmbeddedRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
-    return this;
-  }
-
-  /**
-   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return allowFormView
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowFormView() {
-    return allowFormView;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
   }
 
 
@@ -882,6 +858,31 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
 
+  public SignatureRequestCreateEmbeddedRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   public SignatureRequestCreateEmbeddedRequest expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
@@ -925,7 +926,6 @@ public class SignatureRequestCreateEmbeddedRequest {
         Objects.equals(this.signers, signatureRequestCreateEmbeddedRequest.signers) &&
         Objects.equals(this.groupedSigners, signatureRequestCreateEmbeddedRequest.groupedSigners) &&
         Objects.equals(this.allowDecline, signatureRequestCreateEmbeddedRequest.allowDecline) &&
-        Objects.equals(this.allowFormView, signatureRequestCreateEmbeddedRequest.allowFormView) &&
         Objects.equals(this.allowReassign, signatureRequestCreateEmbeddedRequest.allowReassign) &&
         Objects.equals(this.attachments, signatureRequestCreateEmbeddedRequest.attachments) &&
         Objects.equals(this.ccEmailAddresses, signatureRequestCreateEmbeddedRequest.ccEmailAddresses) &&
@@ -943,12 +943,13 @@ public class SignatureRequestCreateEmbeddedRequest {
         Objects.equals(this.title, signatureRequestCreateEmbeddedRequest.title) &&
         Objects.equals(this.useTextTags, signatureRequestCreateEmbeddedRequest.useTextTags) &&
         Objects.equals(this.populateAutoFillFields, signatureRequestCreateEmbeddedRequest.populateAutoFillFields) &&
+        Objects.equals(this.signerExperience, signatureRequestCreateEmbeddedRequest.signerExperience) &&
         Objects.equals(this.expiresAt, signatureRequestCreateEmbeddedRequest.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowFormView, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt);
+    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, signerExperience, expiresAt);
   }
 
   @Override
@@ -961,7 +962,6 @@ public class SignatureRequestCreateEmbeddedRequest {
     sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
     sb.append("    groupedSigners: ").append(toIndentedString(groupedSigners)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
-    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
@@ -979,6 +979,7 @@ public class SignatureRequestCreateEmbeddedRequest {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
     sb.append("    populateAutoFillFields: ").append(toIndentedString(populateAutoFillFields)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1100,25 +1101,6 @@ public class SignatureRequestCreateEmbeddedRequest {
         }
         else {
             map.put("allow_decline", JSON.getDefault().getMapper().writeValueAsString(allowDecline));
-        }
-    }
-    if (allowFormView != null) {
-        if (isFileTypeOrListOfFiles(allowFormView)) {
-            fileTypeFound = true;
-        }
-
-        if (allowFormView.getClass().equals(java.io.File.class) ||
-            allowFormView.getClass().equals(Integer.class) ||
-            allowFormView.getClass().equals(String.class) ||
-            allowFormView.getClass().isEnum()) {
-            map.put("allow_form_view", allowFormView);
-        } else if (isListOfFile(allowFormView)) {
-            for(int i = 0; i< getListSize(allowFormView); i++) {
-                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
-            }
-        }
-        else {
-            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (allowReassign != null) {
@@ -1442,6 +1424,25 @@ public class SignatureRequestCreateEmbeddedRequest {
         }
         else {
             map.put("populate_auto_fill_fields", JSON.getDefault().getMapper().writeValueAsString(populateAutoFillFields));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     if (expiresAt != null) {

@@ -82,6 +82,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'response_data' => '\Dropbox\Sign\Model\SignatureRequestResponseDataBase[]',
         'signatures' => '\Dropbox\Sign\Model\SignatureRequestResponseSignatures[]',
         'bulk_send_job_id' => 'string',
+        'signer_experience' => '\Dropbox\Sign\Model\SignatureRequestSignerExperience',
     ];
 
     /**
@@ -117,6 +118,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'response_data' => null,
         'signatures' => null,
         'bulk_send_job_id' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -150,6 +152,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'response_data' => true,
         'signatures' => false,
         'bulk_send_job_id' => false,
+        'signer_experience' => false,
     ];
 
     /**
@@ -255,6 +258,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'response_data' => 'response_data',
         'signatures' => 'signatures',
         'bulk_send_job_id' => 'bulk_send_job_id',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -288,6 +292,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'response_data' => 'setResponseData',
         'signatures' => 'setSignatures',
         'bulk_send_job_id' => 'setBulkSendJobId',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -321,6 +326,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'response_data' => 'getResponseData',
         'signatures' => 'getSignatures',
         'bulk_send_job_id' => 'getBulkSendJobId',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -404,6 +410,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         $this->setIfExists('response_data', $data ?? [], null);
         $this->setIfExists('signatures', $data ?? [], null);
         $this->setIfExists('bulk_send_job_id', $data ?? [], null);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -1211,6 +1218,33 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
             throw new InvalidArgumentException('non-nullable bulk_send_job_id cannot be null');
         }
         $this->container['bulk_send_job_id'] = $bulk_send_job_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SignatureRequestSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SignatureRequestSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SignatureRequestSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

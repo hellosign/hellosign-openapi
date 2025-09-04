@@ -25,6 +25,10 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
             upload: true
         );
 
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
+        );
+
         var signers1 = new SubSignatureRequestTemplateSigner(
             role: "Client",
             name: "George",
@@ -45,6 +49,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
             subject: "Purchase Order",
             testMode: true,
             signingOptions: signingOptions,
+            signerExperience: signerExperience,
             signers: signers
         );
 

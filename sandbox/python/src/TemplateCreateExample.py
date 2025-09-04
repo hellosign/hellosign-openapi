@@ -14,6 +14,10 @@ with ApiClient(configuration) as api_client:
         date_format="DD - MM - YYYY",
     )
 
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
+    )
+
     signer_roles_1 = models.SubTemplateRole(
         name="Client",
         order=0,
@@ -92,6 +96,7 @@ with ApiClient(configuration) as api_client:
             open("./example_signature_request.pdf", "rb").read(),
         ],
         field_options=field_options,
+        signer_experience=signer_experience,
         signer_roles=signer_roles,
         form_fields_per_document=form_fields_per_document,
         merge_fields=merge_fields,

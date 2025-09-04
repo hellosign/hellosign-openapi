@@ -30,6 +30,7 @@ from dropbox_sign.models.sub_form_fields_per_document_base import (
     SubFormFieldsPerDocumentBase,
 )
 from dropbox_sign.models.sub_merge_field import SubMergeField
+from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_template_role import SubTemplateRole
 from typing import Optional, Set
 from typing_extensions import Self
@@ -63,10 +64,6 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
     allow_reassign: Optional[StrictBool] = Field(
         default=False,
         description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.",
-    )
-    allow_form_view: Optional[StrictBool] = Field(
-        default=False,
-        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
     )
     attachments: Optional[List[SubAttachment]] = Field(
         default=None, description="A list describing the attachments"
@@ -139,13 +136,13 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
         default=False,
         description="Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).",
     )
+    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "client_id",
         "files",
         "file_urls",
         "allow_ccs",
         "allow_reassign",
-        "allow_form_view",
         "attachments",
         "cc_roles",
         "editor_options",
@@ -166,6 +163,7 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
         "test_mode",
         "title",
         "use_preexisting_fields",
+        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -266,6 +264,9 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
                 if _item_signer_roles:
                     _items.append(_item_signer_roles.to_dict())
             _dict["signer_roles"] = _items
+        # override the default output from pydantic by calling `to_dict()` of signer_experience
+        if self.signer_experience:
+            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -288,11 +289,6 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
                 "allow_reassign": (
                     obj.get("allow_reassign")
                     if obj.get("allow_reassign") is not None
-                    else False
-                ),
-                "allow_form_view": (
-                    obj.get("allow_form_view")
-                    if obj.get("allow_form_view") is not None
                     else False
                 ),
                 "attachments": (
@@ -382,6 +378,11 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
                     if obj.get("use_preexisting_fields") is not None
                     else False
                 ),
+                "signer_experience": (
+                    SubSignerExperience.from_dict(obj["signer_experience"])
+                    if obj.get("signer_experience") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -404,7 +405,6 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
             "file_urls": "(List[str],)",
             "allow_ccs": "(bool,)",
             "allow_reassign": "(bool,)",
-            "allow_form_view": "(bool,)",
             "attachments": "(List[SubAttachment],)",
             "cc_roles": "(List[str],)",
             "editor_options": "(SubEditorOptions,)",
@@ -425,6 +425,7 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
             "test_mode": "(bool,)",
             "title": "(str,)",
             "use_preexisting_fields": "(bool,)",
+            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

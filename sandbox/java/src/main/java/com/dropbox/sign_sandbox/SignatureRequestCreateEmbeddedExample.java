@@ -30,6 +30,9 @@ public class SignatureRequestCreateEmbeddedExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
         signers1.emailAddress("jack@example.com");
@@ -59,6 +62,7 @@ public class SignatureRequestCreateEmbeddedExample
             new File("./example_signature_request.pdf")
         ));
         signatureRequestCreateEmbeddedRequest.signingOptions(signingOptions);
+        signatureRequestCreateEmbeddedRequest.signerExperience(signerExperience);
         signatureRequestCreateEmbeddedRequest.signers(signers);
 
         try

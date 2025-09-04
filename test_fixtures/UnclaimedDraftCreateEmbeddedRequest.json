@@ -1,7 +1,6 @@
 {
   "default": {
     "allow_ccs": true,
-    "allow_form_view": false,
     "allow_decline": true,
     "allow_reassign": true,
     "attachments": [

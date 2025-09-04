@@ -29,6 +29,7 @@ import { SubFieldOptions } from "./subFieldOptions";
 import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 import { SubUnclaimedDraftSigner } from "./subUnclaimedDraftSigner";
 
@@ -52,10 +53,6 @@ export class UnclaimedDraftCreateRequest {
    * Allows signers to decline to sign a document if `true`. Defaults to `false`.
    */
   "allowDecline"?: boolean = false;
-  /**
-   * Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-   */
-  "allowFormView"?: boolean = false;
   /**
    * A list describing the attachments
    */
@@ -130,6 +127,7 @@ export class UnclaimedDraftCreateRequest {
    * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.
    */
   "expiresAt"?: number | null;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -152,11 +150,6 @@ export class UnclaimedDraftCreateRequest {
     {
       name: "allowDecline",
       baseName: "allow_decline",
-      type: "boolean",
-    },
-    {
-      name: "allowFormView",
-      baseName: "allow_form_view",
       type: "boolean",
     },
     {
@@ -258,6 +251,11 @@ export class UnclaimedDraftCreateRequest {
       name: "expiresAt",
       baseName: "expires_at",
       type: "number",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

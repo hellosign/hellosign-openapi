@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.sub_editor_options import SubEditorOptions
 from dropbox_sign.models.sub_merge_field import SubMergeField
+from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
@@ -37,10 +38,6 @@ class EmbeddedEditUrlRequest(BaseModel):
     allow_edit_ccs: Optional[StrictBool] = Field(
         default=False,
         description="This allows the requester to enable/disable to add or change CC roles when editing the template.",
-    )
-    allow_form_view: Optional[StrictBool] = Field(
-        default=False,
-        description="Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.",
     )
     cc_roles: Optional[List[StrictStr]] = Field(
         default=None,
@@ -75,9 +72,9 @@ class EmbeddedEditUrlRequest(BaseModel):
         default=False,
         description="Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.",
     )
+    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "allow_edit_ccs",
-        "allow_form_view",
         "cc_roles",
         "editor_options",
         "force_signer_roles",
@@ -87,6 +84,7 @@ class EmbeddedEditUrlRequest(BaseModel):
         "show_preview",
         "show_progress_stepper",
         "test_mode",
+        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -149,6 +147,9 @@ class EmbeddedEditUrlRequest(BaseModel):
                 if _item_merge_fields:
                     _items.append(_item_merge_fields.to_dict())
             _dict["merge_fields"] = _items
+        # override the default output from pydantic by calling `to_dict()` of signer_experience
+        if self.signer_experience:
+            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -165,11 +166,6 @@ class EmbeddedEditUrlRequest(BaseModel):
                 "allow_edit_ccs": (
                     obj.get("allow_edit_ccs")
                     if obj.get("allow_edit_ccs") is not None
-                    else False
-                ),
-                "allow_form_view": (
-                    obj.get("allow_form_view")
-                    if obj.get("allow_form_view") is not None
                     else False
                 ),
                 "cc_roles": obj.get("cc_roles"),
@@ -211,6 +207,11 @@ class EmbeddedEditUrlRequest(BaseModel):
                 "test_mode": (
                     obj.get("test_mode") if obj.get("test_mode") is not None else False
                 ),
+                "signer_experience": (
+                    SubSignerExperience.from_dict(obj["signer_experience"])
+                    if obj.get("signer_experience") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -229,7 +230,6 @@ class EmbeddedEditUrlRequest(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "allow_edit_ccs": "(bool,)",
-            "allow_form_view": "(bool,)",
             "cc_roles": "(List[str],)",
             "editor_options": "(SubEditorOptions,)",
             "force_signer_roles": "(bool,)",
@@ -239,6 +239,7 @@ class EmbeddedEditUrlRequest(BaseModel):
             "show_preview": "(bool,)",
             "show_progress_stepper": "(bool,)",
             "test_mode": "(bool,)",
+            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

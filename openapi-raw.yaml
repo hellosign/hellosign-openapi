@@ -7941,10 +7941,6 @@ components:
           description: '_t__EmbeddedEditUrl::ALLOW_EDIT_CCS'
           type: boolean
           default: false
-        allow_form_view:
-          description: '_t__EmbeddedEditUrl::ALLOW_FORM_VIEW'
-          type: boolean
-          default: false
         cc_roles:
           description: '_t__EmbeddedEditUrl::CC_ROLES'
           type: array
@@ -7981,6 +7977,8 @@ components:
           description: '_t__EmbeddedEditUrl::TEST_MODE'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     FaxLineAddUserRequest:
       required:
@@ -8383,10 +8381,6 @@ components:
           description: '_t__SignatureRequestCreateEmbedded::ALLOW_DECLINE'
           type: boolean
           default: false
-        allow_form_view:
-          description: '_t__SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW'
-          type: boolean
-          default: false
         allow_reassign:
           description: '_t__SignatureRequestCreateEmbedded::ALLOW_REASSIGN'
           type: boolean
@@ -8462,6 +8456,8 @@ components:
           description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
         expires_at:
           description: '_t__SignatureRequestCreateEmbedded::EXPIRES_AT'
           type: integer
@@ -8538,6 +8534,8 @@ components:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditRequest:
       properties:
@@ -8564,10 +8562,6 @@ components:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
         allow_decline:
           description: '_t__SignatureRequestSend::ALLOW_DECLINE'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: '_t__SignatureRequestSend::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         allow_reassign:
@@ -8652,6 +8646,8 @@ components:
           description: '_t__SignatureRequestSend::EXPIRES_AT'
           type: integer
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditEmbeddedRequest:
       required:
@@ -8680,10 +8676,6 @@ components:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
         allow_decline:
           description: '_t__SignatureRequestCreateEmbedded::ALLOW_DECLINE'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: '_t__SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         allow_reassign:
@@ -8765,6 +8757,8 @@ components:
           description: '_t__SignatureRequestCreateEmbedded::EXPIRES_AT'
           type: integer
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditEmbeddedWithTemplateRequest:
       required:
@@ -8837,6 +8831,8 @@ components:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditWithTemplateRequest:
       description: ''
@@ -8912,6 +8908,8 @@ components:
           description: '_t__SignatureRequestSendWithTemplate::TITLE'
           type: string
           maxLength: 255
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -8954,10 +8952,6 @@ components:
           default: false
         allow_reassign:
           description: '_t__SignatureRequestSend::ALLOW_REASSIGN'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: '_t__SignatureRequestSend::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         attachments:
@@ -9044,6 +9038,8 @@ components:
           description: '_t__SignatureRequestSend::EXPIRES_AT'
           type: integer
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -9125,6 +9121,8 @@ components:
           description: '_t__SignatureRequestSendWithTemplate::TITLE'
           type: string
           maxLength: 255
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -9940,6 +9938,18 @@ components:
           type: string
           format: email
       type: object
+    SubSignerExperience:
+      description: '_t__Sub::SignerExperience::DESCRIPTION'
+      properties:
+        form_view:
+          description: '_t__Sub::SignerExperience::DEFAULT'
+          type: string
+          enum:
+            - disabled
+            - enabled
+            - enabled_by_default
+            - forced
+      type: object
     SubTemplateRole:
       properties:
         name:
@@ -10122,10 +10132,6 @@ components:
           description: '_t__TemplateCreate::ALLOW_REASSIGN'
           type: boolean
           default: false
-        allow_form_view:
-          description: '_t__TemplateCreate::ALLOW_FORM_VIEW'
-          type: boolean
-          default: false
         attachments:
           description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
@@ -10190,6 +10196,8 @@ components:
           description: '_t__TemplateCreate::USE_PREEXISTING_FIELDS'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
@@ -10212,10 +10220,6 @@ components:
           default: true
         allow_reassign:
           description: '_t__TemplateCreateEmbeddedDraft::ALLOW_REASSIGN'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: '_t__TemplateCreateEmbeddedDraft::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         attachments:
@@ -10304,6 +10308,8 @@ components:
           description: '_t__TemplateCreateEmbeddedDraft::USE_PREEXISTING_FIELDS'
           type: boolean
           default: false
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateRemoveUserRequest:
       properties:
@@ -10322,9 +10328,6 @@ components:
           type: array
           items:
             type: string
-        allow_form_view:
-          description: '_t__TemplateUpdate::ALLOW_FORM_VIEW'
-          type: boolean
         title:
           description: '_t__TemplateUpdate::TITLE'
           type: string
@@ -10341,6 +10344,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubUpdateFormField'
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateUpdateFilesRequest:
       properties:
@@ -10389,10 +10394,6 @@ components:
             type: string
         allow_decline:
           description: '_t__UnclaimedDraftCreate::ALLOW_DECLINE'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: '_t__UnclaimedDraftCreate::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         attachments:
@@ -10484,6 +10485,8 @@ components:
           description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
           type: integer
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -10508,10 +10511,6 @@ components:
           default: true
         allow_decline:
           description: '_t__UnclaimedDraftCreateEmbedded::ALLOW_DECLINE'
-          type: boolean
-          default: false
-        allow_form_view:
-          description: '_t__UnclaimedDraftCreateEmbedded::ALLOW_FORM_VIEW'
           type: boolean
           default: false
         allow_reassign:
@@ -11623,6 +11622,8 @@ components:
           description: '_t__SignatureRequestResponse::BULK_SEND_JOB_ID'
           type: string
           nullable: true
+        signer_experience:
+          $ref: '#/components/schemas/SignatureRequestSignerExperience'
       type: object
       x-internal-class: true
     SignatureRequestResponseAttachment:
@@ -11980,6 +11981,21 @@ components:
           nullable: true
       type: object
       x-internal-class: true
+    SignatureRequestSignerExperience:
+      description: '_t__SignatureRequestSignerExperience::DESCRIPTION'
+      required:
+        - form_view
+      properties:
+        form_view:
+          description: '_t__Sub::SignerExperience::DEFAULT'
+          type: string
+          enum:
+            - disabled
+            - enabled
+            - enabled_by_default
+            - forced
+      type: object
+      x-internal-class: true
     TeamResponse:
       description: '_t__TeamResponse::DESCRIPTION'
       properties:
@@ -12148,10 +12164,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
-        allow_form_view:
-          description: '_t__TemplateResponse::ALLOW_FORM_VIEW'
-          type: boolean
-          nullable: false
+        signer_experience:
+          $ref: '#/components/schemas/SignatureRequestSignerExperience'
       type: object
       x-internal-class: true
     TemplateResponseAccount:

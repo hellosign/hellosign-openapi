@@ -63,7 +63,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
         'allow_decline' => 'bool',
-        'allow_form_view' => 'bool',
         'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
         'client_id' => 'string',
@@ -84,6 +83,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'use_preexisting_fields' => 'bool',
         'use_text_tags' => 'bool',
         'expires_at' => 'int',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -98,7 +98,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'files' => 'binary',
         'file_urls' => null,
         'allow_decline' => null,
-        'allow_form_view' => null,
         'attachments' => null,
         'cc_email_addresses' => 'email',
         'client_id' => null,
@@ -119,6 +118,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'use_preexisting_fields' => null,
         'use_text_tags' => null,
         'expires_at' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -131,7 +131,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'files' => false,
         'file_urls' => false,
         'allow_decline' => false,
-        'allow_form_view' => false,
         'attachments' => false,
         'cc_email_addresses' => false,
         'client_id' => false,
@@ -152,6 +151,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'use_preexisting_fields' => false,
         'use_text_tags' => false,
         'expires_at' => true,
+        'signer_experience' => false,
     ];
 
     /**
@@ -236,7 +236,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'files' => 'files',
         'file_urls' => 'file_urls',
         'allow_decline' => 'allow_decline',
-        'allow_form_view' => 'allow_form_view',
         'attachments' => 'attachments',
         'cc_email_addresses' => 'cc_email_addresses',
         'client_id' => 'client_id',
@@ -257,6 +256,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'use_preexisting_fields' => 'use_preexisting_fields',
         'use_text_tags' => 'use_text_tags',
         'expires_at' => 'expires_at',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -269,7 +269,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'files' => 'setFiles',
         'file_urls' => 'setFileUrls',
         'allow_decline' => 'setAllowDecline',
-        'allow_form_view' => 'setAllowFormView',
         'attachments' => 'setAttachments',
         'cc_email_addresses' => 'setCcEmailAddresses',
         'client_id' => 'setClientId',
@@ -290,6 +289,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'use_preexisting_fields' => 'setUsePreexistingFields',
         'use_text_tags' => 'setUseTextTags',
         'expires_at' => 'setExpiresAt',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -302,7 +302,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'files' => 'getFiles',
         'file_urls' => 'getFileUrls',
         'allow_decline' => 'getAllowDecline',
-        'allow_form_view' => 'getAllowFormView',
         'attachments' => 'getAttachments',
         'cc_email_addresses' => 'getCcEmailAddresses',
         'client_id' => 'getClientId',
@@ -323,6 +322,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'use_preexisting_fields' => 'getUsePreexistingFields',
         'use_text_tags' => 'getUseTextTags',
         'expires_at' => 'getExpiresAt',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -401,7 +401,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('file_urls', $data ?? [], null);
         $this->setIfExists('allow_decline', $data ?? [], false);
-        $this->setIfExists('allow_form_view', $data ?? [], false);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('cc_email_addresses', $data ?? [], null);
         $this->setIfExists('client_id', $data ?? [], null);
@@ -422,6 +421,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('use_preexisting_fields', $data ?? [], false);
         $this->setIfExists('use_text_tags', $data ?? [], false);
         $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -617,33 +617,6 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
             throw new InvalidArgumentException('non-nullable allow_decline cannot be null');
         }
         $this->container['allow_decline'] = $allow_decline;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_form_view
-     *
-     * @return bool|null
-     */
-    public function getAllowFormView()
-    {
-        return $this->container['allow_form_view'];
-    }
-
-    /**
-     * Sets allow_form_view
-     *
-     * @param bool|null $allow_form_view Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-     *
-     * @return self
-     */
-    public function setAllowFormView(?bool $allow_form_view)
-    {
-        if (is_null($allow_form_view)) {
-            throw new InvalidArgumentException('non-nullable allow_form_view cannot be null');
-        }
-        $this->container['allow_form_view'] = $allow_form_view;
 
         return $this;
     }
@@ -1200,6 +1173,33 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
             }
         }
         $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

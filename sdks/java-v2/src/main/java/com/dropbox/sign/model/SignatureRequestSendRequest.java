@@ -24,6 +24,7 @@ import com.dropbox.sign.model.SubFormFieldRule;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
 import com.dropbox.sign.model.SubSignatureRequestGroupedSigners;
 import com.dropbox.sign.model.SubSignatureRequestSigner;
+import com.dropbox.sign.model.SubSignerExperience;
 import com.dropbox.sign.model.SubSigningOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -53,7 +54,6 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendRequest.JSON_PROPERTY_GROUPED_SIGNERS,
   SignatureRequestSendRequest.JSON_PROPERTY_ALLOW_DECLINE,
   SignatureRequestSendRequest.JSON_PROPERTY_ALLOW_REASSIGN,
-  SignatureRequestSendRequest.JSON_PROPERTY_ALLOW_FORM_VIEW,
   SignatureRequestSendRequest.JSON_PROPERTY_ATTACHMENTS,
   SignatureRequestSendRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
   SignatureRequestSendRequest.JSON_PROPERTY_CLIENT_ID,
@@ -73,7 +73,8 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendRequest.JSON_PROPERTY_TEST_MODE,
   SignatureRequestSendRequest.JSON_PROPERTY_TITLE,
   SignatureRequestSendRequest.JSON_PROPERTY_USE_TEXT_TAGS,
-  SignatureRequestSendRequest.JSON_PROPERTY_EXPIRES_AT
+  SignatureRequestSendRequest.JSON_PROPERTY_EXPIRES_AT,
+  SignatureRequestSendRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -101,10 +102,6 @@ public class SignatureRequestSendRequest {
   public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
   @jakarta.annotation.Nullable
   private Boolean allowReassign = false;
-
-  public static final String JSON_PROPERTY_ALLOW_FORM_VIEW = "allow_form_view";
-  @jakarta.annotation.Nullable
-  private Boolean allowFormView = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   @jakarta.annotation.Nullable
@@ -186,6 +183,10 @@ public class SignatureRequestSendRequest {
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   @jakarta.annotation.Nullable
   private Integer expiresAt;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SubSignerExperience signerExperience;
 
   public SignatureRequestSendRequest() { 
   }
@@ -384,31 +385,6 @@ public class SignatureRequestSendRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
-  }
-
-
-  public SignatureRequestSendRequest allowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
-    return this;
-  }
-
-  /**
-   * Allows signers to view the form fields before signing if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return allowFormView
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowFormView() {
-    return allowFormView;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_FORM_VIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowFormView(@jakarta.annotation.Nullable Boolean allowFormView) {
-    this.allowFormView = allowFormView;
   }
 
 
@@ -972,6 +948,31 @@ public class SignatureRequestSendRequest {
   }
 
 
+  public SignatureRequestSendRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   /**
    * Return true if this SignatureRequestSendRequest object is equal to o.
    */
@@ -990,7 +991,6 @@ public class SignatureRequestSendRequest {
         Objects.equals(this.groupedSigners, signatureRequestSendRequest.groupedSigners) &&
         Objects.equals(this.allowDecline, signatureRequestSendRequest.allowDecline) &&
         Objects.equals(this.allowReassign, signatureRequestSendRequest.allowReassign) &&
-        Objects.equals(this.allowFormView, signatureRequestSendRequest.allowFormView) &&
         Objects.equals(this.attachments, signatureRequestSendRequest.attachments) &&
         Objects.equals(this.ccEmailAddresses, signatureRequestSendRequest.ccEmailAddresses) &&
         Objects.equals(this.clientId, signatureRequestSendRequest.clientId) &&
@@ -1010,12 +1010,13 @@ public class SignatureRequestSendRequest {
         Objects.equals(this.testMode, signatureRequestSendRequest.testMode) &&
         Objects.equals(this.title, signatureRequestSendRequest.title) &&
         Objects.equals(this.useTextTags, signatureRequestSendRequest.useTextTags) &&
-        Objects.equals(this.expiresAt, signatureRequestSendRequest.expiresAt);
+        Objects.equals(this.expiresAt, signatureRequestSendRequest.expiresAt) &&
+        Objects.equals(this.signerExperience, signatureRequestSendRequest.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, allowFormView, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt);
+    return Objects.hash(files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt, signerExperience);
   }
 
   @Override
@@ -1028,7 +1029,6 @@ public class SignatureRequestSendRequest {
     sb.append("    groupedSigners: ").append(toIndentedString(groupedSigners)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
-    sb.append("    allowFormView: ").append(toIndentedString(allowFormView)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
@@ -1049,6 +1049,7 @@ public class SignatureRequestSendRequest {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1169,25 +1170,6 @@ public class SignatureRequestSendRequest {
         }
         else {
             map.put("allow_reassign", JSON.getDefault().getMapper().writeValueAsString(allowReassign));
-        }
-    }
-    if (allowFormView != null) {
-        if (isFileTypeOrListOfFiles(allowFormView)) {
-            fileTypeFound = true;
-        }
-
-        if (allowFormView.getClass().equals(java.io.File.class) ||
-            allowFormView.getClass().equals(Integer.class) ||
-            allowFormView.getClass().equals(String.class) ||
-            allowFormView.getClass().isEnum()) {
-            map.put("allow_form_view", allowFormView);
-        } else if (isListOfFile(allowFormView)) {
-            for(int i = 0; i< getListSize(allowFormView); i++) {
-                map.put("allow_form_view[" + i + "]", getFromList(allowFormView, i));
-            }
-        }
-        else {
-            map.put("allow_form_view", JSON.getDefault().getMapper().writeValueAsString(allowFormView));
         }
     }
     if (attachments != null) {
@@ -1568,6 +1550,25 @@ public class SignatureRequestSendRequest {
         }
         else {
             map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

@@ -7,6 +7,7 @@ import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 export declare class SignatureRequestCreateEmbeddedRequest {
     "clientId": string;
@@ -15,7 +16,6 @@ export declare class SignatureRequestCreateEmbeddedRequest {
     "signers"?: Array<SubSignatureRequestSigner>;
     "groupedSigners"?: Array<SubSignatureRequestGroupedSigners>;
     "allowDecline"?: boolean;
-    "allowFormView"?: boolean;
     "allowReassign"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccEmailAddresses"?: Array<string>;
@@ -35,6 +35,7 @@ export declare class SignatureRequestCreateEmbeddedRequest {
     "title"?: string;
     "useTextTags"?: boolean;
     "populateAutoFillFields"?: boolean;
+    "signerExperience"?: SubSignerExperience;
     "expiresAt"?: number | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
