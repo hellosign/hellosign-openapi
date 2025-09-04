@@ -40,11 +40,11 @@ class OAuthTokenRefreshRequest(BaseModel):
     )
     client_id: Optional[StrictStr] = Field(
         default=None,
-        description='The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.',
+        description="The client ID for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.",
     )
     client_secret: Optional[StrictStr] = Field(
         default=None,
-        description='The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.',
+        description="The client secret for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.",
     )
     __properties: ClassVar[List[str]] = [
         "grant_type",

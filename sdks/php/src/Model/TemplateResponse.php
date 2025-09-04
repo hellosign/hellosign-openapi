@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Contains information about the templates you and your team have created.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {

@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description An object with options that override account settings.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializable
 {

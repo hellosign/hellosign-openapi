@@ -38,7 +38,7 @@ use ReturnTypeWillChange;
  *
  * @category Class
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
@@ -391,7 +391,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets client_id
      *
-     * @param string|null $client_id The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+     * @param string|null $client_id The client ID for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.
      *
      * @return self
      */
@@ -418,7 +418,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets client_secret
      *
-     * @param string|null $client_secret The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+     * @param string|null $client_secret The client secret for your API app. Required for new API apps. To enhance security, we recommend making it required for existing apps in your app settings.
      *
      * @return self
      */

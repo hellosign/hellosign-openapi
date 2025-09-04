@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Contains information about your team and its members
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {

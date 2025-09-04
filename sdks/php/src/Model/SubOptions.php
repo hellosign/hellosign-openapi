@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Additional options supported by API App.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class SubOptions implements ModelInterface, ArrayAccess, JsonSerializable
 {

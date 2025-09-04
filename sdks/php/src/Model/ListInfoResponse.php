@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description Contains pagination information about the data returned.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {

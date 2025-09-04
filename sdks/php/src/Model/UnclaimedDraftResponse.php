@@ -39,7 +39,7 @@ use ReturnTypeWillChange;
  * @category Class
  * @description A group of documents that a user can take ownership of via the claim URL.
  * @see     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
+ * @implements ArrayAccess<string, mixed>
  */
 class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
