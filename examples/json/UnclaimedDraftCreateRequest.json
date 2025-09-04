@@ -1,6 +1,6 @@
 {
-  "files": [
-    "./example_signature_request.pdf"
+  "file_urls": [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
   ],
   "signers": [
     {
