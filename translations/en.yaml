@@ -490,7 +490,7 @@
     Send with a value of `true` if you wish to enable
     [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
     which requires the signer to verify their identity with an eID provider to sign a document.<br>
-    **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSend::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSend::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSend::SUBJECT": The subject in the email that will be sent to the signers.
@@ -530,7 +530,7 @@
     Send with a value of `true` if you wish to enable
     [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
     which requires the signer to verify their identity with an eID provider to sign a document.<br>
-    **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSendWithTemplate::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSendWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
