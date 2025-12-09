@@ -425,6 +425,7 @@ with ApiClient(configuration) as api_client:
         phone=False,
         type=True,
         upload=True,
+        force_advanced_signature_details=False,
     )
 
     signer_experience = models.SubSignerExperience(
@@ -541,6 +542,7 @@ with ApiClient(configuration) as api_client:
         phone=False,
         type=True,
         upload=True,
+        force_advanced_signature_details=False,
     )
 
     signer_experience = models.SubSignerExperience(
@@ -1696,6 +1698,7 @@ with ApiClient(configuration) as api_client:
         phone=False,
         type=True,
         upload=True,
+        force_advanced_signature_details=False,
     )
 
     signers_1 = models.SubSignatureRequestSigner(
@@ -1811,6 +1814,7 @@ with ApiClient(configuration) as api_client:
         phone=False,
         type=True,
         upload=True,
+        force_advanced_signature_details=False,
     )
 
     signers_1 = models.SubSignatureRequestTemplateSigner(

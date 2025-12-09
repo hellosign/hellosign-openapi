@@ -504,7 +504,8 @@ public class SignatureRequestCreateEmbeddedExample
             draw: true,
             phone: false,
             type: true,
-            upload: true
+            upload: true,
+            force_advanced_signature_details: false
         );
 
         var signerExperience = new SubSignerExperience(
@@ -652,7 +653,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
             draw: true,
             phone: false,
             type: true,
-            upload: true
+            upload: true,
+            force_advanced_signature_details: false
         );
 
         var signerExperience = new SubSignerExperience(
@@ -2162,7 +2164,8 @@ public class SignatureRequestSendExample
             draw: true,
             phone: false,
             type: true,
-            upload: true
+            upload: true,
+            force_advanced_signature_details: false,
         );
 
         var signers1 = new SubSignatureRequestSigner(
@@ -2311,7 +2314,8 @@ public class SignatureRequestSendWithTemplateExample
             draw: true,
             phone: false,
             type: true,
-            upload: true
+            upload: true,
+            force_advanced_signature_details: false,
         );
 
         var signers1 = new SubSignatureRequestTemplateSigner(

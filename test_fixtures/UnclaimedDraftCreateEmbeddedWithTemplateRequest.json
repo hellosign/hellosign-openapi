@@ -58,7 +58,8 @@
       "type": true,
       "upload": true,
       "phone": false,
-      "default_type": "draw"
+      "default_type": "draw",
+      "force_advanced_signature_details": false
     },
     "show_progress_stepper": true,
     "skip_me_now": true,

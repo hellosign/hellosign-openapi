@@ -670,6 +670,7 @@ with ApiClient(configuration) as api_client:
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to retrieve. |  |
+| `shallow` | **bool** | _t__TemplateGet::SHALLOW | [optional] |
 
 ### Return type
 

@@ -573,7 +573,7 @@ try {
 ## `templateGet()`
 
 ```php
-templateGet($template_id): \Dropbox\Sign\Model\TemplateGetResponse
+templateGet($template_id, $shallow): \Dropbox\Sign\Model\TemplateGetResponse
 ```
 Get Template
 
@@ -612,6 +612,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the Template to retrieve. | |
+| **shallow** | **bool**| _t__TemplateGet::SHALLOW | [optional] |
 
 ### Return type
 

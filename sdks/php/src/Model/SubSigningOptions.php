@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SubSigningOptions Class Doc Comment
  *
  * @category Class
- * @description This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+ * @description This allows the requester to specify the types allowed for creating a signature and specify another signing options.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.  **NOTE:** If &#x60;force_advanced_signature_details&#x60; is set, allowed types has to be defined too.
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
@@ -63,6 +63,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
         'phone' => 'bool',
         'type' => 'bool',
         'upload' => 'bool',
+        'force_advanced_signature_details' => 'bool',
     ];
 
     /**
@@ -78,6 +79,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
         'phone' => null,
         'type' => null,
         'upload' => null,
+        'force_advanced_signature_details' => null,
     ];
 
     /**
@@ -91,6 +93,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
         'phone' => false,
         'type' => false,
         'upload' => false,
+        'force_advanced_signature_details' => false,
     ];
 
     /**
@@ -176,6 +179,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
         'phone' => 'phone',
         'type' => 'type',
         'upload' => 'upload',
+        'force_advanced_signature_details' => 'force_advanced_signature_details',
     ];
 
     /**
@@ -189,6 +193,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
         'phone' => 'setPhone',
         'type' => 'setType',
         'upload' => 'setUpload',
+        'force_advanced_signature_details' => 'setForceAdvancedSignatureDetails',
     ];
 
     /**
@@ -202,6 +207,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
         'phone' => 'getPhone',
         'type' => 'getType',
         'upload' => 'getUpload',
+        'force_advanced_signature_details' => 'getForceAdvancedSignatureDetails',
     ];
 
     /**
@@ -285,6 +291,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('phone', $data ?? [], false);
         $this->setIfExists('type', $data ?? [], false);
         $this->setIfExists('upload', $data ?? [], false);
+        $this->setIfExists('force_advanced_signature_details', $data ?? [], false);
     }
 
     /**
@@ -499,6 +506,33 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable upload cannot be null');
         }
         $this->container['upload'] = $upload;
+
+        return $this;
+    }
+
+    /**
+     * Gets force_advanced_signature_details
+     *
+     * @return bool|null
+     */
+    public function getForceAdvancedSignatureDetails()
+    {
+        return $this->container['force_advanced_signature_details'];
+    }
+
+    /**
+     * Sets force_advanced_signature_details
+     *
+     * @param bool|null $force_advanced_signature_details Turning on advanced signature details for the signature request
+     *
+     * @return self
+     */
+    public function setForceAdvancedSignatureDetails(?bool $force_advanced_signature_details)
+    {
+        if (is_null($force_advanced_signature_details)) {
+            throw new InvalidArgumentException('non-nullable force_advanced_signature_details cannot be null');
+        }
+        $this->container['force_advanced_signature_details'] = $force_advanced_signature_details;
 
         return $this;
     }

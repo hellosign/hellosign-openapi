@@ -23254,6 +23254,10 @@ var SubSigningOptions = class _SubSigningOptions {
      * Allows uploading the signature
      */
     this["upload"] = false;
+    /**
+     * Turning on advanced signature details for the signature request
+     */
+    this["forceAdvancedSignatureDetails"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -23283,6 +23287,11 @@ var SubSigningOptions = class _SubSigningOptions {
       {
         name: "upload",
         baseName: "upload",
+        type: "boolean"
+      },
+      {
+        name: "forceAdvancedSignatureDetails",
+        baseName: "force_advanced_signature_details",
         type: "boolean"
       }
     ];
@@ -35363,9 +35372,10 @@ var TemplateApi = class {
    * Returns the Template specified by the `template_id` parameter.
    * @summary Get Template
    * @param templateId The id of the Template to retrieve.
+   * @param shallow _t__TemplateGet::SHALLOW
    * @param options
    */
-  async templateGet(templateId, options = { headers: {} }) {
+  async templateGet(templateId, shallow, options = { headers: {} }) {
     const localVarPath = this.basePath + "/template/{template_id}".replace(
       "{template_id}",
       encodeURIComponent(String(templateId))
@@ -35386,6 +35396,12 @@ var TemplateApi = class {
     if (templateId === null || templateId === void 0) {
       throw new Error(
         "Required parameter templateId was null or undefined when calling templateGet."
+      );
+    }
+    if (shallow !== void 0) {
+      localVarQueryParameters["shallow"] = ObjectSerializer.serialize(
+        shallow,
+        "boolean"
       );
     }
     Object.assign(localVarHeaderParams, options.headers);

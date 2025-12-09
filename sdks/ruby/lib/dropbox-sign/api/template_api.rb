@@ -718,6 +718,7 @@ module Dropbox::Sign
     # Returns the Template specified by the `template_id` parameter.
     # @param template_id [String] The id of the Template to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :shallow _t__TemplateGet::SHALLOW
     # @return [TemplateGetResponse]
     def template_get(template_id, opts = {})
       data, _status_code, _headers = template_get_with_http_info(template_id, opts)
@@ -728,6 +729,7 @@ module Dropbox::Sign
     # Returns the Template specified by the &#x60;template_id&#x60; parameter.
     # @param template_id [String] The id of the Template to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :shallow _t__TemplateGet::SHALLOW
     # @return [Array<(TemplateGetResponse, Integer, Hash)>] TemplateGetResponse data, response status code and response headers
     def template_get_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
@@ -742,6 +744,7 @@ module Dropbox::Sign
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'shallow'] = opts[:'shallow'] if !opts[:'shallow'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

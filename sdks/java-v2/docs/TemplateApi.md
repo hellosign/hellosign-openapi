@@ -739,7 +739,7 @@ public class TemplateFilesAsFileUrlExample
 
 ## templateGet
 
-> TemplateGetResponse templateGet(templateId)
+> TemplateGetResponse templateGet(templateId, shallow)
 
 Get Template
 
@@ -798,6 +798,7 @@ public class TemplateGetExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the Template to retrieve. |
+ **shallow** | **Boolean**| _t__TemplateGet::SHALLOW | [optional]
 
 ### Return type
 

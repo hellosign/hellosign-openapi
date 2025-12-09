@@ -17,7 +17,14 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBytes, StrictInt, StrictStr, field_validator
+from pydantic import (
+    Field,
+    StrictBool,
+    StrictBytes,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Optional, Tuple, Union
 from typing_extensions import Annotated
 from dropbox_sign.models.file_response import FileResponse
@@ -1987,6 +1994,9 @@ class TemplateApi:
         template_id: Annotated[
             StrictStr, Field(description="The id of the Template to retrieve.")
         ],
+        shallow: Annotated[
+            Optional[StrictBool], Field(description="_t__TemplateGet::SHALLOW")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2005,6 +2015,8 @@ class TemplateApi:
 
         :param template_id: The id of the Template to retrieve. (required)
         :type template_id: str
+        :param shallow: _t__TemplateGet::SHALLOW
+        :type shallow: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2029,6 +2041,7 @@ class TemplateApi:
 
         _param = self._template_get_serialize(
             template_id=template_id,
+            shallow=shallow,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2054,6 +2067,9 @@ class TemplateApi:
         template_id: Annotated[
             StrictStr, Field(description="The id of the Template to retrieve.")
         ],
+        shallow: Annotated[
+            Optional[StrictBool], Field(description="_t__TemplateGet::SHALLOW")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2072,6 +2088,8 @@ class TemplateApi:
 
         :param template_id: The id of the Template to retrieve. (required)
         :type template_id: str
+        :param shallow: _t__TemplateGet::SHALLOW
+        :type shallow: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2096,6 +2114,7 @@ class TemplateApi:
 
         _param = self._template_get_serialize(
             template_id=template_id,
+            shallow=shallow,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2121,6 +2140,9 @@ class TemplateApi:
         template_id: Annotated[
             StrictStr, Field(description="The id of the Template to retrieve.")
         ],
+        shallow: Annotated[
+            Optional[StrictBool], Field(description="_t__TemplateGet::SHALLOW")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2139,6 +2161,8 @@ class TemplateApi:
 
         :param template_id: The id of the Template to retrieve. (required)
         :type template_id: str
+        :param shallow: _t__TemplateGet::SHALLOW
+        :type shallow: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2163,6 +2187,7 @@ class TemplateApi:
 
         _param = self._template_get_serialize(
             template_id=template_id,
+            shallow=shallow,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2181,6 +2206,7 @@ class TemplateApi:
     def _template_get_serialize(
         self,
         template_id,
+        shallow,
         _request_auth,
         _content_type,
         _headers,
@@ -2204,6 +2230,10 @@ class TemplateApi:
         if template_id is not None:
             _path_params["template_id"] = template_id
         # process the query parameters
+        if shallow is not None:
+
+            _query_params.append(("shallow", shallow))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter

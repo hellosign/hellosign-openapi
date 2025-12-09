@@ -12,6 +12,7 @@ signing_options.draw = true
 signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
+signing_options.force_advanced_signature_details = false
 
 signer_experience = Dropbox::Sign::SubSignerExperience.new
 signer_experience.form_view = "disabled"

@@ -202,9 +202,10 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
+        /// <param name="shallow">_t__TemplateGet::SHALLOW (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        TemplateGetResponse TemplateGet(string templateId, int operationIndex = 0);
+        TemplateGetResponse TemplateGet(string templateId, bool? shallow = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Get Template
@@ -214,9 +215,10 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
+        /// <param name="shallow">_t__TemplateGet::SHALLOW (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        ApiResponse<TemplateGetResponse> TemplateGetWithHttpInfo(string templateId, int operationIndex = 0);
+        ApiResponse<TemplateGetResponse> TemplateGetWithHttpInfo(string templateId, bool? shallow = default(bool?), int operationIndex = 0);
         /// <summary>
         /// List Templates
         /// </summary>
@@ -519,10 +521,11 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
+        /// <param name="shallow">_t__TemplateGet::SHALLOW (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, bool? shallow = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template
@@ -532,10 +535,11 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
+        /// <param name="shallow">_t__TemplateGet::SHALLOW (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, bool? shallow = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Templates
         /// </summary>
@@ -2041,11 +2045,12 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
+        /// <param name="shallow">_t__TemplateGet::SHALLOW (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        public TemplateGetResponse TemplateGet(string templateId, int operationIndex = 0)
+        public TemplateGetResponse TemplateGet(string templateId, bool? shallow = default(bool?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateGetWithHttpInfo(templateId);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateGetWithHttpInfo(templateId, shallow);
             return localVarResponse.Data;
         }
 
@@ -2054,9 +2059,10 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
+        /// <param name="shallow">_t__TemplateGet::SHALLOW (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateGetWithHttpInfo(string templateId, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateGetWithHttpInfo(string templateId, bool? shallow = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2087,6 +2093,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (shallow != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "shallow", shallow));
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateGet";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2123,12 +2133,13 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
+        /// <param name="shallow">_t__TemplateGet::SHALLOW (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, bool? shallow = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateGetWithHttpInfoAsync(templateId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateGetWithHttpInfoAsync(templateId, shallow, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2137,10 +2148,11 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
+        /// <param name="shallow">_t__TemplateGet::SHALLOW (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, bool? shallow = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2172,6 +2184,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (shallow != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "shallow", shallow));
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateGet";
             localVarRequestOptions.OperationIndex = operationIndex;
