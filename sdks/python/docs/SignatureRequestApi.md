@@ -688,14 +688,12 @@ with ApiClient(configuration) as api_client:
         files=[
             open("./example_signature_request.pdf", "rb").read(),
         ],
-        metadata=json.loads(
-            """
+        metadata=json.loads("""
             {
                 "custom_id": 1234,
                 "custom_text": "NDA #9"
             }
-        """
-        ),
+        """),
         field_options=field_options,
         signing_options=signing_options,
         signer_experience=signer_experience,
@@ -1729,14 +1727,12 @@ with ApiClient(configuration) as api_client:
         files=[
             open("./example_signature_request.pdf", "rb").read(),
         ],
-        metadata=json.loads(
-            """
+        metadata=json.loads("""
             {
                 "custom_id": 1234,
                 "custom_text": "NDA #9"
             }
-        """
-        ),
+        """),
         field_options=field_options,
         signing_options=signing_options,
         signers=signers,
