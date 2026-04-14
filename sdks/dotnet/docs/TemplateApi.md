@@ -853,7 +853,7 @@ catch (ApiException e)
 
 <a id="templateget"></a>
 # **TemplateGet**
-> TemplateGetResponse TemplateGet (string templateId, bool? shallow = null)
+> TemplateGetResponse TemplateGet (string templateId)
 
 Get Template
 
@@ -906,7 +906,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Template
-    ApiResponse<TemplateGetResponse> response = apiInstance.TemplateGetWithHttpInfo(templateId, shallow);
+    ApiResponse<TemplateGetResponse> response = apiInstance.TemplateGetWithHttpInfo(templateId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -924,7 +924,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the Template to retrieve. |  |
-| **shallow** | **bool?** | _t__TemplateGet::SHALLOW | [optional]  |
 
 ### Return type
 

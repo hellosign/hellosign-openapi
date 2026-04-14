@@ -557,7 +557,7 @@ apiCaller.templateFilesAsFileUrl(
 ## `templateGet()`
 
 ```typescript
-templateGet(templateId: string, shallow: boolean): TemplateGetResponse
+templateGet(templateId: string): TemplateGetResponse
 ```
 
 Get Template
@@ -591,7 +591,6 @@ apiCaller.templateGet(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the Template to retrieve. | |
-| **shallow** | **boolean**| _t__TemplateGet::SHALLOW | [optional] |
 
 ### Return type
 

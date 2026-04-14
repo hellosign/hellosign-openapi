@@ -2466,16 +2466,15 @@ class TemplateApi
      *
      * Get Template
      *
-     * @param string    $template_id The id of the Template to retrieve. (required)
-     * @param bool|null $shallow     _t__TemplateGet::SHALLOW (optional)
+     * @param string $template_id The id of the Template to retrieve. (required)
      *
      * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateGet(string $template_id, ?bool $shallow = null)
+    public function templateGet(string $template_id)
     {
-        list($response) = $this->templateGetWithHttpInfo($template_id, $shallow);
+        list($response) = $this->templateGetWithHttpInfo($template_id);
         return $response;
     }
 
@@ -2484,18 +2483,17 @@ class TemplateApi
      *
      * Get Template
      *
-     * @param string    $template_id The id of the Template to retrieve. (required)
-     * @param bool|null $shallow     _t__TemplateGet::SHALLOW (optional)
-     * @param string    $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
+     * @param string $template_id The id of the Template to retrieve. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
      * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
-    public function templateGetWithHttpInfo(string $template_id, ?bool $shallow = null, string $contentType = self::contentTypes['templateGet'][0])
+    public function templateGetWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
-        $request = $this->templateGetRequest($template_id, $shallow, $contentType);
+        $request = $this->templateGetRequest($template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2622,17 +2620,16 @@ class TemplateApi
      *
      * Get Template
      *
-     * @param string    $template_id The id of the Template to retrieve. (required)
-     * @param bool|null $shallow     _t__TemplateGet::SHALLOW (optional)
-     * @param string    $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
+     * @param string $template_id The id of the Template to retrieve. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
-    public function templateGetAsync(string $template_id, ?bool $shallow = null, string $contentType = self::contentTypes['templateGet'][0])
+    public function templateGetAsync(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
-        return $this->templateGetAsyncWithHttpInfo($template_id, $shallow, $contentType)
+        return $this->templateGetAsyncWithHttpInfo($template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2645,18 +2642,17 @@ class TemplateApi
      *
      * Get Template
      *
-     * @param string    $template_id The id of the Template to retrieve. (required)
-     * @param bool|null $shallow     _t__TemplateGet::SHALLOW (optional)
-     * @param string    $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
+     * @param string $template_id The id of the Template to retrieve. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
-    public function templateGetAsyncWithHttpInfo(string $template_id, ?bool $shallow = null, string $contentType = self::contentTypes['templateGet'][0])
+    public function templateGetAsyncWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
-        $request = $this->templateGetRequest($template_id, $shallow, $contentType);
+        $request = $this->templateGetRequest($template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2697,15 +2693,14 @@ class TemplateApi
     /**
      * Create request for operation 'templateGet'
      *
-     * @param string    $template_id The id of the Template to retrieve. (required)
-     * @param bool|null $shallow     _t__TemplateGet::SHALLOW (optional)
-     * @param string    $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
+     * @param string $template_id The id of the Template to retrieve. (required)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
-    public function templateGetRequest(string $template_id, ?bool $shallow = null, string $contentType = self::contentTypes['templateGet'][0])
+    public function templateGetRequest(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
@@ -2720,16 +2715,6 @@ class TemplateApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $shallow,
-            'shallow', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
         // path params
         if ($template_id !== null) {

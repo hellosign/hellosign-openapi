@@ -639,7 +639,7 @@ end
 
 ## `template_get`
 
-> `<TemplateGetResponse> template_get(template_id, opts)`
+> `<TemplateGetResponse> template_get(template_id)`
 
 Get Template
 
@@ -672,12 +672,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TemplateGetResponse>, Integer, Hash)> template_get_with_http_info(template_id, opts)`
+> `<Array(<TemplateGetResponse>, Integer, Hash)> template_get_with_http_info(template_id)`
 
 ```ruby
 begin
   # Get Template
-  data, status_code, headers = api_instance.template_get_with_http_info(template_id, opts)
+  data, status_code, headers = api_instance.template_get_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateGetResponse>
@@ -691,7 +691,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **String** | The id of the Template to retrieve. |  |
-| `shallow` | **Boolean** | _t__TemplateGet::SHALLOW | [optional] |
 
 ### Return type
 

@@ -6859,13 +6859,6 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
-        -
-          name: shallow
-          in: query
-          description: '_t__TemplateGet::SHALLOW'
-          schema:
-            type: boolean
-          x-hideOn: doc
       responses:
         '200':
           description: 'successful operation'

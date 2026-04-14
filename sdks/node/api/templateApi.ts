@@ -1079,12 +1079,10 @@ export class TemplateApi {
    * Returns the Template specified by the `template_id` parameter.
    * @summary Get Template
    * @param templateId The id of the Template to retrieve.
-   * @param shallow _t__TemplateGet::SHALLOW
    * @param options
    */
   public async templateGet(
     templateId: string,
-    shallow?: boolean,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateGetResponse>> {
     const localVarPath =
@@ -1112,13 +1110,6 @@ export class TemplateApi {
     if (templateId === null || templateId === undefined) {
       throw new Error(
         "Required parameter templateId was null or undefined when calling templateGet."
-      );
-    }
-
-    if (shallow !== undefined) {
-      localVarQueryParameters["shallow"] = ObjectSerializer.serialize(
-        shallow,
-        "boolean"
       );
     }
 

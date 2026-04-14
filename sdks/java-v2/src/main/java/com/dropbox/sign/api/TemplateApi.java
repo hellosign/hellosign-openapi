@@ -583,7 +583,6 @@ public class TemplateApi {
    * Get Template
    * Returns the Template specified by the &#x60;template_id&#x60; parameter.
    * @param templateId The id of the Template to retrieve. (required)
-   * @param shallow _t__TemplateGet::SHALLOW (optional)
    * @return TemplateGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -594,27 +593,8 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateGetResponse templateGet(String templateId, Boolean shallow) throws ApiException {
-    return templateGetWithHttpInfo(templateId, shallow).getData();
-  }
-
-
-  /**
-   * @see TemplateApi#templateGet(String, Boolean)
-   */
   public TemplateGetResponse templateGet(String templateId) throws ApiException {
-    Boolean shallow = null;
-
-    return templateGetWithHttpInfo(templateId, shallow).getData();
-  }
-
-  /**
-   * @see TemplateApi#templateGetWithHttpInfo(String, Boolean)
-   */
-  public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(String templateId) throws ApiException {
-    Boolean shallow = null;
-
-    return templateGetWithHttpInfo(templateId, shallow);
+    return templateGetWithHttpInfo(templateId).getData();
   }
 
 
@@ -622,7 +602,6 @@ public class TemplateApi {
    * Get Template
    * Returns the Template specified by the &#x60;template_id&#x60; parameter.
    * @param templateId The id of the Template to retrieve. (required)
-   * @param shallow _t__TemplateGet::SHALLOW (optional)
    * @return ApiResponse&lt;TemplateGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -633,7 +612,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(String templateId, Boolean shallow) throws ApiException {
+  public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(String templateId) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -643,11 +622,6 @@ public class TemplateApi {
     // Path parameters
     String localVarPath = "/template/{template_id}"
             .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "shallow", shallow)
-    );
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -660,7 +634,7 @@ public class TemplateApi {
         "TemplateApi.templateGet",
         localVarPath,
         "GET",
-        localVarQueryParams,
+        new ArrayList<>(),
         null,
         new LinkedHashMap<>(),
         new LinkedHashMap<>(),
