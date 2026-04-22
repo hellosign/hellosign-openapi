@@ -243,7 +243,7 @@ namespace Dropbox.Sign.Model
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
         /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
-        [DataMember(Name = "font_size", EmitDefaultValue = true)]
+        [DataMember(Name = "font_size", EmitDefaultValue = false)]
         public int FontSize { get; set; }
 
         /// <summary>
