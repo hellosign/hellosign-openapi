@@ -36,7 +36,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Defines Type
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        // A dedicated converter is used instead of StringEnumConverter
+        // because this enum intentionally carries alias members
+        // (FieldVisibility, GroupVisibility) that share a numeric value
+        // with their canonical counterparts. StringEnumConverter goes
+        // through Enum.GetName, which is not guaranteed to pick the
+        // canonical name when multiple members share a value, and
+        // Newtonsoft rejects duplicate [EnumMember] values on the same
+        // enum. Mapping by numeric value here is unambiguous: both the
+        // canonical name and its alias produce the same wire string.
+        [JsonConverter(typeof(TypeEnumJsonConverter))]
         public enum TypeEnum
         {
             /// <summary>
@@ -52,6 +61,54 @@ namespace Dropbox.Sign.Model
             [EnumMember(Value = "change-group-visibility")]
             ChangeGroupVisibility = 2,
             GroupVisibility = ChangeGroupVisibility
+        }
+
+        /// <summary>
+        /// Serializes SubFormFieldRuleAction.TypeEnum to and from the
+        /// OpenAPI wire values (change-field-visibility,
+        /// change-group-visibility). The switch is driven by the
+        /// underlying numeric value so that legacy alias members
+        /// (FieldVisibility, GroupVisibility) serialize identically to
+        /// their canonical counterparts.
+        /// </summary>
+        public class TypeEnumJsonConverter : JsonConverter<TypeEnum>
+        {
+            public override void WriteJson(JsonWriter writer, TypeEnum value, JsonSerializer serializer)
+            {
+                switch (value)
+                {
+                    case TypeEnum.ChangeFieldVisibility:
+                        writer.WriteValue("change-field-visibility");
+                        return;
+                    case TypeEnum.ChangeGroupVisibility:
+                        writer.WriteValue("change-group-visibility");
+                        return;
+                    default:
+                        throw new JsonSerializationException(
+                            $"Unknown value for SubFormFieldRuleAction.TypeEnum: {(int)value}");
+                }
+            }
+
+            public override TypeEnum ReadJson(JsonReader reader, Type objectType, TypeEnum existingValue, bool hasExistingValue, JsonSerializer serializer)
+            {
+                if (reader.TokenType == JsonToken.Null)
+                {
+                    throw new JsonSerializationException(
+                        "Cannot deserialize null into SubFormFieldRuleAction.TypeEnum");
+                }
+
+                var raw = reader.Value?.ToString();
+                switch (raw)
+                {
+                    case "change-field-visibility":
+                        return TypeEnum.ChangeFieldVisibility;
+                    case "change-group-visibility":
+                        return TypeEnum.ChangeGroupVisibility;
+                    default:
+                        throw new JsonSerializationException(
+                            $"Unknown wire value for SubFormFieldRuleAction.TypeEnum: {raw}");
+                }
+            }
         }
 
 
