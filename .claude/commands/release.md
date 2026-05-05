@@ -130,6 +130,41 @@ Remind the user to:
 - The older runbook references `./generate-sdk` (singular) — that's a typo; use `./generate-sdks`
 - Package manager credentials are in LastPass under "APITeamStuff_LastPass" (npm/Packagist/PyPI/RubyGems/Maven). NuGet creds are separate — ask #ask-sign-support.
 
+## Suggestions to surface when relevant
+
+These are not fixed steps — raise them as suggestions when the situation calls for it.
+
+### Branch hygiene: main vs oas-release divergence
+
+In Step 1, always run `git log --oneline origin/main..origin/oas-release` to detect commits on `oas-release` that aren't on `main`. If there are any beyond version bumps, flag this to the user with a count and summary.
+
+The healthy state is:
+- `oas-release` should be a fast-forward subset of `main`, plus release-only version bump commits on top
+- Cherry-picking creates duplicate SHAs that accumulate divergence and cause merge conflicts over time
+- Prefer merge-based promotion (like PR #370 / #498) over cherry-pick when possible
+
+When divergence exists, actively recommend a promotion strategy:
+- If divergence is small (< 5 commits, all version bumps): cherry-pick is fine
+- If divergence is complex (both branches have unique real commits): recommend a merge PR to bring main into oas-release, with potential conflict resolution — do not assume cherry-pick will be clean
+- Show the user both options and let them decide
+
+Suggest:
+- After a release, merge the version bump back to main (incrementing to next `-dev`) to keep branches in sync
+- If divergence has accumulated, consider a one-time "Merge oas-release -> main" PR to re-sync before the next release
+- If the user still wants cherry-pick, warn that it will add to divergence
+
+### Filtering commits for release
+
+Not all main commits belong on `oas-release`. When listing commits, call out which ones are:
+- **Tooling/infra only** (reformatting, CI changes, OSEG, redoc-container) — these typically don't need to be released unless they affect generated SDK output
+- **SDK-affecting** (new fields, endpoints, bug fixes) — these are release candidates
+
+Suggest the user skip tooling commits unless they've verified the generated output changed.
+
+### Current branch check
+
+If the user invokes `/release` while not on `main` or `oas-release`, warn them immediately and ask whether to switch. The release flow operates on those two branches — running it from a feature branch will produce misleading state assessments.
+
 ## Starting the flow
 
 Begin by running the Step 1 checks and presenting the current state to the user. Ask what they'd like to release.
