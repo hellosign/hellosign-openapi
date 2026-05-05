@@ -56,7 +56,7 @@ namespace Dropbox.Sign.Api
         /// Create Template
         /// </summary>
         /// <remarks>
-        /// Creates a template that can then be used.
+        /// Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -68,7 +68,7 @@ namespace Dropbox.Sign.Api
         /// Create Template
         /// </summary>
         /// <remarks>
-        /// Creates a template that can then be used.
+        /// Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -361,7 +361,7 @@ namespace Dropbox.Sign.Api
         /// Create Template
         /// </summary>
         /// <remarks>
-        /// Creates a template that can then be used.
+        /// Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -374,7 +374,7 @@ namespace Dropbox.Sign.Api
         /// Create Template
         /// </summary>
         /// <remarks>
-        /// Creates a template that can then be used.
+        /// Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -971,7 +971,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Template Creates a template that can then be used.
+        /// Create Template Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -984,7 +984,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Template Creates a template that can then be used.
+        /// Create Template Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -1061,7 +1061,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Template Creates a template that can then be used.
+        /// Create Template Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -1075,7 +1075,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Template Creates a template that can then be used.
+        /// Create Template Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
