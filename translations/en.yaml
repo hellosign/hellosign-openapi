@@ -1236,14 +1236,17 @@
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
 
 "Sub::SigningOptions::DESCRIPTION": |-
-  This allows the requester to specify the types allowed for creating a signature.
+  This allows the requester to specify the types allowed for creating a signature and specify another signing options.
 
   **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+  
+  **NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too.
 "Sub::SigningOptions::DEFAULT": The default type shown (limited to the listed types)
 "Sub::SigningOptions::DRAW": Allows drawing the signature
 "Sub::SigningOptions::PHONE": Allows using a smartphone to email the signature
 "Sub::SigningOptions::TYPE": Allows typing the signature
 "Sub::SigningOptions::UPLOAD": Allows uploading the signature
+"Sub::SigningOptions::FORCE_ADVANCED_SIGNATURE_DETAILS": Turning on advanced signature details for the signature request
 
 "Sub::UpdateFormField::API_ID": The unique ID for this field. The endpoint will update an existing field with matching `api_id`, and warn you if no matches are found
 "Sub::UpdateFormField::NAME": The new name of the field. If not passed the name will remain unchanged.

@@ -5,6 +5,7 @@ export declare class SubSigningOptions {
     "phone"?: boolean;
     "type"?: boolean;
     "upload"?: boolean;
+    "forceAdvancedSignatureDetails"?: boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

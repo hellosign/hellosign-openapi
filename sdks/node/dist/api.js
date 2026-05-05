@@ -23254,6 +23254,10 @@ var SubSigningOptions = class _SubSigningOptions {
      * Allows uploading the signature
      */
     this["upload"] = false;
+    /**
+     * Turning on advanced signature details for the signature request
+     */
+    this["forceAdvancedSignatureDetails"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -23283,6 +23287,11 @@ var SubSigningOptions = class _SubSigningOptions {
       {
         name: "upload",
         baseName: "upload",
+        type: "boolean"
+      },
+      {
+        name: "forceAdvancedSignatureDetails",
+        baseName: "force_advanced_signature_details",
         type: "boolean"
       }
     ];

@@ -9989,6 +9989,10 @@ components:
           description: '_t__Sub::SigningOptions::UPLOAD'
           type: boolean
           default: false
+        force_advanced_signature_details:
+          description: '_t__Sub::SigningOptions::FORCE_ADVANCED_SIGNATURE_DETAILS'
+          type: boolean
+          default: false
       type: object
     SubWhiteLabelingOptions:
       description: '_t__Sub::WhiteLabelingOptions::DESCRIPTION'

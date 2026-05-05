@@ -16,7 +16,8 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
 
 $signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
     ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);

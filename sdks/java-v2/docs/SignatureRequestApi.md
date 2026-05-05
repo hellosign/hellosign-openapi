@@ -459,6 +459,7 @@ public class SignatureRequestCreateEmbeddedExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
 
         var signerExperience = new SubSignerExperience();
         signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
@@ -583,6 +584,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
 
         var signerExperience = new SubSignerExperience();
         signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
@@ -1894,6 +1896,7 @@ public class SignatureRequestSendExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
 
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
@@ -2020,6 +2023,7 @@ public class SignatureRequestSendWithTemplateExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
 
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
