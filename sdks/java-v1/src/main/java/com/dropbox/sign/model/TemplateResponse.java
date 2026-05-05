@@ -42,7 +42,8 @@ import java.util.Objects;
     TemplateResponse.JSON_PROPERTY_CUSTOM_FIELDS,
     TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS,
     TemplateResponse.JSON_PROPERTY_ACCOUNTS,
-    TemplateResponse.JSON_PROPERTY_ATTACHMENTS
+    TemplateResponse.JSON_PROPERTY_ATTACHMENTS,
+    TemplateResponse.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -98,6 +99,9 @@ public class TemplateResponse {
 
     public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
     @javax.annotation.Nullable private List<SignatureRequestResponseAttachment> attachments = null;
+
+    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+    @javax.annotation.Nullable private SignatureRequestSignerExperience signerExperience;
 
     public TemplateResponse() {}
 
@@ -568,6 +572,30 @@ public class TemplateResponse {
         this.attachments = attachments;
     }
 
+    public TemplateResponse signerExperience(
+            @javax.annotation.Nullable SignatureRequestSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+        return this;
+    }
+
+    /**
+     * Get signerExperience
+     *
+     * @return signerExperience
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SignatureRequestSignerExperience getSignerExperience() {
+        return signerExperience;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSignerExperience(
+            @javax.annotation.Nullable SignatureRequestSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+    }
+
     /** Return true if this TemplateResponse object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -593,7 +621,8 @@ public class TemplateResponse {
                 && Objects.equals(this.customFields, templateResponse.customFields)
                 && Objects.equals(this.namedFormFields, templateResponse.namedFormFields)
                 && Objects.equals(this.accounts, templateResponse.accounts)
-                && Objects.equals(this.attachments, templateResponse.attachments);
+                && Objects.equals(this.attachments, templateResponse.attachments)
+                && Objects.equals(this.signerExperience, templateResponse.signerExperience);
     }
 
     @Override
@@ -614,7 +643,8 @@ public class TemplateResponse {
                 customFields,
                 namedFormFields,
                 accounts,
-                attachments);
+                attachments,
+                signerExperience);
     }
 
     @Override
@@ -637,6 +667,7 @@ public class TemplateResponse {
         sb.append("    namedFormFields: ").append(toIndentedString(namedFormFields)).append("\n");
         sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
         sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -951,6 +982,26 @@ public class TemplateResponse {
                     map.put(
                             "attachments",
                             JSON.getDefault().getMapper().writeValueAsString(attachments));
+                }
+            }
+            if (signerExperience != null) {
+                if (isFileTypeOrListOfFiles(signerExperience)) {
+                    fileTypeFound = true;
+                }
+
+                if (signerExperience.getClass().equals(java.io.File.class)
+                        || signerExperience.getClass().equals(Integer.class)
+                        || signerExperience.getClass().equals(String.class)
+                        || signerExperience.getClass().isEnum()) {
+                    map.put("signer_experience", signerExperience);
+                } else if (isListOfFile(signerExperience)) {
+                    for (int i = 0; i < getListSize(signerExperience); i++) {
+                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+                    }
+                } else {
+                    map.put(
+                            "signer_experience",
+                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

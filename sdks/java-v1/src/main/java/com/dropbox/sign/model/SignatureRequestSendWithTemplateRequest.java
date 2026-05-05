@@ -44,7 +44,8 @@ import java.util.Objects;
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SUBJECT,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
-    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE
+    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE,
+    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -103,6 +104,9 @@ public class SignatureRequestSendWithTemplateRequest {
 
     public static final String JSON_PROPERTY_TITLE = "title";
     @javax.annotation.Nullable private String title;
+
+    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+    @javax.annotation.Nullable private SubSignerExperience signerExperience;
 
     public SignatureRequestSendWithTemplateRequest() {}
 
@@ -404,9 +408,10 @@ public class SignatureRequestSendWithTemplateRequest {
     /**
      * Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification
      * (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify
-     * their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** eID is only
-     * available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on
-     * requests with one signer.
+     * their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** You need the eID
+     * add-on to use this feature. Please [contact
+     * sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in
+     * &#x60;test_mode&#x60;. Only works on requests with one signer.
      *
      * @return isEid
      */
@@ -596,6 +601,30 @@ public class SignatureRequestSendWithTemplateRequest {
         this.title = title;
     }
 
+    public SignatureRequestSendWithTemplateRequest signerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+        return this;
+    }
+
+    /**
+     * Get signerExperience
+     *
+     * @return signerExperience
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubSignerExperience getSignerExperience() {
+        return signerExperience;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSignerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+    }
+
     /** Return true if this SignatureRequestSendWithTemplateRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -630,7 +659,10 @@ public class SignatureRequestSendWithTemplateRequest {
                         signatureRequestSendWithTemplateRequest.signingRedirectUrl)
                 && Objects.equals(this.subject, signatureRequestSendWithTemplateRequest.subject)
                 && Objects.equals(this.testMode, signatureRequestSendWithTemplateRequest.testMode)
-                && Objects.equals(this.title, signatureRequestSendWithTemplateRequest.title);
+                && Objects.equals(this.title, signatureRequestSendWithTemplateRequest.title)
+                && Objects.equals(
+                        this.signerExperience,
+                        signatureRequestSendWithTemplateRequest.signerExperience);
     }
 
     @Override
@@ -652,7 +684,8 @@ public class SignatureRequestSendWithTemplateRequest {
                 signingRedirectUrl,
                 subject,
                 testMode,
-                title);
+                title,
+                signerExperience);
     }
 
     @Override
@@ -680,6 +713,7 @@ public class SignatureRequestSendWithTemplateRequest {
         sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
         sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -1014,6 +1048,26 @@ public class SignatureRequestSendWithTemplateRequest {
                     }
                 } else {
                     map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
+                }
+            }
+            if (signerExperience != null) {
+                if (isFileTypeOrListOfFiles(signerExperience)) {
+                    fileTypeFound = true;
+                }
+
+                if (signerExperience.getClass().equals(java.io.File.class)
+                        || signerExperience.getClass().equals(Integer.class)
+                        || signerExperience.getClass().equals(String.class)
+                        || signerExperience.getClass().isEnum()) {
+                    map.put("signer_experience", signerExperience);
+                } else if (isListOfFile(signerExperience)) {
+                    for (int i = 0; i < getListSize(signerExperience); i++) {
+                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+                    }
+                } else {
+                    map.put(
+                            "signer_experience",
+                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

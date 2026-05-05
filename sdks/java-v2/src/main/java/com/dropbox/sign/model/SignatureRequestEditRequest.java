@@ -24,6 +24,7 @@ import com.dropbox.sign.model.SubFormFieldRule;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
 import com.dropbox.sign.model.SubSignatureRequestGroupedSigners;
 import com.dropbox.sign.model.SubSignatureRequestSigner;
+import com.dropbox.sign.model.SubSignerExperience;
 import com.dropbox.sign.model.SubSigningOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -71,7 +72,8 @@ import com.dropbox.sign.ApiException;
   SignatureRequestEditRequest.JSON_PROPERTY_TEST_MODE,
   SignatureRequestEditRequest.JSON_PROPERTY_TITLE,
   SignatureRequestEditRequest.JSON_PROPERTY_USE_TEXT_TAGS,
-  SignatureRequestEditRequest.JSON_PROPERTY_EXPIRES_AT
+  SignatureRequestEditRequest.JSON_PROPERTY_EXPIRES_AT,
+  SignatureRequestEditRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -175,6 +177,10 @@ public class SignatureRequestEditRequest {
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   @jakarta.annotation.Nullable
   private Integer expiresAt;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SubSignerExperience signerExperience;
 
   public SignatureRequestEditRequest() { 
   }
@@ -655,7 +661,7 @@ public class SignatureRequestEditRequest {
   }
 
   /**
-   * Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
+   * Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
    * @return isEid
    */
   @jakarta.annotation.Nullable
@@ -907,6 +913,31 @@ public class SignatureRequestEditRequest {
   }
 
 
+  public SignatureRequestEditRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   /**
    * Return true if this SignatureRequestEditRequest object is equal to o.
    */
@@ -943,12 +974,13 @@ public class SignatureRequestEditRequest {
         Objects.equals(this.testMode, signatureRequestEditRequest.testMode) &&
         Objects.equals(this.title, signatureRequestEditRequest.title) &&
         Objects.equals(this.useTextTags, signatureRequestEditRequest.useTextTags) &&
-        Objects.equals(this.expiresAt, signatureRequestEditRequest.expiresAt);
+        Objects.equals(this.expiresAt, signatureRequestEditRequest.expiresAt) &&
+        Objects.equals(this.signerExperience, signatureRequestEditRequest.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt);
+    return Objects.hash(files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt, signerExperience);
   }
 
   @Override
@@ -980,6 +1012,7 @@ public class SignatureRequestEditRequest {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1461,6 +1494,25 @@ public class SignatureRequestEditRequest {
         }
         else {
             map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

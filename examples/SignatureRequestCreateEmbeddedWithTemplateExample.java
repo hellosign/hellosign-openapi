@@ -29,6 +29,10 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
+
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
 
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
@@ -48,6 +52,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         signatureRequestCreateEmbeddedWithTemplateRequest.subject("Purchase Order");
         signatureRequestCreateEmbeddedWithTemplateRequest.testMode(true);
         signatureRequestCreateEmbeddedWithTemplateRequest.signingOptions(signingOptions);
+        signatureRequestCreateEmbeddedWithTemplateRequest.signerExperience(signerExperience);
         signatureRequestCreateEmbeddedWithTemplateRequest.signers(signers);
 
         try

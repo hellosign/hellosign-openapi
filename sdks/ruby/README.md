@@ -175,6 +175,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::TemplateApi* | [**template_get**](docs/TemplateApi.md#template_get) | **GET** /template/{template_id} | Get Template |
 |*Dropbox::Sign::TemplateApi* | [**template_list**](docs/TemplateApi.md#template_list) | **GET** /template/list | List Templates |
 |*Dropbox::Sign::TemplateApi* | [**template_remove_user**](docs/TemplateApi.md#template_remove_user) | **POST** /template/remove_user/{template_id} | Remove User from Template |
+|*Dropbox::Sign::TemplateApi* | [**template_update**](docs/TemplateApi.md#template_update) | **POST** /template/update/{template_id} | Update Template |
 |*Dropbox::Sign::TemplateApi* | [**template_update_files**](docs/TemplateApi.md#template_update_files) | **POST** /template/update_files/{template_id} | Update Template Files |
 |*Dropbox::Sign::UnclaimedDraftApi* | [**unclaimed_draft_create**](docs/UnclaimedDraftApi.md#unclaimed_draft_create) | **POST** /unclaimed_draft/create | Create Unclaimed Draft |
 |*Dropbox::Sign::UnclaimedDraftApi* | [**unclaimed_draft_create_embedded**](docs/UnclaimedDraftApi.md#unclaimed_draft_create_embedded) | **POST** /unclaimed_draft/create_embedded | Create Embedded Unclaimed Draft |
@@ -189,6 +190,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::AccountGetResponse](docs/AccountGetResponse.md)
  - [Dropbox::Sign::AccountResponse](docs/AccountResponse.md)
  - [Dropbox::Sign::AccountResponseQuotas](docs/AccountResponseQuotas.md)
+ - [Dropbox::Sign::AccountResponseSettings](docs/AccountResponseSettings.md)
  - [Dropbox::Sign::AccountResponseUsage](docs/AccountResponseUsage.md)
  - [Dropbox::Sign::AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [Dropbox::Sign::AccountVerifyRequest](docs/AccountVerifyRequest.md)
@@ -274,6 +276,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SignatureRequestResponseSignatures](docs/SignatureRequestResponseSignatures.md)
  - [Dropbox::Sign::SignatureRequestSendRequest](docs/SignatureRequestSendRequest.md)
  - [Dropbox::Sign::SignatureRequestSendWithTemplateRequest](docs/SignatureRequestSendWithTemplateRequest.md)
+ - [Dropbox::Sign::SignatureRequestSignerExperience](docs/SignatureRequestSignerExperience.md)
  - [Dropbox::Sign::SignatureRequestUpdateRequest](docs/SignatureRequestUpdateRequest.md)
  - [Dropbox::Sign::SubAttachment](docs/SubAttachment.md)
  - [Dropbox::Sign::SubBulkSignerList](docs/SubBulkSignerList.md)
@@ -305,11 +308,13 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SubSignatureRequestGroupedSigners](docs/SubSignatureRequestGroupedSigners.md)
  - [Dropbox::Sign::SubSignatureRequestSigner](docs/SubSignatureRequestSigner.md)
  - [Dropbox::Sign::SubSignatureRequestTemplateSigner](docs/SubSignatureRequestTemplateSigner.md)
+ - [Dropbox::Sign::SubSignerExperience](docs/SubSignerExperience.md)
  - [Dropbox::Sign::SubSigningOptions](docs/SubSigningOptions.md)
  - [Dropbox::Sign::SubTeamResponse](docs/SubTeamResponse.md)
  - [Dropbox::Sign::SubTemplateRole](docs/SubTemplateRole.md)
  - [Dropbox::Sign::SubUnclaimedDraftSigner](docs/SubUnclaimedDraftSigner.md)
  - [Dropbox::Sign::SubUnclaimedDraftTemplateSigner](docs/SubUnclaimedDraftTemplateSigner.md)
+ - [Dropbox::Sign::SubUpdateFormField](docs/SubUpdateFormField.md)
  - [Dropbox::Sign::SubWhiteLabelingOptions](docs/SubWhiteLabelingOptions.md)
  - [Dropbox::Sign::TeamAddMemberRequest](docs/TeamAddMemberRequest.md)
  - [Dropbox::Sign::TeamCreateRequest](docs/TeamCreateRequest.md)
@@ -332,7 +337,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::TemplateCreateRequest](docs/TemplateCreateRequest.md)
  - [Dropbox::Sign::TemplateCreateResponse](docs/TemplateCreateResponse.md)
  - [Dropbox::Sign::TemplateCreateResponseTemplate](docs/TemplateCreateResponseTemplate.md)
- - [Dropbox::Sign::TemplateEditResponse](docs/TemplateEditResponse.md)
  - [Dropbox::Sign::TemplateGetResponse](docs/TemplateGetResponse.md)
  - [Dropbox::Sign::TemplateListResponse](docs/TemplateListResponse.md)
  - [Dropbox::Sign::TemplateRemoveUserRequest](docs/TemplateRemoveUserRequest.md)
@@ -369,6 +373,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::TemplateUpdateFilesRequest](docs/TemplateUpdateFilesRequest.md)
  - [Dropbox::Sign::TemplateUpdateFilesResponse](docs/TemplateUpdateFilesResponse.md)
  - [Dropbox::Sign::TemplateUpdateFilesResponseTemplate](docs/TemplateUpdateFilesResponseTemplate.md)
+ - [Dropbox::Sign::TemplateUpdateRequest](docs/TemplateUpdateRequest.md)
  - [Dropbox::Sign::UnclaimedDraftCreateEmbeddedRequest](docs/UnclaimedDraftCreateEmbeddedRequest.md)
  - [Dropbox::Sign::UnclaimedDraftCreateEmbeddedWithTemplateRequest](docs/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)
  - [Dropbox::Sign::UnclaimedDraftCreateRequest](docs/UnclaimedDraftCreateRequest.md)

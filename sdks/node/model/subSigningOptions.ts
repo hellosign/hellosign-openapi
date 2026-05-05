@@ -25,7 +25,7 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+ * This allows the requester to specify the types allowed for creating a signature and specify another signing options.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.  **NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too.
  */
 export class SubSigningOptions {
   /**
@@ -48,6 +48,10 @@ export class SubSigningOptions {
    * Allows uploading the signature
    */
   "upload"?: boolean = false;
+  /**
+   * Turning on advanced signature details for the signature request
+   */
+  "forceAdvancedSignatureDetails"?: boolean = false;
 
   static discriminator: string | undefined = undefined;
 
@@ -75,6 +79,11 @@ export class SubSigningOptions {
     {
       name: "upload",
       baseName: "upload",
+      type: "boolean",
+    },
+    {
+      name: "forceAdvancedSignatureDetails",
+      baseName: "force_advanced_signature_details",
       type: "boolean",
     },
   ];

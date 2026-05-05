@@ -9,6 +9,9 @@ end
 field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 signer_roles_1 = Dropbox::Sign::SubTemplateRole.new
 signer_roles_1.name = "Client"
 signer_roles_1.order = 0
@@ -81,6 +84,7 @@ template_create_request.files = [
     File.new("./example_signature_request.pdf", "r"),
 ]
 template_create_request.field_options = field_options
+template_create_request.signer_experience = signer_experience
 template_create_request.signer_roles = signer_roles
 template_create_request.form_fields_per_document = form_fields_per_document
 template_create_request.merge_fields = merge_fields

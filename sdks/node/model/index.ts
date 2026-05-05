@@ -3,6 +3,7 @@ import { AccountCreateResponse } from "./accountCreateResponse";
 import { AccountGetResponse } from "./accountGetResponse";
 import { AccountResponse } from "./accountResponse";
 import { AccountResponseQuotas } from "./accountResponseQuotas";
+import { AccountResponseSettings } from "./accountResponseSettings";
 import { AccountResponseUsage } from "./accountResponseUsage";
 import { AccountUpdateRequest } from "./accountUpdateRequest";
 import { AccountVerifyRequest } from "./accountVerifyRequest";
@@ -102,6 +103,7 @@ import { SignatureRequestResponseDataValueTextMerge } from "./signatureRequestRe
 import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSignatures";
 import { SignatureRequestSendRequest } from "./signatureRequestSendRequest";
 import { SignatureRequestSendWithTemplateRequest } from "./signatureRequestSendWithTemplateRequest";
+import { SignatureRequestSignerExperience } from "./signatureRequestSignerExperience";
 import { SignatureRequestUpdateRequest } from "./signatureRequestUpdateRequest";
 import { SubAttachment } from "./subAttachment";
 import { SubBulkSignerList } from "./subBulkSignerList";
@@ -133,11 +135,13 @@ import { SubOptions } from "./subOptions";
 import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 import { SubTeamResponse } from "./subTeamResponse";
 import { SubTemplateRole } from "./subTemplateRole";
 import { SubUnclaimedDraftSigner } from "./subUnclaimedDraftSigner";
 import { SubUnclaimedDraftTemplateSigner } from "./subUnclaimedDraftTemplateSigner";
+import { SubUpdateFormField } from "./subUpdateFormField";
 import { SubWhiteLabelingOptions } from "./subWhiteLabelingOptions";
 import { TeamAddMemberRequest } from "./teamAddMemberRequest";
 import { TeamCreateRequest } from "./teamCreateRequest";
@@ -160,7 +164,6 @@ import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmb
 import { TemplateCreateRequest } from "./templateCreateRequest";
 import { TemplateCreateResponse } from "./templateCreateResponse";
 import { TemplateCreateResponseTemplate } from "./templateCreateResponseTemplate";
-import { TemplateEditResponse } from "./templateEditResponse";
 import { TemplateGetResponse } from "./templateGetResponse";
 import { TemplateListResponse } from "./templateListResponse";
 import { TemplateRemoveUserRequest } from "./templateRemoveUserRequest";
@@ -197,6 +200,7 @@ import { TemplateResponseSignerRole } from "./templateResponseSignerRole";
 import { TemplateUpdateFilesRequest } from "./templateUpdateFilesRequest";
 import { TemplateUpdateFilesResponse } from "./templateUpdateFilesResponse";
 import { TemplateUpdateFilesResponseTemplate } from "./templateUpdateFilesResponseTemplate";
+import { TemplateUpdateRequest } from "./templateUpdateRequest";
 import { UnclaimedDraftCreateEmbeddedRequest } from "./unclaimedDraftCreateEmbeddedRequest";
 import { UnclaimedDraftCreateEmbeddedWithTemplateRequest } from "./unclaimedDraftCreateEmbeddedWithTemplateRequest";
 import { UnclaimedDraftCreateRequest } from "./unclaimedDraftCreateRequest";
@@ -219,6 +223,8 @@ export let enumsMap: { [index: string]: any } = {
   SignatureRequestResponseCustomFieldTypeEnum:
     SignatureRequestResponseCustomFieldTypeEnum,
   SignatureRequestResponseDataTypeEnum: SignatureRequestResponseDataTypeEnum,
+  "SignatureRequestSignerExperience.FormViewEnum":
+    SignatureRequestSignerExperience.FormViewEnum,
   "SubFieldOptions.DateFormatEnum": SubFieldOptions.DateFormatEnum,
   "SubFormFieldRuleAction.TypeEnum": SubFormFieldRuleAction.TypeEnum,
   "SubFormFieldRuleTrigger.OperatorEnum": SubFormFieldRuleTrigger.OperatorEnum,
@@ -242,6 +248,7 @@ export let enumsMap: { [index: string]: any } = {
     SubSignatureRequestSigner.SmsPhoneNumberTypeEnum,
   "SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum":
     SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum,
+  "SubSignerExperience.FormViewEnum": SubSignerExperience.FormViewEnum,
   "SubSigningOptions.DefaultTypeEnum": SubSigningOptions.DefaultTypeEnum,
   "SubWhiteLabelingOptions.LegalVersionEnum":
     SubWhiteLabelingOptions.LegalVersionEnum,
@@ -260,6 +267,7 @@ export let typeMap: { [index: string]: any } = {
   AccountGetResponse: AccountGetResponse,
   AccountResponse: AccountResponse,
   AccountResponseQuotas: AccountResponseQuotas,
+  AccountResponseSettings: AccountResponseSettings,
   AccountResponseUsage: AccountResponseUsage,
   AccountUpdateRequest: AccountUpdateRequest,
   AccountVerifyRequest: AccountVerifyRequest,
@@ -358,6 +366,7 @@ export let typeMap: { [index: string]: any } = {
   SignatureRequestSendRequest: SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest:
     SignatureRequestSendWithTemplateRequest,
+  SignatureRequestSignerExperience: SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest: SignatureRequestUpdateRequest,
   SubAttachment: SubAttachment,
   SubBulkSignerList: SubBulkSignerList,
@@ -387,11 +396,13 @@ export let typeMap: { [index: string]: any } = {
   SubSignatureRequestGroupedSigners: SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner: SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner: SubSignatureRequestTemplateSigner,
+  SubSignerExperience: SubSignerExperience,
   SubSigningOptions: SubSigningOptions,
   SubTeamResponse: SubTeamResponse,
   SubTemplateRole: SubTemplateRole,
   SubUnclaimedDraftSigner: SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner: SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField: SubUpdateFormField,
   SubWhiteLabelingOptions: SubWhiteLabelingOptions,
   TeamAddMemberRequest: TeamAddMemberRequest,
   TeamCreateRequest: TeamCreateRequest,
@@ -415,7 +426,6 @@ export let typeMap: { [index: string]: any } = {
   TemplateCreateRequest: TemplateCreateRequest,
   TemplateCreateResponse: TemplateCreateResponse,
   TemplateCreateResponseTemplate: TemplateCreateResponseTemplate,
-  TemplateEditResponse: TemplateEditResponse,
   TemplateGetResponse: TemplateGetResponse,
   TemplateListResponse: TemplateListResponse,
   TemplateRemoveUserRequest: TemplateRemoveUserRequest,
@@ -472,6 +482,7 @@ export let typeMap: { [index: string]: any } = {
   TemplateUpdateFilesRequest: TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate: TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest: TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest:
     UnclaimedDraftCreateEmbeddedWithTemplateRequest,
@@ -488,6 +499,7 @@ export {
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
@@ -584,6 +596,7 @@ export {
   SignatureRequestResponseSignatures,
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
+  SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest,
   SubAttachment,
   SubBulkSignerList,
@@ -615,11 +628,13 @@ export {
   SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
+  SubSignerExperience,
   SubSigningOptions,
   SubTeamResponse,
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamCreateRequest,
@@ -642,7 +657,6 @@ export {
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -679,6 +693,7 @@ export {
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest,
   UnclaimedDraftCreateRequest,

@@ -108,6 +108,9 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :populate_auto_fill_fields
 
+    # @return [SubSignerExperience]
+    attr_accessor :signer_experience
+
     # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
     # @return [Integer, nil]
     attr_accessor :expires_at
@@ -138,6 +141,7 @@ module Dropbox::Sign
         :'title' => :'title',
         :'use_text_tags' => :'use_text_tags',
         :'populate_auto_fill_fields' => :'populate_auto_fill_fields',
+        :'signer_experience' => :'signer_experience',
         :'expires_at' => :'expires_at'
       }
     end
@@ -178,6 +182,7 @@ module Dropbox::Sign
         :'title' => :'String',
         :'use_text_tags' => :'Boolean',
         :'populate_auto_fill_fields' => :'Boolean',
+        :'signer_experience' => :'SubSignerExperience',
         :'expires_at' => :'Integer'
       }
     end
@@ -356,6 +361,10 @@ module Dropbox::Sign
         self.populate_auto_fill_fields = false
       end
 
+      if attributes.key?(:'signer_experience')
+        self.signer_experience = attributes[:'signer_experience']
+      end
+
       if attributes.key?(:'expires_at')
         self.expires_at = attributes[:'expires_at']
       end
@@ -468,6 +477,7 @@ module Dropbox::Sign
           title == o.title &&
           use_text_tags == o.use_text_tags &&
           populate_auto_fill_fields == o.populate_auto_fill_fields &&
+          signer_experience == o.signer_experience &&
           expires_at == o.expires_at
     end
 
@@ -480,7 +490,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at].hash
+      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, signer_experience, expires_at].hash
     end
 
     # Builds the object from hash

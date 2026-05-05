@@ -21,4 +21,5 @@
 | `test_mode` | ```Boolean``` |  Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.  |  [default to false] |
 | `title` | ```String``` |  The title you want to assign to the SignatureRequest.  |  |
 | `populate_auto_fill_fields` | ```Boolean``` |  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.<br><br>**NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.  |  [default to false] |
+| `signer_experience` | [```SubSignerExperience```](SubSignerExperience.md) |    |  |
 

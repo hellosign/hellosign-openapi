@@ -1,0 +1,200 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Property Container
+tags:
+  - name: pet
+paths:
+  /unique_names_all_required:
+    post:
+      tags:
+        - pet
+      operationId: unique_names_all_required
+      parameters:
+        - name: param_prop_1
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: param_prop_2
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: param_prop_3
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: param_prop_4
+          in: cookie
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        '200':
+          description: Successful operation
+  /unique_names_some_required:
+    post:
+      tags:
+        - pet
+      operationId: unique_names_some_required
+      parameters:
+        - name: param_prop_1
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: param_prop_2
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: param_prop_3
+          in: header
+          required: false
+          schema:
+            type: string
+        - name: param_prop_4
+          in: cookie
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        '200':
+          description: Successful operation
+  /conflicting_names:
+    post:
+      tags:
+        - pet
+      operationId: conflicting_names
+      parameters:
+        - name: param_prop
+          in: path
+          required: true
+          schema:
+            type: string
+            default: path_prop
+        - name: param_prop
+          in: query
+          required: true
+          schema:
+            type: string
+            default: query_prop
+        - name: param_prop
+          in: header
+          required: true
+          schema:
+            type: string
+            default: header_prop
+        - name: param_prop
+          in: cookie
+          required: true
+          schema:
+            type: string
+            default: cookie_prop
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        '200':
+          description: Successful operation
+  /conflicting_names_with_formdata:
+    post:
+      tags:
+        - pet
+      operationId: conflicting_names_with_formdata
+      parameters:
+        - name: param_prop
+          in: path
+          required: true
+          schema:
+            type: string
+            default: path_prop
+        - name: param_prop
+          in: query
+          required: true
+          schema:
+            type: string
+            default: query_prop
+        - name: param_prop
+          in: header
+          required: true
+          schema:
+            type: string
+            default: header_prop
+        - name: param_prop
+          in: cookie
+          required: true
+          schema:
+            type: string
+            default: cookie_prop
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            default: query_type_prop
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        '200':
+          description: Successful operation
+  /conflicting_names_with_no_formdata:
+    post:
+      tags:
+        - pet
+      operationId: conflicting_names_with_no_formdata
+      parameters:
+        - name: param_prop
+          in: path
+          required: true
+          schema:
+            type: string
+            default: path_prop
+        - name: pet
+          in: query
+          required: true
+          schema:
+            type: string
+            default: query_prop
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+        - type
+      properties:
+        id:
+          type: integer
+          default: 100
+        type:
+          type: string
+          default: dog

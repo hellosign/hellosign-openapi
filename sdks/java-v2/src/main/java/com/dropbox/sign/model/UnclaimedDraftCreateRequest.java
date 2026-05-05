@@ -22,6 +22,7 @@ import com.dropbox.sign.model.SubFieldOptions;
 import com.dropbox.sign.model.SubFormFieldGroup;
 import com.dropbox.sign.model.SubFormFieldRule;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
+import com.dropbox.sign.model.SubSignerExperience;
 import com.dropbox.sign.model.SubSigningOptions;
 import com.dropbox.sign.model.SubUnclaimedDraftSigner;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -69,7 +70,8 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateRequest.JSON_PROPERTY_TEST_MODE,
   UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
   UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_TEXT_TAGS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT
+  UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT,
+  UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -204,6 +206,10 @@ public class UnclaimedDraftCreateRequest {
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   @jakarta.annotation.Nullable
   private Integer expiresAt;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SubSignerExperience signerExperience;
 
   public UnclaimedDraftCreateRequest() { 
   }
@@ -903,6 +909,31 @@ public class UnclaimedDraftCreateRequest {
   }
 
 
+  public UnclaimedDraftCreateRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   /**
    * Return true if this UnclaimedDraftCreateRequest object is equal to o.
    */
@@ -938,12 +969,13 @@ public class UnclaimedDraftCreateRequest {
         Objects.equals(this.testMode, unclaimedDraftCreateRequest.testMode) &&
         Objects.equals(this.usePreexistingFields, unclaimedDraftCreateRequest.usePreexistingFields) &&
         Objects.equals(this.useTextTags, unclaimedDraftCreateRequest.useTextTags) &&
-        Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt);
+        Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt) &&
+        Objects.equals(this.signerExperience, unclaimedDraftCreateRequest.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, files, fileUrls, allowDecline, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, showProgressStepper, signers, signingOptions, signingRedirectUrl, subject, testMode, usePreexistingFields, useTextTags, expiresAt);
+    return Objects.hash(type, files, fileUrls, allowDecline, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, showProgressStepper, signers, signingOptions, signingRedirectUrl, subject, testMode, usePreexistingFields, useTextTags, expiresAt, signerExperience);
   }
 
   @Override
@@ -974,6 +1006,7 @@ public class UnclaimedDraftCreateRequest {
     sb.append("    usePreexistingFields: ").append(toIndentedString(usePreexistingFields)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1436,6 +1469,25 @@ public class UnclaimedDraftCreateRequest {
         }
         else {
             map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

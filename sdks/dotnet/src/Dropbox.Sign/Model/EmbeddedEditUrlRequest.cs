@@ -51,7 +51,8 @@ namespace Dropbox.Sign.Model
         /// <param name="showPreview">This allows the requester to enable the editor/preview experience. (default to false).</param>
         /// <param name="showProgressStepper">When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden. (default to true).</param>
         /// <param name="testMode">Whether this is a test, locked templates will only be available for editing if this is set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
-        public EmbeddedEditUrlRequest(bool allowEditCcs = false, List<string> ccRoles = default(List<string>), SubEditorOptions editorOptions = default(SubEditorOptions), bool forceSignerRoles = false, bool forceSubjectMessage = false, List<SubMergeField> mergeFields = default(List<SubMergeField>), bool previewOnly = false, bool showPreview = false, bool showProgressStepper = true, bool testMode = false)
+        /// <param name="signerExperience">signerExperience.</param>
+        public EmbeddedEditUrlRequest(bool allowEditCcs = false, List<string> ccRoles = default(List<string>), SubEditorOptions editorOptions = default(SubEditorOptions), bool forceSignerRoles = false, bool forceSubjectMessage = false, List<SubMergeField> mergeFields = default(List<SubMergeField>), bool previewOnly = false, bool showPreview = false, bool showProgressStepper = true, bool testMode = false, SubSignerExperience signerExperience = default(SubSignerExperience))
         {
 
             this.AllowEditCcs = allowEditCcs;
@@ -64,6 +65,7 @@ namespace Dropbox.Sign.Model
             this.ShowPreview = showPreview;
             this.ShowProgressStepper = showProgressStepper;
             this.TestMode = testMode;
+            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -152,6 +154,12 @@ namespace Dropbox.Sign.Model
         public bool TestMode { get; set; }
 
         /// <summary>
+        /// Gets or Sets SignerExperience
+        /// </summary>
+        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
+        public SubSignerExperience SignerExperience { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -169,6 +177,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  ShowPreview: ").Append(ShowPreview).Append("\n");
             sb.Append("  ShowProgressStepper: ").Append(ShowProgressStepper).Append("\n");
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
+            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -248,6 +257,11 @@ namespace Dropbox.Sign.Model
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
+                ) &&
+                (
+                    this.SignerExperience == input.SignerExperience ||
+                    (this.SignerExperience != null &&
+                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -279,6 +293,10 @@ namespace Dropbox.Sign.Model
                 hashCode = (hashCode * 59) + this.ShowPreview.GetHashCode();
                 hashCode = (hashCode * 59) + this.ShowProgressStepper.GetHashCode();
                 hashCode = (hashCode * 59) + this.TestMode.GetHashCode();
+                if (this.SignerExperience != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -364,6 +382,13 @@ namespace Dropbox.Sign.Model
                 Property = "TestMode",
                 Type = "bool",
                 Value = TestMode,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "signer_experience",
+                Property = "SignerExperience",
+                Type = "SubSignerExperience",
+                Value = SignerExperience,
             });
 
             return types;

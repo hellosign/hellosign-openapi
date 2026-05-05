@@ -1,0 +1,130 @@
+{%- macro print_scalar(printable) -%}
+{% if printable.value == "null" %}{{ print_null() }}{% else %}
+{{ printable.value }}
+{%- endif %}
+{%- endmacro -%}
+
+{%- macro print_scalar_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+[
+        {% for i in printable.value %}
+  {{ i }},
+        {% endfor %}
+]
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_file(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+new File(["contents of file"], "{{ printable.value }}")
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_file_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+[
+        {% for i in printable.value %}
+  new File(["contents of file"], "{{ i }}"),
+        {% endfor %}
+]
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_free_form(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}
+    {%- elif not printable.value %}{}{%- else %}
+{{ printable.value|tojson(2) }}
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_free_form_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}
+    {%- elif not printable.value %}[]{%- else %}
+{{ printable.value|tojson(2) }}
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_object(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+{{ printable.value|print_variablename }}
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_object_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+[
+    {% for i in printable.value %}
+  {{ i|print_variablename }},
+    {% endfor %}
+]
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_security(printable) -%}
+    {% set comment = "" %}
+    {% if not printable.is_primary %}{% set comment = "// " %}{% endif %}
+{%- if printable.method == "api_key" %}{{ comment }}apiKey: {{ printable.value|tojson }},
+{%- elif printable.method == "access_token" %}{{ comment }}accessToken: {{ printable.value|tojson }},
+{%- else %}{{ comment }}username: {{ printable.value|tojson }},{% if printable.value_2 != None %}{{ "" }}
+{{ comment }}password: {{ printable.value_2|tojson }},{% endif %}
+{%- endif %}
+{%-endmacro -%}
+
+{%- macro print_variable_name_as_comment(name, value) -%}
+    {% if config.oseg.printApiCallProperty %}
+        {% if name|print_variablename != value %} // {{ name|print_variablename }}{% endif %}
+    {% endif %}
+{%-endmacro -%}
+
+{%- import "_macros.jinja2" as m with context -%}
+
+import axios, { AxiosError } from "axios";
+import * as api from "{{ config.npmName }}"
+
+const configuration = new api.Configuration({
+{% if operation.security.is_optional %}
+// Authentication is optional for this API endpoint
+{% endif %}
+{% call(security_schemes) m.parse_security_macro(0) %}
+    {% for _, security in security_schemes.items() %}
+  {{ security }}
+    {% endfor %}
+{% endcall %}
+});
+
+{% call(objects) m.parse_objects_macro() %}
+    {% for obj_name, obj in objects.items() %}
+        {% if not obj.is_array %}
+            {% call(properties) m.parse_object_properties_macro(obj, 2) %}
+const {{ obj_name|print_variablename }}: api.{{ obj.type|print_classname }} = {
+                {% for name, value in properties.items() %}
+  {{ name|print_propname }}: {{ value }},
+                {% endfor %}
+            {% endcall %}
+};
+        {% else %}
+            {%- call(value) m.parse_object_list_properties_macro(obj, 0) %}
+const {{ obj_name|print_variablename }} = {{ value }};
+            {% endcall %}
+        {% endif %}
+
+    {% endfor %}
+{% endcall %}
+{% call(properties) m.parse_api_call_properties_macro(2) %}
+new api.{{ operation.api_name|print_apiname }}(configuration).{{ operation.operation_id|print_methodname }}({% if not properties %})
+{%- else %}
+
+    {% for name, value in properties.items() %}
+  {{ value }},{{ print_variable_name_as_comment(name, value) }}
+    {% endfor %}
+){% endif %}{% endcall %}{%- if operation.response and operation.response.body  %}.then(response => {
+{% if not operation.response.is_binary %}
+  console.log(response.data);
+{% elif operation.response.is_binary %}
+  // handle file response via response.data
+{% endif -%}
+}){% endif %}.catch((error: Error | AxiosError) => {
+  console.log("Exception when calling {{ operation.api_name|print_apiname }}#{{ operation.operation_id|print_methodname }}:");
+  axios.isAxiosError(error) ? console.log(error.message) : console.log(error);
+});
+{{ "" }}

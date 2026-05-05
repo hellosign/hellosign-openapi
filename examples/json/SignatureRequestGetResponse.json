@@ -53,6 +53,9 @@
         "has_sms_auth": false
       }
     ],
-    "cc_email_addresses": []
+    "cc_email_addresses": [],
+    "signer_experience": {
+      "form_view": "disabled"
+    }
   }
 }

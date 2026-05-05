@@ -62,5 +62,8 @@
       "page": 1
     }
   ],
-  "test_mode": true
+  "test_mode": true,
+  "signer_experience": {
+    "form_view": "disabled"
+  }
 }

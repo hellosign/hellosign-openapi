@@ -14,6 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 [**templateGet**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template
 [**templateList**](TemplateApi.md#templateList) | **GET** /template/list | List Templates
 [**templateRemoveUser**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template
+[**templateUpdate**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template
 [**templateUpdateFiles**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files
 
 
@@ -111,7 +112,11 @@ public class TemplateAddUserExample
 
 Create Template
 
-Creates a template that can then be used.
+Creates a template that can be used in future signature requests.
+
+If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).
+
+Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
 ### Example
 
@@ -143,6 +148,9 @@ public class TemplateCreateExample
 
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
+
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
 
         var signerRoles1 = new SubTemplateRole();
         signerRoles1.name("Client");
@@ -216,6 +224,7 @@ public class TemplateCreateExample
             new File("./example_signature_request.pdf")
         ));
         templateCreateRequest.fieldOptions(fieldOptions);
+        templateCreateRequest.signerExperience(signerExperience);
         templateCreateRequest.signerRoles(signerRoles);
         templateCreateRequest.formFieldsPerDocument(formFieldsPerDocument);
         templateCreateRequest.mergeFields(mergeFields);
@@ -978,6 +987,117 @@ public class TemplateRemoveUserExample
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## templateUpdate
+
+> TemplateGetResponse templateUpdate(templateId, templateUpdateRequest)
+
+Update Template
+
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### Example
+
+```java
+package com.dropbox.sign_sandbox;
+
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
+import com.dropbox.sign.model.*;
+
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class TemplateUpdateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
+        var formFields1 = new SubUpdateFormField();
+        formFields1.apiId("uniqueIdHere_1");
+        formFields1.name("New name 1");
+
+        var formFields2 = new SubUpdateFormField();
+        formFields2.apiId("uniqueIdHere_2");
+        formFields2.name("New name 2");
+
+        var formFields = new ArrayList<SubUpdateFormField>(List.of (
+            formFields1,
+            formFields2
+        ));
+
+        var templateUpdateRequest = new TemplateUpdateRequest();
+        templateUpdateRequest.title("Test Title");
+        templateUpdateRequest.subject("Test Subject");
+        templateUpdateRequest.message("Test Message");
+        templateUpdateRequest.ccRoles(List.of (
+            "CC Role 1",
+            "CC Role 2"
+        ));
+        templateUpdateRequest.signerExperience(signerExperience);
+        templateUpdateRequest.formFields(formFields);
+
+        try
+        {
+            var response = new TemplateApi(config).templateUpdate(
+                "f57db65d3f933b5316d398057a36176831451a35", // templateId
+                templateUpdateRequest
+            );
+
+            System.out.println(response);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TemplateApi#templateUpdate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **templateId** | **String**| The ID of the template to update. |
+ **templateUpdateRequest** | [**TemplateUpdateRequest**](TemplateUpdateRequest.md)|  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 ### HTTP response details

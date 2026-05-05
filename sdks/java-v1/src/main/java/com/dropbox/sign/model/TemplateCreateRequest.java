@@ -45,7 +45,8 @@ import java.util.Objects;
     TemplateCreateRequest.JSON_PROPERTY_SUBJECT,
     TemplateCreateRequest.JSON_PROPERTY_TEST_MODE,
     TemplateCreateRequest.JSON_PROPERTY_TITLE,
-    TemplateCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
+    TemplateCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
+    TemplateCreateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -107,6 +108,9 @@ public class TemplateCreateRequest {
 
     public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
     @javax.annotation.Nullable private Boolean usePreexistingFields = false;
+
+    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+    @javax.annotation.Nullable private SubSignerExperience signerExperience;
 
     public TemplateCreateRequest() {}
 
@@ -649,6 +653,30 @@ public class TemplateCreateRequest {
         this.usePreexistingFields = usePreexistingFields;
     }
 
+    public TemplateCreateRequest signerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+        return this;
+    }
+
+    /**
+     * Get signerExperience
+     *
+     * @return signerExperience
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubSignerExperience getSignerExperience() {
+        return signerExperience;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSignerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+    }
+
     /** Return true if this TemplateCreateRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -678,7 +706,8 @@ public class TemplateCreateRequest {
                 && Objects.equals(this.testMode, templateCreateRequest.testMode)
                 && Objects.equals(this.title, templateCreateRequest.title)
                 && Objects.equals(
-                        this.usePreexistingFields, templateCreateRequest.usePreexistingFields);
+                        this.usePreexistingFields, templateCreateRequest.usePreexistingFields)
+                && Objects.equals(this.signerExperience, templateCreateRequest.signerExperience);
     }
 
     @Override
@@ -701,7 +730,8 @@ public class TemplateCreateRequest {
                 subject,
                 testMode,
                 title,
-                usePreexistingFields);
+                usePreexistingFields,
+                signerExperience);
     }
 
     @Override
@@ -730,6 +760,7 @@ public class TemplateCreateRequest {
         sb.append("    usePreexistingFields: ")
                 .append(toIndentedString(usePreexistingFields))
                 .append("\n");
+        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -1090,6 +1121,26 @@ public class TemplateCreateRequest {
                     map.put(
                             "use_preexisting_fields",
                             JSON.getDefault().getMapper().writeValueAsString(usePreexistingFields));
+                }
+            }
+            if (signerExperience != null) {
+                if (isFileTypeOrListOfFiles(signerExperience)) {
+                    fileTypeFound = true;
+                }
+
+                if (signerExperience.getClass().equals(java.io.File.class)
+                        || signerExperience.getClass().equals(Integer.class)
+                        || signerExperience.getClass().equals(String.class)
+                        || signerExperience.getClass().isEnum()) {
+                    map.put("signer_experience", signerExperience);
+                } else if (isListOfFile(signerExperience)) {
+                    for (int i = 0; i < getListSize(signerExperience); i++) {
+                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+                    }
+                } else {
+                    map.put(
+                            "signer_experience",
+                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

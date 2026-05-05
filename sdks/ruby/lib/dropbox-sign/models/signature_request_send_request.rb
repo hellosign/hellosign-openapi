@@ -81,7 +81,7 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :is_qualified_signature
 
-    # Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    # Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
     # @return [Boolean]
     attr_accessor :is_eid
 
@@ -120,6 +120,9 @@ module Dropbox::Sign
     # @return [Integer, nil]
     attr_accessor :expires_at
 
+    # @return [SubSignerExperience]
+    attr_accessor :signer_experience
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -148,7 +151,8 @@ module Dropbox::Sign
         :'test_mode' => :'test_mode',
         :'title' => :'title',
         :'use_text_tags' => :'use_text_tags',
-        :'expires_at' => :'expires_at'
+        :'expires_at' => :'expires_at',
+        :'signer_experience' => :'signer_experience'
       }
     end
 
@@ -190,14 +194,15 @@ module Dropbox::Sign
         :'test_mode' => :'Boolean',
         :'title' => :'String',
         :'use_text_tags' => :'Boolean',
-        :'expires_at' => :'Integer'
+        :'expires_at' => :'Integer',
+        :'signer_experience' => :'SubSignerExperience'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'expires_at'
+        :'expires_at',
       ])
     end
 
@@ -381,6 +386,10 @@ module Dropbox::Sign
       if attributes.key?(:'expires_at')
         self.expires_at = attributes[:'expires_at']
       end
+
+      if attributes.key?(:'signer_experience')
+        self.signer_experience = attributes[:'signer_experience']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -477,7 +486,8 @@ module Dropbox::Sign
           test_mode == o.test_mode &&
           title == o.title &&
           use_text_tags == o.use_text_tags &&
-          expires_at == o.expires_at
+          expires_at == o.expires_at &&
+          signer_experience == o.signer_experience
     end
 
     # @see the `==` method
@@ -489,7 +499,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_qualified_signature, is_eid, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at].hash
+      [files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_qualified_signature, is_eid, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at, signer_experience].hash
     end
 
     # Builds the object from hash

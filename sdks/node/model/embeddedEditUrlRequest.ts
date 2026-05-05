@@ -25,6 +25,7 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 import { SubEditorOptions } from "./subEditorOptions";
 import { SubMergeField } from "./subMergeField";
+import { SubSignerExperience } from "./subSignerExperience";
 
 export class EmbeddedEditUrlRequest {
   /**
@@ -64,6 +65,7 @@ export class EmbeddedEditUrlRequest {
    * Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
    */
   "testMode"?: boolean = false;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -117,6 +119,11 @@ export class EmbeddedEditUrlRequest {
       name: "testMode",
       baseName: "test_mode",
       type: "boolean",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

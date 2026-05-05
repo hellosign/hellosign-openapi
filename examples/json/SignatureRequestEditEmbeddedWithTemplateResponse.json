@@ -40,6 +40,9 @@
     ],
     "cc_email_addresses": [
       "accounting@dropboxsign.com"
-    ]
+    ],
+    "signer_experience": {
+      "form_view": "disabled"
+    }
   }
 }

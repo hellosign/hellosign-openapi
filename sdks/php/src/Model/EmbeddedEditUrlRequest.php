@@ -67,6 +67,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',
         'test_mode' => 'bool',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -87,6 +88,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'show_preview' => null,
         'show_progress_stepper' => null,
         'test_mode' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -105,6 +107,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'show_preview' => false,
         'show_progress_stepper' => false,
         'test_mode' => false,
+        'signer_experience' => false,
     ];
 
     /**
@@ -195,6 +198,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'show_preview' => 'show_preview',
         'show_progress_stepper' => 'show_progress_stepper',
         'test_mode' => 'test_mode',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -213,6 +217,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'show_preview' => 'setShowPreview',
         'show_progress_stepper' => 'setShowProgressStepper',
         'test_mode' => 'setTestMode',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -231,6 +236,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'show_preview' => 'getShowPreview',
         'show_progress_stepper' => 'getShowProgressStepper',
         'test_mode' => 'getTestMode',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -299,6 +305,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         $this->setIfExists('show_preview', $data ?? [], false);
         $this->setIfExists('show_progress_stepper', $data ?? [], true);
         $this->setIfExists('test_mode', $data ?? [], false);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -624,6 +631,33 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
             throw new InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

@@ -1,0 +1,132 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Different Responses
+tags:
+  - name: pet
+paths:
+  /single_response:
+    get:
+      tags:
+        - pet
+      operationId: single_response
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+  /single_response_with_error:
+    get:
+      tags:
+        - pet
+      operationId: single_response_with_error
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '400':
+          description: Invalid ID supplied
+  /single_response_with_error_first:
+    get:
+      tags:
+        - pet
+      operationId: single_response_with_error_first
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+  /multi_response:
+    get:
+      tags:
+        - pet
+      operationId: multi_response
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+  /only_400_response:
+    get:
+      tags:
+        - pet
+      operationId: only_400_response
+      responses:
+        '400':
+          description: Invalid ID supplied
+  /binary_response:
+    get:
+      tags:
+        - pet
+      operationId: binary_response
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+  /no_response:
+    get:
+      tags:
+        - pet
+      operationId: no_response
+  /response_ref_1:
+    get:
+      tags:
+        - pet
+      operationId: response_ref_1
+      responses:
+        '200':
+          $ref: '#/components/responses/ResponseRef1'
+  /response_ref_2:
+    get:
+      tags:
+        - pet
+      operationId: response_ref_2
+      responses:
+        '200':
+          $ref: '#/components/responses/ResponseRef2'
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+    FileSchema:
+      type: string
+      format: binary
+  responses:
+    ResponseRef1:
+      description: 'successful operation'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Pet'
+    ResponseRef2:
+      description: 'successful operation'
+      content:
+        application/zip:
+          schema:
+            $ref: '#/components/schemas/FileSchema'

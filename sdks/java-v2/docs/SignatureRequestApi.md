@@ -459,6 +459,10 @@ public class SignatureRequestCreateEmbeddedExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
+
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
 
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
@@ -489,6 +493,7 @@ public class SignatureRequestCreateEmbeddedExample
             new File("./example_signature_request.pdf")
         ));
         signatureRequestCreateEmbeddedRequest.signingOptions(signingOptions);
+        signatureRequestCreateEmbeddedRequest.signerExperience(signerExperience);
         signatureRequestCreateEmbeddedRequest.signers(signers);
 
         try
@@ -579,6 +584,10 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
+
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
 
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
@@ -598,6 +607,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         signatureRequestCreateEmbeddedWithTemplateRequest.subject("Purchase Order");
         signatureRequestCreateEmbeddedWithTemplateRequest.testMode(true);
         signatureRequestCreateEmbeddedWithTemplateRequest.signingOptions(signingOptions);
+        signatureRequestCreateEmbeddedWithTemplateRequest.signerExperience(signerExperience);
         signatureRequestCreateEmbeddedWithTemplateRequest.signers(signers);
 
         try
@@ -694,6 +704,9 @@ public class SignatureRequestEditExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
         signers1.emailAddress("jack@example.com");
@@ -729,6 +742,7 @@ public class SignatureRequestEditExample
         """, Map.class));
         signatureRequestEditRequest.fieldOptions(fieldOptions);
         signatureRequestEditRequest.signingOptions(signingOptions);
+        signatureRequestEditRequest.signerExperience(signerExperience);
         signatureRequestEditRequest.signers(signers);
 
         try
@@ -824,6 +838,9 @@ public class SignatureRequestEditEmbeddedExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
         signers1.emailAddress("jack@example.com");
@@ -853,6 +870,7 @@ public class SignatureRequestEditEmbeddedExample
             new File("./example_signature_request.pdf")
         ));
         signatureRequestEditEmbeddedRequest.signingOptions(signingOptions);
+        signatureRequestEditEmbeddedRequest.signerExperience(signerExperience);
         signatureRequestEditEmbeddedRequest.signers(signers);
 
         try
@@ -948,6 +966,9 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
         signers1.name("George");
@@ -966,6 +987,7 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
         signatureRequestEditEmbeddedWithTemplateRequest.subject("Purchase Order");
         signatureRequestEditEmbeddedWithTemplateRequest.testMode(true);
         signatureRequestEditEmbeddedWithTemplateRequest.signingOptions(signingOptions);
+        signatureRequestEditEmbeddedWithTemplateRequest.signerExperience(signerExperience);
         signatureRequestEditEmbeddedWithTemplateRequest.signers(signers);
 
         try
@@ -1874,6 +1896,7 @@ public class SignatureRequestSendExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
 
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
@@ -2000,6 +2023,7 @@ public class SignatureRequestSendWithTemplateExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
 
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");

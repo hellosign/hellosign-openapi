@@ -29,6 +29,7 @@ import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubMergeField } from "./subMergeField";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubTemplateRole } from "./subTemplateRole";
 
 export class TemplateCreateRequest {
@@ -101,6 +102,7 @@ export class TemplateCreateRequest {
    * Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
    */
   "usePreexistingFields"?: boolean = false;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -194,6 +196,11 @@ export class TemplateCreateRequest {
       name: "usePreexistingFields",
       baseName: "use_preexisting_fields",
       type: "boolean",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

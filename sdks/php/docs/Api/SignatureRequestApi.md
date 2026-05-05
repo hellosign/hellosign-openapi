@@ -368,7 +368,11 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
+
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
 
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
@@ -398,6 +402,7 @@ $signature_request_create_embedded_request = (new Dropbox\Sign\Model\SignatureRe
     ->setFiles([
     ])
     ->setSigningOptions($signing_options)
+    ->setSignerExperience($signer_experience)
     ->setSigners($signers);
 
 try {
@@ -465,7 +470,11 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
+
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
 
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
     ->setRole("Client")
@@ -485,6 +494,7 @@ $signature_request_create_embedded_with_template_request = (new Dropbox\Sign\Mod
     ->setSubject("Purchase Order")
     ->setTestMode(true)
     ->setSigningOptions($signing_options)
+    ->setSignerExperience($signer_experience)
     ->setSigners($signers);
 
 try {
@@ -557,6 +567,9 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setType(true)
     ->setUpload(true);
 
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
+
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
     ->setEmailAddress("jack@example.com")
@@ -591,6 +604,7 @@ $signature_request_edit_request = (new Dropbox\Sign\Model\SignatureRequestEditRe
     EOD, true))
     ->setFieldOptions($field_options)
     ->setSigningOptions($signing_options)
+    ->setSignerExperience($signer_experience)
     ->setSigners($signers);
 
 try {
@@ -662,6 +676,9 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setType(true)
     ->setUpload(true);
 
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
+
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
     ->setEmailAddress("jack@example.com")
@@ -690,6 +707,7 @@ $signature_request_edit_embedded_request = (new Dropbox\Sign\Model\SignatureRequ
     ->setFiles([
     ])
     ->setSigningOptions($signing_options)
+    ->setSignerExperience($signer_experience)
     ->setSigners($signers);
 
 try {
@@ -761,6 +779,9 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setType(true)
     ->setUpload(true);
 
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
+
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
     ->setRole("Client")
     ->setName("George")
@@ -779,6 +800,7 @@ $signature_request_edit_embedded_with_template_request = (new Dropbox\Sign\Model
     ->setSubject("Purchase Order")
     ->setTestMode(true)
     ->setSigningOptions($signing_options)
+    ->setSignerExperience($signer_experience)
     ->setSigners($signers);
 
 try {
@@ -1449,7 +1471,8 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
 
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
@@ -1552,7 +1575,8 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
 
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
     ->setRole("Client")

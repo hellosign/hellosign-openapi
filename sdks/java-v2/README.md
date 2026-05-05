@@ -218,6 +218,7 @@ Class | Method | HTTP request | Description
 *TemplateApi* | [**templateGet**](docs/TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template
 *TemplateApi* | [**templateList**](docs/TemplateApi.md#templateList) | **GET** /template/list | List Templates
 *TemplateApi* | [**templateRemoveUser**](docs/TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template
+*TemplateApi* | [**templateUpdate**](docs/TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template
 *TemplateApi* | [**templateUpdateFiles**](docs/TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files
 *UnclaimedDraftApi* | [**unclaimedDraftCreate**](docs/UnclaimedDraftApi.md#unclaimedDraftCreate) | **POST** /unclaimed_draft/create | Create Unclaimed Draft
 *UnclaimedDraftApi* | [**unclaimedDraftCreateEmbedded**](docs/UnclaimedDraftApi.md#unclaimedDraftCreateEmbedded) | **POST** /unclaimed_draft/create_embedded | Create Embedded Unclaimed Draft
@@ -232,6 +233,7 @@ Class | Method | HTTP request | Description
  - [AccountGetResponse](docs/AccountGetResponse.md)
  - [AccountResponse](docs/AccountResponse.md)
  - [AccountResponseQuotas](docs/AccountResponseQuotas.md)
+ - [AccountResponseSettings](docs/AccountResponseSettings.md)
  - [AccountResponseUsage](docs/AccountResponseUsage.md)
  - [AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [AccountVerifyRequest](docs/AccountVerifyRequest.md)
@@ -317,6 +319,7 @@ Class | Method | HTTP request | Description
  - [SignatureRequestResponseSignatures](docs/SignatureRequestResponseSignatures.md)
  - [SignatureRequestSendRequest](docs/SignatureRequestSendRequest.md)
  - [SignatureRequestSendWithTemplateRequest](docs/SignatureRequestSendWithTemplateRequest.md)
+ - [SignatureRequestSignerExperience](docs/SignatureRequestSignerExperience.md)
  - [SignatureRequestUpdateRequest](docs/SignatureRequestUpdateRequest.md)
  - [SubAttachment](docs/SubAttachment.md)
  - [SubBulkSignerList](docs/SubBulkSignerList.md)
@@ -348,11 +351,13 @@ Class | Method | HTTP request | Description
  - [SubSignatureRequestGroupedSigners](docs/SubSignatureRequestGroupedSigners.md)
  - [SubSignatureRequestSigner](docs/SubSignatureRequestSigner.md)
  - [SubSignatureRequestTemplateSigner](docs/SubSignatureRequestTemplateSigner.md)
+ - [SubSignerExperience](docs/SubSignerExperience.md)
  - [SubSigningOptions](docs/SubSigningOptions.md)
  - [SubTeamResponse](docs/SubTeamResponse.md)
  - [SubTemplateRole](docs/SubTemplateRole.md)
  - [SubUnclaimedDraftSigner](docs/SubUnclaimedDraftSigner.md)
  - [SubUnclaimedDraftTemplateSigner](docs/SubUnclaimedDraftTemplateSigner.md)
+ - [SubUpdateFormField](docs/SubUpdateFormField.md)
  - [SubWhiteLabelingOptions](docs/SubWhiteLabelingOptions.md)
  - [TeamAddMemberRequest](docs/TeamAddMemberRequest.md)
  - [TeamCreateRequest](docs/TeamCreateRequest.md)
@@ -375,7 +380,6 @@ Class | Method | HTTP request | Description
  - [TemplateCreateRequest](docs/TemplateCreateRequest.md)
  - [TemplateCreateResponse](docs/TemplateCreateResponse.md)
  - [TemplateCreateResponseTemplate](docs/TemplateCreateResponseTemplate.md)
- - [TemplateEditResponse](docs/TemplateEditResponse.md)
  - [TemplateGetResponse](docs/TemplateGetResponse.md)
  - [TemplateListResponse](docs/TemplateListResponse.md)
  - [TemplateRemoveUserRequest](docs/TemplateRemoveUserRequest.md)
@@ -412,6 +416,7 @@ Class | Method | HTTP request | Description
  - [TemplateUpdateFilesRequest](docs/TemplateUpdateFilesRequest.md)
  - [TemplateUpdateFilesResponse](docs/TemplateUpdateFilesResponse.md)
  - [TemplateUpdateFilesResponseTemplate](docs/TemplateUpdateFilesResponseTemplate.md)
+ - [TemplateUpdateRequest](docs/TemplateUpdateRequest.md)
  - [UnclaimedDraftCreateEmbeddedRequest](docs/UnclaimedDraftCreateEmbeddedRequest.md)
  - [UnclaimedDraftCreateEmbeddedWithTemplateRequest](docs/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)
  - [UnclaimedDraftCreateRequest](docs/UnclaimedDraftCreateRequest.md)

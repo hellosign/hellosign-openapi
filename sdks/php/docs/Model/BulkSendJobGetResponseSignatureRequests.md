@@ -31,5 +31,6 @@ Name | Type | Description | Notes
 | `response_data` | [```\Dropbox\Sign\Model\SignatureRequestResponseDataBase[]```](SignatureRequestResponseDataBase.md) |  An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.  |  |
 | `signatures` | [```\Dropbox\Sign\Model\SignatureRequestResponseSignatures[]```](SignatureRequestResponseSignatures.md) |  An array of signature objects, 1 for each signer.  |  |
 | `bulk_send_job_id` | ```string``` |  The id of the BulkSendJob.  |  |
+| `signer_experience` | [```\Dropbox\Sign\Model\SignatureRequestSignerExperience```](SignatureRequestSignerExperience.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

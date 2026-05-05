@@ -1,6 +1,9 @@
 {
   "default": {
     "allow_decline": true,
+    "signer_experience": {
+      "form_view": "disabled"
+    },
     "allow_reassign": true,
     "attachments": [
       {
@@ -229,7 +232,8 @@
       "type": true,
       "upload": true,
       "phone": false,
-      "default_type": "draw"
+      "default_type": "draw",
+      "force_advanced_signature_details": false
     },
     "signing_redirect_url": "https://example.com/redirect",
     "subject": "The NDA we talked about",
@@ -239,6 +243,9 @@
   },
   "with_grouped_signers": {
     "allow_decline": true,
+    "signer_experience": {
+      "form_view": "disabled"
+    },
     "allow_reassign": true,
     "attachments": [
       {
@@ -468,7 +475,8 @@
       "type": true,
       "upload": true,
       "phone": false,
-      "default_type": "draw"
+      "default_type": "draw",
+      "force_advanced_signature_details": false
     },
     "signing_redirect_url": "https://example.com/redirect",
     "subject": "The NDA we talked about",

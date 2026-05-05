@@ -35,5 +35,8 @@
   "field_options": {
     "date_format": "DD - MM - YYYY"
   },
-  "test_mode": true
+  "test_mode": true,
+  "signer_experience": {
+    "form_view": "disabled"
+  }
 }

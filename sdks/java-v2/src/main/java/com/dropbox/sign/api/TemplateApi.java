@@ -22,6 +22,7 @@ import com.dropbox.sign.model.TemplateListResponse;
 import com.dropbox.sign.model.TemplateRemoveUserRequest;
 import com.dropbox.sign.model.TemplateUpdateFilesRequest;
 import com.dropbox.sign.model.TemplateUpdateFilesResponse;
+import com.dropbox.sign.model.TemplateUpdateRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -133,7 +134,7 @@ public class TemplateApi {
   }
   /**
    * Create Template
-   * Creates a template that can then be used.
+   * Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
    * @param templateCreateRequest  (required)
    * @return TemplateCreateResponse
    * @throws ApiException if fails to make API call
@@ -152,7 +153,7 @@ public class TemplateApi {
 
   /**
    * Create Template
-   * Creates a template that can then be used.
+   * Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
    * @param templateCreateRequest  (required)
    * @return ApiResponse&lt;TemplateCreateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -870,6 +871,78 @@ public class TemplateApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : templateRemoveUserRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+  }
+  /**
+   * Update Template
+   * Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+   * @param templateId The ID of the template to update. (required)
+   * @param templateUpdateRequest  (required)
+   * @return TemplateGetResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public TemplateGetResponse templateUpdate(String templateId, TemplateUpdateRequest templateUpdateRequest) throws ApiException {
+    return templateUpdateWithHttpInfo(templateId, templateUpdateRequest).getData();
+  }
+
+
+  /**
+   * Update Template
+   * Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+   * @param templateId The ID of the template to update. (required)
+   * @param templateUpdateRequest  (required)
+   * @return ApiResponse&lt;TemplateGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<TemplateGetResponse> templateUpdateWithHttpInfo(String templateId, TemplateUpdateRequest templateUpdateRequest) throws ApiException {
+    
+    // Check required parameters
+    if (templateId == null) {
+      throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateUpdate");
+    }
+    if (templateUpdateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'templateUpdateRequest' when calling templateUpdate");
+    }
+
+    // Path parameters
+    String localVarPath = "/template/update/{template_id}"
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = templateUpdateRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    GenericType<TemplateGetResponse> localVarReturnType = new GenericType<TemplateGetResponse>() {};
+    return apiClient.invokeAPI(
+        "TemplateApi.templateUpdate",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateUpdateRequest,
         new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,

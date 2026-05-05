@@ -18,6 +18,9 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setType(true)
     ->setUpload(true);
 
+$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
+    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
+
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
     ->setEmailAddress("jack@example.com")
@@ -46,6 +49,7 @@ $signature_request_edit_embedded_request = (new Dropbox\Sign\Model\SignatureRequ
     ->setFiles([
     ])
     ->setSigningOptions($signing_options)
+    ->setSignerExperience($signer_experience)
     ->setSigners($signers);
 
 try {

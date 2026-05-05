@@ -77,6 +77,9 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :populate_auto_fill_fields
 
+    # @return [SubSignerExperience]
+    attr_accessor :signer_experience
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -94,7 +97,8 @@ module Dropbox::Sign
         :'subject' => :'subject',
         :'test_mode' => :'test_mode',
         :'title' => :'title',
-        :'populate_auto_fill_fields' => :'populate_auto_fill_fields'
+        :'populate_auto_fill_fields' => :'populate_auto_fill_fields',
+        :'signer_experience' => :'signer_experience'
       }
     end
 
@@ -125,7 +129,8 @@ module Dropbox::Sign
         :'subject' => :'String',
         :'test_mode' => :'Boolean',
         :'title' => :'String',
-        :'populate_auto_fill_fields' => :'Boolean'
+        :'populate_auto_fill_fields' => :'Boolean',
+        :'signer_experience' => :'SubSignerExperience'
       }
     end
 
@@ -254,6 +259,10 @@ module Dropbox::Sign
         self.populate_auto_fill_fields = attributes[:'populate_auto_fill_fields']
       else
         self.populate_auto_fill_fields = false
+      end
+
+      if attributes.key?(:'signer_experience')
+        self.signer_experience = attributes[:'signer_experience']
       end
     end
 
@@ -385,7 +394,8 @@ module Dropbox::Sign
           subject == o.subject &&
           test_mode == o.test_mode &&
           title == o.title &&
-          populate_auto_fill_fields == o.populate_auto_fill_fields
+          populate_auto_fill_fields == o.populate_auto_fill_fields &&
+          signer_experience == o.signer_experience
     end
 
     # @see the `==` method
@@ -397,7 +407,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_ids, client_id, signers, allow_decline, ccs, custom_fields, files, file_urls, message, metadata, signing_options, subject, test_mode, title, populate_auto_fill_fields].hash
+      [template_ids, client_id, signers, allow_decline, ccs, custom_fields, files, file_urls, message, metadata, signing_options, subject, test_mode, title, populate_auto_fill_fields, signer_experience].hash
     end
 
     # Builds the object from hash

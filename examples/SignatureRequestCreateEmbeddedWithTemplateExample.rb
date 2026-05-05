@@ -12,6 +12,10 @@ signing_options.draw = true
 signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
+signing_options.force_advanced_signature_details = false
+
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
 
 signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signers_1.role = "Client"
@@ -31,6 +35,7 @@ signature_request_create_embedded_with_template_request.message = "Glad we could
 signature_request_create_embedded_with_template_request.subject = "Purchase Order"
 signature_request_create_embedded_with_template_request.test_mode = true
 signature_request_create_embedded_with_template_request.signing_options = signing_options
+signature_request_create_embedded_with_template_request.signer_experience = signer_experience
 signature_request_create_embedded_with_template_request.signers = signers
 
 begin

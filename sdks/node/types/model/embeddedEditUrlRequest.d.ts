@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "./";
 import { SubEditorOptions } from "./subEditorOptions";
 import { SubMergeField } from "./subMergeField";
+import { SubSignerExperience } from "./subSignerExperience";
 export declare class EmbeddedEditUrlRequest {
     "allowEditCcs"?: boolean;
     "ccRoles"?: Array<string>;
@@ -12,6 +13,7 @@ export declare class EmbeddedEditUrlRequest {
     "showPreview"?: boolean;
     "showProgressStepper"?: boolean;
     "testMode"?: boolean;
+    "signerExperience"?: SubSignerExperience;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

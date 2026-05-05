@@ -26,6 +26,7 @@ import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
+import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 
 /**
@@ -65,7 +66,7 @@ export class SignatureRequestEditWithTemplateRequest {
    */
   "fileUrls"?: Array<string>;
   /**
-   * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+   * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
    */
   "isEid"?: boolean = false;
   /**
@@ -93,6 +94,7 @@ export class SignatureRequestEditWithTemplateRequest {
    * The title you want to assign to the SignatureRequest.
    */
   "title"?: string;
+  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -176,6 +178,11 @@ export class SignatureRequestEditWithTemplateRequest {
       name: "title",
       baseName: "title",
       type: "string",
+    },
+    {
+      name: "signerExperience",
+      baseName: "signer_experience",
+      type: "SubSignerExperience",
     },
   ];
 

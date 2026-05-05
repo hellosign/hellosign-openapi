@@ -82,6 +82,7 @@ class SignatureRequestEditEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_text_tags' => 'bool',
         'populate_auto_fill_fields' => 'bool',
         'expires_at' => 'int',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -116,6 +117,7 @@ class SignatureRequestEditEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_text_tags' => null,
         'populate_auto_fill_fields' => null,
         'expires_at' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -148,6 +150,7 @@ class SignatureRequestEditEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_text_tags' => false,
         'populate_auto_fill_fields' => false,
         'expires_at' => true,
+        'signer_experience' => false,
     ];
 
     /**
@@ -252,6 +255,7 @@ class SignatureRequestEditEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_text_tags' => 'use_text_tags',
         'populate_auto_fill_fields' => 'populate_auto_fill_fields',
         'expires_at' => 'expires_at',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -284,6 +288,7 @@ class SignatureRequestEditEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_text_tags' => 'setUseTextTags',
         'populate_auto_fill_fields' => 'setPopulateAutoFillFields',
         'expires_at' => 'setExpiresAt',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -316,6 +321,7 @@ class SignatureRequestEditEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_text_tags' => 'getUseTextTags',
         'populate_auto_fill_fields' => 'getPopulateAutoFillFields',
         'expires_at' => 'getExpiresAt',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -398,6 +404,7 @@ class SignatureRequestEditEmbeddedRequest implements ModelInterface, ArrayAccess
         $this->setIfExists('use_text_tags', $data ?? [], false);
         $this->setIfExists('populate_auto_fill_fields', $data ?? [], false);
         $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -1138,6 +1145,33 @@ class SignatureRequestEditEmbeddedRequest implements ModelInterface, ArrayAccess
             }
         }
         $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

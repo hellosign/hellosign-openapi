@@ -39,6 +39,9 @@ signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
 
+signer_experience = Dropbox::Sign::SubSignerExperience.new
+signer_experience.form_view = "disabled"
+
 grouped_signers_1 = Dropbox::Sign::SubSignatureRequestGroupedSigners.new
 grouped_signers_1.group = "Group #1"
 grouped_signers_1.order = 0
@@ -68,6 +71,7 @@ signature_request_edit_embedded_request.cc_email_addresses = [
     "lawyer2@dropboxsign.com",
 ]
 signature_request_edit_embedded_request.signing_options = signing_options
+signature_request_edit_embedded_request.signer_experience = signer_experience
 signature_request_edit_embedded_request.grouped_signers = grouped_signers
 
 begin

@@ -42,7 +42,8 @@ import java.util.Objects;
     SignatureRequestEditEmbeddedWithTemplateRequest.JSON_PROPERTY_SUBJECT,
     SignatureRequestEditEmbeddedWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
     SignatureRequestEditEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
-    SignatureRequestEditEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS
+    SignatureRequestEditEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
+    SignatureRequestEditEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -96,6 +97,9 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
     public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS =
             "populate_auto_fill_fields";
     @javax.annotation.Nullable private Boolean populateAutoFillFields = false;
+
+    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+    @javax.annotation.Nullable private SubSignerExperience signerExperience;
 
     public SignatureRequestEditEmbeddedWithTemplateRequest() {}
 
@@ -543,6 +547,30 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
         this.populateAutoFillFields = populateAutoFillFields;
     }
 
+    public SignatureRequestEditEmbeddedWithTemplateRequest signerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+        return this;
+    }
+
+    /**
+     * Get signerExperience
+     *
+     * @return signerExperience
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubSignerExperience getSignerExperience() {
+        return signerExperience;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSignerExperience(
+            @javax.annotation.Nullable SubSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+    }
+
     /** Return true if this SignatureRequestEditEmbeddedWithTemplateRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -586,7 +614,10 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
                 && Objects.equals(this.title, signatureRequestEditEmbeddedWithTemplateRequest.title)
                 && Objects.equals(
                         this.populateAutoFillFields,
-                        signatureRequestEditEmbeddedWithTemplateRequest.populateAutoFillFields);
+                        signatureRequestEditEmbeddedWithTemplateRequest.populateAutoFillFields)
+                && Objects.equals(
+                        this.signerExperience,
+                        signatureRequestEditEmbeddedWithTemplateRequest.signerExperience);
     }
 
     @Override
@@ -606,7 +637,8 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
                 subject,
                 testMode,
                 title,
-                populateAutoFillFields);
+                populateAutoFillFields,
+                signerExperience);
     }
 
     @Override
@@ -630,6 +662,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
         sb.append("    populateAutoFillFields: ")
                 .append(toIndentedString(populateAutoFillFields))
                 .append("\n");
+        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -926,6 +959,26 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
                             JSON.getDefault()
                                     .getMapper()
                                     .writeValueAsString(populateAutoFillFields));
+                }
+            }
+            if (signerExperience != null) {
+                if (isFileTypeOrListOfFiles(signerExperience)) {
+                    fileTypeFound = true;
+                }
+
+                if (signerExperience.getClass().equals(java.io.File.class)
+                        || signerExperience.getClass().equals(Integer.class)
+                        || signerExperience.getClass().equals(String.class)
+                        || signerExperience.getClass().isEnum()) {
+                    map.put("signer_experience", signerExperience);
+                } else if (isListOfFile(signerExperience)) {
+                    for (int i = 0; i < getListSize(signerExperience); i++) {
+                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+                    }
+                } else {
+                    map.put(
+                            "signer_experience",
+                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

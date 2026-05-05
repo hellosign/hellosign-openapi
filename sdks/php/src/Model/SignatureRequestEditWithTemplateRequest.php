@@ -75,6 +75,7 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'string',
         'test_mode' => 'bool',
         'title' => 'string',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -101,6 +102,7 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => null,
         'test_mode' => null,
         'title' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -125,6 +127,7 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => false,
         'test_mode' => false,
         'title' => false,
+        'signer_experience' => false,
     ];
 
     /**
@@ -221,6 +224,7 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'subject',
         'test_mode' => 'test_mode',
         'title' => 'title',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -245,6 +249,7 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'setSubject',
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -269,6 +274,7 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'getSubject',
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -343,6 +349,7 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -651,7 +658,7 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
     /**
      * Sets is_eid
      *
-     * @param bool|null $is_eid Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * @param bool|null $is_eid Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      *
      * @return self
      */
@@ -863,6 +870,33 @@ class SignatureRequestEditWithTemplateRequest implements ModelInterface, ArrayAc
         }
 
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

@@ -16,6 +16,11 @@ with ApiClient(configuration) as api_client:
         phone=False,
         type=True,
         upload=True,
+        force_advanced_signature_details=False,
+    )
+
+    signer_experience = models.SubSignerExperience(
+        form_view="disabled",
     )
 
     signers_1 = models.SubSignatureRequestSigner(
@@ -49,6 +54,7 @@ with ApiClient(configuration) as api_client:
             open("./example_signature_request.pdf", "rb").read(),
         ],
         signing_options=signing_options,
+        signer_experience=signer_experience,
         signers=signers,
     )
 

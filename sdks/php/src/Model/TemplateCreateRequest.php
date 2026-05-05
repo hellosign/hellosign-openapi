@@ -76,6 +76,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'bool',
         'title' => 'string',
         'use_preexisting_fields' => 'bool',
+        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -104,6 +105,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => null,
         'title' => null,
         'use_preexisting_fields' => null,
+        'signer_experience' => null,
     ];
 
     /**
@@ -130,6 +132,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => false,
         'title' => false,
         'use_preexisting_fields' => false,
+        'signer_experience' => false,
     ];
 
     /**
@@ -228,6 +231,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'test_mode',
         'title' => 'title',
         'use_preexisting_fields' => 'use_preexisting_fields',
+        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -254,6 +258,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'use_preexisting_fields' => 'setUsePreexistingFields',
+        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -280,6 +285,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'use_preexisting_fields' => 'getUsePreexistingFields',
+        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -356,6 +362,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('use_preexisting_fields', $data ?? [], false);
+        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -922,6 +929,33 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
             throw new InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
         }
         $this->container['use_preexisting_fields'] = $use_preexisting_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_experience
+     *
+     * @return SubSignerExperience|null
+     */
+    public function getSignerExperience()
+    {
+        return $this->container['signer_experience'];
+    }
+
+    /**
+     * Sets signer_experience
+     *
+     * @param SubSignerExperience|null $signer_experience signer_experience
+     *
+     * @return self
+     */
+    public function setSignerExperience(?SubSignerExperience $signer_experience)
+    {
+        if (is_null($signer_experience)) {
+            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
+        }
+        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }
