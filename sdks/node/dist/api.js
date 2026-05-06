@@ -23543,8 +23543,6 @@ var TeamAddMemberRequest = class _TeamAddMemberRequest {
   let RoleEnum;
   ((RoleEnum2) => {
     RoleEnum2["Member"] = "Member";
-    RoleEnum2["CustomSign13034"] = "Custom SIGN-13034";
-    RoleEnum2["CustomSign13047"] = "Custom SIGN-13047";
     RoleEnum2["Developer"] = "Developer";
     RoleEnum2["TeamManager"] = "Team Manager";
     RoleEnum2["Admin"] = "Admin";

@@ -49,10 +49,6 @@ public class TeamAddMemberRequest {
     public enum RoleEnum {
         MEMBER(String.valueOf("Member")),
 
-        CUSTOM_SIGN_13034(String.valueOf("Custom SIGN-13034")),
-
-        CUSTOM_SIGN_13047(String.valueOf("Custom SIGN-13047")),
-
         DEVELOPER(String.valueOf("Developer")),
 
         TEAM_MANAGER(String.valueOf("Team Manager")),
