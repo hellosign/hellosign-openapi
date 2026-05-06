@@ -8344,6 +8344,7 @@ components:
               - user_activity
               - document_status
               - sms_activity
+              - fax_usage
           maxItems: 2
           minItems: 1
         start_date:
@@ -10489,23 +10490,6 @@ components:
           type: string
           format: email
       type: object
-    SubSignerExperience:
-      description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
-      properties:
-        form_view:
-          description: |-
-            Changes the form view setting experienced by the signer. Supported versions are:
-             - `disabled` - Form view is disabled, and the signer cannot change it
-             - `enabled` - Form view is disabled initially, the signer can turn it on using a toggle
-             - `enabled_by_default` - Form view is enabled initially. The signer car turn it off using a toggle
-             - `forced` - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
-          type: string
-          enum:
-            - disabled
-            - enabled
-            - enabled_by_default
-            - forced
-      type: object
     SubTemplateRole:
       properties:
         name:
@@ -10633,6 +10617,8 @@ components:
           type: string
           enum:
             - Member
+            - 'Custom SIGN-13034'
+            - 'Custom SIGN-13047'
             - Developer
             - 'Team Manager'
             - Admin
@@ -10677,6 +10663,8 @@ components:
           type: string
           enum:
             - Member
+            - 'Custom SIGN-13034'
+            - 'Custom SIGN-13047'
             - Developer
             - 'Team Manager'
             - Admin
@@ -12272,6 +12260,7 @@ components:
               - user_activity
               - document_status
               - sms_activity
+              - fax_usage
       type: object
       x-internal-class: true
     SignatureRequestResponse:

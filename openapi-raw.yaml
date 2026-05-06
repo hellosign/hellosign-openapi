@@ -8225,6 +8225,7 @@ components:
               - user_activity
               - document_status
               - sms_activity
+              - fax_usage
           maxItems: 2
           minItems: 1
         start_date:
@@ -9950,6 +9951,7 @@ components:
             - enabled_by_default
             - forced
       type: object
+      x-hideOn: sdk
     SubTemplateRole:
       properties:
         name:
@@ -10060,6 +10062,8 @@ components:
           type: string
           enum:
             - Member
+            - 'Custom SIGN-13034'
+            - 'Custom SIGN-13047'
             - Developer
             - 'Team Manager'
             - Admin
@@ -10092,6 +10096,8 @@ components:
           type: string
           enum:
             - Member
+            - 'Custom SIGN-13034'
+            - 'Custom SIGN-13047'
             - Developer
             - 'Team Manager'
             - Admin
@@ -11520,6 +11526,7 @@ components:
               - user_activity
               - document_status
               - sms_activity
+              - fax_usage
       type: object
       x-internal-class: true
     SignatureRequestResponse:
