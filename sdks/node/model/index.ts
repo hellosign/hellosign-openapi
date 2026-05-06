@@ -135,7 +135,6 @@ import { SubOptions } from "./subOptions";
 import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
-import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 import { SubTeamResponse } from "./subTeamResponse";
 import { SubTemplateRole } from "./subTemplateRole";
@@ -248,7 +247,6 @@ export let enumsMap: { [index: string]: any } = {
     SubSignatureRequestSigner.SmsPhoneNumberTypeEnum,
   "SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum":
     SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum,
-  "SubSignerExperience.FormViewEnum": SubSignerExperience.FormViewEnum,
   "SubSigningOptions.DefaultTypeEnum": SubSigningOptions.DefaultTypeEnum,
   "SubWhiteLabelingOptions.LegalVersionEnum":
     SubWhiteLabelingOptions.LegalVersionEnum,
@@ -396,7 +394,6 @@ export let typeMap: { [index: string]: any } = {
   SubSignatureRequestGroupedSigners: SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner: SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner: SubSignatureRequestTemplateSigner,
-  SubSignerExperience: SubSignerExperience,
   SubSigningOptions: SubSigningOptions,
   SubTeamResponse: SubTeamResponse,
   SubTemplateRole: SubTemplateRole,
@@ -628,7 +625,6 @@ export {
   SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
-  SubSignerExperience,
   SubSigningOptions,
   SubTeamResponse,
   SubTemplateRole,

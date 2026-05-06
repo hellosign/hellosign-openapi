@@ -16,6 +16,5 @@ Name | Type | Description | Notes
 | `showPreview` | ```boolean``` |  This allows the requester to enable the editor/preview experience.  |  [default to false] |
 | `showProgressStepper` | ```boolean``` |  When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.  |  [default to true] |
 | `testMode` | ```boolean``` |  Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.  |  [default to false] |
-| `signerExperience` | [```SubSignerExperience```](SubSignerExperience.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

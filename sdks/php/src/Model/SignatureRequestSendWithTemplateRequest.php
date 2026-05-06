@@ -76,7 +76,6 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'string',
         'test_mode' => 'bool',
         'title' => 'string',
-        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -104,7 +103,6 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => null,
         'test_mode' => null,
         'title' => null,
-        'signer_experience' => null,
     ];
 
     /**
@@ -130,7 +128,6 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => false,
         'test_mode' => false,
         'title' => false,
-        'signer_experience' => false,
     ];
 
     /**
@@ -228,7 +225,6 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'subject',
         'test_mode' => 'test_mode',
         'title' => 'title',
-        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -254,7 +250,6 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'setSubject',
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
-        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -280,7 +275,6 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'getSubject',
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
-        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -356,7 +350,6 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -906,33 +899,6 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         }
 
         $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets signer_experience
-     *
-     * @return SubSignerExperience|null
-     */
-    public function getSignerExperience()
-    {
-        return $this->container['signer_experience'];
-    }
-
-    /**
-     * Sets signer_experience
-     *
-     * @param SubSignerExperience|null $signer_experience signer_experience
-     *
-     * @return self
-     */
-    public function setSignerExperience(?SubSignerExperience $signer_experience)
-    {
-        if (is_null($signer_experience)) {
-            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
-        }
-        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

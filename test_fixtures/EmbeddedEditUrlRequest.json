@@ -1,9 +1,6 @@
 {
   "default": {
     "allow_edit_ccs": true,
-    "signer_experience": {
-      "form_view": "disabled"
-    },
     "cc_roles": [
       ""
     ],

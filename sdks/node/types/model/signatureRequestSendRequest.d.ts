@@ -7,7 +7,6 @@ import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
-import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 export declare class SignatureRequestSendRequest {
     "files"?: Array<RequestFile>;
@@ -38,7 +37,6 @@ export declare class SignatureRequestSendRequest {
     "title"?: string;
     "useTextTags"?: boolean;
     "expiresAt"?: number | null;
-    "signerExperience"?: SubSignerExperience;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

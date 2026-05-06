@@ -13,6 +13,8 @@ export declare class TeamRemoveMemberRequest {
 export declare namespace TeamRemoveMemberRequest {
     enum NewRoleEnum {
         Member = "Member",
+        CustomSign13034 = "Custom SIGN-13034",
+        CustomSign13047 = "Custom SIGN-13047",
         Developer = "Developer",
         TeamManager = "Team Manager",
         Admin = "Admin"

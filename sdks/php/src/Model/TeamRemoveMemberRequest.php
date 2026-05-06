@@ -245,6 +245,8 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
     }
 
     public const NEW_ROLE_MEMBER = 'Member';
+    public const NEW_ROLE_CUSTOM_SIGN_13034 = 'Custom SIGN-13034';
+    public const NEW_ROLE_CUSTOM_SIGN_13047 = 'Custom SIGN-13047';
     public const NEW_ROLE_DEVELOPER = 'Developer';
     public const NEW_ROLE_TEAM_MANAGER = 'Team Manager';
     public const NEW_ROLE_ADMIN = 'Admin';
@@ -258,6 +260,8 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
     {
         return [
             self::NEW_ROLE_MEMBER,
+            self::NEW_ROLE_CUSTOM_SIGN_13034,
+            self::NEW_ROLE_CUSTOM_SIGN_13047,
             self::NEW_ROLE_DEVELOPER,
             self::NEW_ROLE_TEAM_MANAGER,
             self::NEW_ROLE_ADMIN,

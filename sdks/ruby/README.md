@@ -308,7 +308,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SubSignatureRequestGroupedSigners](docs/SubSignatureRequestGroupedSigners.md)
  - [Dropbox::Sign::SubSignatureRequestSigner](docs/SubSignatureRequestSigner.md)
  - [Dropbox::Sign::SubSignatureRequestTemplateSigner](docs/SubSignatureRequestTemplateSigner.md)
- - [Dropbox::Sign::SubSignerExperience](docs/SubSignerExperience.md)
  - [Dropbox::Sign::SubSigningOptions](docs/SubSigningOptions.md)
  - [Dropbox::Sign::SubTeamResponse](docs/SubTeamResponse.md)
  - [Dropbox::Sign::SubTemplateRole](docs/SubTemplateRole.md)

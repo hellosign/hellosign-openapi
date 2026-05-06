@@ -5,7 +5,6 @@ import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubMergeField } from "./subMergeField";
-import { SubSignerExperience } from "./subSignerExperience";
 import { SubTemplateRole } from "./subTemplateRole";
 export declare class TemplateCreateRequest {
     "formFieldsPerDocument": Array<SubFormFieldsPerDocumentBase>;
@@ -28,7 +27,6 @@ export declare class TemplateCreateRequest {
     "testMode"?: boolean;
     "title"?: string;
     "usePreexistingFields"?: boolean;
-    "signerExperience"?: SubSignerExperience;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

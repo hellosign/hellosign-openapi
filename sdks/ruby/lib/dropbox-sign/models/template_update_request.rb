@@ -38,9 +38,6 @@ module Dropbox::Sign
     # @return [Array<SubUpdateFormField>]
     attr_accessor :form_fields
 
-    # @return [SubSignerExperience]
-    attr_accessor :signer_experience
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -48,8 +45,7 @@ module Dropbox::Sign
         :'title' => :'title',
         :'subject' => :'subject',
         :'message' => :'message',
-        :'form_fields' => :'form_fields',
-        :'signer_experience' => :'signer_experience'
+        :'form_fields' => :'form_fields'
       }
     end
 
@@ -70,8 +66,7 @@ module Dropbox::Sign
         :'title' => :'String',
         :'subject' => :'String',
         :'message' => :'String',
-        :'form_fields' => :'Array<SubUpdateFormField>',
-        :'signer_experience' => :'SubSignerExperience'
+        :'form_fields' => :'Array<SubUpdateFormField>'
       }
     end
 
@@ -145,10 +140,6 @@ module Dropbox::Sign
           self.form_fields = value
         end
       end
-
-      if attributes.key?(:'signer_experience')
-        self.signer_experience = attributes[:'signer_experience']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -203,8 +194,7 @@ module Dropbox::Sign
           title == o.title &&
           subject == o.subject &&
           message == o.message &&
-          form_fields == o.form_fields &&
-          signer_experience == o.signer_experience
+          form_fields == o.form_fields
     end
 
     # @see the `==` method
@@ -216,7 +206,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cc_roles, title, subject, message, form_fields, signer_experience].hash
+      [cc_roles, title, subject, message, form_fields].hash
     end
 
     # Builds the object from hash

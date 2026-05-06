@@ -24,7 +24,6 @@ import com.dropbox.sign.model.SubFormFieldRule;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
 import com.dropbox.sign.model.SubSignatureRequestGroupedSigners;
 import com.dropbox.sign.model.SubSignatureRequestSigner;
-import com.dropbox.sign.model.SubSignerExperience;
 import com.dropbox.sign.model.SubSigningOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -71,8 +70,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_TITLE,
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_USE_TEXT_TAGS,
   SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
-  SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_EXPIRES_AT,
-  SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
+  SignatureRequestEditEmbeddedRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -172,10 +170,6 @@ public class SignatureRequestEditEmbeddedRequest {
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   @jakarta.annotation.Nullable
   private Integer expiresAt;
-
-  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
-  @jakarta.annotation.Nullable
-  private SubSignerExperience signerExperience;
 
   public SignatureRequestEditEmbeddedRequest() { 
   }
@@ -883,31 +877,6 @@ public class SignatureRequestEditEmbeddedRequest {
   }
 
 
-  public SignatureRequestEditEmbeddedRequest signerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
-    this.signerExperience = signerExperience;
-    return this;
-  }
-
-  /**
-   * Get signerExperience
-   * @return signerExperience
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SubSignerExperience getSignerExperience() {
-    return signerExperience;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSignerExperience(@jakarta.annotation.Nullable SubSignerExperience signerExperience) {
-    this.signerExperience = signerExperience;
-  }
-
-
   /**
    * Return true if this SignatureRequestEditEmbeddedRequest object is equal to o.
    */
@@ -943,13 +912,12 @@ public class SignatureRequestEditEmbeddedRequest {
         Objects.equals(this.title, signatureRequestEditEmbeddedRequest.title) &&
         Objects.equals(this.useTextTags, signatureRequestEditEmbeddedRequest.useTextTags) &&
         Objects.equals(this.populateAutoFillFields, signatureRequestEditEmbeddedRequest.populateAutoFillFields) &&
-        Objects.equals(this.expiresAt, signatureRequestEditEmbeddedRequest.expiresAt) &&
-        Objects.equals(this.signerExperience, signatureRequestEditEmbeddedRequest.signerExperience);
+        Objects.equals(this.expiresAt, signatureRequestEditEmbeddedRequest.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt, signerExperience);
+    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt);
   }
 
   @Override
@@ -980,7 +948,6 @@ public class SignatureRequestEditEmbeddedRequest {
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
     sb.append("    populateAutoFillFields: ").append(toIndentedString(populateAutoFillFields)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1443,25 +1410,6 @@ public class SignatureRequestEditEmbeddedRequest {
         }
         else {
             map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
-        }
-    }
-    if (signerExperience != null) {
-        if (isFileTypeOrListOfFiles(signerExperience)) {
-            fileTypeFound = true;
-        }
-
-        if (signerExperience.getClass().equals(java.io.File.class) ||
-            signerExperience.getClass().equals(Integer.class) ||
-            signerExperience.getClass().equals(String.class) ||
-            signerExperience.getClass().isEnum()) {
-            map.put("signer_experience", signerExperience);
-        } else if (isListOfFile(signerExperience)) {
-            for(int i = 0; i< getListSize(signerExperience); i++) {
-                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
-            }
-        }
-        else {
-            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

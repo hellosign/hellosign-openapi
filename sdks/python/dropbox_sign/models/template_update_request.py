@@ -20,7 +20,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_update_form_field import SubUpdateFormField
 from typing import Optional, Set
 from typing_extensions import Self
@@ -52,14 +51,12 @@ class TemplateUpdateRequest(BaseModel):
         default=None,
         description="A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.",
     )
-    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "cc_roles",
         "title",
         "subject",
         "message",
         "form_fields",
-        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -119,9 +116,6 @@ class TemplateUpdateRequest(BaseModel):
                 if _item_form_fields:
                     _items.append(_item_form_fields.to_dict())
             _dict["form_fields"] = _items
-        # override the default output from pydantic by calling `to_dict()` of signer_experience
-        if self.signer_experience:
-            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -147,11 +141,6 @@ class TemplateUpdateRequest(BaseModel):
                     if obj.get("form_fields") is not None
                     else None
                 ),
-                "signer_experience": (
-                    SubSignerExperience.from_dict(obj["signer_experience"])
-                    if obj.get("signer_experience") is not None
-                    else None
-                ),
             }
         )
         return _obj
@@ -174,7 +163,6 @@ class TemplateUpdateRequest(BaseModel):
             "subject": "(str,)",
             "message": "(str,)",
             "form_fields": "(List[SubUpdateFormField],)",
-            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

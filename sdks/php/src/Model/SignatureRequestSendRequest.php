@@ -84,7 +84,6 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'string',
         'use_text_tags' => 'bool',
         'expires_at' => 'int',
-        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -121,7 +120,6 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => null,
         'use_text_tags' => null,
         'expires_at' => null,
-        'signer_experience' => null,
     ];
 
     /**
@@ -156,7 +154,6 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => false,
         'use_text_tags' => false,
         'expires_at' => true,
-        'signer_experience' => false,
     ];
 
     /**
@@ -263,7 +260,6 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'title',
         'use_text_tags' => 'use_text_tags',
         'expires_at' => 'expires_at',
-        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -298,7 +294,6 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'setTitle',
         'use_text_tags' => 'setUseTextTags',
         'expires_at' => 'setExpiresAt',
-        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -333,7 +328,6 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'getTitle',
         'use_text_tags' => 'getUseTextTags',
         'expires_at' => 'getExpiresAt',
-        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -418,7 +412,6 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('use_text_tags', $data ?? [], false);
         $this->setIfExists('expires_at', $data ?? [], null);
-        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -1212,33 +1205,6 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
             }
         }
         $this->container['expires_at'] = $expires_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets signer_experience
-     *
-     * @return SubSignerExperience|null
-     */
-    public function getSignerExperience()
-    {
-        return $this->container['signer_experience'];
-    }
-
-    /**
-     * Sets signer_experience
-     *
-     * @param SubSignerExperience|null $signer_experience signer_experience
-     *
-     * @return self
-     */
-    public function setSignerExperience(?SubSignerExperience $signer_experience)
-    {
-        if (is_null($signer_experience)) {
-            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
-        }
-        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

@@ -64,9 +64,18 @@ class TeamRemoveMemberRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in set(["Member", "Developer", "Team Manager", "Admin"]):
+        if value not in set(
+            [
+                "Member",
+                "Custom SIGN-13034",
+                "Custom SIGN-13047",
+                "Developer",
+                "Team Manager",
+                "Admin",
+            ]
+        ):
             raise ValueError(
-                "must be one of enum values ('Member', 'Developer', 'Team Manager', 'Admin')"
+                "must be one of enum values ('Member', 'Custom SIGN-13034', 'Custom SIGN-13047', 'Developer', 'Team Manager', 'Admin')"
             )
         return value
 

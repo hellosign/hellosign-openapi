@@ -37,7 +37,6 @@ from dropbox_sign.models.sub_form_field_rule import SubFormFieldRule
 from dropbox_sign.models.sub_form_fields_per_document_base import (
     SubFormFieldsPerDocumentBase,
 )
-from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from dropbox_sign.models.sub_unclaimed_draft_signer import SubUnclaimedDraftSigner
 from typing import Optional, Set
@@ -139,7 +138,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
         default=None,
         description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.",
     )
-    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "type",
         "files",
@@ -165,7 +163,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
         "use_preexisting_fields",
         "use_text_tags",
         "expires_at",
-        "signer_experience",
     ]
 
     @field_validator("type")
@@ -275,9 +272,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
             _dict["signing_options"] = self.signing_options.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of signer_experience
-        if self.signer_experience:
-            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -381,11 +375,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
                     else False
                 ),
                 "expires_at": obj.get("expires_at"),
-                "signer_experience": (
-                    SubSignerExperience.from_dict(obj["signer_experience"])
-                    if obj.get("signer_experience") is not None
-                    else None
-                ),
             }
         )
         return _obj
@@ -427,7 +416,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
             "use_preexisting_fields": "(bool,)",
             "use_text_tags": "(bool,)",
             "expires_at": "(int,)",
-            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

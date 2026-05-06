@@ -29,7 +29,6 @@ from dropbox_sign.models.sub_form_fields_per_document_base import (
     SubFormFieldsPerDocumentBase,
 )
 from dropbox_sign.models.sub_merge_field import SubMergeField
-from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_template_role import SubTemplateRole
 from typing import Optional, Set
 from typing_extensions import Self
@@ -135,7 +134,6 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
         default=False,
         description="Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).",
     )
-    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "client_id",
         "files",
@@ -162,7 +160,6 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
         "test_mode",
         "title",
         "use_preexisting_fields",
-        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -263,9 +260,6 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
                 if _item_signer_roles:
                     _items.append(_item_signer_roles.to_dict())
             _dict["signer_roles"] = _items
-        # override the default output from pydantic by calling `to_dict()` of signer_experience
-        if self.signer_experience:
-            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -377,11 +371,6 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
                     if obj.get("use_preexisting_fields") is not None
                     else False
                 ),
-                "signer_experience": (
-                    SubSignerExperience.from_dict(obj["signer_experience"])
-                    if obj.get("signer_experience") is not None
-                    else None
-                ),
             }
         )
         return _obj
@@ -424,7 +413,6 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
             "test_mode": "(bool,)",
             "title": "(str,)",
             "use_preexisting_fields": "(bool,)",
-            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

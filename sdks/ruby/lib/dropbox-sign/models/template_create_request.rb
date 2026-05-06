@@ -89,9 +89,6 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :use_preexisting_fields
 
-    # @return [SubSignerExperience]
-    attr_accessor :signer_experience
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -112,8 +109,7 @@ module Dropbox::Sign
         :'subject' => :'subject',
         :'test_mode' => :'test_mode',
         :'title' => :'title',
-        :'use_preexisting_fields' => :'use_preexisting_fields',
-        :'signer_experience' => :'signer_experience'
+        :'use_preexisting_fields' => :'use_preexisting_fields'
       }
     end
 
@@ -147,8 +143,7 @@ module Dropbox::Sign
         :'subject' => :'String',
         :'test_mode' => :'Boolean',
         :'title' => :'String',
-        :'use_preexisting_fields' => :'Boolean',
-        :'signer_experience' => :'SubSignerExperience'
+        :'use_preexisting_fields' => :'Boolean'
       }
     end
 
@@ -296,10 +291,6 @@ module Dropbox::Sign
       else
         self.use_preexisting_fields = false
       end
-
-      if attributes.key?(:'signer_experience')
-        self.signer_experience = attributes[:'signer_experience']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -403,8 +394,7 @@ module Dropbox::Sign
           subject == o.subject &&
           test_mode == o.test_mode &&
           title == o.title &&
-          use_preexisting_fields == o.use_preexisting_fields &&
-          signer_experience == o.signer_experience
+          use_preexisting_fields == o.use_preexisting_fields
     end
 
     # @see the `==` method
@@ -416,7 +406,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [form_fields_per_document, signer_roles, files, file_urls, allow_reassign, attachments, cc_roles, client_id, field_options, form_field_groups, form_field_rules, merge_fields, message, metadata, subject, test_mode, title, use_preexisting_fields, signer_experience].hash
+      [form_fields_per_document, signer_roles, files, file_urls, allow_reassign, attachments, cc_roles, client_id, field_options, form_field_groups, form_field_rules, merge_fields, message, metadata, subject, test_mode, title, use_preexisting_fields].hash
     end
 
     # Builds the object from hash

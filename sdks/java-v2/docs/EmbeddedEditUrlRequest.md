@@ -18,7 +18,6 @@
 | `showPreview` | ```Boolean``` |  This allows the requester to enable the editor/preview experience.  |  |
 | `showProgressStepper` | ```Boolean``` |  When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.  |  |
 | `testMode` | ```Boolean``` |  Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.  |  |
-| `signerExperience` | [```SubSignerExperience```](SubSignerExperience.md) |    |  |
 
 
 

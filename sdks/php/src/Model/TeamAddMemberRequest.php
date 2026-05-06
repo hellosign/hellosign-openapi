@@ -233,6 +233,8 @@ class TeamAddMemberRequest implements ModelInterface, ArrayAccess, JsonSerializa
     }
 
     public const ROLE_MEMBER = 'Member';
+    public const ROLE_CUSTOM_SIGN_13034 = 'Custom SIGN-13034';
+    public const ROLE_CUSTOM_SIGN_13047 = 'Custom SIGN-13047';
     public const ROLE_DEVELOPER = 'Developer';
     public const ROLE_TEAM_MANAGER = 'Team Manager';
     public const ROLE_ADMIN = 'Admin';
@@ -246,6 +248,8 @@ class TeamAddMemberRequest implements ModelInterface, ArrayAccess, JsonSerializa
     {
         return [
             self::ROLE_MEMBER,
+            self::ROLE_CUSTOM_SIGN_13034,
+            self::ROLE_CUSTOM_SIGN_13047,
             self::ROLE_DEVELOPER,
             self::ROLE_TEAM_MANAGER,
             self::ROLE_ADMIN,

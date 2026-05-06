@@ -112,9 +112,6 @@ module Dropbox::Sign
     # @return [Integer, nil]
     attr_accessor :expires_at
 
-    # @return [SubSignerExperience]
-    attr_accessor :signer_experience
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -141,8 +138,7 @@ module Dropbox::Sign
         :'title' => :'title',
         :'use_text_tags' => :'use_text_tags',
         :'populate_auto_fill_fields' => :'populate_auto_fill_fields',
-        :'expires_at' => :'expires_at',
-        :'signer_experience' => :'signer_experience'
+        :'expires_at' => :'expires_at'
       }
     end
 
@@ -182,15 +178,14 @@ module Dropbox::Sign
         :'title' => :'String',
         :'use_text_tags' => :'Boolean',
         :'populate_auto_fill_fields' => :'Boolean',
-        :'expires_at' => :'Integer',
-        :'signer_experience' => :'SubSignerExperience'
+        :'expires_at' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'expires_at',
+        :'expires_at'
       ])
     end
 
@@ -364,10 +359,6 @@ module Dropbox::Sign
       if attributes.key?(:'expires_at')
         self.expires_at = attributes[:'expires_at']
       end
-
-      if attributes.key?(:'signer_experience')
-        self.signer_experience = attributes[:'signer_experience']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -477,8 +468,7 @@ module Dropbox::Sign
           title == o.title &&
           use_text_tags == o.use_text_tags &&
           populate_auto_fill_fields == o.populate_auto_fill_fields &&
-          expires_at == o.expires_at &&
-          signer_experience == o.signer_experience
+          expires_at == o.expires_at
     end
 
     # @see the `==` method
@@ -490,7 +480,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at, signer_experience].hash
+      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at].hash
     end
 
     # Builds the object from hash
