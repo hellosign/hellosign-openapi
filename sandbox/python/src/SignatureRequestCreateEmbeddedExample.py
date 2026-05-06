@@ -19,10 +19,6 @@ with ApiClient(configuration) as api_client:
         force_advanced_signature_details=False,
     )
 
-    signer_experience = models.SubSignerExperience(
-        form_view="disabled",
-    )
-
     signers_1 = models.SubSignatureRequestSigner(
         name="Jack",
         email_address="jack@example.com",
@@ -54,7 +50,6 @@ with ApiClient(configuration) as api_client:
             open("./example_signature_request.pdf", "rb").read(),
         ],
         signing_options=signing_options,
-        signer_experience=signer_experience,
         signers=signers,
     )
 

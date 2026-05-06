@@ -10,10 +10,6 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    signer_experience = models.SubSignerExperience(
-        form_view="disabled",
-    )
-
     form_fields_1 = models.SubUpdateFormField(
         api_id="uniqueIdHere_1",
         name="New name 1",
@@ -37,7 +33,6 @@ with ApiClient(configuration) as api_client:
             "CC Role 1",
             "CC Role 2",
         ],
-        signer_experience=signer_experience,
         form_fields=form_fields,
     )
 

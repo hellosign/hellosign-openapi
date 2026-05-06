@@ -19,10 +19,6 @@ with ApiClient(configuration) as api_client:
         force_advanced_signature_details=False,
     )
 
-    signer_experience = models.SubSignerExperience(
-        form_view="disabled",
-    )
-
     signers_1 = models.SubSignatureRequestTemplateSigner(
         role="Client",
         name="George",
@@ -42,7 +38,6 @@ with ApiClient(configuration) as api_client:
         subject="Purchase Order",
         test_mode=True,
         signing_options=signing_options,
-        signer_experience=signer_experience,
         signers=signers,
     )
 

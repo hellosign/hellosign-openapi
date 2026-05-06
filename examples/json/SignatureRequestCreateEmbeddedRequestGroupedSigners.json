@@ -47,8 +47,5 @@
     "phone": false,
     "default_type": "draw"
   },
-  "signer_experience": {
-    "form_view": "disabled"
-  },
   "test_mode": true
 }

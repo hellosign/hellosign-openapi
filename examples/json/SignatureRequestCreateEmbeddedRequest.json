@@ -30,8 +30,5 @@
     "default_type": "draw",
     "force_advanced_signature_details": false
   },
-  "test_mode": true,
-  "signer_experience": {
-    "form_view": "disabled"
-  }
+  "test_mode": true
 }
