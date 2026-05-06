@@ -47,22 +47,34 @@ namespace Dropbox.Sign.Model
             Member = 1,
 
             /// <summary>
+            /// Enum CustomSIGN13034 for value: Custom SIGN-13034
+            /// </summary>
+            [EnumMember(Value = "Custom SIGN-13034")]
+            CustomSIGN13034 = 2,
+
+            /// <summary>
+            /// Enum CustomSIGN13047 for value: Custom SIGN-13047
+            /// </summary>
+            [EnumMember(Value = "Custom SIGN-13047")]
+            CustomSIGN13047 = 3,
+
+            /// <summary>
             /// Enum Developer for value: Developer
             /// </summary>
             [EnumMember(Value = "Developer")]
-            Developer = 2,
+            Developer = 4,
 
             /// <summary>
             /// Enum TeamManager for value: Team Manager
             /// </summary>
             [EnumMember(Value = "Team Manager")]
-            TeamManager = 3,
+            TeamManager = 5,
 
             /// <summary>
             /// Enum Admin for value: Admin
             /// </summary>
             [EnumMember(Value = "Admin")]
-            Admin = 4
+            Admin = 6
         }
 
 

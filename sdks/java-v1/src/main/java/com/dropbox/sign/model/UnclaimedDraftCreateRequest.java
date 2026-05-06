@@ -53,8 +53,7 @@ import java.util.Objects;
     UnclaimedDraftCreateRequest.JSON_PROPERTY_TEST_MODE,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_TEXT_TAGS,
-    UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT,
-    UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -170,9 +169,6 @@ public class UnclaimedDraftCreateRequest {
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
     @javax.annotation.Nullable private Integer expiresAt;
-
-    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
-    @javax.annotation.Nullable private SubSignerExperience signerExperience;
 
     public UnclaimedDraftCreateRequest() {}
 
@@ -881,30 +877,6 @@ public class UnclaimedDraftCreateRequest {
         this.expiresAt = expiresAt;
     }
 
-    public UnclaimedDraftCreateRequest signerExperience(
-            @javax.annotation.Nullable SubSignerExperience signerExperience) {
-        this.signerExperience = signerExperience;
-        return this;
-    }
-
-    /**
-     * Get signerExperience
-     *
-     * @return signerExperience
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SubSignerExperience getSignerExperience() {
-        return signerExperience;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignerExperience(
-            @javax.annotation.Nullable SubSignerExperience signerExperience) {
-        this.signerExperience = signerExperience;
-    }
-
     /** Return true if this UnclaimedDraftCreateRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -944,9 +916,7 @@ public class UnclaimedDraftCreateRequest {
                 && Objects.equals(
                         this.usePreexistingFields, unclaimedDraftCreateRequest.usePreexistingFields)
                 && Objects.equals(this.useTextTags, unclaimedDraftCreateRequest.useTextTags)
-                && Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt)
-                && Objects.equals(
-                        this.signerExperience, unclaimedDraftCreateRequest.signerExperience);
+                && Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt);
     }
 
     @Override
@@ -975,8 +945,7 @@ public class UnclaimedDraftCreateRequest {
                 testMode,
                 usePreexistingFields,
                 useTextTags,
-                expiresAt,
-                signerExperience);
+                expiresAt);
     }
 
     @Override
@@ -1015,7 +984,6 @@ public class UnclaimedDraftCreateRequest {
                 .append("\n");
         sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -1500,26 +1468,6 @@ public class UnclaimedDraftCreateRequest {
                     map.put(
                             "expires_at",
                             JSON.getDefault().getMapper().writeValueAsString(expiresAt));
-                }
-            }
-            if (signerExperience != null) {
-                if (isFileTypeOrListOfFiles(signerExperience)) {
-                    fileTypeFound = true;
-                }
-
-                if (signerExperience.getClass().equals(java.io.File.class)
-                        || signerExperience.getClass().equals(Integer.class)
-                        || signerExperience.getClass().equals(String.class)
-                        || signerExperience.getClass().isEnum()) {
-                    map.put("signer_experience", signerExperience);
-                } else if (isListOfFile(signerExperience)) {
-                    for (int i = 0; i < getListSize(signerExperience); i++) {
-                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
-                    }
-                } else {
-                    map.put(
-                            "signer_experience",
-                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

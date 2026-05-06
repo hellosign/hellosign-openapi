@@ -47,7 +47,9 @@ public class ReportCreateRequest {
 
         DOCUMENT_STATUS(String.valueOf("document_status")),
 
-        SMS_ACTIVITY(String.valueOf("sms_activity"));
+        SMS_ACTIVITY(String.valueOf("sms_activity")),
+
+        FAX_USAGE(String.valueOf("fax_usage"));
 
         private String value;
 

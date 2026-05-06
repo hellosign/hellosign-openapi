@@ -66,8 +66,7 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="usePreexistingFields">Enable the detection of predefined PDF fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). (default to false).</param>
-        /// <param name="signerExperience">signerExperience.</param>
-        public TemplateCreateEmbeddedDraftRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool allowCcs = true, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccRoles = default(List<string>), string clientId = default(string), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), bool forceSignerRoles = false, bool forceSubjectMessage = false, List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), List<SubMergeField> mergeFields = default(List<SubMergeField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool showPreview = false, bool showProgressStepper = true, List<SubTemplateRole> signerRoles = default(List<SubTemplateRole>), bool skipMeNow = false, string subject = default(string), bool testMode = false, string title = default(string), bool usePreexistingFields = false, SubSignerExperience signerExperience = default(SubSignerExperience))
+        public TemplateCreateEmbeddedDraftRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool allowCcs = true, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccRoles = default(List<string>), string clientId = default(string), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), bool forceSignerRoles = false, bool forceSubjectMessage = false, List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), List<SubMergeField> mergeFields = default(List<SubMergeField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool showPreview = false, bool showProgressStepper = true, List<SubTemplateRole> signerRoles = default(List<SubTemplateRole>), bool skipMeNow = false, string subject = default(string), bool testMode = false, string title = default(string), bool usePreexistingFields = false)
         {
 
             // to ensure "clientId" is required (not null)
@@ -100,7 +99,6 @@ namespace Dropbox.Sign.Model
             this.TestMode = testMode;
             this.Title = title;
             this.UsePreexistingFields = usePreexistingFields;
-            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -293,12 +291,6 @@ namespace Dropbox.Sign.Model
         public bool UsePreexistingFields { get; set; }
 
         /// <summary>
-        /// Gets or Sets SignerExperience
-        /// </summary>
-        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
-        public SubSignerExperience SignerExperience { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -331,7 +323,6 @@ namespace Dropbox.Sign.Model
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  UsePreexistingFields: ").Append(UsePreexistingFields).Append("\n");
-            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -492,11 +483,6 @@ namespace Dropbox.Sign.Model
                 (
                     this.UsePreexistingFields == input.UsePreexistingFields ||
                     this.UsePreexistingFields.Equals(input.UsePreexistingFields)
-                ) &&
-                (
-                    this.SignerExperience == input.SignerExperience ||
-                    (this.SignerExperience != null &&
-                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -582,10 +568,6 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.UsePreexistingFields.GetHashCode();
-                if (this.SignerExperience != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
-                }
                 return hashCode;
             }
         }
@@ -788,13 +770,6 @@ namespace Dropbox.Sign.Model
                 Property = "UsePreexistingFields",
                 Type = "bool",
                 Value = UsePreexistingFields,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "signer_experience",
-                Property = "SignerExperience",
-                Type = "SubSignerExperience",
-                Value = SignerExperience,
             });
 
             return types;

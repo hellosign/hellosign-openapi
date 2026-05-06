@@ -333,7 +333,6 @@ Class | Method | HTTP request | Description
  - [Model.SubSignatureRequestGroupedSigners](docs/SubSignatureRequestGroupedSigners.md)
  - [Model.SubSignatureRequestSigner](docs/SubSignatureRequestSigner.md)
  - [Model.SubSignatureRequestTemplateSigner](docs/SubSignatureRequestTemplateSigner.md)
- - [Model.SubSignerExperience](docs/SubSignerExperience.md)
  - [Model.SubSigningOptions](docs/SubSigningOptions.md)
  - [Model.SubTeamResponse](docs/SubTeamResponse.md)
  - [Model.SubTemplateRole](docs/SubTemplateRole.md)

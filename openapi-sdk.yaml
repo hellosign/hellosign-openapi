@@ -8088,8 +8088,6 @@ components:
           description: 'Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.'
           type: boolean
           default: false
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     FaxLineAddUserRequest:
       required:
@@ -8677,8 +8675,6 @@ components:
             **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
         expires_at:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
@@ -8767,8 +8763,6 @@ components:
             **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditRequest:
       properties:
@@ -8923,8 +8917,6 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditEmbeddedRequest:
       required:
@@ -9077,8 +9069,6 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditEmbeddedWithTemplateRequest:
       required:
@@ -9163,8 +9153,6 @@ components:
             **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestEditWithTemplateRequest:
       description: ''
@@ -9253,8 +9241,6 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -9432,8 +9418,6 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -9533,8 +9517,6 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -10805,8 +10787,6 @@ components:
           description: 'Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).'
           type: boolean
           default: false
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
@@ -10949,8 +10929,6 @@ components:
           description: 'Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).'
           type: boolean
           default: false
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateRemoveUserRequest:
       properties:
@@ -10985,8 +10963,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubUpdateFormField'
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     TemplateUpdateFilesRequest:
       properties:
@@ -11163,8 +11139,6 @@ components:
             **NOTE:** This does not correspond to the **expires_at** returned in the response.
           type: integer
           nullable: true
-        signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''

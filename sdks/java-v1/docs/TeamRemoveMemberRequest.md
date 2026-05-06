@@ -21,6 +21,8 @@
 | Name | Value |
 ---- | -----
 | MEMBER | &quot;Member&quot; |
+| CUSTOM_SIGN_13034 | &quot;Custom SIGN-13034&quot; |
+| CUSTOM_SIGN_13047 | &quot;Custom SIGN-13047&quot; |
 | DEVELOPER | &quot;Developer&quot; |
 | TEAM_MANAGER | &quot;Team Manager&quot; |
 | ADMIN | &quot;Admin&quot; |

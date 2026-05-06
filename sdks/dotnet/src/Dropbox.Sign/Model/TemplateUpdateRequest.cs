@@ -46,8 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="subject">The new default template email subject..</param>
         /// <param name="message">The new default template email message..</param>
         /// <param name="formFields">A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by &#x60;api_id&#x60;, and the only supported change is renaming the field..</param>
-        /// <param name="signerExperience">signerExperience.</param>
-        public TemplateUpdateRequest(List<string> ccRoles = default(List<string>), string title = default(string), string subject = default(string), string message = default(string), List<SubUpdateFormField> formFields = default(List<SubUpdateFormField>), SubSignerExperience signerExperience = default(SubSignerExperience))
+        public TemplateUpdateRequest(List<string> ccRoles = default(List<string>), string title = default(string), string subject = default(string), string message = default(string), List<SubUpdateFormField> formFields = default(List<SubUpdateFormField>))
         {
 
             this.CcRoles = ccRoles;
@@ -55,7 +54,6 @@ namespace Dropbox.Sign.Model
             this.Subject = subject;
             this.Message = message;
             this.FormFields = formFields;
-            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -110,12 +108,6 @@ namespace Dropbox.Sign.Model
         public List<SubUpdateFormField> FormFields { get; set; }
 
         /// <summary>
-        /// Gets or Sets SignerExperience
-        /// </summary>
-        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
-        public SubSignerExperience SignerExperience { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -128,7 +120,6 @@ namespace Dropbox.Sign.Model
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  FormFields: ").Append(FormFields).Append("\n");
-            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -190,11 +181,6 @@ namespace Dropbox.Sign.Model
                     this.FormFields != null &&
                     input.FormFields != null &&
                     this.FormFields.SequenceEqual(input.FormFields)
-                ) &&
-                (
-                    this.SignerExperience == input.SignerExperience ||
-                    (this.SignerExperience != null &&
-                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -226,10 +212,6 @@ namespace Dropbox.Sign.Model
                 if (this.FormFields != null)
                 {
                     hashCode = (hashCode * 59) + this.FormFields.GetHashCode();
-                }
-                if (this.SignerExperience != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
                 }
                 return hashCode;
             }
@@ -293,13 +275,6 @@ namespace Dropbox.Sign.Model
                 Property = "FormFields",
                 Type = "List<SubUpdateFormField>",
                 Value = FormFields,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "signer_experience",
-                Property = "SignerExperience",
-                Type = "SubSignerExperience",
-                Value = SignerExperience,
             });
 
             return types;

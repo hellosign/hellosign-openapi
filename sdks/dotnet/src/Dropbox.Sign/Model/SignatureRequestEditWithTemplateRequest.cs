@@ -57,8 +57,7 @@ namespace Dropbox.Sign.Model
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
-        /// <param name="signerExperience">signerExperience.</param>
-        public SignatureRequestEditWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool isEid = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), SubSignerExperience signerExperience = default(SubSignerExperience))
+        public SignatureRequestEditWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool isEid = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string))
         {
 
             // to ensure "templateIds" is required (not null)
@@ -87,7 +86,6 @@ namespace Dropbox.Sign.Model
             this.Subject = subject;
             this.TestMode = testMode;
             this.Title = title;
-            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -218,12 +216,6 @@ namespace Dropbox.Sign.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets SignerExperience
-        /// </summary>
-        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
-        public SubSignerExperience SignerExperience { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -247,7 +239,6 @@ namespace Dropbox.Sign.Model
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -366,11 +357,6 @@ namespace Dropbox.Sign.Model
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
-                ) &&
-                (
-                    this.SignerExperience == input.SignerExperience ||
-                    (this.SignerExperience != null &&
-                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -437,10 +423,6 @@ namespace Dropbox.Sign.Model
                 if (this.Title != null)
                 {
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.SignerExperience != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
                 }
                 return hashCode;
             }
@@ -587,13 +569,6 @@ namespace Dropbox.Sign.Model
                 Property = "Title",
                 Type = "string",
                 Value = Title,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "signer_experience",
-                Property = "SignerExperience",
-                Type = "SubSignerExperience",
-                Value = SignerExperience,
             });
 
             return types;
