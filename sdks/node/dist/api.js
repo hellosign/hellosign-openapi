@@ -23895,8 +23895,6 @@ var TeamRemoveMemberRequest = class _TeamRemoveMemberRequest {
   let NewRoleEnum;
   ((NewRoleEnum2) => {
     NewRoleEnum2["Member"] = "Member";
-    NewRoleEnum2["CustomSign13034"] = "Custom SIGN-13034";
-    NewRoleEnum2["CustomSign13047"] = "Custom SIGN-13047";
     NewRoleEnum2["Developer"] = "Developer";
     NewRoleEnum2["TeamManager"] = "Team Manager";
     NewRoleEnum2["Admin"] = "Admin";

@@ -10645,8 +10645,6 @@ components:
           type: string
           enum:
             - Member
-            - 'Custom SIGN-13034'
-            - 'Custom SIGN-13047'
             - Developer
             - 'Team Manager'
             - Admin

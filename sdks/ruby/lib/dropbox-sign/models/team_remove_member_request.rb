@@ -170,7 +170,7 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      new_role_validator = EnumAttributeValidator.new('String', ["Member", "Custom SIGN-13034", "Custom SIGN-13047", "Developer", "Team Manager", "Admin"])
+      new_role_validator = EnumAttributeValidator.new('String', ["Member", "Developer", "Team Manager", "Admin"])
       return false unless new_role_validator.valid?(@new_role)
       true
     end
@@ -178,7 +178,7 @@ module Dropbox::Sign
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] new_role Object to be assigned
     def new_role=(new_role)
-      validator = EnumAttributeValidator.new('String', ["Member", "Custom SIGN-13034", "Custom SIGN-13047", "Developer", "Team Manager", "Admin"])
+      validator = EnumAttributeValidator.new('String', ["Member", "Developer", "Team Manager", "Admin"])
       unless validator.valid?(new_role)
         fail ArgumentError, "invalid value for \"new_role\", must be one of #{validator.allowable_values}."
       end

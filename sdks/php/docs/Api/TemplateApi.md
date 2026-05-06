@@ -111,9 +111,6 @@ $config->setUsername("YOUR_API_KEY");
 $field_options = (new Dropbox\Sign\Model\SubFieldOptions())
     ->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
-    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
-
 $signer_roles_1 = (new Dropbox\Sign\Model\SubTemplateRole())
     ->setName("Client")
     ->setOrder(0);
@@ -185,7 +182,6 @@ $template_create_request = (new Dropbox\Sign\Model\TemplateCreateRequest())
     ->setFiles([
     ])
     ->setFieldOptions($field_options)
-    ->setSignerExperience($signer_experience)
     ->setSignerRoles($signer_roles)
     ->setFormFieldsPerDocument($form_fields_per_document)
     ->setMergeFields($merge_fields);
@@ -784,9 +780,6 @@ $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 $config->setUsername("YOUR_API_KEY");
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$signer_experience = (new Dropbox\Sign\Model\SubSignerExperience())
-    ->setFormView(Dropbox\Sign\Model\SubSignerExperience::FORM_VIEW_DISABLED);
-
 $form_fields_1 = (new Dropbox\Sign\Model\SubUpdateFormField())
     ->setApiId("uniqueIdHere_1")
     ->setName("New name 1");
@@ -808,7 +801,6 @@ $template_update_request = (new Dropbox\Sign\Model\TemplateUpdateRequest())
         "CC Role 1",
         "CC Role 2",
     ])
-    ->setSignerExperience($signer_experience)
     ->setFormFields($form_fields);
 
 try {

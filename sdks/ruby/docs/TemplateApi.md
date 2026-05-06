@@ -114,9 +114,6 @@ end
 field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
-signer_experience = Dropbox::Sign::SubSignerExperience.new
-signer_experience.form_view = "disabled"
-
 signer_roles_1 = Dropbox::Sign::SubTemplateRole.new
 signer_roles_1.name = "Client"
 signer_roles_1.order = 0
@@ -189,7 +186,6 @@ template_create_request.files = [
     File.new("./example_signature_request.pdf", "r"),
 ]
 template_create_request.field_options = field_options
-template_create_request.signer_experience = signer_experience
 template_create_request.signer_roles = signer_roles
 template_create_request.form_fields_per_document = form_fields_per_document
 template_create_request.merge_fields = merge_fields
@@ -876,9 +872,6 @@ Dropbox::Sign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signer_experience = Dropbox::Sign::SubSignerExperience.new
-signer_experience.form_view = "disabled"
-
 form_fields_1 = Dropbox::Sign::SubUpdateFormField.new
 form_fields_1.api_id = "uniqueIdHere_1"
 form_fields_1.name = "New name 1"
@@ -900,7 +893,6 @@ template_update_request.cc_roles = [
     "CC Role 1",
     "CC Role 2",
 ]
-template_update_request.signer_experience = signer_experience
 template_update_request.form_fields = form_fields
 
 begin
