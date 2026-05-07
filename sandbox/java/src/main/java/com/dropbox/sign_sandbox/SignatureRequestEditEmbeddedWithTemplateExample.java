@@ -30,8 +30,6 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
-        var signerExperience = new SubSignerExperience();
-        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
 
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
@@ -51,7 +49,6 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
         signatureRequestEditEmbeddedWithTemplateRequest.subject("Purchase Order");
         signatureRequestEditEmbeddedWithTemplateRequest.testMode(true);
         signatureRequestEditEmbeddedWithTemplateRequest.signingOptions(signingOptions);
-        signatureRequestEditEmbeddedWithTemplateRequest.signerExperience(signerExperience);
         signatureRequestEditEmbeddedWithTemplateRequest.signers(signers);
 
         try

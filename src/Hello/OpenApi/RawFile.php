@@ -26,8 +26,11 @@ class RawFile
      * is to be shown.
      *
      * e.g.
-     * x-hideOn: 'SDK'
-     * x-hideOn: 'DOC'
+     * x-hideOn: 'sdk'
+     * x-hideOn: 'doc'
+     * x-hideOn:
+     *   - sdk
+     *   - doc
      */
     private const HIDE_ON = 'x-hideOn';
 
@@ -163,7 +166,7 @@ class RawFile
 
         foreach ($data as $k => $v) {
             if (is_iterable($v)) {
-                if (isset($v[self::HIDE_ON]) && $v[self::HIDE_ON] === $surface_id) {
+                if (isset($v[self::HIDE_ON]) && $this->shouldHide($v[self::HIDE_ON], $surface_id)) {
                     unset($data[$k]);
                     $empty_by_hiding = empty($data);
                 } else {
@@ -214,6 +217,15 @@ class RawFile
         }
 
         return new TranslationResult($data, $empty_by_hiding);
+    }
+
+    private function shouldHide($hideOn, string $surface_id): bool
+    {
+        if (is_array($hideOn)) {
+            return in_array($surface_id, $hideOn, true);
+        }
+
+        return $hideOn === $surface_id;
     }
 
     /**

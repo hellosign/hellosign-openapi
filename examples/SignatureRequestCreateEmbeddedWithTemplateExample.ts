@@ -15,10 +15,6 @@ const signingOptions: models.SubSigningOptions = {
   force_advanced_signature_details: false,
 };
 
-const signerExperience: models.SubSignerExperience = {
-  formView: models.SubSignerExperience.FormViewEnum.Disabled,
-};
-
 const signers1: models.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "George",
@@ -38,7 +34,6 @@ const signatureRequestCreateEmbeddedWithTemplateRequest: models.SignatureRequest
   subject: "Purchase Order",
   testMode: true,
   signingOptions: signingOptions,
-  signerExperience: signerExperience,
   signers: signers,
 };
 

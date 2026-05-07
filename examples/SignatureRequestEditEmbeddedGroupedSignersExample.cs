@@ -57,10 +57,6 @@ public class SignatureRequestEditEmbeddedGroupedSignersExample
             upload: true
         );
 
-        var signerExperience = new SubSignerExperience(
-            formView: SubSignerExperience.FormViewEnum.Disabled
-        );
-
         var groupedSigners1 = new SubSignatureRequestGroupedSigners(
             group: "Group #1",
             order: 0,
@@ -93,7 +89,6 @@ public class SignatureRequestEditEmbeddedGroupedSignersExample
                 "lawyer2@dropboxsign.com",
             ],
             signingOptions: signingOptions,
-            signerExperience: signerExperience,
             groupedSigners: groupedSigners
         );
 
