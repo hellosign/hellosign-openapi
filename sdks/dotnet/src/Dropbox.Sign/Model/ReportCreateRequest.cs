@@ -55,7 +55,13 @@ namespace Dropbox.Sign.Model
             /// Enum SmsActivity for value: sms_activity
             /// </summary>
             [EnumMember(Value = "sms_activity")]
-            SmsActivity = 3
+            SmsActivity = 3,
+
+            /// <summary>
+            /// Enum FaxUsage for value: fax_usage
+            /// </summary>
+            [EnumMember(Value = "fax_usage")]
+            FaxUsage = 4
         }
 
         /// <summary>

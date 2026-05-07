@@ -14,6 +14,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateGet()**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template |
 | [**templateList()**](TemplateApi.md#templateList) | **GET** /template/list | List Templates |
 | [**templateRemoveUser()**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
+| [**templateUpdate()**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template |
 | [**templateUpdateFiles()**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 
@@ -89,7 +90,7 @@ templateCreate($template_create_request): \Dropbox\Sign\Model\TemplateCreateResp
 ```
 Create Template
 
-Creates a template that can then be used.
+Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
 ### Example
 
@@ -748,6 +749,91 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `templateUpdate()`
+
+```php
+templateUpdate($template_id, $template_update_request): \Dropbox\Sign\Model\TemplateGetResponse
+```
+Update Template
+
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### Example
+
+```php
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use SplFileObject;
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$form_fields_1 = (new Dropbox\Sign\Model\SubUpdateFormField())
+    ->setApiId("uniqueIdHere_1")
+    ->setName("New name 1");
+
+$form_fields_2 = (new Dropbox\Sign\Model\SubUpdateFormField())
+    ->setApiId("uniqueIdHere_2")
+    ->setName("New name 2");
+
+$form_fields = [
+    $form_fields_1,
+    $form_fields_2,
+];
+
+$template_update_request = (new Dropbox\Sign\Model\TemplateUpdateRequest())
+    ->setTitle("Test Title")
+    ->setSubject("Test Subject")
+    ->setMessage("Test Message")
+    ->setCcRoles([
+        "CC Role 1",
+        "CC Role 2",
+    ])
+    ->setFormFields($form_fields);
+
+try {
+    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateUpdate(
+        template_id: "f57db65d3f933b5316d398057a36176831451a35",
+        template_update_request: $template_update_request,
+    );
+
+    print_r($response);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling TemplateApi#templateUpdate: {$e->getMessage()}";
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **string**| The ID of the template to update. | |
+| **template_update_request** | [**\Dropbox\Sign\Model\TemplateUpdateRequest**](../Model/TemplateUpdateRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

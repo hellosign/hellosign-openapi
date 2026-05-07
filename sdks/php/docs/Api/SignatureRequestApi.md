@@ -368,7 +368,8 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
 
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
@@ -465,7 +466,8 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
 
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
     ->setRole("Client")
@@ -1449,7 +1451,8 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
 
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestSigner())
     ->setName("Jack")
@@ -1552,7 +1555,8 @@ $signing_options = (new Dropbox\Sign\Model\SubSigningOptions())
     ->setDraw(true)
     ->setPhone(false)
     ->setType(true)
-    ->setUpload(true);
+    ->setUpload(true)
+    ->setForceAdvancedSignatureDetails(false);
 
 $signers_1 = (new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner())
     ->setRole("Client")

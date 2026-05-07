@@ -1,0 +1,214 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - OperationParser
+tags:
+  - name: pet
+paths:
+  /request_x_www_form_urlencoded:
+    post:
+      tags:
+        - pet
+      operationId: request_x_www_form_urlencoded
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/x-www-form-urlencoded: {}
+  /request_multipart_form_data:
+    post:
+      tags:
+        - pet
+      operationId: request_multipart_form_data
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          multipart/form-data: {}
+  /request_x_www_form_urlencoded_with_ref:
+    post:
+      tags:
+        - pet
+      operationId: request_x_www_form_urlencoded_with_ref
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /request_multipart_form_data_with_ref:
+    post:
+      tags:
+        - pet
+      operationId: request_multipart_form_data_with_ref
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /request_x_www_form_urlencoded_and_multipart_form_data:
+    post:
+      tags:
+        - pet
+      operationId: request_x_www_form_urlencoded_and_multipart_form_data
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /request_multipart_form_data_and_x_www_form_urlencoded:
+    post:
+      tags:
+        - pet
+      operationId: request_multipart_form_data_and_x_www_form_urlencoded
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /request_x_www_form_urlencoded_and_application_json:
+    post:
+      tags:
+        - pet
+      operationId: request_x_www_form_urlencoded_and_application_json
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /request_multipart_form_data_and_application_json:
+    post:
+      tags:
+        - pet
+      operationId: request_multipart_form_data_and_application_json
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  # not treated as form-data by SDKs
+  /request_octet_stream:
+    post:
+      tags:
+        - pet
+      operationId: request_octet_stream
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/octet-stream: {}
+  /body_data_1:
+    post:
+      tags:
+        - pet
+      operationId: body_data_1
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /body_data_2:
+    post:
+      tags:
+        - pet
+      operationId: body_data_2
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Pet'
+  /parameter_data:
+    get:
+      tags:
+        - pet
+      operationId: parameter_data
+      parameters:
+        -
+          name: param_name_1
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+  /request_body_ref_1:
+    post:
+      tags:
+        - pet
+      operationId: request_body_ref_1
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        $ref: '#/components/requestBodies/RequestBodyRef1'
+  /request_body_ref_2:
+    post:
+      tags:
+        - pet
+      operationId: request_body_ref_2
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        $ref: '#/components/requestBodies/RequestBodyRef2'
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+  requestBodies:
+    RequestBodyRef1:
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/Pet'
+    RequestBodyRef2:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Pet'

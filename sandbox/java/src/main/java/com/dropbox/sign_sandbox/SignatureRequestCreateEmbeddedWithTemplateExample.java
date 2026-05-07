@@ -29,6 +29,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
+        signingOptions.forceAdvancedSignatureDetails(false);
 
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");

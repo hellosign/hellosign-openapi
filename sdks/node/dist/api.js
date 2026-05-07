@@ -13150,6 +13150,7 @@ __export(api_exports, {
   AccountGetResponse: () => AccountGetResponse,
   AccountResponse: () => AccountResponse,
   AccountResponseQuotas: () => AccountResponseQuotas,
+  AccountResponseSettings: () => AccountResponseSettings,
   AccountResponseUsage: () => AccountResponseUsage,
   AccountUpdateRequest: () => AccountUpdateRequest,
   AccountVerifyRequest: () => AccountVerifyRequest,
@@ -13286,6 +13287,7 @@ __export(api_exports, {
   SubTemplateRole: () => SubTemplateRole,
   SubUnclaimedDraftSigner: () => SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner: () => SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField: () => SubUpdateFormField,
   SubWhiteLabelingOptions: () => SubWhiteLabelingOptions,
   TeamAddMemberRequest: () => TeamAddMemberRequest,
   TeamApi: () => TeamApi,
@@ -13310,7 +13312,6 @@ __export(api_exports, {
   TemplateCreateRequest: () => TemplateCreateRequest,
   TemplateCreateResponse: () => TemplateCreateResponse,
   TemplateCreateResponseTemplate: () => TemplateCreateResponseTemplate,
-  TemplateEditResponse: () => TemplateEditResponse,
   TemplateGetResponse: () => TemplateGetResponse,
   TemplateListResponse: () => TemplateListResponse,
   TemplateRemoveUserRequest: () => TemplateRemoveUserRequest,
@@ -13347,6 +13348,7 @@ __export(api_exports, {
   TemplateUpdateFilesRequest: () => TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: () => TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate: () => TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest: () => TemplateUpdateRequest,
   USER_AGENT: () => USER_AGENT,
   UnclaimedDraftApi: () => UnclaimedDraftApi,
   UnclaimedDraftCreateEmbeddedRequest: () => UnclaimedDraftCreateEmbeddedRequest,
@@ -16823,6 +16825,11 @@ var AccountResponse = class _AccountResponse {
         name: "usage",
         baseName: "usage",
         type: "AccountResponseUsage"
+      },
+      {
+        name: "settings",
+        baseName: "settings",
+        type: "AccountResponseSettings"
       }
     ];
   }
@@ -16880,6 +16887,39 @@ var AccountResponseQuotas = class _AccountResponseQuotas {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "AccountResponseQuotas");
+  }
+};
+
+// model/accountResponseSettings.ts
+var AccountResponseSettings = class _AccountResponseSettings {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "signerAccessCodes",
+        baseName: "signer_access_codes",
+        type: "boolean"
+      },
+      {
+        name: "smsDelivery",
+        baseName: "sms_delivery",
+        type: "boolean"
+      },
+      {
+        name: "smsAuthentication",
+        baseName: "sms_authentication",
+        type: "boolean"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _AccountResponseSettings.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "AccountResponseSettings");
   }
 };
 
@@ -19240,6 +19280,7 @@ var ReportCreateRequest = class _ReportCreateRequest {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
     ReportTypeEnum2["SmsActivity"] = "sms_activity";
+    ReportTypeEnum2["FaxUsage"] = "fax_usage";
   })(ReportTypeEnum = ReportCreateRequest2.ReportTypeEnum || (ReportCreateRequest2.ReportTypeEnum = {}));
 })(ReportCreateRequest || (ReportCreateRequest = {}));
 
@@ -19314,6 +19355,7 @@ var ReportResponse = class _ReportResponse {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
     ReportTypeEnum2["SmsActivity"] = "sms_activity";
+    ReportTypeEnum2["FaxUsage"] = "fax_usage";
   })(ReportTypeEnum = ReportResponse2.ReportTypeEnum || (ReportResponse2.ReportTypeEnum = {}));
 })(ReportResponse || (ReportResponse = {}));
 
@@ -20079,7 +20121,7 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
      */
     this["hideTextTags"] = false;
     /**
-     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      */
     this["isEid"] = false;
     /**
@@ -20240,7 +20282,7 @@ var SignatureRequestEditWithTemplateRequest = class _SignatureRequestEditWithTem
      */
     this["allowDecline"] = false;
     /**
-     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      */
     this["isEid"] = false;
     /**
@@ -21346,7 +21388,7 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
      */
     this["isQualifiedSignature"] = false;
     /**
-     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      */
     this["isEid"] = false;
     /**
@@ -21518,7 +21560,7 @@ var SignatureRequestSendWithTemplateRequest = class _SignatureRequestSendWithTem
      */
     this["isQualifiedSignature"] = false;
     /**
-     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      */
     this["isEid"] = false;
     /**
@@ -23090,6 +23132,10 @@ var SubSigningOptions = class _SubSigningOptions {
      * Allows uploading the signature
      */
     this["upload"] = false;
+    /**
+     * Turning on advanced signature details for the signature request
+     */
+    this["forceAdvancedSignatureDetails"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -23119,6 +23165,11 @@ var SubSigningOptions = class _SubSigningOptions {
       {
         name: "upload",
         baseName: "upload",
+        type: "boolean"
+      },
+      {
+        name: "forceAdvancedSignatureDetails",
+        baseName: "force_advanced_signature_details",
         type: "boolean"
       }
     ];
@@ -23263,6 +23314,34 @@ var SubUnclaimedDraftTemplateSigner = class _SubUnclaimedDraftTemplateSigner {
       data,
       "SubUnclaimedDraftTemplateSigner"
     );
+  }
+};
+
+// model/subUpdateFormField.ts
+var SubUpdateFormField = class _SubUpdateFormField {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "apiId",
+        baseName: "api_id",
+        type: "string"
+      },
+      {
+        name: "name",
+        baseName: "name",
+        type: "string"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _SubUpdateFormField.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "SubUpdateFormField");
   }
 };
 
@@ -24333,29 +24412,6 @@ var TemplateCreateResponseTemplate = class _TemplateCreateResponseTemplate {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "TemplateCreateResponseTemplate");
-  }
-};
-
-// model/templateEditResponse.ts
-var TemplateEditResponse = class _TemplateEditResponse {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "templateId",
-        baseName: "template_id",
-        type: "string"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _TemplateEditResponse.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "TemplateEditResponse");
   }
 };
 
@@ -25921,6 +25977,49 @@ var TemplateUpdateFilesResponseTemplate = class _TemplateUpdateFilesResponseTemp
   }
 };
 
+// model/templateUpdateRequest.ts
+var TemplateUpdateRequest = class _TemplateUpdateRequest {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "ccRoles",
+        baseName: "cc_roles",
+        type: "Array<string>"
+      },
+      {
+        name: "title",
+        baseName: "title",
+        type: "string"
+      },
+      {
+        name: "subject",
+        baseName: "subject",
+        type: "string"
+      },
+      {
+        name: "message",
+        baseName: "message",
+        type: "string"
+      },
+      {
+        name: "formFields",
+        baseName: "form_fields",
+        type: "Array<SubUpdateFormField>"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _TemplateUpdateRequest.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "TemplateUpdateRequest");
+  }
+};
+
 // model/unclaimedDraftCreateEmbeddedRequest.ts
 var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedRequest {
   constructor() {
@@ -26803,6 +26902,7 @@ var typeMap = {
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
@@ -26917,6 +27017,7 @@ var typeMap = {
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamCreateRequest,
@@ -26939,7 +27040,6 @@ var typeMap = {
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -26976,6 +27076,7 @@ var typeMap = {
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest,
   UnclaimedDraftCreateRequest,
@@ -34474,7 +34575,7 @@ var TemplateApi = class {
     });
   }
   /**
-   * Creates a template that can then be used.
+   * Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
    * @summary Create Template
    * @param templateCreateRequest
    * @param options
@@ -35469,6 +35570,137 @@ var TemplateApi = class {
     });
   }
   /**
+   * Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+   * @summary Update Template
+   * @param templateId The ID of the template to update.
+   * @param templateUpdateRequest
+   * @param options
+   */
+  async templateUpdate(templateId, templateUpdateRequest, options = { headers: {} }) {
+    templateUpdateRequest = deserializeIfNeeded10(
+      templateUpdateRequest,
+      "TemplateUpdateRequest"
+    );
+    const localVarPath = this.basePath + "/template/update/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId))
+    );
+    let localVarQueryParameters = {};
+    let localVarHeaderParams = Object.assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams = {};
+    let localVarBodyParams = void 0;
+    if (templateId === null || templateId === void 0) {
+      throw new Error(
+        "Required parameter templateId was null or undefined when calling templateUpdate."
+      );
+    }
+    if (templateUpdateRequest === null || templateUpdateRequest === void 0) {
+      throw new Error(
+        "Required parameter templateUpdateRequest was null or undefined when calling templateUpdate."
+      );
+    }
+    Object.assign(localVarHeaderParams, options.headers);
+    let localVarUseFormData = false;
+    const result = generateFormData(
+      templateUpdateRequest,
+      TemplateUpdateRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+    let data = {};
+    if (localVarUseFormData) {
+      const formData2 = toFormData3(result.data);
+      data = formData2;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData2.getHeaders()
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        templateUpdateRequest,
+        "TemplateUpdateRequest"
+      );
+    }
+    let localVarRequestOptions = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data
+    };
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(
+      () => this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(
+        () => interceptor(localVarRequestOptions)
+      );
+    }
+    return interceptorPromise.then(() => {
+      return new Promise(
+        (resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse11(
+                resolve,
+                reject,
+                response,
+                "TemplateGetResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse11(
+                reject,
+                error.response,
+                200,
+                "TemplateGetResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse11(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
    * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
    * @summary Update Template Files
    * @param templateId The ID of the template whose files to update.
@@ -36316,6 +36548,7 @@ var APIS = [
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
@@ -36452,6 +36685,7 @@ var APIS = [
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamApi,
@@ -36476,7 +36710,6 @@ var APIS = [
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -36513,6 +36746,7 @@ var APIS = [
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest,
   USER_AGENT,
   UnclaimedDraftApi,
   UnclaimedDraftCreateEmbeddedRequest,

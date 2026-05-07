@@ -1,0 +1,43 @@
+[project]
+name = "oseg"
+version = "0.1-dev"
+description = "OpenAPI SDK Example Generator"
+readme = "README.md"
+requires-python = ">=3.13"
+keywords = ["OpenAPI", "openapi-generator", "sdk"]
+authors = [
+    { name = "Dropbox Sign", email = "apisupport@hellosign.com" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+]
+dependencies = [
+    "Jinja2~=3.1",
+    "openapi-pydantic~=0.5",
+    "pydantic~=2.10",
+    "PyYAML~=6.0",
+    "click~=8.1",
+    "tabulate~=0.9",
+]
+
+[project.urls]
+Documentation = "https://github.com/hellosign/hellosign-openapi"
+Issues = "https://github.com/hellosign/hellosign-openapi"
+Source = "https://github.com/hellosign/hellosign-openapi"
+
+[dependency-groups]
+dev = [
+    "black",
+    "coverage",
+    "mock",
+]
+
+[tool.setuptools.packages]
+find = { include = ["oseg"] }
+
+[tool.black]
+force-exclude = "templates"
+
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"

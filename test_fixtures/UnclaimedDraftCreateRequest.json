@@ -114,7 +114,8 @@
       "type": true,
       "upload": true,
       "phone": false,
-      "default_type": "draw"
+      "default_type": "draw",
+      "force_advanced_signature_details": false
     },
     "signing_redirect_url": "https://example.com/redirect",
     "subject": "The NDA we talked about",

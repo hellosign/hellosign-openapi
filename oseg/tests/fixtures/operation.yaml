@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Operation Examples
+tags:
+  - name: pet
+paths:
+  /no_tags:
+    post:
+      operationId: no_tags
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+  /with_tags:
+    post:
+      tags:
+        - pet
+        - some_other
+      operationId: with_tags
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+  /operation_id_with_special_chars:
+    post:
+      tags:
+        - some_other
+      operationId: security-advisories/list-global-advisories/some_value
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string

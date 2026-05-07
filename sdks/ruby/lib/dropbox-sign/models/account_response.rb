@@ -60,6 +60,9 @@ module Dropbox::Sign
     # @return [AccountResponseUsage]
     attr_accessor :usage
 
+    # @return [AccountResponseSettings]
+    attr_accessor :settings
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -73,7 +76,8 @@ module Dropbox::Sign
         :'role_code' => :'role_code',
         :'team_id' => :'team_id',
         :'locale' => :'locale',
-        :'usage' => :'usage'
+        :'usage' => :'usage',
+        :'settings' => :'settings'
       }
     end
 
@@ -100,7 +104,8 @@ module Dropbox::Sign
         :'role_code' => :'String',
         :'team_id' => :'String',
         :'locale' => :'String',
-        :'usage' => :'AccountResponseUsage'
+        :'usage' => :'AccountResponseUsage',
+        :'settings' => :'AccountResponseSettings'
       }
     end
 
@@ -198,6 +203,10 @@ module Dropbox::Sign
       if attributes.key?(:'usage')
         self.usage = attributes[:'usage']
       end
+
+      if attributes.key?(:'settings')
+        self.settings = attributes[:'settings']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -228,7 +237,8 @@ module Dropbox::Sign
           role_code == o.role_code &&
           team_id == o.team_id &&
           locale == o.locale &&
-          usage == o.usage
+          usage == o.usage &&
+          settings == o.settings
     end
 
     # @see the `==` method
@@ -240,7 +250,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, email_address, is_locked, is_paid_hs, is_paid_hf, quotas, callback_url, role_code, team_id, locale, usage].hash
+      [account_id, email_address, is_locked, is_paid_hs, is_paid_hf, quotas, callback_url, role_code, team_id, locale, usage, settings].hash
     end
 
     # Builds the object from hash

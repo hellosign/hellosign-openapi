@@ -14,6 +14,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateGet()**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template |
 | [**templateList()**](TemplateApi.md#templateList) | **GET** /template/list | List Templates |
 | [**templateRemoveUser()**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
+| [**templateUpdate()**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template |
 | [**templateUpdateFiles()**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 
@@ -86,7 +87,7 @@ templateCreate(templateCreateRequest: TemplateCreateRequest): TemplateCreateResp
 
 Create Template
 
-Creates a template that can then be used.
+Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
 ### TypeScript Example
 
@@ -719,6 +720,89 @@ apiCaller.templateRemoveUser(
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `templateUpdate()`
+
+```typescript
+templateUpdate(templateId: string, templateUpdateRequest: TemplateUpdateRequest): TemplateGetResponse
+```
+
+Update Template
+
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### TypeScript Example
+
+```typescript
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+const formFields1: models.SubUpdateFormField = {
+  apiId: "uniqueIdHere_1",
+  name: "New name 1",
+};
+
+const formFields2: models.SubUpdateFormField = {
+  apiId: "uniqueIdHere_2",
+  name: "New name 2",
+};
+
+const formFields = [
+  formFields1,
+  formFields2,
+];
+
+const templateUpdateRequest: models.TemplateUpdateRequest = {
+  title: "Test Title",
+  subject: "Test Subject",
+  message: "Test Message",
+  ccRoles: [
+    "CC Role 1",
+    "CC Role 2",
+  ],
+  formFields: formFields,
+};
+
+apiCaller.templateUpdate(
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  templateUpdateRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling TemplateApi#templateUpdate:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **templateId** | **string**| The ID of the template to update. | |
+| **templateUpdateRequest** | [**TemplateUpdateRequest**](../model/TemplateUpdateRequest.md)|  | |
+
+### Return type
+
+[**TemplateGetResponse**](../model/TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

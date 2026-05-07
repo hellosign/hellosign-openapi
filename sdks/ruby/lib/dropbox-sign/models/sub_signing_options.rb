@@ -17,7 +17,7 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+  # This allows the requester to specify the types allowed for creating a signature and specify another signing options.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.  **NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too.
   class SubSigningOptions
     # The default type shown (limited to the listed types)
     # @return [String]
@@ -38,6 +38,10 @@ module Dropbox::Sign
     # Allows uploading the signature
     # @return [Boolean]
     attr_accessor :upload
+
+    # Turning on advanced signature details for the signature request
+    # @return [Boolean]
+    attr_accessor :force_advanced_signature_details
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -68,7 +72,8 @@ module Dropbox::Sign
         :'draw' => :'draw',
         :'phone' => :'phone',
         :'type' => :'type',
-        :'upload' => :'upload'
+        :'upload' => :'upload',
+        :'force_advanced_signature_details' => :'force_advanced_signature_details'
       }
     end
 
@@ -89,7 +94,8 @@ module Dropbox::Sign
         :'draw' => :'Boolean',
         :'phone' => :'Boolean',
         :'type' => :'Boolean',
-        :'upload' => :'Boolean'
+        :'upload' => :'Boolean',
+        :'force_advanced_signature_details' => :'Boolean'
       }
     end
 
@@ -167,6 +173,12 @@ module Dropbox::Sign
       else
         self.upload = false
       end
+
+      if attributes.key?(:'force_advanced_signature_details')
+        self.force_advanced_signature_details = attributes[:'force_advanced_signature_details']
+      else
+        self.force_advanced_signature_details = false
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -208,7 +220,8 @@ module Dropbox::Sign
           draw == o.draw &&
           phone == o.phone &&
           type == o.type &&
-          upload == o.upload
+          upload == o.upload &&
+          force_advanced_signature_details == o.force_advanced_signature_details
     end
 
     # @see the `==` method
@@ -220,7 +233,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [default_type, draw, phone, type, upload].hash
+      [default_type, draw, phone, type, upload, force_advanced_signature_details].hash
     end
 
     # Builds the object from hash
