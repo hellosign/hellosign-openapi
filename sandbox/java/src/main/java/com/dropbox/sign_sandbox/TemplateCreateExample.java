@@ -26,7 +26,6 @@ public class TemplateCreateExample
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
-
         var signerRoles1 = new SubTemplateRole();
         signerRoles1.name("Client");
         signerRoles1.order(0);

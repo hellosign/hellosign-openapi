@@ -30,7 +30,6 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
-
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
         signers1.name("George");

@@ -31,7 +31,6 @@ public class SignatureRequestCreateEmbeddedExample
         signingOptions.upload(true);
         signingOptions.forceAdvancedSignatureDetails(false);
 
-
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
         signers1.emailAddress("jack@example.com");

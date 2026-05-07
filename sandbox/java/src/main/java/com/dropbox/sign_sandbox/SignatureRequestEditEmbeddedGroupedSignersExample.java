@@ -56,7 +56,6 @@ public class SignatureRequestEditEmbeddedGroupedSignersExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
-
         var groupedSigners1 = new SubSignatureRequestGroupedSigners();
         groupedSigners1.group("Group #1");
         groupedSigners1.order(0);
