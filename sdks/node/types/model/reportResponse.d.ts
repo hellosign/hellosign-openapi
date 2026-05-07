@@ -13,6 +13,7 @@ export declare namespace ReportResponse {
     enum ReportTypeEnum {
         UserActivity = "user_activity",
         DocumentStatus = "document_status",
-        SmsActivity = "sms_activity"
+        SmsActivity = "sms_activity",
+        FaxUsage = "fax_usage"
     }
 }

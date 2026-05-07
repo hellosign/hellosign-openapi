@@ -31,7 +31,6 @@ import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
-import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 
 export class SignatureRequestSendRequest {
@@ -135,7 +134,6 @@ export class SignatureRequestSendRequest {
    * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
   "expiresAt"?: number | null;
-  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -269,11 +267,6 @@ export class SignatureRequestSendRequest {
       name: "expiresAt",
       baseName: "expires_at",
       type: "number",
-    },
-    {
-      name: "signerExperience",
-      baseName: "signer_experience",
-      type: "SubSignerExperience",
     },
   ];
 

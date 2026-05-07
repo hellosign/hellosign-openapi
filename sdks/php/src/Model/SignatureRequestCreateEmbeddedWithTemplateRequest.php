@@ -73,7 +73,6 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => 'bool',
         'title' => 'string',
         'populate_auto_fill_fields' => 'bool',
-        'signer_experience' => '\Dropbox\Sign\Model\SubSignerExperience',
     ];
 
     /**
@@ -99,7 +98,6 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => null,
         'title' => null,
         'populate_auto_fill_fields' => null,
-        'signer_experience' => null,
     ];
 
     /**
@@ -123,7 +121,6 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => false,
         'title' => false,
         'populate_auto_fill_fields' => false,
-        'signer_experience' => false,
     ];
 
     /**
@@ -219,7 +216,6 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => 'test_mode',
         'title' => 'title',
         'populate_auto_fill_fields' => 'populate_auto_fill_fields',
-        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -243,7 +239,6 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'populate_auto_fill_fields' => 'setPopulateAutoFillFields',
-        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -267,7 +262,6 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'populate_auto_fill_fields' => 'getPopulateAutoFillFields',
-        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -341,7 +335,6 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('populate_auto_fill_fields', $data ?? [], false);
-        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -838,33 +831,6 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
             throw new InvalidArgumentException('non-nullable populate_auto_fill_fields cannot be null');
         }
         $this->container['populate_auto_fill_fields'] = $populate_auto_fill_fields;
-
-        return $this;
-    }
-
-    /**
-     * Gets signer_experience
-     *
-     * @return SubSignerExperience|null
-     */
-    public function getSignerExperience()
-    {
-        return $this->container['signer_experience'];
-    }
-
-    /**
-     * Sets signer_experience
-     *
-     * @param SubSignerExperience|null $signer_experience signer_experience
-     *
-     * @return self
-     */
-    public function setSignerExperience(?SubSignerExperience $signer_experience)
-    {
-        if (is_null($signer_experience)) {
-            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
-        }
-        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

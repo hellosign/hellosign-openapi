@@ -279,7 +279,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SubSignatureRequestGroupedSigners](./docs/model/SubSignatureRequestGroupedSigners.md)
 - [SubSignatureRequestSigner](./docs/model/SubSignatureRequestSigner.md)
 - [SubSignatureRequestTemplateSigner](./docs/model/SubSignatureRequestTemplateSigner.md)
-- [SubSignerExperience](./docs/model/SubSignerExperience.md)
 - [SubSigningOptions](./docs/model/SubSigningOptions.md)
 - [SubTeamResponse](./docs/model/SubTeamResponse.md)
 - [SubTemplateRole](./docs/model/SubTemplateRole.md)

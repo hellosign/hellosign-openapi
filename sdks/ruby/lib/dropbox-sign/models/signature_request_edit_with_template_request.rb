@@ -82,9 +82,6 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :title
 
-    # @return [SubSignerExperience]
-    attr_accessor :signer_experience
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -103,8 +100,7 @@ module Dropbox::Sign
         :'signing_redirect_url' => :'signing_redirect_url',
         :'subject' => :'subject',
         :'test_mode' => :'test_mode',
-        :'title' => :'title',
-        :'signer_experience' => :'signer_experience'
+        :'title' => :'title'
       }
     end
 
@@ -136,8 +132,7 @@ module Dropbox::Sign
         :'signing_redirect_url' => :'String',
         :'subject' => :'String',
         :'test_mode' => :'Boolean',
-        :'title' => :'String',
-        :'signer_experience' => :'SubSignerExperience'
+        :'title' => :'String'
       }
     end
 
@@ -271,10 +266,6 @@ module Dropbox::Sign
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
-
-      if attributes.key?(:'signer_experience')
-        self.signer_experience = attributes[:'signer_experience']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -391,8 +382,7 @@ module Dropbox::Sign
           signing_redirect_url == o.signing_redirect_url &&
           subject == o.subject &&
           test_mode == o.test_mode &&
-          title == o.title &&
-          signer_experience == o.signer_experience
+          title == o.title
     end
 
     # @see the `==` method
@@ -404,7 +394,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_ids, signers, allow_decline, ccs, client_id, custom_fields, files, file_urls, is_eid, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, signer_experience].hash
+      [template_ids, signers, allow_decline, ccs, client_id, custom_fields, files, file_urls, is_eid, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title].hash
     end
 
     # Builds the object from hash

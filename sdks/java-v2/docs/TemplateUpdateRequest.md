@@ -13,7 +13,6 @@
 | `subject` | ```String``` |  The new default template email subject.  |  |
 | `message` | ```String``` |  The new default template email message.  |  |
 | `formFields` | [```List<SubUpdateFormField>```](SubUpdateFormField.md) |  A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.  |  |
-| `signerExperience` | [```SubSignerExperience```](SubSignerExperience.md) |    |  |
 
 
 

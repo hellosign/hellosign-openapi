@@ -23,7 +23,6 @@
  */
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
-import { SubSignerExperience } from "./subSignerExperience";
 import { SubUpdateFormField } from "./subUpdateFormField";
 
 export class TemplateUpdateRequest {
@@ -47,7 +46,6 @@ export class TemplateUpdateRequest {
    * A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.
    */
   "formFields"?: Array<SubUpdateFormField>;
-  "signerExperience"?: SubSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -76,11 +74,6 @@ export class TemplateUpdateRequest {
       name: "formFields",
       baseName: "form_fields",
       type: "Array<SubUpdateFormField>",
-    },
-    {
-      name: "signerExperience",
-      baseName: "signer_experience",
-      type: "SubSignerExperience",
     },
   ];
 

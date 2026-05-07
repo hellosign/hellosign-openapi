@@ -13283,7 +13283,6 @@ __export(api_exports, {
   SubSignatureRequestGroupedSigners: () => SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner: () => SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner: () => SubSignatureRequestTemplateSigner,
-  SubSignerExperience: () => SubSignerExperience,
   SubSigningOptions: () => SubSigningOptions,
   SubTeamResponse: () => SubTeamResponse,
   SubTemplateRole: () => SubTemplateRole,
@@ -17850,11 +17849,6 @@ var EmbeddedEditUrlRequest = class _EmbeddedEditUrlRequest {
         name: "testMode",
         baseName: "test_mode",
         type: "boolean"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -19292,6 +19286,7 @@ var ReportCreateRequest = class _ReportCreateRequest {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
     ReportTypeEnum2["SmsActivity"] = "sms_activity";
+    ReportTypeEnum2["FaxUsage"] = "fax_usage";
   })(ReportTypeEnum = ReportCreateRequest2.ReportTypeEnum || (ReportCreateRequest2.ReportTypeEnum = {}));
 })(ReportCreateRequest || (ReportCreateRequest = {}));
 
@@ -19366,6 +19361,7 @@ var ReportResponse = class _ReportResponse {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
     ReportTypeEnum2["SmsActivity"] = "sms_activity";
+    ReportTypeEnum2["FaxUsage"] = "fax_usage";
   })(ReportTypeEnum = ReportResponse2.ReportTypeEnum || (ReportResponse2.ReportTypeEnum = {}));
 })(ReportResponse || (ReportResponse = {}));
 
@@ -19710,11 +19706,6 @@ var SignatureRequestCreateEmbeddedRequest = class _SignatureRequestCreateEmbedde
         type: "boolean"
       },
       {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
-      },
-      {
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
@@ -19828,11 +19819,6 @@ var SignatureRequestCreateEmbeddedWithTemplateRequest = class _SignatureRequestC
         name: "populateAutoFillFields",
         baseName: "populate_auto_fill_fields",
         type: "boolean"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -20000,11 +19986,6 @@ var SignatureRequestEditEmbeddedRequest = class _SignatureRequestEditEmbeddedReq
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -20115,11 +20096,6 @@ var SignatureRequestEditEmbeddedWithTemplateRequest = class _SignatureRequestEdi
         name: "populateAutoFillFields",
         baseName: "populate_auto_fill_fields",
         type: "boolean"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -20292,11 +20268,6 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -20409,11 +20380,6 @@ var SignatureRequestEditWithTemplateRequest = class _SignatureRequestEditWithTem
         name: "title",
         baseName: "title",
         type: "string"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -21579,11 +21545,6 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -21707,11 +21668,6 @@ var SignatureRequestSendWithTemplateRequest = class _SignatureRequestSendWithTem
         name: "title",
         baseName: "title",
         type: "string"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -23203,38 +23159,6 @@ var SubSignatureRequestTemplateSigner = class _SubSignatureRequestTemplateSigner
   })(SmsPhoneNumberTypeEnum = SubSignatureRequestTemplateSigner2.SmsPhoneNumberTypeEnum || (SubSignatureRequestTemplateSigner2.SmsPhoneNumberTypeEnum = {}));
 })(SubSignatureRequestTemplateSigner || (SubSignatureRequestTemplateSigner = {}));
 
-// model/subSignerExperience.ts
-var SubSignerExperience = class _SubSignerExperience {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "formView",
-        baseName: "form_view",
-        type: "SubSignerExperience.FormViewEnum"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _SubSignerExperience.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "SubSignerExperience");
-  }
-};
-((SubSignerExperience2) => {
-  let FormViewEnum;
-  ((FormViewEnum2) => {
-    FormViewEnum2["Disabled"] = "disabled";
-    FormViewEnum2["Enabled"] = "enabled";
-    FormViewEnum2["EnabledByDefault"] = "enabled_by_default";
-    FormViewEnum2["Forced"] = "forced";
-  })(FormViewEnum = SubSignerExperience2.FormViewEnum || (SubSignerExperience2.FormViewEnum = {}));
-})(SubSignerExperience || (SubSignerExperience = {}));
-
 // model/subSigningOptions.ts
 var SubSigningOptions = class _SubSigningOptions {
   constructor() {
@@ -24277,11 +24201,6 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
         name: "usePreexistingFields",
         baseName: "use_preexisting_fields",
         type: "boolean"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -24479,11 +24398,6 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
         name: "usePreexistingFields",
         baseName: "use_preexisting_fields",
         type: "boolean"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -26145,11 +26059,6 @@ var TemplateUpdateRequest = class _TemplateUpdateRequest {
         name: "formFields",
         baseName: "form_fields",
         type: "Array<SubUpdateFormField>"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -26809,11 +26718,6 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
         name: "expiresAt",
         baseName: "expires_at",
         type: "number"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SubSignerExperience"
       }
     ];
   }
@@ -27036,7 +26940,6 @@ var enumsMap = {
   "SubOAuth.ScopesEnum": SubOAuth.ScopesEnum,
   "SubSignatureRequestSigner.SmsPhoneNumberTypeEnum": SubSignatureRequestSigner.SmsPhoneNumberTypeEnum,
   "SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum": SubSignatureRequestTemplateSigner.SmsPhoneNumberTypeEnum,
-  "SubSignerExperience.FormViewEnum": SubSignerExperience.FormViewEnum,
   "SubSigningOptions.DefaultTypeEnum": SubSigningOptions.DefaultTypeEnum,
   "SubWhiteLabelingOptions.LegalVersionEnum": SubWhiteLabelingOptions.LegalVersionEnum,
   "TeamAddMemberRequest.RoleEnum": TeamAddMemberRequest.RoleEnum,
@@ -27162,7 +27065,6 @@ var typeMap = {
   SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
-  SubSignerExperience,
   SubSigningOptions,
   SubTeamResponse,
   SubTemplateRole,
@@ -36832,7 +36734,6 @@ var APIS = [
   SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
-  SubSignerExperience,
   SubSigningOptions,
   SubTeamResponse,
   SubTemplateRole,

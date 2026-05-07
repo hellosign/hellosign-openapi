@@ -7974,7 +7974,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     FaxLineAddUserRequest:
       required:
@@ -8229,6 +8233,7 @@ components:
               - user_activity
               - document_status
               - sms_activity
+              - fax_usage
           maxItems: 2
           minItems: 1
         start_date:
@@ -8562,7 +8567,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
         expires_at:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
@@ -8652,7 +8661,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestEditRequest:
       properties:
@@ -8808,7 +8821,11 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestEditEmbeddedRequest:
       required:
@@ -8962,7 +8979,11 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestEditEmbeddedWithTemplateRequest:
       required:
@@ -9048,7 +9069,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestEditWithTemplateRequest:
       description: ''
@@ -9138,7 +9163,11 @@ components:
           type: string
           maxLength: 255
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -9306,7 +9335,11 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -9396,7 +9429,11 @@ components:
           type: string
           maxLength: 255
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -10369,6 +10406,7 @@ components:
             - enabled_by_default
             - forced
       type: object
+      x-hideOn: sdk
     SubTemplateRole:
       properties:
         name:
@@ -10681,7 +10719,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
@@ -10825,7 +10867,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     TemplateRemoveUserRequest:
       properties:
@@ -10861,7 +10907,11 @@ components:
           items:
             $ref: '#/components/schemas/SubUpdateFormField'
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     TemplateUpdateFilesRequest:
       properties:
@@ -11039,7 +11089,11 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: 'TBD Form View'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -12135,6 +12189,7 @@ components:
               - user_activity
               - document_status
               - sms_activity
+              - fax_usage
       type: object
       x-internal-class: true
     SignatureRequestResponse:

@@ -57,9 +57,6 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :test_mode
 
-    # @return [SubSignerExperience]
-    attr_accessor :signer_experience
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -72,8 +69,7 @@ module Dropbox::Sign
         :'preview_only' => :'preview_only',
         :'show_preview' => :'show_preview',
         :'show_progress_stepper' => :'show_progress_stepper',
-        :'test_mode' => :'test_mode',
-        :'signer_experience' => :'signer_experience'
+        :'test_mode' => :'test_mode'
       }
     end
 
@@ -99,8 +95,7 @@ module Dropbox::Sign
         :'preview_only' => :'Boolean',
         :'show_preview' => :'Boolean',
         :'show_progress_stepper' => :'Boolean',
-        :'test_mode' => :'Boolean',
-        :'signer_experience' => :'SubSignerExperience'
+        :'test_mode' => :'Boolean'
       }
     end
 
@@ -208,10 +203,6 @@ module Dropbox::Sign
       else
         self.test_mode = false
       end
-
-      if attributes.key?(:'signer_experience')
-        self.signer_experience = attributes[:'signer_experience']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -241,8 +232,7 @@ module Dropbox::Sign
           preview_only == o.preview_only &&
           show_preview == o.show_preview &&
           show_progress_stepper == o.show_progress_stepper &&
-          test_mode == o.test_mode &&
-          signer_experience == o.signer_experience
+          test_mode == o.test_mode
     end
 
     # @see the `==` method
@@ -254,7 +244,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_edit_ccs, cc_roles, editor_options, force_signer_roles, force_subject_message, merge_fields, preview_only, show_preview, show_progress_stepper, test_mode, signer_experience].hash
+      [allow_edit_ccs, cc_roles, editor_options, force_signer_roles, force_subject_message, merge_fields, preview_only, show_preview, show_progress_stepper, test_mode].hash
     end
 
     # Builds the object from hash

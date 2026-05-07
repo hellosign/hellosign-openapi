@@ -40,7 +40,6 @@ from dropbox_sign.models.sub_signature_request_grouped_signers import (
     SubSignatureRequestGroupedSigners,
 )
 from dropbox_sign.models.sub_signature_request_signer import SubSignatureRequestSigner
-from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from typing import Optional, Set
 from typing_extensions import Self
@@ -152,7 +151,6 @@ class SignatureRequestSendRequest(BaseModel):
         default=None,
         description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.",
     )
-    signer_experience: Optional[SubSignerExperience] = None
     __properties: ClassVar[List[str]] = [
         "files",
         "file_urls",
@@ -180,7 +178,6 @@ class SignatureRequestSendRequest(BaseModel):
         "title",
         "use_text_tags",
         "expires_at",
-        "signer_experience",
     ]
 
     model_config = ConfigDict(
@@ -288,9 +285,6 @@ class SignatureRequestSendRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
             _dict["signing_options"] = self.signing_options.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of signer_experience
-        if self.signer_experience:
-            _dict["signer_experience"] = self.signer_experience.to_dict()
         return _dict
 
     @classmethod
@@ -403,11 +397,6 @@ class SignatureRequestSendRequest(BaseModel):
                     else False
                 ),
                 "expires_at": obj.get("expires_at"),
-                "signer_experience": (
-                    SubSignerExperience.from_dict(obj["signer_experience"])
-                    if obj.get("signer_experience") is not None
-                    else None
-                ),
             }
         )
         return _obj
@@ -451,7 +440,6 @@ class SignatureRequestSendRequest(BaseModel):
             "title": "(str,)",
             "use_text_tags": "(bool,)",
             "expires_at": "(int,)",
-            "signer_experience": "(SubSignerExperience,)",
         }
 
     @classmethod

@@ -2,7 +2,6 @@ import { AttributeTypeMap, RequestFile } from "./";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
-import { SubSignerExperience } from "./subSignerExperience";
 import { SubSigningOptions } from "./subSigningOptions";
 export declare class SignatureRequestEditWithTemplateRequest {
     "templateIds": Array<string>;
@@ -23,7 +22,6 @@ export declare class SignatureRequestEditWithTemplateRequest {
     "subject"?: string;
     "testMode"?: boolean;
     "title"?: string;
-    "signerExperience"?: SubSignerExperience;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

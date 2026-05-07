@@ -52,8 +52,7 @@ import java.util.Objects;
     SignatureRequestEditRequest.JSON_PROPERTY_TEST_MODE,
     SignatureRequestEditRequest.JSON_PROPERTY_TITLE,
     SignatureRequestEditRequest.JSON_PROPERTY_USE_TEXT_TAGS,
-    SignatureRequestEditRequest.JSON_PROPERTY_EXPIRES_AT,
-    SignatureRequestEditRequest.JSON_PROPERTY_SIGNER_EXPERIENCE
+    SignatureRequestEditRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -136,9 +135,6 @@ public class SignatureRequestEditRequest {
 
     public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
     @javax.annotation.Nullable private Integer expiresAt;
-
-    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
-    @javax.annotation.Nullable private SubSignerExperience signerExperience;
 
     public SignatureRequestEditRequest() {}
 
@@ -872,30 +868,6 @@ public class SignatureRequestEditRequest {
         this.expiresAt = expiresAt;
     }
 
-    public SignatureRequestEditRequest signerExperience(
-            @javax.annotation.Nullable SubSignerExperience signerExperience) {
-        this.signerExperience = signerExperience;
-        return this;
-    }
-
-    /**
-     * Get signerExperience
-     *
-     * @return signerExperience
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SubSignerExperience getSignerExperience() {
-        return signerExperience;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignerExperience(
-            @javax.annotation.Nullable SubSignerExperience signerExperience) {
-        this.signerExperience = signerExperience;
-    }
-
     /** Return true if this SignatureRequestEditRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -934,9 +906,7 @@ public class SignatureRequestEditRequest {
                 && Objects.equals(this.testMode, signatureRequestEditRequest.testMode)
                 && Objects.equals(this.title, signatureRequestEditRequest.title)
                 && Objects.equals(this.useTextTags, signatureRequestEditRequest.useTextTags)
-                && Objects.equals(this.expiresAt, signatureRequestEditRequest.expiresAt)
-                && Objects.equals(
-                        this.signerExperience, signatureRequestEditRequest.signerExperience);
+                && Objects.equals(this.expiresAt, signatureRequestEditRequest.expiresAt);
     }
 
     @Override
@@ -966,8 +936,7 @@ public class SignatureRequestEditRequest {
                 testMode,
                 title,
                 useTextTags,
-                expiresAt,
-                signerExperience);
+                expiresAt);
     }
 
     @Override
@@ -1003,7 +972,6 @@ public class SignatureRequestEditRequest {
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -1502,26 +1470,6 @@ public class SignatureRequestEditRequest {
                     map.put(
                             "expires_at",
                             JSON.getDefault().getMapper().writeValueAsString(expiresAt));
-                }
-            }
-            if (signerExperience != null) {
-                if (isFileTypeOrListOfFiles(signerExperience)) {
-                    fileTypeFound = true;
-                }
-
-                if (signerExperience.getClass().equals(java.io.File.class)
-                        || signerExperience.getClass().equals(Integer.class)
-                        || signerExperience.getClass().equals(String.class)
-                        || signerExperience.getClass().isEnum()) {
-                    map.put("signer_experience", signerExperience);
-                } else if (isListOfFile(signerExperience)) {
-                    for (int i = 0; i < getListSize(signerExperience); i++) {
-                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
-                    }
-                } else {
-                    map.put(
-                            "signer_experience",
-                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

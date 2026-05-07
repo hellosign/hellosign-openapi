@@ -375,7 +375,6 @@ Class | Method | HTTP request | Description
  - [SubSignatureRequestGroupedSigners](docs/SubSignatureRequestGroupedSigners.md)
  - [SubSignatureRequestSigner](docs/SubSignatureRequestSigner.md)
  - [SubSignatureRequestTemplateSigner](docs/SubSignatureRequestTemplateSigner.md)
- - [SubSignerExperience](docs/SubSignerExperience.md)
  - [SubSigningOptions](docs/SubSigningOptions.md)
  - [SubTeamResponse](docs/SubTeamResponse.md)
  - [SubTemplateRole](docs/SubTemplateRole.md)

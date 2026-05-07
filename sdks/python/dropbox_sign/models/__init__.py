@@ -255,7 +255,6 @@ from dropbox_sign.models.sub_signature_request_signer import SubSignatureRequest
 from dropbox_sign.models.sub_signature_request_template_signer import (
     SubSignatureRequestTemplateSigner,
 )
-from dropbox_sign.models.sub_signer_experience import SubSignerExperience
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from dropbox_sign.models.sub_team_response import SubTeamResponse
 from dropbox_sign.models.sub_template_role import SubTemplateRole

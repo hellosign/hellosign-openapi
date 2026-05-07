@@ -7978,7 +7978,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__EmbeddedEditUrl::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     FaxLineAddUserRequest:
       required:
@@ -8225,6 +8229,7 @@ components:
               - user_activity
               - document_status
               - sms_activity
+              - fax_usage
           maxItems: 2
           minItems: 1
         start_date:
@@ -8457,7 +8462,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__SignatureRequestCreateEmbedded::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
         expires_at:
           description: '_t__SignatureRequestCreateEmbedded::EXPIRES_AT'
           type: integer
@@ -8535,7 +8544,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestEditRequest:
       properties:
@@ -8647,7 +8660,11 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__SignatureRequestSend::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestEditEmbeddedRequest:
       required:
@@ -8758,7 +8775,11 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__SignatureRequestCreateEmbedded::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestEditEmbeddedWithTemplateRequest:
       required:
@@ -8832,7 +8853,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestEditWithTemplateRequest:
       description: ''
@@ -8909,7 +8934,11 @@ components:
           type: string
           maxLength: 255
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__SignatureRequestSendWithTemplate::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -9039,7 +9068,11 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__SignatureRequestSend::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -9122,7 +9155,11 @@ components:
           type: string
           maxLength: 255
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__SignatureRequestSendWithTemplate::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -9950,6 +9987,7 @@ components:
             - enabled_by_default
             - forced
       type: object
+      x-hideOn: sdk
     SubTemplateRole:
       properties:
         name:
@@ -10201,7 +10239,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__TemplateCreate::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
@@ -10313,7 +10355,11 @@ components:
           type: boolean
           default: false
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__TemplateCreateEmbeddedDraft::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     TemplateRemoveUserRequest:
       properties:
@@ -10349,7 +10395,11 @@ components:
           items:
             $ref: '#/components/schemas/SubUpdateFormField'
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__TemplateCreateEmbeddedDraft::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     TemplateUpdateFilesRequest:
       properties:
@@ -10490,7 +10540,11 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SubSignerExperience'
+          description: '_t__UnclaimedDraftCreate::SIGNER_EXPERIENCE'
+          allOf:
+            -
+              $ref: '#/components/schemas/SubSignerExperience'
+          x-hideOn: sdk
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -11520,6 +11574,7 @@ components:
               - user_activity
               - document_status
               - sms_activity
+              - fax_usage
       type: object
       x-internal-class: true
     SignatureRequestResponse:
