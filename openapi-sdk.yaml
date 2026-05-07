@@ -7364,6 +7364,7 @@ paths:
         seo:
           title: 'Update Template | REST API | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API easily allows you to build custom integrations. To find out how to update properties of an existing template, click here.'
+      x-hideOn: doc
   '/template/update_files/{template_id}':
     post:
       tags:
@@ -9371,6 +9372,7 @@ components:
           type: boolean
           default: false
           deprecated: true
+          x-hideOn: doc
         is_eid:
           description: |-
             Send with a value of `true` if you wish to enable
@@ -9472,6 +9474,7 @@ components:
           type: boolean
           default: false
           deprecated: true
+          x-hideOn: doc
         is_eid:
           description: |-
             Send with a value of `true` if you wish to enable
