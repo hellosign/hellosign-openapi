@@ -167,6 +167,7 @@ class RawFile
                     unset($data[$k]);
                     $empty_by_hiding = empty($data);
                 } else {
+                    unset($v[self::HIDE_ON]);
                     $result = $this->recurse($v, $surface_id);
                     if ($result->isAllHidden()) {
                         unset($data[$k]);
