@@ -10,10 +10,6 @@ const fieldOptions: models.SubFieldOptions = {
   dateFormat: models.SubFieldOptions.DateFormatEnum.DdMmYyyy,
 };
 
-const signerExperience: models.SubSignerExperience = {
-  formView: models.SubSignerExperience.FormViewEnum.Disabled,
-};
-
 const signerRoles1: models.SubTemplateRole = {
   name: "Client",
   order: 0,
@@ -92,7 +88,6 @@ const templateCreateRequest: models.TemplateCreateRequest = {
     fs.createReadStream("./example_signature_request.pdf"),
   ],
   fieldOptions: fieldOptions,
-  signerExperience: signerExperience,
   signerRoles: signerRoles,
   formFieldsPerDocument: formFieldsPerDocument,
   mergeFields: mergeFields,

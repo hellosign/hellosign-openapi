@@ -17,10 +17,6 @@ public class TemplateUpdateExample
         config.Username = "YOUR_API_KEY";
         // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        var signerExperience = new SubSignerExperience(
-            formView: SubSignerExperience.FormViewEnum.Disabled
-        );
-
         var formFields1 = new SubUpdateFormField(
             apiId: "uniqueIdHere_1",
             name: "New name 1"
@@ -45,7 +41,6 @@ public class TemplateUpdateExample
                 "CC Role 1",
                 "CC Role 2",
             ],
-            signerExperience: signerExperience,
             formFields: formFields
         );
 

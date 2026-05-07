@@ -56,9 +56,6 @@ public class SignatureRequestCreateEmbeddedGroupedSignersExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
-        var signerExperience = new SubSignerExperience();
-        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
-
         var groupedSigners1 = new SubSignatureRequestGroupedSigners();
         groupedSigners1.group("Group #1");
         groupedSigners1.order(0);
@@ -88,7 +85,6 @@ public class SignatureRequestCreateEmbeddedGroupedSignersExample
             "lawyer2@dropboxsign.com"
         ));
         signatureRequestCreateEmbeddedRequest.signingOptions(signingOptions);
-        signatureRequestCreateEmbeddedRequest.signerExperience(signerExperience);
         signatureRequestCreateEmbeddedRequest.groupedSigners(groupedSigners);
 
         try

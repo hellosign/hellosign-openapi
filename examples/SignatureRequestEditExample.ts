@@ -18,10 +18,6 @@ const signingOptions: models.SubSigningOptions = {
   upload: true,
 };
 
-const signerExperience: models.SubSignerExperience = {
-  formView: models.SubSignerExperience.FormViewEnum.Disabled,
-};
-
 const signers1: models.SubSignatureRequestSigner = {
   name: "Jack",
   emailAddress: "jack@example.com",
@@ -57,7 +53,6 @@ const signatureRequestEditRequest: models.SignatureRequestEditRequest = {
   },
   fieldOptions: fieldOptions,
   signingOptions: signingOptions,
-  signerExperience: signerExperience,
   signers: signers,
 };
 

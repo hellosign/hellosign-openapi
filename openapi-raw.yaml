@@ -7982,7 +7982,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     FaxLineAddUserRequest:
       required:
@@ -8466,7 +8468,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
         expires_at:
           description: '_t__SignatureRequestCreateEmbedded::EXPIRES_AT'
           type: integer
@@ -8548,7 +8552,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SignatureRequestEditRequest:
       properties:
@@ -8664,7 +8670,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SignatureRequestEditEmbeddedRequest:
       required:
@@ -8779,7 +8787,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SignatureRequestEditEmbeddedWithTemplateRequest:
       required:
@@ -8857,7 +8867,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SignatureRequestEditWithTemplateRequest:
       description: ''
@@ -8938,7 +8950,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -9072,7 +9086,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -9159,7 +9175,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -9986,9 +10004,13 @@ components:
             - enabled
             - enabled_by_default
             - forced
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
-      x-hideOn: sdk
+      x-hideOn:
+        - sdk
+        - doc
     SubTemplateRole:
       properties:
         name:
@@ -10244,7 +10266,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
@@ -10360,7 +10384,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     TemplateRemoveUserRequest:
       properties:
@@ -10400,7 +10426,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     TemplateUpdateFilesRequest:
       properties:
@@ -10545,7 +10573,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -11687,7 +11717,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SignatureRequestSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
       x-internal-class: true
     SignatureRequestResponseAttachment:
@@ -12058,7 +12090,9 @@ components:
             - enabled
             - enabled_by_default
             - forced
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
       x-internal-class: true
       x-hideOn: sdk
@@ -12235,7 +12269,9 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SignatureRequestSignerExperience'
-          x-hideOn: sdk
+          x-hideOn:
+            - sdk
+            - doc
       type: object
       x-internal-class: true
     TemplateResponseAccount:
