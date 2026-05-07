@@ -125,6 +125,8 @@
 "EmbeddedEditUrl::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
 "EmbeddedEditUrl::TEMPLATE_ID": The id of the template to edit.
 "EmbeddedEditUrl::TEST_MODE": Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
+"EmbeddedEditUrl::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+"EmbeddedEditUrl::SIGNER_EXPERIENCE": TBD Form View
 
 "EmbeddedSignUrl::SUMMARY": Get Embedded Sign URL
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
@@ -360,6 +362,8 @@
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+"SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+"SignatureRequestCreateEmbedded::SIGNER_EXPERIENCE": TBD Form View
 
 "SignatureRequestEditEmbedded::SUMMARY": Edit Embedded Signature Request
 "SignatureRequestEditEmbedded::DESCRIPTION": |-
@@ -367,6 +371,7 @@
 
   **NOTE:** Edit and resend *will* deduct your signature request quota.
 "SignatureRequestEditEmbedded::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
+"SignatureRequestEditEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "SignatureRequestCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Signature Request with Template
 "SignatureRequestCreateEmbeddedWithTemplate::DESCRIPTION": Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
@@ -385,6 +390,7 @@
 "SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestCreateEmbeddedWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbeddedWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
+"SignatureRequestCreateEmbeddedWithTemplate::SIGNER_EXPERIENCE": TBD Form View
 "SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS": |-
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
@@ -487,7 +493,7 @@
     Send with a value of `true` if you wish to enable
     [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
     which requires the signer to verify their identity with an eID provider to sign a document.<br>
-    **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSend::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSend::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSend::SUBJECT": The subject in the email that will be sent to the signers.
@@ -495,6 +501,8 @@
 "SignatureRequestSend::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestSend::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestSend::USE_PREEXISTING_FIELDS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+"SignatureRequestSend::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+"SignatureRequestSend::SIGNER_EXPERIENCE": TBD Form View
 
 "SignatureRequestEdit::SUMMARY": Edit Signature Request
 "SignatureRequestEdit::DESCRIPTION": |-
@@ -502,6 +510,7 @@
   
   **NOTE:** Edit and resend *will* deduct your signature request quota.
 "SignatureRequestEdit::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
+"SignatureRequestEdit::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "SignatureRequestSendWithTemplate::SUMMARY": Send with Template
 "SignatureRequestSendWithTemplate::DESCRIPTION": Creates and sends a new SignatureRequest based off of the Template(s) specified with the `template_ids` parameter.
@@ -525,13 +534,14 @@
     Send with a value of `true` if you wish to enable
     [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
     which requires the signer to verify their identity with an eID provider to sign a document.<br>
-    **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSendWithTemplate::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSendWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestSendWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestSendWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestSendWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
+"SignatureRequestSendWithTemplate::SIGNER_EXPERIENCE": TBD Form View
 
 "SignatureRequestEditWithTemplate::SUMMARY": Edit Signature Request With Template
 "SignatureRequestEditWithTemplate::DESCRIPTION": |-
@@ -695,10 +705,16 @@
 "TemplateCreateEmbeddedDraft::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 "TemplateCreateEmbeddedDraft::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreateEmbeddedDraft::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
-
+"TemplateCreateEmbeddedDraft::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+"TemplateCreateEmbeddedDraft::SIGNER_EXPERIENCE": TBD Form View
 
 "TemplateCreate::SUMMARY": Create Template
-"TemplateCreate::DESCRIPTION": Creates a template that can then be used.
+"TemplateCreate::DESCRIPTION": |-
+  Creates a template that can be used in future signature requests.
+
+  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).
+
+  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
 "TemplateCreate::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
 "TemplateCreate::ALLOW_REASSIGN": |-
@@ -724,6 +740,8 @@
 "TemplateCreate::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 "TemplateCreate::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreate::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
+"TemplateCreate::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+"TemplateCreate::SIGNER_EXPERIENCE": TBD Form View
 
 "TemplateDelete::SUMMARY": Delete Template
 "TemplateDelete::DESCRIPTION": Completely deletes the template specified from the account.
@@ -770,6 +788,16 @@
 "TemplateRemoveUser::ACCOUNT_ID": The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
 "TemplateRemoveUser::EMAIL_ADDRESS": The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
 "TemplateRemoveUser::TEMPLATE_ID": The id of the Template to remove the Account's access to.
+
+"TemplateUpdate::SUMMARY": Update Template
+"TemplateUpdate::DESCRIPTION": Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+"TemplateUpdate::TEMPLATE_ID": The ID of the template to update.
+"TemplateUpdate::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request.
+"TemplateUpdate::ALLOW_FORM_VIEW": "The CC roles that must be assigned when using the template to send a signature request. If set to `true` all the form fields on template document must have non-empty names."
+"TemplateUpdate::FORM_FIELDS": A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.
+"TemplateUpdate::TITLE": The title you want to assign to the SignatureRequest.
+"TemplateUpdate::SUBJECT": The new default template email subject.
+"TemplateUpdate::MESSAGE": The new default template email message.
 
 "TemplateUpdateFiles::SUMMARY": Update Template Files
 "TemplateUpdateFiles::DESCRIPTION": |-
@@ -821,10 +849,13 @@
 "UnclaimedDraftCreate::TYPE": The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.
 "UnclaimedDraftCreate::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreate::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
+"UnclaimedDraftCreate::SIGNER_EXPERIENCE": TBD Form View
 "UnclaimedDraftCreate::EXPIRES_AT": |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
   **NOTE:** This does not correspond to the **expires_at** returned in the response.
+"UnclaimedDraftCreate::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+
 "UnclaimedDraftCreateEmbedded::SUMMARY": Create Embedded Unclaimed Draft
 "UnclaimedDraftCreateEmbedded::DESCRIPTION": |-
   Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
@@ -875,6 +906,8 @@
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
   **NOTE:** This does not correspond to the **expires_at** returned in the response.
+"UnclaimedDraftCreateEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
+
 "UnclaimedDraftCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Unclaimed Draft with Template
 "UnclaimedDraftCreateEmbeddedWithTemplate::DESCRIPTION": |-
   Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
@@ -1179,6 +1212,7 @@
 
   If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
 
+"SignatureRequestSignerExperience::DESCRIPTION": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
 "Sub::SignatureRequestTemplateSigner::NAME": The name of the signer.
@@ -1198,18 +1232,32 @@
 
   If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
 
+"Sub::SignerExperience::DESCRIPTION": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
+"Sub::SignerExperience::DEFAULT": |- 
+  Changes the form view setting experienced by the signer. Supported versions are:
+   - `disabled` - Form view is disabled, and the signer cannot change it
+   - `enabled` - Form view is disabled initially, the signer can turn it on using a toggle
+   - `enabled_by_default` - Form view is enabled initially. The signer car turn it off using a toggle
+   - `forced` - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
+
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
 
 "Sub::SigningOptions::DESCRIPTION": |-
-  This allows the requester to specify the types allowed for creating a signature.
+  This allows the requester to specify the types allowed for creating a signature and specify another signing options.
 
   **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+  
+  **NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too.
 "Sub::SigningOptions::DEFAULT": The default type shown (limited to the listed types)
 "Sub::SigningOptions::DRAW": Allows drawing the signature
 "Sub::SigningOptions::PHONE": Allows using a smartphone to email the signature
 "Sub::SigningOptions::TYPE": Allows typing the signature
 "Sub::SigningOptions::UPLOAD": Allows uploading the signature
+"Sub::SigningOptions::FORCE_ADVANCED_SIGNATURE_DETAILS": Turning on advanced signature details for the signature request
+
+"Sub::UpdateFormField::API_ID": The unique ID for this field. The endpoint will update an existing field with matching `api_id`, and warn you if no matches are found
+"Sub::UpdateFormField::NAME": The new name of the field. If not passed the name will remain unchanged.
 
 "Sub::UnclaimedDraftSigner::DESCRIPTION": Add Signers to your Unclaimed Draft Signature Request.
 "Sub::UnclaimedDraftSigner::EMAIL_ADDRESS": The email address of the signer.
@@ -1250,6 +1298,7 @@
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 "Account::QUOTA": Details concerning remaining monthly quotas.
 "Account::USAGE": Details concerning monthly usage
+"Account::SETTINGS": Subset of configured settings
 "AccountQuota::TEMPLATES_LEFT": API templates remaining.
 "AccountQuota::TEMPLATES_TOTAL": Total API templates allowed.
 "AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
@@ -1257,6 +1306,9 @@
 "AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications remaining.
 "AccountQuota::NUM_FAX_PAGES_LEFT": Number of fax pages left
 "AccountUsage::FAX_PAGES_SENT": Number of fax pages sent
+"AccountSettings::SIGNER_ACCESS_CODES": Returns `true` if _Custom access codes_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
+"AccountSettings::SMS_DELIVERY": Returns `true` if _Text message_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
+"AccountSettings::SMS_AUTHENTICATION": Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
 
 "ApiAppCreateResponseExample::SUMMARY": API App
 "ApiAppGetResponseExample::SUMMARY": API App
@@ -1516,6 +1568,7 @@
 "TemplateResponse::ACCOUNTS": An array of the Accounts that can use this Template.
 "TemplateResponse::TITLE": The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::UPDATED_AT": Time the template was last updated.
+"TemplateResponse::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 
 "TemplateListResponse::DESCRIPTION": List of templates that the API caller has access to.
 
@@ -1818,6 +1871,8 @@
 "TemplateList::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to return a list of the Templates that can be accessed by you, click here."
 "TemplateRemoveUser::SEO::TITLE": "Remove User from Template | REST API | Dropbox Sign for Developers"
 "TemplateRemoveUser::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to remove a specified Account's access to a Template, click here."
+"TemplateUpdate::SEO::TITLE": "Update Template | REST API | Dropbox Sign for Developers"
+"TemplateUpdate::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to update properties of an existing template, click here."
 "TemplateUpdateFiles::SEO::TITLE": "Update Template Files | REST API | Dropbox Sign for Developers"
 "TemplateUpdateFiles::SEO::DESCRIPTION": "Overlays a new file with the overlay of an existing template"
 "UnclaimedDraftCreate::SEO::TITLE": "Create Unclaimed Draft | REST API | Dropbox Sign for Developers"

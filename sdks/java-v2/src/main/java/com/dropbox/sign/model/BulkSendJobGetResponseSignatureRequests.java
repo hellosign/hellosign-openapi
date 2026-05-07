@@ -20,6 +20,7 @@ import com.dropbox.sign.model.SignatureRequestResponseAttachment;
 import com.dropbox.sign.model.SignatureRequestResponseCustomFieldBase;
 import com.dropbox.sign.model.SignatureRequestResponseDataBase;
 import com.dropbox.sign.model.SignatureRequestResponseSignatures;
+import com.dropbox.sign.model.SignatureRequestSignerExperience;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -65,7 +66,8 @@ import com.dropbox.sign.ApiException;
   BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_ATTACHMENTS,
   BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_RESPONSE_DATA,
   BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNATURES,
-  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_BULK_SEND_JOB_ID
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_BULK_SEND_JOB_ID,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -169,6 +171,10 @@ public class BulkSendJobGetResponseSignatureRequests {
   public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
   @jakarta.annotation.Nullable
   private String bulkSendJobId;
+
+  public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+  @jakarta.annotation.Nullable
+  private SignatureRequestSignerExperience signerExperience;
 
   public BulkSendJobGetResponseSignatureRequests() { 
   }
@@ -869,6 +875,31 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
+  public BulkSendJobGetResponseSignatureRequests signerExperience(@jakarta.annotation.Nullable SignatureRequestSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+    return this;
+  }
+
+  /**
+   * Get signerExperience
+   * @return signerExperience
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SignatureRequestSignerExperience getSignerExperience() {
+    return signerExperience;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerExperience(@jakarta.annotation.Nullable SignatureRequestSignerExperience signerExperience) {
+    this.signerExperience = signerExperience;
+  }
+
+
   /**
    * Return true if this BulkSendJobGetResponseSignatureRequests object is equal to o.
    */
@@ -905,12 +936,13 @@ public class BulkSendJobGetResponseSignatureRequests {
         Objects.equals(this.attachments, bulkSendJobGetResponseSignatureRequests.attachments) &&
         Objects.equals(this.responseData, bulkSendJobGetResponseSignatureRequests.responseData) &&
         Objects.equals(this.signatures, bulkSendJobGetResponseSignatureRequests.signatures) &&
-        Objects.equals(this.bulkSendJobId, bulkSendJobGetResponseSignatureRequests.bulkSendJobId);
+        Objects.equals(this.bulkSendJobId, bulkSendJobGetResponseSignatureRequests.bulkSendJobId) &&
+        Objects.equals(this.signerExperience, bulkSendJobGetResponseSignatureRequests.signerExperience);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(testMode, signatureRequestId, requesterEmailAddress, title, originalTitle, subject, message, metadata, createdAt, expiresAt, isComplete, isDeclined, hasError, filesUrl, signingUrl, detailsUrl, ccEmailAddresses, signingRedirectUrl, finalCopyUri, templateIds, customFields, attachments, responseData, signatures, bulkSendJobId);
+    return Objects.hash(testMode, signatureRequestId, requesterEmailAddress, title, originalTitle, subject, message, metadata, createdAt, expiresAt, isComplete, isDeclined, hasError, filesUrl, signingUrl, detailsUrl, ccEmailAddresses, signingRedirectUrl, finalCopyUri, templateIds, customFields, attachments, responseData, signatures, bulkSendJobId, signerExperience);
   }
 
   @Override
@@ -942,6 +974,7 @@ public class BulkSendJobGetResponseSignatureRequests {
     sb.append("    responseData: ").append(toIndentedString(responseData)).append("\n");
     sb.append("    signatures: ").append(toIndentedString(signatures)).append("\n");
     sb.append("    bulkSendJobId: ").append(toIndentedString(bulkSendJobId)).append("\n");
+    sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1423,6 +1456,25 @@ public class BulkSendJobGetResponseSignatureRequests {
         }
         else {
             map.put("bulk_send_job_id", JSON.getDefault().getMapper().writeValueAsString(bulkSendJobId));
+        }
+    }
+    if (signerExperience != null) {
+        if (isFileTypeOrListOfFiles(signerExperience)) {
+            fileTypeFound = true;
+        }
+
+        if (signerExperience.getClass().equals(java.io.File.class) ||
+            signerExperience.getClass().equals(Integer.class) ||
+            signerExperience.getClass().equals(String.class) ||
+            signerExperience.getClass().isEnum()) {
+            map.put("signer_experience", signerExperience);
+        } else if (isListOfFile(signerExperience)) {
+            for(int i = 0; i< getListSize(signerExperience); i++) {
+                map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+            }
+        }
+        else {
+            map.put("signer_experience", JSON.getDefault().getMapper().writeValueAsString(signerExperience));
         }
     }
     } catch (Exception e) {

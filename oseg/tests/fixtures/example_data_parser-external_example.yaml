@@ -1,0 +1,94 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - ExampleDataParser - External Example
+tags:
+  - name: pet
+paths:
+  /operation_example:
+    post:
+      tags:
+        - pet
+      operationId: operation_example
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+      examples:
+        example_1:
+          $ref: '#/components/examples/OperationExample1'
+        example_2:
+          $ref: '#/components/examples/OperationExample2'
+  /content_example:
+    post:
+      tags:
+        - pet
+      operationId: content_example
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dog'
+            examples:
+              example_1:
+                $ref: '#/components/examples/ContentExample1'
+              example_2:
+                $ref: '#/components/examples/ContentExample2'
+components:
+  schemas:
+    Dog:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        breed:
+          type: string
+          example: terrier
+      discriminator:
+        propertyName: breed
+        mapping:
+          beagle: '#/components/schemas/Beagle'
+          terrier: '#/components/schemas/Terrier'
+    Beagle:
+      allOf:
+        - $ref: '#/components/schemas/Dog'
+        -
+          type: object
+          properties:
+            group:
+              type: string
+              default: hound
+    Terrier:
+      allOf:
+        - $ref: '#/components/schemas/Dog'
+        -
+          type: object
+          properties:
+            group:
+              type: string
+              default: hunting
+  examples:
+    OperationExample1:
+      summary: 'External Operation Example #1'
+      value:
+        $ref: external_data/example_data-operation_example_1.json
+    OperationExample2:
+      summary: 'External Operation Example #2'
+      value:
+        $ref: external_data/example_data-operation_example_2.json
+    ContentExample1:
+      summary: 'External Content Example #1'
+      value:
+        $ref: external_data/example_data-content_example_1.json
+    ContentExample2:
+      summary: 'External Content Example #2'
+      value:
+        $ref: external_data/example_data-content_example_2.json

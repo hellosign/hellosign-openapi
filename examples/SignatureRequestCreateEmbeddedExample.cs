@@ -22,7 +22,12 @@ public class SignatureRequestCreateEmbeddedExample
             draw: true,
             phone: false,
             type: true,
-            upload: true
+            upload: true,
+            force_advanced_signature_details: false
+        );
+
+        var signerExperience = new SubSignerExperience(
+            formView: SubSignerExperience.FormViewEnum.Disabled
         );
 
         var signers1 = new SubSignatureRequestSigner(
@@ -61,6 +66,7 @@ public class SignatureRequestCreateEmbeddedExample
                 ),
             },
             signingOptions: signingOptions,
+            signerExperience: signerExperience,
             signers: signers
         );
 

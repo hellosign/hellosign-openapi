@@ -73,5 +73,6 @@ export namespace ReportCreateRequest {
     UserActivity = "user_activity",
     DocumentStatus = "document_status",
     SmsActivity = "sms_activity",
+    FaxUsage = "fax_usage",
   }
 }

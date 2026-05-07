@@ -12,6 +12,11 @@ const signingOptions: models.SubSigningOptions = {
   phone: false,
   type: true,
   upload: true,
+  force_advanced_signature_details: false,
+};
+
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
 };
 
 const signers1: models.SubSignatureRequestTemplateSigner = {
@@ -33,6 +38,7 @@ const signatureRequestCreateEmbeddedWithTemplateRequest: models.SignatureRequest
   subject: "Purchase Order",
   testMode: true,
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   signers: signers,
 };
 

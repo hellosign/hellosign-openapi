@@ -138,7 +138,7 @@ module Dropbox::Sign
     end
 
     # Create Template
-    # Creates a template that can then be used.
+    # Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
     # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [TemplateCreateResponse]
@@ -148,7 +148,7 @@ module Dropbox::Sign
     end
 
     # Create Template
-    # Creates a template that can then be used.
+    # Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
     # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TemplateCreateResponse, Integer, Hash)>] TemplateCreateResponse data, response status code and response headers
@@ -1027,6 +1027,121 @@ module Dropbox::Sign
 
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TemplateApi#template_remove_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Template
+    # Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+    # @param template_id [String] The ID of the template to update.
+    # @param template_update_request [TemplateUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [TemplateGetResponse]
+    def template_update(template_id, template_update_request, opts = {})
+      data, _status_code, _headers = template_update_with_http_info(template_id, template_update_request, opts)
+      data
+    end
+
+    # Update Template
+    # Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+    # @param template_id [String] The ID of the template to update.
+    # @param template_update_request [TemplateUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TemplateGetResponse, Integer, Hash)>] TemplateGetResponse data, response status code and response headers
+    def template_update_with_http_info(template_id, template_update_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TemplateApi.template_update ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplateApi.template_update"
+      end
+      # verify the required parameter 'template_update_request' is set
+      if @api_client.config.client_side_validation && template_update_request.nil?
+        fail ArgumentError, "Missing the required parameter 'template_update_request' when calling TemplateApi.template_update"
+      end
+      # resource path
+      local_var_path = '/template/update/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+      result = @api_client.generate_form_data(
+        template_update_request,
+        Dropbox::Sign::TemplateUpdateRequest.openapi_types
+      )
+
+      # form parameters
+      if result[:has_file]
+        form_params = opts[:form_params] || result[:params]
+        header_params['Content-Type'] = 'multipart/form-data'
+      else
+        # http body (model)
+        post_body = opts[:debug_body] || result[:params]
+      end
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TemplateGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"TemplateApi.template_update",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::TemplateGetResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TemplateApi#template_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -51,7 +51,8 @@ import java.util.Objects;
     SignatureRequestResponse.JSON_PROPERTY_ATTACHMENTS,
     SignatureRequestResponse.JSON_PROPERTY_RESPONSE_DATA,
     SignatureRequestResponse.JSON_PROPERTY_SIGNATURES,
-    SignatureRequestResponse.JSON_PROPERTY_BULK_SEND_JOB_ID
+    SignatureRequestResponse.JSON_PROPERTY_BULK_SEND_JOB_ID,
+    SignatureRequestResponse.JSON_PROPERTY_SIGNER_EXPERIENCE
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -133,6 +134,9 @@ public class SignatureRequestResponse {
 
     public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
     @javax.annotation.Nullable private String bulkSendJobId;
+
+    public static final String JSON_PROPERTY_SIGNER_EXPERIENCE = "signer_experience";
+    @javax.annotation.Nullable private SignatureRequestSignerExperience signerExperience;
 
     public SignatureRequestResponse() {}
 
@@ -787,6 +791,30 @@ public class SignatureRequestResponse {
         this.bulkSendJobId = bulkSendJobId;
     }
 
+    public SignatureRequestResponse signerExperience(
+            @javax.annotation.Nullable SignatureRequestSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+        return this;
+    }
+
+    /**
+     * Get signerExperience
+     *
+     * @return signerExperience
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SignatureRequestSignerExperience getSignerExperience() {
+        return signerExperience;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNER_EXPERIENCE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSignerExperience(
+            @javax.annotation.Nullable SignatureRequestSignerExperience signerExperience) {
+        this.signerExperience = signerExperience;
+    }
+
     /** Return true if this SignatureRequestResponse object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -824,7 +852,8 @@ public class SignatureRequestResponse {
                 && Objects.equals(this.attachments, signatureRequestResponse.attachments)
                 && Objects.equals(this.responseData, signatureRequestResponse.responseData)
                 && Objects.equals(this.signatures, signatureRequestResponse.signatures)
-                && Objects.equals(this.bulkSendJobId, signatureRequestResponse.bulkSendJobId);
+                && Objects.equals(this.bulkSendJobId, signatureRequestResponse.bulkSendJobId)
+                && Objects.equals(this.signerExperience, signatureRequestResponse.signerExperience);
     }
 
     @Override
@@ -854,7 +883,8 @@ public class SignatureRequestResponse {
                 attachments,
                 responseData,
                 signatures,
-                bulkSendJobId);
+                bulkSendJobId,
+                signerExperience);
     }
 
     @Override
@@ -892,6 +922,7 @@ public class SignatureRequestResponse {
         sb.append("    responseData: ").append(toIndentedString(responseData)).append("\n");
         sb.append("    signatures: ").append(toIndentedString(signatures)).append("\n");
         sb.append("    bulkSendJobId: ").append(toIndentedString(bulkSendJobId)).append("\n");
+        sb.append("    signerExperience: ").append(toIndentedString(signerExperience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -1398,6 +1429,26 @@ public class SignatureRequestResponse {
                     map.put(
                             "bulk_send_job_id",
                             JSON.getDefault().getMapper().writeValueAsString(bulkSendJobId));
+                }
+            }
+            if (signerExperience != null) {
+                if (isFileTypeOrListOfFiles(signerExperience)) {
+                    fileTypeFound = true;
+                }
+
+                if (signerExperience.getClass().equals(java.io.File.class)
+                        || signerExperience.getClass().equals(Integer.class)
+                        || signerExperience.getClass().equals(String.class)
+                        || signerExperience.getClass().isEnum()) {
+                    map.put("signer_experience", signerExperience);
+                } else if (isListOfFile(signerExperience)) {
+                    for (int i = 0; i < getListSize(signerExperience); i++) {
+                        map.put("signer_experience[" + i + "]", getFromList(signerExperience, i));
+                    }
+                } else {
+                    map.put(
+                            "signer_experience",
+                            JSON.getDefault().getMapper().writeValueAsString(signerExperience));
                 }
             }
         } catch (Exception e) {

@@ -83,6 +83,9 @@ module Dropbox::Sign
     # @return [Array<SignatureRequestResponseAttachment>]
     attr_accessor :attachments
 
+    # @return [SignatureRequestSignerExperience]
+    attr_accessor :signer_experience
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -101,7 +104,8 @@ module Dropbox::Sign
         :'custom_fields' => :'custom_fields',
         :'named_form_fields' => :'named_form_fields',
         :'accounts' => :'accounts',
-        :'attachments' => :'attachments'
+        :'attachments' => :'attachments',
+        :'signer_experience' => :'signer_experience'
       }
     end
 
@@ -133,7 +137,8 @@ module Dropbox::Sign
         :'custom_fields' => :'Array<TemplateResponseDocumentCustomFieldBase>',
         :'named_form_fields' => :'Array<TemplateResponseDocumentFormFieldBase>',
         :'accounts' => :'Array<TemplateResponseAccount>',
-        :'attachments' => :'Array<SignatureRequestResponseAttachment>'
+        :'attachments' => :'Array<SignatureRequestResponseAttachment>',
+        :'signer_experience' => :'SignatureRequestSignerExperience'
       }
     end
 
@@ -266,6 +271,10 @@ module Dropbox::Sign
           self.attachments = value
         end
       end
+
+      if attributes.key?(:'signer_experience')
+        self.signer_experience = attributes[:'signer_experience']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -301,7 +310,8 @@ module Dropbox::Sign
           custom_fields == o.custom_fields &&
           named_form_fields == o.named_form_fields &&
           accounts == o.accounts &&
-          attachments == o.attachments
+          attachments == o.attachments &&
+          signer_experience == o.signer_experience
     end
 
     # @see the `==` method
@@ -313,7 +323,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id, title, message, updated_at, is_embedded, is_creator, can_edit, is_locked, metadata, signer_roles, cc_roles, documents, custom_fields, named_form_fields, accounts, attachments].hash
+      [template_id, title, message, updated_at, is_embedded, is_creator, can_edit, is_locked, metadata, signer_roles, cc_roles, documents, custom_fields, named_form_fields, accounts, attachments, signer_experience].hash
     end
 
     # Builds the object from hash

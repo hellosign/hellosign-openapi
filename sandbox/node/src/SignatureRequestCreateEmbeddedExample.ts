@@ -12,6 +12,11 @@ const signingOptions: models.SubSigningOptions = {
   phone: false,
   type: true,
   upload: true,
+  force_advanced_signature_details: false,
+};
+
+const signerExperience: models.SubSignerExperience = {
+  formView: models.SubSignerExperience.FormViewEnum.Disabled,
 };
 
 const signers1: models.SubSignatureRequestSigner = {
@@ -45,6 +50,7 @@ const signatureRequestCreateEmbeddedRequest: models.SignatureRequestCreateEmbedd
     fs.createReadStream("./example_signature_request.pdf"),
   ],
   signingOptions: signingOptions,
+  signerExperience: signerExperience,
   signers: signers,
 };
 

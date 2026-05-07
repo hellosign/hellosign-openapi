@@ -18,4 +18,5 @@ curl -X POST 'https://api.hellosign.com/v3/signature_request/send_with_template'
   -F 'signing_options[upload]=1' \
   -F 'signing_options[phone]=1' \
   -F 'signing_options[default_type]=draw' \
+  -F 'signing_options[force_advanced_signature_details]=0' \
   -F 'test_mode=1'

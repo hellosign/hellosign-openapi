@@ -14,6 +14,7 @@ Method | HTTP request | Description
 |[```template_get```](TemplateApi.md#template_get) | ```GET /template/{template_id}``` | Get Template|
 |[```template_list```](TemplateApi.md#template_list) | ```GET /template/list``` | List Templates|
 |[```template_remove_user```](TemplateApi.md#template_remove_user) | ```POST /template/remove_user/{template_id}``` | Remove User from Template|
+|[```template_update```](TemplateApi.md#template_update) | ```POST /template/update/{template_id}``` | Update Template|
 |[```template_update_files```](TemplateApi.md#template_update_files) | ```POST /template/update_files/{template_id}``` | Update Template Files|
 
 
@@ -92,7 +93,11 @@ with ApiClient(configuration) as api_client:
 
 Create Template
 
-Creates a template that can then be used.
+Creates a template that can be used in future signature requests.
+
+If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).
+
+Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
 ### Example
 
@@ -812,6 +817,98 @@ with ApiClient(configuration) as api_client:
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```template_update```
+> ```TemplateGetResponse template_update(template_id, template_update_request)```
+
+Update Template
+
+Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
+
+### Example
+
+* Basic Authentication (api_key):
+* Bearer (JWT) Authentication (oauth2):
+
+```python
+import json
+from datetime import date, datetime
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
+
+configuration = Configuration(
+    username="YOUR_API_KEY",
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    form_fields_1 = models.SubUpdateFormField(
+        api_id="uniqueIdHere_1",
+        name="New name 1",
+    )
+
+    form_fields_2 = models.SubUpdateFormField(
+        api_id="uniqueIdHere_2",
+        name="New name 2",
+    )
+
+    form_fields = [
+        form_fields_1,
+        form_fields_2,
+    ]
+
+    template_update_request = models.TemplateUpdateRequest(
+        title="Test Title",
+        subject="Test Subject",
+        message="Test Message",
+        cc_roles=[
+            "CC Role 1",
+            "CC Role 2",
+        ],
+        form_fields=form_fields,
+    )
+
+    try:
+        response = api.TemplateApi(api_client).template_update(
+            template_id="f57db65d3f933b5316d398057a36176831451a35",
+            template_update_request=template_update_request,
+        )
+
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling TemplateApi#template_update: %s\n" % e)
+
+```
+```
+
+### Parameters
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `template_id` | **str** | The ID of the template to update. |  |
+| `template_update_request` | [**TemplateUpdateRequest**](TemplateUpdateRequest.md) |  |  |
+
+### Return type
+
+[**TemplateGetResponse**](TemplateGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

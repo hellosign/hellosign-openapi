@@ -3,6 +3,7 @@ import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAt
 import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestResponseCustomFieldBase";
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSignatures";
+import { SignatureRequestSignerExperience } from "./signatureRequestSignerExperience";
 export declare class SignatureRequestResponse {
     "testMode"?: boolean;
     "signatureRequestId"?: string;
@@ -31,6 +32,7 @@ export declare class SignatureRequestResponse {
     "responseData"?: Array<SignatureRequestResponseDataBase> | null;
     "signatures"?: Array<SignatureRequestResponseSignatures>;
     "bulkSendJobId"?: string | null;
+    "signerExperience"?: SignatureRequestSignerExperience;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

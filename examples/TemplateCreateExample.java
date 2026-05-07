@@ -26,6 +26,9 @@ public class TemplateCreateExample
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
+        var signerExperience = new SubSignerExperience();
+        signerExperience.formView(SubSignerExperience.FormViewEnum.DISABLED);
+
         var signerRoles1 = new SubTemplateRole();
         signerRoles1.name("Client");
         signerRoles1.order(0);
@@ -98,6 +101,7 @@ public class TemplateCreateExample
             new File("./example_signature_request.pdf")
         ));
         templateCreateRequest.fieldOptions(fieldOptions);
+        templateCreateRequest.signerExperience(signerExperience);
         templateCreateRequest.signerRoles(signerRoles);
         templateCreateRequest.formFieldsPerDocument(formFieldsPerDocument);
         templateCreateRequest.mergeFields(mergeFields);
