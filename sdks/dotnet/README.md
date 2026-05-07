@@ -301,7 +301,6 @@ Class | Method | HTTP request | Description
  - [Model.SignatureRequestResponseSignatures](docs/SignatureRequestResponseSignatures.md)
  - [Model.SignatureRequestSendRequest](docs/SignatureRequestSendRequest.md)
  - [Model.SignatureRequestSendWithTemplateRequest](docs/SignatureRequestSendWithTemplateRequest.md)
- - [Model.SignatureRequestSignerExperience](docs/SignatureRequestSignerExperience.md)
  - [Model.SignatureRequestUpdateRequest](docs/SignatureRequestUpdateRequest.md)
  - [Model.SubAttachment](docs/SubAttachment.md)
  - [Model.SubBulkSignerList](docs/SubBulkSignerList.md)

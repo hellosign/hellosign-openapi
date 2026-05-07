@@ -74,7 +74,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
         'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
         'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
-        'signer_experience' => '\Dropbox\Sign\Model\SignatureRequestSignerExperience',
     ];
 
     /**
@@ -101,7 +100,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => null,
         'accounts' => null,
         'attachments' => null,
-        'signer_experience' => null,
     ];
 
     /**
@@ -126,7 +124,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => true,
         'accounts' => false,
         'attachments' => false,
-        'signer_experience' => false,
     ];
 
     /**
@@ -223,7 +220,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'named_form_fields',
         'accounts' => 'accounts',
         'attachments' => 'attachments',
-        'signer_experience' => 'signer_experience',
     ];
 
     /**
@@ -248,7 +244,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'setNamedFormFields',
         'accounts' => 'setAccounts',
         'attachments' => 'setAttachments',
-        'signer_experience' => 'setSignerExperience',
     ];
 
     /**
@@ -273,7 +268,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'named_form_fields' => 'getNamedFormFields',
         'accounts' => 'getAccounts',
         'attachments' => 'getAttachments',
-        'signer_experience' => 'getSignerExperience',
     ];
 
     /**
@@ -348,7 +342,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('named_form_fields', $data ?? [], null);
         $this->setIfExists('accounts', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
-        $this->setIfExists('signer_experience', $data ?? [], null);
     }
 
     /**
@@ -861,33 +854,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
-
-        return $this;
-    }
-
-    /**
-     * Gets signer_experience
-     *
-     * @return SignatureRequestSignerExperience|null
-     */
-    public function getSignerExperience()
-    {
-        return $this->container['signer_experience'];
-    }
-
-    /**
-     * Sets signer_experience
-     *
-     * @param SignatureRequestSignerExperience|null $signer_experience signer_experience
-     *
-     * @return self
-     */
-    public function setSignerExperience(?SignatureRequestSignerExperience $signer_experience)
-    {
-        if (is_null($signer_experience)) {
-            throw new InvalidArgumentException('non-nullable signer_experience cannot be null');
-        }
-        $this->container['signer_experience'] = $signer_experience;
 
         return $this;
     }

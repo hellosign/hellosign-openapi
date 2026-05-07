@@ -12341,8 +12341,6 @@ components:
           description: 'The ID of the Bulk Send job which sent the signature request, if applicable.'
           type: string
           nullable: true
-        signer_experience:
-          $ref: '#/components/schemas/SignatureRequestSignerExperience'
       type: object
       x-internal-class: true
     SignatureRequestResponseAttachment:
@@ -12704,26 +12702,6 @@ components:
           nullable: true
       type: object
       x-internal-class: true
-    SignatureRequestSignerExperience:
-      description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
-      required:
-        - form_view
-      properties:
-        form_view:
-          description: |-
-            Changes the form view setting experienced by the signer. Supported versions are:
-             - `disabled` - Form view is disabled, and the signer cannot change it
-             - `enabled` - Form view is disabled initially, the signer can turn it on using a toggle
-             - `enabled_by_default` - Form view is enabled initially. The signer car turn it off using a toggle
-             - `forced` - Form view is enabled initially. The signer cannot change it, the toggle is hidden.
-          type: string
-          enum:
-            - disabled
-            - enabled
-            - enabled_by_default
-            - forced
-      type: object
-      x-internal-class: true
     TeamResponse:
       description: 'Contains information about your team and its members'
       properties:
@@ -12895,8 +12873,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
-        signer_experience:
-          $ref: '#/components/schemas/SignatureRequestSignerExperience'
       type: object
       x-internal-class: true
     TemplateResponseAccount:

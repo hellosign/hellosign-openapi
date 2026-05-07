@@ -9986,6 +9986,7 @@ components:
             - enabled
             - enabled_by_default
             - forced
+          x-hideOn: sdk
       type: object
       x-hideOn: sdk
     SubTemplateRole:
@@ -11682,7 +11683,11 @@ components:
           type: string
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SignatureRequestSignerExperience'
+          description: '_t__SignatureRequestSignerExperience::DESCRIPTION'
+          allOf:
+            -
+              $ref: '#/components/schemas/SignatureRequestSignerExperience'
+          x-hideOn: sdk
       type: object
       x-internal-class: true
     SignatureRequestResponseAttachment:
@@ -12053,8 +12058,10 @@ components:
             - enabled
             - enabled_by_default
             - forced
+          x-hideOn: sdk
       type: object
       x-internal-class: true
+      x-hideOn: sdk
     TeamResponse:
       description: '_t__TeamResponse::DESCRIPTION'
       properties:
@@ -12224,7 +12231,11 @@ components:
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
         signer_experience:
-          $ref: '#/components/schemas/SignatureRequestSignerExperience'
+          description: '_t__SignatureRequestSignerExperience::DESCRIPTION'
+          allOf:
+            -
+              $ref: '#/components/schemas/SignatureRequestSignerExperience'
+          x-hideOn: sdk
       type: object
       x-internal-class: true
     TemplateResponseAccount:

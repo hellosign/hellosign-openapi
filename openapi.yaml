@@ -7974,7 +7974,7 @@ components:
           type: boolean
           default: false
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -8567,7 +8567,7 @@ components:
           type: boolean
           default: false
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -8661,7 +8661,7 @@ components:
           type: boolean
           default: false
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -8821,7 +8821,7 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -8979,7 +8979,7 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -9069,7 +9069,7 @@ components:
           type: boolean
           default: false
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -9163,7 +9163,7 @@ components:
           type: string
           maxLength: 255
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -9335,7 +9335,7 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -9429,7 +9429,7 @@ components:
           type: string
           maxLength: 255
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -10405,6 +10405,7 @@ components:
             - enabled
             - enabled_by_default
             - forced
+          x-hideOn: sdk
       type: object
       x-hideOn: sdk
     SubTemplateRole:
@@ -10719,7 +10720,7 @@ components:
           type: boolean
           default: false
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -10867,7 +10868,7 @@ components:
           type: boolean
           default: false
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -10907,7 +10908,7 @@ components:
           items:
             $ref: '#/components/schemas/SubUpdateFormField'
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -11089,7 +11090,7 @@ components:
           type: integer
           nullable: true
         signer_experience:
-          description: 'TBD Form View'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
           allOf:
             -
               $ref: '#/components/schemas/SubSignerExperience'
@@ -12301,7 +12302,11 @@ components:
           type: string
           nullable: true
         signer_experience:
-          $ref: '#/components/schemas/SignatureRequestSignerExperience'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
+          allOf:
+            -
+              $ref: '#/components/schemas/SignatureRequestSignerExperience'
+          x-hideOn: sdk
       type: object
       x-internal-class: true
     SignatureRequestResponseAttachment:
@@ -12681,8 +12686,10 @@ components:
             - enabled
             - enabled_by_default
             - forced
+          x-hideOn: sdk
       type: object
       x-internal-class: true
+      x-hideOn: sdk
     TeamResponse:
       description: 'Contains information about your team and its members'
       properties:
@@ -12855,7 +12862,11 @@ components:
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
         signer_experience:
-          $ref: '#/components/schemas/SignatureRequestSignerExperience'
+          description: 'Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.'
+          allOf:
+            -
+              $ref: '#/components/schemas/SignatureRequestSignerExperience'
+          x-hideOn: sdk
       type: object
       x-internal-class: true
     TemplateResponseAccount:

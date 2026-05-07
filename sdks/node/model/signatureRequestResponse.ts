@@ -27,7 +27,6 @@ import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAt
 import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestResponseCustomFieldBase";
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSignatures";
-import { SignatureRequestSignerExperience } from "./signatureRequestSignerExperience";
 
 /**
  * Contains information about a signature request.
@@ -133,7 +132,6 @@ export class SignatureRequestResponse {
    * The ID of the Bulk Send job which sent the signature request, if applicable.
    */
   "bulkSendJobId"?: string | null;
-  "signerExperience"?: SignatureRequestSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -262,11 +260,6 @@ export class SignatureRequestResponse {
       name: "bulkSendJobId",
       baseName: "bulk_send_job_id",
       type: "string",
-    },
-    {
-      name: "signerExperience",
-      baseName: "signer_experience",
-      type: "SignatureRequestSignerExperience",
     },
   ];
 

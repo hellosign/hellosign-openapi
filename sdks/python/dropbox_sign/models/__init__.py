@@ -187,9 +187,6 @@ from dropbox_sign.models.signature_request_send_request import (
 from dropbox_sign.models.signature_request_send_with_template_request import (
     SignatureRequestSendWithTemplateRequest,
 )
-from dropbox_sign.models.signature_request_signer_experience import (
-    SignatureRequestSignerExperience,
-)
 from dropbox_sign.models.signature_request_update_request import (
     SignatureRequestUpdateRequest,
 )

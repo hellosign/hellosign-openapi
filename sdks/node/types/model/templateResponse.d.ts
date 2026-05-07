@@ -1,6 +1,5 @@
 import { AttributeTypeMap } from "./";
 import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAttachment";
-import { SignatureRequestSignerExperience } from "./signatureRequestSignerExperience";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
 import { TemplateResponseDocument } from "./templateResponseDocument";
@@ -26,7 +25,6 @@ export declare class TemplateResponse {
     "namedFormFields"?: Array<TemplateResponseDocumentFormFieldBase> | null;
     "accounts"?: Array<TemplateResponseAccount>;
     "attachments"?: Array<SignatureRequestResponseAttachment>;
-    "signerExperience"?: SignatureRequestSignerExperience;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

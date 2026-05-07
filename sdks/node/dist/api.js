@@ -13251,7 +13251,6 @@ __export(api_exports, {
   SignatureRequestResponseSignatures: () => SignatureRequestResponseSignatures,
   SignatureRequestSendRequest: () => SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest: () => SignatureRequestSendWithTemplateRequest,
-  SignatureRequestSignerExperience: () => SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest: () => SignatureRequestUpdateRequest,
   SubAttachment: () => SubAttachment,
   SubBulkSignerList: () => SubBulkSignerList,
@@ -17644,11 +17643,6 @@ var BulkSendJobGetResponseSignatureRequests = class _BulkSendJobGetResponseSigna
         name: "bulkSendJobId",
         baseName: "bulk_send_job_id",
         type: "string"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SignatureRequestSignerExperience"
       }
     ];
   }
@@ -20621,11 +20615,6 @@ var SignatureRequestResponse = class _SignatureRequestResponse {
         name: "bulkSendJobId",
         baseName: "bulk_send_job_id",
         type: "string"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SignatureRequestSignerExperience"
       }
     ];
   }
@@ -21682,41 +21671,6 @@ var SignatureRequestSendWithTemplateRequest = class _SignatureRequestSendWithTem
     );
   }
 };
-
-// model/signatureRequestSignerExperience.ts
-var SignatureRequestSignerExperience = class _SignatureRequestSignerExperience {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "formView",
-        baseName: "form_view",
-        type: "SignatureRequestSignerExperience.FormViewEnum"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _SignatureRequestSignerExperience.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(
-      data,
-      "SignatureRequestSignerExperience"
-    );
-  }
-};
-((SignatureRequestSignerExperience2) => {
-  let FormViewEnum;
-  ((FormViewEnum2) => {
-    FormViewEnum2["Disabled"] = "disabled";
-    FormViewEnum2["Enabled"] = "enabled";
-    FormViewEnum2["EnabledByDefault"] = "enabled_by_default";
-    FormViewEnum2["Forced"] = "forced";
-  })(FormViewEnum = SignatureRequestSignerExperience2.FormViewEnum || (SignatureRequestSignerExperience2.FormViewEnum = {}));
-})(SignatureRequestSignerExperience || (SignatureRequestSignerExperience = {}));
 
 // model/signatureRequestUpdateRequest.ts
 var SignatureRequestUpdateRequest = class _SignatureRequestUpdateRequest {
@@ -24636,11 +24590,6 @@ var TemplateResponse = class _TemplateResponse {
         name: "attachments",
         baseName: "attachments",
         type: "Array<SignatureRequestResponseAttachment>"
-      },
-      {
-        name: "signerExperience",
-        baseName: "signer_experience",
-        type: "SignatureRequestSignerExperience"
       }
     ];
   }
@@ -26924,7 +26873,6 @@ var enumsMap = {
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
   SignatureRequestResponseDataTypeEnum,
-  "SignatureRequestSignerExperience.FormViewEnum": SignatureRequestSignerExperience.FormViewEnum,
   "SubFieldOptions.DateFormatEnum": SubFieldOptions.DateFormatEnum,
   "SubFormFieldRuleAction.TypeEnum": SubFormFieldRuleAction.TypeEnum,
   "SubFormFieldRuleTrigger.OperatorEnum": SubFormFieldRuleTrigger.OperatorEnum,
@@ -27035,7 +26983,6 @@ var typeMap = {
   SignatureRequestResponseSignatures,
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
-  SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest,
   SubAttachment,
   SubBulkSignerList,
@@ -36702,7 +36649,6 @@ var APIS = [
   SignatureRequestResponseSignatures,
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
-  SignatureRequestSignerExperience,
   SignatureRequestUpdateRequest,
   SubAttachment,
   SubBulkSignerList,

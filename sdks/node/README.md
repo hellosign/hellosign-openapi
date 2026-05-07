@@ -247,7 +247,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SignatureRequestResponseSignatures](./docs/model/SignatureRequestResponseSignatures.md)
 - [SignatureRequestSendRequest](./docs/model/SignatureRequestSendRequest.md)
 - [SignatureRequestSendWithTemplateRequest](./docs/model/SignatureRequestSendWithTemplateRequest.md)
-- [SignatureRequestSignerExperience](./docs/model/SignatureRequestSignerExperience.md)
 - [SignatureRequestUpdateRequest](./docs/model/SignatureRequestUpdateRequest.md)
 - [SubAttachment](./docs/model/SubAttachment.md)
 - [SubBulkSignerList](./docs/model/SubBulkSignerList.md)
