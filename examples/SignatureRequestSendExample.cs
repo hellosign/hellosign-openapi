@@ -26,7 +26,8 @@ public class SignatureRequestSendExample
             draw: true,
             phone: false,
             type: true,
-            upload: true
+            upload: true,
+            force_advanced_signature_details: false,
         );
 
         var signers1 = new SubSignatureRequestSigner(

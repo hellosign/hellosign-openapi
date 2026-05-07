@@ -1,0 +1,165 @@
+{%- macro print_scalar(printable) -%}
+{{ printable.value }}
+{%- endmacro -%}
+
+{%- macro print_scalar_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+List.of {% if not printable.value %}(){% else %}
+(
+        {% for i in printable.value %}
+    {{ i }}{% if not loop.last %},{% endif %}
+
+        {% endfor %}
+)
+    {%- endif %}{%- endif %}
+{%- endmacro -%}
+
+{%- macro print_file(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+new File("{{ printable.value }}")
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_file_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+List.of {% if not printable.value %}(){% else %}
+(
+    {% for i in printable.value %}
+    new File("{{ i }}"){% if not loop.last %},{% endif %}
+
+    {% endfor %}
+)
+    {%- endif %}{%- endif %}
+{%- endmacro -%}
+
+{%- macro print_free_form(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}
+    {%- elif not printable.value %}Map.of (){%- else %}
+JSON.deserialize("""
+    {{ printable.value|tojson(4)|indent(4) }}
+""", Map.class)
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_free_form_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}
+    {%- elif not printable.value %}List.of (){%- else %}
+JSON.deserialize("""
+    {{ printable.value|tojson(4)|indent(4) }}
+""", List.class)
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_object(printable) -%}
+{{ printable.value|print_variablename }}
+{%- endmacro -%}
+
+{%- macro print_object_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+new ArrayList<{{ printable.target_type|print_classname }}>(List.of {% if not printable.value %}()){% else %}
+(
+        {% for i in printable.value %}
+    {{ i|print_variablename }}{% if not loop.last %},{% endif %}
+
+        {% endfor %}
+))
+    {%- endif %}{%- endif %}
+{%- endmacro -%}
+
+{%- macro print_security(printable) -%}
+    {% set comment = "" %}
+    {% if not printable.is_primary %}{% set comment = "// " %}{% endif %}
+{%- if printable.method == "api_key" %}{{ comment }}((ApiKeyAuth) config.getAuthentication("{{ printable.key }}")).setApiKey({{ printable.value|tojson }});
+{%- elif printable.method == "access_token" %}{{ comment }}((HttpBearerAuth) config.getAuthentication("{{ printable.key }}")).setBearerToken({{ printable.value|tojson }});
+{%- else %}{{ comment }}((HttpBasicAuth) config.getAuthentication("{{ printable.key }}")).setUsername({{ printable.value|tojson }});{% if printable.value_2 != None %}{{ "" }}
+{{ comment }}((HttpBasicAuth) config.getAuthentication("{{ printable.key }}")).setPassword({{ printable.value_2|tojson }});{% endif %}
+{%- endif %}
+{%-endmacro -%}
+
+{%- macro print_variable_name_as_comment(name, value) -%}
+    {% if config.oseg.printApiCallProperty %}
+        {% if name|print_propname != value %} // {{ name|print_propname }}{% endif %}
+    {% endif %}
+{%-endmacro -%}
+
+{%- import "_macros.jinja2" as m with context -%}
+
+package {{ config.oseg.package }};
+
+import {{ config.invokerPackage }}.ApiException;
+import {{ config.invokerPackage }}.Configuration;
+import {{ config.apiPackage }}.*;
+import {{ config.invokerPackage }}.auth.*;
+import {{ config.invokerPackage }}.JSON;
+import {{ config.modelPackage }}.*;
+
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class {{ (operation.operation_id ~ "_" ~ example_name)|print_classname }}
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        {% if operation.security.is_optional %}
+        // Authentication is optional for this API endpoint
+        {% endif %}
+{% call(security_schemes) m.parse_security_macro(8) %}
+    {% for _, security in security_schemes.items() %}
+        {{ security }}
+    {% endfor %}
+{% endcall %}
+
+{% call(objects) m.parse_objects_macro() %}
+    {% for obj_name, obj in objects.items() %}
+        {% if not obj.is_array %}
+            {% call(properties) m.parse_object_properties_macro(obj, 8) %}
+        var {{ obj_name|print_variablename }} = new {{ obj.type|print_classname }}();
+                {% for name, value in properties.items() %}
+        {{ obj_name|print_variablename }}.{{ name|print_methodname }}({{ value }});
+                {% endfor %}
+            {% endcall %}
+        {% else %}
+        var {{ obj_name|print_variablename }} = {{ "" }}
+            {%- call(value) m.parse_object_list_properties_macro(obj, 8) %}
+            {{- value }};
+            {% endcall %}
+        {% endif %}
+
+    {% endfor %}
+{% endcall %}
+        try
+        {
+            {{ "" -}}
+{% call(properties) m.parse_api_call_properties_macro(16) %}
+            {% if operation.response and operation.response.body %}var response = {% endif -%}
+            new {{ operation.api_name|print_apiname }}(config).{{ operation.operation_id|print_methodname }}({%- if not properties %});
+{% else %}
+
+    {% for name, value in properties.items() %}
+                {{ value }}{% if not loop.last %},{% endif %}{{ print_variable_name_as_comment(name, value) }}
+    {% endfor %}
+            );
+{% endif %}
+{% endcall %}
+    {% if operation.response and operation.response.body and not operation.response.is_binary %}
+
+            System.out.println(response);
+    {% elif operation.response and operation.response.is_binary %}
+            response.renameTo(new File("./file_response"));
+    {% endif %}
+        } catch (ApiException e) {
+            System.err.println("Exception when calling {{ operation.api_name|print_apiname }}#{{ operation.operation_id|print_methodname }}");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+{{ "" }}

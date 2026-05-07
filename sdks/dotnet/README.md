@@ -199,6 +199,7 @@ Class | Method | HTTP request | Description
 *TemplateApi* | [**TemplateGet**](docs/TemplateApi.md#templateget) | **GET** /template/{template_id} | Get Template
 *TemplateApi* | [**TemplateList**](docs/TemplateApi.md#templatelist) | **GET** /template/list | List Templates
 *TemplateApi* | [**TemplateRemoveUser**](docs/TemplateApi.md#templateremoveuser) | **POST** /template/remove_user/{template_id} | Remove User from Template
+*TemplateApi* | [**TemplateUpdate**](docs/TemplateApi.md#templateupdate) | **POST** /template/update/{template_id} | Update Template
 *TemplateApi* | [**TemplateUpdateFiles**](docs/TemplateApi.md#templateupdatefiles) | **POST** /template/update_files/{template_id} | Update Template Files
 *UnclaimedDraftApi* | [**UnclaimedDraftCreate**](docs/UnclaimedDraftApi.md#unclaimeddraftcreate) | **POST** /unclaimed_draft/create | Create Unclaimed Draft
 *UnclaimedDraftApi* | [**UnclaimedDraftCreateEmbedded**](docs/UnclaimedDraftApi.md#unclaimeddraftcreateembedded) | **POST** /unclaimed_draft/create_embedded | Create Embedded Unclaimed Draft
@@ -214,6 +215,7 @@ Class | Method | HTTP request | Description
  - [Model.AccountGetResponse](docs/AccountGetResponse.md)
  - [Model.AccountResponse](docs/AccountResponse.md)
  - [Model.AccountResponseQuotas](docs/AccountResponseQuotas.md)
+ - [Model.AccountResponseSettings](docs/AccountResponseSettings.md)
  - [Model.AccountResponseUsage](docs/AccountResponseUsage.md)
  - [Model.AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [Model.AccountVerifyRequest](docs/AccountVerifyRequest.md)
@@ -335,6 +337,7 @@ Class | Method | HTTP request | Description
  - [Model.SubTemplateRole](docs/SubTemplateRole.md)
  - [Model.SubUnclaimedDraftSigner](docs/SubUnclaimedDraftSigner.md)
  - [Model.SubUnclaimedDraftTemplateSigner](docs/SubUnclaimedDraftTemplateSigner.md)
+ - [Model.SubUpdateFormField](docs/SubUpdateFormField.md)
  - [Model.SubWhiteLabelingOptions](docs/SubWhiteLabelingOptions.md)
  - [Model.TeamAddMemberRequest](docs/TeamAddMemberRequest.md)
  - [Model.TeamCreateRequest](docs/TeamCreateRequest.md)
@@ -357,7 +360,6 @@ Class | Method | HTTP request | Description
  - [Model.TemplateCreateRequest](docs/TemplateCreateRequest.md)
  - [Model.TemplateCreateResponse](docs/TemplateCreateResponse.md)
  - [Model.TemplateCreateResponseTemplate](docs/TemplateCreateResponseTemplate.md)
- - [Model.TemplateEditResponse](docs/TemplateEditResponse.md)
  - [Model.TemplateGetResponse](docs/TemplateGetResponse.md)
  - [Model.TemplateListResponse](docs/TemplateListResponse.md)
  - [Model.TemplateRemoveUserRequest](docs/TemplateRemoveUserRequest.md)
@@ -394,6 +396,7 @@ Class | Method | HTTP request | Description
  - [Model.TemplateUpdateFilesRequest](docs/TemplateUpdateFilesRequest.md)
  - [Model.TemplateUpdateFilesResponse](docs/TemplateUpdateFilesResponse.md)
  - [Model.TemplateUpdateFilesResponseTemplate](docs/TemplateUpdateFilesResponseTemplate.md)
+ - [Model.TemplateUpdateRequest](docs/TemplateUpdateRequest.md)
  - [Model.UnclaimedDraftCreateEmbeddedRequest](docs/UnclaimedDraftCreateEmbeddedRequest.md)
  - [Model.UnclaimedDraftCreateEmbeddedWithTemplateRequest](docs/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)
  - [Model.UnclaimedDraftCreateRequest](docs/UnclaimedDraftCreateRequest.md)

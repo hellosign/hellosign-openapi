@@ -3,6 +3,7 @@ import { AccountCreateResponse } from "./accountCreateResponse";
 import { AccountGetResponse } from "./accountGetResponse";
 import { AccountResponse } from "./accountResponse";
 import { AccountResponseQuotas } from "./accountResponseQuotas";
+import { AccountResponseSettings } from "./accountResponseSettings";
 import { AccountResponseUsage } from "./accountResponseUsage";
 import { AccountUpdateRequest } from "./accountUpdateRequest";
 import { AccountVerifyRequest } from "./accountVerifyRequest";
@@ -138,6 +139,7 @@ import { SubTeamResponse } from "./subTeamResponse";
 import { SubTemplateRole } from "./subTemplateRole";
 import { SubUnclaimedDraftSigner } from "./subUnclaimedDraftSigner";
 import { SubUnclaimedDraftTemplateSigner } from "./subUnclaimedDraftTemplateSigner";
+import { SubUpdateFormField } from "./subUpdateFormField";
 import { SubWhiteLabelingOptions } from "./subWhiteLabelingOptions";
 import { TeamAddMemberRequest } from "./teamAddMemberRequest";
 import { TeamCreateRequest } from "./teamCreateRequest";
@@ -160,7 +162,6 @@ import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmb
 import { TemplateCreateRequest } from "./templateCreateRequest";
 import { TemplateCreateResponse } from "./templateCreateResponse";
 import { TemplateCreateResponseTemplate } from "./templateCreateResponseTemplate";
-import { TemplateEditResponse } from "./templateEditResponse";
 import { TemplateGetResponse } from "./templateGetResponse";
 import { TemplateListResponse } from "./templateListResponse";
 import { TemplateRemoveUserRequest } from "./templateRemoveUserRequest";
@@ -197,6 +198,7 @@ import { TemplateResponseSignerRole } from "./templateResponseSignerRole";
 import { TemplateUpdateFilesRequest } from "./templateUpdateFilesRequest";
 import { TemplateUpdateFilesResponse } from "./templateUpdateFilesResponse";
 import { TemplateUpdateFilesResponseTemplate } from "./templateUpdateFilesResponseTemplate";
+import { TemplateUpdateRequest } from "./templateUpdateRequest";
 import { UnclaimedDraftCreateEmbeddedRequest } from "./unclaimedDraftCreateEmbeddedRequest";
 import { UnclaimedDraftCreateEmbeddedWithTemplateRequest } from "./unclaimedDraftCreateEmbeddedWithTemplateRequest";
 import { UnclaimedDraftCreateRequest } from "./unclaimedDraftCreateRequest";
@@ -260,6 +262,7 @@ export let typeMap: { [index: string]: any } = {
   AccountGetResponse: AccountGetResponse,
   AccountResponse: AccountResponse,
   AccountResponseQuotas: AccountResponseQuotas,
+  AccountResponseSettings: AccountResponseSettings,
   AccountResponseUsage: AccountResponseUsage,
   AccountUpdateRequest: AccountUpdateRequest,
   AccountVerifyRequest: AccountVerifyRequest,
@@ -392,6 +395,7 @@ export let typeMap: { [index: string]: any } = {
   SubTemplateRole: SubTemplateRole,
   SubUnclaimedDraftSigner: SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner: SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField: SubUpdateFormField,
   SubWhiteLabelingOptions: SubWhiteLabelingOptions,
   TeamAddMemberRequest: TeamAddMemberRequest,
   TeamCreateRequest: TeamCreateRequest,
@@ -415,7 +419,6 @@ export let typeMap: { [index: string]: any } = {
   TemplateCreateRequest: TemplateCreateRequest,
   TemplateCreateResponse: TemplateCreateResponse,
   TemplateCreateResponseTemplate: TemplateCreateResponseTemplate,
-  TemplateEditResponse: TemplateEditResponse,
   TemplateGetResponse: TemplateGetResponse,
   TemplateListResponse: TemplateListResponse,
   TemplateRemoveUserRequest: TemplateRemoveUserRequest,
@@ -472,6 +475,7 @@ export let typeMap: { [index: string]: any } = {
   TemplateUpdateFilesRequest: TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate: TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest: TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest:
     UnclaimedDraftCreateEmbeddedWithTemplateRequest,
@@ -488,6 +492,7 @@ export {
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
@@ -620,6 +625,7 @@ export {
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
+  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamCreateRequest,
@@ -642,7 +648,6 @@ export {
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -679,6 +684,7 @@ export {
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
+  TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest,
   UnclaimedDraftCreateRequest,

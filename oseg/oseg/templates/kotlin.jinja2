@@ -1,0 +1,157 @@
+{%- macro print_scalar(printable) -%}
+{{ printable.value }}
+{%- endmacro -%}
+
+{%- macro print_scalar_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+listOf {% if not printable.value %}(){% else %}
+(
+        {% for i in printable.value %}
+    {{ i }},
+        {% endfor %}
+)
+    {%- endif %}{%- endif %}
+{%- endmacro -%}
+
+{%- macro print_file(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+File("{{ printable.value }}")
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_file_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+listOf {% if not printable.value %}(){% else %}
+(
+    {% for i in printable.value %}
+    File("{{ i }}"),
+    {% endfor %}
+)
+    {%- endif %}{%- endif %}
+{%- endmacro -%}
+
+{%- macro print_free_form(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}
+    {%- elif not printable.value %}mapOf<String, Any> (){%- else %}
+Serializer.moshi.adapter<Map<String, Any>>().fromJson("""
+    {{ printable.value|tojson(4)|indent(4) }}
+""")!!
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_free_form_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}
+    {%- elif not printable.value %}listOf (){%- else %}
+Serializer.moshi.adapter<List<Map<String, Any>>>().fromJson("""
+    {{ printable.value|tojson(4)|indent(4) }}
+""")!!
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro print_object(printable) -%}
+{{ printable.value|print_variablename }}
+{%- endmacro -%}
+
+{%- macro print_object_array(printable) -%}
+    {% if printable.value == None %}{{ print_null() }}{% else %}
+arrayListOf<{{ printable.target_type|print_classname }}>({% if not printable.value %}){% else %}
+
+        {% for i in printable.value %}
+    {{ i|print_variablename }},
+        {% endfor %}
+)
+    {%- endif %}{%- endif %}
+{%- endmacro -%}
+
+{%- macro print_security(printable) -%}
+    {% set comment = "" %}
+    {% if not printable.is_primary %}{% set comment = "// " %}{% endif %}
+{%- if printable.method == "api_key" %}{{ comment }}ApiClient.apiKey["{{ printable.name }}"] = {{ printable.value|tojson }}
+{%- elif printable.method == "access_token" %}{{ comment }}ApiClient.accessToken = {{ printable.value|tojson }}
+{%- else %}{{ comment }}ApiClient.username = {{ printable.value|tojson }}{% if printable.value_2 != None %}{{ "" }}
+{{ comment }}ApiClient.password = {{ printable.value_2|tojson }}{% endif %}
+{%- endif %}
+{%-endmacro -%}
+
+{%- import "_macros.jinja2" as m with context -%}
+
+package {{ config.oseg.package }}
+
+import {{ config.packageName }}.infrastructure.*
+import {{ config.packageName }}.apis.*
+import {{ config.packageName }}.models.*
+
+import java.io.File
+import java.time.LocalDate
+import java.time.OffsetDateTime
+import kotlin.collections.ArrayList
+import kotlin.collections.List
+import kotlin.collections.Map
+import com.squareup.moshi.adapter
+
+@ExperimentalStdlibApi
+class {{ (operation.operation_id ~ "_" ~ example_name)|print_classname }}
+{
+    fun {{ operation.operation_id|print_methodname }}()
+    {
+        {% if operation.security.is_optional %}
+        // Authentication is optional for this API endpoint
+        {% endif %}
+{% call(security_schemes) m.parse_security_macro(8) %}
+    {% for _, security in security_schemes.items() %}
+        {{ security }}
+    {% endfor %}
+{% endcall %}
+
+{% call(objects) m.parse_objects_macro() %}
+    {% for obj_name, obj in objects.items() %}
+        {% if not obj.is_array %}
+            {% call(properties) m.parse_object_properties_macro(obj, 12) %}
+        val {{ obj_name|print_variablename }} = {{ obj.type|print_classname }}({%- if not properties %})
+            {% else %}
+
+                {% for name, value in properties.items() %}
+            {{ name|print_propname }} = {{ value }},
+                {% endfor %}
+        )
+            {% endif %}
+            {% endcall %}
+        {% else %}
+        val {{ obj_name|print_variablename }} = {{ "" }}
+            {%- call(value) m.parse_object_list_properties_macro(obj, 8) %}
+            {{- value }}
+            {% endcall %}
+        {% endif %}
+
+    {% endfor %}
+{% endcall %}
+        try
+        {
+            {{ "" -}}
+{% call(properties) m.parse_api_call_properties_macro(16) %}
+            {% if operation.response and operation.response.body %}val response = {% endif -%}
+            {{ operation.api_name|print_apiname }}().{{ operation.operation_id|print_methodname }}({%- if not properties %});
+{% else %}
+
+    {% for name, value in properties.items() %}
+                {{ name|print_propname }} = {{ value }},
+    {% endfor %}
+            )
+{% endif %}
+{% endcall %}
+    {% if operation.response and operation.response.body and not operation.response.is_binary %}
+
+            println(response)
+    {% elif operation.response and operation.response.is_binary %}
+            response.renameTo(new File("./file_response"))
+    {% endif %}
+        } catch (e: ClientException) {
+            println("4xx response calling {{ operation.api_name|print_apiname }}#{{ operation.operation_id|print_methodname }}")
+            e.printStackTrace()
+        } catch (e: ServerException) {
+            println("5xx response calling {{ operation.api_name|print_apiname }}#{{ operation.operation_id|print_methodname }}")
+            e.printStackTrace()
+        }
+    }
+}
+{{ "" }}

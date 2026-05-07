@@ -12,6 +12,7 @@ signing_options.draw = true
 signing_options.phone = false
 signing_options.type = true
 signing_options.upload = true
+signing_options.force_advanced_signature_details = false
 
 signers_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signers_1.role = "Client"

@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Enums Examples
+tags:
+  - name: pet
+paths:
+  /default:
+    post:
+      tags:
+        - pet
+      operationId: default
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        enum_prop_1:
+          type: string
+          enum:
+            - value_1
+            - value_2
+            - value_3
+        enum_prop_2:
+          type: string
+          enum:
+            - value_1
+            - value_2
+            - value_3
+          x-enum-varnames:
+            - ENUM_VARNAME_1
+            - ENUM_VARNAME_2
+            - ENUM_VARNAME_3
+        enum_prop_3:
+          type: string
+          enum:
+            - value_1
+            - value_2
+            - value_3
+          x-enum-varnames-override:
+            csharp:
+              - ENUM_VARNAME_OVERRIDE_CSHARP_1
+              - ENUM_VARNAME_OVERRIDE_CSHARP_2
+              - ENUM_VARNAME_OVERRIDE_CSHARP_3
+            mock:
+              - ENUM_VARNAME_OVERRIDE_MOCK_1
+              - ENUM_VARNAME_OVERRIDE_MOCK_2
+              - ENUM_VARNAME_OVERRIDE_MOCK_3

@@ -1,0 +1,179 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Type Checker
+tags:
+  - name: pet
+paths:
+  /default:
+    post:
+      tags:
+        - pet
+      operationId: default
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Together:
+      type: object
+      properties:
+        prop_ref:
+          $ref: '#/components/schemas/Pet'
+        prop_ref_array:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pet'
+        prop_object:
+          type: object
+          properties:
+            id:
+              type: integer
+            type:
+              type: string
+        prop_discriminator:
+          $ref: '#/components/schemas/Dog'
+        # considered string(s) by SDKs
+        prop_file_base64:
+          type: string
+          format: base64
+        # considered string(s) by SDKs
+        prop_file_base64_array:
+          type: array
+          items:
+            type: string
+            format: base64
+        prop_file_binary:
+          type: string
+          format: binary
+        prop_file_binary_array:
+          type: array
+          items:
+            type: string
+            format: binary
+        prop_file_byte:
+          type: string
+          format: byte
+        prop_file_byte_array:
+          type: array
+          items:
+            type: string
+            format: byte
+        # considered string(s) by SDKs
+        prop_file_contentMediaType:
+          type: string
+          contentMediaType: application/octet-stream
+        # considered string(s) by SDKs
+        prop_file_contentMediaType_array:
+          type: array
+          items:
+            type: string
+            contentMediaType: application/octet-stream
+        # considered string(s) by SDKs
+        prop_file_contentEncoding:
+          type: string
+          contentEncoding: base64
+        # considered string(s) by SDKs
+        prop_file_contentEncoding_array:
+          type: array
+          items:
+            type: string
+            contentEncoding: base64
+        prop_free_form:
+          type: object
+          additionalProperties: {}
+        prop_free_form_array:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+        prop_free_form_no_additional_properties:
+          type: object
+        prop_free_form_no_additional_properties_array:
+          type: array
+          items:
+            type: object
+        prop_free_form_additional_properties_true:
+          type: object
+          additionalProperties: true
+        prop_free_form_additional_properties_true_array:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        prop_scalar_bool:
+          type: boolean
+        prop_scalar_integer:
+          type: integer
+        prop_scalar_number:
+          type: number
+        prop_scalar_string:
+          type: string
+        prop_scalar_bool_array:
+          type: array
+          items:
+            type: boolean
+        prop_scalar_integer_array:
+          type: array
+          items:
+            type: integer
+        prop_scalar_number_array:
+          type: array
+          items:
+            type: number
+        prop_scalar_string_array:
+          type: array
+          items:
+            type: string
+        prop_scalar_string_contentMediaType:
+          type: string
+          contentMediaType: text/plain
+        # different in 3.0
+        prop_nullable:
+          type:
+            - string
+            - "null"
+        # different in 3.1
+        prop_nullable_array:
+          type:
+            - array
+            - "null"
+          items:
+            type: string
+    Pet:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+    Dog:
+      type: object
+      properties:
+        id:
+          type: integer
+        breed:
+          type: string
+      discriminator:
+        propertyName: breed
+        mapping:
+          beagle: '#/components/schemas/Beagle'
+          terrier: '#/components/schemas/Terrier'
+    Beagle:
+      allOf:
+        - $ref: '#/components/schemas/Dog'
+        -
+          type: object
+          properties:
+            group:
+              type: string
+              default: hound
+    Terrier:
+      allOf:
+        - $ref: '#/components/schemas/Dog'
+        -
+          type: object
+          properties:
+            group:
+              type: string
+              default: hunting
