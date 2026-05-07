@@ -24,7 +24,6 @@
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
 import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAttachment";
-import { SignatureRequestSignerExperience } from "./signatureRequestSignerExperience";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
 import { TemplateResponseDocument } from "./templateResponseDocument";
@@ -104,7 +103,6 @@ export class TemplateResponse {
    * Signer attachments.
    */
   "attachments"?: Array<SignatureRequestResponseAttachment>;
-  "signerExperience"?: SignatureRequestSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -188,11 +186,6 @@ export class TemplateResponse {
       name: "attachments",
       baseName: "attachments",
       type: "Array<SignatureRequestResponseAttachment>",
-    },
-    {
-      name: "signerExperience",
-      baseName: "signer_experience",
-      type: "SignatureRequestSignerExperience",
     },
   ];
 

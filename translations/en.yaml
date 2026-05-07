@@ -126,7 +126,7 @@
 "EmbeddedEditUrl::TEMPLATE_ID": The id of the template to edit.
 "EmbeddedEditUrl::TEST_MODE": Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
 "EmbeddedEditUrl::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-"EmbeddedEditUrl::SIGNER_EXPERIENCE": TBD Form View
+"EmbeddedEditUrl::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
 "EmbeddedSignUrl::SUMMARY": Get Embedded Sign URL
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
@@ -363,7 +363,7 @@
 "SignatureRequestCreateEmbedded::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
 "SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-"SignatureRequestCreateEmbedded::SIGNER_EXPERIENCE": TBD Form View
+"SignatureRequestCreateEmbedded::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
 "SignatureRequestEditEmbedded::SUMMARY": Edit Embedded Signature Request
 "SignatureRequestEditEmbedded::DESCRIPTION": |-
@@ -390,7 +390,7 @@
 "SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestCreateEmbeddedWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbeddedWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
-"SignatureRequestCreateEmbeddedWithTemplate::SIGNER_EXPERIENCE": TBD Form View
+"SignatureRequestCreateEmbeddedWithTemplate::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 "SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS": |-
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
@@ -502,7 +502,7 @@
 "SignatureRequestSend::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestSend::USE_PREEXISTING_FIELDS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
 "SignatureRequestSend::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-"SignatureRequestSend::SIGNER_EXPERIENCE": TBD Form View
+"SignatureRequestSend::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
 "SignatureRequestEdit::SUMMARY": Edit Signature Request
 "SignatureRequestEdit::DESCRIPTION": |-
@@ -541,7 +541,7 @@
 "SignatureRequestSendWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestSendWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestSendWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
-"SignatureRequestSendWithTemplate::SIGNER_EXPERIENCE": TBD Form View
+"SignatureRequestSendWithTemplate::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
 "SignatureRequestEditWithTemplate::SUMMARY": Edit Signature Request With Template
 "SignatureRequestEditWithTemplate::DESCRIPTION": |-
@@ -706,7 +706,7 @@
 "TemplateCreateEmbeddedDraft::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreateEmbeddedDraft::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
 "TemplateCreateEmbeddedDraft::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-"TemplateCreateEmbeddedDraft::SIGNER_EXPERIENCE": TBD Form View
+"TemplateCreateEmbeddedDraft::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
 "TemplateCreate::SUMMARY": Create Template
 "TemplateCreate::DESCRIPTION": |-
@@ -741,7 +741,7 @@
 "TemplateCreate::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreate::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
 "TemplateCreate::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
-"TemplateCreate::SIGNER_EXPERIENCE": TBD Form View
+"TemplateCreate::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
 "TemplateDelete::SUMMARY": Delete Template
 "TemplateDelete::DESCRIPTION": Completely deletes the template specified from the account.
@@ -849,7 +849,7 @@
 "UnclaimedDraftCreate::TYPE": The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.
 "UnclaimedDraftCreate::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreate::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
-"UnclaimedDraftCreate::SIGNER_EXPERIENCE": TBD Form View
+"UnclaimedDraftCreate::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 "UnclaimedDraftCreate::EXPIRES_AT": |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 

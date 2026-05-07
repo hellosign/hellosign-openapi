@@ -276,7 +276,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SignatureRequestResponseSignatures](docs/SignatureRequestResponseSignatures.md)
  - [Dropbox::Sign::SignatureRequestSendRequest](docs/SignatureRequestSendRequest.md)
  - [Dropbox::Sign::SignatureRequestSendWithTemplateRequest](docs/SignatureRequestSendWithTemplateRequest.md)
- - [Dropbox::Sign::SignatureRequestSignerExperience](docs/SignatureRequestSignerExperience.md)
  - [Dropbox::Sign::SignatureRequestUpdateRequest](docs/SignatureRequestUpdateRequest.md)
  - [Dropbox::Sign::SubAttachment](docs/SubAttachment.md)
  - [Dropbox::Sign::SubBulkSignerList](docs/SubBulkSignerList.md)

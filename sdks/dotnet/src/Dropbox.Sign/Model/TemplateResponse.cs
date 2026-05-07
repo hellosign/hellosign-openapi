@@ -57,8 +57,7 @@ namespace Dropbox.Sign.Model
         /// <param name="namedFormFields">Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
         /// <param name="accounts">An array of the Accounts that can use this Template..</param>
         /// <param name="attachments">Signer attachments..</param>
-        /// <param name="signerExperience">signerExperience.</param>
-        public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool isCreator = default(bool), bool canEdit = default(bool), bool isLocked = default(bool), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), SignatureRequestSignerExperience signerExperience = default(SignatureRequestSignerExperience))
+        public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool isCreator = default(bool), bool canEdit = default(bool), bool isLocked = default(bool), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>))
         {
 
             this.TemplateId = templateId;
@@ -77,7 +76,6 @@ namespace Dropbox.Sign.Model
             this.NamedFormFields = namedFormFields;
             this.Accounts = accounts;
             this.Attachments = attachments;
-            this.SignerExperience = signerExperience;
         }
 
         /// <summary>
@@ -211,12 +209,6 @@ namespace Dropbox.Sign.Model
         public List<SignatureRequestResponseAttachment> Attachments { get; set; }
 
         /// <summary>
-        /// Gets or Sets SignerExperience
-        /// </summary>
-        [DataMember(Name = "signer_experience", EmitDefaultValue = true)]
-        public SignatureRequestSignerExperience SignerExperience { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -240,7 +232,6 @@ namespace Dropbox.Sign.Model
             sb.Append("  NamedFormFields: ").Append(NamedFormFields).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
-            sb.Append("  SignerExperience: ").Append(SignerExperience).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -359,11 +350,6 @@ namespace Dropbox.Sign.Model
                     this.Attachments != null &&
                     input.Attachments != null &&
                     this.Attachments.SequenceEqual(input.Attachments)
-                ) &&
-                (
-                    this.SignerExperience == input.SignerExperience ||
-                    (this.SignerExperience != null &&
-                    this.SignerExperience.Equals(input.SignerExperience))
                 );
         }
 
@@ -427,10 +413,6 @@ namespace Dropbox.Sign.Model
                 if (this.Attachments != null)
                 {
                     hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
-                }
-                if (this.SignerExperience != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignerExperience.GetHashCode();
                 }
                 return hashCode;
             }
@@ -559,13 +541,6 @@ namespace Dropbox.Sign.Model
                 Property = "Attachments",
                 Type = "List<SignatureRequestResponseAttachment>",
                 Value = Attachments,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "signer_experience",
-                Property = "SignerExperience",
-                Type = "SignatureRequestSignerExperience",
-                Value = SignerExperience,
             });
 
             return types;

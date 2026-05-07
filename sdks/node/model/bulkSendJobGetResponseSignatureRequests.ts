@@ -27,7 +27,6 @@ import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAt
 import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestResponseCustomFieldBase";
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSignatures";
-import { SignatureRequestSignerExperience } from "./signatureRequestSignerExperience";
 
 export class BulkSendJobGetResponseSignatureRequests {
   /**
@@ -130,7 +129,6 @@ export class BulkSendJobGetResponseSignatureRequests {
    * The id of the BulkSendJob.
    */
   "bulkSendJobId"?: string;
-  "signerExperience"?: SignatureRequestSignerExperience;
 
   static discriminator: string | undefined = undefined;
 
@@ -259,11 +257,6 @@ export class BulkSendJobGetResponseSignatureRequests {
       name: "bulkSendJobId",
       baseName: "bulk_send_job_id",
       type: "string",
-    },
-    {
-      name: "signerExperience",
-      baseName: "signer_experience",
-      type: "SignatureRequestSignerExperience",
     },
   ];
 
