@@ -31,7 +31,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         signingOptions.upload(true);
         signingOptions.forceAdvancedSignatureDetails(false);
 
-
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
         signers1.name("George");

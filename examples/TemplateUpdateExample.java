@@ -23,7 +23,6 @@ public class TemplateUpdateExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
-
         var formFields1 = new SubUpdateFormField();
         formFields1.apiId("uniqueIdHere_1");
         formFields1.name("New name 1");
