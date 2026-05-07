@@ -149,7 +149,6 @@ public class TemplateCreateExample
         var fieldOptions = new SubFieldOptions();
         fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
-
         var signerRoles1 = new SubTemplateRole();
         signerRoles1.name("Client");
         signerRoles1.order(0);
@@ -1028,7 +1027,6 @@ public class TemplateUpdateExample
         var config = Configuration.getDefaultApiClient();
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
-
 
         var formFields1 = new SubUpdateFormField();
         formFields1.apiId("uniqueIdHere_1");

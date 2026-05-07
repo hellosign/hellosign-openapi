@@ -461,7 +461,6 @@ public class SignatureRequestCreateEmbeddedExample
         signingOptions.upload(true);
         signingOptions.forceAdvancedSignatureDetails(false);
 
-
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
         signers1.emailAddress("jack@example.com");
@@ -583,7 +582,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
         signingOptions.upload(true);
         signingOptions.forceAdvancedSignatureDetails(false);
 
-
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
         signers1.name("George");
@@ -697,7 +695,6 @@ public class SignatureRequestEditExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
-
 
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
@@ -829,7 +826,6 @@ public class SignatureRequestEditEmbeddedExample
         signingOptions.type(true);
         signingOptions.upload(true);
 
-
         var signers1 = new SubSignatureRequestSigner();
         signers1.name("Jack");
         signers1.emailAddress("jack@example.com");
@@ -953,7 +949,6 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
         signingOptions.phone(false);
         signingOptions.type(true);
         signingOptions.upload(true);
-
 
         var signers1 = new SubSignatureRequestTemplateSigner();
         signers1.role("Client");
