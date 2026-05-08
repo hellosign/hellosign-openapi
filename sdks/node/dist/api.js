@@ -13287,7 +13287,6 @@ __export(api_exports, {
   SubTemplateRole: () => SubTemplateRole,
   SubUnclaimedDraftSigner: () => SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner: () => SubUnclaimedDraftTemplateSigner,
-  SubUpdateFormField: () => SubUpdateFormField,
   SubWhiteLabelingOptions: () => SubWhiteLabelingOptions,
   TeamAddMemberRequest: () => TeamAddMemberRequest,
   TeamApi: () => TeamApi,
@@ -23316,34 +23315,6 @@ var SubUnclaimedDraftTemplateSigner = class _SubUnclaimedDraftTemplateSigner {
   }
 };
 
-// model/subUpdateFormField.ts
-var SubUpdateFormField = class _SubUpdateFormField {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "apiId",
-        baseName: "api_id",
-        type: "string"
-      },
-      {
-        name: "name",
-        baseName: "name",
-        type: "string"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _SubUpdateFormField.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "SubUpdateFormField");
-  }
-};
-
 // model/subWhiteLabelingOptions.ts
 var SubWhiteLabelingOptions = class _SubWhiteLabelingOptions {
   constructor() {
@@ -26973,7 +26944,6 @@ var typeMap = {
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
-  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamCreateRequest,
@@ -36509,7 +36479,6 @@ var APIS = [
   SubTemplateRole,
   SubUnclaimedDraftSigner,
   SubUnclaimedDraftTemplateSigner,
-  SubUpdateFormField,
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamApi,
