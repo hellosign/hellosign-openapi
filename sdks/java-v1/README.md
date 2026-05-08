@@ -242,7 +242,6 @@ Class | Method | HTTP request | Description
 *TemplateApi* | [**templateGet**](docs/TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template
 *TemplateApi* | [**templateList**](docs/TemplateApi.md#templateList) | **GET** /template/list | List Templates
 *TemplateApi* | [**templateRemoveUser**](docs/TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template
-*TemplateApi* | [**templateUpdate**](docs/TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template
 *TemplateApi* | [**templateUpdateFiles**](docs/TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files
 *UnclaimedDraftApi* | [**unclaimedDraftCreate**](docs/UnclaimedDraftApi.md#unclaimedDraftCreate) | **POST** /unclaimed_draft/create | Create Unclaimed Draft
 *UnclaimedDraftApi* | [**unclaimedDraftCreateEmbedded**](docs/UnclaimedDraftApi.md#unclaimedDraftCreateEmbedded) | **POST** /unclaimed_draft/create_embedded | Create Embedded Unclaimed Draft
@@ -438,7 +437,6 @@ Class | Method | HTTP request | Description
  - [TemplateUpdateFilesRequest](docs/TemplateUpdateFilesRequest.md)
  - [TemplateUpdateFilesResponse](docs/TemplateUpdateFilesResponse.md)
  - [TemplateUpdateFilesResponseTemplate](docs/TemplateUpdateFilesResponseTemplate.md)
- - [TemplateUpdateRequest](docs/TemplateUpdateRequest.md)
  - [UnclaimedDraftCreateEmbeddedRequest](docs/UnclaimedDraftCreateEmbeddedRequest.md)
  - [UnclaimedDraftCreateEmbeddedWithTemplateRequest](docs/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)
  - [UnclaimedDraftCreateRequest](docs/UnclaimedDraftCreateRequest.md)

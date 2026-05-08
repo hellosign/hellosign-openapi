@@ -198,7 +198,6 @@ import { TemplateResponseSignerRole } from "./templateResponseSignerRole";
 import { TemplateUpdateFilesRequest } from "./templateUpdateFilesRequest";
 import { TemplateUpdateFilesResponse } from "./templateUpdateFilesResponse";
 import { TemplateUpdateFilesResponseTemplate } from "./templateUpdateFilesResponseTemplate";
-import { TemplateUpdateRequest } from "./templateUpdateRequest";
 import { UnclaimedDraftCreateEmbeddedRequest } from "./unclaimedDraftCreateEmbeddedRequest";
 import { UnclaimedDraftCreateEmbeddedWithTemplateRequest } from "./unclaimedDraftCreateEmbeddedWithTemplateRequest";
 import { UnclaimedDraftCreateRequest } from "./unclaimedDraftCreateRequest";
@@ -475,7 +474,6 @@ export let typeMap: { [index: string]: any } = {
   TemplateUpdateFilesRequest: TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate: TemplateUpdateFilesResponseTemplate,
-  TemplateUpdateRequest: TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest:
     UnclaimedDraftCreateEmbeddedWithTemplateRequest,
@@ -684,7 +682,6 @@ export {
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
-  TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest,
   UnclaimedDraftCreateRequest,

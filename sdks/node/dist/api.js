@@ -13348,7 +13348,6 @@ __export(api_exports, {
   TemplateUpdateFilesRequest: () => TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: () => TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate: () => TemplateUpdateFilesResponseTemplate,
-  TemplateUpdateRequest: () => TemplateUpdateRequest,
   USER_AGENT: () => USER_AGENT,
   UnclaimedDraftApi: () => UnclaimedDraftApi,
   UnclaimedDraftCreateEmbeddedRequest: () => UnclaimedDraftCreateEmbeddedRequest,
@@ -25977,49 +25976,6 @@ var TemplateUpdateFilesResponseTemplate = class _TemplateUpdateFilesResponseTemp
   }
 };
 
-// model/templateUpdateRequest.ts
-var TemplateUpdateRequest = class _TemplateUpdateRequest {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "ccRoles",
-        baseName: "cc_roles",
-        type: "Array<string>"
-      },
-      {
-        name: "title",
-        baseName: "title",
-        type: "string"
-      },
-      {
-        name: "subject",
-        baseName: "subject",
-        type: "string"
-      },
-      {
-        name: "message",
-        baseName: "message",
-        type: "string"
-      },
-      {
-        name: "formFields",
-        baseName: "form_fields",
-        type: "Array<SubUpdateFormField>"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _TemplateUpdateRequest.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "TemplateUpdateRequest");
-  }
-};
-
 // model/unclaimedDraftCreateEmbeddedRequest.ts
 var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedRequest {
   constructor() {
@@ -27076,7 +27032,6 @@ var typeMap = {
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
-  TemplateUpdateRequest,
   UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest,
   UnclaimedDraftCreateRequest,
@@ -35570,137 +35525,6 @@ var TemplateApi = class {
     });
   }
   /**
-   * Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
-   * @summary Update Template
-   * @param templateId The ID of the template to update.
-   * @param templateUpdateRequest
-   * @param options
-   */
-  async templateUpdate(templateId, templateUpdateRequest, options = { headers: {} }) {
-    templateUpdateRequest = deserializeIfNeeded10(
-      templateUpdateRequest,
-      "TemplateUpdateRequest"
-    );
-    const localVarPath = this.basePath + "/template/update/{template_id}".replace(
-      "{template_id}",
-      encodeURIComponent(String(templateId))
-    );
-    let localVarQueryParameters = {};
-    let localVarHeaderParams = Object.assign(
-      {},
-      this._defaultHeaders
-    );
-    const produces = ["application/json"];
-    if (produces.indexOf("application/json") >= 0) {
-      localVarHeaderParams["content-type"] = "application/json";
-    } else {
-      localVarHeaderParams["content-type"] = produces.join(",");
-    }
-    let localVarFormParams = {};
-    let localVarBodyParams = void 0;
-    if (templateId === null || templateId === void 0) {
-      throw new Error(
-        "Required parameter templateId was null or undefined when calling templateUpdate."
-      );
-    }
-    if (templateUpdateRequest === null || templateUpdateRequest === void 0) {
-      throw new Error(
-        "Required parameter templateUpdateRequest was null or undefined when calling templateUpdate."
-      );
-    }
-    Object.assign(localVarHeaderParams, options.headers);
-    let localVarUseFormData = false;
-    const result = generateFormData(
-      templateUpdateRequest,
-      TemplateUpdateRequest.attributeTypeMap
-    );
-    localVarUseFormData = result.localVarUseFormData;
-    let data = {};
-    if (localVarUseFormData) {
-      const formData2 = toFormData3(result.data);
-      data = formData2;
-      localVarHeaderParams = {
-        ...localVarHeaderParams,
-        ...formData2.getHeaders()
-      };
-    } else {
-      data = ObjectSerializer.serialize(
-        templateUpdateRequest,
-        "TemplateUpdateRequest"
-      );
-    }
-    let localVarRequestOptions = {
-      method: "POST",
-      params: localVarQueryParameters,
-      headers: localVarHeaderParams,
-      url: localVarPath,
-      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
-      maxContentLength: Infinity,
-      maxBodyLength: Infinity,
-      responseType: "json",
-      data
-    };
-    let authenticationPromise = Promise.resolve();
-    if (this.authentications.api_key.username) {
-      authenticationPromise = authenticationPromise.then(
-        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
-      );
-    }
-    if (this.authentications.oauth2.accessToken) {
-      authenticationPromise = authenticationPromise.then(
-        () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
-      );
-    }
-    authenticationPromise = authenticationPromise.then(
-      () => this.authentications.default.applyToRequest(localVarRequestOptions)
-    );
-    let interceptorPromise = authenticationPromise;
-    for (const interceptor of this.interceptors) {
-      interceptorPromise = interceptorPromise.then(
-        () => interceptor(localVarRequestOptions)
-      );
-    }
-    return interceptorPromise.then(() => {
-      return new Promise(
-        (resolve, reject) => {
-          axios_default.request(localVarRequestOptions).then(
-            (response) => {
-              handleSuccessfulResponse11(
-                resolve,
-                reject,
-                response,
-                "TemplateGetResponse"
-              );
-            },
-            (error) => {
-              if (error.response == null) {
-                reject(error);
-                return;
-              }
-              if (handleErrorCodeResponse11(
-                reject,
-                error.response,
-                200,
-                "TemplateGetResponse"
-              )) {
-                return;
-              }
-              if (handleErrorRangeResponse11(
-                reject,
-                error.response,
-                "4XX",
-                "ErrorResponse"
-              )) {
-                return;
-              }
-              reject(error);
-            }
-          );
-        }
-      );
-    });
-  }
-  /**
    * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
    * @summary Update Template Files
    * @param templateId The ID of the template whose files to update.
@@ -36746,7 +36570,6 @@ var APIS = [
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
-  TemplateUpdateRequest,
   USER_AGENT,
   UnclaimedDraftApi,
   UnclaimedDraftCreateEmbeddedRequest,
