@@ -7286,7 +7286,9 @@ paths:
         seo:
           title: '_t__TemplateUpdate::SEO::TITLE'
           description: '_t__TemplateUpdate::SEO::DESCRIPTION'
-      x-hideOn: doc
+      x-hideOn:
+        - doc
+        - sdk
   '/template/update_files/{template_id}':
     post:
       tags:
@@ -10430,6 +10432,9 @@ components:
             - sdk
             - doc
       type: object
+      x-hideOn:
+        - sdk
+        - doc
     TemplateUpdateFilesRequest:
       properties:
         client_id:
@@ -13387,6 +13392,9 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/TemplateUpdateRequest.json
+      x-hideOn:
+        - sdk
+        - doc
     TemplateUpdateFilesRequest:
       summary: 'Default Example'
       value:

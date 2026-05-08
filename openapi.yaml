@@ -10799,30 +10799,6 @@ components:
           type: string
           format: email
       type: object
-    TemplateUpdateRequest:
-      properties:
-        cc_roles:
-          description: 'The CC roles that must be assigned when using the template to send a signature request.'
-          type: array
-          items:
-            type: string
-        title:
-          description: 'The title you want to assign to the SignatureRequest.'
-          type: string
-        subject:
-          description: 'The new default template email subject.'
-          type: string
-          maxLength: 200
-        message:
-          description: 'The new default template email message.'
-          type: string
-          maxLength: 5000
-        form_fields:
-          description: 'A list of document form fields to update. The endpoint will not create or remove any fields. Every field must be identified by `api_id`, and the only supported change is renaming the field.'
-          type: array
-          items:
-            $ref: '#/components/schemas/SubUpdateFormField'
-      type: object
     TemplateUpdateFilesRequest:
       properties:
         client_id:
@@ -14026,10 +14002,6 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/TemplateRemoveUserRequest.json
-    TemplateUpdateRequest:
-      summary: 'Default Example'
-      value:
-        $ref: examples/json/TemplateUpdateRequest.json
     TemplateUpdateFilesRequest:
       summary: 'Default Example'
       value:

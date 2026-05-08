@@ -397,7 +397,6 @@ from dropbox_sign.models.template_update_files_response import (
 from dropbox_sign.models.template_update_files_response_template import (
     TemplateUpdateFilesResponseTemplate,
 )
-from dropbox_sign.models.template_update_request import TemplateUpdateRequest
 from dropbox_sign.models.unclaimed_draft_create_embedded_request import (
     UnclaimedDraftCreateEmbeddedRequest,
 )
