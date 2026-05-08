@@ -14,7 +14,6 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**templateGet()**](TemplateApi.md#templateGet) | **GET** /template/{template_id} | Get Template |
 | [**templateList()**](TemplateApi.md#templateList) | **GET** /template/list | List Templates |
 | [**templateRemoveUser()**](TemplateApi.md#templateRemoveUser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
-| [**templateUpdate()**](TemplateApi.md#templateUpdate) | **POST** /template/update/{template_id} | Update Template |
 | [**templateUpdateFiles()**](TemplateApi.md#templateUpdateFiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
 
@@ -749,91 +748,6 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `templateUpdate()`
-
-```php
-templateUpdate($template_id, $template_update_request): \Dropbox\Sign\Model\TemplateGetResponse
-```
-Update Template
-
-Update template fields. Every field is optional and the endpoint will only change whatever is provided. The fields not included in the request payload will remain unchanged.
-
-### Example
-
-```php
-<?php
-
-namespace Dropbox\SignSandbox;
-
-require_once __DIR__ . '/../vendor/autoload.php';
-
-use SplFileObject;
-use Dropbox;
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-$config->setUsername("YOUR_API_KEY");
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$form_fields_1 = (new Dropbox\Sign\Model\SubUpdateFormField())
-    ->setApiId("uniqueIdHere_1")
-    ->setName("New name 1");
-
-$form_fields_2 = (new Dropbox\Sign\Model\SubUpdateFormField())
-    ->setApiId("uniqueIdHere_2")
-    ->setName("New name 2");
-
-$form_fields = [
-    $form_fields_1,
-    $form_fields_2,
-];
-
-$template_update_request = (new Dropbox\Sign\Model\TemplateUpdateRequest())
-    ->setTitle("Test Title")
-    ->setSubject("Test Subject")
-    ->setMessage("Test Message")
-    ->setCcRoles([
-        "CC Role 1",
-        "CC Role 2",
-    ])
-    ->setFormFields($form_fields);
-
-try {
-    $response = (new Dropbox\Sign\Api\TemplateApi(config: $config))->templateUpdate(
-        template_id: "f57db65d3f933b5316d398057a36176831451a35",
-        template_update_request: $template_update_request,
-    );
-
-    print_r($response);
-} catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling TemplateApi#templateUpdate: {$e->getMessage()}";
-}
-
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **template_id** | **string**| The ID of the template to update. | |
-| **template_update_request** | [**\Dropbox\Sign\Model\TemplateUpdateRequest**](../Model/TemplateUpdateRequest.md)|  | |
-
-### Return type
-
-[**\Dropbox\Sign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
