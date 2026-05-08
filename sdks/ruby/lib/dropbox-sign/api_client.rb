@@ -132,6 +132,22 @@ module Dropbox::Sign
         end
       end
 
+      # Workaround for the Typhoeus/libcurl multipart PUT bug.
+      # libcurl only builds a multipart body via CURLOPT_HTTPPOST/CURLOPT_MIMEPOST,
+      # which is engaged for POST requests. For PUT it falls back to CURLOPT_UPLOAD
+      # and silently drops form fields, so the request is sent without a
+      # `Content-Type: multipart/form-data; boundary=...` header or body.
+      # We send the request as POST so the multipart body is encoded correctly,
+      # then use CURLOPT_CUSTOMREQUEST (exposed by Ethon as :customrequest) to
+      # restore PUT as the on-the-wire HTTP verb.
+      # See: https://github.com/typhoeus/typhoeus/issues/389
+      content_type_header = header_params['Content-Type'] || header_params['content-type']
+      if http_method == :put && content_type_header.is_a?(String) &&
+         content_type_header.start_with?('multipart/form-data')
+        req_opts[:method] = :post
+        req_opts[:customrequest] = 'PUT'
+      end
+
       Typhoeus::Request.new(url, req_opts)
     end
 
