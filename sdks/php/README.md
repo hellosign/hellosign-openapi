@@ -351,7 +351,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SubTemplateRole](docs/Model/SubTemplateRole.md)
 - [SubUnclaimedDraftSigner](docs/Model/SubUnclaimedDraftSigner.md)
 - [SubUnclaimedDraftTemplateSigner](docs/Model/SubUnclaimedDraftTemplateSigner.md)
-- [SubUpdateFormField](docs/Model/SubUpdateFormField.md)
 - [SubWhiteLabelingOptions](docs/Model/SubWhiteLabelingOptions.md)
 - [TeamAddMemberRequest](docs/Model/TeamAddMemberRequest.md)
 - [TeamCreateRequest](docs/Model/TeamCreateRequest.md)

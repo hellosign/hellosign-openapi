@@ -9824,17 +9824,6 @@ components:
               type: integer
               default: 12
           type: object
-    SubUpdateFormField:
-      required:
-        - api_id
-      properties:
-        api_id:
-          description: 'The unique ID for this field. The endpoint will update an existing field with matching `api_id`, and warn you if no matches are found'
-          type: string
-        name:
-          description: 'The new name of the field. If not passed the name will remain unchanged.'
-          type: string
-      type: object
     SubFormFieldsPerDocumentHyperlink:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
