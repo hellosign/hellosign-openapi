@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# Copies example files from src_dir to dst_dir, skipping any whose operationId
+# exists in openapi-raw.yaml but not in openapi-sdk.yaml (i.e. endpoints hidden
+# from the SDK via the x-hideOn: sdk attribute). Matching is by PascalCase
+# filename: an operationId "templateUpdate" maps to "TemplateUpdateExample.<ext>".
 
 set -e
 
