@@ -311,7 +311,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SubTemplateRole](docs/SubTemplateRole.md)
  - [Dropbox::Sign::SubUnclaimedDraftSigner](docs/SubUnclaimedDraftSigner.md)
  - [Dropbox::Sign::SubUnclaimedDraftTemplateSigner](docs/SubUnclaimedDraftTemplateSigner.md)
- - [Dropbox::Sign::SubUpdateFormField](docs/SubUpdateFormField.md)
  - [Dropbox::Sign::SubWhiteLabelingOptions](docs/SubWhiteLabelingOptions.md)
  - [Dropbox::Sign::TeamAddMemberRequest](docs/TeamAddMemberRequest.md)
  - [Dropbox::Sign::TeamCreateRequest](docs/TeamCreateRequest.md)

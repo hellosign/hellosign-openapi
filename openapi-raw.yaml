@@ -9533,6 +9533,9 @@ components:
           description: '_t__Sub::UpdateFormField::NAME'
           type: string
       type: object
+      x-hideOn:
+        - sdk
+        - doc
     SubFormFieldsPerDocumentHyperlink:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
       allOf:
