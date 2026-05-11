@@ -7289,6 +7289,7 @@ paths:
       x-hideOn:
         - doc
         - sdk
+      x-beta: closed
   '/template/update_files/{template_id}':
     post:
       tags:
