@@ -31,17 +31,92 @@ while getopts ":t:v:h" opt; do
   esac
 done
 
-function main() {
-  if [[ -z ${TARGET_SDK} || -z ${TARGET_VERSION} ]]; then
-    show_help
+function get_current_version()
+{
+  local sdk="$1"
+  local version_file="${DIR}/repos/${sdk}/VERSION"
 
+  if [[ ! -f "${version_file}" ]]; then
+    printf "ERROR: VERSION file not found at %s\n" "${version_file}" >&2
+    exit 1
+  fi
+
+  grep -oE '[0-9]+\.[0-9]+\.[0-9]+' "${version_file}" | head -1
+}
+
+function bump_minor_version()
+{
+  local current="$1"
+  local major minor
+  major=$(echo "$current" | cut -d. -f1)
+  minor=$(echo "$current" | cut -d. -f2)
+  echo "${major}.$((minor + 1)).0"
+}
+
+function main() {
+  if [[ -z ${TARGET_SDK} ]]; then
+    show_help
     exit 0
   fi
 
-  validate_sdk_choice $TARGET_SDK
-  copy_files $TARGET_SDK $TARGET_VERSION
+  # Parse target SDKs: "all", comma-separated, or single
+  local sdk_list=()
+  if [[ "${TARGET_SDK}" == "all" ]]; then
+    sdk_list=("${SDKS[@]}")
+  else
+    IFS=',' read -ra sdk_list <<< "${TARGET_SDK}"
+  fi
 
-  printf "Success! Ready for git commit!\n"
+  for sdk in "${sdk_list[@]}"; do
+    validate_sdk_choice "$sdk"
+  done
+
+  # Resolve versions and build summary
+  local versions=()
+  local current_versions=()
+  for sdk in "${sdk_list[@]}"; do
+    local current_ver
+    current_ver=$(get_current_version "$sdk")
+    current_versions+=("$current_ver")
+
+    if [[ -n "${TARGET_VERSION}" ]]; then
+      versions+=("${TARGET_VERSION}")
+    else
+      versions+=("$(bump_minor_version "$current_ver")")
+    fi
+  done
+
+  # Show summary table
+  printf "\n%-12s %-15s %-15s\n" "SDK" "Current" "New Version"
+  printf "%-12s %-15s %-15s\n" "---" "-------" "-----------"
+  for i in "${!sdk_list[@]}"; do
+    printf "%-12s %-15s %-15s\n" "${sdk_list[$i]}" "${current_versions[$i]}" "${versions[$i]}"
+  done
+  printf "\n"
+
+  read -p "Proceed? [y/N] " confirm
+  if [[ "${confirm}" != "y" && "${confirm}" != "Y" ]]; then
+    printf "Aborted.\n"
+    exit 0
+  fi
+
+  # Process each SDK
+  for i in "${!sdk_list[@]}"; do
+    local sdk="${sdk_list[$i]}"
+    local ver="${versions[$i]}"
+
+    printf "\n=== Processing %s %s ===\n" "$sdk" "$ver"
+
+    REPO_MAIN_BRANCH="main"
+    if [[ "${sdk}" == "java-v1" ]]; then
+      REPO_MAIN_BRANCH="v1"
+    fi
+
+    copy_files "$sdk" "$ver"
+    printf "Done: %s %s\n" "$sdk" "$ver"
+  done
+
+  printf "\nSuccess! All SDKs committed and pushed.\n"
   exit 0
 }
 
@@ -53,10 +128,17 @@ Copies build files for a given SDK into the repos/[SDK] directory.
 **WARNING** All files and directories present in the repos/[SDK] directory will
             be DELETED, except for the .git directory!
 
--t          target SDK, "dotnet", "java-v2", "java-v1", "node", "php", "python", "ruby"
+-t          target SDK(s): a single SDK, comma-separated list, or "all"
+            valid: dotnet, java-v1, java-v2, node, php, python, ruby, all
 -v          version of the SDK, ex: 1.4.0
+            if omitted, auto-bumps minor version from repos/[SDK]/VERSION
 -h          display this help and exit
-Example: copy-sdks -t php -v 1.4.0
+
+Examples:
+  copy-sdks -t php -v 1.4.0           # single SDK, explicit version
+  copy-sdks -t python,node,ruby        # multiple SDKs, auto-bump minor
+  copy-sdks -t all                     # all SDKs, auto-bump minor
+  copy-sdks -t all -v 2.0.0           # all SDKs, same explicit version
 EOF
 
     exit 0
@@ -80,10 +162,6 @@ function validate_sdk_choice()
 
     exit 1
   fi
-
-  if [[ "${SDK}" == "java-v1" ]]; then
-    REPO_MAIN_BRANCH="v1"
-  fi
 }
 
 function copy_files()
@@ -101,7 +179,7 @@ function copy_files()
 
   git reset --hard origin/${REPO_MAIN_BRANCH}
   git pull origin ${REPO_MAIN_BRANCH}
-  git checkout -b "release-${VERSION}"
+  git checkout "release-${VERSION}" 2>/dev/null || git checkout -b "release-${VERSION}"
   git rm -rf --cached .
 
   popd
@@ -121,21 +199,27 @@ function copy_files()
 
   cp -r "${DIR}/openapi-sdk.yaml" "${SDK_DIR}/openapi-sdk.yaml"
 
+  local EXAMPLES_SRC="${DIR}/sdks/${SDK}/examples"
+
   if [[ "${SDK}" == "dotnet" ]]; then
-    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" cs
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" cs
   elif [[ "${SDK}" == "java-v2" ]] || [[ "${SDK}" == "java-v1" ]]; then
-    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" java
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" java
   elif [[ "${SDK}" == "node" ]]; then
-    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" ts
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" ts
   elif [[ "${SDK}" == "php" ]]; then
-    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" php
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" php
   elif [[ "${SDK}" == "python" ]]; then
-    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" py
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" py
   elif [[ "${SDK}" == "ruby" ]]; then
-    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" rb
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" rb
   fi
 
   php "${DIR}/bin/update-sdk-version.php" ${SDK} ${VERSION}
+
+  git add -A
+  git commit -m "Release ${VERSION}"
+  git push -u origin "release-${VERSION}"
 
   popd
 }

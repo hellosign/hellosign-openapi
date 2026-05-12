@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+ALL_SDKS=( dotnet java-v1 java-v2 node php python ruby )
+TARGET="${1:-all}"
+
+if [[ "${TARGET}" == "all" ]]; then
+  SDKS=("${ALL_SDKS[@]}")
+else
+  IFS=',' read -ra SDKS <<< "${TARGET}"
+fi
+
+for SDK in "${SDKS[@]}"; do
+  SDK_DIR="${DIR}/repos/${SDK}"
+  BRANCH="main"
+
+  if [[ "${SDK}" == "java-v1" ]]; then
+    BRANCH="v1"
+  fi
+
+  if [[ ! -d "${SDK_DIR}/.git" ]]; then
+    printf "SKIP: %s (not cloned at %s)\n" "$SDK" "$SDK_DIR"
+    continue
+  fi
+
+  printf "Resetting %s to %s...\n" "$SDK" "$BRANCH"
+  pushd "${SDK_DIR}/" > /dev/null
+
+  git checkout "$BRANCH"
+  git reset --hard "origin/${BRANCH}"
+  git pull origin "$BRANCH"
+  git fetch --prune
+
+  popd > /dev/null
+  printf "Done: %s\n\n" "$SDK"
+done
+
+printf "All SDK repos reset.\n"
