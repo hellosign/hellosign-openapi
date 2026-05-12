@@ -13150,6 +13150,7 @@ __export(api_exports, {
   AccountGetResponse: () => AccountGetResponse,
   AccountResponse: () => AccountResponse,
   AccountResponseQuotas: () => AccountResponseQuotas,
+  AccountResponseSettings: () => AccountResponseSettings,
   AccountResponseUsage: () => AccountResponseUsage,
   AccountUpdateRequest: () => AccountUpdateRequest,
   AccountVerifyRequest: () => AccountVerifyRequest,
@@ -13310,7 +13311,6 @@ __export(api_exports, {
   TemplateCreateRequest: () => TemplateCreateRequest,
   TemplateCreateResponse: () => TemplateCreateResponse,
   TemplateCreateResponseTemplate: () => TemplateCreateResponseTemplate,
-  TemplateEditResponse: () => TemplateEditResponse,
   TemplateGetResponse: () => TemplateGetResponse,
   TemplateListResponse: () => TemplateListResponse,
   TemplateRemoveUserRequest: () => TemplateRemoveUserRequest,
@@ -16823,6 +16823,11 @@ var AccountResponse = class _AccountResponse {
         name: "usage",
         baseName: "usage",
         type: "AccountResponseUsage"
+      },
+      {
+        name: "settings",
+        baseName: "settings",
+        type: "AccountResponseSettings"
       }
     ];
   }
@@ -16880,6 +16885,39 @@ var AccountResponseQuotas = class _AccountResponseQuotas {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "AccountResponseQuotas");
+  }
+};
+
+// model/accountResponseSettings.ts
+var AccountResponseSettings = class _AccountResponseSettings {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "signerAccessCodes",
+        baseName: "signer_access_codes",
+        type: "boolean"
+      },
+      {
+        name: "smsDelivery",
+        baseName: "sms_delivery",
+        type: "boolean"
+      },
+      {
+        name: "smsAuthentication",
+        baseName: "sms_authentication",
+        type: "boolean"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _AccountResponseSettings.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "AccountResponseSettings");
   }
 };
 
@@ -19240,6 +19278,7 @@ var ReportCreateRequest = class _ReportCreateRequest {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
     ReportTypeEnum2["SmsActivity"] = "sms_activity";
+    ReportTypeEnum2["FaxUsage"] = "fax_usage";
   })(ReportTypeEnum = ReportCreateRequest2.ReportTypeEnum || (ReportCreateRequest2.ReportTypeEnum = {}));
 })(ReportCreateRequest || (ReportCreateRequest = {}));
 
@@ -19314,6 +19353,7 @@ var ReportResponse = class _ReportResponse {
     ReportTypeEnum2["UserActivity"] = "user_activity";
     ReportTypeEnum2["DocumentStatus"] = "document_status";
     ReportTypeEnum2["SmsActivity"] = "sms_activity";
+    ReportTypeEnum2["FaxUsage"] = "fax_usage";
   })(ReportTypeEnum = ReportResponse2.ReportTypeEnum || (ReportResponse2.ReportTypeEnum = {}));
 })(ReportResponse || (ReportResponse = {}));
 
@@ -20079,7 +20119,7 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
      */
     this["hideTextTags"] = false;
     /**
-     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      */
     this["isEid"] = false;
     /**
@@ -20240,7 +20280,7 @@ var SignatureRequestEditWithTemplateRequest = class _SignatureRequestEditWithTem
      */
     this["allowDecline"] = false;
     /**
-     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      */
     this["isEid"] = false;
     /**
@@ -21346,7 +21386,7 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
      */
     this["isQualifiedSignature"] = false;
     /**
-     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      */
     this["isEid"] = false;
     /**
@@ -21518,7 +21558,7 @@ var SignatureRequestSendWithTemplateRequest = class _SignatureRequestSendWithTem
      */
     this["isQualifiedSignature"] = false;
     /**
-     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+     * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.
      */
     this["isEid"] = false;
     /**
@@ -23090,6 +23130,10 @@ var SubSigningOptions = class _SubSigningOptions {
      * Allows uploading the signature
      */
     this["upload"] = false;
+    /**
+     * Turning on advanced signature details for the signature request
+     */
+    this["forceAdvancedSignatureDetails"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -23119,6 +23163,11 @@ var SubSigningOptions = class _SubSigningOptions {
       {
         name: "upload",
         baseName: "upload",
+        type: "boolean"
+      },
+      {
+        name: "forceAdvancedSignatureDetails",
+        baseName: "force_advanced_signature_details",
         type: "boolean"
       }
     ];
@@ -24333,29 +24382,6 @@ var TemplateCreateResponseTemplate = class _TemplateCreateResponseTemplate {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "TemplateCreateResponseTemplate");
-  }
-};
-
-// model/templateEditResponse.ts
-var TemplateEditResponse = class _TemplateEditResponse {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "templateId",
-        baseName: "template_id",
-        type: "string"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _TemplateEditResponse.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "TemplateEditResponse");
   }
 };
 
@@ -26803,6 +26829,7 @@ var typeMap = {
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
@@ -26939,7 +26966,6 @@ var typeMap = {
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -34474,7 +34500,7 @@ var TemplateApi = class {
     });
   }
   /**
-   * Creates a template that can then be used.
+   * Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
    * @summary Create Template
    * @param templateCreateRequest
    * @param options
@@ -36316,6 +36342,7 @@ var APIS = [
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
@@ -36476,7 +36503,6 @@ var APIS = [
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,

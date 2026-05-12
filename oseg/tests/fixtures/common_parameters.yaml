@@ -1,0 +1,241 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Fixture - Common Parameters Examples
+paths:
+  /additional_parameter_at_start:
+    parameters:
+      - name: param_1
+        in: query
+        schema:
+          type: string
+      - name: param_2
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Param3'
+      - name: param_4
+        in: query
+        schema:
+          $ref: '#/components/schemas/Param4'
+    post:
+      tags:
+        - pet
+      operationId: additional_parameter_at_start
+      parameters:
+        - name: additional_parameter
+          in: query
+          schema:
+            type: string
+        - name: param_1
+          in: query
+          schema:
+            type: string
+        - name: param_2
+          in: query
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Param3'
+        - name: param_4
+          in: query
+          schema:
+            $ref: '#/components/schemas/Param4'
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json: {}
+  /additional_parameter_in_middle:
+    parameters:
+      - name: param_1
+        in: query
+        schema:
+          type: string
+      - name: param_2
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Param3'
+      - name: param_4
+        in: query
+        schema:
+          $ref: '#/components/schemas/Param4'
+    post:
+      tags:
+        - pet
+      operationId: additional_parameter_in_middle
+      parameters:
+        - name: param_1
+          in: query
+          schema:
+            type: string
+        - name: additional_parameter
+          in: query
+          schema:
+            type: string
+        - name: param_2
+          in: query
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Param3'
+        - name: param_4
+          in: query
+          schema:
+            $ref: '#/components/schemas/Param4'
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json: {}
+  /additional_parameter_at_end:
+    parameters:
+      - name: param_1
+        in: query
+        schema:
+          type: string
+      - name: param_2
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Param3'
+      - name: param_4
+        in: query
+        schema:
+          $ref: '#/components/schemas/Param4'
+    post:
+      tags:
+        - pet
+      operationId: additional_parameter_at_end
+      parameters:
+        - name: param_1
+          in: query
+          schema:
+            type: string
+        - name: param_2
+          in: query
+          schema:
+            type: integer
+        - name: additional_parameter
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Param3'
+        - name: param_4
+          in: query
+          schema:
+            $ref: '#/components/schemas/Param4'
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json: {}
+  /parameters_in_different_order:
+    parameters:
+      - name: param_1
+        in: query
+        schema:
+          type: string
+      - name: param_2
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Param3'
+      - name: param_4
+        in: query
+        schema:
+          $ref: '#/components/schemas/Param4'
+    post:
+      tags:
+        - pet
+      operationId: parameters_in_different_order
+      parameters:
+        - name: additional_parameter
+          in: query
+          schema:
+            type: string
+        - name: param_2
+          in: query
+          schema:
+            type: integer
+        - name: param_1
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json: {}
+  /override_parameter_data:
+    parameters:
+      - name: param_1
+        in: query
+        schema:
+          type: string
+      - name: param_2
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Param3'
+      - name: param_4
+        in: query
+        schema:
+          $ref: '#/components/schemas/Param4'
+    post:
+      tags:
+        - pet
+      operationId: override_parameter_data
+      parameters:
+        - name: param_1
+          in: query
+          schema:
+            type: integer
+        - name: param_2
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json: {}
+  /no_parameter_data:
+    parameters:
+      - name: param_1
+        in: query
+        schema:
+          type: string
+      - name: param_2
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Param3'
+      - name: param_4
+        in: query
+        schema:
+          $ref: '#/components/schemas/Param4'
+    post:
+      tags:
+        - pet
+      operationId: no_parameter_data
+      responses:
+        '200':
+          description: Successful operation
+      requestBody:
+        content:
+          application/json: {}
+components:
+  parameters:
+    Param3:
+      name: param_3
+      in: query
+      schema:
+        type: string
+  schemas:
+    Param4:
+      type: string

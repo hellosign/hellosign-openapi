@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+    /// This allows the requester to specify the types allowed for creating a signature and specify another signing options.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.  **NOTE:** If &#x60;force_advanced_signature_details&#x60; is set, allowed types has to be defined too.
     /// </summary>
     [DataContract(Name = "SubSigningOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -85,7 +85,8 @@ namespace Dropbox.Sign.Model
         /// <param name="phone">Allows using a smartphone to email the signature (default to false).</param>
         /// <param name="type">Allows typing the signature (default to false).</param>
         /// <param name="upload">Allows uploading the signature (default to false).</param>
-        public SubSigningOptions(DefaultTypeEnum defaultType = default(DefaultTypeEnum), bool draw = false, bool phone = false, bool type = false, bool upload = false)
+        /// <param name="forceAdvancedSignatureDetails">Turning on advanced signature details for the signature request (default to false).</param>
+        public SubSigningOptions(DefaultTypeEnum defaultType = default(DefaultTypeEnum), bool draw = false, bool phone = false, bool type = false, bool upload = false, bool forceAdvancedSignatureDetails = false)
         {
 
             this.DefaultType = defaultType;
@@ -93,6 +94,7 @@ namespace Dropbox.Sign.Model
             this.Phone = phone;
             this.Type = type;
             this.Upload = upload;
+            this.ForceAdvancedSignatureDetails = forceAdvancedSignatureDetails;
         }
 
         /// <summary>
@@ -140,6 +142,13 @@ namespace Dropbox.Sign.Model
         public bool Upload { get; set; }
 
         /// <summary>
+        /// Turning on advanced signature details for the signature request
+        /// </summary>
+        /// <value>Turning on advanced signature details for the signature request</value>
+        [DataMember(Name = "force_advanced_signature_details", EmitDefaultValue = true)]
+        public bool ForceAdvancedSignatureDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -152,6 +161,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Upload: ").Append(Upload).Append("\n");
+            sb.Append("  ForceAdvancedSignatureDetails: ").Append(ForceAdvancedSignatureDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -206,6 +216,10 @@ namespace Dropbox.Sign.Model
                 (
                     this.Upload == input.Upload ||
                     this.Upload.Equals(input.Upload)
+                ) &&
+                (
+                    this.ForceAdvancedSignatureDetails == input.ForceAdvancedSignatureDetails ||
+                    this.ForceAdvancedSignatureDetails.Equals(input.ForceAdvancedSignatureDetails)
                 );
         }
 
@@ -223,6 +237,7 @@ namespace Dropbox.Sign.Model
                 hashCode = (hashCode * 59) + this.Phone.GetHashCode();
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 hashCode = (hashCode * 59) + this.Upload.GetHashCode();
+                hashCode = (hashCode * 59) + this.ForceAdvancedSignatureDetails.GetHashCode();
                 return hashCode;
             }
         }
@@ -273,6 +288,13 @@ namespace Dropbox.Sign.Model
                 Property = "Upload",
                 Type = "bool",
                 Value = Upload,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "force_advanced_signature_details",
+                Property = "ForceAdvancedSignatureDetails",
+                Type = "bool",
+                Value = ForceAdvancedSignatureDetails,
             });
 
             return types;

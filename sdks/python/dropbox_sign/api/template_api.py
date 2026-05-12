@@ -376,7 +376,7 @@ class TemplateApi:
     ) -> TemplateCreateResponse:
         """Create Template
 
-        Creates a template that can then be used.
+        Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest
@@ -441,7 +441,7 @@ class TemplateApi:
     ) -> ApiResponse[TemplateCreateResponse]:
         """Create Template
 
-        Creates a template that can then be used.
+        Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest
@@ -506,7 +506,7 @@ class TemplateApi:
     ) -> RESTResponseType:
         """Create Template
 
-        Creates a template that can then be used.
+        Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest

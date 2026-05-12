@@ -235,6 +235,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
     public const REPORT_TYPE_USER_ACTIVITY = 'user_activity';
     public const REPORT_TYPE_DOCUMENT_STATUS = 'document_status';
     public const REPORT_TYPE_SMS_ACTIVITY = 'sms_activity';
+    public const REPORT_TYPE_FAX_USAGE = 'fax_usage';
 
     /**
      * Gets allowable values of the enum
@@ -247,6 +248,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
             self::REPORT_TYPE_USER_ACTIVITY,
             self::REPORT_TYPE_DOCUMENT_STATUS,
             self::REPORT_TYPE_SMS_ACTIVITY,
+            self::REPORT_TYPE_FAX_USAGE,
         ];
     }
 

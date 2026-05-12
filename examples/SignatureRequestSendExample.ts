@@ -16,6 +16,7 @@ const signingOptions: models.SubSigningOptions = {
   phone: false,
   type: true,
   upload: true,
+  force_advanced_signature_details: false,
 };
 
 const signers1: models.SubSignatureRequestSigner = {

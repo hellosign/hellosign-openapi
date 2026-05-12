@@ -1,0 +1,15 @@
+generatorName: mock
+additionalProperties:
+  packageName: openapi_client
+  projectName: openapi-client
+  oseg.ignoreOptionalUnset: true
+  oseg.security.api_key_scheme.api_key: YOUR_API_KEY
+  oseg.security.http_basic_scheme.username: YOUR_USERNAME
+  oseg.security.http_basic_scheme.password: YOUR_PASSWORD
+  oseg.security.http_bearer_scheme.access_token: YOUR_ACCESS_TOKEN_1
+  oseg.security.oauth2_scheme.access_token: YOUR_ACCESS_TOKEN_2
+globalProperties:
+  apiTests: false
+  modelTests: false
+  apiDocs: false
+  modelDocs: false

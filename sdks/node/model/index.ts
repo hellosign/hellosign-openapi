@@ -3,6 +3,7 @@ import { AccountCreateResponse } from "./accountCreateResponse";
 import { AccountGetResponse } from "./accountGetResponse";
 import { AccountResponse } from "./accountResponse";
 import { AccountResponseQuotas } from "./accountResponseQuotas";
+import { AccountResponseSettings } from "./accountResponseSettings";
 import { AccountResponseUsage } from "./accountResponseUsage";
 import { AccountUpdateRequest } from "./accountUpdateRequest";
 import { AccountVerifyRequest } from "./accountVerifyRequest";
@@ -160,7 +161,6 @@ import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmb
 import { TemplateCreateRequest } from "./templateCreateRequest";
 import { TemplateCreateResponse } from "./templateCreateResponse";
 import { TemplateCreateResponseTemplate } from "./templateCreateResponseTemplate";
-import { TemplateEditResponse } from "./templateEditResponse";
 import { TemplateGetResponse } from "./templateGetResponse";
 import { TemplateListResponse } from "./templateListResponse";
 import { TemplateRemoveUserRequest } from "./templateRemoveUserRequest";
@@ -260,6 +260,7 @@ export let typeMap: { [index: string]: any } = {
   AccountGetResponse: AccountGetResponse,
   AccountResponse: AccountResponse,
   AccountResponseQuotas: AccountResponseQuotas,
+  AccountResponseSettings: AccountResponseSettings,
   AccountResponseUsage: AccountResponseUsage,
   AccountUpdateRequest: AccountUpdateRequest,
   AccountVerifyRequest: AccountVerifyRequest,
@@ -415,7 +416,6 @@ export let typeMap: { [index: string]: any } = {
   TemplateCreateRequest: TemplateCreateRequest,
   TemplateCreateResponse: TemplateCreateResponse,
   TemplateCreateResponseTemplate: TemplateCreateResponseTemplate,
-  TemplateEditResponse: TemplateEditResponse,
   TemplateGetResponse: TemplateGetResponse,
   TemplateListResponse: TemplateListResponse,
   TemplateRemoveUserRequest: TemplateRemoveUserRequest,
@@ -488,6 +488,7 @@ export {
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseSettings,
   AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
@@ -642,7 +643,6 @@ export {
   TemplateCreateRequest,
   TemplateCreateResponse,
   TemplateCreateResponseTemplate,
-  TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,

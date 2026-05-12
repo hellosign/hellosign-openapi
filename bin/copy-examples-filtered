@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+#
+# Copies example files from src_dir to dst_dir, skipping any whose operationId
+# exists in openapi-raw.yaml but not in openapi-sdk.yaml (i.e. endpoints hidden
+# from the SDK via the x-hideOn: sdk attribute). Matching is by PascalCase
+# filename: an operationId "templateUpdate" maps to "TemplateUpdateExample.<ext>".
+
+set -e
+
+DIR=$(cd "$(dirname "$0")" && pwd)
+ROOT_DIR="${DIR}/.."
+
+SRC_DIR="$1"
+DST_DIR="$2"
+EXT="$3"
+
+if [[ -z "$SRC_DIR" || -z "$DST_DIR" || -z "$EXT" ]]; then
+  printf "Usage: copy-examples-filtered <src_dir> <dst_dir> <file_extension>\n"
+  exit 1
+fi
+
+HIDDEN_PASCALS=()
+while IFS= read -r OP; do
+  [ -z "$OP" ] && continue
+  HIDDEN_PASCALS+=("$(echo "${OP:0:1}" | tr 'a-z' 'A-Z')${OP:1}")
+done < <(comm -23 \
+  <(grep 'operationId:' "${ROOT_DIR}/openapi-raw.yaml" | sed 's/.*operationId: //' | sort) \
+  <(grep 'operationId:' "${ROOT_DIR}/openapi-sdk.yaml" | sed 's/.*operationId: //' | sort))
+
+for FILE in "${SRC_DIR}"/*."${EXT}"; do
+  [ -f "$FILE" ] || continue
+  BASENAME=$(basename "$FILE" ".$EXT")
+
+  SKIP=0
+  for PASCAL in "${HIDDEN_PASCALS[@]}"; do
+    if [ "$BASENAME" = "${PASCAL}Example" ]; then
+      SKIP=1
+      printf "  Skipping (hidden from SDK): %s\n" "$(basename "$FILE")"
+      break
+    fi
+  done
+
+  if [ $SKIP -eq 0 ]; then
+    cp "$FILE" "$DST_DIR/"
+  fi
+done

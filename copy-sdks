@@ -122,17 +122,17 @@ function copy_files()
   cp -r "${DIR}/openapi-sdk.yaml" "${SDK_DIR}/openapi-sdk.yaml"
 
   if [[ "${SDK}" == "dotnet" ]]; then
-    cp -r "${DIR}/examples/"*.cs "${SDK_DIR}/examples/"
+    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" cs
   elif [[ "${SDK}" == "java-v2" ]] || [[ "${SDK}" == "java-v1" ]]; then
-    cp -r "${DIR}/examples/"*.java "${SDK_DIR}/examples/"
+    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" java
   elif [[ "${SDK}" == "node" ]]; then
-    cp -r "${DIR}/examples/"*.ts "${SDK_DIR}/examples/"
+    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" ts
   elif [[ "${SDK}" == "php" ]]; then
-    cp -r "${DIR}/examples/"*.php "${SDK_DIR}/examples/"
+    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" php
   elif [[ "${SDK}" == "python" ]]; then
-    cp -r "${DIR}/examples/"*.py "${SDK_DIR}/examples/"
+    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" py
   elif [[ "${SDK}" == "ruby" ]]; then
-    cp -r "${DIR}/examples/"*.rb "${SDK_DIR}/examples/"
+    "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${SDK_DIR}/examples" rb
   fi
 
   php "${DIR}/bin/update-sdk-version.php" ${SDK} ${VERSION}

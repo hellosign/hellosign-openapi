@@ -30,14 +30,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+ * This allows the requester to specify the types allowed for creating a signature and specify another signing options.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.  **NOTE:** If &#x60;force_advanced_signature_details&#x60; is set, allowed types has to be defined too.
  */
 @JsonPropertyOrder({
   SubSigningOptions.JSON_PROPERTY_DEFAULT_TYPE,
   SubSigningOptions.JSON_PROPERTY_DRAW,
   SubSigningOptions.JSON_PROPERTY_PHONE,
   SubSigningOptions.JSON_PROPERTY_TYPE,
-  SubSigningOptions.JSON_PROPERTY_UPLOAD
+  SubSigningOptions.JSON_PROPERTY_UPLOAD,
+  SubSigningOptions.JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -100,6 +101,10 @@ public class SubSigningOptions {
   public static final String JSON_PROPERTY_UPLOAD = "upload";
   @jakarta.annotation.Nullable
   private Boolean upload = false;
+
+  public static final String JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS = "force_advanced_signature_details";
+  @jakarta.annotation.Nullable
+  private Boolean forceAdvancedSignatureDetails = false;
 
   public SubSigningOptions() { 
   }
@@ -244,6 +249,31 @@ public class SubSigningOptions {
   }
 
 
+  public SubSigningOptions forceAdvancedSignatureDetails(@jakarta.annotation.Nullable Boolean forceAdvancedSignatureDetails) {
+    this.forceAdvancedSignatureDetails = forceAdvancedSignatureDetails;
+    return this;
+  }
+
+  /**
+   * Turning on advanced signature details for the signature request
+   * @return forceAdvancedSignatureDetails
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getForceAdvancedSignatureDetails() {
+    return forceAdvancedSignatureDetails;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setForceAdvancedSignatureDetails(@jakarta.annotation.Nullable Boolean forceAdvancedSignatureDetails) {
+    this.forceAdvancedSignatureDetails = forceAdvancedSignatureDetails;
+  }
+
+
   /**
    * Return true if this SubSigningOptions object is equal to o.
    */
@@ -260,12 +290,13 @@ public class SubSigningOptions {
         Objects.equals(this.draw, subSigningOptions.draw) &&
         Objects.equals(this.phone, subSigningOptions.phone) &&
         Objects.equals(this.type, subSigningOptions.type) &&
-        Objects.equals(this.upload, subSigningOptions.upload);
+        Objects.equals(this.upload, subSigningOptions.upload) &&
+        Objects.equals(this.forceAdvancedSignatureDetails, subSigningOptions.forceAdvancedSignatureDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultType, draw, phone, type, upload);
+    return Objects.hash(defaultType, draw, phone, type, upload, forceAdvancedSignatureDetails);
   }
 
   @Override
@@ -277,6 +308,7 @@ public class SubSigningOptions {
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    upload: ").append(toIndentedString(upload)).append("\n");
+    sb.append("    forceAdvancedSignatureDetails: ").append(toIndentedString(forceAdvancedSignatureDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -378,6 +410,25 @@ public class SubSigningOptions {
         }
         else {
             map.put("upload", JSON.getDefault().getMapper().writeValueAsString(upload));
+        }
+    }
+    if (forceAdvancedSignatureDetails != null) {
+        if (isFileTypeOrListOfFiles(forceAdvancedSignatureDetails)) {
+            fileTypeFound = true;
+        }
+
+        if (forceAdvancedSignatureDetails.getClass().equals(java.io.File.class) ||
+            forceAdvancedSignatureDetails.getClass().equals(Integer.class) ||
+            forceAdvancedSignatureDetails.getClass().equals(String.class) ||
+            forceAdvancedSignatureDetails.getClass().isEnum()) {
+            map.put("force_advanced_signature_details", forceAdvancedSignatureDetails);
+        } else if (isListOfFile(forceAdvancedSignatureDetails)) {
+            for(int i = 0; i< getListSize(forceAdvancedSignatureDetails); i++) {
+                map.put("force_advanced_signature_details[" + i + "]", getFromList(forceAdvancedSignatureDetails, i));
+            }
+        }
+        else {
+            map.put("force_advanced_signature_details", JSON.getDefault().getMapper().writeValueAsString(forceAdvancedSignatureDetails));
         }
     }
     } catch (Exception e) {

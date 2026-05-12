@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "./";
 import { AccountResponseQuotas } from "./accountResponseQuotas";
+import { AccountResponseSettings } from "./accountResponseSettings";
 import { AccountResponseUsage } from "./accountResponseUsage";
 export declare class AccountResponse {
     "accountId"?: string;
@@ -13,6 +14,7 @@ export declare class AccountResponse {
     "teamId"?: string | null;
     "locale"?: string | null;
     "usage"?: AccountResponseUsage;
+    "settings"?: AccountResponseSettings;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
