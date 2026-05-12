@@ -7,6 +7,7 @@ SDKS=( dotnet java-v1 java-v2 node php python ruby )
 SHOW_HELP=0
 TARGET_SDK=
 TARGET_VERSION=
+BUMP_TYPE=minor
 
 REPO_DOTNET="https://github.com/hellosign/dropbox-sign-dotnet.git"
 REPO_JAVA_V1="--branch v1 https://github.com/hellosign/dropbox-sign-java.git"
@@ -18,11 +19,13 @@ REPO_RUBY="https://github.com/hellosign/dropbox-sign-ruby.git"
 
 REPO_MAIN_BRANCH="main"
 
-while getopts ":t:v:h" opt; do
+while getopts ":t:v:b:h" opt; do
   case $opt in
     t) TARGET_SDK="$OPTARG"
     ;;
     v) TARGET_VERSION="$OPTARG"
+    ;;
+    b) BUMP_TYPE="$OPTARG"
     ;;
     h) SHOW_HELP=1
     ;;
@@ -44,13 +47,24 @@ function get_current_version()
   grep -oE '[0-9]+\.[0-9]+\.[0-9]+' "${version_file}" | head -1
 }
 
-function bump_minor_version()
+function bump_version()
 {
   local current="$1"
-  local major minor
+  local type="$2"
+  local major minor patch
   major=$(echo "$current" | cut -d. -f1)
   minor=$(echo "$current" | cut -d. -f2)
-  echo "${major}.$((minor + 1)).0"
+  patch=$(echo "$current" | cut -d. -f3)
+
+  case "$type" in
+    major) echo "$((major + 1)).0.0" ;;
+    minor) echo "${major}.$((minor + 1)).0" ;;
+    patch) echo "${major}.${minor}.$((patch + 1))" ;;
+    *)
+      printf "Invalid bump type: %s (must be major, minor, or patch)\n" "$type" >&2
+      exit 1
+      ;;
+  esac
 }
 
 function main() {
@@ -82,7 +96,7 @@ function main() {
     if [[ -n "${TARGET_VERSION}" ]]; then
       versions+=("${TARGET_VERSION}")
     else
-      versions+=("$(bump_minor_version "$current_ver")")
+      versions+=("$(bump_version "$current_ver" "$BUMP_TYPE")")
     fi
   done
 
@@ -131,13 +145,15 @@ Copies build files for a given SDK into the repos/[SDK] directory.
 -t          target SDK(s): a single SDK, comma-separated list, or "all"
             valid: dotnet, java-v1, java-v2, node, php, python, ruby, all
 -v          version of the SDK, ex: 1.4.0
-            if omitted, auto-bumps minor version from repos/[SDK]/VERSION
+            if omitted, auto-bumps version from repos/[SDK]/VERSION
+-b          bump type when -v is omitted: major, minor (default), or patch
 -h          display this help and exit
 
 Examples:
   copy-sdks -t php -v 1.4.0           # single SDK, explicit version
   copy-sdks -t python,node,ruby        # multiple SDKs, auto-bump minor
   copy-sdks -t all                     # all SDKs, auto-bump minor
+  copy-sdks -t all -b patch            # all SDKs, auto-bump patch
   copy-sdks -t all -v 2.0.0           # all SDKs, same explicit version
 EOF
 

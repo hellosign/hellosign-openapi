@@ -92,13 +92,17 @@ You can release a single SDK with an explicit version:
 ./copy-sdks -t php -v 1.4.0
 ```
 
-Or release multiple SDKs at once, with automatic minor version bumps (reads the current version from `repos/[SDK]/VERSION`):
+Or release multiple SDKs at once, with automatic version bumps (reads the current version from `repos/[SDK]/VERSION`):
 
 ```bash
 ./copy-sdks -t python,node,ruby    # specific SDKs, auto-bump minor
 ./copy-sdks -t all                  # all SDKs, auto-bump minor
+./copy-sdks -t all -b patch         # all SDKs, auto-bump patch
+./copy-sdks -t all -b major         # all SDKs, auto-bump major
 ./copy-sdks -t all -v 2.0.0        # all SDKs, explicit version
 ```
+
+The `-b` flag accepts `major`, `minor` (default), or `patch`.
 
 The script shows a summary table of current and new versions and asks for confirmation before proceeding.
 
