@@ -84,25 +84,24 @@ Changes will appear against the [/sdks](sdks) directory. Make sure to include th
 
 ### Releasing SDKs
 
-The [copy-sdks](copy-sdks) script copies built SDK files from [/sdks](sdks) into the [/repos](repos) directory, updates version numbers, commits, and pushes a release branch.
+The [bake-sdk-release](bake-sdk-release) script copies built SDK files from [/sdks](sdks) into the [/repos](repos) directory, updates version numbers, commits, and pushes a release branch.
 
 You can release a single SDK with an explicit version:
 
 ```bash
-./copy-sdks -t php -v 1.4.0
+./bake-sdk-release -t php -v 1.4.0
 ```
 
-Or release multiple SDKs at once, with automatic version bumps (reads the current version from `repos/[SDK]/VERSION`):
+Or release multiple SDKs at once. Without `-b` or `-v`, the current version from `repos/[SDK]/VERSION` is used as-is:
 
 ```bash
-./copy-sdks -t python,node,ruby    # specific SDKs, auto-bump minor
-./copy-sdks -t all                  # all SDKs, auto-bump minor
-./copy-sdks -t all -b patch         # all SDKs, auto-bump patch
-./copy-sdks -t all -b major         # all SDKs, auto-bump major
-./copy-sdks -t all -v 2.0.0        # all SDKs, explicit version
+./bake-sdk-release -t all                  # all SDKs, keep current version
+./bake-sdk-release -t all -b minor         # all SDKs, bump minor
+./bake-sdk-release -t all -b patch         # all SDKs, bump patch
+./bake-sdk-release -t all -v 2.0.0        # all SDKs, explicit version
 ```
 
-The `-b` flag accepts `major`, `minor` (default), or `patch`.
+The `-b` flag accepts `major`, `minor`, or `patch`.
 
 The script shows a summary table of current and new versions and asks for confirmation before proceeding.
 
