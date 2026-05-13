@@ -7,7 +7,8 @@ SDKS=( dotnet java-v1 java-v2 node php python ruby )
 SHOW_HELP=0
 TARGET_SDK=
 TARGET_VERSION=
-BUMP_TYPE=minor
+BUMP_TYPE=
+DRY_RUN=0
 
 REPO_DOTNET="https://github.com/hellosign/dropbox-sign-dotnet.git"
 REPO_JAVA_V1="--branch v1 https://github.com/hellosign/dropbox-sign-java.git"
@@ -19,13 +20,15 @@ REPO_RUBY="https://github.com/hellosign/dropbox-sign-ruby.git"
 
 REPO_MAIN_BRANCH="main"
 
-while getopts ":t:v:b:h" opt; do
+while getopts ":t:v:b:dh" opt; do
   case $opt in
     t) TARGET_SDK="$OPTARG"
     ;;
     v) TARGET_VERSION="$OPTARG"
     ;;
     b) BUMP_TYPE="$OPTARG"
+    ;;
+    d) DRY_RUN=1
     ;;
     h) SHOW_HELP=1
     ;;
@@ -95,8 +98,10 @@ function main() {
 
     if [[ -n "${TARGET_VERSION}" ]]; then
       versions+=("${TARGET_VERSION}")
-    else
+    elif [[ -n "${BUMP_TYPE}" ]]; then
       versions+=("$(bump_version "$current_ver" "$BUMP_TYPE")")
+    else
+      versions+=("${current_ver}")
     fi
   done
 
@@ -136,7 +141,7 @@ function main() {
 
 function show_help() {
     cat << EOF
-Usage: copy-sdks [OPTION]
+Usage: bake-sdk-release [OPTION]
 Copies build files for a given SDK into the repos/[SDK] directory.
 
 **WARNING** All files and directories present in the repos/[SDK] directory will
@@ -146,15 +151,17 @@ Copies build files for a given SDK into the repos/[SDK] directory.
             valid: dotnet, java-v1, java-v2, node, php, python, ruby, all
 -v          version of the SDK, ex: 1.4.0
             if omitted, auto-bumps version from repos/[SDK]/VERSION
--b          bump type when -v is omitted: major, minor (default), or patch
+-b          bump version: major, minor, or patch
+            if omitted, uses current version from repos/[SDK]/VERSION
+-d          dry run: copy files and update versions but skip commit and push
 -h          display this help and exit
 
 Examples:
-  copy-sdks -t php -v 1.4.0           # single SDK, explicit version
-  copy-sdks -t python,node,ruby        # multiple SDKs, auto-bump minor
-  copy-sdks -t all                     # all SDKs, auto-bump minor
-  copy-sdks -t all -b patch            # all SDKs, auto-bump patch
-  copy-sdks -t all -v 2.0.0           # all SDKs, same explicit version
+  bake-sdk-release -t php -v 1.4.0           # single SDK, explicit version
+  bake-sdk-release -t all -b minor            # all SDKs, bump minor
+  bake-sdk-release -t all -b patch            # all SDKs, bump patch
+  bake-sdk-release -t all                     # all SDKs, keep current version
+  bake-sdk-release -t python,node,ruby        # specific SDKs, keep current version
 EOF
 
     exit 0
@@ -193,10 +200,12 @@ function copy_files()
   printf "Copying built files for the ${SDK} SDK to ${SDK_DIR}\n"
   pushd "${SDK_DIR}/"
 
-  git reset --hard origin/${REPO_MAIN_BRANCH}
-  git pull origin ${REPO_MAIN_BRANCH}
-  git checkout "release-${VERSION}" 2>/dev/null || git checkout -b "release-${VERSION}"
-  git rm -rf --cached .
+  git fetch origin
+  git checkout "release-${VERSION}" 2>/dev/null || {
+    git checkout ${REPO_MAIN_BRANCH}
+    git reset --hard origin/${REPO_MAIN_BRANCH}
+    git checkout -b "release-${VERSION}"
+  }
 
   popd
 
@@ -206,8 +215,6 @@ function copy_files()
   mv "${SDK_DIR}-tmp" "${SDK_DIR}"
 
   pushd "${SDK_DIR}/"
-
-  git add .
 
   rm -f "${SDK_DIR}/openapi-sdk.yaml"
   rm -rf "${SDK_DIR}/examples"
@@ -233,9 +240,13 @@ function copy_files()
 
   php "${DIR}/bin/update-sdk-version.php" ${SDK} ${VERSION}
 
-  git add -A
-  git commit -m "Release ${VERSION}"
-  git push -u origin "release-${VERSION}"
+  if [[ "${DRY_RUN}" -eq 0 ]]; then
+    git add -A
+    git commit -m "Release ${VERSION}"
+    git push -u origin "release-${VERSION}"
+  else
+    printf "Dry run: skipping commit and push for %s\n" "$SDK"
+  fi
 
   popd
 }

@@ -31,6 +31,10 @@ for FILE in "${SRC_DIR}"/*."${EXT}"; do
   [ -f "$FILE" ] || continue
   BASENAME=$(basename "$FILE" ".$EXT")
 
+  if [[ "$BASENAME" != *Example ]]; then
+    continue
+  fi
+
   SKIP=0
   for PASCAL in "${HIDDEN_PASCALS[@]}"; do
     if [ "$BASENAME" = "${PASCAL}Example" ]; then
