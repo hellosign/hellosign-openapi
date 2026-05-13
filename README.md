@@ -116,6 +116,16 @@ The [reset-sdks](reset-sdks) script resets SDK repos in [/repos](repos) back to 
 ./reset-sdks python,node,ruby       # reset specific SDKs
 ```
 
+### Updating Dev Versions
+
+After a release, the dev versions in [/sdks](sdks) should be bumped to match. The [update-dev-versions](update-dev-versions) script reads the released version from `repos/[SDK]/VERSION` and updates `sdks/[SDK]/VERSION` and `sdks/[SDK]/openapi-config.yaml` with the corresponding `-dev` suffix (e.g. `1.11.0` -> `1.11-dev`).
+
+```bash
+./update-dev-versions                # all SDKs
+./update-dev-versions ruby           # single SDK
+./update-dev-versions python,node    # specific SDKs
+```
+
 ### Changes to Generated SDK Code
 
 We generate our SDKs using the [OpenAPI Generator](https://openapi-generator.tech/) tool. This tool reads the contents of the [openapi-sdk.yaml](openapi-sdk.yaml) file. It also reads related examples from the [/examples](examples) directory and embeds the contents into the generated documentation.
