@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+ALL_SDKS=( dotnet java-v1 java-v2 node php python ruby )
+TARGET="${1:-all}"
+
+if [[ "${TARGET}" == "all" ]]; then
+  SDKS=("${ALL_SDKS[@]}")
+else
+  IFS=',' read -ra SDKS <<< "${TARGET}"
+fi
+
+for SDK in "${SDKS[@]}"; do
+  REPO_VERSION_FILE="${DIR}/repos/${SDK}/VERSION"
+  SDK_VERSION_FILE="${DIR}/sdks/${SDK}/VERSION"
+  SDK_CONFIG_FILE="${DIR}/sdks/${SDK}/openapi-config.yaml"
+
+  if [[ ! -f "${REPO_VERSION_FILE}" ]]; then
+    printf "SKIP: %s (no repos/%s/VERSION)\n" "$SDK" "$SDK"
+    continue
+  fi
+
+  RELEASED=$(cat "${REPO_VERSION_FILE}" | tr -d '[:space:]')
+  MAJOR=$(echo "$RELEASED" | cut -d. -f1)
+  MINOR=$(echo "$RELEASED" | cut -d. -f2)
+  NEW_DEV="${MAJOR}.${MINOR}-dev"
+
+  OLD_DEV=$(cat "${SDK_VERSION_FILE}" | tr -d '[:space:]')
+
+  if [[ "${OLD_DEV}" == "${NEW_DEV}" ]]; then
+    printf "SKIP: %s (already at %s)\n" "$SDK" "$NEW_DEV"
+    continue
+  fi
+
+  printf "%-12s %s -> %s\n" "$SDK" "$OLD_DEV" "$NEW_DEV"
+
+  echo "$NEW_DEV" > "${SDK_VERSION_FILE}"
+
+  if [[ -f "${SDK_CONFIG_FILE}" ]]; then
+    sed -i '' "s/${OLD_DEV}/${NEW_DEV}/g" "${SDK_CONFIG_FILE}"
+
+    if [[ "${SDK}" == "php" ]]; then
+      sed -i '' "s/packageVersion: \"\\^[0-9]*\\.[0-9]*\\.[0-9]*\"/packageVersion: \"^${RELEASED}\"/" "${SDK_CONFIG_FILE}"
+    fi
+  fi
+done
+
+printf "\nDone. Dev versions updated in sdks/.\n"
