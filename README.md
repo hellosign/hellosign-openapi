@@ -82,6 +82,40 @@ To rebuild all SDKs run `./generate-sdks -t all`.
 
 Changes will appear against the [/sdks](sdks) directory. Make sure to include these changes in your pull requests!
 
+### Releasing SDKs
+
+The [copy-sdks](copy-sdks) script copies built SDK files from [/sdks](sdks) into the [/repos](repos) directory, updates version numbers, commits, and pushes a release branch.
+
+You can release a single SDK with an explicit version:
+
+```bash
+./copy-sdks -t php -v 1.4.0
+```
+
+Or release multiple SDKs at once, with automatic version bumps (reads the current version from `repos/[SDK]/VERSION`):
+
+```bash
+./copy-sdks -t python,node,ruby    # specific SDKs, auto-bump minor
+./copy-sdks -t all                  # all SDKs, auto-bump minor
+./copy-sdks -t all -b patch         # all SDKs, auto-bump patch
+./copy-sdks -t all -b major         # all SDKs, auto-bump major
+./copy-sdks -t all -v 2.0.0        # all SDKs, explicit version
+```
+
+The `-b` flag accepts `major`, `minor` (default), or `patch`.
+
+The script shows a summary table of current and new versions and asks for confirmation before proceeding.
+
+### Resetting SDK Repos
+
+The [reset-sdks](reset-sdks) script resets SDK repos in [/repos](repos) back to their main branch (pulling latest from origin). Useful before starting a new release cycle.
+
+```bash
+./reset-sdks                        # reset all SDK repos
+./reset-sdks ruby                   # reset a single SDK
+./reset-sdks python,node,ruby       # reset specific SDKs
+```
+
 ### Changes to Generated SDK Code
 
 We generate our SDKs using the [OpenAPI Generator](https://openapi-generator.tech/) tool. This tool reads the contents of the [openapi-sdk.yaml](openapi-sdk.yaml) file. It also reads related examples from the [/examples](examples) directory and embeds the contents into the generated documentation.
