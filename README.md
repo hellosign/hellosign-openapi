@@ -98,7 +98,8 @@ Or release multiple SDKs at once. Without `-b` or `-v`, the current version from
 ./bake-sdk-release -t all                  # all SDKs, keep current version
 ./bake-sdk-release -t all -b minor         # all SDKs, bump minor
 ./bake-sdk-release -t all -b patch         # all SDKs, bump patch
-./bake-sdk-release -t all -v 2.0.0        # all SDKs, explicit version
+./bake-sdk-release -t all -v 2.0.0         # all SDKs, explicit version
+./bake-sdk-release -t all -d               # all SDKs, do a dry run - no commit, push
 ```
 
 The `-b` flag accepts `major`, `minor`, or `patch`.

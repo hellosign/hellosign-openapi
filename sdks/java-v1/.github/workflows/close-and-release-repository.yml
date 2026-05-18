@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       repository:
-        description: 'Manually trigger gradle closeAndReleaseRepository task in case of timeout from previous publishing'
+        description: 'Manually trigger release in case of timeout from previous publishing'
 
 jobs:
   closeAndReleaseRepository:
@@ -20,7 +20,9 @@ jobs:
           java-version: 11
 
       - name: Publish Release to Maven Central
-        run: ./gradlew closeAndReleaseRepository --no-daemon --no-parallel --repository ${{ inputs.repository }}
+        run: ./gradlew publishAndReleaseToMavenCentral --no-daemon --no-parallel --no-configuration-cache --stacktrace
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
