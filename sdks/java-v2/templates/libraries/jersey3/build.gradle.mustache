@@ -7,6 +7,7 @@ group = '{{groupId}}'
 version = '{{artifactVersion}}'
 {{/useCustomTemplateCode}}
 
+{{^useCustomTemplateCode}}
 buildscript {
     repositories {
         mavenCentral()
@@ -14,30 +15,29 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-{{^useCustomTemplateCode}}
         classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.3.0'
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-        classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.25.0'
-{{/useCustomTemplateCode}}
     }
 }
+{{/useCustomTemplateCode}}
 
 {{#useCustomTemplateCode}}
 plugins {
+    id 'java'
     id 'com.vanniktech.maven.publish' version '0.34.0'
     id 'com.diffplug.spotless' version '6.25.0'
 }
 
-apply plugin: 'java'
-apply plugin: 'maven-publish'
-apply plugin: 'signing'
-
 group = '{{groupId}}'
-archivesBaseName = '{{artifactId}}'
 version = '{{artifactVersion}}'
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+
+base {
+    archivesName.set('{{artifactId}}')
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
 
 {{/useCustomTemplateCode}}
 repositories {
@@ -123,16 +123,12 @@ if(hasProperty('target') && target == 'android') {
 }
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-if (JavaVersion.current().isJava8Compatible()) {
-    tasks.withType(Javadoc) {
-        // disable the crazy super-strict doclint tool in Java 8
-        //noinspection SpellCheckingInspection
+tasks.withType(Javadoc).configureEach {
     options.addStringOption('Xdoclint:none', '-quiet')
-    }
 }
 
 task javadocJar(type: Jar) {
@@ -160,53 +156,6 @@ processResources {
 
 artifacts {
     archives javadocJar, sourcesJar, fatJar
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            pom {
-                name = 'Dropbox Sign'
-                packaging = 'jar'
-                // optionally artifactId can be defined here
-                artifactId = '{{artifactId}}'
-                description = 'Use the Dropbox SIgn Java SDK to connect your Java app to Dropbox Sign\'s service in microseconds!'
-                url = 'https://www.hellosign.com/'
-
-                scm {
-                    connection = '{{scmConnection}}'
-                    developerConnection = '{{scmDeveloperConnection}}'
-                    url = '{{scmUrl}}'
-                }
-
-                licenses {
-                    license {
-                        name = '{{licenseName}}'
-                        url = 'http://www.opensource.org/licenses/mit-license.php'
-                    }
-                }
-
-                developers {
-                    developer {
-                        name = '{{developerName}}'
-                        email = '{{developerEmail}}'
-                        url = 'https://www.hellosign.com'
-                    }
-                }
-            }
-        }
-    }
-    repositories {
-        maven {
-            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-            credentials {
-                username findProperty('ossrhUsername')
-                password findProperty('ossrhPassword')
-            }
-        }
-    }
 }
 {{/useCustomTemplateCode}}
 
