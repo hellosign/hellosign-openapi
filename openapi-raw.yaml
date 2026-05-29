@@ -13468,6 +13468,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestSigned:
       title: 'Signature Request Signed Event'
       required:
@@ -13488,6 +13489,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestSent:
       title: 'Signature Request Sent Event'
       required:
@@ -13508,6 +13510,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestAllSigned:
       title: 'Signature Request All Signed Event'
       required:
@@ -13528,6 +13531,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestEmailBounce:
       title: 'Signature Request Email Bounce Event'
       required:
@@ -13548,6 +13552,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestRemind:
       title: 'Signature Request Remind Event'
       required:
@@ -13568,6 +13573,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestIncompleteQes:
       title: 'Signature Request Incomplete QES Event'
       required:
@@ -13588,6 +13594,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestDestroyed:
       title: 'Signature Request Destroyed Event'
       required:
@@ -13608,6 +13615,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestCanceled:
       title: 'Signature Request Canceled Event'
       required:
@@ -13628,6 +13636,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestDownloadable:
       title: 'Signature Request Downloadable Event'
       required:
@@ -13648,6 +13657,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestDeclined:
       title: 'Signature Request Declined Event'
       required:
@@ -13668,6 +13678,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestReassigned:
       title: 'Signature Request Reassigned Event'
       required:
@@ -13688,6 +13699,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestInvalid:
       title: 'Signature Request Invalid Event'
       required:
@@ -13708,6 +13720,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestPrepared:
       title: 'Signature Request Prepared Event'
       required:
@@ -13728,6 +13741,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestExpired:
       title: 'Signature Request Expired Event'
       required:
@@ -13748,6 +13762,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignatureRequestSignerRemoved:
       title: 'Signature Request Signer Removed Event'
       required:
@@ -13768,6 +13783,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackUnknownError:
       title: 'Unknown Error Event'
       required:
@@ -13788,6 +13804,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackFileError:
       title: 'File Error Event'
       required:
@@ -13808,6 +13825,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackSignUrlInvalid:
       title: 'Sign URL Invalid Event'
       required:
@@ -13828,6 +13846,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackAccountConfirmed:
       title: 'Account Confirmed Event'
       required:
@@ -13848,6 +13867,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackTemplateCreated:
       title: 'Template Created Event'
       required:
@@ -13868,6 +13888,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackTemplateError:
       title: 'Template Error Event'
       required:
@@ -13888,6 +13909,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackCallbackTest:
       title: 'Callback Test Event'
       required:
@@ -13906,6 +13928,7 @@ components:
       type: object
       x-fern-audiences:
         - events
+      x-hideOn: sdk
     EventCallbackPayload:
       title: 'Event Callback Payload'
       description: 'JSON payload delivered for a webhook event. The concrete shape is selected by `event.event_type`.'
@@ -13958,6 +13981,7 @@ components:
           $ref: '#/components/schemas/EventCallbackCallbackTest'
       x-fern-audiences:
         - events
+      x-hideOn: sdk
   responses:
     EventCallbackResponse:
       description: 'successful operation'
