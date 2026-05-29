@@ -929,6 +929,47 @@ paths:
         seo:
           title: '_t__ApiAppList::SEO::TITLE'
           description: '_t__ApiAppList::SEO::DESCRIPTION'
+  /notification/retry:
+    post:
+      tags:
+        - 'Callbacks and Events'
+      summary: 'Resend an API notification asynchronously.'
+      description: 'Queues an API notification by event_type and id. A new notification event is generated from current object state.'
+      operationId: apiNotificationRetry
+      responses:
+        '202':
+          description: 'Resend queued'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - request_signature
+            - signature_request_access
+      x-hideOn:
+        - sdk
+        - doc
   '/bulk_send_job/{bulk_send_job_id}':
     get:
       tags:
@@ -7842,6 +7883,130 @@ paths:
         seo:
           title: '_t__UnclaimedDraftEditAndResend::SEO::TITLE'
           description: '_t__UnclaimedDraftEditAndResend::SEO::DESCRIPTION'
+  /webhooks/account:
+    post:
+      tags:
+        - 'Callbacks and Events'
+      summary: '_t__OpenApi::ACCOUNT_CALLBACK::SUMMARY'
+      description: '_md__OpenApi::ACCOUNT_CALLBACK::DESCRIPTION'
+      operationId: accountUpdateEventCallback
+      requestBody:
+        description: '_t__EventCallbackAccountRequest::DESCRIPTION'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventCallbackRequest'
+            examples:
+              signature_request_sent_example:
+                $ref: '#/components/examples/EventCallbackAccountSignatureRequestSent'
+              template_created_example:
+                $ref: '#/components/examples/EventCallbackAccountTemplateCreated'
+      responses:
+        '200':
+          $ref: '#/components/responses/EventCallbackResponse'
+      security: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/EventCallbackExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/EventCallbackExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/EventCallbackExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/EventCallbackExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/EventCallbackExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/EventCallbackExample.py
+      x-meta:
+        seo:
+          title: '_t__accountUpdateEventCallback::SEO::TITLE'
+          description: '_t__accountUpdateEventCallback::SEO::DESCRIPTION'
+      x-hideOn: sdk
+      x-fern-webhook: true
+      x-fern-audiences:
+        - events
+  /webhooks/app:
+    post:
+      tags:
+        - 'Callbacks and Events'
+      summary: '_t__OpenApi::APP_CALLBACK::SUMMARY'
+      description: '_md__OpenApi::APP_CALLBACK::DESCRIPTION'
+      operationId: apiAppCreateEventCallback
+      requestBody:
+        description: '_t__EventCallbackAppRequest::DESCRIPTION'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventCallbackRequest'
+            examples:
+              account_confirmed_example:
+                $ref: '#/components/examples/EventCallbackAppAccountConfirmed'
+              signature_request_sent_example:
+                $ref: '#/components/examples/EventCallbackAppSignatureRequestSent'
+              template_created_example:
+                $ref: '#/components/examples/EventCallbackAppTemplateCreated'
+      responses:
+        '200':
+          $ref: '#/components/responses/EventCallbackResponse'
+      security: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/EventCallbackExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/EventCallbackExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/EventCallbackExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/EventCallbackExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/EventCallbackExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/EventCallbackExample.py
+      x-meta:
+        seo:
+          title: '_t__appCreateEventCallback::SEO::TITLE'
+          description: '_t__appCreateEventCallback::SEO::DESCRIPTION'
+      x-hideOn: sdk
+      x-fern-webhook: true
+      x-fern-audiences:
+        - events
 components:
   schemas:
     AccountCreateRequest:
@@ -13132,6 +13297,8 @@ components:
         template:
           $ref: '#/components/schemas/TemplateResponse'
       type: object
+      x-fern-audiences:
+        - events
     EventCallbackRequestEvent:
       description: '_t__EventCallbackRequestEvent::DESCRIPTION'
       required:
@@ -13175,6 +13342,8 @@ components:
         event_metadata:
           $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
       type: object
+      x-fern-audiences:
+        - events
     EventCallbackRequestEventMetadata:
       description: '_t__EventCallbackRequestEventMetadata::DESCRIPTION'
       properties:
@@ -13195,6 +13364,8 @@ components:
           type: string
           nullable: true
       type: object
+      x-fern-audiences:
+        - events
   responses:
     EventCallbackResponse:
       description: 'successful operation'
@@ -13203,6 +13374,8 @@ components:
           schema:
             type: string
             default: 'Hello API Event Received'
+      x-fern-audiences:
+        - events
   examples:
     AccountCreateRequest:
       summary: 'Default Example'
@@ -13711,47 +13884,32 @@ components:
       summary: '_t__EventCallbackAccountSignatureRequestSentExample::SUMMARY'
       value:
         $ref: examples/json/EventCallbackAccountSignatureRequestSent.json
+      x-fern-audiences:
+        - events
     EventCallbackAccountTemplateCreated:
       summary: '_t__EventCallbackAccountTemplateCreatedExample::SUMMARY'
       value:
         $ref: examples/json/EventCallbackAccountTemplateCreated.json
+      x-fern-audiences:
+        - events
     EventCallbackAppAccountConfirmed:
       summary: '_t__EventCallbackAppAccountConfirmedExample::SUMMARY'
       value:
         $ref: examples/json/EventCallbackAppAccountConfirmed.json
+      x-fern-audiences:
+        - events
     EventCallbackAppSignatureRequestSent:
       summary: '_t__EventCallbackAppSignatureRequestSentExample::SUMMARY'
       value:
         $ref: examples/json/EventCallbackAppSignatureRequestSent.json
+      x-fern-audiences:
+        - events
     EventCallbackAppTemplateCreated:
       summary: '_t__EventCallbackAppTemplateCreatedExample::SUMMARY'
       value:
         $ref: examples/json/EventCallbackAppTemplateCreated.json
-  requestBodies:
-    EventCallbackAccountRequest:
-      description: '_t__EventCallbackAccountRequest::DESCRIPTION'
-      content:
-        multipart/form-data:
-          schema:
-            $ref: '#/components/schemas/EventCallbackRequest'
-          examples:
-            signature_request_sent_example:
-              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSent'
-            template_created_example:
-              $ref: '#/components/examples/EventCallbackAccountTemplateCreated'
-    EventCallbackAppRequest:
-      description: '_t__EventCallbackAppRequest::DESCRIPTION'
-      content:
-        multipart/form-data:
-          schema:
-            $ref: '#/components/schemas/EventCallbackRequest'
-          examples:
-            account_confirmed_example:
-              $ref: '#/components/examples/EventCallbackAppAccountConfirmed'
-            signature_request_sent_example:
-              $ref: '#/components/examples/EventCallbackAppSignatureRequestSent'
-            template_created_example:
-              $ref: '#/components/examples/EventCallbackAppTemplateCreated'
+      x-fern-audiences:
+        - events
   headers:
     X-RateLimit-Limit:
       description: '_t__Common::RateLimiting::LIMIT'

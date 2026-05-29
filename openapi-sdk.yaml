@@ -13745,6 +13745,8 @@ components:
         template:
           $ref: '#/components/schemas/TemplateResponse'
       type: object
+      x-fern-audiences:
+        - events
     EventCallbackRequestEvent:
       description: 'Basic information about the event that occurred.'
       required:
@@ -13788,6 +13790,8 @@ components:
         event_metadata:
           $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
       type: object
+      x-fern-audiences:
+        - events
     EventCallbackRequestEventMetadata:
       description: 'Specific metadata about the event.'
       properties:
@@ -13808,6 +13812,8 @@ components:
           type: string
           nullable: true
       type: object
+      x-fern-audiences:
+        - events
   responses:
     EventCallbackResponse:
       description: 'successful operation'
@@ -13816,6 +13822,8 @@ components:
           schema:
             type: string
             default: 'Hello API Event Received'
+      x-fern-audiences:
+        - events
   examples:
     AccountCreateRequest:
       summary: 'Default Example'
@@ -14317,51 +14325,32 @@ components:
       summary: 'Example: signature_request_sent'
       value:
         $ref: examples/json/EventCallbackAccountSignatureRequestSent.json
+      x-fern-audiences:
+        - events
     EventCallbackAccountTemplateCreated:
       summary: 'Example: template_created'
       value:
         $ref: examples/json/EventCallbackAccountTemplateCreated.json
+      x-fern-audiences:
+        - events
     EventCallbackAppAccountConfirmed:
       summary: 'Example: account_confirmed'
       value:
         $ref: examples/json/EventCallbackAppAccountConfirmed.json
+      x-fern-audiences:
+        - events
     EventCallbackAppSignatureRequestSent:
       summary: 'Example: signature_request_sent'
       value:
         $ref: examples/json/EventCallbackAppSignatureRequestSent.json
+      x-fern-audiences:
+        - events
     EventCallbackAppTemplateCreated:
       summary: 'Example: template_created'
       value:
         $ref: examples/json/EventCallbackAppTemplateCreated.json
-  requestBodies:
-    EventCallbackAccountRequest:
-      description: |-
-        **Account Callback Payloads --**
-              Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
-      content:
-        multipart/form-data:
-          schema:
-            $ref: '#/components/schemas/EventCallbackRequest'
-          examples:
-            signature_request_sent_example:
-              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSent'
-            template_created_example:
-              $ref: '#/components/examples/EventCallbackAccountTemplateCreated'
-    EventCallbackAppRequest:
-      description: |-
-        **API App Callback Payloads --**
-        Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
-      content:
-        multipart/form-data:
-          schema:
-            $ref: '#/components/schemas/EventCallbackRequest'
-          examples:
-            account_confirmed_example:
-              $ref: '#/components/examples/EventCallbackAppAccountConfirmed'
-            signature_request_sent_example:
-              $ref: '#/components/examples/EventCallbackAppSignatureRequestSent'
-            template_created_example:
-              $ref: '#/components/examples/EventCallbackAppTemplateCreated'
+      x-fern-audiences:
+        - events
   headers:
     X-RateLimit-Limit:
       description: 'The maximum number of requests per hour that you can make.'
