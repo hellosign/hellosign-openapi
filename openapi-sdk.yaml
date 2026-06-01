@@ -14489,6 +14489,35 @@ components:
         $ref: examples/json/EventCallbackCallbackTest.json
       x-fern-audiences:
         - events
+  requestBodies:
+    EventCallbackAccountRequest:
+      description: |-
+        **Account Callback Payloads --**
+              Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/EventCallbackRequest'
+          examples:
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSent'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreated'
+    EventCallbackAppRequest:
+      description: |-
+        **API App Callback Payloads --**
+        Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/EventCallbackRequest'
+          examples:
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackAppAccountConfirmed'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackAppSignatureRequestSent'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAppTemplateCreated'
   headers:
     X-RateLimit-Limit:
       description: 'The maximum number of requests per hour that you can make.'
@@ -14537,100 +14566,4 @@ security:
 externalDocs:
   description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'
-x-webhooks:
-  accountCallback:
-    post:
-      summary: 'Account Callbacks'
-      operationId: accountUpdateEventCallback
-      description:
-        $ref: ./markdown/en/descriptions/account-callback-description.md
-      x-meta:
-        seo:
-          title: 'Account Callbacks | API Documentation | Dropbox Sign for Developers'
-          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the account level, click here.'
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/EventCallbackExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/EventCallbackExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/EventCallbackExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/EventCallbackExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/EventCallbackExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/EventCallbackExample.py
-      tags:
-        - 'Callbacks and Events'
-      requestBody:
-        $ref: '#/components/requestBodies/EventCallbackAccountRequest'
-      responses:
-        200:
-          $ref: '#/components/responses/EventCallbackResponse'
-  appCallback:
-    post:
-      summary: 'App Callbacks'
-      description:
-        $ref: ./markdown/en/descriptions/api-app-callback-description.md
-      operationId: apiAppCreateEventCallback
-      x-meta:
-        seo:
-          title: 'App Callbacks | API Documentation | Dropbox Sign for Developers'
-          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the App level, click here.'
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/EventCallbackExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/EventCallbackExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/EventCallbackExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/EventCallbackExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/EventCallbackExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/EventCallbackExample.py
-      tags:
-        - 'Callbacks and Events'
-      requestBody:
-        $ref: '#/components/requestBodies/EventCallbackAppRequest'
-      responses:
-        200:
-          $ref: '#/components/responses/EventCallbackResponse'
+x-webhooks: []
