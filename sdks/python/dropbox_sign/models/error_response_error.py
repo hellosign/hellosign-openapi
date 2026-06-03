@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,6 +37,38 @@ class ErrorResponseError(BaseModel):
         default=None, description="Path at which an error occurred."
     )
     __properties: ClassVar[List[str]] = ["error_msg", "error_name", "error_path"]
+
+    @field_validator("error_name")
+    def error_name_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(
+            [
+                "bad_request",
+                "unauthorized",
+                "payment_required",
+                "forbidden",
+                "not_found",
+                "method_not_supported",
+                "conflict",
+                "deleted",
+                "unprocessable_entity",
+                "exceeded_rate",
+                "max_faxes",
+                "unavailable",
+                "maintenance",
+                "invalid_recipient",
+                "invalid_reminder",
+                "team_invite_failed",
+                "signature_request_cancel_failed",
+                "signature_request_remove_failed",
+                "signature_request_expired",
+                "unknown",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('bad_request', 'unauthorized', 'payment_required', 'forbidden', 'not_found', 'method_not_supported', 'conflict', 'deleted', 'unprocessable_entity', 'exceeded_rate', 'max_faxes', 'unavailable', 'maintenance', 'invalid_recipient', 'invalid_reminder', 'team_invite_failed', 'signature_request_cancel_failed', 'signature_request_remove_failed', 'signature_request_expired', 'unknown')"
+            )
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

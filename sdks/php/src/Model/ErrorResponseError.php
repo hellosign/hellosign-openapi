@@ -233,6 +233,58 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const ERROR_NAME_BAD_REQUEST = 'bad_request';
+    public const ERROR_NAME_UNAUTHORIZED = 'unauthorized';
+    public const ERROR_NAME_PAYMENT_REQUIRED = 'payment_required';
+    public const ERROR_NAME_FORBIDDEN = 'forbidden';
+    public const ERROR_NAME_NOT_FOUND = 'not_found';
+    public const ERROR_NAME_METHOD_NOT_SUPPORTED = 'method_not_supported';
+    public const ERROR_NAME_CONFLICT = 'conflict';
+    public const ERROR_NAME_DELETED = 'deleted';
+    public const ERROR_NAME_UNPROCESSABLE_ENTITY = 'unprocessable_entity';
+    public const ERROR_NAME_EXCEEDED_RATE = 'exceeded_rate';
+    public const ERROR_NAME_MAX_FAXES = 'max_faxes';
+    public const ERROR_NAME_UNAVAILABLE = 'unavailable';
+    public const ERROR_NAME_MAINTENANCE = 'maintenance';
+    public const ERROR_NAME_INVALID_RECIPIENT = 'invalid_recipient';
+    public const ERROR_NAME_INVALID_REMINDER = 'invalid_reminder';
+    public const ERROR_NAME_TEAM_INVITE_FAILED = 'team_invite_failed';
+    public const ERROR_NAME_SIGNATURE_REQUEST_CANCEL_FAILED = 'signature_request_cancel_failed';
+    public const ERROR_NAME_SIGNATURE_REQUEST_REMOVE_FAILED = 'signature_request_remove_failed';
+    public const ERROR_NAME_SIGNATURE_REQUEST_EXPIRED = 'signature_request_expired';
+    public const ERROR_NAME_UNKNOWN = 'unknown';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getErrorNameAllowableValues()
+    {
+        return [
+            self::ERROR_NAME_BAD_REQUEST,
+            self::ERROR_NAME_UNAUTHORIZED,
+            self::ERROR_NAME_PAYMENT_REQUIRED,
+            self::ERROR_NAME_FORBIDDEN,
+            self::ERROR_NAME_NOT_FOUND,
+            self::ERROR_NAME_METHOD_NOT_SUPPORTED,
+            self::ERROR_NAME_CONFLICT,
+            self::ERROR_NAME_DELETED,
+            self::ERROR_NAME_UNPROCESSABLE_ENTITY,
+            self::ERROR_NAME_EXCEEDED_RATE,
+            self::ERROR_NAME_MAX_FAXES,
+            self::ERROR_NAME_UNAVAILABLE,
+            self::ERROR_NAME_MAINTENANCE,
+            self::ERROR_NAME_INVALID_RECIPIENT,
+            self::ERROR_NAME_INVALID_REMINDER,
+            self::ERROR_NAME_TEAM_INVITE_FAILED,
+            self::ERROR_NAME_SIGNATURE_REQUEST_CANCEL_FAILED,
+            self::ERROR_NAME_SIGNATURE_REQUEST_REMOVE_FAILED,
+            self::ERROR_NAME_SIGNATURE_REQUEST_EXPIRED,
+            self::ERROR_NAME_UNKNOWN,
+        ];
+    }
+
     /**
      * Associative array for storing property values
      *
@@ -304,6 +356,15 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
         if ($this->container['error_name'] === null) {
             $invalidProperties[] = "'error_name' can't be null";
         }
+        $allowedValues = $this->getErrorNameAllowableValues();
+        if (!is_null($this->container['error_name']) && !in_array($this->container['error_name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'error_name', must be one of '%s'",
+                $this->container['error_name'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -366,6 +427,16 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         if (is_null($error_name)) {
             throw new InvalidArgumentException('non-nullable error_name cannot be null');
+        }
+        $allowedValues = $this->getErrorNameAllowableValues();
+        if (!in_array($error_name, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'error_name', must be one of '%s'",
+                    $error_name,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['error_name'] = $error_name;
 

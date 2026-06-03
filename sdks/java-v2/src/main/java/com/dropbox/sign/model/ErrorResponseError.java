@@ -44,9 +44,80 @@ public class ErrorResponseError {
   @jakarta.annotation.Nonnull
   private String errorMsg;
 
+  /**
+   * Name of the error.
+   */
+  public enum ErrorNameEnum {
+    BAD_REQUEST(String.valueOf("bad_request")),
+    
+    UNAUTHORIZED(String.valueOf("unauthorized")),
+    
+    PAYMENT_REQUIRED(String.valueOf("payment_required")),
+    
+    FORBIDDEN(String.valueOf("forbidden")),
+    
+    NOT_FOUND(String.valueOf("not_found")),
+    
+    METHOD_NOT_SUPPORTED(String.valueOf("method_not_supported")),
+    
+    CONFLICT(String.valueOf("conflict")),
+    
+    DELETED(String.valueOf("deleted")),
+    
+    UNPROCESSABLE_ENTITY(String.valueOf("unprocessable_entity")),
+    
+    EXCEEDED_RATE(String.valueOf("exceeded_rate")),
+    
+    MAX_FAXES(String.valueOf("max_faxes")),
+    
+    UNAVAILABLE(String.valueOf("unavailable")),
+    
+    MAINTENANCE(String.valueOf("maintenance")),
+    
+    INVALID_RECIPIENT(String.valueOf("invalid_recipient")),
+    
+    INVALID_REMINDER(String.valueOf("invalid_reminder")),
+    
+    TEAM_INVITE_FAILED(String.valueOf("team_invite_failed")),
+    
+    SIGNATURE_REQUEST_CANCEL_FAILED(String.valueOf("signature_request_cancel_failed")),
+    
+    SIGNATURE_REQUEST_REMOVE_FAILED(String.valueOf("signature_request_remove_failed")),
+    
+    SIGNATURE_REQUEST_EXPIRED(String.valueOf("signature_request_expired")),
+    
+    UNKNOWN(String.valueOf("unknown"));
+
+    private String value;
+
+    ErrorNameEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ErrorNameEnum fromValue(String value) {
+      for (ErrorNameEnum b : ErrorNameEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_ERROR_NAME = "error_name";
   @jakarta.annotation.Nonnull
-  private String errorName;
+  private ErrorNameEnum errorName;
 
   public static final String JSON_PROPERTY_ERROR_PATH = "error_path";
   @jakarta.annotation.Nullable
@@ -95,7 +166,7 @@ public class ErrorResponseError {
   }
 
 
-  public ErrorResponseError errorName(@jakarta.annotation.Nonnull String errorName) {
+  public ErrorResponseError errorName(@jakarta.annotation.Nonnull ErrorNameEnum errorName) {
     this.errorName = errorName;
     return this;
   }
@@ -108,14 +179,14 @@ public class ErrorResponseError {
   @JsonProperty(JSON_PROPERTY_ERROR_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getErrorName() {
+  public ErrorNameEnum getErrorName() {
     return errorName;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ERROR_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setErrorName(@jakarta.annotation.Nonnull String errorName) {
+  public void setErrorName(@jakarta.annotation.Nonnull ErrorNameEnum errorName) {
     this.errorName = errorName;
   }
 
