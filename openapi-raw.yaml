@@ -11522,6 +11522,68 @@ components:
         error_name:
           description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
+          enum:
+            - bad_request
+            - unauthorized
+            - payment_required
+            - forbidden
+            - not_found
+            - method_not_supported
+            - conflict
+            - deleted
+            - unprocessable_entity
+            - exceeded_rate
+            - max_faxes
+            - unavailable
+            - maintenance
+            - invalid_recipient
+            - invalid_reminder
+            - team_invite_failed
+            - signature_request_cancel_failed
+            - signature_request_remove_failed
+            - signature_request_expired
+            - unknown
+          x-fern-enum:
+            bad_request:
+              description: 'The request contained invalid or malformed parameters.'
+            unauthorized:
+              description: 'The credentials supplied are missing or invalid.'
+            payment_required:
+              description: 'The account must be credited or upgraded to perform this action.'
+            forbidden:
+              description: 'The action is not allowed for these credentials or in the current context.'
+            not_found:
+              description: 'Nothing matches the requested resource.'
+            method_not_supported:
+              description: 'The HTTP method is not supported for this endpoint.'
+            conflict:
+              description: 'The request was well-formed but conflicts with the current state.'
+            deleted:
+              description: 'The request was cancelled or deleted.'
+            unprocessable_entity:
+              description: 'The request was understood but the target entity cannot be processed.'
+            exceeded_rate:
+              description: "Your account's API request rate limit has been exceeded."
+            max_faxes:
+              description: 'Too many fax transmissions are currently pending or transmitting.'
+            unavailable:
+              description: 'The service is temporarily unavailable.'
+            maintenance:
+              description: 'The request could not be completed because the site is under maintenance.'
+            invalid_recipient:
+              description: 'The recipient (fax number or email address) is invalid.'
+            invalid_reminder:
+              description: 'The signature request reminder was invalid.'
+            team_invite_failed:
+              description: 'The team invitation could not be completed.'
+            signature_request_cancel_failed:
+              description: 'The signature request could not be cancelled.'
+            signature_request_remove_failed:
+              description: 'Access to the signature request could not be removed.'
+            signature_request_expired:
+              description: 'The signature request has expired.'
+            unknown:
+              description: 'An unexpected error occurred.'
       type: object
     FaxResponse:
       required:
@@ -14705,3 +14767,188 @@ x-webhooks:
       responses:
         '200':
           $ref: '#/components/responses/EventCallbackResponse'
+x-error-codes:
+  bad_request:
+    http_status: 400
+    summary: 'The request contained invalid or malformed parameters.'
+    cause: 'A parameter failed validation, or the request body was malformed.'
+    remediation: 'Inspect error_msg and error_path, correct the offending parameter, and resend.'
+    retryable: 'no'
+    category: validation
+  unauthorized:
+    http_status: 401
+    summary: 'The credentials supplied are missing or invalid.'
+    cause: 'Missing, malformed, or invalid API key or OAuth access token.'
+    remediation: 'Verify the API key or OAuth token and the Authorization header, then retry.'
+    retryable: 'no'
+    category: auth
+  payment_required:
+    http_status: 402
+    summary: 'The account must be credited or upgraded to perform this action.'
+    cause: 'The action requires a paid plan, additional quota, or API credits.'
+    remediation: 'Upgrade the plan or add the required credits/quota, then retry.'
+    retryable: 'no'
+    category: plan
+  forbidden:
+    http_status: 403
+    summary: 'The action is not allowed for these credentials or in the current context.'
+    cause: 'The authenticated account lacks access to the resource or operation.'
+    remediation: 'Confirm the account has access to the resource and the required permissions.'
+    retryable: 'no'
+    category: auth
+  not_found:
+    http_status: 404
+    summary: 'Nothing matches the requested resource.'
+    cause: 'The resource id does not exist or is not visible to this account.'
+    remediation: 'Verify the id and that the resource belongs to the authenticated account.'
+    retryable: 'no'
+    category: not_found
+  method_not_supported:
+    http_status: 405
+    summary: 'The HTTP method is not supported for this endpoint.'
+    cause: 'The request used a verb the endpoint does not accept.'
+    remediation: 'Use the HTTP method documented for the endpoint.'
+    retryable: 'no'
+    category: validation
+  conflict:
+    http_status: 409
+    summary: 'The request was well-formed but conflicts with the current state.'
+    cause: 'The target resource is in a state incompatible with the request.'
+    remediation: 'Re-read the resource state, resolve the conflict, then retry.'
+    retryable: conditional
+    category: conflict
+  deleted:
+    http_status: 410
+    summary: 'The request was cancelled or deleted.'
+    cause: 'The resource has been cancelled or removed and is no longer available.'
+    remediation: 'Do not retry; the resource is permanently gone.'
+    retryable: 'no'
+    category: not_found
+  unprocessable_entity:
+    http_status: 422
+    summary: 'The request was understood but the target entity cannot be processed.'
+    cause: 'The resource is still being processed, or it is in an error state.'
+    remediation: 'If the resource is still processing, wait and retry; if it is in an error state, recreate/resend it instead of retrying.'
+    retryable: conditional
+    category: validation
+    backoff: 'If still processing, retry with exponential backoff; if in an error state, do not retry.'
+  exceeded_rate:
+    http_status: 429
+    summary: "Your account's API request rate limit has been exceeded."
+    cause: 'Too many requests were sent within the rate-limit window for this request type.'
+    remediation: 'Pace requests using the X-RateLimit-* response headers and retry after the window resets.'
+    retryable: 'yes'
+    category: rate_limit
+    backoff: 'Honor X-Ratelimit-Reset (Unix epoch); otherwise exponential backoff with jitter. No Retry-After header is sent.'
+  max_faxes:
+    http_status: 429
+    summary: 'Too many fax transmissions are currently pending or transmitting.'
+    cause: 'The account has reached the limit of concurrent in-flight fax transmissions.'
+    remediation: 'Wait for outstanding transmissions to complete, then retry.'
+    retryable: 'yes'
+    category: rate_limit
+    backoff: 'Retry with exponential backoff once pending transmissions clear.'
+  unavailable:
+    http_status: 503
+    summary: 'The service is temporarily unavailable.'
+    cause: 'A downstream dependency or the service itself is temporarily unavailable.'
+    remediation: 'Retry later with exponential backoff.'
+    retryable: 'yes'
+    category: maintenance
+    backoff: 'Retry later with exponential backoff and jitter.'
+  maintenance:
+    http_status: 503
+    summary: 'The request could not be completed because the site is under maintenance.'
+    cause: 'The API is in a scheduled maintenance window.'
+    remediation: 'Retry once the maintenance window ends.'
+    retryable: 'yes'
+    category: maintenance
+    backoff: 'Retry later with exponential backoff.'
+  invalid_recipient:
+    http_status: 400
+    summary: 'The recipient (fax number or email address) is invalid.'
+    cause: 'A recipient value did not pass validation.'
+    remediation: 'Correct the recipient value and resend.'
+    retryable: 'no'
+    category: validation
+  invalid_reminder:
+    http_status: 400
+    summary: 'The signature request reminder was invalid.'
+    cause: 'A reminder was attempted against an ineligible request (e.g. embedded, closed, or expired).'
+    remediation: 'Only send reminders for eligible (non-embedded, open) signature requests.'
+    retryable: 'no'
+    category: validation
+  team_invite_failed:
+    http_status: 403
+    summary: 'The team invitation could not be completed.'
+    cause: 'The invitee already belongs to a team, or the invite is otherwise not permitted.'
+    remediation: 'Confirm the invitee is not already on a team before inviting.'
+    retryable: 'no'
+    category: validation
+  signature_request_cancel_failed:
+    http_status: 400
+    summary: 'The signature request could not be cancelled.'
+    cause: 'The caller is not the requester, or the request is already fully executed/closed.'
+    remediation: 'Only the requester can cancel, and only before the request is fully executed.'
+    retryable: 'no'
+    category: conflict
+  signature_request_remove_failed:
+    http_status: 400
+    summary: 'Access to the signature request could not be removed.'
+    cause: 'The caller is not a party to the request, or it is not yet fully executed.'
+    remediation: 'Access can only be removed once the request is fully executed; use /signature_request/cancel for incomplete requests.'
+    retryable: 'no'
+    category: conflict
+  signature_request_expired:
+    http_status:
+      - 400
+      - 403
+    summary: 'The signature request has expired.'
+    cause: 'The operation targets a request whose expiration has passed. Most endpoints return 400; final-copy/download endpoints return 403.'
+    remediation: 'The request can no longer be acted upon; create a new signature request.'
+    retryable: 'no'
+    category: conflict
+  unknown:
+    http_status: 500
+    summary: 'An unexpected error occurred.'
+    cause: 'An unhandled server-side error, or a status code without a more specific error_name.'
+    remediation: 'Retry transient failures; if it persists, contact support with the request details.'
+    retryable: conditional
+    category: server
+    backoff: 'For transient 5xx, retry with exponential backoff; otherwise do not retry.'
+x-error-events:
+  signature_request_invalid:
+    event_type: signature_request_invalid
+    delivery: webhook
+    summary: 'Asynchronous error while processing a signature request.'
+    cause: 'A signature request could not be processed (e.g. invalid tags, fields, or merge data).'
+    remediation: 'Inspect event.event_metadata.event_message in the callback, correct the request, and resend.'
+    retryable: conditional
+  template_error:
+    event_type: template_error
+    delivery: webhook
+    summary: 'Asynchronous error while creating a template.'
+    cause: 'Template file processing failed (e.g. unsupported or corrupt file).'
+    remediation: 'Recreate the template with a valid file; check status in the API dashboard.'
+    retryable: conditional
+  file_error:
+    event_type: file_error
+    delivery: webhook
+    summary: 'Asynchronous error while processing an uploaded file.'
+    cause: 'A file attached to a request could not be processed.'
+    remediation: 'Resend the request with a supported, non-corrupt file.'
+    retryable: conditional
+  sign_url_invalid:
+    event_type: sign_url_invalid
+    delivery: webhook
+    summary: 'An embedded signing URL has expired or become invalid.'
+    cause: 'The embedded sign_url is no longer valid (e.g. expired).'
+    remediation: 'Generate a fresh embedded sign_url via the embedded sign URL endpoint.'
+    retryable: 'yes'
+  unknown_error:
+    event_type: unknown_error
+    delivery: webhook
+    summary: 'An unspecified asynchronous processing error occurred.'
+    cause: 'An unexpected error occurred while processing the request asynchronously.'
+    remediation: 'Check the request status in the API dashboard; retry or contact support if it persists.'
+    retryable: conditional
