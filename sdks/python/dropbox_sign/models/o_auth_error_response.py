@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List
+from dropbox_sign.models.o_auth_error_response_error import OAuthErrorResponseError
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
@@ -26,49 +27,13 @@ import io
 from pydantic import StrictBool
 
 
-class ErrorResponseError(BaseModel):
+class OAuthErrorResponse(BaseModel):
     """
-    Contains information about an error that occurred.
+    OAuthErrorResponse
     """  # noqa: E501
 
-    error_msg: StrictStr = Field(description="Message describing an error.")
-    error_name: StrictStr = Field(description="Name of the error.")
-    error_path: Optional[StrictStr] = Field(
-        default=None, description="Path at which an error occurred."
-    )
-    __properties: ClassVar[List[str]] = ["error_msg", "error_name", "error_path"]
-
-    @field_validator("error_name")
-    def error_name_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(
-            [
-                "bad_request",
-                "unauthorized",
-                "payment_required",
-                "forbidden",
-                "not_found",
-                "conflict",
-                "exceeded_rate",
-                "unknown",
-                "team_invite_failed",
-                "max_faxes",
-                "invalid_recipient",
-                "signature_request_cancel_failed",
-                "signature_request_remove_failed",
-                "maintenance",
-                "deleted",
-                "method_not_supported",
-                "invalid_reminder",
-                "unavailable",
-                "unprocessable_entity",
-                "signature_request_expired",
-            ]
-        ):
-            raise ValueError(
-                "must be one of enum values ('bad_request', 'unauthorized', 'payment_required', 'forbidden', 'not_found', 'conflict', 'exceeded_rate', 'unknown', 'team_invite_failed', 'max_faxes', 'invalid_recipient', 'signature_request_cancel_failed', 'signature_request_remove_failed', 'maintenance', 'deleted', 'method_not_supported', 'invalid_reminder', 'unavailable', 'unprocessable_entity', 'signature_request_expired')"
-            )
-        return value
+    error: OAuthErrorResponseError
+    __properties: ClassVar[List[str]] = ["error"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,7 +66,7 @@ class ErrorResponseError(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ErrorResponseError from a JSON string"""
+        """Create an instance of OAuthErrorResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self, excluded_fields: Set[str] = None) -> Dict[str, Any]:
@@ -120,11 +85,14 @@ class ErrorResponseError(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of error
+        if self.error:
+            _dict["error"] = self.error.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ErrorResponseError from a dict"""
+        """Create an instance of OAuthErrorResponse from a dict"""
         if obj is None:
             return None
 
@@ -133,9 +101,11 @@ class ErrorResponseError(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "error_msg": obj.get("error_msg"),
-                "error_name": obj.get("error_name"),
-                "error_path": obj.get("error_path"),
+                "error": (
+                    OAuthErrorResponseError.from_dict(obj["error"])
+                    if obj.get("error") is not None
+                    else None
+                )
             }
         )
         return _obj
@@ -153,9 +123,7 @@ class ErrorResponseError(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "error_msg": "(str,)",
-            "error_name": "(str,)",
-            "error_path": "(str,)",
+            "error": "(OAuthErrorResponseError,)",
         }
 
     @classmethod

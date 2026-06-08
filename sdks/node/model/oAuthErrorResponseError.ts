@@ -25,21 +25,17 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Contains information about an error that occurred.
+ * _t__OAuthErrorResponseError::DESCRIPTION
  */
-export class ErrorResponseError {
+export class OAuthErrorResponseError {
   /**
-   * Message describing an error.
+   * _t__OAuthErrorResponseError::ERROR_MSG
    */
   "errorMsg": string;
   /**
-   * Name of the error.
+   * _t__OAuthErrorResponseError::ERROR_NAME
    */
-  "errorName": ErrorResponseError.ErrorNameEnum;
-  /**
-   * Path at which an error occurred.
-   */
-  "errorPath"?: string;
+  "errorName": OAuthErrorResponseError.ErrorNameEnum;
 
   static discriminator: string | undefined = undefined;
 
@@ -52,46 +48,32 @@ export class ErrorResponseError {
     {
       name: "errorName",
       baseName: "error_name",
-      type: "ErrorResponseError.ErrorNameEnum",
-    },
-    {
-      name: "errorPath",
-      baseName: "error_path",
-      type: "string",
+      type: "OAuthErrorResponseError.ErrorNameEnum",
     },
   ];
 
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ErrorResponseError.attributeTypeMap;
+    return OAuthErrorResponseError.attributeTypeMap;
   }
 
   /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data: any): ErrorResponseError {
-    return ObjectSerializer.deserialize(data, "ErrorResponseError");
+  static init(data: any): OAuthErrorResponseError {
+    return ObjectSerializer.deserialize(data, "OAuthErrorResponseError");
   }
 }
 
-export namespace ErrorResponseError {
+export namespace OAuthErrorResponseError {
   export enum ErrorNameEnum {
-    BadRequest = "bad_request",
-    Unauthorized = "unauthorized",
+    InvalidGrant = "invalid_grant",
+    InvalidClient = "invalid_client",
+    InvalidRequest = "invalid_request",
+    UnauthorizedClient = "unauthorized_client",
+    UnsupportedGrantType = "unsupported_grant_type",
     PaymentRequired = "payment_required",
-    Forbidden = "forbidden",
-    NotFound = "not_found",
-    Conflict = "conflict",
-    ExceededRate = "exceeded_rate",
-    Unknown = "unknown",
-    TeamInviteFailed = "team_invite_failed",
-    MaxFaxes = "max_faxes",
-    InvalidRecipient = "invalid_recipient",
-    SignatureRequestCancelFailed = "signature_request_cancel_failed",
-    SignatureRequestRemoveFailed = "signature_request_remove_failed",
-    Maintenance = "maintenance",
-    Deleted = "deleted",
-    MethodNotSupported = "method_not_supported",
-    InvalidReminder = "invalid_reminder",
-    Unavailable = "unavailable",
-    UnprocessableEntity = "unprocessable_entity",
-    SignatureRequestExpired = "signature_request_expired",
+    AddonRequired = "addon_required",
+    InvalidScope = "invalid_scope",
+    QuotaReached = "quota_reached",
+    ServerError = "server_error",
+    TemporaryUnavailable = "temporary_unavailable",
   }
 }

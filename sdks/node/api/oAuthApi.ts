@@ -241,7 +241,7 @@ export class OAuthApi {
                 reject,
                 error.response,
                 "4XX",
-                "ErrorResponse"
+                "OAuthErrorResponse"
               )
             ) {
               return;
@@ -377,7 +377,7 @@ export class OAuthApi {
                 reject,
                 error.response,
                 "4XX",
-                "ErrorResponse"
+                "OAuthErrorResponse"
               )
             ) {
               return;

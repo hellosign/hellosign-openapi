@@ -305,6 +305,8 @@ Class | Method | HTTP request | Description
  - [FileResponse](docs/FileResponse.md)
  - [FileResponseDataUri](docs/FileResponseDataUri.md)
  - [ListInfoResponse](docs/ListInfoResponse.md)
+ - [OAuthErrorResponse](docs/OAuthErrorResponse.md)
+ - [OAuthErrorResponseError](docs/OAuthErrorResponseError.md)
  - [OAuthTokenGenerateRequest](docs/OAuthTokenGenerateRequest.md)
  - [OAuthTokenRefreshRequest](docs/OAuthTokenRefreshRequest.md)
  - [OAuthTokenResponse](docs/OAuthTokenResponse.md)

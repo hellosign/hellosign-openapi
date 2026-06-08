@@ -209,6 +209,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [FileResponse](./docs/model/FileResponse.md)
 - [FileResponseDataUri](./docs/model/FileResponseDataUri.md)
 - [ListInfoResponse](./docs/model/ListInfoResponse.md)
+- [OAuthErrorResponse](./docs/model/OAuthErrorResponse.md)
+- [OAuthErrorResponseError](./docs/model/OAuthErrorResponseError.md)
 - [OAuthTokenGenerateRequest](./docs/model/OAuthTokenGenerateRequest.md)
 - [OAuthTokenRefreshRequest](./docs/model/OAuthTokenRefreshRequest.md)
 - [OAuthTokenResponse](./docs/model/OAuthTokenResponse.md)

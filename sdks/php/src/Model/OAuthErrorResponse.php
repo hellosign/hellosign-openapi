@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorResponseError
+ * OAuthErrorResponse
  *
  * PHP version 7.4
  *
@@ -34,14 +34,13 @@ use JsonSerializable;
 use ReturnTypeWillChange;
 
 /**
- * ErrorResponseError Class Doc Comment
+ * OAuthErrorResponse Class Doc Comment
  *
  * @category Class
- * @description Contains information about an error that occurred.
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializable
+class OAuthErrorResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ErrorResponseError';
+    protected static $openAPIModelName = 'OAuthErrorResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +57,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var string[]
      */
     protected static $openAPITypes = [
-        'error_msg' => 'string',
-        'error_name' => 'string',
-        'error_path' => 'string',
+        'error' => '\Dropbox\Sign\Model\OAuthErrorResponseError',
     ];
 
     /**
@@ -71,9 +68,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'error_msg' => null,
-        'error_name' => null,
-        'error_path' => null,
+        'error' => null,
     ];
 
     /**
@@ -82,9 +77,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'error_msg' => false,
-        'error_name' => false,
-        'error_path' => false,
+        'error' => false,
     ];
 
     /**
@@ -165,9 +158,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'error_msg' => 'error_msg',
-        'error_name' => 'error_name',
-        'error_path' => 'error_path',
+        'error' => 'error',
     ];
 
     /**
@@ -176,9 +167,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'error_msg' => 'setErrorMsg',
-        'error_name' => 'setErrorName',
-        'error_path' => 'setErrorPath',
+        'error' => 'setError',
     ];
 
     /**
@@ -187,9 +176,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'error_msg' => 'getErrorMsg',
-        'error_name' => 'getErrorName',
-        'error_path' => 'getErrorPath',
+        'error' => 'getError',
     ];
 
     /**
@@ -233,58 +220,6 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    public const ERROR_NAME_BAD_REQUEST = 'bad_request';
-    public const ERROR_NAME_UNAUTHORIZED = 'unauthorized';
-    public const ERROR_NAME_PAYMENT_REQUIRED = 'payment_required';
-    public const ERROR_NAME_FORBIDDEN = 'forbidden';
-    public const ERROR_NAME_NOT_FOUND = 'not_found';
-    public const ERROR_NAME_CONFLICT = 'conflict';
-    public const ERROR_NAME_EXCEEDED_RATE = 'exceeded_rate';
-    public const ERROR_NAME_UNKNOWN = 'unknown';
-    public const ERROR_NAME_TEAM_INVITE_FAILED = 'team_invite_failed';
-    public const ERROR_NAME_MAX_FAXES = 'max_faxes';
-    public const ERROR_NAME_INVALID_RECIPIENT = 'invalid_recipient';
-    public const ERROR_NAME_SIGNATURE_REQUEST_CANCEL_FAILED = 'signature_request_cancel_failed';
-    public const ERROR_NAME_SIGNATURE_REQUEST_REMOVE_FAILED = 'signature_request_remove_failed';
-    public const ERROR_NAME_MAINTENANCE = 'maintenance';
-    public const ERROR_NAME_DELETED = 'deleted';
-    public const ERROR_NAME_METHOD_NOT_SUPPORTED = 'method_not_supported';
-    public const ERROR_NAME_INVALID_REMINDER = 'invalid_reminder';
-    public const ERROR_NAME_UNAVAILABLE = 'unavailable';
-    public const ERROR_NAME_UNPROCESSABLE_ENTITY = 'unprocessable_entity';
-    public const ERROR_NAME_SIGNATURE_REQUEST_EXPIRED = 'signature_request_expired';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getErrorNameAllowableValues()
-    {
-        return [
-            self::ERROR_NAME_BAD_REQUEST,
-            self::ERROR_NAME_UNAUTHORIZED,
-            self::ERROR_NAME_PAYMENT_REQUIRED,
-            self::ERROR_NAME_FORBIDDEN,
-            self::ERROR_NAME_NOT_FOUND,
-            self::ERROR_NAME_CONFLICT,
-            self::ERROR_NAME_EXCEEDED_RATE,
-            self::ERROR_NAME_UNKNOWN,
-            self::ERROR_NAME_TEAM_INVITE_FAILED,
-            self::ERROR_NAME_MAX_FAXES,
-            self::ERROR_NAME_INVALID_RECIPIENT,
-            self::ERROR_NAME_SIGNATURE_REQUEST_CANCEL_FAILED,
-            self::ERROR_NAME_SIGNATURE_REQUEST_REMOVE_FAILED,
-            self::ERROR_NAME_MAINTENANCE,
-            self::ERROR_NAME_DELETED,
-            self::ERROR_NAME_METHOD_NOT_SUPPORTED,
-            self::ERROR_NAME_INVALID_REMINDER,
-            self::ERROR_NAME_UNAVAILABLE,
-            self::ERROR_NAME_UNPROCESSABLE_ENTITY,
-            self::ERROR_NAME_SIGNATURE_REQUEST_EXPIRED,
-        ];
-    }
-
     /**
      * Associative array for storing property values
      *
@@ -300,15 +235,13 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('error_msg', $data ?? [], null);
-        $this->setIfExists('error_name', $data ?? [], null);
-        $this->setIfExists('error_path', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
     }
 
     /**
      * @deprecated use ::init()
      */
-    public static function fromArray(array $data): ErrorResponseError
+    public static function fromArray(array $data): OAuthErrorResponse
     {
         return self::init($data);
     }
@@ -316,12 +249,12 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Attempt to instantiate and hydrate a new instance of this class
      */
-    public static function init(array $data): ErrorResponseError
+    public static function init(array $data): OAuthErrorResponse
     {
-        /** @var ErrorResponseError */
+        /** @var OAuthErrorResponse */
         return ObjectSerializer::deserialize(
             $data,
-            ErrorResponseError::class,
+            OAuthErrorResponse::class,
         );
     }
 
@@ -350,21 +283,9 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['error_msg'] === null) {
-            $invalidProperties[] = "'error_msg' can't be null";
+        if ($this->container['error'] === null) {
+            $invalidProperties[] = "'error' can't be null";
         }
-        if ($this->container['error_name'] === null) {
-            $invalidProperties[] = "'error_name' can't be null";
-        }
-        $allowedValues = $this->getErrorNameAllowableValues();
-        if (!is_null($this->container['error_name']) && !in_array($this->container['error_name'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'error_name', must be one of '%s'",
-                $this->container['error_name'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -380,92 +301,28 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     }
 
     /**
-     * Gets error_msg
+     * Gets error
      *
-     * @return string
+     * @return OAuthErrorResponseError
      */
-    public function getErrorMsg()
+    public function getError()
     {
-        return $this->container['error_msg'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets error_msg
+     * Sets error
      *
-     * @param string $error_msg message describing an error
+     * @param OAuthErrorResponseError $error error
      *
      * @return self
      */
-    public function setErrorMsg(string $error_msg)
+    public function setError(OAuthErrorResponseError $error)
     {
-        if (is_null($error_msg)) {
-            throw new InvalidArgumentException('non-nullable error_msg cannot be null');
+        if (is_null($error)) {
+            throw new InvalidArgumentException('non-nullable error cannot be null');
         }
-        $this->container['error_msg'] = $error_msg;
-
-        return $this;
-    }
-
-    /**
-     * Gets error_name
-     *
-     * @return string
-     */
-    public function getErrorName()
-    {
-        return $this->container['error_name'];
-    }
-
-    /**
-     * Sets error_name
-     *
-     * @param string $error_name name of the error
-     *
-     * @return self
-     */
-    public function setErrorName(string $error_name)
-    {
-        if (is_null($error_name)) {
-            throw new InvalidArgumentException('non-nullable error_name cannot be null');
-        }
-        $allowedValues = $this->getErrorNameAllowableValues();
-        if (!in_array($error_name, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'error_name', must be one of '%s'",
-                    $error_name,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['error_name'] = $error_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets error_path
-     *
-     * @return string|null
-     */
-    public function getErrorPath()
-    {
-        return $this->container['error_path'];
-    }
-
-    /**
-     * Sets error_path
-     *
-     * @param string|null $error_path path at which an error occurred
-     *
-     * @return self
-     */
-    public function setErrorPath(?string $error_path)
-    {
-        if (is_null($error_path)) {
-            throw new InvalidArgumentException('non-nullable error_path cannot be null');
-        }
-        $this->container['error_path'] = $error_path;
+        $this->container['error'] = $error;
 
         return $this;
     }

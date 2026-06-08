@@ -238,6 +238,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::FileResponse](docs/FileResponse.md)
  - [Dropbox::Sign::FileResponseDataUri](docs/FileResponseDataUri.md)
  - [Dropbox::Sign::ListInfoResponse](docs/ListInfoResponse.md)
+ - [Dropbox::Sign::OAuthErrorResponse](docs/OAuthErrorResponse.md)
+ - [Dropbox::Sign::OAuthErrorResponseError](docs/OAuthErrorResponseError.md)
  - [Dropbox::Sign::OAuthTokenGenerateRequest](docs/OAuthTokenGenerateRequest.md)
  - [Dropbox::Sign::OAuthTokenRefreshRequest](docs/OAuthTokenRefreshRequest.md)
  - [Dropbox::Sign::OAuthTokenResponse](docs/OAuthTokenResponse.md)

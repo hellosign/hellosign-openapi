@@ -71,94 +71,94 @@ namespace Dropbox.Sign.Model
             NotFound = 5,
 
             /// <summary>
-            /// Enum MethodNotSupported for value: method_not_supported
-            /// </summary>
-            [EnumMember(Value = "method_not_supported")]
-            MethodNotSupported = 6,
-
-            /// <summary>
             /// Enum Conflict for value: conflict
             /// </summary>
             [EnumMember(Value = "conflict")]
-            Conflict = 7,
-
-            /// <summary>
-            /// Enum Deleted for value: deleted
-            /// </summary>
-            [EnumMember(Value = "deleted")]
-            Deleted = 8,
-
-            /// <summary>
-            /// Enum UnprocessableEntity for value: unprocessable_entity
-            /// </summary>
-            [EnumMember(Value = "unprocessable_entity")]
-            UnprocessableEntity = 9,
+            Conflict = 6,
 
             /// <summary>
             /// Enum ExceededRate for value: exceeded_rate
             /// </summary>
             [EnumMember(Value = "exceeded_rate")]
-            ExceededRate = 10,
-
-            /// <summary>
-            /// Enum MaxFaxes for value: max_faxes
-            /// </summary>
-            [EnumMember(Value = "max_faxes")]
-            MaxFaxes = 11,
-
-            /// <summary>
-            /// Enum Unavailable for value: unavailable
-            /// </summary>
-            [EnumMember(Value = "unavailable")]
-            Unavailable = 12,
-
-            /// <summary>
-            /// Enum Maintenance for value: maintenance
-            /// </summary>
-            [EnumMember(Value = "maintenance")]
-            Maintenance = 13,
-
-            /// <summary>
-            /// Enum InvalidRecipient for value: invalid_recipient
-            /// </summary>
-            [EnumMember(Value = "invalid_recipient")]
-            InvalidRecipient = 14,
-
-            /// <summary>
-            /// Enum InvalidReminder for value: invalid_reminder
-            /// </summary>
-            [EnumMember(Value = "invalid_reminder")]
-            InvalidReminder = 15,
-
-            /// <summary>
-            /// Enum TeamInviteFailed for value: team_invite_failed
-            /// </summary>
-            [EnumMember(Value = "team_invite_failed")]
-            TeamInviteFailed = 16,
-
-            /// <summary>
-            /// Enum SignatureRequestCancelFailed for value: signature_request_cancel_failed
-            /// </summary>
-            [EnumMember(Value = "signature_request_cancel_failed")]
-            SignatureRequestCancelFailed = 17,
-
-            /// <summary>
-            /// Enum SignatureRequestRemoveFailed for value: signature_request_remove_failed
-            /// </summary>
-            [EnumMember(Value = "signature_request_remove_failed")]
-            SignatureRequestRemoveFailed = 18,
-
-            /// <summary>
-            /// Enum SignatureRequestExpired for value: signature_request_expired
-            /// </summary>
-            [EnumMember(Value = "signature_request_expired")]
-            SignatureRequestExpired = 19,
+            ExceededRate = 7,
 
             /// <summary>
             /// Enum Unknown for value: unknown
             /// </summary>
             [EnumMember(Value = "unknown")]
-            Unknown = 20
+            Unknown = 8,
+
+            /// <summary>
+            /// Enum TeamInviteFailed for value: team_invite_failed
+            /// </summary>
+            [EnumMember(Value = "team_invite_failed")]
+            TeamInviteFailed = 9,
+
+            /// <summary>
+            /// Enum MaxFaxes for value: max_faxes
+            /// </summary>
+            [EnumMember(Value = "max_faxes")]
+            MaxFaxes = 10,
+
+            /// <summary>
+            /// Enum InvalidRecipient for value: invalid_recipient
+            /// </summary>
+            [EnumMember(Value = "invalid_recipient")]
+            InvalidRecipient = 11,
+
+            /// <summary>
+            /// Enum SignatureRequestCancelFailed for value: signature_request_cancel_failed
+            /// </summary>
+            [EnumMember(Value = "signature_request_cancel_failed")]
+            SignatureRequestCancelFailed = 12,
+
+            /// <summary>
+            /// Enum SignatureRequestRemoveFailed for value: signature_request_remove_failed
+            /// </summary>
+            [EnumMember(Value = "signature_request_remove_failed")]
+            SignatureRequestRemoveFailed = 13,
+
+            /// <summary>
+            /// Enum Maintenance for value: maintenance
+            /// </summary>
+            [EnumMember(Value = "maintenance")]
+            Maintenance = 14,
+
+            /// <summary>
+            /// Enum Deleted for value: deleted
+            /// </summary>
+            [EnumMember(Value = "deleted")]
+            Deleted = 15,
+
+            /// <summary>
+            /// Enum MethodNotSupported for value: method_not_supported
+            /// </summary>
+            [EnumMember(Value = "method_not_supported")]
+            MethodNotSupported = 16,
+
+            /// <summary>
+            /// Enum InvalidReminder for value: invalid_reminder
+            /// </summary>
+            [EnumMember(Value = "invalid_reminder")]
+            InvalidReminder = 17,
+
+            /// <summary>
+            /// Enum Unavailable for value: unavailable
+            /// </summary>
+            [EnumMember(Value = "unavailable")]
+            Unavailable = 18,
+
+            /// <summary>
+            /// Enum UnprocessableEntity for value: unprocessable_entity
+            /// </summary>
+            [EnumMember(Value = "unprocessable_entity")]
+            UnprocessableEntity = 19,
+
+            /// <summary>
+            /// Enum SignatureRequestExpired for value: signature_request_expired
+            /// </summary>
+            [EnumMember(Value = "signature_request_expired")]
+            SignatureRequestExpired = 20
         }
 
 

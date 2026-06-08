@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
@@ -26,47 +26,35 @@ import io
 from pydantic import StrictBool
 
 
-class ErrorResponseError(BaseModel):
+class OAuthErrorResponseError(BaseModel):
     """
-    Contains information about an error that occurred.
+    _t__OAuthErrorResponseError::DESCRIPTION
     """  # noqa: E501
 
-    error_msg: StrictStr = Field(description="Message describing an error.")
-    error_name: StrictStr = Field(description="Name of the error.")
-    error_path: Optional[StrictStr] = Field(
-        default=None, description="Path at which an error occurred."
-    )
-    __properties: ClassVar[List[str]] = ["error_msg", "error_name", "error_path"]
+    error_msg: StrictStr = Field(description="_t__OAuthErrorResponseError::ERROR_MSG")
+    error_name: StrictStr = Field(description="_t__OAuthErrorResponseError::ERROR_NAME")
+    __properties: ClassVar[List[str]] = ["error_msg", "error_name"]
 
     @field_validator("error_name")
     def error_name_validate_enum(cls, value):
         """Validates the enum"""
         if value not in set(
             [
-                "bad_request",
-                "unauthorized",
+                "invalid_grant",
+                "invalid_client",
+                "invalid_request",
+                "unauthorized_client",
+                "unsupported_grant_type",
                 "payment_required",
-                "forbidden",
-                "not_found",
-                "conflict",
-                "exceeded_rate",
-                "unknown",
-                "team_invite_failed",
-                "max_faxes",
-                "invalid_recipient",
-                "signature_request_cancel_failed",
-                "signature_request_remove_failed",
-                "maintenance",
-                "deleted",
-                "method_not_supported",
-                "invalid_reminder",
-                "unavailable",
-                "unprocessable_entity",
-                "signature_request_expired",
+                "addon_required",
+                "invalid_scope",
+                "quota_reached",
+                "server_error",
+                "temporary_unavailable",
             ]
         ):
             raise ValueError(
-                "must be one of enum values ('bad_request', 'unauthorized', 'payment_required', 'forbidden', 'not_found', 'conflict', 'exceeded_rate', 'unknown', 'team_invite_failed', 'max_faxes', 'invalid_recipient', 'signature_request_cancel_failed', 'signature_request_remove_failed', 'maintenance', 'deleted', 'method_not_supported', 'invalid_reminder', 'unavailable', 'unprocessable_entity', 'signature_request_expired')"
+                "must be one of enum values ('invalid_grant', 'invalid_client', 'invalid_request', 'unauthorized_client', 'unsupported_grant_type', 'payment_required', 'addon_required', 'invalid_scope', 'quota_reached', 'server_error', 'temporary_unavailable')"
             )
         return value
 
@@ -101,7 +89,7 @@ class ErrorResponseError(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ErrorResponseError from a JSON string"""
+        """Create an instance of OAuthErrorResponseError from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self, excluded_fields: Set[str] = None) -> Dict[str, Any]:
@@ -124,7 +112,7 @@ class ErrorResponseError(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ErrorResponseError from a dict"""
+        """Create an instance of OAuthErrorResponseError from a dict"""
         if obj is None:
             return None
 
@@ -132,11 +120,7 @@ class ErrorResponseError(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate(
-            {
-                "error_msg": obj.get("error_msg"),
-                "error_name": obj.get("error_name"),
-                "error_path": obj.get("error_path"),
-            }
+            {"error_msg": obj.get("error_msg"), "error_name": obj.get("error_name")}
         )
         return _obj
 
@@ -155,7 +139,6 @@ class ErrorResponseError(BaseModel):
         return {
             "error_msg": "(str,)",
             "error_name": "(str,)",
-            "error_path": "(str,)",
         }
 
     @classmethod

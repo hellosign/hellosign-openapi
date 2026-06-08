@@ -17,48 +17,14 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Contains information about an error that occurred.
-  class ErrorResponseError
-    # Message describing an error.
-    # @return [String]
-    attr_accessor :error_msg
-
-    # Name of the error.
-    # @return [String]
-    attr_accessor :error_name
-
-    # Path at which an error occurred.
-    # @return [String]
-    attr_accessor :error_path
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+  class OAuthErrorResponse
+    # @return [OAuthErrorResponseError]
+    attr_accessor :error
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'error_msg' => :'error_msg',
-        :'error_name' => :'error_name',
-        :'error_path' => :'error_path'
+        :'error' => :'error'
       }
     end
 
@@ -75,9 +41,7 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'error_msg' => :'String',
-        :'error_name' => :'String',
-        :'error_path' => :'String'
+        :'error' => :'OAuthErrorResponseError'
       }
     end
 
@@ -104,40 +68,32 @@ module Dropbox::Sign
 
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
-    # @return [ErrorResponseError]
+    # @return [OAuthErrorResponse]
     def self.init(data)
       ApiClient.default.convert_to_type(
         data,
-        "ErrorResponseError"
-      ) || ErrorResponseError.new
+        "OAuthErrorResponse"
+      ) || OAuthErrorResponse.new
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::ErrorResponseError` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::OAuthErrorResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.merged_attributes.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::ErrorResponseError`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::OAuthErrorResponse`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'error_msg')
-        self.error_msg = attributes[:'error_msg']
-      end
-
-      if attributes.key?(:'error_name')
-        self.error_name = attributes[:'error_name']
-      end
-
-      if attributes.key?(:'error_path')
-        self.error_path = attributes[:'error_path']
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
       end
     end
 
@@ -145,12 +101,8 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @error_msg.nil?
-        invalid_properties.push('invalid value for "error_msg", error_msg cannot be nil.')
-      end
-
-      if @error_name.nil?
-        invalid_properties.push('invalid value for "error_name", error_name cannot be nil.')
+      if @error.nil?
+        invalid_properties.push('invalid value for "error", error cannot be nil.')
       end
 
       invalid_properties
@@ -159,31 +111,18 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @error_msg.nil?
-      return false if @error_name.nil?
-      error_name_validator = EnumAttributeValidator.new('String', ["bad_request", "unauthorized", "payment_required", "forbidden", "not_found", "conflict", "exceeded_rate", "unknown", "team_invite_failed", "max_faxes", "invalid_recipient", "signature_request_cancel_failed", "signature_request_remove_failed", "maintenance", "deleted", "method_not_supported", "invalid_reminder", "unavailable", "unprocessable_entity", "signature_request_expired"])
-      return false unless error_name_validator.valid?(@error_name)
+      return false if @error.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] error_msg Value to be assigned
-    def error_msg=(error_msg)
-      if error_msg.nil?
-        fail ArgumentError, 'error_msg cannot be nil'
+    # @param [Object] error Value to be assigned
+    def error=(error)
+      if error.nil?
+        fail ArgumentError, 'error cannot be nil'
       end
 
-      @error_msg = error_msg
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] error_name Object to be assigned
-    def error_name=(error_name)
-      validator = EnumAttributeValidator.new('String', ["bad_request", "unauthorized", "payment_required", "forbidden", "not_found", "conflict", "exceeded_rate", "unknown", "team_invite_failed", "max_faxes", "invalid_recipient", "signature_request_cancel_failed", "signature_request_remove_failed", "maintenance", "deleted", "method_not_supported", "invalid_reminder", "unavailable", "unprocessable_entity", "signature_request_expired"])
-      unless validator.valid?(error_name)
-        fail ArgumentError, "invalid value for \"error_name\", must be one of #{validator.allowable_values}."
-      end
-      @error_name = error_name
+      @error = error
     end
 
     # Checks equality by comparing each attribute.
@@ -191,9 +130,7 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          error_msg == o.error_msg &&
-          error_name == o.error_name &&
-          error_path == o.error_path
+          error == o.error
     end
 
     # @see the `==` method
@@ -205,7 +142,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [error_msg, error_name, error_path].hash
+      [error].hash
     end
 
     # Builds the object from hash

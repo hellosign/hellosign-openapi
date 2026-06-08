@@ -23,21 +23,21 @@ Contains information about an error that occurred.
 | PAYMENT_REQUIRED | &quot;payment_required&quot; |
 | FORBIDDEN | &quot;forbidden&quot; |
 | NOT_FOUND | &quot;not_found&quot; |
-| METHOD_NOT_SUPPORTED | &quot;method_not_supported&quot; |
 | CONFLICT | &quot;conflict&quot; |
-| DELETED | &quot;deleted&quot; |
-| UNPROCESSABLE_ENTITY | &quot;unprocessable_entity&quot; |
 | EXCEEDED_RATE | &quot;exceeded_rate&quot; |
-| MAX_FAXES | &quot;max_faxes&quot; |
-| UNAVAILABLE | &quot;unavailable&quot; |
-| MAINTENANCE | &quot;maintenance&quot; |
-| INVALID_RECIPIENT | &quot;invalid_recipient&quot; |
-| INVALID_REMINDER | &quot;invalid_reminder&quot; |
+| UNKNOWN | &quot;unknown&quot; |
 | TEAM_INVITE_FAILED | &quot;team_invite_failed&quot; |
+| MAX_FAXES | &quot;max_faxes&quot; |
+| INVALID_RECIPIENT | &quot;invalid_recipient&quot; |
 | SIGNATURE_REQUEST_CANCEL_FAILED | &quot;signature_request_cancel_failed&quot; |
 | SIGNATURE_REQUEST_REMOVE_FAILED | &quot;signature_request_remove_failed&quot; |
+| MAINTENANCE | &quot;maintenance&quot; |
+| DELETED | &quot;deleted&quot; |
+| METHOD_NOT_SUPPORTED | &quot;method_not_supported&quot; |
+| INVALID_REMINDER | &quot;invalid_reminder&quot; |
+| UNAVAILABLE | &quot;unavailable&quot; |
+| UNPROCESSABLE_ENTITY | &quot;unprocessable_entity&quot; |
 | SIGNATURE_REQUEST_EXPIRED | &quot;signature_request_expired&quot; |
-| UNKNOWN | &quot;unknown&quot; |
 
 
 

@@ -8,7 +8,7 @@ import com.dropbox.sign.Pair;
 
 import jakarta.ws.rs.core.GenericType;
 
-import com.dropbox.sign.model.ErrorResponse;
+import com.dropbox.sign.model.OAuthErrorResponse;
 import com.dropbox.sign.model.OAuthTokenGenerateRequest;
 import com.dropbox.sign.model.OAuthTokenRefreshRequest;
 import com.dropbox.sign.model.OAuthTokenResponse;

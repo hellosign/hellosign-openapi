@@ -30,63 +30,44 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Contains information about an error that occurred.
+ * _t__OAuthErrorResponseError::DESCRIPTION
  */
 @JsonPropertyOrder({
-  ErrorResponseError.JSON_PROPERTY_ERROR_MSG,
-  ErrorResponseError.JSON_PROPERTY_ERROR_NAME,
-  ErrorResponseError.JSON_PROPERTY_ERROR_PATH
+  OAuthErrorResponseError.JSON_PROPERTY_ERROR_MSG,
+  OAuthErrorResponseError.JSON_PROPERTY_ERROR_NAME
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class ErrorResponseError {
+public class OAuthErrorResponseError {
   public static final String JSON_PROPERTY_ERROR_MSG = "error_msg";
   @jakarta.annotation.Nonnull
   private String errorMsg;
 
   /**
-   * Name of the error.
+   * _t__OAuthErrorResponseError::ERROR_NAME
    */
   public enum ErrorNameEnum {
-    BAD_REQUEST(String.valueOf("bad_request")),
+    INVALID_GRANT(String.valueOf("invalid_grant")),
     
-    UNAUTHORIZED(String.valueOf("unauthorized")),
+    INVALID_CLIENT(String.valueOf("invalid_client")),
+    
+    INVALID_REQUEST(String.valueOf("invalid_request")),
+    
+    UNAUTHORIZED_CLIENT(String.valueOf("unauthorized_client")),
+    
+    UNSUPPORTED_GRANT_TYPE(String.valueOf("unsupported_grant_type")),
     
     PAYMENT_REQUIRED(String.valueOf("payment_required")),
     
-    FORBIDDEN(String.valueOf("forbidden")),
+    ADDON_REQUIRED(String.valueOf("addon_required")),
     
-    NOT_FOUND(String.valueOf("not_found")),
+    INVALID_SCOPE(String.valueOf("invalid_scope")),
     
-    CONFLICT(String.valueOf("conflict")),
+    QUOTA_REACHED(String.valueOf("quota_reached")),
     
-    EXCEEDED_RATE(String.valueOf("exceeded_rate")),
+    SERVER_ERROR(String.valueOf("server_error")),
     
-    UNKNOWN(String.valueOf("unknown")),
-    
-    TEAM_INVITE_FAILED(String.valueOf("team_invite_failed")),
-    
-    MAX_FAXES(String.valueOf("max_faxes")),
-    
-    INVALID_RECIPIENT(String.valueOf("invalid_recipient")),
-    
-    SIGNATURE_REQUEST_CANCEL_FAILED(String.valueOf("signature_request_cancel_failed")),
-    
-    SIGNATURE_REQUEST_REMOVE_FAILED(String.valueOf("signature_request_remove_failed")),
-    
-    MAINTENANCE(String.valueOf("maintenance")),
-    
-    DELETED(String.valueOf("deleted")),
-    
-    METHOD_NOT_SUPPORTED(String.valueOf("method_not_supported")),
-    
-    INVALID_REMINDER(String.valueOf("invalid_reminder")),
-    
-    UNAVAILABLE(String.valueOf("unavailable")),
-    
-    UNPROCESSABLE_ENTITY(String.valueOf("unprocessable_entity")),
-    
-    SIGNATURE_REQUEST_EXPIRED(String.valueOf("signature_request_expired"));
+    TEMPORARY_UNAVAILABLE(String.valueOf("temporary_unavailable"));
 
     private String value;
 
@@ -119,35 +100,31 @@ public class ErrorResponseError {
   @jakarta.annotation.Nonnull
   private ErrorNameEnum errorName;
 
-  public static final String JSON_PROPERTY_ERROR_PATH = "error_path";
-  @jakarta.annotation.Nullable
-  private String errorPath;
-
-  public ErrorResponseError() { 
+  public OAuthErrorResponseError() { 
   }
 
   /**
    * Attempt to instantiate and hydrate a new instance of this class
    * @param jsonData String of JSON data representing target object
    */
-  static public ErrorResponseError init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, ErrorResponseError.class);
+  static public OAuthErrorResponseError init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, OAuthErrorResponseError.class);
   }
 
-  static public ErrorResponseError init(HashMap data) throws Exception {
+  static public OAuthErrorResponseError init(HashMap data) throws Exception {
     return new ObjectMapper().readValue(
       new ObjectMapper().writeValueAsString(data),
-      ErrorResponseError.class
+      OAuthErrorResponseError.class
     );
   }
 
-  public ErrorResponseError errorMsg(@jakarta.annotation.Nonnull String errorMsg) {
+  public OAuthErrorResponseError errorMsg(@jakarta.annotation.Nonnull String errorMsg) {
     this.errorMsg = errorMsg;
     return this;
   }
 
   /**
-   * Message describing an error.
+   * _t__OAuthErrorResponseError::ERROR_MSG
    * @return errorMsg
    */
   @jakarta.annotation.Nonnull
@@ -166,13 +143,13 @@ public class ErrorResponseError {
   }
 
 
-  public ErrorResponseError errorName(@jakarta.annotation.Nonnull ErrorNameEnum errorName) {
+  public OAuthErrorResponseError errorName(@jakarta.annotation.Nonnull ErrorNameEnum errorName) {
     this.errorName = errorName;
     return this;
   }
 
   /**
-   * Name of the error.
+   * _t__OAuthErrorResponseError::ERROR_NAME
    * @return errorName
    */
   @jakarta.annotation.Nonnull
@@ -191,33 +168,8 @@ public class ErrorResponseError {
   }
 
 
-  public ErrorResponseError errorPath(@jakarta.annotation.Nullable String errorPath) {
-    this.errorPath = errorPath;
-    return this;
-  }
-
   /**
-   * Path at which an error occurred.
-   * @return errorPath
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_PATH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getErrorPath() {
-    return errorPath;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ERROR_PATH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrorPath(@jakarta.annotation.Nullable String errorPath) {
-    this.errorPath = errorPath;
-  }
-
-
-  /**
-   * Return true if this ErrorResponseError object is equal to o.
+   * Return true if this OAuthErrorResponseError object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -227,24 +179,22 @@ public class ErrorResponseError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponseError errorResponseError = (ErrorResponseError) o;
-    return Objects.equals(this.errorMsg, errorResponseError.errorMsg) &&
-        Objects.equals(this.errorName, errorResponseError.errorName) &&
-        Objects.equals(this.errorPath, errorResponseError.errorPath);
+    OAuthErrorResponseError oauthErrorResponseError = (OAuthErrorResponseError) o;
+    return Objects.equals(this.errorMsg, oauthErrorResponseError.errorMsg) &&
+        Objects.equals(this.errorName, oauthErrorResponseError.errorName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMsg, errorName, errorPath);
+    return Objects.hash(errorMsg, errorName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponseError {\n");
+    sb.append("class OAuthErrorResponseError {\n");
     sb.append("    errorMsg: ").append(toIndentedString(errorMsg)).append("\n");
     sb.append("    errorName: ").append(toIndentedString(errorName)).append("\n");
-    sb.append("    errorPath: ").append(toIndentedString(errorPath)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -289,25 +239,6 @@ public class ErrorResponseError {
         }
         else {
             map.put("error_name", JSON.getDefault().getMapper().writeValueAsString(errorName));
-        }
-    }
-    if (errorPath != null) {
-        if (isFileTypeOrListOfFiles(errorPath)) {
-            fileTypeFound = true;
-        }
-
-        if (errorPath.getClass().equals(java.io.File.class) ||
-            errorPath.getClass().equals(Integer.class) ||
-            errorPath.getClass().equals(String.class) ||
-            errorPath.getClass().isEnum()) {
-            map.put("error_path", errorPath);
-        } else if (isListOfFile(errorPath)) {
-            for(int i = 0; i< getListSize(errorPath); i++) {
-                map.put("error_path[" + i + "]", getFromList(errorPath, i));
-            }
-        }
-        else {
-            map.put("error_path", JSON.getDefault().getMapper().writeValueAsString(errorPath));
         }
     }
     } catch (Exception e) {
