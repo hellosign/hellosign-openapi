@@ -1979,3 +1979,167 @@
 "accountUpdateEventCallback::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the account level, click here."
 "appCreateEventCallback::SEO::TITLE": "App Callbacks | API Documentation | Dropbox Sign for Developers"
 "appCreateEventCallback::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the App level, click here."
+
+##################
+# Error Catalog  #
+##################
+
+"ErrorCatalog::bad_request::SUMMARY": "The request contained invalid or malformed parameters."
+"ErrorCatalog::bad_request::CAUSE": "A parameter failed validation, or the request body was malformed."
+"ErrorCatalog::bad_request::REMEDIATION": "Inspect error_msg and error_path, correct the offending parameter, and resend."
+
+"ErrorCatalog::unauthorized::SUMMARY": "The credentials supplied are missing or invalid."
+"ErrorCatalog::unauthorized::CAUSE": "Missing, malformed, or invalid API key or OAuth access token."
+"ErrorCatalog::unauthorized::REMEDIATION": "Verify the API key or OAuth token and the Authorization header, then retry."
+
+"ErrorCatalog::payment_required::SUMMARY": "The account must be credited or upgraded to perform this action."
+"ErrorCatalog::payment_required::CAUSE": "The action requires a paid plan, additional quota, or API credits."
+"ErrorCatalog::payment_required::REMEDIATION": "Upgrade the plan or add the required credits/quota, then retry."
+
+"ErrorCatalog::forbidden::SUMMARY": "The action is not allowed for these credentials or in the current context."
+"ErrorCatalog::forbidden::CAUSE": "The authenticated account lacks access to the resource or operation."
+"ErrorCatalog::forbidden::REMEDIATION": "Confirm the account has access to the resource and the required permissions."
+
+"ErrorCatalog::not_found::SUMMARY": "Nothing matches the requested resource."
+"ErrorCatalog::not_found::CAUSE": "The resource id does not exist or is not visible to this account."
+"ErrorCatalog::not_found::REMEDIATION": "Verify the id and that the resource belongs to the authenticated account."
+
+"ErrorCatalog::conflict::SUMMARY": "The request was well-formed but conflicts with the current state."
+"ErrorCatalog::conflict::CAUSE": "The target resource is in a state incompatible with the request (e.g. a signature request is still being set up)."
+"ErrorCatalog::conflict::REMEDIATION": "Wait briefly and retry, or listen for a callback event confirming the resource is ready."
+
+"ErrorCatalog::exceeded_rate::SUMMARY": "Your account's API request rate limit has been exceeded."
+"ErrorCatalog::exceeded_rate::CAUSE": "Too many requests were sent within the rate-limit window for this request type."
+"ErrorCatalog::exceeded_rate::REMEDIATION": "Pace requests using the X-RateLimit-* response headers and retry after the window resets."
+"ErrorCatalog::exceeded_rate::BACKOFF": "Honor X-Ratelimit-Reset (Unix epoch); otherwise exponential backoff with jitter. No Retry-After header is sent."
+
+"ErrorCatalog::unknown::SUMMARY": "An unexpected error occurred."
+"ErrorCatalog::unknown::CAUSE": "An unhandled server-side error, or a status code without a more specific error_name."
+"ErrorCatalog::unknown::REMEDIATION": "Retry transient failures; if it persists, contact support with the request details."
+"ErrorCatalog::unknown::BACKOFF": "For transient 5xx, retry with exponential backoff; otherwise do not retry."
+
+"ErrorCatalog::team_invite_failed::SUMMARY": "The team invitation could not be completed."
+"ErrorCatalog::team_invite_failed::CAUSE": "The invitee already belongs to a team, or the invite is otherwise not permitted."
+"ErrorCatalog::team_invite_failed::REMEDIATION": "Confirm the invitee is not already on a team before inviting."
+
+"ErrorCatalog::max_faxes::SUMMARY": "Too many fax transmissions are currently pending or transmitting."
+"ErrorCatalog::max_faxes::CAUSE": "The account has reached the limit of concurrent in-flight fax transmissions."
+"ErrorCatalog::max_faxes::REMEDIATION": "Wait for outstanding transmissions to complete, then retry."
+"ErrorCatalog::max_faxes::BACKOFF": "Retry with exponential backoff once pending transmissions clear."
+
+"ErrorCatalog::invalid_recipient::SUMMARY": "The recipient (fax number or email address) is invalid."
+"ErrorCatalog::invalid_recipient::CAUSE": "A recipient value did not pass validation."
+"ErrorCatalog::invalid_recipient::REMEDIATION": "Correct the recipient value and resend."
+
+"ErrorCatalog::signature_request_cancel_failed::SUMMARY": "The signature request could not be cancelled."
+"ErrorCatalog::signature_request_cancel_failed::CAUSE": "The caller is not the requester, or the request is already fully executed/closed."
+"ErrorCatalog::signature_request_cancel_failed::REMEDIATION": "Only the requester can cancel, and only before the request is fully executed."
+
+"ErrorCatalog::signature_request_remove_failed::SUMMARY": "Access to the signature request could not be removed."
+"ErrorCatalog::signature_request_remove_failed::CAUSE": "The signature request has not yet been fully executed, so access cannot be revoked."
+"ErrorCatalog::signature_request_remove_failed::REMEDIATION": "Wait until all parties have signed, or call /signature_request/cancel to cancel incomplete requests instead."
+
+"ErrorCatalog::maintenance::SUMMARY": "The request could not be completed because the site is under maintenance."
+"ErrorCatalog::maintenance::CAUSE": "The API is in a scheduled maintenance window."
+"ErrorCatalog::maintenance::REMEDIATION": "Retry once the maintenance window ends."
+"ErrorCatalog::maintenance::BACKOFF": "Retry later with exponential backoff."
+
+"ErrorCatalog::deleted::SUMMARY": "The request was cancelled or deleted."
+"ErrorCatalog::deleted::CAUSE": "The resource has been cancelled or removed and is no longer available."
+"ErrorCatalog::deleted::REMEDIATION": "Do not retry; the resource is permanently gone."
+
+"ErrorCatalog::method_not_supported::SUMMARY": "The HTTP method is not supported for this endpoint."
+"ErrorCatalog::method_not_supported::CAUSE": "The request used a verb the endpoint does not accept."
+"ErrorCatalog::method_not_supported::REMEDIATION": "Use the HTTP method documented for the endpoint."
+
+"ErrorCatalog::invalid_reminder::SUMMARY": "The signature request reminder was invalid."
+"ErrorCatalog::invalid_reminder::CAUSE": "A reminder was attempted against an ineligible request (e.g. embedded, closed, or expired)."
+"ErrorCatalog::invalid_reminder::REMEDIATION": "Only send reminders for eligible (non-embedded, open) signature requests."
+
+"ErrorCatalog::unavailable::SUMMARY": "The service is temporarily unavailable."
+"ErrorCatalog::unavailable::CAUSE": "A downstream dependency or the service itself is temporarily unavailable."
+"ErrorCatalog::unavailable::REMEDIATION": "Retry later with exponential backoff."
+"ErrorCatalog::unavailable::BACKOFF": "Retry later with exponential backoff and jitter."
+
+"ErrorCatalog::unprocessable_entity::SUMMARY": "The request was understood but the target entity cannot be processed."
+"ErrorCatalog::unprocessable_entity::CAUSE": "The resource is still being processed, or it is in an error state."
+"ErrorCatalog::unprocessable_entity::REMEDIATION": "If the resource is still processing, wait and retry; if it is in an error state, recreate/resend it instead of retrying."
+"ErrorCatalog::unprocessable_entity::BACKOFF": "If still processing, retry with exponential backoff; if in an error state, do not retry."
+
+"ErrorCatalog::signature_request_expired::SUMMARY": "The signature request has expired."
+"ErrorCatalog::signature_request_expired::CAUSE": "The operation targets a request whose expiration has passed. Most endpoints return 400; final-copy/download endpoints return 403."
+"ErrorCatalog::signature_request_expired::REMEDIATION": "The request can no longer be acted upon; create a new signature request."
+
+########################
+# OAuth Error Catalog  #
+########################
+
+"OAuthErrorCatalog::invalid_grant::SUMMARY": "The OAuth grant (authorization code or refresh token) is invalid or expired."
+"OAuthErrorCatalog::invalid_grant::CAUSE": "The code/token was already used, expired, or does not match the client."
+"OAuthErrorCatalog::invalid_grant::REMEDIATION": "Re-initiate the OAuth flow to obtain a fresh authorization code."
+
+"OAuthErrorCatalog::invalid_client::SUMMARY": "The OAuth client credentials are invalid."
+"OAuthErrorCatalog::invalid_client::CAUSE": "The client_id or client_secret is unrecognized or incorrect."
+"OAuthErrorCatalog::invalid_client::REMEDIATION": "Verify the client_id and client_secret from the API app settings."
+
+"OAuthErrorCatalog::invalid_request::SUMMARY": "The OAuth request is malformed or missing required parameters."
+"OAuthErrorCatalog::invalid_request::CAUSE": "A required parameter is missing, or the request format is invalid."
+"OAuthErrorCatalog::invalid_request::REMEDIATION": "Check the request against the OAuth token endpoint documentation."
+
+"OAuthErrorCatalog::unauthorized_client::SUMMARY": "The OAuth client is not authorized to perform this action."
+"OAuthErrorCatalog::unauthorized_client::CAUSE": "The app has not been approved, or the action is outside the granted scopes."
+"OAuthErrorCatalog::unauthorized_client::REMEDIATION": "Ensure the app is approved and the required scopes are granted."
+
+"OAuthErrorCatalog::unsupported_grant_type::SUMMARY": "The grant type is not supported."
+"OAuthErrorCatalog::unsupported_grant_type::CAUSE": "The grant_type parameter value is not recognized."
+"OAuthErrorCatalog::unsupported_grant_type::REMEDIATION": "Use authorization_code or refresh_token as the grant_type."
+
+"OAuthErrorCatalog::payment_required::SUMMARY": "The account requires a paid plan to use this OAuth app."
+"OAuthErrorCatalog::payment_required::CAUSE": "The authorizing account does not have a plan that supports this integration."
+"OAuthErrorCatalog::payment_required::REMEDIATION": "Upgrade the account to a plan that includes OAuth app access."
+
+"OAuthErrorCatalog::addon_required::SUMMARY": "An add-on is required to use this OAuth app."
+"OAuthErrorCatalog::addon_required::CAUSE": "The account plan does not include the add-on needed for this integration."
+"OAuthErrorCatalog::addon_required::REMEDIATION": "Add the required add-on to the account subscription."
+
+"OAuthErrorCatalog::invalid_scope::SUMMARY": "The requested OAuth scope is invalid."
+"OAuthErrorCatalog::invalid_scope::CAUSE": "The scope parameter contains values not permitted for the app."
+"OAuthErrorCatalog::invalid_scope::REMEDIATION": "Request only scopes that the app is configured to use."
+
+"OAuthErrorCatalog::quota_reached::SUMMARY": "The account has reached its usage quota for this OAuth app."
+"OAuthErrorCatalog::quota_reached::CAUSE": "The authorizing account has exhausted its quota for the integration."
+"OAuthErrorCatalog::quota_reached::REMEDIATION": "Contact the app owner or upgrade the account quota."
+
+"OAuthErrorCatalog::server_error::SUMMARY": "An internal server error occurred during OAuth processing."
+"OAuthErrorCatalog::server_error::CAUSE": "An unexpected error on the server side while handling the OAuth request."
+"OAuthErrorCatalog::server_error::REMEDIATION": "Retry the request; if it persists, contact support."
+"OAuthErrorCatalog::server_error::BACKOFF": "Retry with exponential backoff."
+
+"OAuthErrorCatalog::temporary_unavailable::SUMMARY": "The OAuth service is temporarily unavailable."
+"OAuthErrorCatalog::temporary_unavailable::CAUSE": "The service is under maintenance or experiencing temporary issues."
+"OAuthErrorCatalog::temporary_unavailable::REMEDIATION": "Retry after a short delay."
+"OAuthErrorCatalog::temporary_unavailable::BACKOFF": "Retry with exponential backoff."
+
+#############################
+# Webhook Error Events      #
+#############################
+
+"ErrorEventCatalog::signature_request_invalid::SUMMARY": "Asynchronous error while processing a signature request."
+"ErrorEventCatalog::signature_request_invalid::CAUSE": "A signature request could not be processed (e.g. invalid tags, fields, or merge data)."
+"ErrorEventCatalog::signature_request_invalid::REMEDIATION": "Inspect event.event_metadata.event_message in the callback, correct the request, and resend."
+
+"ErrorEventCatalog::unknown_error::SUMMARY": "An unspecified asynchronous processing error occurred."
+"ErrorEventCatalog::unknown_error::CAUSE": "An unexpected error occurred while processing the request asynchronously."
+"ErrorEventCatalog::unknown_error::REMEDIATION": "Check the request status in the API dashboard; retry or contact support if it persists."
+
+"ErrorEventCatalog::file_error::SUMMARY": "Asynchronous error while processing an uploaded file."
+"ErrorEventCatalog::file_error::CAUSE": "A file attached to a request could not be processed."
+"ErrorEventCatalog::file_error::REMEDIATION": "Resend the request with a supported, non-corrupt file."
+
+"ErrorEventCatalog::template_error::SUMMARY": "Asynchronous error while creating a template."
+"ErrorEventCatalog::template_error::CAUSE": "Template file processing failed (e.g. unsupported or corrupt file)."
+"ErrorEventCatalog::template_error::REMEDIATION": "Recreate the template with a valid file; check status in the API dashboard."
+
+"ErrorEventCatalog::sign_url_invalid::SUMMARY": "An embedded signing URL has expired or become invalid."
+"ErrorEventCatalog::sign_url_invalid::CAUSE": "The embedded sign_url is no longer valid (e.g. expired)."
+"ErrorEventCatalog::sign_url_invalid::REMEDIATION": "Generate a fresh embedded sign_url via the embedded sign URL endpoint."
