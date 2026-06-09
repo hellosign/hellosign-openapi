@@ -142,7 +142,7 @@ class OAuthApi
      *
      * @param Model\OAuthTokenGenerateRequest $o_auth_token_generate_request o_auth_token_generate_request (required)
      *
-     * @return Model\OAuthTokenResponse|Model\OAuthErrorResponse
+     * @return Model\OAuthTokenResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -166,7 +166,7 @@ class OAuthApi
      * @param array                           $variables                     Associative array of variables to pass to the host. Defaults to empty array.
      * @param string                          $contentType                   The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
      *
-     * @return array of Model\OAuthTokenResponse|\Dropbox\Sign\Model\OAuthErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\OAuthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
@@ -201,7 +201,7 @@ class OAuthApi
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
-                '\Dropbox\Sign\Model\OAuthErrorResponse'
+                '\Dropbox\Sign\Model\ErrorResponse'
             );
             if ($result) {
                 return $result;
@@ -278,7 +278,7 @@ class OAuthApi
                 $response->getHeaders(),
             ];
         } catch (ApiException $e) {
-            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\OAuthErrorResponse')) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
             switch ($e->getCode()) {
@@ -525,7 +525,7 @@ class OAuthApi
      *
      * @param Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request o_auth_token_refresh_request (required)
      *
-     * @return Model\OAuthTokenResponse|Model\OAuthErrorResponse
+     * @return Model\OAuthTokenResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -549,7 +549,7 @@ class OAuthApi
      * @param array                          $variables                    Associative array of variables to pass to the host. Defaults to empty array.
      * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
      *
-     * @return array of Model\OAuthTokenResponse|\Dropbox\Sign\Model\OAuthErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\OAuthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
@@ -584,7 +584,7 @@ class OAuthApi
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
-                '\Dropbox\Sign\Model\OAuthErrorResponse'
+                '\Dropbox\Sign\Model\ErrorResponse'
             );
             if ($result) {
                 return $result;
@@ -661,7 +661,7 @@ class OAuthApi
                 $response->getHeaders(),
             ];
         } catch (ApiException $e) {
-            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\OAuthErrorResponse')) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
             switch ($e->getCode()) {

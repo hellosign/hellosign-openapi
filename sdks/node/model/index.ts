@@ -66,8 +66,6 @@ import {
   RequestFile,
   VoidAuth,
 } from "./models";
-import { OAuthErrorResponse } from "./oAuthErrorResponse";
-import { OAuthErrorResponseError } from "./oAuthErrorResponseError";
 import { OAuthTokenGenerateRequest } from "./oAuthTokenGenerateRequest";
 import { OAuthTokenRefreshRequest } from "./oAuthTokenRefreshRequest";
 import { OAuthTokenResponse } from "./oAuthTokenResponse";
@@ -217,8 +215,6 @@ export let enumsMap: { [index: string]: any } = {
   "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "FaxResponseTransmission.StatusCodeEnum":
     FaxResponseTransmission.StatusCodeEnum,
-  "OAuthErrorResponseError.ErrorNameEnum":
-    OAuthErrorResponseError.ErrorNameEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum:
@@ -312,8 +308,6 @@ export let typeMap: { [index: string]: any } = {
   FileResponse: FileResponse,
   FileResponseDataUri: FileResponseDataUri,
   ListInfoResponse: ListInfoResponse,
-  OAuthErrorResponse: OAuthErrorResponse,
-  OAuthErrorResponseError: OAuthErrorResponseError,
   OAuthTokenGenerateRequest: OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest: OAuthTokenRefreshRequest,
   OAuthTokenResponse: OAuthTokenResponse,
@@ -552,8 +546,6 @@ export {
   Interceptor,
   ListInfoResponse,
   OAuth,
-  OAuthErrorResponse,
-  OAuthErrorResponseError,
   OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest,
   OAuthTokenResponse,

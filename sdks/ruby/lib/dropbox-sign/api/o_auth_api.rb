@@ -114,7 +114,7 @@ module Dropbox::Sign
         if e.code >= range_code_left && e.code <= range_code_right
           body = @api_client.convert_to_type(
             JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
-            "Dropbox::Sign::OAuthErrorResponse"
+            "Dropbox::Sign::ErrorResponse"
           )
 
           fail ApiError.new(:code => e.code,
@@ -223,7 +223,7 @@ module Dropbox::Sign
         if e.code >= range_code_left && e.code <= range_code_right
           body = @api_client.convert_to_type(
             JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
-            "Dropbox::Sign::OAuthErrorResponse"
+            "Dropbox::Sign::ErrorResponse"
           )
 
           fail ApiError.new(:code => e.code,

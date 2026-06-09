@@ -263,8 +263,6 @@ Class | Method | HTTP request | Description
  - [Model.FileResponse](docs/FileResponse.md)
  - [Model.FileResponseDataUri](docs/FileResponseDataUri.md)
  - [Model.ListInfoResponse](docs/ListInfoResponse.md)
- - [Model.OAuthErrorResponse](docs/OAuthErrorResponse.md)
- - [Model.OAuthErrorResponseError](docs/OAuthErrorResponseError.md)
  - [Model.OAuthTokenGenerateRequest](docs/OAuthTokenGenerateRequest.md)
  - [Model.OAuthTokenRefreshRequest](docs/OAuthTokenRefreshRequest.md)
  - [Model.OAuthTokenResponse](docs/OAuthTokenResponse.md)

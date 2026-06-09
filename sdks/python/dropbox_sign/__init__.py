@@ -107,8 +107,6 @@ from dropbox_sign.models.fax_send_request import FaxSendRequest
 from dropbox_sign.models.file_response import FileResponse
 from dropbox_sign.models.file_response_data_uri import FileResponseDataUri
 from dropbox_sign.models.list_info_response import ListInfoResponse
-from dropbox_sign.models.o_auth_error_response import OAuthErrorResponse
-from dropbox_sign.models.o_auth_error_response_error import OAuthErrorResponseError
 from dropbox_sign.models.o_auth_token_generate_request import OAuthTokenGenerateRequest
 from dropbox_sign.models.o_auth_token_refresh_request import OAuthTokenRefreshRequest
 from dropbox_sign.models.o_auth_token_response import OAuthTokenResponse

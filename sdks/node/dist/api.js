@@ -13211,8 +13211,6 @@ __export(api_exports, {
   ListInfoResponse: () => ListInfoResponse,
   OAuth: () => OAuth,
   OAuthApi: () => OAuthApi,
-  OAuthErrorResponse: () => OAuthErrorResponse,
-  OAuthErrorResponseError: () => OAuthErrorResponseError,
   OAuthTokenGenerateRequest: () => OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest: () => OAuthTokenRefreshRequest,
   OAuthTokenResponse: () => OAuthTokenResponse,
@@ -19130,73 +19128,6 @@ var VoidAuth = class {
   applyToRequest(_) {
   }
 };
-
-// model/oAuthErrorResponse.ts
-var OAuthErrorResponse = class _OAuthErrorResponse {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "error",
-        baseName: "error",
-        type: "OAuthErrorResponseError"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _OAuthErrorResponse.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "OAuthErrorResponse");
-  }
-};
-
-// model/oAuthErrorResponseError.ts
-var OAuthErrorResponseError = class _OAuthErrorResponseError {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "errorMsg",
-        baseName: "error_msg",
-        type: "string"
-      },
-      {
-        name: "errorName",
-        baseName: "error_name",
-        type: "OAuthErrorResponseError.ErrorNameEnum"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _OAuthErrorResponseError.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "OAuthErrorResponseError");
-  }
-};
-((OAuthErrorResponseError2) => {
-  let ErrorNameEnum;
-  ((ErrorNameEnum2) => {
-    ErrorNameEnum2["InvalidGrant"] = "invalid_grant";
-    ErrorNameEnum2["InvalidClient"] = "invalid_client";
-    ErrorNameEnum2["InvalidRequest"] = "invalid_request";
-    ErrorNameEnum2["UnauthorizedClient"] = "unauthorized_client";
-    ErrorNameEnum2["UnsupportedGrantType"] = "unsupported_grant_type";
-    ErrorNameEnum2["PaymentRequired"] = "payment_required";
-    ErrorNameEnum2["AddonRequired"] = "addon_required";
-    ErrorNameEnum2["InvalidScope"] = "invalid_scope";
-    ErrorNameEnum2["QuotaReached"] = "quota_reached";
-    ErrorNameEnum2["ServerError"] = "server_error";
-    ErrorNameEnum2["TemporaryUnavailable"] = "temporary_unavailable";
-  })(ErrorNameEnum = OAuthErrorResponseError2.ErrorNameEnum || (OAuthErrorResponseError2.ErrorNameEnum = {}));
-})(OAuthErrorResponseError || (OAuthErrorResponseError = {}));
 
 // model/oAuthTokenGenerateRequest.ts
 var OAuthTokenGenerateRequest = class _OAuthTokenGenerateRequest {
@@ -26891,7 +26822,6 @@ var enumsMap = {
   FaxLineAreaCodeGetStateEnum,
   "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "FaxResponseTransmission.StatusCodeEnum": FaxResponseTransmission.StatusCodeEnum,
-  "OAuthErrorResponseError.ErrorNameEnum": OAuthErrorResponseError.ErrorNameEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
@@ -26971,8 +26901,6 @@ var typeMap = {
   FileResponse,
   FileResponseDataUri,
   ListInfoResponse,
-  OAuthErrorResponse,
-  OAuthErrorResponseError,
   OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest,
   OAuthTokenResponse,
@@ -30490,7 +30418,7 @@ var OAuthApi = class {
               reject,
               error.response,
               "4XX",
-              "OAuthErrorResponse"
+              "ErrorResponse"
             )) {
               return;
             }
@@ -30600,7 +30528,7 @@ var OAuthApi = class {
               reject,
               error.response,
               "4XX",
-              "OAuthErrorResponse"
+              "ErrorResponse"
             )) {
               return;
             }
@@ -36501,8 +36429,6 @@ var APIS = [
   ListInfoResponse,
   OAuth,
   OAuthApi,
-  OAuthErrorResponse,
-  OAuthErrorResponseError,
   OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest,
   OAuthTokenResponse,
