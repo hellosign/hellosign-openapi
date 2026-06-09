@@ -13840,6 +13840,46 @@ components:
       type: object
       x-fern-audiences:
         - events
+    EventCallbackSignatureRequestSignerRemoved:
+      title: 'Signature Request Signer Removed Event'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [signature_request_signer_removed]
+              type: object
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestDownloadable:
+      title: 'Signature Request Downloadable Event'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [signature_request_downloadable]
+              type: object
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
     EventCallbackSignatureRequestSent:
       title: 'Signature Request Sent Event'
       required:
@@ -13874,6 +13914,26 @@ components:
                 event_type:
                   type: string
                   enum: [signature_request_all_signed]
+              type: object
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestInvalid:
+      title: 'Signature Request Invalid Event'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [signature_request_invalid]
               type: object
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
@@ -13980,26 +14040,6 @@ components:
       type: object
       x-fern-audiences:
         - events
-    EventCallbackSignatureRequestDownloadable:
-      title: 'Signature Request Downloadable Event'
-      required:
-        - event
-      properties:
-        event:
-          allOf:
-            -
-              $ref: '#/components/schemas/EventCallbackRequestEvent'
-            -
-              properties:
-                event_type:
-                  type: string
-                  enum: [signature_request_downloadable]
-              type: object
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-      type: object
-      x-fern-audiences:
-        - events
     EventCallbackSignatureRequestDeclined:
       title: 'Signature Request Declined Event'
       required:
@@ -14014,66 +14054,6 @@ components:
                 event_type:
                   type: string
                   enum: [signature_request_declined]
-              type: object
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-      type: object
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestReassigned:
-      title: 'Signature Request Reassigned Event'
-      required:
-        - event
-      properties:
-        event:
-          allOf:
-            -
-              $ref: '#/components/schemas/EventCallbackRequestEvent'
-            -
-              properties:
-                event_type:
-                  type: string
-                  enum: [signature_request_reassigned]
-              type: object
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-      type: object
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestInvalid:
-      title: 'Signature Request Invalid Event'
-      required:
-        - event
-      properties:
-        event:
-          allOf:
-            -
-              $ref: '#/components/schemas/EventCallbackRequestEvent'
-            -
-              properties:
-                event_type:
-                  type: string
-                  enum: [signature_request_invalid]
-              type: object
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-      type: object
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestPrepared:
-      title: 'Signature Request Prepared Event'
-      required:
-        - event
-      properties:
-        event:
-          allOf:
-            -
-              $ref: '#/components/schemas/EventCallbackRequestEvent'
-            -
-              properties:
-                event_type:
-                  type: string
-                  enum: [signature_request_prepared]
               type: object
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
@@ -14100,8 +14080,8 @@ components:
       type: object
       x-fern-audiences:
         - events
-    EventCallbackSignatureRequestSignerRemoved:
-      title: 'Signature Request Signer Removed Event'
+    EventCallbackSignatureRequestReassigned:
+      title: 'Signature Request Reassigned Event'
       required:
         - event
       properties:
@@ -14113,10 +14093,50 @@ components:
               properties:
                 event_type:
                   type: string
-                  enum: [signature_request_signer_removed]
+                  enum: [signature_request_reassigned]
               type: object
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestPrepared:
+      title: 'Signature Request Prepared Event'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [signature_request_prepared]
+              type: object
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackAccountConfirmed:
+      title: 'Account Confirmed Event'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [account_confirmed]
+              type: object
+        account:
+          $ref: '#/components/schemas/AccountResponse'
       type: object
       x-fern-audiences:
         - events
@@ -14160,46 +14180,6 @@ components:
       type: object
       x-fern-audiences:
         - events
-    EventCallbackSignUrlInvalid:
-      title: 'Sign URL Invalid Event'
-      required:
-        - event
-      properties:
-        event:
-          allOf:
-            -
-              $ref: '#/components/schemas/EventCallbackRequestEvent'
-            -
-              properties:
-                event_type:
-                  type: string
-                  enum: [sign_url_invalid]
-              type: object
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-      type: object
-      x-fern-audiences:
-        - events
-    EventCallbackAccountConfirmed:
-      title: 'Account Confirmed Event'
-      required:
-        - event
-      properties:
-        event:
-          allOf:
-            -
-              $ref: '#/components/schemas/EventCallbackRequestEvent'
-            -
-              properties:
-                event_type:
-                  type: string
-                  enum: [account_confirmed]
-              type: object
-        account:
-          $ref: '#/components/schemas/AccountResponse'
-      type: object
-      x-fern-audiences:
-        - events
     EventCallbackTemplateCreated:
       title: 'Template Created Event'
       required:
@@ -14240,6 +14220,26 @@ components:
       type: object
       x-fern-audiences:
         - events
+    EventCallbackSignUrlInvalid:
+      title: 'Sign URL Invalid Event'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [sign_url_invalid]
+              type: object
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
     EventCallbackCallbackTest:
       title: 'Callback Test Event'
       required:
@@ -14267,9 +14267,15 @@ components:
         -
           $ref: '#/components/schemas/EventCallbackSignatureRequestSigned'
         -
+          $ref: '#/components/schemas/EventCallbackSignatureRequestSignerRemoved'
+        -
+          $ref: '#/components/schemas/EventCallbackSignatureRequestDownloadable'
+        -
           $ref: '#/components/schemas/EventCallbackSignatureRequestSent'
         -
           $ref: '#/components/schemas/EventCallbackSignatureRequestAllSigned'
+        -
+          $ref: '#/components/schemas/EventCallbackSignatureRequestInvalid'
         -
           $ref: '#/components/schemas/EventCallbackSignatureRequestEmailBounce'
         -
@@ -14281,31 +14287,25 @@ components:
         -
           $ref: '#/components/schemas/EventCallbackSignatureRequestCanceled'
         -
-          $ref: '#/components/schemas/EventCallbackSignatureRequestDownloadable'
-        -
           $ref: '#/components/schemas/EventCallbackSignatureRequestDeclined'
-        -
-          $ref: '#/components/schemas/EventCallbackSignatureRequestReassigned'
-        -
-          $ref: '#/components/schemas/EventCallbackSignatureRequestInvalid'
-        -
-          $ref: '#/components/schemas/EventCallbackSignatureRequestPrepared'
         -
           $ref: '#/components/schemas/EventCallbackSignatureRequestExpired'
         -
-          $ref: '#/components/schemas/EventCallbackSignatureRequestSignerRemoved'
+          $ref: '#/components/schemas/EventCallbackSignatureRequestReassigned'
+        -
+          $ref: '#/components/schemas/EventCallbackSignatureRequestPrepared'
+        -
+          $ref: '#/components/schemas/EventCallbackAccountConfirmed'
         -
           $ref: '#/components/schemas/EventCallbackUnknownError'
         -
           $ref: '#/components/schemas/EventCallbackFileError'
         -
-          $ref: '#/components/schemas/EventCallbackSignUrlInvalid'
-        -
-          $ref: '#/components/schemas/EventCallbackAccountConfirmed'
-        -
           $ref: '#/components/schemas/EventCallbackTemplateCreated'
         -
           $ref: '#/components/schemas/EventCallbackTemplateError'
+        -
+          $ref: '#/components/schemas/EventCallbackSignUrlInvalid'
         -
           $ref: '#/components/schemas/EventCallbackCallbackTest'
       x-fern-audiences:
@@ -14859,6 +14859,18 @@ components:
         $ref: examples/json/EventCallbackSignatureRequestSigned.json
       x-fern-audiences:
         - events
+    EventCallbackSignatureRequestSignerRemoved:
+      summary: 'Signature Request Signer Removed Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestSignerRemoved.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestDownloadable:
+      summary: 'Signature Request Downloadable Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestDownloadable.json
+      x-fern-audiences:
+        - events
     EventCallbackSignatureRequestSent:
       summary: 'Signature Request Sent Event Example'
       value:
@@ -14869,6 +14881,12 @@ components:
       summary: 'Signature Request All Signed Event Example'
       value:
         $ref: examples/json/EventCallbackSignatureRequestAllSigned.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestInvalid:
+      summary: 'Signature Request Invalid Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestInvalid.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestEmailBounce:
@@ -14901,34 +14919,10 @@ components:
         $ref: examples/json/EventCallbackSignatureRequestCanceled.json
       x-fern-audiences:
         - events
-    EventCallbackSignatureRequestDownloadable:
-      summary: 'Signature Request Downloadable Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignatureRequestDownloadable.json
-      x-fern-audiences:
-        - events
     EventCallbackSignatureRequestDeclined:
       summary: 'Signature Request Declined Event Example'
       value:
         $ref: examples/json/EventCallbackSignatureRequestDeclined.json
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestReassigned:
-      summary: 'Signature Request Reassigned Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignatureRequestReassigned.json
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestInvalid:
-      summary: 'Signature Request Invalid Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignatureRequestInvalid.json
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestPrepared:
-      summary: 'Signature Request Prepared Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignatureRequestPrepared.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestExpired:
@@ -14937,10 +14931,22 @@ components:
         $ref: examples/json/EventCallbackSignatureRequestExpired.json
       x-fern-audiences:
         - events
-    EventCallbackSignatureRequestSignerRemoved:
-      summary: 'Signature Request Signer Removed Event Example'
+    EventCallbackSignatureRequestReassigned:
+      summary: 'Signature Request Reassigned Event Example'
       value:
-        $ref: examples/json/EventCallbackSignatureRequestSignerRemoved.json
+        $ref: examples/json/EventCallbackSignatureRequestReassigned.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestPrepared:
+      summary: 'Signature Request Prepared Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestPrepared.json
+      x-fern-audiences:
+        - events
+    EventCallbackAccountConfirmed:
+      summary: 'Account Confirmed Event Example'
+      value:
+        $ref: examples/json/EventCallbackAccountConfirmed.json
       x-fern-audiences:
         - events
     EventCallbackUnknownError:
@@ -14955,18 +14961,6 @@ components:
         $ref: examples/json/EventCallbackFileError.json
       x-fern-audiences:
         - events
-    EventCallbackSignUrlInvalid:
-      summary: 'Sign URL Invalid Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignUrlInvalid.json
-      x-fern-audiences:
-        - events
-    EventCallbackAccountConfirmed:
-      summary: 'Account Confirmed Event Example'
-      value:
-        $ref: examples/json/EventCallbackAccountConfirmed.json
-      x-fern-audiences:
-        - events
     EventCallbackTemplateCreated:
       summary: 'Template Created Event Example'
       value:
@@ -14977,6 +14971,12 @@ components:
       summary: 'Template Error Event Example'
       value:
         $ref: examples/json/EventCallbackTemplateError.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignUrlInvalid:
+      summary: 'Sign URL Invalid Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignUrlInvalid.json
       x-fern-audiences:
         - events
     EventCallbackCallbackTest:
@@ -15139,10 +15139,16 @@ x-webhooks:
                 $ref: '#/components/examples/EventCallbackSignatureRequestViewed'
               signature_request_signed_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestSigned'
+              signature_request_signer_removed_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestSignerRemoved'
+              signature_request_downloadable_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestDownloadable'
               signature_request_sent_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestSent'
               signature_request_all_signed_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestAllSigned'
+              signature_request_invalid_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestInvalid'
               signature_request_email_bounce_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestEmailBounce'
               signature_request_remind_example:
@@ -15153,32 +15159,26 @@ x-webhooks:
                 $ref: '#/components/examples/EventCallbackSignatureRequestDestroyed'
               signature_request_canceled_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestCanceled'
-              signature_request_downloadable_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestDownloadable'
               signature_request_declined_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestDeclined'
-              signature_request_reassigned_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestReassigned'
-              signature_request_invalid_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestInvalid'
-              signature_request_prepared_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestPrepared'
               signature_request_expired_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestExpired'
-              signature_request_signer_removed_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestSignerRemoved'
+              signature_request_reassigned_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestReassigned'
+              signature_request_prepared_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestPrepared'
+              account_confirmed_example:
+                $ref: '#/components/examples/EventCallbackAccountConfirmed'
               unknown_error_example:
                 $ref: '#/components/examples/EventCallbackUnknownError'
               file_error_example:
                 $ref: '#/components/examples/EventCallbackFileError'
-              sign_url_invalid_example:
-                $ref: '#/components/examples/EventCallbackSignUrlInvalid'
-              account_confirmed_example:
-                $ref: '#/components/examples/EventCallbackAccountConfirmed'
               template_created_example:
                 $ref: '#/components/examples/EventCallbackTemplateCreated'
               template_error_example:
                 $ref: '#/components/examples/EventCallbackTemplateError'
+              sign_url_invalid_example:
+                $ref: '#/components/examples/EventCallbackSignUrlInvalid'
               callback_test_example:
                 $ref: '#/components/examples/EventCallbackCallbackTest'
       responses:
@@ -15211,10 +15211,16 @@ x-webhooks:
                 $ref: '#/components/examples/EventCallbackSignatureRequestViewed'
               signature_request_signed_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestSigned'
+              signature_request_signer_removed_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestSignerRemoved'
+              signature_request_downloadable_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestDownloadable'
               signature_request_sent_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestSent'
               signature_request_all_signed_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestAllSigned'
+              signature_request_invalid_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestInvalid'
               signature_request_email_bounce_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestEmailBounce'
               signature_request_remind_example:
@@ -15225,32 +15231,26 @@ x-webhooks:
                 $ref: '#/components/examples/EventCallbackSignatureRequestDestroyed'
               signature_request_canceled_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestCanceled'
-              signature_request_downloadable_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestDownloadable'
               signature_request_declined_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestDeclined'
-              signature_request_reassigned_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestReassigned'
-              signature_request_invalid_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestInvalid'
-              signature_request_prepared_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestPrepared'
               signature_request_expired_example:
                 $ref: '#/components/examples/EventCallbackSignatureRequestExpired'
-              signature_request_signer_removed_example:
-                $ref: '#/components/examples/EventCallbackSignatureRequestSignerRemoved'
+              signature_request_reassigned_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestReassigned'
+              signature_request_prepared_example:
+                $ref: '#/components/examples/EventCallbackSignatureRequestPrepared'
+              account_confirmed_example:
+                $ref: '#/components/examples/EventCallbackAccountConfirmed'
               unknown_error_example:
                 $ref: '#/components/examples/EventCallbackUnknownError'
               file_error_example:
                 $ref: '#/components/examples/EventCallbackFileError'
-              sign_url_invalid_example:
-                $ref: '#/components/examples/EventCallbackSignUrlInvalid'
-              account_confirmed_example:
-                $ref: '#/components/examples/EventCallbackAccountConfirmed'
               template_created_example:
                 $ref: '#/components/examples/EventCallbackTemplateCreated'
               template_error_example:
                 $ref: '#/components/examples/EventCallbackTemplateError'
+              sign_url_invalid_example:
+                $ref: '#/components/examples/EventCallbackSignUrlInvalid'
               callback_test_example:
                 $ref: '#/components/examples/EventCallbackCallbackTest'
       responses:

@@ -14363,6 +14363,18 @@ components:
         $ref: examples/json/EventCallbackSignatureRequestSigned.json
       x-fern-audiences:
         - events
+    EventCallbackSignatureRequestSignerRemoved:
+      summary: 'Signature Request Signer Removed Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestSignerRemoved.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestDownloadable:
+      summary: 'Signature Request Downloadable Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestDownloadable.json
+      x-fern-audiences:
+        - events
     EventCallbackSignatureRequestSent:
       summary: 'Signature Request Sent Event Example'
       value:
@@ -14373,6 +14385,12 @@ components:
       summary: 'Signature Request All Signed Event Example'
       value:
         $ref: examples/json/EventCallbackSignatureRequestAllSigned.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestInvalid:
+      summary: 'Signature Request Invalid Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestInvalid.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestEmailBounce:
@@ -14405,34 +14423,10 @@ components:
         $ref: examples/json/EventCallbackSignatureRequestCanceled.json
       x-fern-audiences:
         - events
-    EventCallbackSignatureRequestDownloadable:
-      summary: 'Signature Request Downloadable Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignatureRequestDownloadable.json
-      x-fern-audiences:
-        - events
     EventCallbackSignatureRequestDeclined:
       summary: 'Signature Request Declined Event Example'
       value:
         $ref: examples/json/EventCallbackSignatureRequestDeclined.json
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestReassigned:
-      summary: 'Signature Request Reassigned Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignatureRequestReassigned.json
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestInvalid:
-      summary: 'Signature Request Invalid Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignatureRequestInvalid.json
-      x-fern-audiences:
-        - events
-    EventCallbackSignatureRequestPrepared:
-      summary: 'Signature Request Prepared Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignatureRequestPrepared.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestExpired:
@@ -14441,10 +14435,22 @@ components:
         $ref: examples/json/EventCallbackSignatureRequestExpired.json
       x-fern-audiences:
         - events
-    EventCallbackSignatureRequestSignerRemoved:
-      summary: 'Signature Request Signer Removed Event Example'
+    EventCallbackSignatureRequestReassigned:
+      summary: 'Signature Request Reassigned Event Example'
       value:
-        $ref: examples/json/EventCallbackSignatureRequestSignerRemoved.json
+        $ref: examples/json/EventCallbackSignatureRequestReassigned.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestPrepared:
+      summary: 'Signature Request Prepared Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestPrepared.json
+      x-fern-audiences:
+        - events
+    EventCallbackAccountConfirmed:
+      summary: 'Account Confirmed Event Example'
+      value:
+        $ref: examples/json/EventCallbackAccountConfirmed.json
       x-fern-audiences:
         - events
     EventCallbackUnknownError:
@@ -14459,18 +14465,6 @@ components:
         $ref: examples/json/EventCallbackFileError.json
       x-fern-audiences:
         - events
-    EventCallbackSignUrlInvalid:
-      summary: 'Sign URL Invalid Event Example'
-      value:
-        $ref: examples/json/EventCallbackSignUrlInvalid.json
-      x-fern-audiences:
-        - events
-    EventCallbackAccountConfirmed:
-      summary: 'Account Confirmed Event Example'
-      value:
-        $ref: examples/json/EventCallbackAccountConfirmed.json
-      x-fern-audiences:
-        - events
     EventCallbackTemplateCreated:
       summary: 'Template Created Event Example'
       value:
@@ -14481,6 +14475,12 @@ components:
       summary: 'Template Error Event Example'
       value:
         $ref: examples/json/EventCallbackTemplateError.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignUrlInvalid:
+      summary: 'Sign URL Invalid Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignUrlInvalid.json
       x-fern-audiences:
         - events
     EventCallbackCallbackTest:
