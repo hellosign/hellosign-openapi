@@ -1393,6 +1393,98 @@
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
+"EventCallbackSignatureRequestViewed::TITLE": Signature Request Viewed
+"EventCallbackSignatureRequestViewed::EVENT_TITLE": Signature Request Viewed Event
+"EventCallbackSignatureRequestViewed::EVENT_EXAMPLE_SUMMARY": Signature Request Viewed Event Example
+
+"EventCallbackSignatureRequestSigned::TITLE": Signature Request Signed
+"EventCallbackSignatureRequestSigned::EVENT_TITLE": Signature Request Signed Event
+"EventCallbackSignatureRequestSigned::EVENT_EXAMPLE_SUMMARY": Signature Request Signed Event Example
+
+"EventCallbackSignatureRequestSignerRemoved::TITLE": Signature Request Signer Removed
+"EventCallbackSignatureRequestSignerRemoved::EVENT_TITLE": Signature Request Signer Removed Event
+"EventCallbackSignatureRequestSignerRemoved::EVENT_EXAMPLE_SUMMARY": Signature Request Signer Removed Event Example
+
+"EventCallbackSignatureRequestDownloadable::TITLE": Signature Request Downloadable
+"EventCallbackSignatureRequestDownloadable::EVENT_TITLE": Signature Request Downloadable Event
+"EventCallbackSignatureRequestDownloadable::EVENT_EXAMPLE_SUMMARY": Signature Request Downloadable Event Example
+
+"EventCallbackSignatureRequestSent::TITLE": Signature Request Sent
+"EventCallbackSignatureRequestSent::EVENT_TITLE": Signature Request Sent Event
+"EventCallbackSignatureRequestSent::EVENT_EXAMPLE_SUMMARY": Signature Request Sent Event Example
+
+"EventCallbackSignatureRequestAllSigned::TITLE": Signature Request All Signed
+"EventCallbackSignatureRequestAllSigned::EVENT_TITLE": Signature Request All Signed Event
+"EventCallbackSignatureRequestAllSigned::EVENT_EXAMPLE_SUMMARY": Signature Request All Signed Event Example
+
+"EventCallbackSignatureRequestInvalid::TITLE": Signature Request Invalid
+"EventCallbackSignatureRequestInvalid::EVENT_TITLE": Signature Request Invalid Event
+"EventCallbackSignatureRequestInvalid::EVENT_EXAMPLE_SUMMARY": Signature Request Invalid Event Example
+
+"EventCallbackSignatureRequestEmailBounce::TITLE": Signature Request Email Bounce
+"EventCallbackSignatureRequestEmailBounce::EVENT_TITLE": Signature Request Email Bounce Event
+"EventCallbackSignatureRequestEmailBounce::EVENT_EXAMPLE_SUMMARY": Signature Request Email Bounce Event Example
+
+"EventCallbackSignatureRequestRemind::TITLE": Signature Request Remind
+"EventCallbackSignatureRequestRemind::EVENT_TITLE": Signature Request Remind Event
+"EventCallbackSignatureRequestRemind::EVENT_EXAMPLE_SUMMARY": Signature Request Remind Event Example
+
+"EventCallbackSignatureRequestIncompleteQes::TITLE": Signature Request Incomplete QES
+"EventCallbackSignatureRequestIncompleteQes::EVENT_TITLE": Signature Request Incomplete QES Event
+"EventCallbackSignatureRequestIncompleteQes::EVENT_EXAMPLE_SUMMARY": Signature Request Incomplete QES Event Example
+
+"EventCallbackSignatureRequestDestroyed::TITLE": Signature Request Destroyed
+"EventCallbackSignatureRequestDestroyed::EVENT_TITLE": Signature Request Destroyed Event
+"EventCallbackSignatureRequestDestroyed::EVENT_EXAMPLE_SUMMARY": Signature Request Destroyed Event Example
+
+"EventCallbackSignatureRequestCanceled::TITLE": Signature Request Canceled
+"EventCallbackSignatureRequestCanceled::EVENT_TITLE": Signature Request Canceled Event
+"EventCallbackSignatureRequestCanceled::EVENT_EXAMPLE_SUMMARY": Signature Request Canceled Event Example
+
+"EventCallbackSignatureRequestDeclined::TITLE": Signature Request Declined
+"EventCallbackSignatureRequestDeclined::EVENT_TITLE": Signature Request Declined Event
+"EventCallbackSignatureRequestDeclined::EVENT_EXAMPLE_SUMMARY": Signature Request Declined Event Example
+
+"EventCallbackSignatureRequestExpired::TITLE": Signature Request Expired
+"EventCallbackSignatureRequestExpired::EVENT_TITLE": Signature Request Expired Event
+"EventCallbackSignatureRequestExpired::EVENT_EXAMPLE_SUMMARY": Signature Request Expired Event Example
+
+"EventCallbackSignatureRequestReassigned::TITLE": Signature Request Reassigned
+"EventCallbackSignatureRequestReassigned::EVENT_TITLE": Signature Request Reassigned Event
+"EventCallbackSignatureRequestReassigned::EVENT_EXAMPLE_SUMMARY": Signature Request Reassigned Event Example
+
+"EventCallbackSignatureRequestPrepared::TITLE": Signature Request Prepared
+"EventCallbackSignatureRequestPrepared::EVENT_TITLE": Signature Request Prepared Event
+"EventCallbackSignatureRequestPrepared::EVENT_EXAMPLE_SUMMARY": Signature Request Prepared Event Example
+
+"EventCallbackAccountConfirmed::TITLE": Account Confirmed
+"EventCallbackAccountConfirmed::EVENT_TITLE": Account Confirmed Event
+"EventCallbackAccountConfirmed::EVENT_EXAMPLE_SUMMARY": Account Confirmed Event Example
+
+"EventCallbackUnknownError::TITLE": Unknown Error
+"EventCallbackUnknownError::EVENT_TITLE": Unknown Error Event
+"EventCallbackUnknownError::EVENT_EXAMPLE_SUMMARY": Unknown Error Event Example
+
+"EventCallbackFileError::TITLE": File Error
+"EventCallbackFileError::EVENT_TITLE": File Error Event
+"EventCallbackFileError::EVENT_EXAMPLE_SUMMARY": File Error Event Example
+
+"EventCallbackTemplateCreated::TITLE": Template Created
+"EventCallbackTemplateCreated::EVENT_TITLE": Template Created Event
+"EventCallbackTemplateCreated::EVENT_EXAMPLE_SUMMARY": Template Created Event Example
+
+"EventCallbackTemplateError::TITLE": Template Error
+"EventCallbackTemplateError::EVENT_TITLE": Template Error Event
+"EventCallbackTemplateError::EVENT_EXAMPLE_SUMMARY": Template Error Event Example
+
+"EventCallbackSignUrlInvalid::TITLE": Sign URL Invalid
+"EventCallbackSignUrlInvalid::EVENT_TITLE": Sign URL Invalid Event
+"EventCallbackSignUrlInvalid::EVENT_EXAMPLE_SUMMARY": Sign URL Invalid Event Example
+
+"EventCallbackCallbackTest::TITLE": Callback Test
+"EventCallbackCallbackTest::EVENT_TITLE": Callback Test Event
+"EventCallbackCallbackTest::EVENT_EXAMPLE_SUMMARY": Callback Test Event Example
+
 "ListInfoResponse::DESCRIPTION": Contains pagination information about the data returned.
 "ListInfoResponse::NUM_PAGES": Total number of pages available.
 "ListInfoResponse::NUM_RESULTS": Total number of objects available.

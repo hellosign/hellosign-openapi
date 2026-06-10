@@ -13243,7 +13243,7 @@ components:
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestViewed:
-      title: 'Signature Request Viewed Event'
+      title: '_t__EventCallbackSignatureRequestViewed::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13264,7 +13264,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestSigned:
-      title: 'Signature Request Signed Event'
+      title: '_t__EventCallbackSignatureRequestSigned::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13285,7 +13285,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestSignerRemoved:
-      title: 'Signature Request Signer Removed Event'
+      title: '_t__EventCallbackSignatureRequestSignerRemoved::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13306,7 +13306,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestDownloadable:
-      title: 'Signature Request Downloadable Event'
+      title: '_t__EventCallbackSignatureRequestDownloadable::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13327,7 +13327,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestSent:
-      title: 'Signature Request Sent Event'
+      title: '_t__EventCallbackSignatureRequestSent::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13348,7 +13348,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestAllSigned:
-      title: 'Signature Request All Signed Event'
+      title: '_t__EventCallbackSignatureRequestAllSigned::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13369,7 +13369,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestInvalid:
-      title: 'Signature Request Invalid Event'
+      title: '_t__EventCallbackSignatureRequestInvalid::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13390,7 +13390,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestEmailBounce:
-      title: 'Signature Request Email Bounce Event'
+      title: '_t__EventCallbackSignatureRequestEmailBounce::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13411,7 +13411,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestRemind:
-      title: 'Signature Request Remind Event'
+      title: '_t__EventCallbackSignatureRequestRemind::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13432,7 +13432,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestIncompleteQes:
-      title: 'Signature Request Incomplete QES Event'
+      title: '_t__EventCallbackSignatureRequestIncompleteQes::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13453,7 +13453,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestDestroyed:
-      title: 'Signature Request Destroyed Event'
+      title: '_t__EventCallbackSignatureRequestDestroyed::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13474,7 +13474,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestCanceled:
-      title: 'Signature Request Canceled Event'
+      title: '_t__EventCallbackSignatureRequestCanceled::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13495,7 +13495,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestDeclined:
-      title: 'Signature Request Declined Event'
+      title: '_t__EventCallbackSignatureRequestDeclined::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13516,7 +13516,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestExpired:
-      title: 'Signature Request Expired Event'
+      title: '_t__EventCallbackSignatureRequestExpired::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13537,7 +13537,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestReassigned:
-      title: 'Signature Request Reassigned Event'
+      title: '_t__EventCallbackSignatureRequestReassigned::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13558,7 +13558,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignatureRequestPrepared:
-      title: 'Signature Request Prepared Event'
+      title: '_t__EventCallbackSignatureRequestPrepared::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13579,7 +13579,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackAccountConfirmed:
-      title: 'Account Confirmed Event'
+      title: '_t__EventCallbackAccountConfirmed::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13600,7 +13600,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackUnknownError:
-      title: 'Unknown Error Event'
+      title: '_t__EventCallbackUnknownError::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13621,7 +13621,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackFileError:
-      title: 'File Error Event'
+      title: '_t__EventCallbackFileError::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13642,7 +13642,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackTemplateCreated:
-      title: 'Template Created Event'
+      title: '_t__EventCallbackTemplateCreated::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13663,7 +13663,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackTemplateError:
-      title: 'Template Error Event'
+      title: '_t__EventCallbackTemplateError::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13684,7 +13684,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackSignUrlInvalid:
-      title: 'Sign URL Invalid Event'
+      title: '_t__EventCallbackSignUrlInvalid::EVENT_TITLE'
       required:
         - event
       properties:
@@ -13705,7 +13705,7 @@ components:
         - events
       x-hideOn: sdk
     EventCallbackCallbackTest:
-      title: 'Callback Test Event'
+      title: '_t__EventCallbackCallbackTest::EVENT_TITLE'
       required:
         - event
       properties:
@@ -14321,139 +14321,139 @@ components:
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestViewed:
-      summary: 'Signature Request Viewed Event Example'
+      summary: '_t__EventCallbackSignatureRequestViewed::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestViewed.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestSigned:
-      summary: 'Signature Request Signed Event Example'
+      summary: '_t__EventCallbackSignatureRequestSigned::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestSigned.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestSignerRemoved:
-      summary: 'Signature Request Signer Removed Event Example'
+      summary: '_t__EventCallbackSignatureRequestSignerRemoved::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestSignerRemoved.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestDownloadable:
-      summary: 'Signature Request Downloadable Event Example'
+      summary: '_t__EventCallbackSignatureRequestDownloadable::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestDownloadable.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestSent:
-      summary: 'Signature Request Sent Event Example'
+      summary: '_t__EventCallbackSignatureRequestSent::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestSent.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestAllSigned:
-      summary: 'Signature Request All Signed Event Example'
+      summary: '_t__EventCallbackSignatureRequestAllSigned::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestAllSigned.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestInvalid:
-      summary: 'Signature Request Invalid Event Example'
+      summary: '_t__EventCallbackSignatureRequestInvalid::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestInvalid.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestEmailBounce:
-      summary: 'Signature Request Email Bounce Event Example'
+      summary: '_t__EventCallbackSignatureRequestEmailBounce::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestEmailBounce.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestRemind:
-      summary: 'Signature Request Remind Event Example'
+      summary: '_t__EventCallbackSignatureRequestRemind::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestRemind.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestIncompleteQes:
-      summary: 'Signature Request Incomplete QES Event Example'
+      summary: '_t__EventCallbackSignatureRequestIncompleteQes::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestIncompleteQes.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestDestroyed:
-      summary: 'Signature Request Destroyed Event Example'
+      summary: '_t__EventCallbackSignatureRequestDestroyed::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestDestroyed.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestCanceled:
-      summary: 'Signature Request Canceled Event Example'
+      summary: '_t__EventCallbackSignatureRequestCanceled::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestCanceled.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestDeclined:
-      summary: 'Signature Request Declined Event Example'
+      summary: '_t__EventCallbackSignatureRequestDeclined::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestDeclined.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestExpired:
-      summary: 'Signature Request Expired Event Example'
+      summary: '_t__EventCallbackSignatureRequestExpired::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestExpired.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestReassigned:
-      summary: 'Signature Request Reassigned Event Example'
+      summary: '_t__EventCallbackSignatureRequestReassigned::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestReassigned.json
       x-fern-audiences:
         - events
     EventCallbackSignatureRequestPrepared:
-      summary: 'Signature Request Prepared Event Example'
+      summary: '_t__EventCallbackSignatureRequestPrepared::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignatureRequestPrepared.json
       x-fern-audiences:
         - events
     EventCallbackAccountConfirmed:
-      summary: 'Account Confirmed Event Example'
+      summary: '_t__EventCallbackAccountConfirmed::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackAccountConfirmed.json
       x-fern-audiences:
         - events
     EventCallbackUnknownError:
-      summary: 'Unknown Error Event Example'
+      summary: '_t__EventCallbackUnknownError::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackUnknownError.json
       x-fern-audiences:
         - events
     EventCallbackFileError:
-      summary: 'File Error Event Example'
+      summary: '_t__EventCallbackFileError::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackFileError.json
       x-fern-audiences:
         - events
     EventCallbackTemplateCreated:
-      summary: 'Template Created Event Example'
+      summary: '_t__EventCallbackTemplateCreated::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackTemplateCreated.json
       x-fern-audiences:
         - events
     EventCallbackTemplateError:
-      summary: 'Template Error Event Example'
+      summary: '_t__EventCallbackTemplateError::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackTemplateError.json
       x-fern-audiences:
         - events
     EventCallbackSignUrlInvalid:
-      summary: 'Sign URL Invalid Event Example'
+      summary: '_t__EventCallbackSignUrlInvalid::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackSignUrlInvalid.json
       x-fern-audiences:
         - events
     EventCallbackCallbackTest:
-      summary: 'Callback Test Event Example'
+      summary: '_t__EventCallbackCallbackTest::EVENT_EXAMPLE_SUMMARY'
       value:
         $ref: examples/json/EventCallbackCallbackTest.json
       x-fern-audiences:
