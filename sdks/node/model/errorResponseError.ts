@@ -33,9 +33,9 @@ export class ErrorResponseError {
    */
   "errorMsg": string;
   /**
-   * Name of the error.
+   * Name of the error. See the `x-error-codes` catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
    */
-  "errorName": ErrorResponseError.ErrorNameEnum;
+  "errorName": string;
   /**
    * Path at which an error occurred.
    */
@@ -52,7 +52,7 @@ export class ErrorResponseError {
     {
       name: "errorName",
       baseName: "error_name",
-      type: "ErrorResponseError.ErrorNameEnum",
+      type: "string",
     },
     {
       name: "errorPath",
@@ -68,30 +68,5 @@ export class ErrorResponseError {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data: any): ErrorResponseError {
     return ObjectSerializer.deserialize(data, "ErrorResponseError");
-  }
-}
-
-export namespace ErrorResponseError {
-  export enum ErrorNameEnum {
-    BadRequest = "bad_request",
-    Unauthorized = "unauthorized",
-    PaymentRequired = "payment_required",
-    Forbidden = "forbidden",
-    NotFound = "not_found",
-    Conflict = "conflict",
-    ExceededRate = "exceeded_rate",
-    Unknown = "unknown",
-    TeamInviteFailed = "team_invite_failed",
-    MaxFaxes = "max_faxes",
-    InvalidRecipient = "invalid_recipient",
-    SignatureRequestCancelFailed = "signature_request_cancel_failed",
-    SignatureRequestRemoveFailed = "signature_request_remove_failed",
-    Maintenance = "maintenance",
-    Deleted = "deleted",
-    MethodNotSupported = "method_not_supported",
-    InvalidReminder = "invalid_reminder",
-    Unavailable = "unavailable",
-    UnprocessableEntity = "unprocessable_entity",
-    SignatureRequestExpired = "signature_request_expired",
   }
 }

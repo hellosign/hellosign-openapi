@@ -11945,70 +11945,8 @@ components:
           description: 'Path at which an error occurred.'
           type: string
         error_name:
-          description: 'Name of the error.'
+          description: 'Name of the error. See the `x-error-codes` catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.'
           type: string
-          enum:
-            - bad_request
-            - unauthorized
-            - payment_required
-            - forbidden
-            - not_found
-            - conflict
-            - exceeded_rate
-            - unknown
-            - team_invite_failed
-            - max_faxes
-            - invalid_recipient
-            - signature_request_cancel_failed
-            - signature_request_remove_failed
-            - maintenance
-            - deleted
-            - method_not_supported
-            - invalid_reminder
-            - unavailable
-            - unprocessable_entity
-            - signature_request_expired
-          x-fern-enum:
-            bad_request:
-              description: 'The request contained invalid or malformed parameters.'
-            unauthorized:
-              description: 'The credentials supplied are missing or invalid.'
-            payment_required:
-              description: 'The account must be credited or upgraded to perform this action.'
-            forbidden:
-              description: 'The action is not allowed for these credentials or in the current context.'
-            not_found:
-              description: 'Nothing matches the requested resource.'
-            conflict:
-              description: 'The request was well-formed but conflicts with the current state.'
-            exceeded_rate:
-              description: 'Your account''s API request rate limit has been exceeded.'
-            unknown:
-              description: 'An unexpected error occurred.'
-            team_invite_failed:
-              description: 'The team invitation could not be completed.'
-            max_faxes:
-              description: 'Too many fax transmissions are currently pending or transmitting.'
-            invalid_recipient:
-              description: 'The recipient (fax number or email address) is invalid.'
-            signature_request_cancel_failed:
-              description: 'The signature request could not be cancelled.'
-            signature_request_remove_failed:
-              description: 'Access to the signature request could not be removed.'
-            maintenance:
-              description: 'The request could not be completed because the site is under maintenance.'
-            deleted:
-              description: 'The request was cancelled or deleted.'
-            method_not_supported:
-              description: 'The HTTP method is not supported for this endpoint.'
-            invalid_reminder:
-              description: 'The signature request reminder was invalid.'
-            unavailable:
-              description: 'The service is temporarily unavailable.'
-            unprocessable_entity:
-              description: 'The request was understood but the target entity cannot be processed.'
-            signature_request_expired:
-              description: 'The signature request has expired.'
       type: object
     FaxResponse:
       required:
@@ -14720,12 +14658,6 @@ x-error-codes:
     remediation: 'Retry once the maintenance window ends.'
     retryable: 'yes'
     backoff: 'Retry later with exponential backoff.'
-  deleted:
-    http_status: 410
-    summary: 'The request was cancelled or deleted.'
-    cause: 'The resource has been cancelled or removed and is no longer available.'
-    remediation: 'Do not retry; the resource is permanently gone.'
-    retryable: 'no'
   method_not_supported:
     http_status: 405
     summary: 'The HTTP method is not supported for this endpoint.'
@@ -14759,6 +14691,12 @@ x-error-codes:
     summary: 'The signature request has expired.'
     cause: 'The operation targets a request whose expiration has passed. Most endpoints return 400; final-copy/download endpoints return 403.'
     remediation: 'The request can no longer be acted upon; create a new signature request.'
+    retryable: 'no'
+  deleted:
+    http_status: 410
+    summary: 'The request was cancelled or deleted.'
+    cause: 'The resource has been cancelled or removed and is no longer available.'
+    remediation: 'Do not retry; the resource is permanently gone.'
     retryable: 'no'
 x-oauth-error-codes:
   invalid_grant:

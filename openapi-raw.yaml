@@ -11524,68 +11524,6 @@ components:
         error_name:
           description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
-          enum:
-            - bad_request
-            - unauthorized
-            - payment_required
-            - forbidden
-            - not_found
-            - conflict
-            - exceeded_rate
-            - unknown
-            - team_invite_failed
-            - max_faxes
-            - invalid_recipient
-            - signature_request_cancel_failed
-            - signature_request_remove_failed
-            - maintenance
-            - deleted
-            - method_not_supported
-            - invalid_reminder
-            - unavailable
-            - unprocessable_entity
-            - signature_request_expired
-          x-fern-enum:
-            bad_request:
-              description: '_t__ErrorCatalog::bad_request::SUMMARY'
-            unauthorized:
-              description: '_t__ErrorCatalog::unauthorized::SUMMARY'
-            payment_required:
-              description: '_t__ErrorCatalog::payment_required::SUMMARY'
-            forbidden:
-              description: '_t__ErrorCatalog::forbidden::SUMMARY'
-            not_found:
-              description: '_t__ErrorCatalog::not_found::SUMMARY'
-            conflict:
-              description: '_t__ErrorCatalog::conflict::SUMMARY'
-            exceeded_rate:
-              description: '_t__ErrorCatalog::exceeded_rate::SUMMARY'
-            unknown:
-              description: '_t__ErrorCatalog::unknown::SUMMARY'
-            team_invite_failed:
-              description: '_t__ErrorCatalog::team_invite_failed::SUMMARY'
-            max_faxes:
-              description: '_t__ErrorCatalog::max_faxes::SUMMARY'
-            invalid_recipient:
-              description: '_t__ErrorCatalog::invalid_recipient::SUMMARY'
-            signature_request_cancel_failed:
-              description: '_t__ErrorCatalog::signature_request_cancel_failed::SUMMARY'
-            signature_request_remove_failed:
-              description: '_t__ErrorCatalog::signature_request_remove_failed::SUMMARY'
-            maintenance:
-              description: '_t__ErrorCatalog::maintenance::SUMMARY'
-            deleted:
-              description: '_t__ErrorCatalog::deleted::SUMMARY'
-            method_not_supported:
-              description: '_t__ErrorCatalog::method_not_supported::SUMMARY'
-            invalid_reminder:
-              description: '_t__ErrorCatalog::invalid_reminder::SUMMARY'
-            unavailable:
-              description: '_t__ErrorCatalog::unavailable::SUMMARY'
-            unprocessable_entity:
-              description: '_t__ErrorCatalog::unprocessable_entity::SUMMARY'
-            signature_request_expired:
-              description: '_t__ErrorCatalog::signature_request_expired::SUMMARY'
       type: object
     FaxResponse:
       required:
@@ -14858,12 +14796,6 @@ x-error-codes:
     remediation: '_t__ErrorCatalog::maintenance::REMEDIATION'
     retryable: 'yes'
     backoff: '_t__ErrorCatalog::maintenance::BACKOFF'
-  deleted:
-    http_status: 410
-    summary: '_t__ErrorCatalog::deleted::SUMMARY'
-    cause: '_t__ErrorCatalog::deleted::CAUSE'
-    remediation: '_t__ErrorCatalog::deleted::REMEDIATION'
-    retryable: 'no'
   method_not_supported:
     http_status: 405
     summary: '_t__ErrorCatalog::method_not_supported::SUMMARY'
@@ -14897,6 +14829,12 @@ x-error-codes:
     summary: '_t__ErrorCatalog::signature_request_expired::SUMMARY'
     cause: '_t__ErrorCatalog::signature_request_expired::CAUSE'
     remediation: '_t__ErrorCatalog::signature_request_expired::REMEDIATION'
+    retryable: 'no'
+  deleted:
+    http_status: 410
+    summary: '_t__ErrorCatalog::deleted::SUMMARY'
+    cause: '_t__ErrorCatalog::deleted::CAUSE'
+    remediation: '_t__ErrorCatalog::deleted::REMEDIATION'
     retryable: 'no'
 x-oauth-error-codes:
   invalid_grant:

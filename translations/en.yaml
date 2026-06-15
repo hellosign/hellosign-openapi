@@ -1819,7 +1819,7 @@
 "ErrorResponseError::DESCRIPTION": Contains information about an error that occurred.
 "ErrorResponseError::ERROR_MSG": Message describing an error.
 "ErrorResponseError::ERROR_PATH": Path at which an error occurred.
-"ErrorResponseError::ERROR_NAME": Name of the error.
+"ErrorResponseError::ERROR_NAME": Name of the error. See the `x-error-codes` catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
 
 "Error::400": Error 400 bad_request
 "Error::401": Error 401 unauthorized

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,43 +32,13 @@ class ErrorResponseError(BaseModel):
     """  # noqa: E501
 
     error_msg: StrictStr = Field(description="Message describing an error.")
-    error_name: StrictStr = Field(description="Name of the error.")
+    error_name: StrictStr = Field(
+        description="Name of the error. See the `x-error-codes` catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance."
+    )
     error_path: Optional[StrictStr] = Field(
         default=None, description="Path at which an error occurred."
     )
     __properties: ClassVar[List[str]] = ["error_msg", "error_name", "error_path"]
-
-    @field_validator("error_name")
-    def error_name_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(
-            [
-                "bad_request",
-                "unauthorized",
-                "payment_required",
-                "forbidden",
-                "not_found",
-                "conflict",
-                "exceeded_rate",
-                "unknown",
-                "team_invite_failed",
-                "max_faxes",
-                "invalid_recipient",
-                "signature_request_cancel_failed",
-                "signature_request_remove_failed",
-                "maintenance",
-                "deleted",
-                "method_not_supported",
-                "invalid_reminder",
-                "unavailable",
-                "unprocessable_entity",
-                "signature_request_expired",
-            ]
-        ):
-            raise ValueError(
-                "must be one of enum values ('bad_request', 'unauthorized', 'payment_required', 'forbidden', 'not_found', 'conflict', 'exceeded_rate', 'unknown', 'team_invite_failed', 'max_faxes', 'invalid_recipient', 'signature_request_cancel_failed', 'signature_request_remove_failed', 'maintenance', 'deleted', 'method_not_supported', 'invalid_reminder', 'unavailable', 'unprocessable_entity', 'signature_request_expired')"
-            )
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

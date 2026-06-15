@@ -18009,7 +18009,7 @@ var ErrorResponseError = class _ErrorResponseError {
       {
         name: "errorName",
         baseName: "error_name",
-        type: "ErrorResponseError.ErrorNameEnum"
+        type: "string"
       },
       {
         name: "errorPath",
@@ -18026,31 +18026,6 @@ var ErrorResponseError = class _ErrorResponseError {
     return ObjectSerializer.deserialize(data, "ErrorResponseError");
   }
 };
-((ErrorResponseError2) => {
-  let ErrorNameEnum;
-  ((ErrorNameEnum2) => {
-    ErrorNameEnum2["BadRequest"] = "bad_request";
-    ErrorNameEnum2["Unauthorized"] = "unauthorized";
-    ErrorNameEnum2["PaymentRequired"] = "payment_required";
-    ErrorNameEnum2["Forbidden"] = "forbidden";
-    ErrorNameEnum2["NotFound"] = "not_found";
-    ErrorNameEnum2["Conflict"] = "conflict";
-    ErrorNameEnum2["ExceededRate"] = "exceeded_rate";
-    ErrorNameEnum2["Unknown"] = "unknown";
-    ErrorNameEnum2["TeamInviteFailed"] = "team_invite_failed";
-    ErrorNameEnum2["MaxFaxes"] = "max_faxes";
-    ErrorNameEnum2["InvalidRecipient"] = "invalid_recipient";
-    ErrorNameEnum2["SignatureRequestCancelFailed"] = "signature_request_cancel_failed";
-    ErrorNameEnum2["SignatureRequestRemoveFailed"] = "signature_request_remove_failed";
-    ErrorNameEnum2["Maintenance"] = "maintenance";
-    ErrorNameEnum2["Deleted"] = "deleted";
-    ErrorNameEnum2["MethodNotSupported"] = "method_not_supported";
-    ErrorNameEnum2["InvalidReminder"] = "invalid_reminder";
-    ErrorNameEnum2["Unavailable"] = "unavailable";
-    ErrorNameEnum2["UnprocessableEntity"] = "unprocessable_entity";
-    ErrorNameEnum2["SignatureRequestExpired"] = "signature_request_expired";
-  })(ErrorNameEnum = ErrorResponseError2.ErrorNameEnum || (ErrorResponseError2.ErrorNameEnum = {}));
-})(ErrorResponseError || (ErrorResponseError = {}));
 
 // model/eventCallbackHelper.ts
 var crypto2 = __toESM(require("crypto"));
@@ -26815,7 +26790,6 @@ var WarningResponse = class _WarningResponse {
 
 // model/index.ts
 var enumsMap = {
-  "ErrorResponseError.ErrorNameEnum": ErrorResponseError.ErrorNameEnum,
   "EventCallbackRequestEvent.EventTypeEnum": EventCallbackRequestEvent.EventTypeEnum,
   FaxLineAreaCodeGetCountryEnum,
   FaxLineAreaCodeGetProvinceEnum,
