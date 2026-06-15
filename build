@@ -3,7 +3,19 @@
 set -e
 
 DIR=$(cd `dirname $0` && pwd)
-LANGUAGE="${1:-en}"
+LANGUAGE="en"
+TESTING=""
+
+for arg in "$@"; do
+  case $arg in
+    --testing)
+      TESTING="--testing"
+      ;;
+    *)
+      LANGUAGE="$arg"
+      ;;
+  esac
+done
 
 printf "Language chosen: ${LANGUAGE}\n"
 
@@ -12,7 +24,7 @@ mkdir -p "${DIR}/vendor"
 bash "${DIR}/bin/php" composer install
 printf "\n"
 
-bash "${DIR}/bin/php" ./bin/generate-oas.php
+bash "${DIR}/bin/php" ./bin/generate-oas.php ${TESTING}
 
 "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${DIR}/sandbox/dotnet/src/Dropbox.SignSandbox" cs
 "${DIR}/bin/copy-examples-filtered" "${DIR}/examples" "${DIR}/sandbox/java/src/main/java/com/dropbox/sign_sandbox" java

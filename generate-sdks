@@ -6,12 +6,21 @@ DIR=$(cd `dirname $0` && pwd)
 SDKS=( dotnet java-v1 java-v2 node php python ruby )
 SHOW_HELP=0
 TARGET_SDK=
+TESTING=0
 
-while getopts ":t:h" opt; do
+while getopts ":t:h-:" opt; do
   case $opt in
     t) TARGET_SDK="$OPTARG"
     ;;
     h) SHOW_HELP=1
+    ;;
+    -)
+      case "${OPTARG}" in
+        testing) TESTING=1
+        ;;
+        *) echo "Invalid option --$OPTARG" >&2
+        ;;
+      esac
     ;;
     \?) echo "Invalid option -$OPTARG" >&2
     ;;
@@ -55,8 +64,10 @@ Builds a given SDK into the sdks/[SDK] directory.
             be DELETED and REBUILT!
 
 -t          target SDK, "all", "dotnet", "java-v2", "java-v1", "node", "php", "python", "ruby"
+--testing   use openapi-sdk-testing.yaml (includes all hideOn endpoints)
 -h          display this help and exit
 Example: generate-sdks -t php
+Example: generate-sdks -t php --testing
 EOF
 
     exit 0
@@ -140,9 +151,16 @@ function copy_oas()
   SDK="$1"
   SDK_DIR="${DIR}/sdks/${SDK}"
 
-  printf "Copying openapi-sdk.yaml ...\n"
+  if [[ $TESTING -eq 1 ]]; then
+    OAS_FILE="${DIR}/openapi-sdk-testing.yaml"
+    printf "Copying openapi-sdk-testing.yaml ...\n"
+  else
+    OAS_FILE="${DIR}/openapi-sdk.yaml"
+    printf "Copying openapi-sdk.yaml ...\n"
+  fi
+
   rm -f "${SDK_DIR}/openapi-sdk.yaml"
-  cp -r "${DIR}/openapi-sdk.yaml" "${SDK_DIR}/openapi-sdk.yaml"
+  cp -r "${OAS_FILE}" "${SDK_DIR}/openapi-sdk.yaml"
 }
 
 function copy_examples()
