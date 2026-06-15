@@ -112,6 +112,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :use_text_tags
 
+    # _t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+    # @return [Boolean]
+    attr_accessor :ignore_text_tags_extraction_errors
+
     # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
     # @return [Integer, nil]
     attr_accessor :expires_at
@@ -143,6 +147,7 @@ module Dropbox::Sign
         :'test_mode' => :'test_mode',
         :'title' => :'title',
         :'use_text_tags' => :'use_text_tags',
+        :'ignore_text_tags_extraction_errors' => :'ignore_text_tags_extraction_errors',
         :'expires_at' => :'expires_at'
       }
     end
@@ -184,6 +189,7 @@ module Dropbox::Sign
         :'test_mode' => :'Boolean',
         :'title' => :'String',
         :'use_text_tags' => :'Boolean',
+        :'ignore_text_tags_extraction_errors' => :'Boolean',
         :'expires_at' => :'Integer'
       }
     end
@@ -366,6 +372,12 @@ module Dropbox::Sign
         self.use_text_tags = false
       end
 
+      if attributes.key?(:'ignore_text_tags_extraction_errors')
+        self.ignore_text_tags_extraction_errors = attributes[:'ignore_text_tags_extraction_errors']
+      else
+        self.ignore_text_tags_extraction_errors = false
+      end
+
       if attributes.key?(:'expires_at')
         self.expires_at = attributes[:'expires_at']
       end
@@ -464,6 +476,7 @@ module Dropbox::Sign
           test_mode == o.test_mode &&
           title == o.title &&
           use_text_tags == o.use_text_tags &&
+          ignore_text_tags_extraction_errors == o.ignore_text_tags_extraction_errors &&
           expires_at == o.expires_at
     end
 
@@ -476,7 +489,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_eid, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at].hash
+      [files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_eid, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, ignore_text_tags_extraction_errors, expires_at].hash
     end
 
     # Builds the object from hash

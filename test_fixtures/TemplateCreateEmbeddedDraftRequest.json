@@ -120,6 +120,7 @@
     "subject": "Please sign this document",
     "test_mode": true,
     "title": "Test Template",
-    "use_preexisting_fields": true
+    "use_preexisting_fields": true,
+    "ignore_text_tags_extraction_errors": false
   }
 }

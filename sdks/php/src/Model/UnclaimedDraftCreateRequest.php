@@ -82,6 +82,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'bool',
         'use_preexisting_fields' => 'bool',
         'use_text_tags' => 'bool',
+        'ignore_text_tags_extraction_errors' => 'bool',
         'expires_at' => 'int',
     ];
 
@@ -116,6 +117,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => null,
         'use_preexisting_fields' => null,
         'use_text_tags' => null,
+        'ignore_text_tags_extraction_errors' => null,
         'expires_at' => null,
     ];
 
@@ -148,6 +150,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => false,
         'use_preexisting_fields' => false,
         'use_text_tags' => false,
+        'ignore_text_tags_extraction_errors' => false,
         'expires_at' => true,
     ];
 
@@ -252,6 +255,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'test_mode',
         'use_preexisting_fields' => 'use_preexisting_fields',
         'use_text_tags' => 'use_text_tags',
+        'ignore_text_tags_extraction_errors' => 'ignore_text_tags_extraction_errors',
         'expires_at' => 'expires_at',
     ];
 
@@ -284,6 +288,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'setTestMode',
         'use_preexisting_fields' => 'setUsePreexistingFields',
         'use_text_tags' => 'setUseTextTags',
+        'ignore_text_tags_extraction_errors' => 'setIgnoreTextTagsExtractionErrors',
         'expires_at' => 'setExpiresAt',
     ];
 
@@ -316,6 +321,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'getTestMode',
         'use_preexisting_fields' => 'getUsePreexistingFields',
         'use_text_tags' => 'getUseTextTags',
+        'ignore_text_tags_extraction_errors' => 'getIgnoreTextTagsExtractionErrors',
         'expires_at' => 'getExpiresAt',
     ];
 
@@ -414,6 +420,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('use_preexisting_fields', $data ?? [], false);
         $this->setIfExists('use_text_tags', $data ?? [], false);
+        $this->setIfExists('ignore_text_tags_extraction_errors', $data ?? [], false);
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
@@ -1132,6 +1139,33 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
             throw new InvalidArgumentException('non-nullable use_text_tags cannot be null');
         }
         $this->container['use_text_tags'] = $use_text_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignore_text_tags_extraction_errors
+     *
+     * @return bool|null
+     */
+    public function getIgnoreTextTagsExtractionErrors()
+    {
+        return $this->container['ignore_text_tags_extraction_errors'];
+    }
+
+    /**
+     * Sets ignore_text_tags_extraction_errors
+     *
+     * @param bool|null $ignore_text_tags_extraction_errors _t__UnclaimedDraftCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+     *
+     * @return self
+     */
+    public function setIgnoreTextTagsExtractionErrors(?bool $ignore_text_tags_extraction_errors)
+    {
+        if (is_null($ignore_text_tags_extraction_errors)) {
+            throw new InvalidArgumentException('non-nullable ignore_text_tags_extraction_errors cannot be null');
+        }
+        $this->container['ignore_text_tags_extraction_errors'] = $ignore_text_tags_extraction_errors;
 
         return $this;
     }

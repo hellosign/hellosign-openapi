@@ -72,6 +72,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendRequest.JSON_PROPERTY_TEST_MODE,
   SignatureRequestSendRequest.JSON_PROPERTY_TITLE,
   SignatureRequestSendRequest.JSON_PROPERTY_USE_TEXT_TAGS,
+  SignatureRequestSendRequest.JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS,
   SignatureRequestSendRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
@@ -177,6 +178,10 @@ public class SignatureRequestSendRequest {
   public static final String JSON_PROPERTY_USE_TEXT_TAGS = "use_text_tags";
   @jakarta.annotation.Nullable
   private Boolean useTextTags = false;
+
+  public static final String JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS = "ignore_text_tags_extraction_errors";
+  @jakarta.annotation.Nullable
+  private Boolean ignoreTextTagsExtractionErrors = false;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   @jakarta.annotation.Nullable
@@ -917,6 +922,31 @@ public class SignatureRequestSendRequest {
   }
 
 
+  public SignatureRequestSendRequest ignoreTextTagsExtractionErrors(@jakarta.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+    this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+    return this;
+  }
+
+  /**
+   * _t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+   * @return ignoreTextTagsExtractionErrors
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIgnoreTextTagsExtractionErrors() {
+    return ignoreTextTagsExtractionErrors;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIgnoreTextTagsExtractionErrors(@jakarta.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+    this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+  }
+
+
   public SignatureRequestSendRequest expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
@@ -979,12 +1009,13 @@ public class SignatureRequestSendRequest {
         Objects.equals(this.testMode, signatureRequestSendRequest.testMode) &&
         Objects.equals(this.title, signatureRequestSendRequest.title) &&
         Objects.equals(this.useTextTags, signatureRequestSendRequest.useTextTags) &&
+        Objects.equals(this.ignoreTextTagsExtractionErrors, signatureRequestSendRequest.ignoreTextTagsExtractionErrors) &&
         Objects.equals(this.expiresAt, signatureRequestSendRequest.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt);
+    return Objects.hash(files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, ignoreTextTagsExtractionErrors, expiresAt);
   }
 
   @Override
@@ -1016,6 +1047,7 @@ public class SignatureRequestSendRequest {
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
+    sb.append("    ignoreTextTagsExtractionErrors: ").append(toIndentedString(ignoreTextTagsExtractionErrors)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1498,6 +1530,25 @@ public class SignatureRequestSendRequest {
         }
         else {
             map.put("use_text_tags", JSON.getDefault().getMapper().writeValueAsString(useTextTags));
+        }
+    }
+    if (ignoreTextTagsExtractionErrors != null) {
+        if (isFileTypeOrListOfFiles(ignoreTextTagsExtractionErrors)) {
+            fileTypeFound = true;
+        }
+
+        if (ignoreTextTagsExtractionErrors.getClass().equals(java.io.File.class) ||
+            ignoreTextTagsExtractionErrors.getClass().equals(Integer.class) ||
+            ignoreTextTagsExtractionErrors.getClass().equals(String.class) ||
+            ignoreTextTagsExtractionErrors.getClass().isEnum()) {
+            map.put("ignore_text_tags_extraction_errors", ignoreTextTagsExtractionErrors);
+        } else if (isListOfFile(ignoreTextTagsExtractionErrors)) {
+            for(int i = 0; i< getListSize(ignoreTextTagsExtractionErrors); i++) {
+                map.put("ignore_text_tags_extraction_errors[" + i + "]", getFromList(ignoreTextTagsExtractionErrors, i));
+            }
+        }
+        else {
+            map.put("ignore_text_tags_extraction_errors", JSON.getDefault().getMapper().writeValueAsString(ignoreTextTagsExtractionErrors));
         }
     }
     if (expiresAt != null) {

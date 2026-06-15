@@ -89,6 +89,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :use_preexisting_fields
 
+    # _t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+    # @return [Boolean]
+    attr_accessor :ignore_text_tags_extraction_errors
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -109,7 +113,8 @@ module Dropbox::Sign
         :'subject' => :'subject',
         :'test_mode' => :'test_mode',
         :'title' => :'title',
-        :'use_preexisting_fields' => :'use_preexisting_fields'
+        :'use_preexisting_fields' => :'use_preexisting_fields',
+        :'ignore_text_tags_extraction_errors' => :'ignore_text_tags_extraction_errors'
       }
     end
 
@@ -143,7 +148,8 @@ module Dropbox::Sign
         :'subject' => :'String',
         :'test_mode' => :'Boolean',
         :'title' => :'String',
-        :'use_preexisting_fields' => :'Boolean'
+        :'use_preexisting_fields' => :'Boolean',
+        :'ignore_text_tags_extraction_errors' => :'Boolean'
       }
     end
 
@@ -291,6 +297,12 @@ module Dropbox::Sign
       else
         self.use_preexisting_fields = false
       end
+
+      if attributes.key?(:'ignore_text_tags_extraction_errors')
+        self.ignore_text_tags_extraction_errors = attributes[:'ignore_text_tags_extraction_errors']
+      else
+        self.ignore_text_tags_extraction_errors = false
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -394,7 +406,8 @@ module Dropbox::Sign
           subject == o.subject &&
           test_mode == o.test_mode &&
           title == o.title &&
-          use_preexisting_fields == o.use_preexisting_fields
+          use_preexisting_fields == o.use_preexisting_fields &&
+          ignore_text_tags_extraction_errors == o.ignore_text_tags_extraction_errors
     end
 
     # @see the `==` method
@@ -406,7 +419,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [form_fields_per_document, signer_roles, files, file_urls, allow_reassign, attachments, cc_roles, client_id, field_options, form_field_groups, form_field_rules, merge_fields, message, metadata, subject, test_mode, title, use_preexisting_fields].hash
+      [form_fields_per_document, signer_roles, files, file_urls, allow_reassign, attachments, cc_roles, client_id, field_options, form_field_groups, form_field_rules, merge_fields, message, metadata, subject, test_mode, title, use_preexisting_fields, ignore_text_tags_extraction_errors].hash
     end
 
     # Builds the object from hash

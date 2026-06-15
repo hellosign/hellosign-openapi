@@ -26,6 +26,7 @@
 | `testMode` | ```Boolean``` |  Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.  |  |
 | `title` | ```String``` |  The title you want to assign to the SignatureRequest.  |  |
 | `usePreexistingFields` | ```Boolean``` |  Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).  |  |
+| `ignoreTextTagsExtractionErrors` | ```Boolean``` |  _t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS  |  |
 
 
 

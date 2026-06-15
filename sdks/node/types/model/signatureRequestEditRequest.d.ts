@@ -35,6 +35,7 @@ export declare class SignatureRequestEditRequest {
     "testMode"?: boolean;
     "title"?: string;
     "useTextTags"?: boolean;
+    "ignoreTextTagsExtractionErrors"?: boolean;
     "expiresAt"?: number | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

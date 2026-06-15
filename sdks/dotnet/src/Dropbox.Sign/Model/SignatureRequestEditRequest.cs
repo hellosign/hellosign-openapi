@@ -65,8 +65,9 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="useTextTags">Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;. (default to false).</param>
+        /// <param name="ignoreTextTagsExtractionErrors">_t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS (default to false).</param>
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
-        public SignatureRequestEditRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isEid = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, int? expiresAt = default(int?))
+        public SignatureRequestEditRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isEid = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, bool ignoreTextTagsExtractionErrors = false, int? expiresAt = default(int?))
         {
 
             this.Files = files;
@@ -93,6 +94,7 @@ namespace Dropbox.Sign.Model
             this.TestMode = testMode;
             this.Title = title;
             this.UseTextTags = useTextTags;
+            this.IgnoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
             this.ExpiresAt = expiresAt;
         }
 
@@ -279,6 +281,13 @@ namespace Dropbox.Sign.Model
         public bool UseTextTags { get; set; }
 
         /// <summary>
+        /// _t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+        /// </summary>
+        /// <value>_t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS</value>
+        [DataMember(Name = "ignore_text_tags_extraction_errors", EmitDefaultValue = true)]
+        public bool IgnoreTextTagsExtractionErrors { get; set; }
+
+        /// <summary>
         /// When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
         /// </summary>
         /// <value>When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
@@ -317,6 +326,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  UseTextTags: ").Append(UseTextTags).Append("\n");
+            sb.Append("  IgnoreTextTagsExtractionErrors: ").Append(IgnoreTextTagsExtractionErrors).Append("\n");
             sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -479,6 +489,10 @@ namespace Dropbox.Sign.Model
                     this.UseTextTags.Equals(input.UseTextTags)
                 ) &&
                 (
+                    this.IgnoreTextTagsExtractionErrors == input.IgnoreTextTagsExtractionErrors ||
+                    this.IgnoreTextTagsExtractionErrors.Equals(input.IgnoreTextTagsExtractionErrors)
+                ) &&
+                (
                     this.ExpiresAt == input.ExpiresAt ||
                     (this.ExpiresAt != null &&
                     this.ExpiresAt.Equals(input.ExpiresAt))
@@ -572,6 +586,7 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.UseTextTags.GetHashCode();
+                hashCode = (hashCode * 59) + this.IgnoreTextTagsExtractionErrors.GetHashCode();
                 if (this.ExpiresAt != null)
                 {
                     hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
@@ -777,6 +792,13 @@ namespace Dropbox.Sign.Model
                 Property = "UseTextTags",
                 Type = "bool",
                 Value = UseTextTags,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "ignore_text_tags_extraction_errors",
+                Property = "IgnoreTextTagsExtractionErrors",
+                Type = "bool",
+                Value = IgnoreTextTagsExtractionErrors,
             });
             types.Add(new OpenApiType()
             {

@@ -31,6 +31,28 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :error_path
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -139,6 +161,8 @@ module Dropbox::Sign
     def valid?
       return false if @error_msg.nil?
       return false if @error_name.nil?
+      error_name_validator = EnumAttributeValidator.new('String', ["bad_request", "unauthorized", "payment_required", "forbidden", "not_found", "conflict", "exceeded_rate", "unknown", "team_invite_failed", "max_faxes", "invalid_recipient", "signature_request_cancel_failed", "signature_request_remove_failed", "maintenance", "method_not_supported", "invalid_reminder", "unavailable", "unprocessable_entity", "signature_request_expired", "deleted"])
+      return false unless error_name_validator.valid?(@error_name)
       true
     end
 
@@ -152,13 +176,13 @@ module Dropbox::Sign
       @error_msg = error_msg
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] error_name Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] error_name Object to be assigned
     def error_name=(error_name)
-      if error_name.nil?
-        fail ArgumentError, 'error_name cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["bad_request", "unauthorized", "payment_required", "forbidden", "not_found", "conflict", "exceeded_rate", "unknown", "team_invite_failed", "max_faxes", "invalid_recipient", "signature_request_cancel_failed", "signature_request_remove_failed", "maintenance", "method_not_supported", "invalid_reminder", "unavailable", "unprocessable_entity", "signature_request_expired", "deleted"])
+      unless validator.valid?(error_name)
+        fail ArgumentError, "invalid value for \"error_name\", must be one of #{validator.allowable_values}."
       end
-
       @error_name = error_name
     end
 

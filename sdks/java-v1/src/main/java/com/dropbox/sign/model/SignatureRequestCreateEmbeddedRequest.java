@@ -50,6 +50,7 @@ import java.util.Objects;
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_TEST_MODE,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_TITLE,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_USE_TEXT_TAGS,
+    SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_EXPIRES_AT
 })
@@ -125,6 +126,10 @@ public class SignatureRequestCreateEmbeddedRequest {
 
     public static final String JSON_PROPERTY_USE_TEXT_TAGS = "use_text_tags";
     @javax.annotation.Nullable private Boolean useTextTags = false;
+
+    public static final String JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS =
+            "ignore_text_tags_extraction_errors";
+    @javax.annotation.Nullable private Boolean ignoreTextTagsExtractionErrors = false;
 
     public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS =
             "populate_auto_fill_fields";
@@ -802,6 +807,31 @@ public class SignatureRequestCreateEmbeddedRequest {
         this.useTextTags = useTextTags;
     }
 
+    public SignatureRequestCreateEmbeddedRequest ignoreTextTagsExtractionErrors(
+            @javax.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+        this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+        return this;
+    }
+
+    /**
+     * Sent with a value of &#x60;true&#x60; to ignore the validation errors from text tags
+     * extraction. Defaults to &#x60;false&#x60;.
+     *
+     * @return ignoreTextTagsExtractionErrors
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getIgnoreTextTagsExtractionErrors() {
+        return ignoreTextTagsExtractionErrors;
+    }
+
+    @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setIgnoreTextTagsExtractionErrors(
+            @javax.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+        this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+    }
+
     public SignatureRequestCreateEmbeddedRequest populateAutoFillFields(
             @javax.annotation.Nullable Boolean populateAutoFillFields) {
         this.populateAutoFillFields = populateAutoFillFields;
@@ -904,6 +934,9 @@ public class SignatureRequestCreateEmbeddedRequest {
                 && Objects.equals(
                         this.useTextTags, signatureRequestCreateEmbeddedRequest.useTextTags)
                 && Objects.equals(
+                        this.ignoreTextTagsExtractionErrors,
+                        signatureRequestCreateEmbeddedRequest.ignoreTextTagsExtractionErrors)
+                && Objects.equals(
                         this.populateAutoFillFields,
                         signatureRequestCreateEmbeddedRequest.populateAutoFillFields)
                 && Objects.equals(this.expiresAt, signatureRequestCreateEmbeddedRequest.expiresAt);
@@ -934,6 +967,7 @@ public class SignatureRequestCreateEmbeddedRequest {
                 testMode,
                 title,
                 useTextTags,
+                ignoreTextTagsExtractionErrors,
                 populateAutoFillFields,
                 expiresAt);
     }
@@ -966,6 +1000,9 @@ public class SignatureRequestCreateEmbeddedRequest {
         sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
+        sb.append("    ignoreTextTagsExtractionErrors: ")
+                .append(toIndentedString(ignoreTextTagsExtractionErrors))
+                .append("\n");
         sb.append("    populateAutoFillFields: ")
                 .append(toIndentedString(populateAutoFillFields))
                 .append("\n");
@@ -1408,6 +1445,30 @@ public class SignatureRequestCreateEmbeddedRequest {
                     map.put(
                             "use_text_tags",
                             JSON.getDefault().getMapper().writeValueAsString(useTextTags));
+                }
+            }
+            if (ignoreTextTagsExtractionErrors != null) {
+                if (isFileTypeOrListOfFiles(ignoreTextTagsExtractionErrors)) {
+                    fileTypeFound = true;
+                }
+
+                if (ignoreTextTagsExtractionErrors.getClass().equals(java.io.File.class)
+                        || ignoreTextTagsExtractionErrors.getClass().equals(Integer.class)
+                        || ignoreTextTagsExtractionErrors.getClass().equals(String.class)
+                        || ignoreTextTagsExtractionErrors.getClass().isEnum()) {
+                    map.put("ignore_text_tags_extraction_errors", ignoreTextTagsExtractionErrors);
+                } else if (isListOfFile(ignoreTextTagsExtractionErrors)) {
+                    for (int i = 0; i < getListSize(ignoreTextTagsExtractionErrors); i++) {
+                        map.put(
+                                "ignore_text_tags_extraction_errors[" + i + "]",
+                                getFromList(ignoreTextTagsExtractionErrors, i));
+                    }
+                } else {
+                    map.put(
+                            "ignore_text_tags_extraction_errors",
+                            JSON.getDefault()
+                                    .getMapper()
+                                    .writeValueAsString(ignoreTextTagsExtractionErrors));
                 }
             }
             if (populateAutoFillFields != null) {

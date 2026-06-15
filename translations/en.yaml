@@ -362,6 +362,7 @@
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+"SignatureRequestCreateEmbedded::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS": Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
 "SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 

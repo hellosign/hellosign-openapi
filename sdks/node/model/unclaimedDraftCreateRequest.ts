@@ -123,6 +123,10 @@ export class UnclaimedDraftCreateRequest {
    */
   "useTextTags"?: boolean = false;
   /**
+   * _t__UnclaimedDraftCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+   */
+  "ignoreTextTagsExtractionErrors"?: boolean = false;
+  /**
    * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.
    */
   "expiresAt"?: number | null;
@@ -243,6 +247,11 @@ export class UnclaimedDraftCreateRequest {
     {
       name: "useTextTags",
       baseName: "use_text_tags",
+      type: "boolean",
+    },
+    {
+      name: "ignoreTextTagsExtractionErrors",
+      baseName: "ignore_text_tags_extraction_errors",
       type: "boolean",
     },
     {

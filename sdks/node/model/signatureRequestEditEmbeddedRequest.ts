@@ -117,6 +117,10 @@ export class SignatureRequestEditEmbeddedRequest {
    */
   "useTextTags"?: boolean = false;
   /**
+   * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+   */
+  "ignoreTextTagsExtractionErrors"?: boolean = false;
+  /**
    * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  **NOTE:** Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    */
   "populateAutoFillFields"?: boolean = false;
@@ -236,6 +240,11 @@ export class SignatureRequestEditEmbeddedRequest {
     {
       name: "useTextTags",
       baseName: "use_text_tags",
+      type: "boolean",
+    },
+    {
+      name: "ignoreTextTagsExtractionErrors",
+      baseName: "ignore_text_tags_extraction_errors",
       type: "boolean",
     },
     {

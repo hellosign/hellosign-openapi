@@ -101,6 +101,10 @@ export class TemplateCreateRequest {
    * Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
    */
   "usePreexistingFields"?: boolean = false;
+  /**
+   * _t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+   */
+  "ignoreTextTagsExtractionErrors"?: boolean = false;
 
   static discriminator: string | undefined = undefined;
 
@@ -193,6 +197,11 @@ export class TemplateCreateRequest {
     {
       name: "usePreexistingFields",
       baseName: "use_preexisting_fields",
+      type: "boolean",
+    },
+    {
+      name: "ignoreTextTagsExtractionErrors",
+      baseName: "ignore_text_tags_extraction_errors",
       type: "boolean",
     },
   ];

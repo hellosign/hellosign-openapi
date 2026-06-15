@@ -69,6 +69,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateRequest.JSON_PROPERTY_TEST_MODE,
   UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
   UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_TEXT_TAGS,
+  UnclaimedDraftCreateRequest.JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS,
   UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
@@ -200,6 +201,10 @@ public class UnclaimedDraftCreateRequest {
   public static final String JSON_PROPERTY_USE_TEXT_TAGS = "use_text_tags";
   @jakarta.annotation.Nullable
   private Boolean useTextTags = false;
+
+  public static final String JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS = "ignore_text_tags_extraction_errors";
+  @jakarta.annotation.Nullable
+  private Boolean ignoreTextTagsExtractionErrors = false;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   @jakarta.annotation.Nullable
@@ -878,6 +883,31 @@ public class UnclaimedDraftCreateRequest {
   }
 
 
+  public UnclaimedDraftCreateRequest ignoreTextTagsExtractionErrors(@jakarta.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+    this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+    return this;
+  }
+
+  /**
+   * _t__UnclaimedDraftCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+   * @return ignoreTextTagsExtractionErrors
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIgnoreTextTagsExtractionErrors() {
+    return ignoreTextTagsExtractionErrors;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIgnoreTextTagsExtractionErrors(@jakarta.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+    this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+  }
+
+
   public UnclaimedDraftCreateRequest expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
     return this;
@@ -938,12 +968,13 @@ public class UnclaimedDraftCreateRequest {
         Objects.equals(this.testMode, unclaimedDraftCreateRequest.testMode) &&
         Objects.equals(this.usePreexistingFields, unclaimedDraftCreateRequest.usePreexistingFields) &&
         Objects.equals(this.useTextTags, unclaimedDraftCreateRequest.useTextTags) &&
+        Objects.equals(this.ignoreTextTagsExtractionErrors, unclaimedDraftCreateRequest.ignoreTextTagsExtractionErrors) &&
         Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, files, fileUrls, allowDecline, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, showProgressStepper, signers, signingOptions, signingRedirectUrl, subject, testMode, usePreexistingFields, useTextTags, expiresAt);
+    return Objects.hash(type, files, fileUrls, allowDecline, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, showProgressStepper, signers, signingOptions, signingRedirectUrl, subject, testMode, usePreexistingFields, useTextTags, ignoreTextTagsExtractionErrors, expiresAt);
   }
 
   @Override
@@ -973,6 +1004,7 @@ public class UnclaimedDraftCreateRequest {
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    usePreexistingFields: ").append(toIndentedString(usePreexistingFields)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
+    sb.append("    ignoreTextTagsExtractionErrors: ").append(toIndentedString(ignoreTextTagsExtractionErrors)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1417,6 +1449,25 @@ public class UnclaimedDraftCreateRequest {
         }
         else {
             map.put("use_text_tags", JSON.getDefault().getMapper().writeValueAsString(useTextTags));
+        }
+    }
+    if (ignoreTextTagsExtractionErrors != null) {
+        if (isFileTypeOrListOfFiles(ignoreTextTagsExtractionErrors)) {
+            fileTypeFound = true;
+        }
+
+        if (ignoreTextTagsExtractionErrors.getClass().equals(java.io.File.class) ||
+            ignoreTextTagsExtractionErrors.getClass().equals(Integer.class) ||
+            ignoreTextTagsExtractionErrors.getClass().equals(String.class) ||
+            ignoreTextTagsExtractionErrors.getClass().isEnum()) {
+            map.put("ignore_text_tags_extraction_errors", ignoreTextTagsExtractionErrors);
+        } else if (isListOfFile(ignoreTextTagsExtractionErrors)) {
+            for(int i = 0; i< getListSize(ignoreTextTagsExtractionErrors); i++) {
+                map.put("ignore_text_tags_extraction_errors[" + i + "]", getFromList(ignoreTextTagsExtractionErrors, i));
+            }
+        }
+        else {
+            map.put("ignore_text_tags_extraction_errors", JSON.getDefault().getMapper().writeValueAsString(ignoreTextTagsExtractionErrors));
         }
     }
     if (expiresAt != null) {

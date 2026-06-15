@@ -206,6 +206,7 @@ import { UnclaimedDraftResponse } from "./unclaimedDraftResponse";
 import { WarningResponse } from "./warningResponse";
 
 export let enumsMap: { [index: string]: any } = {
+  "ErrorResponseError.ErrorNameEnum": ErrorResponseError.ErrorNameEnum,
   "EventCallbackRequestEvent.EventTypeEnum":
     EventCallbackRequestEvent.EventTypeEnum,
   FaxLineAreaCodeGetCountryEnum: FaxLineAreaCodeGetCountryEnum,
