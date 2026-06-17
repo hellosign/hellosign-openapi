@@ -13745,6 +13745,8 @@ components:
         template:
           $ref: '#/components/schemas/TemplateResponse'
       type: object
+      x-fern-audiences:
+        - events
     EventCallbackRequestEvent:
       description: 'Basic information about the event that occurred.'
       required:
@@ -13788,6 +13790,8 @@ components:
         event_metadata:
           $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
       type: object
+      x-fern-audiences:
+        - events
     EventCallbackRequestEventMetadata:
       description: 'Specific metadata about the event.'
       properties:
@@ -13808,6 +13812,8 @@ components:
           type: string
           nullable: true
       type: object
+      x-fern-audiences:
+        - events
   responses:
     EventCallbackResponse:
       description: 'successful operation'
@@ -13816,6 +13822,8 @@ components:
           schema:
             type: string
             default: 'Hello API Event Received'
+      x-fern-audiences:
+        - events
   examples:
     AccountCreateRequest:
       summary: 'Default Example'
@@ -14317,22 +14325,170 @@ components:
       summary: 'Example: signature_request_sent'
       value:
         $ref: examples/json/EventCallbackAccountSignatureRequestSent.json
+      x-fern-audiences:
+        - events
     EventCallbackAccountTemplateCreated:
       summary: 'Example: template_created'
       value:
         $ref: examples/json/EventCallbackAccountTemplateCreated.json
+      x-fern-audiences:
+        - events
     EventCallbackAppAccountConfirmed:
       summary: 'Example: account_confirmed'
       value:
         $ref: examples/json/EventCallbackAppAccountConfirmed.json
+      x-fern-audiences:
+        - events
     EventCallbackAppSignatureRequestSent:
       summary: 'Example: signature_request_sent'
       value:
         $ref: examples/json/EventCallbackAppSignatureRequestSent.json
+      x-fern-audiences:
+        - events
     EventCallbackAppTemplateCreated:
       summary: 'Example: template_created'
       value:
         $ref: examples/json/EventCallbackAppTemplateCreated.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestViewed:
+      summary: 'Signature Request Viewed Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestViewed.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestSigned:
+      summary: 'Signature Request Signed Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestSigned.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestSignerRemoved:
+      summary: 'Signature Request Signer Removed Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestSignerRemoved.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestDownloadable:
+      summary: 'Signature Request Downloadable Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestDownloadable.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestSent:
+      summary: 'Signature Request Sent Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestSent.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestAllSigned:
+      summary: 'Signature Request All Signed Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestAllSigned.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestInvalid:
+      summary: 'Signature Request Invalid Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestInvalid.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestEmailBounce:
+      summary: 'Signature Request Email Bounce Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestEmailBounce.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestRemind:
+      summary: 'Signature Request Remind Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestRemind.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestIncompleteQes:
+      summary: 'Signature Request Incomplete QES Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestIncompleteQes.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestDestroyed:
+      summary: 'Signature Request Destroyed Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestDestroyed.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestCanceled:
+      summary: 'Signature Request Canceled Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestCanceled.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestDeclined:
+      summary: 'Signature Request Declined Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestDeclined.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestExpired:
+      summary: 'Signature Request Expired Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestExpired.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestReassigned:
+      summary: 'Signature Request Reassigned Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestReassigned.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignatureRequestPrepared:
+      summary: 'Signature Request Prepared Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignatureRequestPrepared.json
+      x-fern-audiences:
+        - events
+    EventCallbackAccountConfirmed:
+      summary: 'Account Confirmed Event Example'
+      value:
+        $ref: examples/json/EventCallbackAccountConfirmed.json
+      x-fern-audiences:
+        - events
+    EventCallbackUnknownError:
+      summary: 'Unknown Error Event Example'
+      value:
+        $ref: examples/json/EventCallbackUnknownError.json
+      x-fern-audiences:
+        - events
+    EventCallbackFileError:
+      summary: 'File Error Event Example'
+      value:
+        $ref: examples/json/EventCallbackFileError.json
+      x-fern-audiences:
+        - events
+    EventCallbackTemplateCreated:
+      summary: 'Template Created Event Example'
+      value:
+        $ref: examples/json/EventCallbackTemplateCreated.json
+      x-fern-audiences:
+        - events
+    EventCallbackTemplateError:
+      summary: 'Template Error Event Example'
+      value:
+        $ref: examples/json/EventCallbackTemplateError.json
+      x-fern-audiences:
+        - events
+    EventCallbackSignUrlInvalid:
+      summary: 'Sign URL Invalid Event Example'
+      value:
+        $ref: examples/json/EventCallbackSignUrlInvalid.json
+      x-fern-audiences:
+        - events
+    EventCallbackCallbackTest:
+      summary: 'Callback Test Event Example'
+      value:
+        $ref: examples/json/EventCallbackCallbackTest.json
+      x-fern-audiences:
+        - events
   requestBodies:
     EventCallbackAccountRequest:
       description: |-
@@ -14410,100 +14566,4 @@ security:
 externalDocs:
   description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'
-x-webhooks:
-  accountCallback:
-    post:
-      summary: 'Account Callbacks'
-      operationId: accountUpdateEventCallback
-      description:
-        $ref: ./markdown/en/descriptions/account-callback-description.md
-      x-meta:
-        seo:
-          title: 'Account Callbacks | API Documentation | Dropbox Sign for Developers'
-          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the account level, click here.'
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/EventCallbackExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/EventCallbackExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/EventCallbackExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/EventCallbackExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/EventCallbackExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/EventCallbackExample.py
-      tags:
-        - 'Callbacks and Events'
-      requestBody:
-        $ref: '#/components/requestBodies/EventCallbackAccountRequest'
-      responses:
-        200:
-          $ref: '#/components/responses/EventCallbackResponse'
-  appCallback:
-    post:
-      summary: 'App Callbacks'
-      description:
-        $ref: ./markdown/en/descriptions/api-app-callback-description.md
-      operationId: apiAppCreateEventCallback
-      x-meta:
-        seo:
-          title: 'App Callbacks | API Documentation | Dropbox Sign for Developers'
-          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the App level, click here.'
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/EventCallbackExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/EventCallbackExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/EventCallbackExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/EventCallbackExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/EventCallbackExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/EventCallbackExample.py
-      tags:
-        - 'Callbacks and Events'
-      requestBody:
-        $ref: '#/components/requestBodies/EventCallbackAppRequest'
-      responses:
-        200:
-          $ref: '#/components/responses/EventCallbackResponse'
+x-webhooks: []
