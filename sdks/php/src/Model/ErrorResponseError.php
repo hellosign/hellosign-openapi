@@ -358,7 +358,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets error_name
      *
-     * @param string $error_name name of the error
+     * @param string $error_name Name of the error. See the `x-error-codes` catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
      *
      * @return self
      */

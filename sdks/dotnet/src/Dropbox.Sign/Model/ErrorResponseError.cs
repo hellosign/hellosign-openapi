@@ -43,7 +43,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="errorMsg">Message describing an error. (required).</param>
         /// <param name="errorPath">Path at which an error occurred..</param>
-        /// <param name="errorName">Name of the error. (required).</param>
+        /// <param name="errorName">Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance. (required).</param>
         public ErrorResponseError(string errorMsg = default(string), string errorPath = default(string), string errorName = default(string))
         {
 
@@ -86,9 +86,9 @@ namespace Dropbox.Sign.Model
         public string ErrorMsg { get; set; }
 
         /// <summary>
-        /// Name of the error.
+        /// Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
         /// </summary>
-        /// <value>Name of the error.</value>
+        /// <value>Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.</value>
         [DataMember(Name = "error_name", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorName { get; set; }
 

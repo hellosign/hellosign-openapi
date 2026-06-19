@@ -23,7 +23,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :error_msg
 
-    # Name of the error.
+    # Name of the error. See the `x-error-codes` catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
     # @return [String]
     attr_accessor :error_name
 

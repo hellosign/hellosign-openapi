@@ -5087,6 +5087,8 @@ paths:
                   $ref: '#/components/examples/Error429Response'
                 404_example:
                   $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponse'
       security:
@@ -11943,7 +11945,7 @@ components:
           description: 'Path at which an error occurred.'
           type: string
         error_name:
-          description: 'Name of the error.'
+          description: 'Name of the error. See the `x-error-codes` catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.'
           type: string
       type: object
     FaxResponse:
@@ -14567,3 +14569,241 @@ externalDocs:
   description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'
 x-webhooks: []
+x-error-codes:
+  bad_request:
+    http_status: 400
+    summary: 'The request contained invalid or malformed parameters.'
+    cause: 'A parameter failed validation, or the request body was malformed.'
+    remediation: 'Inspect error_msg and error_path, correct the offending parameter, and resend.'
+    retryable: 'no'
+  unauthorized:
+    http_status: 401
+    summary: 'The credentials supplied are missing or invalid.'
+    cause: 'Missing, malformed, or invalid API key or OAuth access token.'
+    remediation: 'Verify the API key or OAuth token and the Authorization header, then retry.'
+    retryable: 'no'
+  payment_required:
+    http_status: 402
+    summary: 'The account must be credited or upgraded to perform this action.'
+    cause: 'The action requires a paid plan, additional quota, or API credits.'
+    remediation: 'Upgrade the plan or add the required credits/quota, then retry.'
+    retryable: 'no'
+  forbidden:
+    http_status: 403
+    summary: 'The action is not allowed for these credentials or in the current context.'
+    cause: 'The authenticated account lacks access to the resource or operation.'
+    remediation: 'Confirm the account has access to the resource and the required permissions.'
+    retryable: 'no'
+  not_found:
+    http_status: 404
+    summary: 'Nothing matches the requested resource.'
+    cause: 'The resource id does not exist or is not visible to this account.'
+    remediation: 'Verify the id and that the resource belongs to the authenticated account.'
+    retryable: 'no'
+  conflict:
+    http_status: 409
+    summary: 'The request was well-formed but conflicts with the current state.'
+    cause: 'The target resource is in a state incompatible with the request (e.g. a signature request is still being set up).'
+    remediation: 'Wait briefly and retry, or listen for a callback event confirming the resource is ready.'
+    retryable: conditional
+  exceeded_rate:
+    http_status: 429
+    summary: 'Your account''s API request rate limit has been exceeded.'
+    cause: 'Too many requests were sent within the rate-limit window for this request type.'
+    remediation: 'Pace requests using the X-RateLimit-* response headers and retry after the window resets.'
+    retryable: 'yes'
+    backoff: 'Honor X-Ratelimit-Reset (Unix epoch); otherwise exponential backoff with jitter. No Retry-After header is sent.'
+  unknown:
+    http_status: 500
+    summary: 'An unexpected error occurred.'
+    cause: 'An unhandled server-side error, or a status code without a more specific error_name.'
+    remediation: 'Retry transient failures; if it persists, contact support with the request details.'
+    retryable: conditional
+    backoff: 'For transient 5xx, retry with exponential backoff; otherwise do not retry.'
+  team_invite_failed:
+    http_status: 403
+    summary: 'The team invitation could not be completed.'
+    cause: 'The invitee already belongs to a team, or the invite is otherwise not permitted.'
+    remediation: 'Confirm the invitee is not already on a team before inviting.'
+    retryable: 'no'
+  max_faxes:
+    http_status: 429
+    summary: 'Too many fax transmissions are currently pending or transmitting.'
+    cause: 'The account has reached the limit of concurrent in-flight fax transmissions.'
+    remediation: 'Wait for outstanding transmissions to complete, then retry.'
+    retryable: 'yes'
+    backoff: 'Retry with exponential backoff once pending transmissions clear.'
+  invalid_recipient:
+    http_status: 400
+    summary: 'The recipient (fax number or email address) is invalid.'
+    cause: 'A recipient value did not pass validation.'
+    remediation: 'Correct the recipient value and resend.'
+    retryable: 'no'
+  signature_request_cancel_failed:
+    http_status: 400
+    summary: 'The signature request could not be cancelled.'
+    cause: 'The caller is not the requester, or the request is already fully executed/closed.'
+    remediation: 'Only the requester can cancel, and only before the request is fully executed.'
+    retryable: 'no'
+  signature_request_remove_failed:
+    http_status: 400
+    summary: 'Access to the signature request could not be removed.'
+    cause: 'The signature request has not yet been fully executed, so access cannot be revoked.'
+    remediation: 'Wait until all parties have signed, or call /signature_request/cancel to cancel incomplete requests instead.'
+    retryable: 'no'
+  maintenance:
+    http_status: 503
+    summary: 'The request could not be completed because the site is under maintenance.'
+    cause: 'The API is in a scheduled maintenance window.'
+    remediation: 'Retry once the maintenance window ends.'
+    retryable: 'yes'
+    backoff: 'Retry later with exponential backoff.'
+  method_not_supported:
+    http_status: 405
+    summary: 'The HTTP method is not supported for this endpoint.'
+    cause: 'The request used a verb the endpoint does not accept.'
+    remediation: 'Use the HTTP method documented for the endpoint.'
+    retryable: 'no'
+  invalid_reminder:
+    http_status: 400
+    summary: 'The signature request reminder was invalid.'
+    cause: 'A reminder was attempted against an ineligible request (e.g. embedded, closed, or expired).'
+    remediation: 'Only send reminders for eligible (non-embedded, open) signature requests.'
+    retryable: 'no'
+  unavailable:
+    http_status: 503
+    summary: 'The service is temporarily unavailable.'
+    cause: 'A downstream dependency or the service itself is temporarily unavailable.'
+    remediation: 'Retry later with exponential backoff.'
+    retryable: 'yes'
+    backoff: 'Retry later with exponential backoff and jitter.'
+  unprocessable_entity:
+    http_status: 422
+    summary: 'The request was understood but the target entity cannot be processed.'
+    cause: 'The resource is still being processed, or it is in an error state.'
+    remediation: 'If the resource is still processing, wait and retry; if it is in an error state, recreate/resend it instead of retrying.'
+    retryable: conditional
+    backoff: 'If still processing, retry with exponential backoff; if in an error state, do not retry.'
+  signature_request_expired:
+    http_status:
+      - 400
+      - 403
+    summary: 'The signature request has expired.'
+    cause: 'The operation targets a request whose expiration has passed. Most endpoints return 400; final-copy/download endpoints return 403.'
+    remediation: 'The request can no longer be acted upon; create a new signature request.'
+    retryable: 'no'
+  deleted:
+    http_status: 410
+    summary: 'The request was cancelled or deleted.'
+    cause: 'The resource has been cancelled or removed and is no longer available.'
+    remediation: 'Do not retry; the resource is permanently gone.'
+    retryable: 'no'
+x-oauth-error-codes:
+  invalid_grant:
+    http_status:
+      - 400
+      - 401
+    summary: 'The OAuth grant (authorization code or refresh token) is invalid or expired.'
+    cause: 'The code/token was already used, expired, or does not match the client.'
+    remediation: 'Re-initiate the OAuth flow to obtain a fresh authorization code.'
+    retryable: 'no'
+  invalid_client:
+    http_status: 400
+    summary: 'The OAuth client credentials are invalid.'
+    cause: 'The client_id or client_secret is unrecognized or incorrect.'
+    remediation: 'Verify the client_id and client_secret from the API app settings.'
+    retryable: 'no'
+  invalid_request:
+    http_status: 400
+    summary: 'The OAuth request is malformed or missing required parameters.'
+    cause: 'A required parameter is missing, or the request format is invalid.'
+    remediation: 'Check the request against the OAuth token endpoint documentation.'
+    retryable: 'no'
+  unauthorized_client:
+    http_status:
+      - 401
+      - 403
+    summary: 'The OAuth client is not authorized to perform this action.'
+    cause: 'The app has not been approved, or the action is outside the granted scopes.'
+    remediation: 'Ensure the app is approved and the required scopes are granted.'
+    retryable: 'no'
+  unsupported_grant_type:
+    http_status: 400
+    summary: 'The grant type is not supported.'
+    cause: 'The grant_type parameter value is not recognized.'
+    remediation: 'Use authorization_code or refresh_token as the grant_type.'
+    retryable: 'no'
+  payment_required:
+    http_status: 402
+    summary: 'The account requires a paid plan to use this OAuth app.'
+    cause: 'The authorizing account does not have a plan that supports this integration.'
+    remediation: 'Upgrade the account to a plan that includes OAuth app access.'
+    retryable: 'no'
+  addon_required:
+    http_status: 402
+    summary: 'An add-on is required to use this OAuth app.'
+    cause: 'The account plan does not include the add-on needed for this integration.'
+    remediation: 'Add the required add-on to the account subscription.'
+    retryable: 'no'
+  invalid_scope:
+    http_status: 400
+    summary: 'The requested OAuth scope is invalid.'
+    cause: 'The scope parameter contains values not permitted for the app.'
+    remediation: 'Request only scopes that the app is configured to use.'
+    retryable: 'no'
+  quota_reached:
+    http_status: 402
+    summary: 'The account has reached its usage quota for this OAuth app.'
+    cause: 'The authorizing account has exhausted its quota for the integration.'
+    remediation: 'Contact the app owner or upgrade the account quota.'
+    retryable: 'no'
+  server_error:
+    http_status: 500
+    summary: 'An internal server error occurred during OAuth processing.'
+    cause: 'An unexpected error on the server side while handling the OAuth request.'
+    remediation: 'Retry the request; if it persists, contact support.'
+    retryable: 'yes'
+    backoff: 'Retry with exponential backoff.'
+  temporary_unavailable:
+    http_status: 503
+    summary: 'The OAuth service is temporarily unavailable.'
+    cause: 'The service is under maintenance or experiencing temporary issues.'
+    remediation: 'Retry after a short delay.'
+    retryable: 'yes'
+    backoff: 'Retry with exponential backoff.'
+x-error-events:
+  signature_request_invalid:
+    event_type: signature_request_invalid
+    delivery: webhook
+    summary: 'Asynchronous error while processing a signature request.'
+    cause: 'A signature request could not be processed (e.g. invalid tags, fields, or merge data).'
+    remediation: 'Inspect event.event_metadata.event_message in the callback, correct the request, and resend.'
+    retryable: conditional
+  unknown_error:
+    event_type: unknown_error
+    delivery: webhook
+    summary: 'An unspecified asynchronous processing error occurred.'
+    cause: 'An unexpected error occurred while processing the request asynchronously.'
+    remediation: 'Check the request status in the API dashboard; retry or contact support if it persists.'
+    retryable: conditional
+  file_error:
+    event_type: file_error
+    delivery: webhook
+    summary: 'Asynchronous error while processing an uploaded file.'
+    cause: 'A file attached to a request could not be processed.'
+    remediation: 'Resend the request with a supported, non-corrupt file.'
+    retryable: conditional
+  template_error:
+    event_type: template_error
+    delivery: webhook
+    summary: 'Asynchronous error while creating a template.'
+    cause: 'Template file processing failed (e.g. unsupported or corrupt file).'
+    remediation: 'Recreate the template with a valid file; check status in the API dashboard.'
+    retryable: conditional
+  sign_url_invalid:
+    event_type: sign_url_invalid
+    delivery: webhook
+    summary: 'An embedded signing URL has expired or become invalid.'
+    cause: 'The embedded sign_url is no longer valid (e.g. expired).'
+    remediation: 'Generate a fresh embedded sign_url via the embedded sign URL endpoint.'
+    retryable: 'yes'
