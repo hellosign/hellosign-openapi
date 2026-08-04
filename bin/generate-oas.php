@@ -35,3 +35,7 @@ if ($testing) {
     $generate = new Hello\OpenApi\GenerateSdkOas(true);
     $generate->run();
 }
+
+echo "\nCreating Fern-specific OpenAPI file ...\n";
+$generate = new Hello\OpenApi\GenerateFernOas();
+$generate->run();
