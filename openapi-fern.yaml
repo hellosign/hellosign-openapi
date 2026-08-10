@@ -23853,6 +23853,10 @@ components:
           description: Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
           type: boolean
           default: false
+        ignore_text_tags_extraction_errors:
+          description: Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+          type: boolean
+          default: false
         populate_auto_fill_fields:
           description: |-
             Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.

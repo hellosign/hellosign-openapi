@@ -19573,6 +19573,10 @@ var SignatureRequestCreateEmbeddedRequest = class _SignatureRequestCreateEmbedde
      */
     this["useTextTags"] = false;
     /**
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     */
+    this["ignoreTextTagsExtractionErrors"] = false;
+    /**
      * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  **NOTE:** Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
      */
     this["populateAutoFillFields"] = false;
@@ -19690,6 +19694,11 @@ var SignatureRequestCreateEmbeddedRequest = class _SignatureRequestCreateEmbedde
       {
         name: "useTextTags",
         baseName: "use_text_tags",
+        type: "boolean"
+      },
+      {
+        name: "ignoreTextTagsExtractionErrors",
+        baseName: "ignore_text_tags_extraction_errors",
         type: "boolean"
       },
       {
@@ -19850,6 +19859,10 @@ var SignatureRequestEditEmbeddedRequest = class _SignatureRequestEditEmbeddedReq
      */
     this["useTextTags"] = false;
     /**
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     */
+    this["ignoreTextTagsExtractionErrors"] = false;
+    /**
      * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  **NOTE:** Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
      */
     this["populateAutoFillFields"] = false;
@@ -19967,6 +19980,11 @@ var SignatureRequestEditEmbeddedRequest = class _SignatureRequestEditEmbeddedReq
       {
         name: "useTextTags",
         baseName: "use_text_tags",
+        type: "boolean"
+      },
+      {
+        name: "ignoreTextTagsExtractionErrors",
+        baseName: "ignore_text_tags_extraction_errors",
         type: "boolean"
       },
       {
@@ -20130,6 +20148,10 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
      * Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
      */
     this["useTextTags"] = false;
+    /**
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     */
+    this["ignoreTextTagsExtractionErrors"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -20254,6 +20276,11 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
       {
         name: "useTextTags",
         baseName: "use_text_tags",
+        type: "boolean"
+      },
+      {
+        name: "ignoreTextTagsExtractionErrors",
+        baseName: "ignore_text_tags_extraction_errors",
         type: "boolean"
       },
       {
@@ -21397,6 +21424,10 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
      * Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
      */
     this["useTextTags"] = false;
+    /**
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     */
+    this["ignoreTextTagsExtractionErrors"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -21526,6 +21557,11 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
       {
         name: "useTextTags",
         baseName: "use_text_tags",
+        type: "boolean"
+      },
+      {
+        name: "ignoreTextTagsExtractionErrors",
+        baseName: "ignore_text_tags_extraction_errors",
         type: "boolean"
       },
       {
@@ -23995,6 +24031,10 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
      * Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
      */
     this["usePreexistingFields"] = false;
+    /**
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     */
+    this["ignoreTextTagsExtractionErrors"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -24125,6 +24165,11 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
         name: "usePreexistingFields",
         baseName: "use_preexisting_fields",
         type: "boolean"
+      },
+      {
+        name: "ignoreTextTagsExtractionErrors",
+        baseName: "ignore_text_tags_extraction_errors",
+        type: "boolean"
       }
     ];
   }
@@ -24227,6 +24272,10 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
      * Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
      */
     this["usePreexistingFields"] = false;
+    /**
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     */
+    this["ignoreTextTagsExtractionErrors"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -24321,6 +24370,11 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
       {
         name: "usePreexistingFields",
         baseName: "use_preexisting_fields",
+        type: "boolean"
+      },
+      {
+        name: "ignoreTextTagsExtractionErrors",
+        baseName: "ignore_text_tags_extraction_errors",
         type: "boolean"
       }
     ];
@@ -26007,6 +26061,10 @@ var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedReq
      */
     this["useTextTags"] = false;
     /**
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     */
+    this["ignoreTextTagsExtractionErrors"] = false;
+    /**
      * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  **NOTE:** Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
      */
     this["populateAutoFillFields"] = false;
@@ -26184,6 +26242,11 @@ var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedReq
       {
         name: "useTextTags",
         baseName: "use_text_tags",
+        type: "boolean"
+      },
+      {
+        name: "ignoreTextTagsExtractionErrors",
+        baseName: "ignore_text_tags_extraction_errors",
         type: "boolean"
       },
       {
@@ -26469,6 +26532,10 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
      * Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
      */
     this["useTextTags"] = false;
+    /**
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     */
+    this["ignoreTextTagsExtractionErrors"] = false;
   }
   static {
     this.discriminator = void 0;
@@ -26588,6 +26655,11 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
       {
         name: "useTextTags",
         baseName: "use_text_tags",
+        type: "boolean"
+      },
+      {
+        name: "ignoreTextTagsExtractionErrors",
+        baseName: "ignore_text_tags_extraction_errors",
         type: "boolean"
       },
       {

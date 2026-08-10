@@ -83,6 +83,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'bool',
         'title' => 'string',
         'use_text_tags' => 'bool',
+        'ignore_text_tags_extraction_errors' => 'bool',
         'expires_at' => 'int',
     ];
 
@@ -119,6 +120,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => null,
         'title' => null,
         'use_text_tags' => null,
+        'ignore_text_tags_extraction_errors' => null,
         'expires_at' => null,
     ];
 
@@ -153,6 +155,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => false,
         'title' => false,
         'use_text_tags' => false,
+        'ignore_text_tags_extraction_errors' => false,
         'expires_at' => true,
     ];
 
@@ -259,6 +262,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'test_mode',
         'title' => 'title',
         'use_text_tags' => 'use_text_tags',
+        'ignore_text_tags_extraction_errors' => 'ignore_text_tags_extraction_errors',
         'expires_at' => 'expires_at',
     ];
 
@@ -293,6 +297,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'use_text_tags' => 'setUseTextTags',
+        'ignore_text_tags_extraction_errors' => 'setIgnoreTextTagsExtractionErrors',
         'expires_at' => 'setExpiresAt',
     ];
 
@@ -327,6 +332,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'use_text_tags' => 'getUseTextTags',
+        'ignore_text_tags_extraction_errors' => 'getIgnoreTextTagsExtractionErrors',
         'expires_at' => 'getExpiresAt',
     ];
 
@@ -411,6 +417,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('use_text_tags', $data ?? [], false);
+        $this->setIfExists('ignore_text_tags_extraction_errors', $data ?? [], false);
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
@@ -1171,6 +1178,33 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
             throw new InvalidArgumentException('non-nullable use_text_tags cannot be null');
         }
         $this->container['use_text_tags'] = $use_text_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignore_text_tags_extraction_errors
+     *
+     * @return bool|null
+     */
+    public function getIgnoreTextTagsExtractionErrors()
+    {
+        return $this->container['ignore_text_tags_extraction_errors'];
+    }
+
+    /**
+     * Sets ignore_text_tags_extraction_errors
+     *
+     * @param bool|null $ignore_text_tags_extraction_errors Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setIgnoreTextTagsExtractionErrors(?bool $ignore_text_tags_extraction_errors)
+    {
+        if (is_null($ignore_text_tags_extraction_errors)) {
+            throw new InvalidArgumentException('non-nullable ignore_text_tags_extraction_errors cannot be null');
+        }
+        $this->container['ignore_text_tags_extraction_errors'] = $ignore_text_tags_extraction_errors;
 
         return $this;
     }

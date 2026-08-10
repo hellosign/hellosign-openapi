@@ -104,6 +104,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :use_text_tags
 
+    # Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+    # @return [Boolean]
+    attr_accessor :ignore_text_tags_extraction_errors
+
     # Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
     # @return [Boolean]
     attr_accessor :populate_auto_fill_fields
@@ -137,6 +141,7 @@ module Dropbox::Sign
         :'test_mode' => :'test_mode',
         :'title' => :'title',
         :'use_text_tags' => :'use_text_tags',
+        :'ignore_text_tags_extraction_errors' => :'ignore_text_tags_extraction_errors',
         :'populate_auto_fill_fields' => :'populate_auto_fill_fields',
         :'expires_at' => :'expires_at'
       }
@@ -177,6 +182,7 @@ module Dropbox::Sign
         :'test_mode' => :'Boolean',
         :'title' => :'String',
         :'use_text_tags' => :'Boolean',
+        :'ignore_text_tags_extraction_errors' => :'Boolean',
         :'populate_auto_fill_fields' => :'Boolean',
         :'expires_at' => :'Integer'
       }
@@ -350,6 +356,12 @@ module Dropbox::Sign
         self.use_text_tags = false
       end
 
+      if attributes.key?(:'ignore_text_tags_extraction_errors')
+        self.ignore_text_tags_extraction_errors = attributes[:'ignore_text_tags_extraction_errors']
+      else
+        self.ignore_text_tags_extraction_errors = false
+      end
+
       if attributes.key?(:'populate_auto_fill_fields')
         self.populate_auto_fill_fields = attributes[:'populate_auto_fill_fields']
       else
@@ -467,6 +479,7 @@ module Dropbox::Sign
           test_mode == o.test_mode &&
           title == o.title &&
           use_text_tags == o.use_text_tags &&
+          ignore_text_tags_extraction_errors == o.ignore_text_tags_extraction_errors &&
           populate_auto_fill_fields == o.populate_auto_fill_fields &&
           expires_at == o.expires_at
     end
@@ -480,7 +493,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at].hash
+      [client_id, files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, ignore_text_tags_extraction_errors, populate_auto_fill_fields, expires_at].hash
     end
 
     # Builds the object from hash

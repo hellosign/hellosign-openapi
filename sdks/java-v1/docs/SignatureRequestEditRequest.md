@@ -32,6 +32,7 @@
 | `testMode` | ```Boolean``` |  Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.  |  |
 | `title` | ```String``` |  The title you want to assign to the SignatureRequest.  |  |
 | `useTextTags` | ```Boolean``` |  Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.  |  |
+| `ignoreTextTagsExtractionErrors` | ```Boolean``` |  Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.  |  |
 | `expiresAt` | ```Integer``` |  When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
 
 

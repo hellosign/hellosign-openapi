@@ -236,7 +236,8 @@
     "subject": "The NDA we talked about",
     "test_mode": true,
     "title": "NDA with Acme Co.",
-    "use_text_tags": true
+    "use_text_tags": true,
+    "ignore_text_tags_extraction_errors": false
   },
   "with_grouped_signers": {
     "allow_decline": true,
@@ -476,6 +477,7 @@
     "subject": "The NDA we talked about",
     "test_mode": true,
     "title": "NDA with Acme Co.",
-    "use_text_tags": true
+    "use_text_tags": true,
+    "ignore_text_tags_extraction_errors": false
   }
 }
