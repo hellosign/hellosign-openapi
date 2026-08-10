@@ -81,6 +81,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_TYPE,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_USE_TEXT_TAGS,
+  UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_EXPIRES_AT
 })
@@ -257,6 +258,10 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   public static final String JSON_PROPERTY_USE_TEXT_TAGS = "use_text_tags";
   @jakarta.annotation.Nullable
   private Boolean useTextTags = false;
+
+  public static final String JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS = "ignore_text_tags_extraction_errors";
+  @jakarta.annotation.Nullable
+  private Boolean ignoreTextTagsExtractionErrors = false;
 
   public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS = "populate_auto_fill_fields";
   @jakarta.annotation.Nullable
@@ -1214,6 +1219,31 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
+  public UnclaimedDraftCreateEmbeddedRequest ignoreTextTagsExtractionErrors(@jakarta.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+    this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+    return this;
+  }
+
+  /**
+   * Sent with a value of &#x60;true&#x60; to ignore the validation errors from text tags extraction. Defaults to &#x60;false&#x60;.
+   * @return ignoreTextTagsExtractionErrors
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIgnoreTextTagsExtractionErrors() {
+    return ignoreTextTagsExtractionErrors;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIgnoreTextTagsExtractionErrors(@jakarta.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+    this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+  }
+
+
   public UnclaimedDraftCreateEmbeddedRequest populateAutoFillFields(@jakarta.annotation.Nullable Boolean populateAutoFillFields) {
     this.populateAutoFillFields = populateAutoFillFields;
     return this;
@@ -1310,13 +1340,14 @@ public class UnclaimedDraftCreateEmbeddedRequest {
         Objects.equals(this.type, unclaimedDraftCreateEmbeddedRequest.type) &&
         Objects.equals(this.usePreexistingFields, unclaimedDraftCreateEmbeddedRequest.usePreexistingFields) &&
         Objects.equals(this.useTextTags, unclaimedDraftCreateEmbeddedRequest.useTextTags) &&
+        Objects.equals(this.ignoreTextTagsExtractionErrors, unclaimedDraftCreateEmbeddedRequest.ignoreTextTagsExtractionErrors) &&
         Objects.equals(this.populateAutoFillFields, unclaimedDraftCreateEmbeddedRequest.populateAutoFillFields) &&
         Objects.equals(this.expiresAt, unclaimedDraftCreateEmbeddedRequest.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, requesterEmailAddress, files, fileUrls, allowCcs, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, editorOptions, fieldOptions, forceSignerPage, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, holdRequest, isForEmbeddedSigning, message, metadata, requestingRedirectUrl, showPreview, showProgressStepper, signers, signingOptions, signingRedirectUrl, skipMeNow, subject, testMode, type, usePreexistingFields, useTextTags, populateAutoFillFields, expiresAt);
+    return Objects.hash(clientId, requesterEmailAddress, files, fileUrls, allowCcs, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, editorOptions, fieldOptions, forceSignerPage, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, holdRequest, isForEmbeddedSigning, message, metadata, requestingRedirectUrl, showPreview, showProgressStepper, signers, signingOptions, signingRedirectUrl, skipMeNow, subject, testMode, type, usePreexistingFields, useTextTags, ignoreTextTagsExtractionErrors, populateAutoFillFields, expiresAt);
   }
 
   @Override
@@ -1357,6 +1388,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    usePreexistingFields: ").append(toIndentedString(usePreexistingFields)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
+    sb.append("    ignoreTextTagsExtractionErrors: ").append(toIndentedString(ignoreTextTagsExtractionErrors)).append("\n");
     sb.append("    populateAutoFillFields: ").append(toIndentedString(populateAutoFillFields)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
@@ -2011,6 +2043,25 @@ public class UnclaimedDraftCreateEmbeddedRequest {
         }
         else {
             map.put("use_text_tags", JSON.getDefault().getMapper().writeValueAsString(useTextTags));
+        }
+    }
+    if (ignoreTextTagsExtractionErrors != null) {
+        if (isFileTypeOrListOfFiles(ignoreTextTagsExtractionErrors)) {
+            fileTypeFound = true;
+        }
+
+        if (ignoreTextTagsExtractionErrors.getClass().equals(java.io.File.class) ||
+            ignoreTextTagsExtractionErrors.getClass().equals(Integer.class) ||
+            ignoreTextTagsExtractionErrors.getClass().equals(String.class) ||
+            ignoreTextTagsExtractionErrors.getClass().isEnum()) {
+            map.put("ignore_text_tags_extraction_errors", ignoreTextTagsExtractionErrors);
+        } else if (isListOfFile(ignoreTextTagsExtractionErrors)) {
+            for(int i = 0; i< getListSize(ignoreTextTagsExtractionErrors); i++) {
+                map.put("ignore_text_tags_extraction_errors[" + i + "]", getFromList(ignoreTextTagsExtractionErrors, i));
+            }
+        }
+        else {
+            map.put("ignore_text_tags_extraction_errors", JSON.getDefault().getMapper().writeValueAsString(ignoreTextTagsExtractionErrors));
         }
     }
     if (populateAutoFillFields != null) {

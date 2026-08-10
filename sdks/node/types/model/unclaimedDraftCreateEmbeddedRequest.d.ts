@@ -45,6 +45,7 @@ export declare class UnclaimedDraftCreateEmbeddedRequest {
     "type"?: UnclaimedDraftCreateEmbeddedRequest.TypeEnum;
     "usePreexistingFields"?: boolean;
     "useTextTags"?: boolean;
+    "ignoreTextTagsExtractionErrors"?: boolean;
     "populateAutoFillFields"?: boolean;
     "expiresAt"?: number | null;
     static discriminator: string | undefined;

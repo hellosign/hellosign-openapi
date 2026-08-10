@@ -125,6 +125,10 @@ export class SignatureRequestEditRequest {
    */
   "useTextTags"?: boolean = false;
   /**
+   * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+   */
+  "ignoreTextTagsExtractionErrors"?: boolean = false;
+  /**
    * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
   "expiresAt"?: number | null;
@@ -250,6 +254,11 @@ export class SignatureRequestEditRequest {
     {
       name: "useTextTags",
       baseName: "use_text_tags",
+      type: "boolean",
+    },
+    {
+      name: "ignoreTextTagsExtractionErrors",
+      baseName: "ignore_text_tags_extraction_errors",
       type: "boolean",
     },
     {

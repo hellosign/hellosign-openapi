@@ -93,6 +93,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'type' => 'string',
         'use_preexisting_fields' => 'bool',
         'use_text_tags' => 'bool',
+        'ignore_text_tags_extraction_errors' => 'bool',
         'populate_auto_fill_fields' => 'bool',
         'expires_at' => 'int',
     ];
@@ -139,6 +140,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'type' => null,
         'use_preexisting_fields' => null,
         'use_text_tags' => null,
+        'ignore_text_tags_extraction_errors' => null,
         'populate_auto_fill_fields' => null,
         'expires_at' => null,
     ];
@@ -183,6 +185,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'type' => false,
         'use_preexisting_fields' => false,
         'use_text_tags' => false,
+        'ignore_text_tags_extraction_errors' => false,
         'populate_auto_fill_fields' => false,
         'expires_at' => true,
     ];
@@ -299,6 +302,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'type' => 'type',
         'use_preexisting_fields' => 'use_preexisting_fields',
         'use_text_tags' => 'use_text_tags',
+        'ignore_text_tags_extraction_errors' => 'ignore_text_tags_extraction_errors',
         'populate_auto_fill_fields' => 'populate_auto_fill_fields',
         'expires_at' => 'expires_at',
     ];
@@ -343,6 +347,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'type' => 'setType',
         'use_preexisting_fields' => 'setUsePreexistingFields',
         'use_text_tags' => 'setUseTextTags',
+        'ignore_text_tags_extraction_errors' => 'setIgnoreTextTagsExtractionErrors',
         'populate_auto_fill_fields' => 'setPopulateAutoFillFields',
         'expires_at' => 'setExpiresAt',
     ];
@@ -387,6 +392,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'type' => 'getType',
         'use_preexisting_fields' => 'getUsePreexistingFields',
         'use_text_tags' => 'getUseTextTags',
+        'ignore_text_tags_extraction_errors' => 'getIgnoreTextTagsExtractionErrors',
         'populate_auto_fill_fields' => 'getPopulateAutoFillFields',
         'expires_at' => 'getExpiresAt',
     ];
@@ -497,6 +503,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         $this->setIfExists('type', $data ?? [], 'request_signature');
         $this->setIfExists('use_preexisting_fields', $data ?? [], false);
         $this->setIfExists('use_text_tags', $data ?? [], false);
+        $this->setIfExists('ignore_text_tags_extraction_errors', $data ?? [], false);
         $this->setIfExists('populate_auto_fill_fields', $data ?? [], false);
         $this->setIfExists('expires_at', $data ?? [], null);
     }
@@ -1516,6 +1523,33 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
             throw new InvalidArgumentException('non-nullable use_text_tags cannot be null');
         }
         $this->container['use_text_tags'] = $use_text_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignore_text_tags_extraction_errors
+     *
+     * @return bool|null
+     */
+    public function getIgnoreTextTagsExtractionErrors()
+    {
+        return $this->container['ignore_text_tags_extraction_errors'];
+    }
+
+    /**
+     * Sets ignore_text_tags_extraction_errors
+     *
+     * @param bool|null $ignore_text_tags_extraction_errors Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setIgnoreTextTagsExtractionErrors(?bool $ignore_text_tags_extraction_errors)
+    {
+        if (is_null($ignore_text_tags_extraction_errors)) {
+            throw new InvalidArgumentException('non-nullable ignore_text_tags_extraction_errors cannot be null');
+        }
+        $this->container['ignore_text_tags_extraction_errors'] = $ignore_text_tags_extraction_errors;
 
         return $this;
     }

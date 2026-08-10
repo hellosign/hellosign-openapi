@@ -362,6 +362,7 @@
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+"SignatureRequestCreateEmbedded::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS": Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
 "SignatureRequestCreateEmbedded::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
@@ -501,6 +502,7 @@
 "SignatureRequestSend::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestSend::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestSend::USE_PREEXISTING_FIELDS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+"SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS": Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
 "SignatureRequestSend::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 "SignatureRequestSend::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
@@ -705,6 +707,7 @@
 "TemplateCreateEmbeddedDraft::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 "TemplateCreateEmbeddedDraft::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreateEmbeddedDraft::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
+"TemplateCreateEmbeddedDraft::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS": Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
 "TemplateCreateEmbeddedDraft::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 "TemplateCreateEmbeddedDraft::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
@@ -740,6 +743,7 @@
 "TemplateCreate::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 "TemplateCreate::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreate::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
+"TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS": Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
 "TemplateCreate::ALLOW_FORM_VIEW": Allows signers to view the form fields before signing if set to `true`. Defaults to `false`.
 "TemplateCreate::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 
@@ -849,6 +853,7 @@
 "UnclaimedDraftCreate::TYPE": The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.
 "UnclaimedDraftCreate::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreate::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
+"UnclaimedDraftCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS": Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
 "UnclaimedDraftCreate::SIGNER_EXPERIENCE": Configuration options for modifying the settings of the signer application. Supports changing the form view behavior.
 "UnclaimedDraftCreate::EXPIRES_AT": |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
@@ -898,6 +903,7 @@
 "UnclaimedDraftCreateEmbedded::TYPE": The type of the draft. By default this is `request_signature`, but you can set it to `send_document` if you want to self sign a document and download it.
 "UnclaimedDraftCreateEmbedded::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreateEmbedded::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
+"UnclaimedDraftCreateEmbedded::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS": Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
 "UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS": |-
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
