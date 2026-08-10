@@ -1,0 +1,282 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+SDKS=( dotnet java-v1 java-v2 node php python ruby )
+SHOW_HELP=0
+TARGET_SDK=
+TARGET_VERSION=
+BUMP_TYPE=
+DRY_RUN=0
+
+REPO_DOTNET="https://github.com/hellosign/dropbox-sign-dotnet.git"
+REPO_JAVA_V1="--branch v1 https://github.com/hellosign/dropbox-sign-java.git"
+REPO_JAVA_V2="https://github.com/hellosign/dropbox-sign-java.git"
+REPO_NODE="https://github.com/hellosign/dropbox-sign-node.git"
+REPO_PHP="https://github.com/hellosign/dropbox-sign-php.git"
+REPO_PYTHON="https://github.com/hellosign/dropbox-sign-python.git"
+REPO_RUBY="https://github.com/hellosign/dropbox-sign-ruby.git"
+
+REPO_MAIN_BRANCH="main"
+
+while getopts ":t:v:b:dh" opt; do
+  case $opt in
+    t) TARGET_SDK="$OPTARG"
+    ;;
+    v) TARGET_VERSION="$OPTARG"
+    ;;
+    b) BUMP_TYPE="$OPTARG"
+    ;;
+    d) DRY_RUN=1
+    ;;
+    h) SHOW_HELP=1
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+function get_current_version()
+{
+  local sdk="$1"
+  local version_file="${DIR}/repos/${sdk}/VERSION"
+
+  if [[ ! -f "${version_file}" ]]; then
+    printf "ERROR: VERSION file not found at %s\n" "${version_file}" >&2
+    exit 1
+  fi
+
+  grep -oE '[0-9]+\.[0-9]+\.[0-9]+' "${version_file}" | head -1
+}
+
+function bump_version()
+{
+  local current="$1"
+  local type="$2"
+  local major minor patch
+  major=$(echo "$current" | cut -d. -f1)
+  minor=$(echo "$current" | cut -d. -f2)
+  patch=$(echo "$current" | cut -d. -f3)
+
+  case "$type" in
+    major) echo "$((major + 1)).0.0" ;;
+    minor) echo "${major}.$((minor + 1)).0" ;;
+    patch) echo "${major}.${minor}.$((patch + 1))" ;;
+    *)
+      printf "Invalid bump type: %s (must be major, minor, or patch)\n" "$type" >&2
+      exit 1
+      ;;
+  esac
+}
+
+function main() {
+  if [[ -z ${TARGET_SDK} ]]; then
+    show_help
+    exit 0
+  fi
+
+  # Parse target SDKs: "all", comma-separated, or single
+  local sdk_list=()
+  if [[ "${TARGET_SDK}" == "all" ]]; then
+    sdk_list=("${SDKS[@]}")
+  else
+    IFS=',' read -ra sdk_list <<< "${TARGET_SDK}"
+  fi
+
+  for sdk in "${sdk_list[@]}"; do
+    validate_sdk_choice "$sdk"
+  done
+
+  # Resolve versions and build summary
+  local versions=()
+  local current_versions=()
+  for sdk in "${sdk_list[@]}"; do
+    local current_ver
+    current_ver=$(get_current_version "$sdk")
+    current_versions+=("$current_ver")
+
+    if [[ -n "${TARGET_VERSION}" ]]; then
+      versions+=("${TARGET_VERSION}")
+    elif [[ -n "${BUMP_TYPE}" ]]; then
+      versions+=("$(bump_version "$current_ver" "$BUMP_TYPE")")
+    else
+      versions+=("${current_ver}")
+    fi
+  done
+
+  # Show summary table
+  printf "\n%-12s %-15s %-15s\n" "SDK" "Current" "New Version"
+  printf "%-12s %-15s %-15s\n" "---" "-------" "-----------"
+  for i in "${!sdk_list[@]}"; do
+    printf "%-12s %-15s %-15s\n" "${sdk_list[$i]}" "${current_versions[$i]}" "${versions[$i]}"
+  done
+  printf "\n"
+
+  read -p "Proceed? [y/N] " confirm
+  if [[ "${confirm}" != "y" && "${confirm}" != "Y" ]]; then
+    printf "Aborted.\n"
+    exit 0
+  fi
+
+  # Process each SDK
+  for i in "${!sdk_list[@]}"; do
+    local sdk="${sdk_list[$i]}"
+    local ver="${versions[$i]}"
+
+    printf "\n=== Processing %s %s ===\n" "$sdk" "$ver"
+
+    REPO_MAIN_BRANCH="main"
+    if [[ "${sdk}" == "java-v1" ]]; then
+      REPO_MAIN_BRANCH="v1"
+    fi
+
+    copy_files "$sdk" "$ver"
+    printf "Done: %s %s\n" "$sdk" "$ver"
+  done
+
+  printf "\nSuccess! All SDKs committed and pushed.\n"
+  exit 0
+}
+
+function show_help() {
+    cat << EOF
+Usage: bake-sdk-release [OPTION]
+Copies build files for a given SDK into the repos/[SDK] directory.
+
+**WARNING** All files and directories present in the repos/[SDK] directory will
+            be DELETED, except for the .git directory!
+
+-t          target SDK(s): a single SDK, comma-separated list, or "all"
+            valid: dotnet, java-v1, java-v2, node, php, python, ruby, all
+-v          version of the SDK, ex: 1.4.0
+            if omitted, auto-bumps version from repos/[SDK]/VERSION
+-b          bump version: major, minor, or patch
+            if omitted, uses current version from repos/[SDK]/VERSION
+-d          dry run: copy files and update versions but skip commit and push
+-h          display this help and exit
+
+Examples:
+  bake-sdk-release -t php -v 1.4.0           # single SDK, explicit version
+  bake-sdk-release -t all -b minor            # all SDKs, bump minor
+  bake-sdk-release -t all -b patch            # all SDKs, bump patch
+  bake-sdk-release -t all                     # all SDKs, keep current version
+  bake-sdk-release -t python,node,ruby        # specific SDKs, keep current version
+EOF
+
+    exit 0
+}
+
+function validate_sdk_choice()
+{
+  SDK="$1"
+
+  if [[
+    "${SDK}" != "dotnet" &&
+    "${SDK}" != "java-v1" &&
+    "${SDK}" != "java-v2" &&
+    "${SDK}" != "node" &&
+    "${SDK}" != "php" &&
+    "${SDK}" != "python" &&
+    "${SDK}" != "ruby"
+  ]]; then
+    printf "Invalid SDK (-t) value: ${SDK}\n"
+    show_help
+
+    exit 1
+  fi
+}
+
+function copy_files()
+{
+  SDK="$1"
+  VERSION="$2"
+  SDK_DIR="${DIR}/repos/${SDK}"
+
+  if [[ ! -d "${SDK_DIR}" ]] || [[ ! -d "${SDK_DIR}/.git" ]]; then
+    repo_not_cloned $SDK
+  fi
+
+  printf "Copying built files for the ${SDK} SDK to ${SDK_DIR}\n"
+  pushd "${SDK_DIR}/"
+
+  git fetch origin
+  git checkout "release-${VERSION}" 2>/dev/null || {
+    git checkout ${REPO_MAIN_BRANCH}
+    git reset --hard origin/${REPO_MAIN_BRANCH}
+    git checkout -b "release-${VERSION}"
+  }
+
+  popd
+
+  cp -r "${DIR}/sdks/${SDK}" "${SDK_DIR}-tmp"
+  cp -r "${SDK_DIR}/.git" "${SDK_DIR}-tmp/"
+  rm -rf "${SDK_DIR}"
+  mv "${SDK_DIR}-tmp" "${SDK_DIR}"
+
+  pushd "${SDK_DIR}/"
+
+  rm -f "${SDK_DIR}/openapi-sdk.yaml"
+  rm -rf "${SDK_DIR}/examples"
+  mkdir -p "${SDK_DIR}/examples"
+
+  cp -r "${DIR}/openapi-sdk.yaml" "${SDK_DIR}/openapi-sdk.yaml"
+
+  local EXAMPLES_SRC="${DIR}/sdks/${SDK}/examples"
+
+  if [[ "${SDK}" == "dotnet" ]]; then
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" cs
+  elif [[ "${SDK}" == "java-v2" ]] || [[ "${SDK}" == "java-v1" ]]; then
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" java
+  elif [[ "${SDK}" == "node" ]]; then
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" ts
+  elif [[ "${SDK}" == "php" ]]; then
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" php
+  elif [[ "${SDK}" == "python" ]]; then
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" py
+  elif [[ "${SDK}" == "ruby" ]]; then
+    "${DIR}/bin/copy-examples-filtered" "${EXAMPLES_SRC}" "${SDK_DIR}/examples" rb
+  fi
+
+  php "${DIR}/bin/update-sdk-version.php" ${SDK} ${VERSION}
+
+  if [[ "${DRY_RUN}" -eq 0 ]]; then
+    git add -A
+    git commit -m "Release ${VERSION}"
+    git push -u origin "release-${VERSION}"
+  else
+    printf "Dry run: skipping commit and push for %s\n" "$SDK"
+  fi
+
+  popd
+}
+
+function repo_not_cloned()
+{
+  SDK="$1"
+  SDK_DIR="${DIR}/repos/${SDK}"
+
+  if [[ "${SDK}" == "dotnet" ]]; then
+    REPO="${REPO_DOTNET}"
+  elif [[ "${SDK}" == "java-v1" ]]; then
+    REPO="${REPO_JAVA_V1}"
+  elif [[ "${SDK}" == "java-v2" ]]; then
+    REPO="${REPO_JAVA_V2}"
+  elif [[ "${SDK}" == "node" ]]; then
+    REPO="${REPO_NODE}"
+  elif [[ "${SDK}" == "php" ]]; then
+    REPO="${REPO_PHP}"
+  elif [[ "${SDK}" == "python" ]]; then
+    REPO="${REPO_PYTHON}"
+  elif [[ "${SDK}" == "ruby" ]]; then
+    REPO="${REPO_RUBY}"
+  fi
+
+  printf "This script expects to find SDK repo cloned at ${SDK_DIR}\n"
+  printf "Make sure to clone the SDK repo by using the following:\n\n"
+  printf "git clone ${REPO} ${SDK_DIR}\n"
+
+  exit 1
+}
+
+main

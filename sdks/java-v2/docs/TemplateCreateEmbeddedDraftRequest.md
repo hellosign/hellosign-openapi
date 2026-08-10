@@ -33,6 +33,7 @@
 | `testMode` | ```Boolean``` |  Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.  |  |
 | `title` | ```String``` |  The title you want to assign to the SignatureRequest.  |  |
 | `usePreexistingFields` | ```Boolean``` |  Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).  |  |
+| `ignoreTextTagsExtractionErrors` | ```Boolean``` |  Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.  |  |
 
 
 

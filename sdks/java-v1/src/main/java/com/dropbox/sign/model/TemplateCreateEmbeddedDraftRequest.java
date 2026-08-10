@@ -52,7 +52,8 @@ import java.util.Objects;
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SUBJECT,
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TEST_MODE,
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TITLE,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
+    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
+    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -134,6 +135,10 @@ public class TemplateCreateEmbeddedDraftRequest {
 
     public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
     @javax.annotation.Nullable private Boolean usePreexistingFields = false;
+
+    public static final String JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS =
+            "ignore_text_tags_extraction_errors";
+    @javax.annotation.Nullable private Boolean ignoreTextTagsExtractionErrors = false;
 
     public TemplateCreateEmbeddedDraftRequest() {}
 
@@ -850,6 +855,31 @@ public class TemplateCreateEmbeddedDraftRequest {
         this.usePreexistingFields = usePreexistingFields;
     }
 
+    public TemplateCreateEmbeddedDraftRequest ignoreTextTagsExtractionErrors(
+            @javax.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+        this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+        return this;
+    }
+
+    /**
+     * Sent with a value of &#x60;true&#x60; to ignore the validation errors from text tags
+     * extraction. Defaults to &#x60;false&#x60;.
+     *
+     * @return ignoreTextTagsExtractionErrors
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getIgnoreTextTagsExtractionErrors() {
+        return ignoreTextTagsExtractionErrors;
+    }
+
+    @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setIgnoreTextTagsExtractionErrors(
+            @javax.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
+        this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
+    }
+
     /** Return true if this TemplateCreateEmbeddedDraftRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -899,7 +929,10 @@ public class TemplateCreateEmbeddedDraftRequest {
                 && Objects.equals(this.title, templateCreateEmbeddedDraftRequest.title)
                 && Objects.equals(
                         this.usePreexistingFields,
-                        templateCreateEmbeddedDraftRequest.usePreexistingFields);
+                        templateCreateEmbeddedDraftRequest.usePreexistingFields)
+                && Objects.equals(
+                        this.ignoreTextTagsExtractionErrors,
+                        templateCreateEmbeddedDraftRequest.ignoreTextTagsExtractionErrors);
     }
 
     @Override
@@ -929,7 +962,8 @@ public class TemplateCreateEmbeddedDraftRequest {
                 subject,
                 testMode,
                 title,
-                usePreexistingFields);
+                usePreexistingFields,
+                ignoreTextTagsExtractionErrors);
     }
 
     @Override
@@ -968,6 +1002,9 @@ public class TemplateCreateEmbeddedDraftRequest {
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    usePreexistingFields: ")
                 .append(toIndentedString(usePreexistingFields))
+                .append("\n");
+        sb.append("    ignoreTextTagsExtractionErrors: ")
+                .append(toIndentedString(ignoreTextTagsExtractionErrors))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -1473,6 +1510,30 @@ public class TemplateCreateEmbeddedDraftRequest {
                     map.put(
                             "use_preexisting_fields",
                             JSON.getDefault().getMapper().writeValueAsString(usePreexistingFields));
+                }
+            }
+            if (ignoreTextTagsExtractionErrors != null) {
+                if (isFileTypeOrListOfFiles(ignoreTextTagsExtractionErrors)) {
+                    fileTypeFound = true;
+                }
+
+                if (ignoreTextTagsExtractionErrors.getClass().equals(java.io.File.class)
+                        || ignoreTextTagsExtractionErrors.getClass().equals(Integer.class)
+                        || ignoreTextTagsExtractionErrors.getClass().equals(String.class)
+                        || ignoreTextTagsExtractionErrors.getClass().isEnum()) {
+                    map.put("ignore_text_tags_extraction_errors", ignoreTextTagsExtractionErrors);
+                } else if (isListOfFile(ignoreTextTagsExtractionErrors)) {
+                    for (int i = 0; i < getListSize(ignoreTextTagsExtractionErrors); i++) {
+                        map.put(
+                                "ignore_text_tags_extraction_errors[" + i + "]",
+                                getFromList(ignoreTextTagsExtractionErrors, i));
+                    }
+                } else {
+                    map.put(
+                            "ignore_text_tags_extraction_errors",
+                            JSON.getDefault()
+                                    .getMapper()
+                                    .writeValueAsString(ignoreTextTagsExtractionErrors));
                 }
             }
         } catch (Exception e) {

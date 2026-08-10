@@ -116,11 +116,11 @@ class UpdateVersion
                 throw new Exception("File {$filename} is empty");
             }
 
-            /**
-             * ruby Gemfile.lock has different format
-             * 1.4-dev turns to 1.4.pre.dev
-             */
             if ($this->sdk === 'ruby' && $filename === 'Gemfile.lock') {
+                /**
+                 * ruby Gemfile.lock has different format
+                 * 1.4-dev turns to 1.4.pre.dev
+                 */
                 $contents = preg_replace(
                     pattern: '/dropbox-sign \((.*)\)/i',
                     replacement: "dropbox-sign ({$this->version})",
@@ -128,6 +128,14 @@ class UpdateVersion
                 );
 
                 echo $contents;
+            } elseif ($this->sdk === 'php' && $filename === 'openapi-config.yaml') {
+                // packageVersion uses composer constraint format (^X.Y.Z)
+                $contents = str_replace($this->current_version, $this->version, $contents);
+                $contents = preg_replace(
+                    pattern: '/packageVersion:\s*"\^[0-9]+\.[0-9]+\.[0-9]+"/',
+                    replacement: "packageVersion: \"^{$this->version}\"",
+                    subject: $contents,
+                );
             } else {
                 $contents = str_replace($this->current_version, $this->version, $contents);
             }

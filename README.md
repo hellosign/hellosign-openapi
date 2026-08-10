@@ -82,6 +82,50 @@ To rebuild all SDKs run `./generate-sdks -t all`.
 
 Changes will appear against the [/sdks](sdks) directory. Make sure to include these changes in your pull requests!
 
+### Releasing SDKs
+
+The [bake-sdk-release](bake-sdk-release) script copies built SDK files from [/sdks](sdks) into the [/repos](repos) directory, updates version numbers, commits, and pushes a release branch.
+
+You can release a single SDK with an explicit version:
+
+```bash
+./bake-sdk-release -t php -v 1.4.0
+```
+
+Or release multiple SDKs at once. Without `-b` or `-v`, the current version from `repos/[SDK]/VERSION` is used as-is:
+
+```bash
+./bake-sdk-release -t all                  # all SDKs, keep current version
+./bake-sdk-release -t all -b minor         # all SDKs, bump minor
+./bake-sdk-release -t all -b patch         # all SDKs, bump patch
+./bake-sdk-release -t all -v 2.0.0         # all SDKs, explicit version
+./bake-sdk-release -t all -d               # all SDKs, do a dry run - no commit, push
+```
+
+The `-b` flag accepts `major`, `minor`, or `patch`.
+
+The script shows a summary table of current and new versions and asks for confirmation before proceeding.
+
+### Resetting SDK Repos
+
+The [reset-sdks](reset-sdks) script resets SDK repos in [/repos](repos) back to their main branch (pulling latest from origin). Useful before starting a new release cycle.
+
+```bash
+./reset-sdks                        # reset all SDK repos
+./reset-sdks ruby                   # reset a single SDK
+./reset-sdks python,node,ruby       # reset specific SDKs
+```
+
+### Updating Dev Versions
+
+After a release, the dev versions in [/sdks](sdks) should be bumped to match. The [update-dev-versions](update-dev-versions) script reads the released version from `repos/[SDK]/VERSION` and updates `sdks/[SDK]/VERSION` and `sdks/[SDK]/openapi-config.yaml` with the corresponding `-dev` suffix (e.g. `1.11.0` -> `1.11-dev`).
+
+```bash
+./update-dev-versions                # all SDKs
+./update-dev-versions ruby           # single SDK
+./update-dev-versions python,node    # specific SDKs
+```
+
 ### Changes to Generated SDK Code
 
 We generate our SDKs using the [OpenAPI Generator](https://openapi-generator.tech/) tool. This tool reads the contents of the [openapi-sdk.yaml](openapi-sdk.yaml) file. It also reads related examples from the [/examples](examples) directory and embeds the contents into the generated documentation.

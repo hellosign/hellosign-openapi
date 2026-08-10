@@ -76,6 +76,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'bool',
         'title' => 'string',
         'use_preexisting_fields' => 'bool',
+        'ignore_text_tags_extraction_errors' => 'bool',
     ];
 
     /**
@@ -104,6 +105,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => null,
         'title' => null,
         'use_preexisting_fields' => null,
+        'ignore_text_tags_extraction_errors' => null,
     ];
 
     /**
@@ -130,6 +132,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => false,
         'title' => false,
         'use_preexisting_fields' => false,
+        'ignore_text_tags_extraction_errors' => false,
     ];
 
     /**
@@ -228,6 +231,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'test_mode',
         'title' => 'title',
         'use_preexisting_fields' => 'use_preexisting_fields',
+        'ignore_text_tags_extraction_errors' => 'ignore_text_tags_extraction_errors',
     ];
 
     /**
@@ -254,6 +258,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'use_preexisting_fields' => 'setUsePreexistingFields',
+        'ignore_text_tags_extraction_errors' => 'setIgnoreTextTagsExtractionErrors',
     ];
 
     /**
@@ -280,6 +285,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'use_preexisting_fields' => 'getUsePreexistingFields',
+        'ignore_text_tags_extraction_errors' => 'getIgnoreTextTagsExtractionErrors',
     ];
 
     /**
@@ -356,6 +362,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('use_preexisting_fields', $data ?? [], false);
+        $this->setIfExists('ignore_text_tags_extraction_errors', $data ?? [], false);
     }
 
     /**
@@ -922,6 +929,33 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
             throw new InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
         }
         $this->container['use_preexisting_fields'] = $use_preexisting_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignore_text_tags_extraction_errors
+     *
+     * @return bool|null
+     */
+    public function getIgnoreTextTagsExtractionErrors()
+    {
+        return $this->container['ignore_text_tags_extraction_errors'];
+    }
+
+    /**
+     * Sets ignore_text_tags_extraction_errors
+     *
+     * @param bool|null $ignore_text_tags_extraction_errors Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setIgnoreTextTagsExtractionErrors(?bool $ignore_text_tags_extraction_errors)
+    {
+        if (is_null($ignore_text_tags_extraction_errors)) {
+            throw new InvalidArgumentException('non-nullable ignore_text_tags_extraction_errors cannot be null');
+        }
+        $this->container['ignore_text_tags_extraction_errors'] = $ignore_text_tags_extraction_errors;
 
         return $this;
     }
