@@ -1156,7 +1156,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets ignore_text_tags_extraction_errors
      *
-     * @param bool|null $ignore_text_tags_extraction_errors _t__UnclaimedDraftCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+     * @param bool|null $ignore_text_tags_extraction_errors Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
      *
      * @return self
      */

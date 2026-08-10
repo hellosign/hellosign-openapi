@@ -146,7 +146,7 @@ class SignatureRequestEditRequest(BaseModel):
     )
     ignore_text_tags_extraction_errors: Optional[StrictBool] = Field(
         default=False,
-        description="_t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS",
+        description="Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.",
     )
     expires_at: Optional[StrictInt] = Field(
         default=None,

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 | `test_mode` | ```bool``` |  Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.  |  [default to False] |
 | `title` | ```str``` |  The title you want to assign to the SignatureRequest.  |  |
 | `use_text_tags` | ```bool``` |  Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.  |  [default to False] |
-| `ignore_text_tags_extraction_errors` | ```bool``` |  _t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS  |  [default to False] |
+| `ignore_text_tags_extraction_errors` | ```bool``` |  Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.  |  [default to False] |
 | `expires_at` | ```int``` |  When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

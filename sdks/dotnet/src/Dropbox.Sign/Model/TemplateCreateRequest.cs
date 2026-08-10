@@ -59,7 +59,7 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="usePreexistingFields">Enable the detection of predefined PDF fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). (default to false).</param>
-        /// <param name="ignoreTextTagsExtractionErrors">_t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS (default to false).</param>
+        /// <param name="ignoreTextTagsExtractionErrors">Sent with a value of &#x60;true&#x60; to ignore the validation errors from text tags extraction. Defaults to &#x60;false&#x60;. (default to false).</param>
         public TemplateCreateRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccRoles = default(List<string>), string clientId = default(string), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), List<SubMergeField> mergeFields = default(List<SubMergeField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubTemplateRole> signerRoles = default(List<SubTemplateRole>), string subject = default(string), bool testMode = false, string title = default(string), bool usePreexistingFields = false, bool ignoreTextTagsExtractionErrors = false)
         {
 
@@ -236,9 +236,9 @@ namespace Dropbox.Sign.Model
         public bool UsePreexistingFields { get; set; }
 
         /// <summary>
-        /// _t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+        /// Sent with a value of &#x60;true&#x60; to ignore the validation errors from text tags extraction. Defaults to &#x60;false&#x60;.
         /// </summary>
-        /// <value>_t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS</value>
+        /// <value>Sent with a value of &#x60;true&#x60; to ignore the validation errors from text tags extraction. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "ignore_text_tags_extraction_errors", EmitDefaultValue = true)]
         public bool IgnoreTextTagsExtractionErrors { get; set; }
 

@@ -698,7 +698,7 @@ public class TemplateCreateRequest {
   }
 
   /**
-   * _t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+   * Sent with a value of &#x60;true&#x60; to ignore the validation errors from text tags extraction. Defaults to &#x60;false&#x60;.
    * @return ignoreTextTagsExtractionErrors
    */
   @jakarta.annotation.Nullable

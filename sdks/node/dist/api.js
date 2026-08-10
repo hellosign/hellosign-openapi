@@ -20174,7 +20174,7 @@ var SignatureRequestEditRequest = class _SignatureRequestEditRequest {
      */
     this["useTextTags"] = false;
     /**
-     * _t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
      */
     this["ignoreTextTagsExtractionErrors"] = false;
   }
@@ -21450,7 +21450,7 @@ var SignatureRequestSendRequest = class _SignatureRequestSendRequest {
      */
     this["useTextTags"] = false;
     /**
-     * _t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
      */
     this["ignoreTextTagsExtractionErrors"] = false;
   }
@@ -24057,7 +24057,7 @@ var TemplateCreateEmbeddedDraftRequest = class _TemplateCreateEmbeddedDraftReque
      */
     this["usePreexistingFields"] = false;
     /**
-     * _t__TemplateCreateEmbeddedDraft::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
      */
     this["ignoreTextTagsExtractionErrors"] = false;
   }
@@ -24298,7 +24298,7 @@ var TemplateCreateRequest = class _TemplateCreateRequest {
      */
     this["usePreexistingFields"] = false;
     /**
-     * _t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
      */
     this["ignoreTextTagsExtractionErrors"] = false;
   }
@@ -26086,7 +26086,7 @@ var UnclaimedDraftCreateEmbeddedRequest = class _UnclaimedDraftCreateEmbeddedReq
      */
     this["useTextTags"] = false;
     /**
-     * _t__UnclaimedDraftCreateEmbedded::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
      */
     this["ignoreTextTagsExtractionErrors"] = false;
     /**
@@ -26558,7 +26558,7 @@ var UnclaimedDraftCreateRequest = class _UnclaimedDraftCreateRequest {
      */
     this["useTextTags"] = false;
     /**
-     * _t__UnclaimedDraftCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+     * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
      */
     this["ignoreTextTagsExtractionErrors"] = false;
   }

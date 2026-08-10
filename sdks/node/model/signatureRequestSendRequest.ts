@@ -131,7 +131,7 @@ export class SignatureRequestSendRequest {
    */
   "useTextTags"?: boolean = false;
   /**
-   * _t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+   * Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
    */
   "ignoreTextTagsExtractionErrors"?: boolean = false;
   /**

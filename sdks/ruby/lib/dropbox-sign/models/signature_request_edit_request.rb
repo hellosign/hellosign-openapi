@@ -112,7 +112,7 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :use_text_tags
 
-    # _t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
+    # Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
     # @return [Boolean]
     attr_accessor :ignore_text_tags_extraction_errors
 

@@ -110,7 +110,7 @@ class TemplateCreateRequest(BaseModel):
     )
     ignore_text_tags_extraction_errors: Optional[StrictBool] = Field(
         default=False,
-        description="_t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS",
+        description="Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.",
     )
     __properties: ClassVar[List[str]] = [
         "form_fields_per_document",
