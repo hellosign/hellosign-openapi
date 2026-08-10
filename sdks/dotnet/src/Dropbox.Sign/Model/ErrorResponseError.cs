@@ -34,141 +34,6 @@ namespace Dropbox.Sign.Model
     public partial class ErrorResponseError : IEquatable<ErrorResponseError>, IValidatableObject
     {
         /// <summary>
-        /// Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
-        /// </summary>
-        /// <value>Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ErrorNameEnum
-        {
-            /// <summary>
-            /// Enum BadRequest for value: bad_request
-            /// </summary>
-            [EnumMember(Value = "bad_request")]
-            BadRequest = 1,
-
-            /// <summary>
-            /// Enum Unauthorized for value: unauthorized
-            /// </summary>
-            [EnumMember(Value = "unauthorized")]
-            Unauthorized = 2,
-
-            /// <summary>
-            /// Enum PaymentRequired for value: payment_required
-            /// </summary>
-            [EnumMember(Value = "payment_required")]
-            PaymentRequired = 3,
-
-            /// <summary>
-            /// Enum Forbidden for value: forbidden
-            /// </summary>
-            [EnumMember(Value = "forbidden")]
-            Forbidden = 4,
-
-            /// <summary>
-            /// Enum NotFound for value: not_found
-            /// </summary>
-            [EnumMember(Value = "not_found")]
-            NotFound = 5,
-
-            /// <summary>
-            /// Enum Conflict for value: conflict
-            /// </summary>
-            [EnumMember(Value = "conflict")]
-            Conflict = 6,
-
-            /// <summary>
-            /// Enum ExceededRate for value: exceeded_rate
-            /// </summary>
-            [EnumMember(Value = "exceeded_rate")]
-            ExceededRate = 7,
-
-            /// <summary>
-            /// Enum Unknown for value: unknown
-            /// </summary>
-            [EnumMember(Value = "unknown")]
-            Unknown = 8,
-
-            /// <summary>
-            /// Enum TeamInviteFailed for value: team_invite_failed
-            /// </summary>
-            [EnumMember(Value = "team_invite_failed")]
-            TeamInviteFailed = 9,
-
-            /// <summary>
-            /// Enum MaxFaxes for value: max_faxes
-            /// </summary>
-            [EnumMember(Value = "max_faxes")]
-            MaxFaxes = 10,
-
-            /// <summary>
-            /// Enum InvalidRecipient for value: invalid_recipient
-            /// </summary>
-            [EnumMember(Value = "invalid_recipient")]
-            InvalidRecipient = 11,
-
-            /// <summary>
-            /// Enum SignatureRequestCancelFailed for value: signature_request_cancel_failed
-            /// </summary>
-            [EnumMember(Value = "signature_request_cancel_failed")]
-            SignatureRequestCancelFailed = 12,
-
-            /// <summary>
-            /// Enum SignatureRequestRemoveFailed for value: signature_request_remove_failed
-            /// </summary>
-            [EnumMember(Value = "signature_request_remove_failed")]
-            SignatureRequestRemoveFailed = 13,
-
-            /// <summary>
-            /// Enum Maintenance for value: maintenance
-            /// </summary>
-            [EnumMember(Value = "maintenance")]
-            Maintenance = 14,
-
-            /// <summary>
-            /// Enum MethodNotSupported for value: method_not_supported
-            /// </summary>
-            [EnumMember(Value = "method_not_supported")]
-            MethodNotSupported = 15,
-
-            /// <summary>
-            /// Enum InvalidReminder for value: invalid_reminder
-            /// </summary>
-            [EnumMember(Value = "invalid_reminder")]
-            InvalidReminder = 16,
-
-            /// <summary>
-            /// Enum Unavailable for value: unavailable
-            /// </summary>
-            [EnumMember(Value = "unavailable")]
-            Unavailable = 17,
-
-            /// <summary>
-            /// Enum UnprocessableEntity for value: unprocessable_entity
-            /// </summary>
-            [EnumMember(Value = "unprocessable_entity")]
-            UnprocessableEntity = 18,
-
-            /// <summary>
-            /// Enum SignatureRequestExpired for value: signature_request_expired
-            /// </summary>
-            [EnumMember(Value = "signature_request_expired")]
-            SignatureRequestExpired = 19,
-
-            /// <summary>
-            /// Enum Deleted for value: deleted
-            /// </summary>
-            [EnumMember(Value = "deleted")]
-            Deleted = 20
-        }
-
-
-        /// <summary>
-        /// Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
-        /// </summary>
-        /// <value>Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.</value>
-        [DataMember(Name = "error_name", IsRequired = true, EmitDefaultValue = true)]
-        public ErrorNameEnum ErrorName { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponseError" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -179,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="errorMsg">Message describing an error. (required).</param>
         /// <param name="errorPath">Path at which an error occurred..</param>
         /// <param name="errorName">Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance. (required).</param>
-        public ErrorResponseError(string errorMsg = default(string), string errorPath = default(string), ErrorNameEnum errorName = default(ErrorNameEnum))
+        public ErrorResponseError(string errorMsg = default(string), string errorPath = default(string), string errorName = default(string))
         {
 
             // to ensure "errorMsg" is required (not null)
@@ -188,6 +53,11 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("errorMsg is a required property for ErrorResponseError and cannot be null");
             }
             this.ErrorMsg = errorMsg;
+            // to ensure "errorName" is required (not null)
+            if (errorName == null)
+            {
+                throw new ArgumentNullException("errorName is a required property for ErrorResponseError and cannot be null");
+            }
             this.ErrorName = errorName;
             this.ErrorPath = errorPath;
         }
@@ -214,6 +84,13 @@ namespace Dropbox.Sign.Model
         /// <value>Message describing an error.</value>
         [DataMember(Name = "error_msg", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorMsg { get; set; }
+
+        /// <summary>
+        /// Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
+        /// </summary>
+        /// <value>Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.</value>
+        [DataMember(Name = "error_name", IsRequired = true, EmitDefaultValue = true)]
+        public string ErrorName { get; set; }
 
         /// <summary>
         /// Path at which an error occurred.
@@ -275,7 +152,8 @@ namespace Dropbox.Sign.Model
                 ) &&
                 (
                     this.ErrorName == input.ErrorName ||
-                    this.ErrorName.Equals(input.ErrorName)
+                    (this.ErrorName != null &&
+                    this.ErrorName.Equals(input.ErrorName))
                 ) &&
                 (
                     this.ErrorPath == input.ErrorPath ||
@@ -297,7 +175,10 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.ErrorMsg.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ErrorName.GetHashCode();
+                if (this.ErrorName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ErrorName.GetHashCode();
+                }
                 if (this.ErrorPath != null)
                 {
                     hashCode = (hashCode * 59) + this.ErrorPath.GetHashCode();
