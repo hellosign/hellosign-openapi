@@ -33,7 +33,9 @@ class ErrorResponseError(BaseModel):
     """  # noqa: E501
 
     error_msg: StrictStr = Field(description="Message describing an error.")
-    error_name: StrictStr = Field(description="Name of the error.")
+    error_name: StrictStr = Field(
+        description="Name of the error. See the `x-error-codes` catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance."
+    )
     error_path: Optional[StrictStr] = Field(
         default=None, description="Path at which an error occurred."
     )

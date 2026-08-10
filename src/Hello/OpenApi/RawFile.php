@@ -67,10 +67,11 @@ class RawFile
     public function translate(
         string $surface_id,
         string $translation_file,
-        string $fallback_file
+        string $fallback_file,
+        bool $skip_hide_on = false
     ): void {
         $this->loadTranslations($translation_file, $fallback_file);
-        $result = $this->recurse($this->openapi, $surface_id);
+        $result = $this->recurse($this->openapi, $surface_id, $skip_hide_on);
 
         $this->logs['translated'] = array_unique($this->logs['translated']);
         $this->logs['fallback'] = array_unique($this->logs['fallback']);
@@ -160,18 +161,18 @@ class RawFile
      * searching for strings prepended with TRANSLATE_PREPEND and attempting
      * to translate them.
      */
-    private function recurse(array $data, string $surface_id): TranslationResult
+    private function recurse(array $data, string $surface_id, bool $skip_hide_on = false): TranslationResult
     {
         $empty_by_hiding = false;
 
         foreach ($data as $k => $v) {
             if (is_iterable($v)) {
-                if (isset($v[self::HIDE_ON]) && $this->shouldHide($v[self::HIDE_ON], $surface_id)) {
+                if (!$skip_hide_on && isset($v[self::HIDE_ON]) && $this->shouldHide($v[self::HIDE_ON], $surface_id)) {
                     unset($data[$k]);
                     $empty_by_hiding = empty($data);
                 } else {
                     unset($v[self::HIDE_ON]);
-                    $result = $this->recurse($v, $surface_id);
+                    $result = $this->recurse($v, $surface_id, $skip_hide_on);
                     if ($result->isAllHidden()) {
                         unset($data[$k]);
                     } else {

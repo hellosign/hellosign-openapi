@@ -172,7 +172,7 @@ public class ErrorResponseError {
   }
 
   /**
-   * Name of the error.
+   * Name of the error. See the &#x60;x-error-codes&#x60; catalog in openapi file for a complete list of possible error codes with detailed information including HTTP status codes, causes, remediation steps, and retry guidance.
    * @return errorName
    */
   @jakarta.annotation.Nonnull
