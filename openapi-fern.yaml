@@ -24102,6 +24102,10 @@ components:
           description: Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
           type: boolean
           default: false
+        ignore_text_tags_extraction_errors:
+          description: Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+          type: boolean
+          default: false
         expires_at:
           description: When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
           type: integer
@@ -24245,6 +24249,10 @@ components:
           maxLength: 255
         use_text_tags:
           description: Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+          type: boolean
+          default: false
+        ignore_text_tags_extraction_errors:
+          description: Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
           type: boolean
           default: false
         populate_auto_fill_fields:
@@ -24590,6 +24598,10 @@ components:
           maxLength: 255
         use_text_tags:
           description: Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
+          type: boolean
+          default: false
+        ignore_text_tags_extraction_errors:
+          description: Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
           type: boolean
           default: false
         expires_at:
@@ -25929,6 +25941,10 @@ components:
           description: Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
           type: boolean
           default: false
+        ignore_text_tags_extraction_errors:
+          description: Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
+          type: boolean
+          default: false
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
@@ -26069,6 +26085,10 @@ components:
           type: string
         use_preexisting_fields:
           description: Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
+          type: boolean
+          default: false
+        ignore_text_tags_extraction_errors:
+          description: Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
           type: boolean
           default: false
       type: object
@@ -26248,6 +26268,10 @@ components:
           default: false
         use_text_tags:
           description: Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
+          type: boolean
+          default: false
+        ignore_text_tags_extraction_errors:
+          description: Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
           type: boolean
           default: false
         expires_at:
@@ -26438,6 +26462,10 @@ components:
           default: false
         use_text_tags:
           description: Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
+          type: boolean
+          default: false
+        ignore_text_tags_extraction_errors:
+          description: Sent with a value of `true` to ignore the validation errors from text tags extraction. Defaults to `false`.
           type: boolean
           default: false
         populate_auto_fill_fields:

@@ -8715,7 +8715,6 @@ components:
           description: '_t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS'
           type: boolean
           default: false
-          x-hideOn: doc
         expires_at:
           description: '_t__SignatureRequestSend::EXPIRES_AT'
           type: integer
@@ -8833,7 +8832,6 @@ components:
           description: '_t__SignatureRequestCreateEmbedded::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS'
           type: boolean
           default: false
-          x-hideOn: doc
         populate_auto_fill_fields:
           description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
@@ -9141,7 +9139,6 @@ components:
           description: '_t__SignatureRequestSend::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS'
           type: boolean
           default: false
-          x-hideOn: doc
         expires_at:
           description: '_t__SignatureRequestSend::EXPIRES_AT'
           type: integer
@@ -10333,7 +10330,6 @@ components:
           description: '_t__TemplateCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS'
           type: boolean
           default: false
-          x-hideOn: doc
         signer_experience:
           description: '_t__TemplateCreate::SIGNER_EXPERIENCE'
           allOf:
@@ -10456,7 +10452,6 @@ components:
           description: '_t__TemplateCreateEmbeddedDraft::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS'
           type: boolean
           default: false
-          x-hideOn: doc
         signer_experience:
           description: '_t__TemplateCreateEmbeddedDraft::SIGNER_EXPERIENCE'
           allOf:
@@ -10649,7 +10644,6 @@ components:
           description: '_t__UnclaimedDraftCreate::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS'
           type: boolean
           default: false
-          x-hideOn: doc
         expires_at:
           description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
           type: integer
@@ -10814,7 +10808,6 @@ components:
           description: '_t__UnclaimedDraftCreateEmbedded::IGNORE_TEXT_TAGS_EXTRACTION_ERRORS'
           type: boolean
           default: false
-          x-hideOn: doc
         populate_auto_fill_fields:
           description: '_t__UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
