@@ -176,7 +176,49 @@ namespace Dropbox.Sign.Model
             /// Enum SignatureRequestSignerRemoved for value: signature_request_signer_removed
             /// </summary>
             [EnumMember(Value = "signature_request_signer_removed")]
-            SignatureRequestSignerRemoved = 23
+            SignatureRequestSignerRemoved = 23,
+
+            /// <summary>
+            /// Enum FaxReceived for value: fax_received
+            /// </summary>
+            [EnumMember(Value = "fax_received")]
+            FaxReceived = 24,
+
+            /// <summary>
+            /// Enum FaxSent for value: fax_sent
+            /// </summary>
+            [EnumMember(Value = "fax_sent")]
+            FaxSent = 25,
+
+            /// <summary>
+            /// Enum FaxOnHold for value: fax_on_hold
+            /// </summary>
+            [EnumMember(Value = "fax_on_hold")]
+            FaxOnHold = 26,
+
+            /// <summary>
+            /// Enum FaxBusy for value: fax_busy
+            /// </summary>
+            [EnumMember(Value = "fax_busy")]
+            FaxBusy = 27,
+
+            /// <summary>
+            /// Enum FaxNoAnswer for value: fax_no_answer
+            /// </summary>
+            [EnumMember(Value = "fax_no_answer")]
+            FaxNoAnswer = 28,
+
+            /// <summary>
+            /// Enum FaxDisconnected for value: fax_disconnected
+            /// </summary>
+            [EnumMember(Value = "fax_disconnected")]
+            FaxDisconnected = 29,
+
+            /// <summary>
+            /// Enum FaxBlacklisted for value: fax_blacklisted
+            /// </summary>
+            [EnumMember(Value = "fax_blacklisted")]
+            FaxBlacklisted = 30
         }
 
 

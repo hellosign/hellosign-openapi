@@ -13818,6 +13818,13 @@ components:
             - template_error
             - callback_test
             - signature_request_signer_removed
+            - fax_received
+            - fax_sent
+            - fax_on_hold
+            - fax_busy
+            - fax_no_answer
+            - fax_disconnected
+            - fax_blacklisted
         event_hash:
           description: 'Generated hash used to verify source of event data.'
           type: string
@@ -14521,6 +14528,48 @@ components:
       summary: 'Callback Test Event Example'
       value:
         $ref: examples/json/EventCallbackCallbackTest.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxReceived:
+      summary: 'Fax Received Event Example'
+      value:
+        $ref: examples/json/EventCallbackFaxReceived.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxSent:
+      summary: 'Fax Sent Event Example'
+      value:
+        $ref: examples/json/EventCallbackFaxSent.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxOnHold:
+      summary: 'Fax On Hold Event Example'
+      value:
+        $ref: examples/json/EventCallbackFaxOnHold.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxBusy:
+      summary: 'Fax Busy Event Example'
+      value:
+        $ref: examples/json/EventCallbackFaxBusy.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxNoAnswer:
+      summary: 'Fax No Answer Event Example'
+      value:
+        $ref: examples/json/EventCallbackFaxNoAnswer.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxDisconnected:
+      summary: 'Fax Disconnected Event Example'
+      value:
+        $ref: examples/json/EventCallbackFaxDisconnected.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxBlacklisted:
+      summary: 'Fax Blacklisted Event Example'
+      value:
+        $ref: examples/json/EventCallbackFaxBlacklisted.json
       x-fern-audiences:
         - events
   requestBodies:

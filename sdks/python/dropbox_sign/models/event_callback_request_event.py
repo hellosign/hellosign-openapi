@@ -80,10 +80,17 @@ class EventCallbackRequestEvent(BaseModel):
                 "template_error",
                 "callback_test",
                 "signature_request_signer_removed",
+                "fax_received",
+                "fax_sent",
+                "fax_on_hold",
+                "fax_busy",
+                "fax_no_answer",
+                "fax_disconnected",
+                "fax_blacklisted",
             ]
         ):
             raise ValueError(
-                "must be one of enum values ('account_confirmed', 'unknown_error', 'file_error', 'sign_url_invalid', 'signature_request_viewed', 'signature_request_signed', 'signature_request_sent', 'signature_request_all_signed', 'signature_request_email_bounce', 'signature_request_remind', 'signature_request_incomplete_qes', 'signature_request_destroyed', 'signature_request_canceled', 'signature_request_downloadable', 'signature_request_declined', 'signature_request_reassigned', 'signature_request_invalid', 'signature_request_prepared', 'signature_request_expired', 'template_created', 'template_error', 'callback_test', 'signature_request_signer_removed')"
+                "must be one of enum values ('account_confirmed', 'unknown_error', 'file_error', 'sign_url_invalid', 'signature_request_viewed', 'signature_request_signed', 'signature_request_sent', 'signature_request_all_signed', 'signature_request_email_bounce', 'signature_request_remind', 'signature_request_incomplete_qes', 'signature_request_destroyed', 'signature_request_canceled', 'signature_request_downloadable', 'signature_request_declined', 'signature_request_reassigned', 'signature_request_invalid', 'signature_request_prepared', 'signature_request_expired', 'template_created', 'template_error', 'callback_test', 'signature_request_signer_removed', 'fax_received', 'fax_sent', 'fax_on_hold', 'fax_busy', 'fax_no_answer', 'fax_disconnected', 'fax_blacklisted')"
             )
         return value
 

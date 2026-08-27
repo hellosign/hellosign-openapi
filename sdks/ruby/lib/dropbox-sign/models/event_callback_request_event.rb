@@ -174,7 +174,7 @@ module Dropbox::Sign
     def valid?
       return false if @event_time.nil?
       return false if @event_type.nil?
-      event_type_validator = EnumAttributeValidator.new('String', ["account_confirmed", "unknown_error", "file_error", "sign_url_invalid", "signature_request_viewed", "signature_request_signed", "signature_request_sent", "signature_request_all_signed", "signature_request_email_bounce", "signature_request_remind", "signature_request_incomplete_qes", "signature_request_destroyed", "signature_request_canceled", "signature_request_downloadable", "signature_request_declined", "signature_request_reassigned", "signature_request_invalid", "signature_request_prepared", "signature_request_expired", "template_created", "template_error", "callback_test", "signature_request_signer_removed"])
+      event_type_validator = EnumAttributeValidator.new('String', ["account_confirmed", "unknown_error", "file_error", "sign_url_invalid", "signature_request_viewed", "signature_request_signed", "signature_request_sent", "signature_request_all_signed", "signature_request_email_bounce", "signature_request_remind", "signature_request_incomplete_qes", "signature_request_destroyed", "signature_request_canceled", "signature_request_downloadable", "signature_request_declined", "signature_request_reassigned", "signature_request_invalid", "signature_request_prepared", "signature_request_expired", "template_created", "template_error", "callback_test", "signature_request_signer_removed", "fax_received", "fax_sent", "fax_on_hold", "fax_busy", "fax_no_answer", "fax_disconnected", "fax_blacklisted"])
       return false unless event_type_validator.valid?(@event_type)
       return false if @event_hash.nil?
       true
@@ -193,7 +193,7 @@ module Dropbox::Sign
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event_type Object to be assigned
     def event_type=(event_type)
-      validator = EnumAttributeValidator.new('String', ["account_confirmed", "unknown_error", "file_error", "sign_url_invalid", "signature_request_viewed", "signature_request_signed", "signature_request_sent", "signature_request_all_signed", "signature_request_email_bounce", "signature_request_remind", "signature_request_incomplete_qes", "signature_request_destroyed", "signature_request_canceled", "signature_request_downloadable", "signature_request_declined", "signature_request_reassigned", "signature_request_invalid", "signature_request_prepared", "signature_request_expired", "template_created", "template_error", "callback_test", "signature_request_signer_removed"])
+      validator = EnumAttributeValidator.new('String', ["account_confirmed", "unknown_error", "file_error", "sign_url_invalid", "signature_request_viewed", "signature_request_signed", "signature_request_sent", "signature_request_all_signed", "signature_request_email_bounce", "signature_request_remind", "signature_request_incomplete_qes", "signature_request_destroyed", "signature_request_canceled", "signature_request_downloadable", "signature_request_declined", "signature_request_reassigned", "signature_request_invalid", "signature_request_prepared", "signature_request_expired", "template_created", "template_error", "callback_test", "signature_request_signer_removed", "fax_received", "fax_sent", "fax_on_hold", "fax_busy", "fax_no_answer", "fax_disconnected", "fax_blacklisted"])
       unless validator.valid?(event_type)
         fail ArgumentError, "invalid value for \"event_type\", must be one of #{validator.allowable_values}."
       end

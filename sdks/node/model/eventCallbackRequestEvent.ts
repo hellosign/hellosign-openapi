@@ -103,5 +103,12 @@ export namespace EventCallbackRequestEvent {
     TemplateError = "template_error",
     CallbackTest = "callback_test",
     SignatureRequestSignerRemoved = "signature_request_signer_removed",
+    FaxReceived = "fax_received",
+    FaxSent = "fax_sent",
+    FaxOnHold = "fax_on_hold",
+    FaxBusy = "fax_busy",
+    FaxNoAnswer = "fax_no_answer",
+    FaxDisconnected = "fax_disconnected",
+    FaxBlacklisted = "fax_blacklisted",
   }
 }

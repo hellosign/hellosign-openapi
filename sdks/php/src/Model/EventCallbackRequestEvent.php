@@ -262,6 +262,13 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     public const EVENT_TYPE_TEMPLATE_ERROR = 'template_error';
     public const EVENT_TYPE_CALLBACK_TEST = 'callback_test';
     public const EVENT_TYPE_SIGNATURE_REQUEST_SIGNER_REMOVED = 'signature_request_signer_removed';
+    public const EVENT_TYPE_FAX_RECEIVED = 'fax_received';
+    public const EVENT_TYPE_FAX_SENT = 'fax_sent';
+    public const EVENT_TYPE_FAX_ON_HOLD = 'fax_on_hold';
+    public const EVENT_TYPE_FAX_BUSY = 'fax_busy';
+    public const EVENT_TYPE_FAX_NO_ANSWER = 'fax_no_answer';
+    public const EVENT_TYPE_FAX_DISCONNECTED = 'fax_disconnected';
+    public const EVENT_TYPE_FAX_BLACKLISTED = 'fax_blacklisted';
 
     /**
      * Gets allowable values of the enum
@@ -294,6 +301,13 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
             self::EVENT_TYPE_TEMPLATE_ERROR,
             self::EVENT_TYPE_CALLBACK_TEST,
             self::EVENT_TYPE_SIGNATURE_REQUEST_SIGNER_REMOVED,
+            self::EVENT_TYPE_FAX_RECEIVED,
+            self::EVENT_TYPE_FAX_SENT,
+            self::EVENT_TYPE_FAX_ON_HOLD,
+            self::EVENT_TYPE_FAX_BUSY,
+            self::EVENT_TYPE_FAX_NO_ANSWER,
+            self::EVENT_TYPE_FAX_DISCONNECTED,
+            self::EVENT_TYPE_FAX_BLACKLISTED,
         ];
     }
 
