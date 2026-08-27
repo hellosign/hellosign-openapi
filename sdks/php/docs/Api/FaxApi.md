@@ -5,6 +5,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**faxDelete()**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| [**faxDraftCreate()**](FaxApi.md#faxDraftCreate) | **POST** /fax/draft/create | Create Embedded Fax Draft |
 | [**faxFiles()**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | [**faxGet()**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax |
 | [**faxList()**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes |
@@ -62,6 +63,80 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `faxDraftCreate()`
+
+```php
+faxDraftCreate($fax_draft_create_request): \Dropbox\Sign\Model\FaxDraftCreateResponse
+```
+Create Embedded Fax Draft
+
+Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+
+### Example
+
+```php
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+
+$editor_options = (new Dropbox\Sign\Model\SubEditorPageOptions())
+    ->setForceUploadPage(false)
+    ->setForceEditorPage(true)
+    ->setForceReviewPage(true);
+
+$fax_draft_create_request = (new Dropbox\Sign\Model\FaxDraftCreateRequest())
+    ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
+    ->setFileUrls([
+        "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+    ])
+    ->setRecipients([
+        "+14155552671",
+    ])
+    ->setEditorOptions($editor_options)
+    ->setTestMode(true);
+
+try {
+    $response = (new Dropbox\Sign\Api\FaxApi(config: $config))->faxDraftCreate(
+        fax_draft_create_request: $fax_draft_create_request,
+    );
+
+    print_r($response);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling FaxApi#faxDraftCreate: {$e->getMessage()}";
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fax_draft_create_request** | [**\Dropbox\Sign\Model\FaxDraftCreateRequest**](../Model/FaxDraftCreateRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\FaxDraftCreateResponse**](../Model/FaxDraftCreateResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

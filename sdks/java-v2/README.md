@@ -164,6 +164,7 @@ Class | Method | HTTP request | Description
 *EmbeddedApi* | [**embeddedEditUrl**](docs/EmbeddedApi.md#embeddedEditUrl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**embeddedSignUrl**](docs/EmbeddedApi.md#embeddedSignUrl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
 *FaxApi* | [**faxDelete**](docs/FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax
+*FaxApi* | [**faxDraftCreate**](docs/FaxApi.md#faxDraftCreate) | **POST** /fax/draft/create | Create Embedded Fax Draft
 *FaxApi* | [**faxFiles**](docs/FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files
 *FaxApi* | [**faxGet**](docs/FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax
 *FaxApi* | [**faxList**](docs/FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes
@@ -262,6 +263,9 @@ Class | Method | HTTP request | Description
  - [EventCallbackRequest](docs/EventCallbackRequest.md)
  - [EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [FaxDraftCreateRequest](docs/FaxDraftCreateRequest.md)
+ - [FaxDraftCreateResponse](docs/FaxDraftCreateResponse.md)
+ - [FaxDraftResponse](docs/FaxDraftResponse.md)
  - [FaxGetResponse](docs/FaxGetResponse.md)
  - [FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
@@ -325,6 +329,7 @@ Class | Method | HTTP request | Description
  - [SubCC](docs/SubCC.md)
  - [SubCustomField](docs/SubCustomField.md)
  - [SubEditorOptions](docs/SubEditorOptions.md)
+ - [SubEditorPageOptions](docs/SubEditorPageOptions.md)
  - [SubFieldOptions](docs/SubFieldOptions.md)
  - [SubFormFieldGroup](docs/SubFormFieldGroup.md)
  - [SubFormFieldRule](docs/SubFormFieldRule.md)

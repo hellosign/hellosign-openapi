@@ -93,6 +93,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *EmbeddedApi* | [**embeddedEditUrl**](./docs/api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](./docs/api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 | *FaxApi* | [**faxDelete**](./docs/api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| *FaxApi* | [**faxDraftCreate**](./docs/api/FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Embedded Fax Draft |
 | *FaxApi* | [**faxFiles**](./docs/api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | *FaxApi* | [**faxGet**](./docs/api/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | *FaxApi* | [**faxList**](./docs/api/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
@@ -190,6 +191,9 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [EventCallbackRequest](./docs/model/EventCallbackRequest.md)
 - [EventCallbackRequestEvent](./docs/model/EventCallbackRequestEvent.md)
 - [EventCallbackRequestEventMetadata](./docs/model/EventCallbackRequestEventMetadata.md)
+- [FaxDraftCreateRequest](./docs/model/FaxDraftCreateRequest.md)
+- [FaxDraftCreateResponse](./docs/model/FaxDraftCreateResponse.md)
+- [FaxDraftResponse](./docs/model/FaxDraftResponse.md)
 - [FaxGetResponse](./docs/model/FaxGetResponse.md)
 - [FaxLineAddUserRequest](./docs/model/FaxLineAddUserRequest.md)
 - [FaxLineAreaCodeGetCountryEnum](./docs/model/FaxLineAreaCodeGetCountryEnum.md)
@@ -253,6 +257,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SubCC](./docs/model/SubCC.md)
 - [SubCustomField](./docs/model/SubCustomField.md)
 - [SubEditorOptions](./docs/model/SubEditorOptions.md)
+- [SubEditorPageOptions](./docs/model/SubEditorPageOptions.md)
 - [SubFieldOptions](./docs/model/SubFieldOptions.md)
 - [SubFormFieldGroup](./docs/model/SubFormFieldGroup.md)
 - [SubFormFieldRule](./docs/model/SubFormFieldRule.md)

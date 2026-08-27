@@ -1,0 +1,16 @@
+# # FaxDraftCreateRequest
+
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+| `client_id`<sup>*_required_</sup> | ```string``` |  Client ID of the API app that owns the embedded Fax draft.  |  |
+| `files` | ```\SplFileObject[]``` |  Use `files[]` to upload the file(s) for the embedded Fax draft.<br><br>This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.  |  |
+| `file_urls` | ```string[]``` |  Use `file_urls[]` to have Dropbox Fax download the file(s) for the embedded Fax draft.<br><br>This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.  |  |
+| `editor_options` | [```\Dropbox\Sign\Model\SubEditorPageOptions```](SubEditorPageOptions.md) |    |  |
+| `recipients` | ```string[]``` |  Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.  |  |
+| `test_mode` | ```bool``` |  When set to `true`, the completed draft will not send a Fax or consume Fax pages. Defaults to `false`.  |  [default to false] |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

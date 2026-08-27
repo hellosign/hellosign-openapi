@@ -5,6 +5,8 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.ApiResponse;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.Pair;
+import com.dropbox.sign.model.FaxDraftCreateRequest;
+import com.dropbox.sign.model.FaxDraftCreateResponse;
 import com.dropbox.sign.model.FaxGetResponse;
 import com.dropbox.sign.model.FaxListResponse;
 import com.dropbox.sign.model.FaxSendRequest;
@@ -111,6 +113,80 @@ public class FaxApi {
                 localVarContentType,
                 localVarAuthNames,
                 null,
+                false);
+    }
+
+    /**
+     * Create Embedded Fax Draft Creates an embedded Fax draft and returns a URL that can be opened
+     * in an approved iframe for preparation and sending.
+     *
+     * @param faxDraftCreateRequest (required)
+     * @return FaxDraftCreateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     * </table>
+     */
+    public FaxDraftCreateResponse faxDraftCreate(FaxDraftCreateRequest faxDraftCreateRequest)
+            throws ApiException {
+        return faxDraftCreateWithHttpInfo(faxDraftCreateRequest).getData();
+    }
+
+    /**
+     * Create Embedded Fax Draft Creates an embedded Fax draft and returns a URL that can be opened
+     * in an approved iframe for preparation and sending.
+     *
+     * @param faxDraftCreateRequest (required)
+     * @return ApiResponse&lt;FaxDraftCreateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<FaxDraftCreateResponse> faxDraftCreateWithHttpInfo(
+            FaxDraftCreateRequest faxDraftCreateRequest) throws ApiException {
+
+        // Check required parameters
+        if (faxDraftCreateRequest == null) {
+            throw new ApiException(
+                    400,
+                    "Missing the required parameter 'faxDraftCreateRequest' when calling"
+                            + " faxDraftCreate");
+        }
+
+        String localVarAccept = apiClient.selectHeaderAccept("application/json");
+        Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+        localVarFormParams = faxDraftCreateRequest.createFormData();
+        boolean isFileTypeFound = !localVarFormParams.isEmpty();
+        String localVarContentType =
+                isFileTypeFound
+                        ? "multipart/form-data"
+                        : apiClient.selectHeaderContentType(
+                                "application/json", "multipart/form-data");
+        String[] localVarAuthNames = new String[] {"api_key"};
+        GenericType<FaxDraftCreateResponse> localVarReturnType =
+                new GenericType<FaxDraftCreateResponse>() {};
+        return apiClient.invokeAPI(
+                "FaxApi.faxDraftCreate",
+                "/fax/draft/create",
+                "POST",
+                new ArrayList<>(),
+                isFileTypeFound ? null : faxDraftCreateRequest,
+                new LinkedHashMap<>(),
+                new LinkedHashMap<>(),
+                localVarFormParams,
+                localVarAccept,
+                localVarContentType,
+                localVarAuthNames,
+                localVarReturnType,
                 false);
     }
 

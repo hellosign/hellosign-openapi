@@ -90,6 +90,116 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
+    # Create Embedded Fax Draft
+    # Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+    # @param fax_draft_create_request [FaxDraftCreateRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [FaxDraftCreateResponse]
+    def fax_draft_create(fax_draft_create_request, opts = {})
+      data, _status_code, _headers = fax_draft_create_with_http_info(fax_draft_create_request, opts)
+      data
+    end
+
+    # Create Embedded Fax Draft
+    # Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+    # @param fax_draft_create_request [FaxDraftCreateRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FaxDraftCreateResponse, Integer, Hash)>] FaxDraftCreateResponse data, response status code and response headers
+    def fax_draft_create_with_http_info(fax_draft_create_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FaxApi.fax_draft_create ...'
+      end
+      # verify the required parameter 'fax_draft_create_request' is set
+      if @api_client.config.client_side_validation && fax_draft_create_request.nil?
+        fail ArgumentError, "Missing the required parameter 'fax_draft_create_request' when calling FaxApi.fax_draft_create"
+      end
+      # resource path
+      local_var_path = '/fax/draft/create'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+      result = @api_client.generate_form_data(
+        fax_draft_create_request,
+        Dropbox::Sign::FaxDraftCreateRequest.openapi_types
+      )
+
+      # form parameters
+      if result[:has_file]
+        form_params = opts[:form_params] || result[:params]
+        header_params['Content-Type'] = 'multipart/form-data'
+      else
+        # http body (model)
+        post_body = opts[:debug_body] || result[:params]
+      end
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FaxDraftCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key']
+
+      new_options = opts.merge(
+        :operation => :"FaxApi.fax_draft_create",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::FaxDraftCreateResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code && e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        raise e
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FaxApi#fax_draft_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Download Fax Files
     # Downloads files associated with a Fax
     # @param fax_id [String] Fax ID

@@ -163,6 +163,28 @@
 "FaxSend::COVER_PAGE_FROM": Fax cover page sender information
 "FaxSend::COVER_PAGE_MESSAGE": Fax Cover Page Message
 "FaxSend::TITLE": Fax Title
+"FaxDraftCreate::SUMMARY": Create Embedded Fax Draft
+"FaxDraftCreate::DESCRIPTION": Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+"FaxDraftCreate::FILES": |-
+  Use `files[]` to upload the file(s) for the embedded Fax draft.
+
+  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+"FaxDraftCreate::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Fax download the file(s) for the embedded Fax draft.
+
+  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+"FaxDraftCreate::CLIENT_ID": Client ID of the API app that owns the embedded Fax draft.
+"FaxDraftCreate::RECIPIENTS": Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
+"FaxDraftCreate::TEST_MODE": When set to `true`, the completed draft will not send a Fax or consume Fax pages. Defaults to `false`.
+"Sub::EditorPageOptions::DESCRIPTION": Controls which completed pages are shown again when the embedded Fax draft is opened.
+"Sub::EditorPageOptions::FORCE_UPLOAD_PAGE": When set to `true`, always shows the upload page, even when files are already attached. Defaults to `false`.
+"Sub::EditorPageOptions::FORCE_EDITOR_PAGE": When set to `true`, always shows the editor page, even when the document is already prepared. Defaults to `false`.
+"Sub::EditorPageOptions::FORCE_REVIEW_PAGE": When set to `true`, always shows the review page, even when recipients and Fax details are already provided. Defaults to `false`.
+"FaxDraftCreateResponseExample::SUMMARY": Embedded Fax Draft Response
+"FaxDraftResponse::DESCRIPTION": Contains the embedded Fax draft ID, iframe URL, and expiration timestamp.
+"FaxDraftResponse::FAX_ID": ID of the Fax draft.
+"FaxDraftResponse::URL": URL to open in an approved iframe for preparing and sending the Fax.
+"FaxDraftResponse::EXPIRES_AT": Unix timestamp indicating when the embedded Fax draft URL expires.
 "FaxGetResponseExample::SUMMARY": Fax Response
 "FaxResponse::FAX_ID": Fax ID
 "FaxResponse::TITLE": Fax Title
@@ -1877,6 +1899,8 @@
 "FaxList::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list your faxes, click here."
 "FaxSend::SEO::TITLE": "Send Fax | API Documentation | Dropbox Fax for Developers"
 "FaxSend::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to send a fax, click here."
+"FaxDraftCreate::SEO::TITLE": "Create Embedded Fax Draft | API Documentation | Dropbox Fax for Developers"
+"FaxDraftCreate::SEO::DESCRIPTION": "Create an embedded Fax draft, then prepare and send it from an approved iframe in your application."
 "FaxLineAddUser::SEO::TITLE": "Fax Line Add User | API Documentation | Dropbox Fax for Developers"
 "FaxLineAddUser::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to add a user to an existing fax line, click here."
 "FaxLineAreaCodeGet::SEO::TITLE": "Fax Line Get Area Codes | API Documentation | Dropbox Fax for Developers"

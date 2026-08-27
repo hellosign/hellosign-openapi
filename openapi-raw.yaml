@@ -1585,6 +1585,106 @@ paths:
         seo:
           title: '_t__FaxDelete::SEO::TITLE'
           description: '_t__FaxDelete::SEO::DESCRIPTION'
+  /fax/draft/create:
+    post:
+      tags:
+        - Fax
+      summary: '_t__FaxDraftCreate::SUMMARY'
+      description: '_t__FaxDraftCreate::DESCRIPTION'
+      operationId: faxDraftCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxDraftCreateRequest'
+            examples:
+              example:
+                $ref: '#/components/examples/FaxDraftCreateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FaxDraftCreateRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxDraftCreateResponse'
+              examples:
+                example:
+                  $ref: '#/components/examples/FaxDraftCreateResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxDraftCreateExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxDraftCreateExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxDraftCreateExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxDraftCreateExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxDraftCreateExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxDraftCreateExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxDraftCreateExample.sh
+      x-meta:
+        seo:
+          title: '_t__FaxDraftCreate::SEO::TITLE'
+          description: '_t__FaxDraftCreate::SEO::DESCRIPTION'
   '/fax/files/{fax_id}':
     get:
       tags:
@@ -8032,6 +8132,38 @@ components:
             - sdk
             - doc
       type: object
+    FaxDraftCreateRequest:
+      required:
+        - client_id
+      properties:
+        files:
+          description: '_t__FaxDraftCreate::FILES'
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: '_t__FaxDraftCreate::FILE_URLS'
+          type: array
+          items:
+            type: string
+        client_id:
+          description: '_t__FaxDraftCreate::CLIENT_ID'
+          type: string
+        editor_options:
+          $ref: '#/components/schemas/SubEditorPageOptions'
+        recipients:
+          description: '_t__FaxDraftCreate::RECIPIENTS'
+          type: array
+          items:
+            type: string
+          maxItems: 20
+          uniqueItems: true
+        test_mode:
+          description: '_t__FaxDraftCreate::TEST_MODE'
+          type: boolean
+          default: false
+      type: object
     FaxLineAddUserRequest:
       required:
         - number
@@ -9345,6 +9477,22 @@ components:
           default: false
         allow_edit_documents:
           description: '_t__Sub::EditorOptions::ALLOW_EDIT_DOCUMENTS'
+          type: boolean
+          default: false
+      type: object
+    SubEditorPageOptions:
+      description: '_t__Sub::EditorPageOptions::DESCRIPTION'
+      properties:
+        force_upload_page:
+          description: '_t__Sub::EditorPageOptions::FORCE_UPLOAD_PAGE'
+          type: boolean
+          default: false
+        force_editor_page:
+          description: '_t__Sub::EditorPageOptions::FORCE_EDITOR_PAGE'
+          type: boolean
+          default: false
+        force_review_page:
+          description: '_t__Sub::EditorPageOptions::FORCE_REVIEW_PAGE'
           type: boolean
           default: false
       type: object
@@ -11132,6 +11280,19 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
+    FaxDraftCreateResponse:
+      required:
+        - fax_draft
+      properties:
+        fax_draft:
+          $ref: '#/components/schemas/FaxDraftResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     FaxGetResponse:
       required:
         - fax
@@ -11607,6 +11768,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FaxResponseTransmission'
+      type: object
+      x-internal-class: true
+    FaxDraftResponse:
+      description: '_t__FaxDraftResponse::DESCRIPTION'
+      required:
+        - fax_id
+        - url
+        - expires_at
+      properties:
+        fax_id:
+          description: '_t__FaxDraftResponse::FAX_ID'
+          type: string
+        url:
+          description: '_t__FaxDraftResponse::URL'
+          type: string
+        expires_at:
+          description: '_t__FaxDraftResponse::EXPIRES_AT'
+          type: integer
       type: object
       x-internal-class: true
     FaxLineResponseFaxLine:
@@ -13849,6 +14028,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/EmbeddedEditUrlRequest.json
+    FaxDraftCreateRequest:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxDraftCreateRequest.json
     FaxLineAddUserRequest:
       summary: 'Default Example'
       value:
@@ -14144,6 +14327,10 @@ components:
       summary: '_t__Error::4XX'
       value:
         $ref: examples/json/Error4XXResponse.json
+    FaxDraftCreateResponse:
+      summary: '_t__FaxDraftCreateResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/FaxDraftCreateResponse.json
     FaxGetResponse:
       summary: '_t__FaxGetResponseExample::SUMMARY'
       value:
