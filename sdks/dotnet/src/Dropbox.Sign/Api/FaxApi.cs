@@ -51,6 +51,29 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> FaxDeleteWithHttpInfo(string faxId, int operationIndex = 0);
         /// <summary>
+        /// Create Fax Draft
+        /// </summary>
+        /// <remarks>
+        /// Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxDraftCreateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>FaxDraftCreateResponse</returns>
+        FaxDraftCreateResponse FaxDraftCreate(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Create Fax Draft
+        /// </summary>
+        /// <remarks>
+        /// Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxDraftCreateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of FaxDraftCreateResponse</returns>
+        ApiResponse<FaxDraftCreateResponse> FaxDraftCreateWithHttpInfo(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0);
+        /// <summary>
         /// Download Fax Files
         /// </summary>
         /// <remarks>
@@ -178,6 +201,31 @@ namespace Dropbox.Sign.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FaxDeleteWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Create Fax Draft
+        /// </summary>
+        /// <remarks>
+        /// Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxDraftCreateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FaxDraftCreateResponse</returns>
+        System.Threading.Tasks.Task<FaxDraftCreateResponse> FaxDraftCreateAsync(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create Fax Draft
+        /// </summary>
+        /// <remarks>
+        /// Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxDraftCreateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FaxDraftCreateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FaxDraftCreateResponse>> FaxDraftCreateWithHttpInfoAsync(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Download Fax Files
         /// </summary>
@@ -545,6 +593,178 @@ namespace Dropbox.Sign.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxDelete", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create Fax Draft Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxDraftCreateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>FaxDraftCreateResponse</returns>
+        public FaxDraftCreateResponse FaxDraftCreate(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<FaxDraftCreateResponse> localVarResponse = FaxDraftCreateWithHttpInfo(faxDraftCreateRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Fax Draft Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxDraftCreateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of FaxDraftCreateResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<FaxDraftCreateResponse> FaxDraftCreateWithHttpInfo(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'faxDraftCreateRequest' is set
+            if (faxDraftCreateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxDraftCreateRequest' when calling FaxApi->FaxDraftCreate");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = faxDraftCreateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = faxDraftCreateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "FaxApi.FaxDraftCreate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<FaxDraftCreateResponse>("/fax/draft/create", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FaxDraftCreate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create Fax Draft Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxDraftCreateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FaxDraftCreateResponse</returns>
+        public async System.Threading.Tasks.Task<FaxDraftCreateResponse> FaxDraftCreateAsync(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<FaxDraftCreateResponse> localVarResponse = await FaxDraftCreateWithHttpInfoAsync(faxDraftCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Fax Draft Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxDraftCreateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FaxDraftCreateResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxDraftCreateResponse>> FaxDraftCreateWithHttpInfoAsync(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'faxDraftCreateRequest' is set
+            if (faxDraftCreateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxDraftCreateRequest' when calling FaxApi->FaxDraftCreate");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = faxDraftCreateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = faxDraftCreateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "FaxApi.FaxDraftCreate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<FaxDraftCreateResponse>("/fax/draft/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FaxDraftCreate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

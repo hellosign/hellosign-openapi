@@ -161,6 +161,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *EmbeddedApi* | [**embeddedEditUrl**](docs/Api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](docs/Api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 | *FaxApi* | [**faxDelete**](docs/Api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| *FaxApi* | [**faxDraftCreate**](docs/Api/FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Fax Draft |
 | *FaxApi* | [**faxFiles**](docs/Api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | *FaxApi* | [**faxGet**](docs/Api/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | *FaxApi* | [**faxList**](docs/Api/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
@@ -259,6 +260,9 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [EventCallbackRequest](docs/Model/EventCallbackRequest.md)
 - [EventCallbackRequestEvent](docs/Model/EventCallbackRequestEvent.md)
 - [EventCallbackRequestEventMetadata](docs/Model/EventCallbackRequestEventMetadata.md)
+- [FaxDraftCreateRequest](docs/Model/FaxDraftCreateRequest.md)
+- [FaxDraftCreateResponse](docs/Model/FaxDraftCreateResponse.md)
+- [FaxDraftResponse](docs/Model/FaxDraftResponse.md)
 - [FaxGetResponse](docs/Model/FaxGetResponse.md)
 - [FaxLineAddUserRequest](docs/Model/FaxLineAddUserRequest.md)
 - [FaxLineAreaCodeGetCountryEnum](docs/Model/FaxLineAreaCodeGetCountryEnum.md)
@@ -322,6 +326,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SubCC](docs/Model/SubCC.md)
 - [SubCustomField](docs/Model/SubCustomField.md)
 - [SubEditorOptions](docs/Model/SubEditorOptions.md)
+- [SubEditorPageOptions](docs/Model/SubEditorPageOptions.md)
 - [SubFieldOptions](docs/Model/SubFieldOptions.md)
 - [SubFormFieldGroup](docs/Model/SubFormFieldGroup.md)
 - [SubFormFieldRule](docs/Model/SubFormFieldRule.md)

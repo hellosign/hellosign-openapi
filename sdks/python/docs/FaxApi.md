@@ -5,6 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 |[```fax_delete```](FaxApi.md#fax_delete) | ```DELETE /fax/{fax_id}``` | Delete Fax|
+|[```fax_draft_create```](FaxApi.md#fax_draft_create) | ```POST /fax/draft/create``` | Create Fax Draft|
 |[```fax_files```](FaxApi.md#fax_files) | ```GET /fax/files/{fax_id}``` | Download Fax Files|
 |[```fax_get```](FaxApi.md#fax_get) | ```GET /fax/{fax_id}``` | Get Fax|
 |[```fax_list```](FaxApi.md#fax_list) | ```GET /fax/list``` | Lists Faxes|
@@ -67,6 +68,83 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```fax_draft_create```
+> ```FaxDraftCreateResponse fax_draft_create(fax_draft_create_request)```
+
+Create Fax Draft
+
+Creates a Fax draft and returns a URL for preparing and sending the Fax.
+
+When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+
+### Example
+
+* Basic Authentication (api_key):
+
+```python
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
+
+configuration = Configuration(
+    username="YOUR_API_KEY",
+)
+
+with ApiClient(configuration) as api_client:
+    editor_options = models.SubEditorPageOptions(
+        force_upload_page=False,
+        force_editor_page=True,
+        force_review_page=True,
+    )
+    fax_draft_create_request = models.FaxDraftCreateRequest(
+        client_id="b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+        file_urls=[
+            "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+        ],
+        recipients=["+14155552671"],
+        editor_options=editor_options,
+        test_mode=True,
+    )
+
+    try:
+        response = api.FaxApi(api_client).fax_draft_create(
+            fax_draft_create_request=fax_draft_create_request,
+        )
+
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling FaxApi#fax_draft_create: %s\n" % e)
+
+```
+```
+
+### Parameters
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `fax_draft_create_request` | [**FaxDraftCreateRequest**](FaxDraftCreateRequest.md) |  |  |
+
+### Return type
+
+[**FaxDraftCreateResponse**](FaxDraftCreateResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

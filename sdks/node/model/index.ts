@@ -34,6 +34,9 @@ import { EventCallbackHelper } from "./eventCallbackHelper";
 import { EventCallbackRequest } from "./eventCallbackRequest";
 import { EventCallbackRequestEvent } from "./eventCallbackRequestEvent";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
+import { FaxDraftCreateRequest } from "./faxDraftCreateRequest";
+import { FaxDraftCreateResponse } from "./faxDraftCreateResponse";
+import { FaxDraftResponse } from "./faxDraftResponse";
 import { FaxGetResponse } from "./faxGetResponse";
 import { FaxLineAddUserRequest } from "./faxLineAddUserRequest";
 import { FaxLineAreaCodeGetCountryEnum } from "./faxLineAreaCodeGetCountryEnum";
@@ -110,6 +113,7 @@ import { SubBulkSignerListCustomField } from "./subBulkSignerListCustomField";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubEditorOptions } from "./subEditorOptions";
+import { SubEditorPageOptions } from "./subEditorPageOptions";
 import { SubFieldOptions } from "./subFieldOptions";
 import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
@@ -291,6 +295,9 @@ export let typeMap: { [index: string]: any } = {
   EventCallbackRequest: EventCallbackRequest,
   EventCallbackRequestEvent: EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: EventCallbackRequestEventMetadata,
+  FaxDraftCreateRequest: FaxDraftCreateRequest,
+  FaxDraftCreateResponse: FaxDraftCreateResponse,
+  FaxDraftResponse: FaxDraftResponse,
   FaxGetResponse: FaxGetResponse,
   FaxLineAddUserRequest: FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse: FaxLineAreaCodeGetResponse,
@@ -366,6 +373,7 @@ export let typeMap: { [index: string]: any } = {
   SubCC: SubCC,
   SubCustomField: SubCustomField,
   SubEditorOptions: SubEditorOptions,
+  SubEditorPageOptions: SubEditorPageOptions,
   SubFieldOptions: SubFieldOptions,
   SubFormFieldGroup: SubFormFieldGroup,
   SubFormFieldRule: SubFormFieldRule,
@@ -522,6 +530,9 @@ export {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxDraftCreateRequest,
+  FaxDraftCreateResponse,
+  FaxDraftResponse,
   FaxGetResponse,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetCountryEnum,
@@ -592,6 +603,7 @@ export {
   SubCC,
   SubCustomField,
   SubEditorOptions,
+  SubEditorPageOptions,
   SubFieldOptions,
   SubFormFieldGroup,
   SubFormFieldRule,

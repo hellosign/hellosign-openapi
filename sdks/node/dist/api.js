@@ -13186,6 +13186,9 @@ __export(api_exports, {
   EventCallbackRequestEvent: () => EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: () => EventCallbackRequestEventMetadata,
   FaxApi: () => FaxApi,
+  FaxDraftCreateRequest: () => FaxDraftCreateRequest,
+  FaxDraftCreateResponse: () => FaxDraftCreateResponse,
+  FaxDraftResponse: () => FaxDraftResponse,
   FaxGetResponse: () => FaxGetResponse,
   FaxLineAddUserRequest: () => FaxLineAddUserRequest,
   FaxLineApi: () => FaxLineApi,
@@ -13258,6 +13261,7 @@ __export(api_exports, {
   SubCC: () => SubCC,
   SubCustomField: () => SubCustomField,
   SubEditorOptions: () => SubEditorOptions,
+  SubEditorPageOptions: () => SubEditorPageOptions,
   SubFieldOptions: () => SubFieldOptions,
   SubFormFieldGroup: () => SubFormFieldGroup,
   SubFormFieldRule: () => SubFormFieldRule,
@@ -18207,6 +18211,121 @@ var EventCallbackRequestEventMetadata = class _EventCallbackRequestEventMetadata
   }
 };
 
+// model/faxDraftCreateRequest.ts
+var FaxDraftCreateRequest = class _FaxDraftCreateRequest {
+  constructor() {
+    /**
+     * When set to `true`, the completed draft will not send a Fax or consume Fax pages. Defaults to `false`.
+     */
+    this["testMode"] = false;
+  }
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "files",
+        baseName: "files",
+        type: "Array<RequestFile>"
+      },
+      {
+        name: "fileUrls",
+        baseName: "file_urls",
+        type: "Array<string>"
+      },
+      {
+        name: "clientId",
+        baseName: "client_id",
+        type: "string"
+      },
+      {
+        name: "editorOptions",
+        baseName: "editor_options",
+        type: "SubEditorPageOptions"
+      },
+      {
+        name: "recipients",
+        baseName: "recipients",
+        type: "Set<string>"
+      },
+      {
+        name: "testMode",
+        baseName: "test_mode",
+        type: "boolean"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _FaxDraftCreateRequest.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxDraftCreateRequest");
+  }
+};
+
+// model/faxDraftCreateResponse.ts
+var FaxDraftCreateResponse = class _FaxDraftCreateResponse {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "faxDraft",
+        baseName: "fax_draft",
+        type: "FaxDraftResponse"
+      },
+      {
+        name: "warnings",
+        baseName: "warnings",
+        type: "Array<WarningResponse>"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _FaxDraftCreateResponse.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxDraftCreateResponse");
+  }
+};
+
+// model/faxDraftResponse.ts
+var FaxDraftResponse = class _FaxDraftResponse {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "faxId",
+        baseName: "fax_id",
+        type: "string"
+      },
+      {
+        name: "url",
+        baseName: "url",
+        type: "string"
+      },
+      {
+        name: "expiresAt",
+        baseName: "expires_at",
+        type: "number"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _FaxDraftResponse.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxDraftResponse");
+  }
+};
+
 // model/faxGetResponse.ts
 var FaxGetResponse = class _FaxGetResponse {
   static {
@@ -21951,6 +22070,53 @@ var SubEditorOptions = class _SubEditorOptions {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "SubEditorOptions");
+  }
+};
+
+// model/subEditorPageOptions.ts
+var SubEditorPageOptions = class _SubEditorPageOptions {
+  constructor() {
+    /**
+     * When set to `true`, always shows the upload page, even when files are already attached. Defaults to `false`.
+     */
+    this["forceUploadPage"] = false;
+    /**
+     * When set to `true`, always shows the editor page, even when the document is already prepared. Defaults to `false`.
+     */
+    this["forceEditorPage"] = false;
+    /**
+     * When set to `true`, always shows the review page, even when recipients and Fax details are already provided. Defaults to `false`.
+     */
+    this["forceReviewPage"] = false;
+  }
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "forceUploadPage",
+        baseName: "force_upload_page",
+        type: "boolean"
+      },
+      {
+        name: "forceEditorPage",
+        baseName: "force_editor_page",
+        type: "boolean"
+      },
+      {
+        name: "forceReviewPage",
+        baseName: "force_review_page",
+        type: "boolean"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _SubEditorPageOptions.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "SubEditorPageOptions");
   }
 };
 
@@ -26931,6 +27097,9 @@ var typeMap = {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxDraftCreateRequest,
+  FaxDraftCreateResponse,
+  FaxDraftResponse,
   FaxGetResponse,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse,
@@ -26989,6 +27158,7 @@ var typeMap = {
   SubCC,
   SubCustomField,
   SubEditorOptions,
+  SubEditorPageOptions,
   SubFieldOptions,
   SubFormFieldGroup,
   SubFormFieldRule,
@@ -29013,6 +29183,123 @@ var FaxApi = class {
           }
         );
       });
+    });
+  }
+  /**
+   * Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+   * @summary Create Fax Draft
+   * @param faxDraftCreateRequest
+   * @param options
+   */
+  async faxDraftCreate(faxDraftCreateRequest, options = { headers: {} }) {
+    faxDraftCreateRequest = deserializeIfNeeded4(
+      faxDraftCreateRequest,
+      "FaxDraftCreateRequest"
+    );
+    const localVarPath = this.basePath + "/fax/draft/create";
+    let localVarQueryParameters = {};
+    let localVarHeaderParams = Object.assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams = {};
+    let localVarBodyParams = void 0;
+    if (faxDraftCreateRequest === null || faxDraftCreateRequest === void 0) {
+      throw new Error(
+        "Required parameter faxDraftCreateRequest was null or undefined when calling faxDraftCreate."
+      );
+    }
+    Object.assign(localVarHeaderParams, options.headers);
+    let localVarUseFormData = false;
+    const result = generateFormData(
+      faxDraftCreateRequest,
+      FaxDraftCreateRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+    let data = {};
+    if (localVarUseFormData) {
+      const formData2 = toFormData3(result.data);
+      data = formData2;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData2.getHeaders()
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        faxDraftCreateRequest,
+        "FaxDraftCreateRequest"
+      );
+    }
+    let localVarRequestOptions = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data
+    };
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(
+      () => this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(
+        () => interceptor(localVarRequestOptions)
+      );
+    }
+    return interceptorPromise.then(() => {
+      return new Promise(
+        (resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxDraftCreateResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxDraftCreateResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        }
+      );
     });
   }
   /**
@@ -36450,6 +36737,9 @@ var APIS = [
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
   FaxApi,
+  FaxDraftCreateRequest,
+  FaxDraftCreateResponse,
+  FaxDraftResponse,
   FaxGetResponse,
   FaxLineAddUserRequest,
   FaxLineApi,
@@ -36522,6 +36812,7 @@ var APIS = [
   SubCC,
   SubCustomField,
   SubEditorOptions,
+  SubEditorPageOptions,
   SubFieldOptions,
   SubFormFieldGroup,
   SubFormFieldRule,

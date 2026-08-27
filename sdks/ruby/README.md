@@ -121,6 +121,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_edit_url**](docs/EmbeddedApi.md#embedded_edit_url) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_sign_url**](docs/EmbeddedApi.md#embedded_sign_url) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 |*Dropbox::Sign::FaxApi* | [**fax_delete**](docs/FaxApi.md#fax_delete) | **DELETE** /fax/{fax_id} | Delete Fax |
+|*Dropbox::Sign::FaxApi* | [**fax_draft_create**](docs/FaxApi.md#fax_draft_create) | **POST** /fax/draft/create | Create Fax Draft |
 |*Dropbox::Sign::FaxApi* | [**fax_files**](docs/FaxApi.md#fax_files) | **GET** /fax/files/{fax_id} | Download Fax Files |
 |*Dropbox::Sign::FaxApi* | [**fax_get**](docs/FaxApi.md#fax_get) | **GET** /fax/{fax_id} | Get Fax |
 |*Dropbox::Sign::FaxApi* | [**fax_list**](docs/FaxApi.md#fax_list) | **GET** /fax/list | Lists Faxes |
@@ -219,6 +220,9 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::EventCallbackRequest](docs/EventCallbackRequest.md)
  - [Dropbox::Sign::EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [Dropbox::Sign::EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [Dropbox::Sign::FaxDraftCreateRequest](docs/FaxDraftCreateRequest.md)
+ - [Dropbox::Sign::FaxDraftCreateResponse](docs/FaxDraftCreateResponse.md)
+ - [Dropbox::Sign::FaxDraftResponse](docs/FaxDraftResponse.md)
  - [Dropbox::Sign::FaxGetResponse](docs/FaxGetResponse.md)
  - [Dropbox::Sign::FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [Dropbox::Sign::FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
@@ -282,6 +286,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SubCC](docs/SubCC.md)
  - [Dropbox::Sign::SubCustomField](docs/SubCustomField.md)
  - [Dropbox::Sign::SubEditorOptions](docs/SubEditorOptions.md)
+ - [Dropbox::Sign::SubEditorPageOptions](docs/SubEditorPageOptions.md)
  - [Dropbox::Sign::SubFieldOptions](docs/SubFieldOptions.md)
  - [Dropbox::Sign::SubFormFieldGroup](docs/SubFormFieldGroup.md)
  - [Dropbox::Sign::SubFormFieldRule](docs/SubFormFieldRule.md)

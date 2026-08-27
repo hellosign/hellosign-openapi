@@ -1550,6 +1550,113 @@ paths:
         seo:
           title: 'Delete Fax | API Documentation | Dropbox Fax for Developers'
           description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax, click here.'
+  /fax/draft/create:
+    post:
+      tags:
+        - Fax
+      summary: 'Create Fax Draft'
+      description: |-
+        Creates a Fax draft and returns a URL for preparing and sending the Fax.
+
+        When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+      operationId: faxDraftCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxDraftCreateRequest'
+            examples:
+              example:
+                $ref: '#/components/examples/FaxDraftCreateRequest'
+              embedded_fax_example:
+                $ref: '#/components/examples/FaxDraftCreateEmbeddedRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FaxDraftCreateRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxDraftCreateResponse'
+              examples:
+                example:
+                  $ref: '#/components/examples/FaxDraftCreateResponse'
+                embedded_fax_example:
+                  $ref: '#/components/examples/FaxDraftCreateEmbeddedResponse'
+        '4XX':
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxDraftCreateExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxDraftCreateExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxDraftCreateExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxDraftCreateExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxDraftCreateExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxDraftCreateExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxDraftCreateExample.sh
+      x-meta:
+        seo:
+          title: 'Create Fax Draft | API Documentation | Dropbox Fax for Developers'
+          description: 'Create a normal or embedded Fax draft, then prepare and send it from Dropbox Fax or an approved iframe.'
   '/fax/files/{fax_id}':
     get:
       tags:
@@ -7976,6 +8083,42 @@ components:
           type: boolean
           default: false
       type: object
+    FaxDraftCreateRequest:
+      properties:
+        files:
+          description: |-
+            Use `files[]` to upload the file(s) for the Fax draft.
+
+            This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Fax download the file(s) for the Fax draft.
+
+            This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
+          type: array
+          items:
+            type: string
+        client_id:
+          description: 'Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.'
+          type: string
+        editor_options:
+          $ref: '#/components/schemas/SubEditorPageOptions'
+        recipients:
+          description: 'For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.'
+          type: array
+          items:
+            type: string
+          maxItems: 20
+          uniqueItems: true
+        test_mode:
+          description: 'When set to `true`, the completed draft will not send a Fax or consume Fax pages. Defaults to `false`.'
+          type: boolean
+          default: false
+      type: object
     FaxLineAddUserRequest:
       required:
         - number
@@ -9545,6 +9688,22 @@ components:
           default: false
         allow_edit_documents:
           description: 'Allows requesters to edit documents, including delete and add'
+          type: boolean
+          default: false
+      type: object
+    SubEditorPageOptions:
+      description: 'For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.'
+      properties:
+        force_upload_page:
+          description: 'When set to `true`, always shows the upload page, even when files are already attached. Defaults to `false`.'
+          type: boolean
+          default: false
+        force_editor_page:
+          description: 'When set to `true`, always shows the editor page, even when the document is already prepared. Defaults to `false`.'
+          type: boolean
+          default: false
+        force_review_page:
+          description: 'When set to `true`, always shows the review page, even when recipients and Fax details are already provided. Defaults to `false`.'
           type: boolean
           default: false
       type: object
@@ -11555,6 +11714,19 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
+    FaxDraftCreateResponse:
+      required:
+        - fax_draft
+      properties:
+        fax_draft:
+          $ref: '#/components/schemas/FaxDraftResponse'
+        warnings:
+          description: 'A list of warnings.'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     FaxGetResponse:
       required:
         - fax
@@ -12030,6 +12202,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FaxResponseTransmission'
+      type: object
+      x-internal-class: true
+    FaxDraftResponse:
+      description: 'Contains the Fax draft ID, prep-and-send URL, and expiration timestamp.'
+      required:
+        - fax_id
+        - url
+        - expires_at
+      properties:
+        fax_id:
+          description: 'ID of the Fax draft.'
+          type: string
+        url:
+          description: 'URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax.'
+          type: string
+        expires_at:
+          description: 'Unix timestamp indicating when the Fax draft URL expires.'
+          type: integer
       type: object
       x-internal-class: true
     FaxLineResponseFaxLine:
@@ -13887,6 +14077,14 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/EmbeddedEditUrlRequest.json
+    FaxDraftCreateRequest:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxDraftCreateRequest.json
+    FaxDraftCreateEmbeddedRequest:
+      summary: 'Embedded Fax Draft Request'
+      value:
+        $ref: examples/json/FaxDraftCreateEmbeddedRequest.json
     FaxLineAddUserRequest:
       summary: 'Default Example'
       value:
@@ -14175,6 +14373,14 @@ components:
       summary: 'Error 4XX failed_operation'
       value:
         $ref: examples/json/Error4XXResponse.json
+    FaxDraftCreateResponse:
+      summary: 'Fax Draft Response'
+      value:
+        $ref: examples/json/FaxDraftCreateResponse.json
+    FaxDraftCreateEmbeddedResponse:
+      summary: 'Embedded Fax Draft Response'
+      value:
+        $ref: examples/json/FaxDraftCreateEmbeddedResponse.json
     FaxGetResponse:
       summary: 'Fax Response'
       value:

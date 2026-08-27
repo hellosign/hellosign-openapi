@@ -4063,6 +4063,331 @@ paths:
         seo:
           title: Delete Fax | API Documentation | Dropbox Fax for Developers
           description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax, click here.'
+  /fax/draft/create:
+    post:
+      tags:
+        - Fax
+      summary: Create Fax Draft
+      description: |-
+        Creates a Fax draft and returns a URL for preparing and sending the Fax.
+
+        When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+      operationId: faxDraftCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxDraftCreateRequest'
+            examples:
+              example:
+                $ref: '#/components/examples/FaxDraftCreateRequest'
+              embedded_fax_example:
+                $ref: '#/components/examples/FaxDraftCreateEmbeddedRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FaxDraftCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxDraftCreateResponse'
+              examples:
+                example:
+                  $ref: '#/components/examples/FaxDraftCreateResponse'
+                embedded_fax_example:
+                  $ref: '#/components/examples/FaxDraftCreateEmbeddedResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        - api_key: []
+      x-codeSamples:
+        - lang: PHP
+          label: PHP
+          source: |
+            <?php
+
+            namespace Dropbox\SignSandbox;
+
+            require_once __DIR__ . '/../vendor/autoload.php';
+
+            use Dropbox;
+
+            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+            $config->setUsername("YOUR_API_KEY");
+
+            $editor_options = (new Dropbox\Sign\Model\SubEditorPageOptions())
+                ->setForceUploadPage(false)
+                ->setForceEditorPage(true)
+                ->setForceReviewPage(true);
+
+            $fax_draft_create_request = (new Dropbox\Sign\Model\FaxDraftCreateRequest())
+                ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")
+                ->setFileUrls([
+                    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+                ])
+                ->setRecipients([
+                    "+14155552671",
+                ])
+                ->setEditorOptions($editor_options)
+                ->setTestMode(true);
+
+            try {
+                $response = (new Dropbox\Sign\Api\FaxApi(config: $config))->faxDraftCreate(
+                    fax_draft_create_request: $fax_draft_create_request,
+                );
+
+                print_r($response);
+            } catch (Dropbox\Sign\ApiException $e) {
+                echo "Exception when calling FaxApi#faxDraftCreate: {$e->getMessage()}";
+            }
+        - lang: csharp
+          label: C#
+          source: |
+            using System;
+            using System.Collections.Generic;
+
+            using Dropbox.Sign.Api;
+            using Dropbox.Sign.Client;
+            using Dropbox.Sign.Model;
+
+            namespace Dropbox.SignSandbox;
+
+            public class FaxDraftCreateExample
+            {
+                public static void Run()
+                {
+                    var config = new Configuration();
+                    config.Username = "YOUR_API_KEY";
+
+                    var editorOptions = new SubEditorPageOptions(
+                        forceUploadPage: false,
+                        forceEditorPage: true,
+                        forceReviewPage: true
+                    );
+                    var faxDraftCreateRequest = new FaxDraftCreateRequest(
+                        clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+                        fileUrls: new List<string>
+                        {
+                            "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+                        },
+                        recipients: new List<string>
+                        {
+                            "+14155552671",
+                        },
+                        editorOptions: editorOptions,
+                        testMode: true
+                    );
+
+                    try
+                    {
+                        var response = new FaxApi(config).FaxDraftCreate(
+                            faxDraftCreateRequest: faxDraftCreateRequest
+                        );
+
+                        Console.WriteLine(response);
+                    }
+                    catch (ApiException e)
+                    {
+                        Console.WriteLine("Exception when calling FaxApi#FaxDraftCreate: " + e.Message);
+                        Console.WriteLine("Status Code: " + e.ErrorCode);
+                        Console.WriteLine(e.StackTrace);
+                    }
+                }
+            }
+        - lang: TypeScript
+          label: TypeScript
+          source: |
+            import api from "@dropbox/sign"
+            import models from "@dropbox/sign"
+
+            const apiCaller = new api.FaxApi();
+            apiCaller.username = "YOUR_API_KEY";
+
+            const faxDraftCreateRequest: models.FaxDraftCreateRequest = {
+              clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+              fileUrls: [
+                "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+              ],
+              recipients: ["+14155552671"],
+              editorOptions: {
+                forceUploadPage: false,
+                forceEditorPage: true,
+                forceReviewPage: true,
+              },
+              testMode: true,
+            };
+
+            apiCaller.faxDraftCreate(
+              faxDraftCreateRequest,
+            ).then(response => {
+              console.log(response.body);
+            }).catch(error => {
+              console.log("Exception when calling FaxApi#faxDraftCreate:");
+              console.log(error.body);
+            });
+        - lang: Java
+          label: Java
+          source: |
+            package com.dropbox.sign_sandbox;
+
+            import com.dropbox.sign.ApiException;
+            import com.dropbox.sign.Configuration;
+            import com.dropbox.sign.api.FaxApi;
+            import com.dropbox.sign.auth.HttpBasicAuth;
+            import com.dropbox.sign.model.FaxDraftCreateRequest;
+            import com.dropbox.sign.model.SubEditorPageOptions;
+
+            import java.util.List;
+
+            public class FaxDraftCreateExample
+            {
+                public static void main(String[] args)
+                {
+                    var config = Configuration.getDefaultApiClient();
+                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+
+                    var editorOptions = new SubEditorPageOptions();
+                    editorOptions.forceUploadPage(false);
+                    editorOptions.forceEditorPage(true);
+                    editorOptions.forceReviewPage(true);
+
+                    var faxDraftCreateRequest = new FaxDraftCreateRequest();
+                    faxDraftCreateRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");
+                    faxDraftCreateRequest.fileUrls(List.of(
+                        "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
+                    ));
+                    faxDraftCreateRequest.recipients(List.of("+14155552671"));
+                    faxDraftCreateRequest.editorOptions(editorOptions);
+                    faxDraftCreateRequest.testMode(true);
+
+                    try
+                    {
+                        var response = new FaxApi(config).faxDraftCreate(
+                            faxDraftCreateRequest
+                        );
+
+                        System.out.println(response);
+                    } catch (ApiException e) {
+                        System.err.println("Exception when calling FaxApi#faxDraftCreate");
+                        System.err.println("Status code: " + e.getCode());
+                        System.err.println("Reason: " + e.getResponseBody());
+                        System.err.println("Response headers: " + e.getResponseHeaders());
+                        e.printStackTrace();
+                    }
+                }
+            }
+        - lang: Ruby
+          label: Ruby
+          source: |
+            require "json"
+            require "dropbox-sign"
+
+            Dropbox::Sign.configure do |config|
+                config.username = "YOUR_API_KEY"
+            end
+
+            editor_options = Dropbox::Sign::SubEditorPageOptions.new
+            editor_options.force_upload_page = false
+            editor_options.force_editor_page = true
+            editor_options.force_review_page = true
+
+            fax_draft_create_request = Dropbox::Sign::FaxDraftCreateRequest.new
+            fax_draft_create_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+            fax_draft_create_request.file_urls = [
+                "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+            ]
+            fax_draft_create_request.recipients = ["+14155552671"]
+            fax_draft_create_request.editor_options = editor_options
+            fax_draft_create_request.test_mode = true
+
+            begin
+                response = Dropbox::Sign::FaxApi.new.fax_draft_create(
+                    fax_draft_create_request,
+                )
+
+                p response
+            rescue Dropbox::Sign::ApiError => e
+                puts "Exception when calling FaxApi#fax_draft_create: #{e}"
+            end
+        - lang: Python
+          label: Python
+          source: |
+            from pprint import pprint
+
+            from dropbox_sign import ApiClient, ApiException, Configuration, api, models
+
+            configuration = Configuration(
+                username="YOUR_API_KEY",
+            )
+
+            with ApiClient(configuration) as api_client:
+                editor_options = models.SubEditorPageOptions(
+                    force_upload_page=False,
+                    force_editor_page=True,
+                    force_review_page=True,
+                )
+                fax_draft_create_request = models.FaxDraftCreateRequest(
+                    client_id="b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+                    file_urls=[
+                        "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+                    ],
+                    recipients=["+14155552671"],
+                    editor_options=editor_options,
+                    test_mode=True,
+                )
+
+                try:
+                    response = api.FaxApi(api_client).fax_draft_create(
+                        fax_draft_create_request=fax_draft_create_request,
+                    )
+
+                    pprint(response)
+                except ApiException as e:
+                    print("Exception when calling FaxApi#fax_draft_create: %s\n" % e)
+        - lang: cURL
+          label: cURL
+          source: |
+            curl -X POST 'https://api.hellosign.com/v3/fax/draft/create' \
+              -u 'YOUR_API_KEY:' \
+              -F 'client_id=YOUR_CLIENT_ID' \
+              -F 'file_urls[0]=https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1' \
+              -F 'recipients[0]=+14155552671' \
+              -F 'editor_options[force_editor_page]=1' \
+              -F 'editor_options[force_review_page]=1' \
+              -F 'test_mode=1'
+      x-meta:
+        seo:
+          title: Create Fax Draft | API Documentation | Dropbox Fax for Developers
+          description: 'Create a normal or embedded Fax draft, then prepare and send it from Dropbox Fax or an approved iframe.'
   /fax/files/{fax_id}:
     get:
       tags:
@@ -23274,6 +23599,42 @@ components:
           type: boolean
           default: false
       type: object
+    FaxDraftCreateRequest:
+      properties:
+        files:
+          description: |-
+            Use `files[]` to upload the file(s) for the Fax draft.
+
+            This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Fax download the file(s) for the Fax draft.
+
+            This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
+          type: array
+          items:
+            type: string
+        client_id:
+          description: 'Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.'
+          type: string
+        editor_options:
+          $ref: '#/components/schemas/SubEditorPageOptions'
+        recipients:
+          description: For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
+          type: array
+          items:
+            type: string
+          maxItems: 20
+          uniqueItems: true
+        test_mode:
+          description: 'When set to `true`, the completed draft will not send a Fax or consume Fax pages. Defaults to `false`.'
+          type: boolean
+          default: false
+      type: object
     FaxLineAddUserRequest:
       required:
         - number
@@ -24823,6 +25184,22 @@ components:
           default: false
         allow_edit_documents:
           description: 'Allows requesters to edit documents, including delete and add'
+          type: boolean
+          default: false
+      type: object
+    SubEditorPageOptions:
+      description: For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.
+      properties:
+        force_upload_page:
+          description: 'When set to `true`, always shows the upload page, even when files are already attached. Defaults to `false`.'
+          type: boolean
+          default: false
+        force_editor_page:
+          description: 'When set to `true`, always shows the editor page, even when the document is already prepared. Defaults to `false`.'
+          type: boolean
+          default: false
+        force_review_page:
+          description: 'When set to `true`, always shows the review page, even when recipients and Fax details are already provided. Defaults to `false`.'
           type: boolean
           default: false
       type: object
@@ -26823,6 +27200,19 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
+    FaxDraftCreateResponse:
+      required:
+        - fax_draft
+      properties:
+        fax_draft:
+          $ref: '#/components/schemas/FaxDraftResponse'
+        warnings:
+          description: A list of warnings.
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     FaxGetResponse:
       required:
         - fax
@@ -27297,6 +27687,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FaxResponseTransmission'
+      type: object
+      x-internal-class: true
+    FaxDraftResponse:
+      description: 'Contains the Fax draft ID, prep-and-send URL, and expiration timestamp.'
+      required:
+        - fax_id
+        - url
+        - expires_at
+      properties:
+        fax_id:
+          description: ID of the Fax draft.
+          type: string
+        url:
+          description: URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax.
+          type: string
+        expires_at:
+          description: Unix timestamp indicating when the Fax draft URL expires.
+          type: integer
       type: object
       x-internal-class: true
     FaxLineResponseFaxLine:
@@ -29669,6 +30077,25 @@ components:
         cc_roles:
           - ''
         merge_fields: []
+    FaxDraftCreateRequest:
+      summary: Default Example
+      value:
+        file_urls:
+          - https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1
+        test_mode: true
+    FaxDraftCreateEmbeddedRequest:
+      summary: Embedded Fax Draft Request
+      value:
+        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
+        file_urls:
+          - https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1
+        recipients:
+          - +14155552671
+        editor_options:
+          force_upload_page: false
+          force_editor_page: true
+          force_review_page: true
+        test_mode: true
     FaxLineAddUserRequest:
       summary: Default Example
       value:
@@ -31113,6 +31540,20 @@ components:
           error_msg: This value should not be blank
           error_path: cc_email_addresses[0]
           error_name: bad_request
+    FaxDraftCreateResponse:
+      summary: Fax Draft Response
+      value:
+        fax_draft:
+          fax_id: c2e9691c85d9d6fa6ae773842e3680b2b8650f1d
+          url: https://app.fax.dropbox.com/prep-and-send/30c4d8df776038c2fa5f7094c3718937b8650f1d
+          expires_at: 1787857200
+    FaxDraftCreateEmbeddedResponse:
+      summary: Embedded Fax Draft Response
+      value:
+        fax_draft:
+          fax_id: c2e9691c85d9d6fa6ae773842e3680b2b8650f1d
+          url: https://embedded.fax.dropbox.com/prep-and-send/embedded-fax?cached_params_token=30c4d8df776038c2fa5f7094c3718937
+          expires_at: 1787857200
     FaxGetResponse:
       summary: Fax Response
       value:
