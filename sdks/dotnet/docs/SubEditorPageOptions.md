@@ -1,5 +1,5 @@
 # Dropbox.Sign.Model.SubEditorPageOptions
-Controls which completed pages are shown again when the embedded Fax draft is opened.
+For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.
 
 ## Properties
 

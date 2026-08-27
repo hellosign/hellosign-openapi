@@ -23,7 +23,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Controls which completed pages are shown again when the embedded Fax draft is opened. */
+/**
+ * For embedded Fax drafts only. Controls which completed pages are shown again when the draft is
+ * opened.
+ */
 @JsonPropertyOrder({
     SubEditorPageOptions.JSON_PROPERTY_FORCE_UPLOAD_PAGE,
     SubEditorPageOptions.JSON_PROPERTY_FORCE_EDITOR_PAGE,

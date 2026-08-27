@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * FaxDraftResponse Class Doc Comment
  *
  * @category Class
- * @description Contains the embedded Fax draft ID, iframe URL, and expiration timestamp.
+ * @description Contains the Fax draft ID, prep-and-send URL, and expiration timestamp.
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
@@ -361,7 +361,7 @@ class FaxDraftResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets url
      *
-     * @param string $url URL to open in an approved iframe for preparing and sending the Fax
+     * @param string $url URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax.
      *
      * @return self
      */
@@ -388,7 +388,7 @@ class FaxDraftResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets expires_at
      *
-     * @param int $expires_at unix timestamp indicating when the embedded Fax draft URL expires
+     * @param int $expires_at unix timestamp indicating when the Fax draft URL expires
      *
      * @return self
      */

@@ -90,8 +90,8 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
-    # Create Embedded Fax Draft
-    # Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+    # Create Fax Draft
+    # Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
     # @param fax_draft_create_request [FaxDraftCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [FaxDraftCreateResponse]
@@ -100,8 +100,8 @@ module Dropbox::Sign
       data
     end
 
-    # Create Embedded Fax Draft
-    # Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+    # Create Fax Draft
+    # Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
     # @param fax_draft_create_request [FaxDraftCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(FaxDraftCreateResponse, Integer, Hash)>] FaxDraftCreateResponse data, response status code and response headers

@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * SubEditorPageOptions Class Doc Comment
  *
  * @category Class
- * @description Controls which completed pages are shown again when the embedded Fax draft is opened.
+ * @description For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.
  * @see     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */

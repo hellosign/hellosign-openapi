@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 [**faxDelete**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax
-[**faxDraftCreate**](FaxApi.md#faxDraftCreate) | **POST** /fax/draft/create | Create Embedded Fax Draft
+[**faxDraftCreate**](FaxApi.md#faxDraftCreate) | **POST** /fax/draft/create | Create Fax Draft
 [**faxFiles**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files
 [**faxGet**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax
 [**faxList**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes
@@ -96,9 +96,11 @@ null (empty response body)
 
 > FaxDraftCreateResponse faxDraftCreate(faxDraftCreateRequest)
 
-Create Embedded Fax Draft
+Create Fax Draft
 
-Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+Creates a Fax draft and returns a URL for preparing and sending the Fax.
+
+When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
 
 ### Example
 

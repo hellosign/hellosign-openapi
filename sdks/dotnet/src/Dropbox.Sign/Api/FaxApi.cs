@@ -51,10 +51,10 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> FaxDeleteWithHttpInfo(string faxId, int operationIndex = 0);
         /// <summary>
-        /// Create Embedded Fax Draft
+        /// Create Fax Draft
         /// </summary>
         /// <remarks>
-        /// Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        /// Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxDraftCreateRequest"></param>
@@ -63,10 +63,10 @@ namespace Dropbox.Sign.Api
         FaxDraftCreateResponse FaxDraftCreate(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0);
 
         /// <summary>
-        /// Create Embedded Fax Draft
+        /// Create Fax Draft
         /// </summary>
         /// <remarks>
-        /// Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        /// Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxDraftCreateRequest"></param>
@@ -202,10 +202,10 @@ namespace Dropbox.Sign.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FaxDeleteWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Create Embedded Fax Draft
+        /// Create Fax Draft
         /// </summary>
         /// <remarks>
-        /// Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        /// Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxDraftCreateRequest"></param>
@@ -215,10 +215,10 @@ namespace Dropbox.Sign.Api
         System.Threading.Tasks.Task<FaxDraftCreateResponse> FaxDraftCreateAsync(FaxDraftCreateRequest faxDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Embedded Fax Draft
+        /// Create Fax Draft
         /// </summary>
         /// <remarks>
-        /// Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        /// Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxDraftCreateRequest"></param>
@@ -603,7 +603,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Fax Draft Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        /// Create Fax Draft Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxDraftCreateRequest"></param>
@@ -616,7 +616,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Fax Draft Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        /// Create Fax Draft Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxDraftCreateRequest"></param>
@@ -687,7 +687,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Fax Draft Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        /// Create Fax Draft Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxDraftCreateRequest"></param>
@@ -701,7 +701,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Fax Draft Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        /// Create Fax Draft Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxDraftCreateRequest"></param>

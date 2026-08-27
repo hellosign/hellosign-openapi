@@ -93,7 +93,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *EmbeddedApi* | [**embeddedEditUrl**](./docs/api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](./docs/api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 | *FaxApi* | [**faxDelete**](./docs/api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
-| *FaxApi* | [**faxDraftCreate**](./docs/api/FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Embedded Fax Draft |
+| *FaxApi* | [**faxDraftCreate**](./docs/api/FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Fax Draft |
 | *FaxApi* | [**faxFiles**](./docs/api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | *FaxApi* | [**faxGet**](./docs/api/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | *FaxApi* | [**faxList**](./docs/api/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |

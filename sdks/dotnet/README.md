@@ -145,7 +145,7 @@ Class | Method | HTTP request | Description
 *EmbeddedApi* | [**EmbeddedEditUrl**](docs/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**EmbeddedSignUrl**](docs/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
 *FaxApi* | [**FaxDelete**](docs/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax
-*FaxApi* | [**FaxDraftCreate**](docs/FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Embedded Fax Draft
+*FaxApi* | [**FaxDraftCreate**](docs/FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Fax Draft
 *FaxApi* | [**FaxFiles**](docs/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files
 *FaxApi* | [**FaxGet**](docs/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax
 *FaxApi* | [**FaxList**](docs/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes

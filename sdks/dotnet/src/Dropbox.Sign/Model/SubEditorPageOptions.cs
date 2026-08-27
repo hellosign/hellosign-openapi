@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Controls which completed pages are shown again when the embedded Fax draft is opened.
+    /// For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.
     /// </summary>
     [DataContract(Name = "SubEditorPageOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]

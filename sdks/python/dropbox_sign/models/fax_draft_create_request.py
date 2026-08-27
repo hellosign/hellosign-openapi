@@ -34,32 +34,33 @@ class FaxDraftCreateRequest(BaseModel):
     FaxDraftCreateRequest
     """  # noqa: E501
 
-    client_id: StrictStr = Field(
-        description="Client ID of the API app that owns the embedded Fax draft."
-    )
     files: Optional[
         List[Union[StrictBytes, StrictStr, io.IOBase, Tuple[StrictStr, StrictBytes, io.IOBase]]]
     ] = Field(
         default=None,
-        description="Use `files[]` to upload the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.",
+        description="Use `files[]` to upload the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.",
     )
     file_urls: Optional[List[StrictStr]] = Field(
         default=None,
-        description="Use `file_urls[]` to have Dropbox Fax download the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.",
+        description="Use `file_urls[]` to have Dropbox Fax download the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.",
+    )
+    client_id: Optional[StrictStr] = Field(
+        default=None,
+        description="Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.",
     )
     editor_options: Optional[SubEditorPageOptions] = None
     recipients: Optional[Annotated[List[StrictStr], Field(max_length=20)]] = Field(
         default=None,
-        description="Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.",
+        description="For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.",
     )
     test_mode: Optional[StrictBool] = Field(
         default=False,
         description="When set to `true`, the completed draft will not send a Fax or consume Fax pages. Defaults to `false`.",
     )
     __properties: ClassVar[List[str]] = [
-        "client_id",
         "files",
         "file_urls",
+        "client_id",
         "editor_options",
         "recipients",
         "test_mode",
@@ -131,9 +132,9 @@ class FaxDraftCreateRequest(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "client_id": obj.get("client_id"),
                 "files": obj.get("files"),
                 "file_urls": obj.get("file_urls"),
+                "client_id": obj.get("client_id"),
                 "editor_options": (
                     SubEditorPageOptions.from_dict(obj["editor_options"])
                     if obj.get("editor_options") is not None
@@ -160,9 +161,9 @@ class FaxDraftCreateRequest(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "client_id": "(str,)",
             "files": "(List[io.IOBase],)",
             "file_urls": "(List[str],)",
+            "client_id": "(str,)",
             "editor_options": "(SubEditorPageOptions,)",
             "recipients": "(List[str],)",
             "test_mode": "(bool,)",

@@ -17,17 +17,17 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Contains the embedded Fax draft ID, iframe URL, and expiration timestamp.
+  # Contains the Fax draft ID, prep-and-send URL, and expiration timestamp.
   class FaxDraftResponse
     # ID of the Fax draft.
     # @return [String]
     attr_accessor :fax_id
 
-    # URL to open in an approved iframe for preparing and sending the Fax.
+    # URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax.
     # @return [String]
     attr_accessor :url
 
-    # Unix timestamp indicating when the embedded Fax draft URL expires.
+    # Unix timestamp indicating when the Fax draft URL expires.
     # @return [Integer]
     attr_accessor :expires_at
 

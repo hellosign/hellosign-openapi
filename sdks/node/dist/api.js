@@ -18225,11 +18225,6 @@ var FaxDraftCreateRequest = class _FaxDraftCreateRequest {
   static {
     this.attributeTypeMap = [
       {
-        name: "clientId",
-        baseName: "client_id",
-        type: "string"
-      },
-      {
         name: "files",
         baseName: "files",
         type: "Array<RequestFile>"
@@ -18238,6 +18233,11 @@ var FaxDraftCreateRequest = class _FaxDraftCreateRequest {
         name: "fileUrls",
         baseName: "file_urls",
         type: "Array<string>"
+      },
+      {
+        name: "clientId",
+        baseName: "client_id",
+        type: "string"
       },
       {
         name: "editorOptions",
@@ -29186,8 +29186,8 @@ var FaxApi = class {
     });
   }
   /**
-   * Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
-   * @summary Create Embedded Fax Draft
+   * Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+   * @summary Create Fax Draft
    * @param faxDraftCreateRequest
    * @param options
    */

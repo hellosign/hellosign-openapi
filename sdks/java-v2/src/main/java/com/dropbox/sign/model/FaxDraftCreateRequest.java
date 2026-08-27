@@ -40,9 +40,9 @@ import com.dropbox.sign.ApiException;
  * FaxDraftCreateRequest
  */
 @JsonPropertyOrder({
-  FaxDraftCreateRequest.JSON_PROPERTY_CLIENT_ID,
   FaxDraftCreateRequest.JSON_PROPERTY_FILES,
   FaxDraftCreateRequest.JSON_PROPERTY_FILE_URLS,
+  FaxDraftCreateRequest.JSON_PROPERTY_CLIENT_ID,
   FaxDraftCreateRequest.JSON_PROPERTY_EDITOR_OPTIONS,
   FaxDraftCreateRequest.JSON_PROPERTY_RECIPIENTS,
   FaxDraftCreateRequest.JSON_PROPERTY_TEST_MODE
@@ -50,10 +50,6 @@ import com.dropbox.sign.ApiException;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxDraftCreateRequest {
-  public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-  @jakarta.annotation.Nonnull
-  private String clientId;
-
   public static final String JSON_PROPERTY_FILES = "files";
   @jakarta.annotation.Nullable
   private List<File> files = null;
@@ -61,6 +57,10 @@ public class FaxDraftCreateRequest {
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
   @jakarta.annotation.Nullable
   private List<String> fileUrls = null;
+
+  public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  @jakarta.annotation.Nullable
+  private String clientId;
 
   public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
   @jakarta.annotation.Nullable
@@ -92,31 +92,6 @@ public class FaxDraftCreateRequest {
     );
   }
 
-  public FaxDraftCreateRequest clientId(@jakarta.annotation.Nonnull String clientId) {
-    this.clientId = clientId;
-    return this;
-  }
-
-  /**
-   * Client ID of the API app that owns the embedded Fax draft.
-   * @return clientId
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getClientId() {
-    return clientId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setClientId(@jakarta.annotation.Nonnull String clientId) {
-    this.clientId = clientId;
-  }
-
-
   public FaxDraftCreateRequest files(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
     return this;
@@ -131,7 +106,7 @@ public class FaxDraftCreateRequest {
   }
 
   /**
-   * Use &#x60;files[]&#x60; to upload the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+   * Use &#x60;files[]&#x60; to upload the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
    * @return files
    */
   @jakarta.annotation.Nullable
@@ -164,7 +139,7 @@ public class FaxDraftCreateRequest {
   }
 
   /**
-   * Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+   * Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
@@ -180,6 +155,31 @@ public class FaxDraftCreateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
+  }
+
+
+  public FaxDraftCreateRequest clientId(@jakarta.annotation.Nullable String clientId) {
+    this.clientId = clientId;
+    return this;
+  }
+
+  /**
+   * Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.
+   * @return clientId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getClientId() {
+    return clientId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setClientId(@jakarta.annotation.Nullable String clientId) {
+    this.clientId = clientId;
   }
 
 
@@ -222,7 +222,7 @@ public class FaxDraftCreateRequest {
   }
 
   /**
-   * Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
+   * For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
    * @return recipients
    */
   @jakarta.annotation.Nullable
@@ -279,9 +279,9 @@ public class FaxDraftCreateRequest {
       return false;
     }
     FaxDraftCreateRequest faxDraftCreateRequest = (FaxDraftCreateRequest) o;
-    return Objects.equals(this.clientId, faxDraftCreateRequest.clientId) &&
-        Objects.equals(this.files, faxDraftCreateRequest.files) &&
+    return Objects.equals(this.files, faxDraftCreateRequest.files) &&
         Objects.equals(this.fileUrls, faxDraftCreateRequest.fileUrls) &&
+        Objects.equals(this.clientId, faxDraftCreateRequest.clientId) &&
         Objects.equals(this.editorOptions, faxDraftCreateRequest.editorOptions) &&
         Objects.equals(this.recipients, faxDraftCreateRequest.recipients) &&
         Objects.equals(this.testMode, faxDraftCreateRequest.testMode);
@@ -289,16 +289,16 @@ public class FaxDraftCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, files, fileUrls, editorOptions, recipients, testMode);
+    return Objects.hash(files, fileUrls, clientId, editorOptions, recipients, testMode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FaxDraftCreateRequest {\n");
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    editorOptions: ").append(toIndentedString(editorOptions)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
@@ -310,25 +310,6 @@ public class FaxDraftCreateRequest {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
     try {
-    if (clientId != null) {
-        if (isFileTypeOrListOfFiles(clientId)) {
-            fileTypeFound = true;
-        }
-
-        if (clientId.getClass().equals(java.io.File.class) ||
-            clientId.getClass().equals(Integer.class) ||
-            clientId.getClass().equals(String.class) ||
-            clientId.getClass().isEnum()) {
-            map.put("client_id", clientId);
-        } else if (isListOfFile(clientId)) {
-            for(int i = 0; i< getListSize(clientId); i++) {
-                map.put("client_id[" + i + "]", getFromList(clientId, i));
-            }
-        }
-        else {
-            map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
-        }
-    }
     if (files != null) {
         if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
@@ -365,6 +346,25 @@ public class FaxDraftCreateRequest {
         }
         else {
             map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
+        }
+    }
+    if (clientId != null) {
+        if (isFileTypeOrListOfFiles(clientId)) {
+            fileTypeFound = true;
+        }
+
+        if (clientId.getClass().equals(java.io.File.class) ||
+            clientId.getClass().equals(Integer.class) ||
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
+            map.put("client_id", clientId);
+        } else if (isListOfFile(clientId)) {
+            for(int i = 0; i< getListSize(clientId); i++) {
+                map.put("client_id[" + i + "]", getFromList(clientId, i));
+            }
+        }
+        else {
+            map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
         }
     }
     if (editorOptions != null) {

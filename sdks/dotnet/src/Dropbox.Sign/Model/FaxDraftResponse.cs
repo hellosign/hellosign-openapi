@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Contains the embedded Fax draft ID, iframe URL, and expiration timestamp.
+    /// Contains the Fax draft ID, prep-and-send URL, and expiration timestamp.
     /// </summary>
     [DataContract(Name = "FaxDraftResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -42,8 +42,8 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="FaxDraftResponse" /> class.
         /// </summary>
         /// <param name="faxId">ID of the Fax draft. (required).</param>
-        /// <param name="url">URL to open in an approved iframe for preparing and sending the Fax. (required).</param>
-        /// <param name="expiresAt">Unix timestamp indicating when the embedded Fax draft URL expires. (required).</param>
+        /// <param name="url">URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax. (required).</param>
+        /// <param name="expiresAt">Unix timestamp indicating when the Fax draft URL expires. (required).</param>
         public FaxDraftResponse(string faxId = default(string), string url = default(string), int expiresAt = default(int))
         {
 
@@ -86,16 +86,16 @@ namespace Dropbox.Sign.Model
         public string FaxId { get; set; }
 
         /// <summary>
-        /// URL to open in an approved iframe for preparing and sending the Fax.
+        /// URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax.
         /// </summary>
-        /// <value>URL to open in an approved iframe for preparing and sending the Fax.</value>
+        /// <value>URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax.</value>
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// Unix timestamp indicating when the embedded Fax draft URL expires.
+        /// Unix timestamp indicating when the Fax draft URL expires.
         /// </summary>
-        /// <value>Unix timestamp indicating when the embedded Fax draft URL expires.</value>
+        /// <value>Unix timestamp indicating when the Fax draft URL expires.</value>
         [DataMember(Name = "expires_at", IsRequired = true, EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
 

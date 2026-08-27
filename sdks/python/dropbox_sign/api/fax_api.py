@@ -305,9 +305,9 @@ class FaxApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> FaxDraftCreateResponse:
-        """Create Embedded Fax Draft
+        """Create Fax Draft
 
-        Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
 
         :param fax_draft_create_request: (required)
         :type fax_draft_create_request: FaxDraftCreateRequest
@@ -370,9 +370,9 @@ class FaxApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[FaxDraftCreateResponse]:
-        """Create Embedded Fax Draft
+        """Create Fax Draft
 
-        Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
 
         :param fax_draft_create_request: (required)
         :type fax_draft_create_request: FaxDraftCreateRequest
@@ -435,9 +435,9 @@ class FaxApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create Embedded Fax Draft
+        """Create Fax Draft
 
-        Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+        Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
 
         :param fax_draft_create_request: (required)
         :type fax_draft_create_request: FaxDraftCreateRequest

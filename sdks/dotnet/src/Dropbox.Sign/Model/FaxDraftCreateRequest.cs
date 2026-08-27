@@ -41,23 +41,18 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxDraftCreateRequest" /> class.
         /// </summary>
-        /// <param name="files">Use &#x60;files[]&#x60; to upload the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided..</param>
-        /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided..</param>
-        /// <param name="clientId">Client ID of the API app that owns the embedded Fax draft. (required).</param>
+        /// <param name="files">Use &#x60;files[]&#x60; to upload the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided..</param>
+        /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided..</param>
+        /// <param name="clientId">Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created..</param>
         /// <param name="editorOptions">editorOptions.</param>
-        /// <param name="recipients">Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided..</param>
+        /// <param name="recipients">For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided..</param>
         /// <param name="testMode">When set to &#x60;true&#x60;, the completed draft will not send a Fax or consume Fax pages. Defaults to &#x60;false&#x60;. (default to false).</param>
         public FaxDraftCreateRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string clientId = default(string), SubEditorPageOptions editorOptions = default(SubEditorPageOptions), List<string> recipients = default(List<string>), bool testMode = false)
         {
 
-            // to ensure "clientId" is required (not null)
-            if (clientId == null)
-            {
-                throw new ArgumentNullException("clientId is a required property for FaxDraftCreateRequest and cannot be null");
-            }
-            this.ClientId = clientId;
             this.Files = files;
             this.FileUrls = fileUrls;
+            this.ClientId = clientId;
             this.EditorOptions = editorOptions;
             this.Recipients = recipients;
             this.TestMode = testMode;
@@ -80,25 +75,25 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Client ID of the API app that owns the embedded Fax draft.
+        /// Use &#x60;files[]&#x60; to upload the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
         /// </summary>
-        /// <value>Client ID of the API app that owns the embedded Fax draft.</value>
-        [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
-        public string ClientId { get; set; }
-
-        /// <summary>
-        /// Use &#x60;files[]&#x60; to upload the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
-        /// </summary>
-        /// <value>Use &#x60;files[]&#x60; to upload the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.</value>
+        /// <value>Use &#x60;files[]&#x60; to upload the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
-        /// Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+        /// Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
         /// </summary>
-        /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.</value>
+        /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
+
+        /// <summary>
+        /// Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.
+        /// </summary>
+        /// <value>Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.</value>
+        [DataMember(Name = "client_id", EmitDefaultValue = true)]
+        public string ClientId { get; set; }
 
         /// <summary>
         /// Gets or Sets EditorOptions
@@ -107,9 +102,9 @@ namespace Dropbox.Sign.Model
         public SubEditorPageOptions EditorOptions { get; set; }
 
         /// <summary>
-        /// Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
+        /// For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
         /// </summary>
-        /// <value>Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.</value>
+        /// <value>For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.</value>
         [DataMember(Name = "recipients", EmitDefaultValue = true)]
         public List<string> Recipients { get; set; }
 
@@ -128,9 +123,9 @@ namespace Dropbox.Sign.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class FaxDraftCreateRequest {\n");
-            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  FileUrls: ").Append(FileUrls).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  EditorOptions: ").Append(EditorOptions).Append("\n");
             sb.Append("  Recipients: ").Append(Recipients).Append("\n");
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
@@ -170,11 +165,6 @@ namespace Dropbox.Sign.Model
             }
             return
                 (
-                    this.ClientId == input.ClientId ||
-                    (this.ClientId != null &&
-                    this.ClientId.Equals(input.ClientId))
-                ) &&
-                (
                     this.Files == input.Files ||
                     this.Files != null &&
                     input.Files != null &&
@@ -185,6 +175,11 @@ namespace Dropbox.Sign.Model
                     this.FileUrls != null &&
                     input.FileUrls != null &&
                     this.FileUrls.SequenceEqual(input.FileUrls)
+                ) &&
+                (
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
                 ) &&
                 (
                     this.EditorOptions == input.EditorOptions ||
@@ -212,10 +207,6 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ClientId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
-                }
                 if (this.Files != null)
                 {
                     hashCode = (hashCode * 59) + this.Files.GetHashCode();
@@ -223,6 +214,10 @@ namespace Dropbox.Sign.Model
                 if (this.FileUrls != null)
                 {
                     hashCode = (hashCode * 59) + this.FileUrls.GetHashCode();
+                }
+                if (this.ClientId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
                 }
                 if (this.EditorOptions != null)
                 {
@@ -251,13 +246,6 @@ namespace Dropbox.Sign.Model
             var types = new List<OpenApiType>();
             types.Add(new OpenApiType()
             {
-                Name = "client_id",
-                Property = "ClientId",
-                Type = "string",
-                Value = ClientId,
-            });
-            types.Add(new OpenApiType()
-            {
                 Name = "files",
                 Property = "Files",
                 Type = "List<System.IO.Stream>",
@@ -269,6 +257,13 @@ namespace Dropbox.Sign.Model
                 Property = "FileUrls",
                 Type = "List<string>",
                 Value = FileUrls,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "client_id",
+                Property = "ClientId",
+                Type = "string",
+                Value = ClientId,
             });
             types.Add(new OpenApiType()
             {

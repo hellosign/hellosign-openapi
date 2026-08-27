@@ -118,8 +118,8 @@ public class FaxApi {
     );
   }
   /**
-   * Create Embedded Fax Draft
-   * Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+   * Create Fax Draft
+   * Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
    * @param faxDraftCreateRequest  (required)
    * @return FaxDraftCreateResponse
    * @throws ApiException if fails to make API call
@@ -137,8 +137,8 @@ public class FaxApi {
 
 
   /**
-   * Create Embedded Fax Draft
-   * Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+   * Create Fax Draft
+   * Creates a Fax draft and returns a URL for preparing and sending the Fax.  When &#x60;client_id&#x60; is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When &#x60;client_id&#x60; is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
    * @param faxDraftCreateRequest  (required)
    * @return ApiResponse&lt;FaxDraftCreateResponse&gt;
    * @throws ApiException if fails to make API call

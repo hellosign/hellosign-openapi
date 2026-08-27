@@ -1601,6 +1601,8 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/FaxDraftCreateRequest'
+              embedded_fax_example:
+                $ref: '#/components/examples/FaxDraftCreateEmbeddedRequest'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/FaxDraftCreateRequest'
@@ -1621,6 +1623,8 @@ paths:
               examples:
                 example:
                   $ref: '#/components/examples/FaxDraftCreateResponse'
+                embedded_fax_example:
+                  $ref: '#/components/examples/FaxDraftCreateEmbeddedResponse'
         4XX:
           description: failed_operation
           content:
@@ -8133,8 +8137,6 @@ components:
             - doc
       type: object
     FaxDraftCreateRequest:
-      required:
-        - client_id
       properties:
         files:
           description: '_t__FaxDraftCreate::FILES'
@@ -14032,6 +14034,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/FaxDraftCreateRequest.json
+    FaxDraftCreateEmbeddedRequest:
+      summary: '_t__FaxDraftCreateEmbeddedRequestExample::SUMMARY'
+      value:
+        $ref: examples/json/FaxDraftCreateEmbeddedRequest.json
     FaxLineAddUserRequest:
       summary: 'Default Example'
       value:
@@ -14331,6 +14337,10 @@ components:
       summary: '_t__FaxDraftCreateResponseExample::SUMMARY'
       value:
         $ref: examples/json/FaxDraftCreateResponse.json
+    FaxDraftCreateEmbeddedResponse:
+      summary: '_t__FaxDraftCreateEmbeddedResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/FaxDraftCreateEmbeddedResponse.json
     FaxGetResponse:
       summary: '_t__FaxGetResponseExample::SUMMARY'
       value:

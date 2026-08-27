@@ -27,20 +27,20 @@ import { SubEditorPageOptions } from "./subEditorPageOptions";
 
 export class FaxDraftCreateRequest {
   /**
-   * Client ID of the API app that owns the embedded Fax draft.
-   */
-  "clientId": string;
-  /**
-   * Use `files[]` to upload the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+   * Use `files[]` to upload the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
    */
   "files"?: Array<RequestFile>;
   /**
-   * Use `file_urls[]` to have Dropbox Fax download the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+   * Use `file_urls[]` to have Dropbox Fax download the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
    */
   "fileUrls"?: Array<string>;
+  /**
+   * Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.
+   */
+  "clientId"?: string;
   "editorOptions"?: SubEditorPageOptions;
   /**
-   * Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
+   * For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
    */
   "recipients"?: Set<string>;
   /**
@@ -52,11 +52,6 @@ export class FaxDraftCreateRequest {
 
   static attributeTypeMap: AttributeTypeMap = [
     {
-      name: "clientId",
-      baseName: "client_id",
-      type: "string",
-    },
-    {
       name: "files",
       baseName: "files",
       type: "Array<RequestFile>",
@@ -65,6 +60,11 @@ export class FaxDraftCreateRequest {
       name: "fileUrls",
       baseName: "file_urls",
       type: "Array<string>",
+    },
+    {
+      name: "clientId",
+      baseName: "client_id",
+      type: "string",
     },
     {
       name: "editorOptions",

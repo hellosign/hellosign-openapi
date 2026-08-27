@@ -4067,8 +4067,11 @@ paths:
     post:
       tags:
         - Fax
-      summary: Create Embedded Fax Draft
-      description: Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+      summary: Create Fax Draft
+      description: |-
+        Creates a Fax draft and returns a URL for preparing and sending the Fax.
+
+        When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
       operationId: faxDraftCreate
       requestBody:
         required: true
@@ -4079,6 +4082,8 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/FaxDraftCreateRequest'
+              embedded_fax_example:
+                $ref: '#/components/examples/FaxDraftCreateEmbeddedRequest'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/FaxDraftCreateRequest'
@@ -4099,6 +4104,8 @@ paths:
               examples:
                 example:
                   $ref: '#/components/examples/FaxDraftCreateResponse'
+                embedded_fax_example:
+                  $ref: '#/components/examples/FaxDraftCreateEmbeddedResponse'
         4XX:
           description: failed_operation
           content:
@@ -4379,8 +4386,8 @@ paths:
               -F 'test_mode=1'
       x-meta:
         seo:
-          title: Create Embedded Fax Draft | API Documentation | Dropbox Fax for Developers
-          description: 'Create an embedded Fax draft, then prepare and send it from an approved iframe in your application.'
+          title: Create Fax Draft | API Documentation | Dropbox Fax for Developers
+          description: 'Create a normal or embedded Fax draft, then prepare and send it from Dropbox Fax or an approved iframe.'
   /fax/files/{fax_id}:
     get:
       tags:
@@ -23593,33 +23600,31 @@ components:
           default: false
       type: object
     FaxDraftCreateRequest:
-      required:
-        - client_id
       properties:
         files:
           description: |-
-            Use `files[]` to upload the file(s) for the embedded Fax draft.
+            Use `files[]` to upload the file(s) for the Fax draft.
 
-            This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+            This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
           type: array
           items:
             type: string
             format: binary
         file_urls:
           description: |-
-            Use `file_urls[]` to have Dropbox Fax download the file(s) for the embedded Fax draft.
+            Use `file_urls[]` to have Dropbox Fax download the file(s) for the Fax draft.
 
-            This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+            This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
           type: array
           items:
             type: string
         client_id:
-          description: Client ID of the API app that owns the embedded Fax draft.
+          description: 'Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.'
           type: string
         editor_options:
           $ref: '#/components/schemas/SubEditorPageOptions'
         recipients:
-          description: Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
+          description: For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
           type: array
           items:
             type: string
@@ -25183,7 +25188,7 @@ components:
           default: false
       type: object
     SubEditorPageOptions:
-      description: Controls which completed pages are shown again when the embedded Fax draft is opened.
+      description: For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.
       properties:
         force_upload_page:
           description: 'When set to `true`, always shows the upload page, even when files are already attached. Defaults to `false`.'
@@ -27685,7 +27690,7 @@ components:
       type: object
       x-internal-class: true
     FaxDraftResponse:
-      description: 'Contains the embedded Fax draft ID, iframe URL, and expiration timestamp.'
+      description: 'Contains the Fax draft ID, prep-and-send URL, and expiration timestamp.'
       required:
         - fax_id
         - url
@@ -27695,10 +27700,10 @@ components:
           description: ID of the Fax draft.
           type: string
         url:
-          description: URL to open in an approved iframe for preparing and sending the Fax.
+          description: URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax.
           type: string
         expires_at:
-          description: Unix timestamp indicating when the embedded Fax draft URL expires.
+          description: Unix timestamp indicating when the Fax draft URL expires.
           type: integer
       type: object
       x-internal-class: true
@@ -30075,6 +30080,12 @@ components:
     FaxDraftCreateRequest:
       summary: Default Example
       value:
+        file_urls:
+          - https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1
+        test_mode: true
+    FaxDraftCreateEmbeddedRequest:
+      summary: Embedded Fax Draft Request
+      value:
         client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
         file_urls:
           - https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1
@@ -31530,6 +31541,13 @@ components:
           error_path: cc_email_addresses[0]
           error_name: bad_request
     FaxDraftCreateResponse:
+      summary: Fax Draft Response
+      value:
+        fax_draft:
+          fax_id: c2e9691c85d9d6fa6ae773842e3680b2b8650f1d
+          url: https://app.fax.dropbox.com/prep-and-send/30c4d8df776038c2fa5f7094c3718937b8650f1d
+          expires_at: 1787857200
+    FaxDraftCreateEmbeddedResponse:
       summary: Embedded Fax Draft Response
       value:
         fax_draft:

@@ -17,7 +17,7 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # Controls which completed pages are shown again when the embedded Fax draft is opened.
+  # For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.
   class SubEditorPageOptions
     # When set to `true`, always shows the upload page, even when files are already attached. Defaults to `false`.
     # @return [Boolean]

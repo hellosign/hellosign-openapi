@@ -376,7 +376,7 @@ class FaxApi
     /**
      * Operation faxDraftCreate
      *
-     * Create Embedded Fax Draft
+     * Create Fax Draft
      *
      * @param Model\FaxDraftCreateRequest $fax_draft_create_request fax_draft_create_request (required)
      *
@@ -393,7 +393,7 @@ class FaxApi
     /**
      * Operation faxDraftCreateWithHttpInfo
      *
-     * Create Embedded Fax Draft
+     * Create Fax Draft
      *
      * @param Model\FaxDraftCreateRequest $fax_draft_create_request (required)
      * @param string                      $contentType              The value for the Content-Type header. Check self::contentTypes['faxDraftCreate'] to see the possible values for this operation
@@ -530,7 +530,7 @@ class FaxApi
     /**
      * Operation faxDraftCreateAsync
      *
-     * Create Embedded Fax Draft
+     * Create Fax Draft
      *
      * @param Model\FaxDraftCreateRequest $fax_draft_create_request (required)
      * @param string                      $contentType              The value for the Content-Type header. Check self::contentTypes['faxDraftCreate'] to see the possible values for this operation
@@ -552,7 +552,7 @@ class FaxApi
     /**
      * Operation faxDraftCreateAsyncWithHttpInfo
      *
-     * Create Embedded Fax Draft
+     * Create Fax Draft
      *
      * @param Model\FaxDraftCreateRequest $fax_draft_create_request (required)
      * @param string                      $contentType              The value for the Content-Type header. Check self::contentTypes['faxDraftCreate'] to see the possible values for this operation

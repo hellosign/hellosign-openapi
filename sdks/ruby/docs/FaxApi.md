@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [`fax_delete`](FaxApi.md#fax_delete) | **DELETE** `/fax/{fax_id}` | Delete Fax |
-| [`fax_draft_create`](FaxApi.md#fax_draft_create) | **POST** `/fax/draft/create` | Create Embedded Fax Draft |
+| [`fax_draft_create`](FaxApi.md#fax_draft_create) | **POST** `/fax/draft/create` | Create Fax Draft |
 | [`fax_files`](FaxApi.md#fax_files) | **GET** `/fax/files/{fax_id}` | Download Fax Files |
 | [`fax_get`](FaxApi.md#fax_get) | **GET** `/fax/{fax_id}` | Get Fax |
 | [`fax_list`](FaxApi.md#fax_list) | **GET** `/fax/list` | Lists Faxes |
@@ -82,9 +82,9 @@ nil (empty response body)
 
 > `<FaxDraftCreateResponse> fax_draft_create(fax_draft_create_request)`
 
-Create Embedded Fax Draft
+Create Fax Draft
 
-Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
 
 ### Examples
 
@@ -130,7 +130,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create Embedded Fax Draft
+  # Create Fax Draft
   data, status_code, headers = api_instance.fax_draft_create_with_http_info(fax_draft_create_request)
   p status_code # => 2xx
   p headers # => { ... }

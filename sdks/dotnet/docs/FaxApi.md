@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**FaxDelete**](FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
-| [**FaxDraftCreate**](FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Embedded Fax Draft |
+| [**FaxDraftCreate**](FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Fax Draft |
 | [**FaxFiles**](FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | [**FaxGet**](FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | [**FaxList**](FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
@@ -105,9 +105,9 @@ void (empty response body)
 # **FaxDraftCreate**
 > FaxDraftCreateResponse FaxDraftCreate (FaxDraftCreateRequest faxDraftCreateRequest)
 
-Create Embedded Fax Draft
+Create Fax Draft
 
-Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
+Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
 
 ### Example
 ```csharp
@@ -171,7 +171,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create Embedded Fax Draft
+    // Create Fax Draft
     ApiResponse<FaxDraftCreateResponse> response = apiInstance.FaxDraftCreateWithHttpInfo(faxDraftCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

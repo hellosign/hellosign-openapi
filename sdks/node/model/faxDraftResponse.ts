@@ -25,7 +25,7 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
- * Contains the embedded Fax draft ID, iframe URL, and expiration timestamp.
+ * Contains the Fax draft ID, prep-and-send URL, and expiration timestamp.
  */
 export class FaxDraftResponse {
   /**
@@ -33,11 +33,11 @@ export class FaxDraftResponse {
    */
   "faxId": string;
   /**
-   * URL to open in an approved iframe for preparing and sending the Fax.
+   * URL for preparing and sending the Fax. Embedded draft URLs must be opened in an approved iframe; normal draft URLs open in Dropbox Fax.
    */
   "url": string;
   /**
-   * Unix timestamp indicating when the embedded Fax draft URL expires.
+   * Unix timestamp indicating when the Fax draft URL expires.
    */
   "expiresAt": number;
 

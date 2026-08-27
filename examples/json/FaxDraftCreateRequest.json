@@ -1,15 +1,6 @@
 {
-  "client_id": "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
   "file_urls": [
     "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
   ],
-  "recipients": [
-    "+14155552671"
-  ],
-  "editor_options": {
-    "force_upload_page": false,
-    "force_editor_page": true,
-    "force_review_page": true
-  },
   "test_mode": true
 }

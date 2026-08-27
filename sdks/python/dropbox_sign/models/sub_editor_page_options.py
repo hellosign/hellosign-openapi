@@ -29,7 +29,7 @@ from pydantic import StrictBool
 
 class SubEditorPageOptions(BaseModel):
     """
-    Controls which completed pages are shown again when the embedded Fax draft is opened.
+    For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.
     """  # noqa: E501
 
     force_upload_page: Optional[StrictBool] = Field(

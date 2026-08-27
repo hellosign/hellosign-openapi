@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.dropbox.sign.ApiException;
 /**
- * Controls which completed pages are shown again when the embedded Fax draft is opened.
+ * For embedded Fax drafts only. Controls which completed pages are shown again when the draft is opened.
  */
 @JsonPropertyOrder({
   SubEditorPageOptions.JSON_PROPERTY_FORCE_UPLOAD_PAGE,

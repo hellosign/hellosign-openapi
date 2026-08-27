@@ -117,7 +117,7 @@ Class | Method | HTTP request | Description
 |```EmbeddedApi``` | [```embedded_edit_url```](docs/EmbeddedApi.md#embedded_edit_url) | ```POST /embedded/edit_url/{template_id}``` | Get Embedded Template Edit URL|
 ```EmbeddedApi``` | [```embedded_sign_url```](docs/EmbeddedApi.md#embedded_sign_url) | ```GET /embedded/sign_url/{signature_id}``` | Get Embedded Sign URL|
 |```FaxApi``` | [```fax_delete```](docs/FaxApi.md#fax_delete) | ```DELETE /fax/{fax_id}``` | Delete Fax|
-```FaxApi``` | [```fax_draft_create```](docs/FaxApi.md#fax_draft_create) | ```POST /fax/draft/create``` | Create Embedded Fax Draft|
+```FaxApi``` | [```fax_draft_create```](docs/FaxApi.md#fax_draft_create) | ```POST /fax/draft/create``` | Create Fax Draft|
 ```FaxApi``` | [```fax_files```](docs/FaxApi.md#fax_files) | ```GET /fax/files/{fax_id}``` | Download Fax Files|
 ```FaxApi``` | [```fax_get```](docs/FaxApi.md#fax_get) | ```GET /fax/{fax_id}``` | Get Fax|
 ```FaxApi``` | [```fax_list```](docs/FaxApi.md#fax_list) | ```GET /fax/list``` | Lists Faxes|

@@ -1,9 +1,9 @@
 import { AttributeTypeMap, RequestFile } from "./";
 import { SubEditorPageOptions } from "./subEditorPageOptions";
 export declare class FaxDraftCreateRequest {
-    "clientId": string;
     "files"?: Array<RequestFile>;
     "fileUrls"?: Array<string>;
+    "clientId"?: string;
     "editorOptions"?: SubEditorPageOptions;
     "recipients"?: Set<string>;
     "testMode"?: boolean;

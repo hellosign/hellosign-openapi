@@ -58,9 +58,9 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $openAPITypes = [
-        'client_id' => 'string',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
+        'client_id' => 'string',
         'editor_options' => '\Dropbox\Sign\Model\SubEditorPageOptions',
         'recipients' => 'string[]',
         'test_mode' => 'bool',
@@ -74,9 +74,9 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'client_id' => null,
         'files' => 'binary',
         'file_urls' => null,
+        'client_id' => null,
         'editor_options' => null,
         'recipients' => null,
         'test_mode' => null,
@@ -88,9 +88,9 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'client_id' => false,
         'files' => false,
         'file_urls' => false,
+        'client_id' => false,
         'editor_options' => false,
         'recipients' => false,
         'test_mode' => false,
@@ -174,9 +174,9 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_id' => 'client_id',
         'files' => 'files',
         'file_urls' => 'file_urls',
+        'client_id' => 'client_id',
         'editor_options' => 'editor_options',
         'recipients' => 'recipients',
         'test_mode' => 'test_mode',
@@ -188,9 +188,9 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'client_id' => 'setClientId',
         'files' => 'setFiles',
         'file_urls' => 'setFileUrls',
+        'client_id' => 'setClientId',
         'editor_options' => 'setEditorOptions',
         'recipients' => 'setRecipients',
         'test_mode' => 'setTestMode',
@@ -202,9 +202,9 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'client_id' => 'getClientId',
         'files' => 'getFiles',
         'file_urls' => 'getFileUrls',
+        'client_id' => 'getClientId',
         'editor_options' => 'getEditorOptions',
         'recipients' => 'getRecipients',
         'test_mode' => 'getTestMode',
@@ -266,9 +266,9 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('client_id', $data ?? [], null);
         $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('file_urls', $data ?? [], null);
+        $this->setIfExists('client_id', $data ?? [], null);
         $this->setIfExists('editor_options', $data ?? [], null);
         $this->setIfExists('recipients', $data ?? [], null);
         $this->setIfExists('test_mode', $data ?? [], false);
@@ -319,9 +319,6 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['client_id'] === null) {
-            $invalidProperties[] = "'client_id' can't be null";
-        }
         if (!is_null($this->container['recipients']) && (count($this->container['recipients']) > 20)) {
             $invalidProperties[] = "invalid value for 'recipients', number of items must be less than or equal to 20.";
         }
@@ -341,33 +338,6 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     }
 
     /**
-     * Gets client_id
-     *
-     * @return string
-     */
-    public function getClientId()
-    {
-        return $this->container['client_id'];
-    }
-
-    /**
-     * Sets client_id
-     *
-     * @param string $client_id client ID of the API app that owns the embedded Fax draft
-     *
-     * @return self
-     */
-    public function setClientId(string $client_id)
-    {
-        if (is_null($client_id)) {
-            throw new InvalidArgumentException('non-nullable client_id cannot be null');
-        }
-        $this->container['client_id'] = $client_id;
-
-        return $this;
-    }
-
-    /**
      * Gets files
      *
      * @return SplFileObject[]|null
@@ -380,7 +350,7 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to upload the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+     * @param SplFileObject[]|null $files Use `files[]` to upload the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
      *
      * @return self
      */
@@ -407,7 +377,7 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets file_urls
      *
-     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Fax download the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Fax download the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
      *
      * @return self
      */
@@ -417,6 +387,33 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
             throw new InvalidArgumentException('non-nullable file_urls cannot be null');
         }
         $this->container['file_urls'] = $file_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_id
+     *
+     * @return string|null
+     */
+    public function getClientId()
+    {
+        return $this->container['client_id'];
+    }
+
+    /**
+     * Sets client_id
+     *
+     * @param string|null $client_id Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.
+     *
+     * @return self
+     */
+    public function setClientId(?string $client_id)
+    {
+        if (is_null($client_id)) {
+            throw new InvalidArgumentException('non-nullable client_id cannot be null');
+        }
+        $this->container['client_id'] = $client_id;
 
         return $this;
     }
@@ -461,7 +458,7 @@ class FaxDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets recipients
      *
-     * @param string[]|null $recipients Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
+     * @param string[]|null $recipients For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
      *
      * @return self
      */

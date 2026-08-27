@@ -18,22 +18,22 @@ end
 
 module Dropbox::Sign
   class FaxDraftCreateRequest
-    # Client ID of the API app that owns the embedded Fax draft.
-    # @return [String]
-    attr_accessor :client_id
-
-    # Use `files[]` to upload the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+    # Use `files[]` to upload the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
     # @return [Array<File>]
     attr_accessor :files
 
-    # Use `file_urls[]` to have Dropbox Fax download the file(s) for the embedded Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later in the embedded flow when neither is provided.
+    # Use `file_urls[]` to have Dropbox Fax download the file(s) for the Fax draft.  This endpoint accepts either **files** or **file_urls[]**, but not both. Files can be added later when neither is provided.
     # @return [Array<String>]
     attr_accessor :file_urls
+
+    # Optional client ID of the API app that owns the embedded Fax draft. When omitted, a normal non-embedded Fax draft is created.
+    # @return [String]
+    attr_accessor :client_id
 
     # @return [SubEditorPageOptions]
     attr_accessor :editor_options
 
-    # Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
+    # For embedded Fax drafts only. Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.
     # @return [Array<String>]
     attr_accessor :recipients
 
@@ -44,9 +44,9 @@ module Dropbox::Sign
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'client_id' => :'client_id',
         :'files' => :'files',
         :'file_urls' => :'file_urls',
+        :'client_id' => :'client_id',
         :'editor_options' => :'editor_options',
         :'recipients' => :'recipients',
         :'test_mode' => :'test_mode'
@@ -66,9 +66,9 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'client_id' => :'String',
         :'files' => :'Array<File>',
         :'file_urls' => :'Array<String>',
+        :'client_id' => :'String',
         :'editor_options' => :'SubEditorPageOptions',
         :'recipients' => :'Array<String>',
         :'test_mode' => :'Boolean'
@@ -122,10 +122,6 @@ module Dropbox::Sign
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'client_id')
-        self.client_id = attributes[:'client_id']
-      end
-
       if attributes.key?(:'files')
         if (value = attributes[:'files']).is_a?(Array)
           self.files = value
@@ -136,6 +132,10 @@ module Dropbox::Sign
         if (value = attributes[:'file_urls']).is_a?(Array)
           self.file_urls = value
         end
+      end
+
+      if attributes.key?(:'client_id')
+        self.client_id = attributes[:'client_id']
       end
 
       if attributes.key?(:'editor_options')
@@ -159,10 +159,6 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @client_id.nil?
-        invalid_properties.push('invalid value for "client_id", client_id cannot be nil.')
-      end
-
       if !@recipients.nil? && @recipients.length > 20
         invalid_properties.push('invalid value for "recipients", number of items must be less than or equal to 20.')
       end
@@ -173,19 +169,8 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @client_id.nil?
       return false if !@recipients.nil? && @recipients.length > 20
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] client_id Value to be assigned
-    def client_id=(client_id)
-      if client_id.nil?
-        fail ArgumentError, 'client_id cannot be nil'
-      end
-
-      @client_id = client_id
     end
 
     # Custom attribute writer method with validation
@@ -203,9 +188,9 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          client_id == o.client_id &&
           files == o.files &&
           file_urls == o.file_urls &&
+          client_id == o.client_id &&
           editor_options == o.editor_options &&
           recipients == o.recipients &&
           test_mode == o.test_mode
@@ -220,7 +205,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, files, file_urls, editor_options, recipients, test_mode].hash
+      [files, file_urls, client_id, editor_options, recipients, test_mode].hash
     end
 
     # Builds the object from hash
