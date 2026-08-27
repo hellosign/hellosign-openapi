@@ -63,6 +63,8 @@ class ApiAppApi:
 
         Creates a new API App.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppCreateExample.py
+
         :param api_app_create_request: (required)
         :type api_app_create_request: ApiAppCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -99,6 +101,7 @@ class ApiAppApi:
             "201": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -128,6 +131,8 @@ class ApiAppApi:
 
         Creates a new API App.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppCreateExample.py
+
         :param api_app_create_request: (required)
         :type api_app_create_request: ApiAppCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -164,6 +169,7 @@ class ApiAppApi:
             "201": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -193,6 +199,8 @@ class ApiAppApi:
 
         Creates a new API App.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppCreateExample.py
+
         :param api_app_create_request: (required)
         :type api_app_create_request: ApiAppCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -229,6 +237,7 @@ class ApiAppApi:
             "201": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -342,6 +351,8 @@ class ApiAppApi:
 
         Deletes an API App. Can only be invoked for apps you own.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppDeleteExample.py
+
         :param client_id: The client id of the API App to delete. (required)
         :type client_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -378,6 +389,7 @@ class ApiAppApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -409,6 +421,8 @@ class ApiAppApi:
 
         Deletes an API App. Can only be invoked for apps you own.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppDeleteExample.py
+
         :param client_id: The client id of the API App to delete. (required)
         :type client_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -445,6 +459,7 @@ class ApiAppApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -476,6 +491,8 @@ class ApiAppApi:
 
         Deletes an API App. Can only be invoked for apps you own.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppDeleteExample.py
+
         :param client_id: The client id of the API App to delete. (required)
         :type client_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -512,6 +529,7 @@ class ApiAppApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -593,6 +611,8 @@ class ApiAppApi:
 
         Returns an object with information about an API App.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppGetExample.py
+
         :param client_id: The client id of the API App to retrieve. (required)
         :type client_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -629,6 +649,7 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -660,6 +681,8 @@ class ApiAppApi:
 
         Returns an object with information about an API App.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppGetExample.py
+
         :param client_id: The client id of the API App to retrieve. (required)
         :type client_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -696,6 +719,7 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -727,6 +751,8 @@ class ApiAppApi:
 
         Returns an object with information about an API App.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppGetExample.py
+
         :param client_id: The client id of the API App to retrieve. (required)
         :type client_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -763,6 +789,7 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -853,6 +880,8 @@ class ApiAppApi:
 
         Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppListExample.py
+
         :param page: Which page number of the API App List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
@@ -892,6 +921,7 @@ class ApiAppApi:
             "200": "ApiAppListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -932,6 +962,8 @@ class ApiAppApi:
 
         Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppListExample.py
+
         :param page: Which page number of the API App List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
@@ -971,6 +1003,7 @@ class ApiAppApi:
             "200": "ApiAppListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1011,6 +1044,8 @@ class ApiAppApi:
 
         Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppListExample.py
+
         :param page: Which page number of the API App List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
@@ -1050,6 +1085,7 @@ class ApiAppApi:
             "200": "ApiAppListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1139,6 +1175,8 @@ class ApiAppApi:
 
         Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppUpdateExample.py
+
         :param client_id: The client id of the API App to update. (required)
         :type client_id: str
         :param api_app_update_request: (required)
@@ -1178,6 +1216,7 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1210,6 +1249,8 @@ class ApiAppApi:
 
         Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppUpdateExample.py
+
         :param client_id: The client id of the API App to update. (required)
         :type client_id: str
         :param api_app_update_request: (required)
@@ -1249,6 +1290,7 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1281,6 +1323,8 @@ class ApiAppApi:
 
         Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ApiAppUpdateExample.py
+
         :param client_id: The client id of the API App to update. (required)
         :type client_id: str
         :param api_app_update_request: (required)
@@ -1320,6 +1364,7 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

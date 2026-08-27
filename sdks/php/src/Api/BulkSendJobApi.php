@@ -136,6 +136,8 @@ class BulkSendJobApi
      *
      * Get Bulk Send Job
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/BulkSendJobGetExample.php
+     *
      * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
      * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
@@ -154,6 +156,8 @@ class BulkSendJobApi
      * Operation bulkSendJobGetWithHttpInfo
      *
      * Get Bulk Send Job
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/BulkSendJobGetExample.php
      *
      * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
      * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -294,6 +298,8 @@ class BulkSendJobApi
      *
      * Get Bulk Send Job
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/BulkSendJobGetExample.php
+     *
      * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
      * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
@@ -317,6 +323,8 @@ class BulkSendJobApi
      * Operation bulkSendJobGetAsyncWithHttpInfo
      *
      * Get Bulk Send Job
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/BulkSendJobGetExample.php
      *
      * @param string   $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
      * @param int|null $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -497,6 +505,8 @@ class BulkSendJobApi
      *
      * List Bulk Send Jobs
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/BulkSendJobListExample.php
+     *
      * @param int|null $page      Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
@@ -514,6 +524,8 @@ class BulkSendJobApi
      * Operation bulkSendJobListWithHttpInfo
      *
      * List Bulk Send Jobs
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/BulkSendJobListExample.php
      *
      * @param int|null $page        Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
@@ -653,6 +665,8 @@ class BulkSendJobApi
      *
      * List Bulk Send Jobs
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/BulkSendJobListExample.php
+     *
      * @param int|null $page        Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      * @param string   $contentType The value for the Content-Type header. Check self::contentTypes['bulkSendJobList'] to see the possible values for this operation
@@ -675,6 +689,8 @@ class BulkSendJobApi
      * Operation bulkSendJobListAsyncWithHttpInfo
      *
      * List Bulk Send Jobs
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/BulkSendJobListExample.php
      *
      * @param int|null $page        Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)

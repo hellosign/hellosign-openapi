@@ -27136,6 +27136,7 @@ var AccountApi = class {
   /**
    * Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
    * @summary Create Account
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountCreateExample.ts
    * @param accountCreateRequest
    * @param options
    */
@@ -27258,6 +27259,7 @@ var AccountApi = class {
   /**
    * Returns the properties and settings of your Account.
    * @summary Get Account
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountGetExample.ts
    * @param accountId &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account.
    * @param emailAddress &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account.
    * @param options
@@ -27362,6 +27364,7 @@ var AccountApi = class {
   /**
    * Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
    * @summary Update Account
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountUpdateExample.ts
    * @param accountUpdateRequest
    * @param options
    */
@@ -27482,6 +27485,7 @@ var AccountApi = class {
   /**
    * Verifies whether an Dropbox Sign Account exists for the given email address.
    * @summary Verify Account
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountVerifyExample.ts
    * @param accountVerifyRequest
    * @param options
    */
@@ -27691,6 +27695,7 @@ var ApiAppApi = class {
   /**
    * Creates a new API App.
    * @summary Create API App
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppCreateExample.ts
    * @param apiAppCreateRequest
    * @param options
    */
@@ -27811,6 +27816,7 @@ var ApiAppApi = class {
   /**
    * Deletes an API App. Can only be invoked for apps you own.
    * @summary Delete API App
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppDeleteExample.ts
    * @param clientId The client id of the API App to delete.
    * @param options
    */
@@ -27897,6 +27903,7 @@ var ApiAppApi = class {
   /**
    * Returns an object with information about an API App.
    * @summary Get API App
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppGetExample.ts
    * @param clientId The client id of the API App to retrieve.
    * @param options
    */
@@ -27996,6 +28003,7 @@ var ApiAppApi = class {
   /**
    * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
    * @summary List API Apps
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppListExample.ts
    * @param page Which page number of the API App List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
    * @param options
@@ -28100,6 +28108,7 @@ var ApiAppApi = class {
   /**
    * Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
    * @summary Update API App
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppUpdateExample.ts
    * @param clientId The client id of the API App to update.
    * @param apiAppUpdateRequest
    * @param options
@@ -28316,6 +28325,7 @@ var BulkSendJobApi = class {
   /**
    * Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
    * @summary Get Bulk Send Job
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/BulkSendJobGetExample.ts
    * @param bulkSendJobId The id of the BulkSendJob to retrieve.
    * @param page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20.
@@ -28431,6 +28441,7 @@ var BulkSendJobApi = class {
   /**
    * Returns a list of BulkSendJob that you can access.
    * @summary List Bulk Send Jobs
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/BulkSendJobListExample.ts
    * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20.
    * @param options
@@ -28618,6 +28629,7 @@ var EmbeddedApi = class {
   /**
    * Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
    * @summary Get Embedded Template Edit URL
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/EmbeddedEditUrlExample.ts
    * @param templateId The id of the template to edit.
    * @param embeddedEditUrlRequest
    * @param options
@@ -28749,6 +28761,7 @@ var EmbeddedApi = class {
   /**
    * Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
    * @summary Get Embedded Sign URL
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/EmbeddedSignUrlExample.ts
    * @param signatureId The id of the signature to get a signature url for.
    * @param options
    */
@@ -28937,6 +28950,7 @@ var FaxApi = class {
   /**
    * Deletes the specified Fax from the system
    * @summary Delete Fax
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxDeleteExample.ts
    * @param faxId Fax ID
    * @param options
    */
@@ -29018,6 +29032,7 @@ var FaxApi = class {
   /**
    * Downloads files associated with a Fax
    * @summary Download Fax Files
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxFilesExample.ts
    * @param faxId Fax ID
    * @param options
    */
@@ -29112,6 +29127,7 @@ var FaxApi = class {
   /**
    * Returns information about a Fax
    * @summary Get Fax
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxGetExample.ts
    * @param faxId Fax ID
    * @param options
    */
@@ -29206,6 +29222,7 @@ var FaxApi = class {
   /**
    * Returns properties of multiple Faxes
    * @summary Lists Faxes
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxListExample.ts
    * @param page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
    * @param options
@@ -29305,6 +29322,7 @@ var FaxApi = class {
   /**
    * Creates and sends a new Fax with the submitted file(s)
    * @summary Send Fax
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxSendExample.ts
    * @param faxSendRequest
    * @param options
    */
@@ -29501,6 +29519,7 @@ var FaxLineApi = class {
   /**
    * Grants a user access to the specified Fax Line.
    * @summary Add Fax Line User
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineAddUserExample.ts
    * @param faxLineAddUserRequest
    * @param options
    */
@@ -29616,6 +29635,7 @@ var FaxLineApi = class {
   /**
    * Returns a list of available area codes for a given state/province and city
    * @summary Get Available Fax Line Area Codes
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineAreaCodeGetExample.ts
    * @param country Filter area codes by country
    * @param state Filter area codes by state
    * @param province Filter area codes by province
@@ -29736,6 +29756,7 @@ var FaxLineApi = class {
   /**
    * Purchases a new Fax Line
    * @summary Purchase Fax Line
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineCreateExample.ts
    * @param faxLineCreateRequest
    * @param options
    */
@@ -29851,6 +29872,7 @@ var FaxLineApi = class {
   /**
    * Deletes the specified Fax Line from the subscription.
    * @summary Delete Fax Line
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineDeleteExample.ts
    * @param faxLineDeleteRequest
    * @param options
    */
@@ -29953,6 +29975,7 @@ var FaxLineApi = class {
   /**
    * Returns the properties and settings of a Fax Line.
    * @summary Get Fax Line
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineGetExample.ts
    * @param number The Fax Line number
    * @param options
    */
@@ -30050,6 +30073,7 @@ var FaxLineApi = class {
   /**
    * Returns the properties and settings of multiple Fax Lines.
    * @summary List Fax Lines
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineListExample.ts
    * @param accountId Account ID
    * @param page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -30165,6 +30189,7 @@ var FaxLineApi = class {
   /**
    * Removes a user\'s access to the specified Fax Line
    * @summary Remove Fax Line Access
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineRemoveUserExample.ts
    * @param faxLineRemoveUserRequest
    * @param options
    */
@@ -30367,6 +30392,7 @@ var OAuthApi = class {
   /**
    * Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
    * @summary OAuth Token Generate
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/OauthTokenGenerateExample.ts
    * @param oAuthTokenGenerateRequest
    * @param options
    */
@@ -30477,6 +30503,7 @@ var OAuthApi = class {
   /**
    * Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see `expires_in`), along with a refresh token that can be used to acquire a new access token after the current one has expired.
    * @summary OAuth Token Refresh
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/OauthTokenRefreshExample.ts
    * @param oAuthTokenRefreshRequest
    * @param options
    */
@@ -30674,6 +30701,7 @@ var ReportApi = class {
   /**
    * Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and `start_date` must not be more than 10 years in the past.
    * @summary Create Report
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ReportCreateExample.ts
    * @param reportCreateRequest
    * @param options
    */
@@ -30878,6 +30906,7 @@ var SignatureRequestApi = class {
   /**
    * Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  **NOTE:** Only available for Standard plan and higher.
    * @summary Embedded Bulk Send with Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.ts
    * @param signatureRequestBulkCreateEmbeddedWithTemplateRequest
    * @param options
    */
@@ -30995,6 +31024,7 @@ var SignatureRequestApi = class {
   /**
    * Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.  **NOTE:** Only available for Standard plan and higher.
    * @summary Bulk Send with Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.ts
    * @param signatureRequestBulkSendWithTemplateRequest
    * @param options
    */
@@ -31117,6 +31147,7 @@ var SignatureRequestApi = class {
   /**
    * Cancels an incomplete signature request. This action is **not reversible**.  The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.  To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.  **NOTE:** To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.
    * @summary Cancel Incomplete Signature Request
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCancelExample.ts
    * @param signatureRequestId The id of the incomplete SignatureRequest to cancel.
    * @param options
    */
@@ -31203,6 +31234,7 @@ var SignatureRequestApi = class {
   /**
    * Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @summary Create Embedded Signature Request
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCreateEmbeddedExample.ts
    * @param signatureRequestCreateEmbeddedRequest
    * @param options
    */
@@ -31325,6 +31357,7 @@ var SignatureRequestApi = class {
   /**
    * Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @summary Create Embedded Signature Request with Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.ts
    * @param signatureRequestCreateEmbeddedWithTemplateRequest
    * @param options
    */
@@ -31447,6 +31480,7 @@ var SignatureRequestApi = class {
   /**
    * Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend *will* deduct your signature request quota.
    * @summary Edit Signature Request
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditRequest
    * @param options
@@ -31578,6 +31612,7 @@ var SignatureRequestApi = class {
   /**
    * Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  **NOTE:** Edit and resend *will* deduct your signature request quota.
    * @summary Edit Embedded Signature Request
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditEmbeddedExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditEmbeddedRequest
    * @param options
@@ -31709,6 +31744,7 @@ var SignatureRequestApi = class {
   /**
    * Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  **NOTE:** Edit and resend *will* deduct your signature request quota.
    * @summary Edit Embedded Signature Request with Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditEmbeddedWithTemplateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditEmbeddedWithTemplateRequest
    * @param options
@@ -31840,6 +31876,7 @@ var SignatureRequestApi = class {
   /**
    * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend *will* deduct your signature request quota.
    * @summary Edit Signature Request With Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditWithTemplateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditWithTemplateRequest
    * @param options
@@ -31971,6 +32008,7 @@ var SignatureRequestApi = class {
   /**
    * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestFilesExample.ts
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
    * @param options
@@ -32077,6 +32115,7 @@ var SignatureRequestApi = class {
   /**
    * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files as Data Uri
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestFilesAsDataUriExample.ts
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param options
    */
@@ -32178,6 +32217,7 @@ var SignatureRequestApi = class {
   /**
    * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files as File Url
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestFilesAsFileUrlExample.ts
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
    * @param options
@@ -32284,6 +32324,7 @@ var SignatureRequestApi = class {
   /**
    * Returns the status of the SignatureRequest specified by the `signature_request_id` parameter.
    * @summary Get Signature Request
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestGetExample.ts
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param options
    */
@@ -32385,6 +32426,7 @@ var SignatureRequestApi = class {
   /**
    * Returns a list of SignatureRequests that you can access. This includes SignatureRequests you have sent as well as received, but not ones that you have been CCed on.  Take a look at our [search guide](/api/reference/search/) to learn more about querying signature requests.
    * @summary List Signature Requests
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestListExample.ts
    * @param accountId Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account.
    * @param page Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -32505,6 +32547,7 @@ var SignatureRequestApi = class {
   /**
    * Releases a held SignatureRequest that was claimed and prepared from an [UnclaimedDraft](/api/reference/tag/Unclaimed-Draft). The owner of the Draft must indicate at Draft creation that the SignatureRequest created from the Draft should be held. Releasing the SignatureRequest will send requests to all signers.
    * @summary Release On-Hold Signature Request
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestReleaseHoldExample.ts
    * @param signatureRequestId The id of the SignatureRequest to release.
    * @param options
    */
@@ -32606,6 +32649,7 @@ var SignatureRequestApi = class {
   /**
    * Sends an email to the signer reminding them to sign the signature request. You cannot send a reminder within 1 hour of the last reminder that was sent. This includes manual AND automatic reminders.  **NOTE:** This action can **not** be used with embedded signature requests.
    * @summary Send Request Reminder
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestRemindExample.ts
    * @param signatureRequestId The id of the SignatureRequest to send a reminder for.
    * @param signatureRequestRemindRequest
    * @param options
@@ -32737,6 +32781,7 @@ var SignatureRequestApi = class {
   /**
    * Removes your access to a completed signature request. This action is **not reversible**.  The signature request must be fully executed by all parties (signed or declined to sign). Other parties will continue to maintain access to the completed signature request document(s).  Unlike /signature_request/cancel, this endpoint is synchronous and your access will be immediately removed. Upon successful removal, this endpoint will return a 200 OK response.
    * @summary Remove Signature Request Access
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestRemoveExample.ts
    * @param signatureRequestId The id of the SignatureRequest to remove.
    * @param options
    */
@@ -32818,6 +32863,7 @@ var SignatureRequestApi = class {
   /**
    * Creates and sends a new SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
    * @summary Send Signature Request
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestSendExample.ts
    * @param signatureRequestSendRequest
    * @param options
    */
@@ -32940,6 +32986,7 @@ var SignatureRequestApi = class {
   /**
    * Creates and sends a new SignatureRequest based off of the Template(s) specified with the `template_ids` parameter.
    * @summary Send with Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestSendWithTemplateExample.ts
    * @param signatureRequestSendWithTemplateRequest
    * @param options
    */
@@ -33062,6 +33109,7 @@ var SignatureRequestApi = class {
   /**
    * Updates the email address and/or the name for a given signer on a signature request. You can listen for the `signature_request_email_bounce` event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new `signature_id` value.  **NOTE:** This action cannot be performed on a signature request with an appended signature page.
    * @summary Update Signature Request
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestUpdateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to update.
    * @param signatureRequestUpdateRequest
    * @param options
@@ -33280,6 +33328,7 @@ var TeamApi = class {
   /**
    * Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
    * @summary Add User to Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamAddMemberExample.ts
    * @param teamAddMemberRequest
    * @param teamId The id of the team.
    * @param options
@@ -33407,6 +33456,7 @@ var TeamApi = class {
   /**
    * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
    * @summary Create Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamCreateExample.ts
    * @param teamCreateRequest
    * @param options
    */
@@ -33524,6 +33574,7 @@ var TeamApi = class {
   /**
    * Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
    * @summary Delete Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamDeleteExample.ts
    * @param options
    */
   async teamDelete(options = { headers: {} }) {
@@ -33601,6 +33652,7 @@ var TeamApi = class {
   /**
    * Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
    * @summary Get Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamGetExample.ts
    * @param options
    */
   async teamGet(options = { headers: {} }) {
@@ -33691,6 +33743,7 @@ var TeamApi = class {
   /**
    * Provides information about a team.
    * @summary Get Team Info
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamInfoExample.ts
    * @param teamId The id of the team.
    * @param options
    */
@@ -33790,6 +33843,7 @@ var TeamApi = class {
   /**
    * Provides a list of team invites (and their roles).
    * @summary List Team Invites
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamInvitesExample.ts
    * @param emailAddress The email address for which to display the team invites.
    * @param options
    */
@@ -33889,6 +33943,7 @@ var TeamApi = class {
   /**
    * Provides a paginated list of members (and their roles) that belong to a given team.
    * @summary List Team Members
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamMembersExample.ts
    * @param teamId The id of the team that a member list is being requested from.
    * @param page Which page number of the team member list to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -34004,6 +34059,7 @@ var TeamApi = class {
   /**
    * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
    * @summary Remove User from Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamRemoveMemberExample.ts
    * @param teamRemoveMemberRequest
    * @param options
    */
@@ -34124,6 +34180,7 @@ var TeamApi = class {
   /**
    * Provides a paginated list of sub teams that belong to a given team.
    * @summary List Sub Teams
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamSubTeamsExample.ts
    * @param teamId The id of the parent Team.
    * @param page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -34239,6 +34296,7 @@ var TeamApi = class {
   /**
    * Updates the name of your Team.
    * @summary Update Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamUpdateExample.ts
    * @param teamUpdateRequest
    * @param options
    */
@@ -34443,6 +34501,7 @@ var TemplateApi = class {
   /**
    * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
    * @summary Add User to Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateAddUserExample.ts
    * @param templateId The id of the Template to give the Account access to.
    * @param templateAddUserRequest
    * @param options
@@ -34574,6 +34633,7 @@ var TemplateApi = class {
   /**
    * Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
    * @summary Create Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateCreateExample.ts
    * @param templateCreateRequest
    * @param options
    */
@@ -34696,6 +34756,7 @@ var TemplateApi = class {
   /**
    * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template \'edit\' stage.
    * @summary Create Embedded Template Draft
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateCreateEmbeddedDraftExample.ts
    * @param templateCreateEmbeddedDraftRequest
    * @param options
    */
@@ -34818,6 +34879,7 @@ var TemplateApi = class {
   /**
    * Completely deletes the template specified from the account.
    * @summary Delete Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateDeleteExample.ts
    * @param templateId The id of the Template to delete.
    * @param options
    */
@@ -34904,6 +34966,7 @@ var TemplateApi = class {
   /**
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateFilesExample.ts
    * @param templateId The id of the template files to retrieve.
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
    * @param options
@@ -35010,6 +35073,7 @@ var TemplateApi = class {
   /**
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files as Data Uri
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateFilesAsDataUriExample.ts
    * @param templateId The id of the template files to retrieve.
    * @param options
    */
@@ -35111,6 +35175,7 @@ var TemplateApi = class {
   /**
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files as File Url
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateFilesAsFileUrlExample.ts
    * @param templateId The id of the template files to retrieve.
    * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
    * @param options
@@ -35217,6 +35282,7 @@ var TemplateApi = class {
   /**
    * Returns the Template specified by the `template_id` parameter.
    * @summary Get Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateGetExample.ts
    * @param templateId The id of the Template to retrieve.
    * @param options
    */
@@ -35318,6 +35384,7 @@ var TemplateApi = class {
   /**
    * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
    * @summary List Templates
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateListExample.ts
    * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account.
    * @param page Which page number of the Template List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -35438,6 +35505,7 @@ var TemplateApi = class {
   /**
    * Removes the specified Account\'s access to the specified Template.
    * @summary Remove User from Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateRemoveUserExample.ts
    * @param templateId The id of the Template to remove the Account\&#39;s access to.
    * @param templateRemoveUserRequest
    * @param options
@@ -35569,6 +35637,7 @@ var TemplateApi = class {
   /**
    * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
    * @summary Update Template Files
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateUpdateFilesExample.ts
    * @param templateId The ID of the template whose files to update.
    * @param templateUpdateFilesRequest
    * @param options
@@ -35787,6 +35856,7 @@ var UnclaimedDraftApi = class {
   /**
    * Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the \"Sign and send\" or the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
    * @summary Create Unclaimed Draft
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateExample.ts
    * @param unclaimedDraftCreateRequest
    * @param options
    */
@@ -35909,6 +35979,7 @@ var UnclaimedDraftApi = class {
   /**
    * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @summary Create Embedded Unclaimed Draft
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.ts
    * @param unclaimedDraftCreateEmbeddedRequest
    * @param options
    */
@@ -36031,6 +36102,7 @@ var UnclaimedDraftApi = class {
   /**
    * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @summary Create Embedded Unclaimed Draft with Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.ts
    * @param unclaimedDraftCreateEmbeddedWithTemplateRequest
    * @param options
    */
@@ -36153,6 +36225,7 @@ var UnclaimedDraftApi = class {
   /**
    * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester\'s email address will remain unchanged if `requester_email_address` parameter is not set.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @summary Edit and Resend Unclaimed Draft
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftEditAndResendExample.ts
    * @param signatureRequestId The ID of the signature request to edit and resend.
    * @param unclaimedDraftEditAndResendRequest
    * @param options

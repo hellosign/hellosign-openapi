@@ -24,6 +24,7 @@ module Dropbox::Sign
     end
     # Get Bulk Send Job
     # Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/BulkSendJobGetExample.rb
     # @param bulk_send_job_id [String] The id of the BulkSendJob to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (default to 1)
@@ -36,6 +37,7 @@ module Dropbox::Sign
 
     # Get Bulk Send Job
     # Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/BulkSendJobGetExample.rb
     # @param bulk_send_job_id [String] The id of the BulkSendJob to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (default to 1)
@@ -125,6 +127,7 @@ module Dropbox::Sign
 
     # List Bulk Send Jobs
     # Returns a list of BulkSendJob that you can access.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/BulkSendJobListExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (default to 1)
     # @option opts [Integer] :page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (default to 20)
@@ -136,6 +139,7 @@ module Dropbox::Sign
 
     # List Bulk Send Jobs
     # Returns a list of BulkSendJob that you can access.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/BulkSendJobListExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (default to 1)
     # @option opts [Integer] :page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (default to 20)

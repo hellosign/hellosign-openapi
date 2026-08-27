@@ -62,6 +62,8 @@ class FaxApi:
 
         Deletes the specified Fax from the system
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxDeleteExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -98,6 +100,7 @@ class FaxApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -127,6 +130,8 @@ class FaxApi:
 
         Deletes the specified Fax from the system
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxDeleteExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -163,6 +168,7 @@ class FaxApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -192,6 +198,8 @@ class FaxApi:
 
         Deletes the specified Fax from the system
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxDeleteExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -228,6 +236,7 @@ class FaxApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -307,6 +316,8 @@ class FaxApi:
 
         Downloads files associated with a Fax
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxFilesExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -343,6 +354,7 @@ class FaxApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -372,6 +384,8 @@ class FaxApi:
 
         Downloads files associated with a Fax
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxFilesExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -408,6 +422,7 @@ class FaxApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -437,6 +452,8 @@ class FaxApi:
 
         Downloads files associated with a Fax
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxFilesExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -473,6 +490,7 @@ class FaxApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -552,6 +570,8 @@ class FaxApi:
 
         Returns information about a Fax
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxGetExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -588,6 +608,7 @@ class FaxApi:
             "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -617,6 +638,8 @@ class FaxApi:
 
         Returns information about a Fax
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxGetExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -653,6 +676,7 @@ class FaxApi:
             "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -682,6 +706,8 @@ class FaxApi:
 
         Returns information about a Fax
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxGetExample.py
+
         :param fax_id: Fax ID (required)
         :type fax_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -718,6 +744,7 @@ class FaxApi:
             "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -808,6 +835,8 @@ class FaxApi:
 
         Returns properties of multiple Faxes
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxListExample.py
+
         :param page: Which page number of the Fax List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
@@ -847,6 +876,7 @@ class FaxApi:
             "200": "FaxListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -887,6 +917,8 @@ class FaxApi:
 
         Returns properties of multiple Faxes
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxListExample.py
+
         :param page: Which page number of the Fax List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
@@ -926,6 +958,7 @@ class FaxApi:
             "200": "FaxListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -966,6 +999,8 @@ class FaxApi:
 
         Returns properties of multiple Faxes
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxListExample.py
+
         :param page: Which page number of the Fax List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
@@ -1005,6 +1040,7 @@ class FaxApi:
             "200": "FaxListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1091,6 +1127,8 @@ class FaxApi:
 
         Creates and sends a new Fax with the submitted file(s)
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxSendExample.py
+
         :param fax_send_request: (required)
         :type fax_send_request: FaxSendRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1127,6 +1165,7 @@ class FaxApi:
             "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1156,6 +1195,8 @@ class FaxApi:
 
         Creates and sends a new Fax with the submitted file(s)
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxSendExample.py
+
         :param fax_send_request: (required)
         :type fax_send_request: FaxSendRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1192,6 +1233,7 @@ class FaxApi:
             "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1221,6 +1263,8 @@ class FaxApi:
 
         Creates and sends a new Fax with the submitted file(s)
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxSendExample.py
+
         :param fax_send_request: (required)
         :type fax_send_request: FaxSendRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1257,6 +1301,7 @@ class FaxApi:
             "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

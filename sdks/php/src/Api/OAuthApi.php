@@ -136,6 +136,8 @@ class OAuthApi
      *
      * OAuth Token Generate
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/OauthTokenGenerateExample.php
+     *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
@@ -156,6 +158,8 @@ class OAuthApi
      * Operation oauthTokenGenerateWithHttpInfo
      *
      * OAuth Token Generate
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/OauthTokenGenerateExample.php
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -300,6 +304,8 @@ class OAuthApi
      *
      * OAuth Token Generate
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/OauthTokenGenerateExample.php
+     *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
@@ -327,6 +333,8 @@ class OAuthApi
      * Operation oauthTokenGenerateAsyncWithHttpInfo
      *
      * OAuth Token Generate
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/OauthTokenGenerateExample.php
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -519,6 +527,8 @@ class OAuthApi
      *
      * OAuth Token Refresh
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/OauthTokenRefreshExample.php
+     *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
@@ -539,6 +549,8 @@ class OAuthApi
      * Operation oauthTokenRefreshWithHttpInfo
      *
      * OAuth Token Refresh
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/OauthTokenRefreshExample.php
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -683,6 +695,8 @@ class OAuthApi
      *
      * OAuth Token Refresh
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/OauthTokenRefreshExample.php
+     *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
@@ -710,6 +724,8 @@ class OAuthApi
      * Operation oauthTokenRefreshAsyncWithHttpInfo
      *
      * OAuth Token Refresh
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/OauthTokenRefreshExample.php
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.

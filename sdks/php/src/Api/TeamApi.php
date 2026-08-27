@@ -160,6 +160,8 @@ class TeamApi
      *
      * Add User to Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamAddMemberExample.php
+     *
      * @param Model\TeamAddMemberRequest $team_add_member_request team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
      *
@@ -177,6 +179,8 @@ class TeamApi
      * Operation teamAddMemberWithHttpInfo
      *
      * Add User to Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamAddMemberExample.php
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
@@ -316,6 +320,8 @@ class TeamApi
      *
      * Add User to Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamAddMemberExample.php
+     *
      * @param Model\TeamAddMemberRequest $team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
@@ -338,6 +344,8 @@ class TeamApi
      * Operation teamAddMemberAsyncWithHttpInfo
      *
      * Add User to Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamAddMemberExample.php
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
@@ -513,6 +521,8 @@ class TeamApi
      *
      * Create Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamCreateExample.php
+     *
      * @param Model\TeamCreateRequest $team_create_request team_create_request (required)
      *
      * @return Model\TeamGetResponse
@@ -529,6 +539,8 @@ class TeamApi
      * Operation teamCreateWithHttpInfo
      *
      * Create Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamCreateExample.php
      *
      * @param Model\TeamCreateRequest $team_create_request (required)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
@@ -667,6 +679,8 @@ class TeamApi
      *
      * Create Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamCreateExample.php
+     *
      * @param Model\TeamCreateRequest $team_create_request (required)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
@@ -688,6 +702,8 @@ class TeamApi
      * Operation teamCreateAsyncWithHttpInfo
      *
      * Create Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamCreateExample.php
      *
      * @param Model\TeamCreateRequest $team_create_request (required)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
@@ -852,6 +868,8 @@ class TeamApi
      *
      * Delete Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamDeleteExample.php
+     *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -864,6 +882,8 @@ class TeamApi
      * Operation teamDeleteWithHttpInfo
      *
      * Delete Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamDeleteExample.php
      *
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
      *
@@ -915,6 +935,8 @@ class TeamApi
      *
      * Delete Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamDeleteExample.php
+     *
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -935,6 +957,8 @@ class TeamApi
      * Operation teamDeleteAsyncWithHttpInfo
      *
      * Delete Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamDeleteExample.php
      *
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
      *
@@ -1061,6 +1085,8 @@ class TeamApi
      *
      * Get Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamGetExample.php
+     *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
@@ -1075,6 +1101,8 @@ class TeamApi
      * Operation teamGetWithHttpInfo
      *
      * Get Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamGetExample.php
      *
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
      *
@@ -1212,6 +1240,8 @@ class TeamApi
      *
      * Get Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamGetExample.php
+     *
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1232,6 +1262,8 @@ class TeamApi
      * Operation teamGetAsyncWithHttpInfo
      *
      * Get Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamGetExample.php
      *
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
      *
@@ -1371,6 +1403,8 @@ class TeamApi
      *
      * Get Team Info
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamInfoExample.php
+     *
      * @param string|null $team_id The id of the team. (optional)
      *
      * @return Model\TeamGetInfoResponse
@@ -1387,6 +1421,8 @@ class TeamApi
      * Operation teamInfoWithHttpInfo
      *
      * Get Team Info
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamInfoExample.php
      *
      * @param string|null $team_id     The id of the team. (optional)
      * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
@@ -1525,6 +1561,8 @@ class TeamApi
      *
      * Get Team Info
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamInfoExample.php
+     *
      * @param string|null $team_id     The id of the team. (optional)
      * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
      *
@@ -1546,6 +1584,8 @@ class TeamApi
      * Operation teamInfoAsyncWithHttpInfo
      *
      * Get Team Info
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamInfoExample.php
      *
      * @param string|null $team_id     The id of the team. (optional)
      * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
@@ -1697,6 +1737,8 @@ class TeamApi
      *
      * List Team Invites
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamInvitesExample.php
+     *
      * @param string|null $email_address The email address for which to display the team invites. (optional)
      *
      * @return Model\TeamInvitesResponse
@@ -1713,6 +1755,8 @@ class TeamApi
      * Operation teamInvitesWithHttpInfo
      *
      * List Team Invites
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamInvitesExample.php
      *
      * @param string|null $email_address The email address for which to display the team invites. (optional)
      * @param string      $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
@@ -1851,6 +1895,8 @@ class TeamApi
      *
      * List Team Invites
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamInvitesExample.php
+     *
      * @param string|null $email_address The email address for which to display the team invites. (optional)
      * @param string      $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
      *
@@ -1872,6 +1918,8 @@ class TeamApi
      * Operation teamInvitesAsyncWithHttpInfo
      *
      * List Team Invites
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamInvitesExample.php
      *
      * @param string|null $email_address The email address for which to display the team invites. (optional)
      * @param string      $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
@@ -2023,6 +2071,8 @@ class TeamApi
      *
      * List Team Members
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamMembersExample.php
+     *
      * @param string   $team_id   The id of the team that a member list is being requested from. (required)
      * @param int|null $page      Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -2041,6 +2091,8 @@ class TeamApi
      * Operation teamMembersWithHttpInfo
      *
      * List Team Members
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamMembersExample.php
      *
      * @param string   $team_id     The id of the team that a member list is being requested from. (required)
      * @param int|null $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -2181,6 +2233,8 @@ class TeamApi
      *
      * List Team Members
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamMembersExample.php
+     *
      * @param string   $team_id     The id of the team that a member list is being requested from. (required)
      * @param int|null $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -2204,6 +2258,8 @@ class TeamApi
      * Operation teamMembersAsyncWithHttpInfo
      *
      * List Team Members
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamMembersExample.php
      *
      * @param string   $team_id     The id of the team that a member list is being requested from. (required)
      * @param int|null $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -2391,6 +2447,8 @@ class TeamApi
      *
      * Remove User from Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamRemoveMemberExample.php
+     *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request team_remove_member_request (required)
      *
      * @return Model\TeamGetResponse
@@ -2407,6 +2465,8 @@ class TeamApi
      * Operation teamRemoveMemberWithHttpInfo
      *
      * Remove User from Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamRemoveMemberExample.php
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
      * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
@@ -2545,6 +2605,8 @@ class TeamApi
      *
      * Remove User from Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamRemoveMemberExample.php
+     *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
      * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
@@ -2566,6 +2628,8 @@ class TeamApi
      * Operation teamRemoveMemberAsyncWithHttpInfo
      *
      * Remove User from Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamRemoveMemberExample.php
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
      * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
@@ -2730,6 +2794,8 @@ class TeamApi
      *
      * List Sub Teams
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamSubTeamsExample.php
+     *
      * @param string   $team_id   The id of the parent Team. (required)
      * @param int|null $page      Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -2748,6 +2814,8 @@ class TeamApi
      * Operation teamSubTeamsWithHttpInfo
      *
      * List Sub Teams
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamSubTeamsExample.php
      *
      * @param string   $team_id     The id of the parent Team. (required)
      * @param int|null $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -2888,6 +2956,8 @@ class TeamApi
      *
      * List Sub Teams
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamSubTeamsExample.php
+     *
      * @param string   $team_id     The id of the parent Team. (required)
      * @param int|null $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -2911,6 +2981,8 @@ class TeamApi
      * Operation teamSubTeamsAsyncWithHttpInfo
      *
      * List Sub Teams
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamSubTeamsExample.php
      *
      * @param string   $team_id     The id of the parent Team. (required)
      * @param int|null $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -3098,6 +3170,8 @@ class TeamApi
      *
      * Update Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamUpdateExample.php
+     *
      * @param Model\TeamUpdateRequest $team_update_request team_update_request (required)
      *
      * @return Model\TeamGetResponse
@@ -3114,6 +3188,8 @@ class TeamApi
      * Operation teamUpdateWithHttpInfo
      *
      * Update Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamUpdateExample.php
      *
      * @param Model\TeamUpdateRequest $team_update_request (required)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
@@ -3252,6 +3328,8 @@ class TeamApi
      *
      * Update Team
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamUpdateExample.php
+     *
      * @param Model\TeamUpdateRequest $team_update_request (required)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
@@ -3273,6 +3351,8 @@ class TeamApi
      * Operation teamUpdateAsyncWithHttpInfo
      *
      * Update Team
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamUpdateExample.php
      *
      * @param Model\TeamUpdateRequest $team_update_request (required)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation

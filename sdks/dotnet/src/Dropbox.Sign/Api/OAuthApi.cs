@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenGenerateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -45,6 +46,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenGenerateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -56,6 +58,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenRefreshExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -68,6 +71,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenRefreshExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -88,6 +92,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenGenerateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -101,6 +106,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenGenerateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -113,6 +119,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenRefreshExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -126,6 +133,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenRefreshExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -255,6 +263,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// OAuth Token Generate Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenGenerateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -268,6 +277,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// OAuth Token Generate Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenGenerateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -333,6 +343,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// OAuth Token Generate Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenGenerateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -347,6 +358,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// OAuth Token Generate Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenGenerateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -415,6 +427,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// OAuth Token Refresh Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenRefreshExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -428,6 +441,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// OAuth Token Refresh Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenRefreshExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -493,6 +507,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// OAuth Token Refresh Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenRefreshExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -507,6 +522,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// OAuth Token Refresh Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/OauthTokenRefreshExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>

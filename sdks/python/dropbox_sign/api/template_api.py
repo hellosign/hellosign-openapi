@@ -81,6 +81,8 @@ class TemplateApi:
 
         Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateAddUserExample.py
+
         :param template_id: The id of the Template to give the Account access to. (required)
         :type template_id: str
         :param template_add_user_request: (required)
@@ -120,6 +122,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -153,6 +156,8 @@ class TemplateApi:
 
         Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateAddUserExample.py
+
         :param template_id: The id of the Template to give the Account access to. (required)
         :type template_id: str
         :param template_add_user_request: (required)
@@ -192,6 +197,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -225,6 +231,8 @@ class TemplateApi:
 
         Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateAddUserExample.py
+
         :param template_id: The id of the Template to give the Account access to. (required)
         :type template_id: str
         :param template_add_user_request: (required)
@@ -264,6 +272,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -378,6 +387,8 @@ class TemplateApi:
 
         Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateCreateExample.py
+
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -414,6 +425,7 @@ class TemplateApi:
             "200": "TemplateCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -443,6 +455,8 @@ class TemplateApi:
 
         Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateCreateExample.py
+
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -479,6 +493,7 @@ class TemplateApi:
             "200": "TemplateCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -508,6 +523,8 @@ class TemplateApi:
 
         Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateCreateExample.py
+
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -544,6 +561,7 @@ class TemplateApi:
             "200": "TemplateCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -655,6 +673,8 @@ class TemplateApi:
 
         The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template 'edit' stage.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateCreateEmbeddedDraftExample.py
+
         :param template_create_embedded_draft_request: (required)
         :type template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -691,6 +711,7 @@ class TemplateApi:
             "200": "TemplateCreateEmbeddedDraftResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -720,6 +741,8 @@ class TemplateApi:
 
         The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template 'edit' stage.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateCreateEmbeddedDraftExample.py
+
         :param template_create_embedded_draft_request: (required)
         :type template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -756,6 +779,7 @@ class TemplateApi:
             "200": "TemplateCreateEmbeddedDraftResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -785,6 +809,8 @@ class TemplateApi:
 
         The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template 'edit' stage.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateCreateEmbeddedDraftExample.py
+
         :param template_create_embedded_draft_request: (required)
         :type template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -821,6 +847,7 @@ class TemplateApi:
             "200": "TemplateCreateEmbeddedDraftResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -934,6 +961,8 @@ class TemplateApi:
 
         Completely deletes the template specified from the account.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateDeleteExample.py
+
         :param template_id: The id of the Template to delete. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -970,6 +999,7 @@ class TemplateApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1001,6 +1031,8 @@ class TemplateApi:
 
         Completely deletes the template specified from the account.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateDeleteExample.py
+
         :param template_id: The id of the Template to delete. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1037,6 +1069,7 @@ class TemplateApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1068,6 +1101,8 @@ class TemplateApi:
 
         Completely deletes the template specified from the account.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateDeleteExample.py
+
         :param template_id: The id of the Template to delete. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1104,6 +1139,7 @@ class TemplateApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1191,6 +1227,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param file_type: Set to `pdf` for a single merged document or `zip` for a collection of individual documents.
@@ -1230,6 +1268,7 @@ class TemplateApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1267,6 +1306,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param file_type: Set to `pdf` for a single merged document or `zip` for a collection of individual documents.
@@ -1306,6 +1347,7 @@ class TemplateApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1343,6 +1385,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param file_type: Set to `pdf` for a single merged document or `zip` for a collection of individual documents.
@@ -1382,6 +1426,7 @@ class TemplateApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1468,6 +1513,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesAsDataUriExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1504,6 +1551,7 @@ class TemplateApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1535,6 +1583,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesAsDataUriExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1571,6 +1621,7 @@ class TemplateApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1602,6 +1653,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesAsDataUriExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1638,6 +1691,7 @@ class TemplateApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1725,6 +1779,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesAsFileUrlExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param force_download: By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.
@@ -1764,6 +1820,7 @@ class TemplateApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1801,6 +1858,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesAsFileUrlExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param force_download: By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.
@@ -1840,6 +1899,7 @@ class TemplateApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1877,6 +1937,8 @@ class TemplateApi:
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateFilesAsFileUrlExample.py
+
         :param template_id: The id of the template files to retrieve. (required)
         :type template_id: str
         :param force_download: By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.
@@ -1916,6 +1978,7 @@ class TemplateApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2002,6 +2065,8 @@ class TemplateApi:
 
         Returns the Template specified by the `template_id` parameter.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateGetExample.py
+
         :param template_id: The id of the Template to retrieve. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2038,6 +2103,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2069,6 +2135,8 @@ class TemplateApi:
 
         Returns the Template specified by the `template_id` parameter.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateGetExample.py
+
         :param template_id: The id of the Template to retrieve. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2105,6 +2173,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2136,6 +2205,8 @@ class TemplateApi:
 
         Returns the Template specified by the `template_id` parameter.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateGetExample.py
+
         :param template_id: The id of the Template to retrieve. (required)
         :type template_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2172,6 +2243,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2274,6 +2346,8 @@ class TemplateApi:
 
         Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateListExample.py
+
         :param account_id: Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.
         :type account_id: str
         :param page: Which page number of the Template List to return. Defaults to `1`.
@@ -2319,6 +2393,7 @@ class TemplateApi:
             "200": "TemplateListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2371,6 +2446,8 @@ class TemplateApi:
 
         Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateListExample.py
+
         :param account_id: Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.
         :type account_id: str
         :param page: Which page number of the Template List to return. Defaults to `1`.
@@ -2416,6 +2493,7 @@ class TemplateApi:
             "200": "TemplateListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2468,6 +2546,8 @@ class TemplateApi:
 
         Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateListExample.py
+
         :param account_id: Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.
         :type account_id: str
         :param page: Which page number of the Template List to return. Defaults to `1`.
@@ -2513,6 +2593,7 @@ class TemplateApi:
             "200": "TemplateListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2615,6 +2696,8 @@ class TemplateApi:
 
         Removes the specified Account's access to the specified Template.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateRemoveUserExample.py
+
         :param template_id: The id of the Template to remove the Account's access to. (required)
         :type template_id: str
         :param template_remove_user_request: (required)
@@ -2654,6 +2737,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2689,6 +2773,8 @@ class TemplateApi:
 
         Removes the specified Account's access to the specified Template.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateRemoveUserExample.py
+
         :param template_id: The id of the Template to remove the Account's access to. (required)
         :type template_id: str
         :param template_remove_user_request: (required)
@@ -2728,6 +2814,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2763,6 +2850,8 @@ class TemplateApi:
 
         Removes the specified Account's access to the specified Template.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateRemoveUserExample.py
+
         :param template_id: The id of the Template to remove the Account's access to. (required)
         :type template_id: str
         :param template_remove_user_request: (required)
@@ -2802,6 +2891,7 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2920,6 +3010,8 @@ class TemplateApi:
 
         Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateUpdateFilesExample.py
+
         :param template_id: The ID of the template whose files to update. (required)
         :type template_id: str
         :param template_update_files_request: (required)
@@ -2959,6 +3051,7 @@ class TemplateApi:
             "200": "TemplateUpdateFilesResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2992,6 +3085,8 @@ class TemplateApi:
 
         Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateUpdateFilesExample.py
+
         :param template_id: The ID of the template whose files to update. (required)
         :type template_id: str
         :param template_update_files_request: (required)
@@ -3031,6 +3126,7 @@ class TemplateApi:
             "200": "TemplateUpdateFilesResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3064,6 +3160,8 @@ class TemplateApi:
 
         Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TemplateUpdateFilesExample.py
+
         :param template_id: The ID of the template whose files to update. (required)
         :type template_id: str
         :param template_update_files_request: (required)
@@ -3103,6 +3201,7 @@ class TemplateApi:
             "200": "TemplateUpdateFilesResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

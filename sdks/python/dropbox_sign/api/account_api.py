@@ -65,6 +65,8 @@ class AccountApi:
 
         Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountCreateExample.py
+
         :param account_create_request: (required)
         :type account_create_request: AccountCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -101,6 +103,7 @@ class AccountApi:
             "200": "AccountCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -130,6 +133,8 @@ class AccountApi:
 
         Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountCreateExample.py
+
         :param account_create_request: (required)
         :type account_create_request: AccountCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -166,6 +171,7 @@ class AccountApi:
             "200": "AccountCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -195,6 +201,8 @@ class AccountApi:
 
         Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountCreateExample.py
+
         :param account_create_request: (required)
         :type account_create_request: AccountCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -231,6 +239,7 @@ class AccountApi:
             "200": "AccountCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -353,6 +362,8 @@ class AccountApi:
 
         Returns the properties and settings of your Account.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountGetExample.py
+
         :param account_id: `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account.
         :type account_id: str
         :param email_address: `account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account.
@@ -392,6 +403,7 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -432,6 +444,8 @@ class AccountApi:
 
         Returns the properties and settings of your Account.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountGetExample.py
+
         :param account_id: `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account.
         :type account_id: str
         :param email_address: `account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account.
@@ -471,6 +485,7 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -511,6 +526,8 @@ class AccountApi:
 
         Returns the properties and settings of your Account.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountGetExample.py
+
         :param account_id: `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account.
         :type account_id: str
         :param email_address: `account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account.
@@ -550,6 +567,7 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -636,6 +654,8 @@ class AccountApi:
 
         Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountUpdateExample.py
+
         :param account_update_request: (required)
         :type account_update_request: AccountUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -672,6 +692,7 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -701,6 +722,8 @@ class AccountApi:
 
         Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountUpdateExample.py
+
         :param account_update_request: (required)
         :type account_update_request: AccountUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -737,6 +760,7 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -766,6 +790,8 @@ class AccountApi:
 
         Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountUpdateExample.py
+
         :param account_update_request: (required)
         :type account_update_request: AccountUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -802,6 +828,7 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -913,6 +940,8 @@ class AccountApi:
 
         Verifies whether an Dropbox Sign Account exists for the given email address.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountVerifyExample.py
+
         :param account_verify_request: (required)
         :type account_verify_request: AccountVerifyRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -949,6 +978,7 @@ class AccountApi:
             "200": "AccountVerifyResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -978,6 +1008,8 @@ class AccountApi:
 
         Verifies whether an Dropbox Sign Account exists for the given email address.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountVerifyExample.py
+
         :param account_verify_request: (required)
         :type account_verify_request: AccountVerifyRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1014,6 +1046,7 @@ class AccountApi:
             "200": "AccountVerifyResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1043,6 +1076,8 @@ class AccountApi:
 
         Verifies whether an Dropbox Sign Account exists for the given email address.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/AccountVerifyExample.py
+
         :param account_verify_request: (required)
         :type account_verify_request: AccountVerifyRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1079,6 +1114,7 @@ class AccountApi:
             "200": "AccountVerifyResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

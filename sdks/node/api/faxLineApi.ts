@@ -125,6 +125,7 @@ export class FaxLineApi {
   /**
    * Grants a user access to the specified Fax Line.
    * @summary Add Fax Line User
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineAddUserExample.ts
    * @param faxLineAddUserRequest
    * @param options
    */
@@ -263,6 +264,7 @@ export class FaxLineApi {
   /**
    * Returns a list of available area codes for a given state/province and city
    * @summary Get Available Fax Line Area Codes
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineAreaCodeGetExample.ts
    * @param country Filter area codes by country
    * @param state Filter area codes by state
    * @param province Filter area codes by province
@@ -475,6 +477,7 @@ export class FaxLineApi {
   /**
    * Purchases a new Fax Line
    * @summary Purchase Fax Line
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineCreateExample.ts
    * @param faxLineCreateRequest
    * @param options
    */
@@ -613,6 +616,7 @@ export class FaxLineApi {
   /**
    * Deletes the specified Fax Line from the subscription.
    * @summary Delete Fax Line
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineDeleteExample.ts
    * @param faxLineDeleteRequest
    * @param options
    */
@@ -735,6 +739,7 @@ export class FaxLineApi {
   /**
    * Returns the properties and settings of a Fax Line.
    * @summary Get Fax Line
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineGetExample.ts
    * @param number The Fax Line number
    * @param options
    */
@@ -854,6 +859,7 @@ export class FaxLineApi {
   /**
    * Returns the properties and settings of multiple Fax Lines.
    * @summary List Fax Lines
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineListExample.ts
    * @param accountId Account ID
    * @param page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -995,6 +1001,7 @@ export class FaxLineApi {
   /**
    * Removes a user\'s access to the specified Fax Line
    * @summary Remove Fax Line Access
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineRemoveUserExample.ts
    * @param faxLineRemoveUserRequest
    * @param options
    */

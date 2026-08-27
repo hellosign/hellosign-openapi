@@ -127,6 +127,7 @@ export class TeamApi {
   /**
    * Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
    * @summary Add User to Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamAddMemberExample.ts
    * @param teamAddMemberRequest
    * @param teamId The id of the team.
    * @param options
@@ -279,6 +280,7 @@ export class TeamApi {
   /**
    * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
    * @summary Create Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamCreateExample.ts
    * @param teamCreateRequest
    * @param options
    */
@@ -419,6 +421,7 @@ export class TeamApi {
   /**
    * Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
    * @summary Delete Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamDeleteExample.ts
    * @param options
    */
   public async teamDelete(
@@ -511,6 +514,7 @@ export class TeamApi {
   /**
    * Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
    * @summary Get Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamGetExample.ts
    * @param options
    */
   public async teamGet(
@@ -619,6 +623,7 @@ export class TeamApi {
   /**
    * Provides information about a team.
    * @summary Get Team Info
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamInfoExample.ts
    * @param teamId The id of the team.
    * @param options
    */
@@ -738,6 +743,7 @@ export class TeamApi {
   /**
    * Provides a list of team invites (and their roles).
    * @summary List Team Invites
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamInvitesExample.ts
    * @param emailAddress The email address for which to display the team invites.
    * @param options
    */
@@ -857,6 +863,7 @@ export class TeamApi {
   /**
    * Provides a paginated list of members (and their roles) that belong to a given team.
    * @summary List Team Members
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamMembersExample.ts
    * @param teamId The id of the team that a member list is being requested from.
    * @param page Which page number of the team member list to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -999,6 +1006,7 @@ export class TeamApi {
   /**
    * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
    * @summary Remove User from Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamRemoveMemberExample.ts
    * @param teamRemoveMemberRequest
    * @param options
    */
@@ -1145,6 +1153,7 @@ export class TeamApi {
   /**
    * Provides a paginated list of sub teams that belong to a given team.
    * @summary List Sub Teams
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamSubTeamsExample.ts
    * @param teamId The id of the parent Team.
    * @param page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -1287,6 +1296,7 @@ export class TeamApi {
   /**
    * Updates the name of your Team.
    * @summary Update Team
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamUpdateExample.ts
    * @param teamUpdateRequest
    * @param options
    */

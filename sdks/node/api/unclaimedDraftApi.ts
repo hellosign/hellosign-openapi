@@ -122,6 +122,7 @@ export class UnclaimedDraftApi {
   /**
    * Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the \"Sign and send\" or the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
    * @summary Create Unclaimed Draft
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateExample.ts
    * @param unclaimedDraftCreateRequest
    * @param options
    */
@@ -270,6 +271,7 @@ export class UnclaimedDraftApi {
   /**
    * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @summary Create Embedded Unclaimed Draft
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.ts
    * @param unclaimedDraftCreateEmbeddedRequest
    * @param options
    */
@@ -418,6 +420,7 @@ export class UnclaimedDraftApi {
   /**
    * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @summary Create Embedded Unclaimed Draft with Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.ts
    * @param unclaimedDraftCreateEmbeddedWithTemplateRequest
    * @param options
    */
@@ -567,6 +570,7 @@ export class UnclaimedDraftApi {
   /**
    * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester\'s email address will remain unchanged if `requester_email_address` parameter is not set.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @summary Edit and Resend Unclaimed Draft
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftEditAndResendExample.ts
    * @param signatureRequestId The ID of the signature request to edit and resend.
    * @param unclaimedDraftEditAndResendRequest
    * @param options

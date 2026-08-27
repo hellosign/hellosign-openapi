@@ -24,6 +24,7 @@ module Dropbox::Sign
     end
     # OAuth Token Generate
     # Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/OauthTokenGenerateExample.rb
     # @param o_auth_token_generate_request [OAuthTokenGenerateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [OAuthTokenResponse]
@@ -34,6 +35,7 @@ module Dropbox::Sign
 
     # OAuth Token Generate
     # Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/OauthTokenGenerateExample.rb
     # @param o_auth_token_generate_request [OAuthTokenGenerateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OAuthTokenResponse, Integer, Hash)>] OAuthTokenResponse data, response status code and response headers
@@ -134,6 +136,7 @@ module Dropbox::Sign
 
     # OAuth Token Refresh
     # Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see `expires_in`), along with a refresh token that can be used to acquire a new access token after the current one has expired.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/OauthTokenRefreshExample.rb
     # @param o_auth_token_refresh_request [OAuthTokenRefreshRequest] 
     # @param [Hash] opts the optional parameters
     # @return [OAuthTokenResponse]
@@ -144,6 +147,7 @@ module Dropbox::Sign
 
     # OAuth Token Refresh
     # Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see &#x60;expires_in&#x60;), along with a refresh token that can be used to acquire a new access token after the current one has expired.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/OauthTokenRefreshExample.rb
     # @param o_auth_token_refresh_request [OAuthTokenRefreshRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OAuthTokenResponse, Integer, Hash)>] OAuthTokenResponse data, response status code and response headers

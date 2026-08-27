@@ -130,6 +130,7 @@ export class TemplateApi {
   /**
    * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
    * @summary Add User to Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateAddUserExample.ts
    * @param templateId The id of the Template to give the Account access to.
    * @param templateAddUserRequest
    * @param options
@@ -292,6 +293,7 @@ export class TemplateApi {
   /**
    * Creates a template that can be used in future signature requests.  If `client_id` is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new `edit_url` with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A `template_created` event indicates the template is ready to use, while a `template_error` event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
    * @summary Create Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateCreateExample.ts
    * @param templateCreateRequest
    * @param options
    */
@@ -437,6 +439,7 @@ export class TemplateApi {
   /**
    * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template \'edit\' stage.
    * @summary Create Embedded Template Draft
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateCreateEmbeddedDraftExample.ts
    * @param templateCreateEmbeddedDraftRequest
    * @param options
    */
@@ -585,6 +588,7 @@ export class TemplateApi {
   /**
    * Completely deletes the template specified from the account.
    * @summary Delete Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateDeleteExample.ts
    * @param templateId The id of the Template to delete.
    * @param options
    */
@@ -691,6 +695,7 @@ export class TemplateApi {
   /**
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateFilesExample.ts
    * @param templateId The id of the template files to retrieve.
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
    * @param options
@@ -822,6 +827,7 @@ export class TemplateApi {
   /**
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files as Data Uri
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateFilesAsDataUriExample.ts
    * @param templateId The id of the template files to retrieve.
    * @param options
    */
@@ -946,6 +952,7 @@ export class TemplateApi {
   /**
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files as File Url
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateFilesAsFileUrlExample.ts
    * @param templateId The id of the template files to retrieve.
    * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
    * @param options
@@ -1077,6 +1084,7 @@ export class TemplateApi {
   /**
    * Returns the Template specified by the `template_id` parameter.
    * @summary Get Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateGetExample.ts
    * @param templateId The id of the Template to retrieve.
    * @param options
    */
@@ -1201,6 +1209,7 @@ export class TemplateApi {
   /**
    * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
    * @summary List Templates
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateListExample.ts
    * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account.
    * @param page Which page number of the Template List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
@@ -1347,6 +1356,7 @@ export class TemplateApi {
   /**
    * Removes the specified Account\'s access to the specified Template.
    * @summary Remove User from Template
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateRemoveUserExample.ts
    * @param templateId The id of the Template to remove the Account\&#39;s access to.
    * @param templateRemoveUserRequest
    * @param options
@@ -1509,6 +1519,7 @@ export class TemplateApi {
   /**
    * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
    * @summary Update Template Files
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateUpdateFilesExample.ts
    * @param templateId The ID of the template whose files to update.
    * @param templateUpdateFilesRequest
    * @param options

@@ -58,6 +58,8 @@ class ReportApi:
 
         Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and `start_date` must not be more than 10 years in the past.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ReportCreateExample.py
+
         :param report_create_request: (required)
         :type report_create_request: ReportCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -94,6 +96,7 @@ class ReportApi:
             "200": "ReportCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -123,6 +126,8 @@ class ReportApi:
 
         Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and `start_date` must not be more than 10 years in the past.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ReportCreateExample.py
+
         :param report_create_request: (required)
         :type report_create_request: ReportCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -159,6 +164,7 @@ class ReportApi:
             "200": "ReportCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -188,6 +194,8 @@ class ReportApi:
 
         Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and `start_date` must not be more than 10 years in the past.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/ReportCreateExample.py
+
         :param report_create_request: (required)
         :type report_create_request: ReportCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -224,6 +232,7 @@ class ReportApi:
             "200": "ReportCreateResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

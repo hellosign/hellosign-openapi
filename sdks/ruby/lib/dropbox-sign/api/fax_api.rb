@@ -24,6 +24,7 @@ module Dropbox::Sign
     end
     # Delete Fax
     # Deletes the specified Fax from the system
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxDeleteExample.rb
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -34,6 +35,7 @@ module Dropbox::Sign
 
     # Delete Fax
     # Deletes the specified Fax from the system
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxDeleteExample.rb
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -92,6 +94,7 @@ module Dropbox::Sign
 
     # Download Fax Files
     # Downloads files associated with a Fax
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxFilesExample.rb
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -102,6 +105,7 @@ module Dropbox::Sign
 
     # Download Fax Files
     # Downloads files associated with a Fax
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxFilesExample.rb
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
@@ -187,6 +191,7 @@ module Dropbox::Sign
 
     # Get Fax
     # Returns information about a Fax
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxGetExample.rb
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [FaxGetResponse]
@@ -197,6 +202,7 @@ module Dropbox::Sign
 
     # Get Fax
     # Returns information about a Fax
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxGetExample.rb
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(FaxGetResponse, Integer, Hash)>] FaxGetResponse data, response status code and response headers
@@ -282,6 +288,7 @@ module Dropbox::Sign
 
     # Lists Faxes
     # Returns properties of multiple Faxes
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxListExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (default to 1)
     # @option opts [Integer] :page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (default to 20)
@@ -293,6 +300,7 @@ module Dropbox::Sign
 
     # Lists Faxes
     # Returns properties of multiple Faxes
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxListExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (default to 1)
     # @option opts [Integer] :page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (default to 20)
@@ -389,6 +397,7 @@ module Dropbox::Sign
 
     # Send Fax
     # Creates and sends a new Fax with the submitted file(s)
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxSendExample.rb
     # @param fax_send_request [FaxSendRequest] 
     # @param [Hash] opts the optional parameters
     # @return [FaxGetResponse]
@@ -399,6 +408,7 @@ module Dropbox::Sign
 
     # Send Fax
     # Creates and sends a new Fax with the submitted file(s)
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxSendExample.rb
     # @param fax_send_request [FaxSendRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(FaxGetResponse, Integer, Hash)>] FaxGetResponse data, response status code and response headers

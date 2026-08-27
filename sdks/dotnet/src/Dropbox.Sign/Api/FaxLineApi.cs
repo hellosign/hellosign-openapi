@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Grants a user access to the specified Fax Line.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -45,6 +46,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Grants a user access to the specified Fax Line.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -56,6 +58,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of available area codes for a given state/province and city
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAreaCodeGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country</param>
         /// <param name="state">Filter area codes by state (optional)</param>
@@ -71,6 +74,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of available area codes for a given state/province and city
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAreaCodeGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country</param>
         /// <param name="state">Filter area codes by state (optional)</param>
@@ -85,6 +89,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Purchases a new Fax Line
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -97,6 +102,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Purchases a new Fax Line
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -108,6 +114,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes the specified Fax Line from the subscription.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -120,6 +127,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes the specified Fax Line from the subscription.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -131,6 +139,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of a Fax Line.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -143,6 +152,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of a Fax Line.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -154,6 +164,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of multiple Fax Lines.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
         /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -169,6 +180,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of multiple Fax Lines.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
         /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -183,6 +195,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes a user&#39;s access to the specified Fax Line
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -195,6 +208,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes a user&#39;s access to the specified Fax Line
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -215,6 +229,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Grants a user access to the specified Fax Line.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -228,6 +243,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Grants a user access to the specified Fax Line.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -240,6 +256,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of available area codes for a given state/province and city
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAreaCodeGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country</param>
         /// <param name="state">Filter area codes by state (optional)</param>
@@ -256,6 +273,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of available area codes for a given state/province and city
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAreaCodeGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country</param>
         /// <param name="state">Filter area codes by state (optional)</param>
@@ -271,6 +289,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Purchases a new Fax Line
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -284,6 +303,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Purchases a new Fax Line
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -296,6 +316,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes the specified Fax Line from the subscription.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -309,6 +330,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes the specified Fax Line from the subscription.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -321,6 +343,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of a Fax Line.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -334,6 +357,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of a Fax Line.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -346,6 +370,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of multiple Fax Lines.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
         /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -362,6 +387,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of multiple Fax Lines.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
         /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -377,6 +403,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes a user&#39;s access to the specified Fax Line
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -390,6 +417,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes a user&#39;s access to the specified Fax Line
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -519,6 +547,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add Fax Line User Grants a user access to the specified Fax Line.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -532,6 +561,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add Fax Line User Grants a user access to the specified Fax Line.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -603,6 +633,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add Fax Line User Grants a user access to the specified Fax Line.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -617,6 +648,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add Fax Line User Grants a user access to the specified Fax Line.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -691,6 +723,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Available Fax Line Area Codes Returns a list of available area codes for a given state/province and city
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAreaCodeGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country</param>
         /// <param name="state">Filter area codes by state (optional)</param>
@@ -707,6 +740,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Available Fax Line Area Codes Returns a list of available area codes for a given state/province and city
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAreaCodeGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country</param>
         /// <param name="state">Filter area codes by state (optional)</param>
@@ -785,6 +819,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Available Fax Line Area Codes Returns a list of available area codes for a given state/province and city
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAreaCodeGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country</param>
         /// <param name="state">Filter area codes by state (optional)</param>
@@ -802,6 +837,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Available Fax Line Area Codes Returns a list of available area codes for a given state/province and city
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAreaCodeGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country</param>
         /// <param name="state">Filter area codes by state (optional)</param>
@@ -883,6 +919,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Purchase Fax Line Purchases a new Fax Line
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -896,6 +933,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Purchase Fax Line Purchases a new Fax Line
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -967,6 +1005,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Purchase Fax Line Purchases a new Fax Line
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -981,6 +1020,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Purchase Fax Line Purchases a new Fax Line
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1055,6 +1095,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Fax Line Deletes the specified Fax Line from the subscription.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1067,6 +1108,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Fax Line Deletes the specified Fax Line from the subscription.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1138,6 +1180,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Fax Line Deletes the specified Fax Line from the subscription.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1151,6 +1194,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Fax Line Deletes the specified Fax Line from the subscription.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1225,6 +1269,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Fax Line Returns the properties and settings of a Fax Line.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1238,6 +1283,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Fax Line Returns the properties and settings of a Fax Line.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1301,6 +1347,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Fax Line Returns the properties and settings of a Fax Line.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1315,6 +1362,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Fax Line Returns the properties and settings of a Fax Line.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="number">The Fax Line number</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1381,6 +1429,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Fax Lines Returns the properties and settings of multiple Fax Lines.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
         /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -1397,6 +1446,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Fax Lines Returns the properties and settings of multiple Fax Lines.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
         /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -1472,6 +1522,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Fax Lines Returns the properties and settings of multiple Fax Lines.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
         /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -1489,6 +1540,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Fax Lines Returns the properties and settings of multiple Fax Lines.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
         /// <param name="page">Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -1567,6 +1619,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1580,6 +1633,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1651,6 +1705,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1665,6 +1720,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove Fax Line Access Removes a user&#39;s access to the specified Fax Line
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>

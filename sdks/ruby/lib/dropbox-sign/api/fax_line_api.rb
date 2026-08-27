@@ -24,6 +24,7 @@ module Dropbox::Sign
     end
     # Add Fax Line User
     # Grants a user access to the specified Fax Line.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineAddUserExample.rb
     # @param fax_line_add_user_request [FaxLineAddUserRequest] 
     # @param [Hash] opts the optional parameters
     # @return [FaxLineResponse]
@@ -34,6 +35,7 @@ module Dropbox::Sign
 
     # Add Fax Line User
     # Grants a user access to the specified Fax Line.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineAddUserExample.rb
     # @param fax_line_add_user_request [FaxLineAddUserRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(FaxLineResponse, Integer, Hash)>] FaxLineResponse data, response status code and response headers
@@ -134,6 +136,7 @@ module Dropbox::Sign
 
     # Get Available Fax Line Area Codes
     # Returns a list of available area codes for a given state/province and city
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineAreaCodeGetExample.rb
     # @param country [String] Filter area codes by country
     # @param [Hash] opts the optional parameters
     # @option opts [String] :state Filter area codes by state
@@ -147,6 +150,7 @@ module Dropbox::Sign
 
     # Get Available Fax Line Area Codes
     # Returns a list of available area codes for a given state/province and city
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineAreaCodeGetExample.rb
     # @param country [String] Filter area codes by country
     # @param [Hash] opts the optional parameters
     # @option opts [String] :state Filter area codes by state
@@ -252,6 +256,7 @@ module Dropbox::Sign
 
     # Purchase Fax Line
     # Purchases a new Fax Line
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineCreateExample.rb
     # @param fax_line_create_request [FaxLineCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [FaxLineResponse]
@@ -262,6 +267,7 @@ module Dropbox::Sign
 
     # Purchase Fax Line
     # Purchases a new Fax Line
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineCreateExample.rb
     # @param fax_line_create_request [FaxLineCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(FaxLineResponse, Integer, Hash)>] FaxLineResponse data, response status code and response headers
@@ -362,6 +368,7 @@ module Dropbox::Sign
 
     # Delete Fax Line
     # Deletes the specified Fax Line from the subscription.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineDeleteExample.rb
     # @param fax_line_delete_request [FaxLineDeleteRequest] 
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -372,6 +379,7 @@ module Dropbox::Sign
 
     # Delete Fax Line
     # Deletes the specified Fax Line from the subscription.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineDeleteExample.rb
     # @param fax_line_delete_request [FaxLineDeleteRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -445,6 +453,7 @@ module Dropbox::Sign
 
     # Get Fax Line
     # Returns the properties and settings of a Fax Line.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineGetExample.rb
     # @param number [String] The Fax Line number
     # @param [Hash] opts the optional parameters
     # @return [FaxLineResponse]
@@ -455,6 +464,7 @@ module Dropbox::Sign
 
     # Get Fax Line
     # Returns the properties and settings of a Fax Line.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineGetExample.rb
     # @param number [String] The Fax Line number
     # @param [Hash] opts the optional parameters
     # @return [Array<(FaxLineResponse, Integer, Hash)>] FaxLineResponse data, response status code and response headers
@@ -541,6 +551,7 @@ module Dropbox::Sign
 
     # List Fax Lines
     # Returns the properties and settings of multiple Fax Lines.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineListExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_id Account ID
     # @option opts [Integer] :page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (default to 1)
@@ -554,6 +565,7 @@ module Dropbox::Sign
 
     # List Fax Lines
     # Returns the properties and settings of multiple Fax Lines.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineListExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_id Account ID
     # @option opts [Integer] :page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (default to 1)
@@ -642,6 +654,7 @@ module Dropbox::Sign
 
     # Remove Fax Line Access
     # Removes a user's access to the specified Fax Line
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineRemoveUserExample.rb
     # @param fax_line_remove_user_request [FaxLineRemoveUserRequest] 
     # @param [Hash] opts the optional parameters
     # @return [FaxLineResponse]
@@ -652,6 +665,7 @@ module Dropbox::Sign
 
     # Remove Fax Line Access
     # Removes a user&#39;s access to the specified Fax Line
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineRemoveUserExample.rb
     # @param fax_line_remove_user_request [FaxLineRemoveUserRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(FaxLineResponse, Integer, Hash)>] FaxLineResponse data, response status code and response headers
