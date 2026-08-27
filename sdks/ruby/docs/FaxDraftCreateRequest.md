@@ -12,3 +12,4 @@
 | `editor_options` | [```SubEditorPageOptions```](SubEditorPageOptions.md) |    |  |
 | `recipients` | ```Array<String>``` |  Fax numbers to prefill in the embedded flow. Each fax number must be in a supported international format. A maximum of 20 unique fax numbers can be provided.  |  |
 | `test_mode` | ```Boolean``` |  When set to `true`, the completed draft will not send a Fax or consume Fax pages. Defaults to `false`.  |  [default to false] |
+

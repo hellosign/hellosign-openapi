@@ -10,3 +10,5 @@ Name | Type | Description | Notes
 | `force_review_page` | ```bool``` |  When set to `true`, always shows the review page, even when recipients and Fax details are already provided. Defaults to `false`.  |  [default to False] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

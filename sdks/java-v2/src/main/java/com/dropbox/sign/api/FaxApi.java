@@ -151,7 +151,7 @@ public class FaxApi {
      </table>
    */
   public ApiResponse<FaxDraftCreateResponse> faxDraftCreateWithHttpInfo(FaxDraftCreateRequest faxDraftCreateRequest) throws ApiException {
-
+    
     // Check required parameters
     if (faxDraftCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxDraftCreateRequest' when calling faxDraftCreate");

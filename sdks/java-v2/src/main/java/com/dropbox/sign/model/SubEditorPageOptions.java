@@ -52,7 +52,7 @@ public class SubEditorPageOptions {
   @jakarta.annotation.Nullable
   private Boolean forceReviewPage = false;
 
-  public SubEditorPageOptions() {
+  public SubEditorPageOptions() { 
   }
 
   /**
@@ -278,3 +278,4 @@ public class SubEditorPageOptions {
   }
 
 }
+

@@ -52,7 +52,7 @@ public class FaxDraftResponse {
   @jakarta.annotation.Nonnull
   private Integer expiresAt;
 
-  public FaxDraftResponse() {
+  public FaxDraftResponse() { 
   }
 
   /**
@@ -278,3 +278,4 @@ public class FaxDraftResponse {
   }
 
 }
+

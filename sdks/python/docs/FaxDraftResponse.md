@@ -10,3 +10,5 @@ Name | Type | Description | Notes
 | `expires_at`<sup>*_required_</sup> | ```int``` |  Unix timestamp indicating when the embedded Fax draft URL expires.  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

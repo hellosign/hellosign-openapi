@@ -51,7 +51,7 @@ public class FaxDraftCreateResponse {
   @jakarta.annotation.Nullable
   private List<WarningResponse> warnings = null;
 
-  public FaxDraftCreateResponse() {
+  public FaxDraftCreateResponse() { 
   }
 
   /**
@@ -239,3 +239,4 @@ public class FaxDraftCreateResponse {
   }
 
 }
+

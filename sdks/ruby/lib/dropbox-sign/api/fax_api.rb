@@ -92,7 +92,7 @@ module Dropbox::Sign
 
     # Create Embedded Fax Draft
     # Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
-    # @param fax_draft_create_request [FaxDraftCreateRequest]
+    # @param fax_draft_create_request [FaxDraftCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [FaxDraftCreateResponse]
     def fax_draft_create(fax_draft_create_request, opts = {})
@@ -102,7 +102,7 @@ module Dropbox::Sign
 
     # Create Embedded Fax Draft
     # Creates an embedded Fax draft and returns a URL that can be opened in an approved iframe for preparation and sending.
-    # @param fax_draft_create_request [FaxDraftCreateRequest]
+    # @param fax_draft_create_request [FaxDraftCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(FaxDraftCreateResponse, Integer, Hash)>] FaxDraftCreateResponse data, response status code and response headers
     def fax_draft_create_with_http_info(fax_draft_create_request, opts = {})

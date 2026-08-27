@@ -74,7 +74,7 @@ public class FaxDraftCreateRequest {
   @jakarta.annotation.Nullable
   private Boolean testMode = false;
 
-  public FaxDraftCreateRequest() {
+  public FaxDraftCreateRequest() { 
   }
 
   /**
@@ -463,3 +463,4 @@ public class FaxDraftCreateRequest {
   }
 
 }
+
