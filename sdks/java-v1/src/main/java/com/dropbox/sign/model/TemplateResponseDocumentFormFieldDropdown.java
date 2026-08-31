@@ -20,14 +20,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60; */
 @JsonPropertyOrder({
     TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_TYPE,
-    TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_GROUP
+    TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_GROUP,
+    TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_OPTIONS
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -47,6 +50,9 @@ public class TemplateResponseDocumentFormFieldDropdown
 
     public static final String JSON_PROPERTY_GROUP = "group";
     @javax.annotation.Nullable private String group;
+
+    public static final String JSON_PROPERTY_OPTIONS = "options";
+    @javax.annotation.Nullable private List<String> options = null;
 
     public TemplateResponseDocumentFormFieldDropdown() {}
 
@@ -122,6 +128,37 @@ public class TemplateResponseDocumentFormFieldDropdown
         this.group = group;
     }
 
+    public TemplateResponseDocumentFormFieldDropdown options(
+            @javax.annotation.Nullable List<String> options) {
+        this.options = options;
+        return this;
+    }
+
+    public TemplateResponseDocumentFormFieldDropdown addOptionsItem(String optionsItem) {
+        if (this.options == null) {
+            this.options = new ArrayList<>();
+        }
+        this.options.add(optionsItem);
+        return this;
+    }
+
+    /**
+     * The options available for this dropdown form field.
+     *
+     * @return options
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getOptions() {
+        return options;
+    }
+
+    @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setOptions(@javax.annotation.Nullable List<String> options) {
+        this.options = options;
+    }
+
     /** Return true if this TemplateResponseDocumentFormFieldDropdown object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -135,12 +172,13 @@ public class TemplateResponseDocumentFormFieldDropdown
                 (TemplateResponseDocumentFormFieldDropdown) o;
         return Objects.equals(this.type, templateResponseDocumentFormFieldDropdown.type)
                 && Objects.equals(this.group, templateResponseDocumentFormFieldDropdown.group)
+                && Objects.equals(this.options, templateResponseDocumentFormFieldDropdown.options)
                 && super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, group, super.hashCode());
+        return Objects.hash(type, group, options, super.hashCode());
     }
 
     @Override
@@ -150,6 +188,7 @@ public class TemplateResponseDocumentFormFieldDropdown
         sb.append("    ").append(toIndentedString(super.toString())).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
+        sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -193,6 +232,24 @@ public class TemplateResponseDocumentFormFieldDropdown
                     }
                 } else {
                     map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
+                }
+            }
+            if (options != null) {
+                if (isFileTypeOrListOfFiles(options)) {
+                    fileTypeFound = true;
+                }
+
+                if (options.getClass().equals(java.io.File.class)
+                        || options.getClass().equals(Integer.class)
+                        || options.getClass().equals(String.class)
+                        || options.getClass().isEnum()) {
+                    map.put("options", options);
+                } else if (isListOfFile(options)) {
+                    for (int i = 0; i < getListSize(options); i++) {
+                        map.put("options[" + i + "]", getFromList(options, i));
+                    }
+                } else {
+                    map.put("options", JSON.getDefault().getMapper().writeValueAsString(options));
                 }
             }
         } catch (Exception e) {

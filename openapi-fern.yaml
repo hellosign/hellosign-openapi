@@ -28363,6 +28363,11 @@ components:
               description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
               type: string
               nullable: true
+            options:
+              description: The options available for this dropdown form field.
+              type: array
+              items:
+                type: string
           type: object
     TemplateResponseDocumentFormFieldHyperlink:
       description: This class extends `TemplateResponseDocumentFormFieldBase`

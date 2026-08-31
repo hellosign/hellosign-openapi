@@ -27,11 +27,16 @@ module Dropbox::Sign
     # @return [String, nil]
     attr_accessor :group
 
+    # The options available for this dropdown form field.
+    # @return [Array<String>]
+    attr_accessor :options
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'type' => :'type',
-        :'group' => :'group'
+        :'group' => :'group',
+        :'options' => :'options'
       }
     end
 
@@ -49,14 +54,15 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'type' => :'String',
-        :'group' => :'String'
+        :'group' => :'String',
+        :'options' => :'Array<String>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'group'
+        :'group',
       ])
     end
 
@@ -113,6 +119,12 @@ module Dropbox::Sign
       if attributes.key?(:'group')
         self.group = attributes[:'group']
       end
+
+      if attributes.key?(:'options')
+        if (value = attributes[:'options']).is_a?(Array)
+          self.options = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -149,7 +161,8 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           type == o.type &&
-          group == o.group && super(o)
+          group == o.group &&
+          options == o.options && super(o)
     end
 
     # @see the `==` method
@@ -161,7 +174,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, group].hash
+      [type, group, options].hash
     end
 
     # Builds the object from hash
