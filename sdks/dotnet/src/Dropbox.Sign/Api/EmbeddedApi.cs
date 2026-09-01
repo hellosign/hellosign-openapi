@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedEditUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
@@ -46,6 +47,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedEditUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
@@ -58,6 +60,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedSignUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -70,6 +73,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedSignUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -90,6 +94,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedEditUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
@@ -104,6 +109,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedEditUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
@@ -117,6 +123,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedSignUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -130,6 +137,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedSignUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -259,6 +267,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedEditUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
@@ -273,6 +282,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedEditUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
@@ -358,6 +368,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedEditUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
@@ -373,6 +384,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedEditUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
@@ -461,6 +473,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedSignUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -474,6 +487,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedSignUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -543,6 +557,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedSignUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -557,6 +572,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/EmbeddedSignUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

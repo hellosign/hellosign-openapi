@@ -55,6 +55,7 @@ public class AccountApi {
   /**
    * Create Account
    * Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountCreateExample.java
    * @param accountCreateRequest  (required)
    * @return AccountCreateResponse
    * @throws ApiException if fails to make API call
@@ -74,6 +75,7 @@ public class AccountApi {
   /**
    * Create Account
    * Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountCreateExample.java
    * @param accountCreateRequest  (required)
    * @return ApiResponse&lt;AccountCreateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -118,6 +120,7 @@ public class AccountApi {
   /**
    * Get Account
    * Returns the properties and settings of your Account.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountGetExample.java
    * @param accountId &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
    * @param emailAddress &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
    * @return AccountGetResponse
@@ -177,6 +180,7 @@ public class AccountApi {
   /**
    * Get Account
    * Returns the properties and settings of your Account.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountGetExample.java
    * @param accountId &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
    * @param emailAddress &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
    * @return ApiResponse&lt;AccountGetResponse&gt;
@@ -223,6 +227,7 @@ public class AccountApi {
   /**
    * Update Account
    * Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountUpdateExample.java
    * @param accountUpdateRequest  (required)
    * @return AccountGetResponse
    * @throws ApiException if fails to make API call
@@ -242,6 +247,7 @@ public class AccountApi {
   /**
    * Update Account
    * Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountUpdateExample.java
    * @param accountUpdateRequest  (required)
    * @return ApiResponse&lt;AccountGetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -286,6 +292,7 @@ public class AccountApi {
   /**
    * Verify Account
    * Verifies whether an Dropbox Sign Account exists for the given email address.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountVerifyExample.java
    * @param accountVerifyRequest  (required)
    * @return AccountVerifyResponse
    * @throws ApiException if fails to make API call
@@ -305,6 +312,7 @@ public class AccountApi {
   /**
    * Verify Account
    * Verifies whether an Dropbox Sign Account exists for the given email address.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountVerifyExample.java
    * @param accountVerifyRequest  (required)
    * @return ApiResponse&lt;AccountVerifyResponse&gt;
    * @throws ApiException if fails to make API call

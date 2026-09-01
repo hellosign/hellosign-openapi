@@ -151,6 +151,8 @@ class FaxLineApi
      *
      * Add Fax Line User
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAddUserExample.php
+     *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request fax_line_add_user_request (required)
      *
      * @return Model\FaxLineResponse
@@ -167,6 +169,8 @@ class FaxLineApi
      * Operation faxLineAddUserWithHttpInfo
      *
      * Add Fax Line User
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAddUserExample.php
      *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
      * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
@@ -305,6 +309,8 @@ class FaxLineApi
      *
      * Add Fax Line User
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAddUserExample.php
+     *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
      * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
@@ -326,6 +332,8 @@ class FaxLineApi
      * Operation faxLineAddUserAsyncWithHttpInfo
      *
      * Add Fax Line User
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAddUserExample.php
      *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
      * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
@@ -486,6 +494,8 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAreaCodeGetExample.php
+     *
      * @param string      $country  Filter area codes by country (required)
      * @param string|null $state    Filter area codes by state (optional)
      * @param string|null $province Filter area codes by province (optional)
@@ -505,6 +515,8 @@ class FaxLineApi
      * Operation faxLineAreaCodeGetWithHttpInfo
      *
      * Get Available Fax Line Area Codes
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAreaCodeGetExample.php
      *
      * @param string      $country     Filter area codes by country (required)
      * @param string|null $state       Filter area codes by state (optional)
@@ -646,6 +658,8 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAreaCodeGetExample.php
+     *
      * @param string      $country     Filter area codes by country (required)
      * @param string|null $state       Filter area codes by state (optional)
      * @param string|null $province    Filter area codes by province (optional)
@@ -670,6 +684,8 @@ class FaxLineApi
      * Operation faxLineAreaCodeGetAsyncWithHttpInfo
      *
      * Get Available Fax Line Area Codes
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAreaCodeGetExample.php
      *
      * @param string      $country     Filter area codes by country (required)
      * @param string|null $state       Filter area codes by state (optional)
@@ -857,6 +873,8 @@ class FaxLineApi
      *
      * Purchase Fax Line
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineCreateExample.php
+     *
      * @param Model\FaxLineCreateRequest $fax_line_create_request fax_line_create_request (required)
      *
      * @return Model\FaxLineResponse
@@ -873,6 +891,8 @@ class FaxLineApi
      * Operation faxLineCreateWithHttpInfo
      *
      * Purchase Fax Line
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineCreateExample.php
      *
      * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
@@ -1011,6 +1031,8 @@ class FaxLineApi
      *
      * Purchase Fax Line
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineCreateExample.php
+     *
      * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
@@ -1032,6 +1054,8 @@ class FaxLineApi
      * Operation faxLineCreateAsyncWithHttpInfo
      *
      * Purchase Fax Line
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineCreateExample.php
      *
      * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
@@ -1192,6 +1216,8 @@ class FaxLineApi
      *
      * Delete Fax Line
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineDeleteExample.php
+     *
      * @param Model\FaxLineDeleteRequest $fax_line_delete_request fax_line_delete_request (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1206,6 +1232,8 @@ class FaxLineApi
      * Operation faxLineDeleteWithHttpInfo
      *
      * Delete Fax Line
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineDeleteExample.php
      *
      * @param Model\FaxLineDeleteRequest $fax_line_delete_request (required)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
@@ -1258,6 +1286,8 @@ class FaxLineApi
      *
      * Delete Fax Line
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineDeleteExample.php
+     *
      * @param Model\FaxLineDeleteRequest $fax_line_delete_request (required)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
      *
@@ -1279,6 +1309,8 @@ class FaxLineApi
      * Operation faxLineDeleteAsyncWithHttpInfo
      *
      * Delete Fax Line
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineDeleteExample.php
      *
      * @param Model\FaxLineDeleteRequest $fax_line_delete_request (required)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineDelete'] to see the possible values for this operation
@@ -1426,6 +1458,8 @@ class FaxLineApi
      *
      * Get Fax Line
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineGetExample.php
+     *
      * @param string $number The Fax Line number (required)
      *
      * @return Model\FaxLineResponse
@@ -1442,6 +1476,8 @@ class FaxLineApi
      * Operation faxLineGetWithHttpInfo
      *
      * Get Fax Line
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineGetExample.php
      *
      * @param string $number      The Fax Line number (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
@@ -1580,6 +1616,8 @@ class FaxLineApi
      *
      * Get Fax Line
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineGetExample.php
+     *
      * @param string $number      The Fax Line number (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
@@ -1601,6 +1639,8 @@ class FaxLineApi
      * Operation faxLineGetAsyncWithHttpInfo
      *
      * Get Fax Line
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineGetExample.php
      *
      * @param string $number      The Fax Line number (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
@@ -1755,6 +1795,8 @@ class FaxLineApi
      *
      * List Fax Lines
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineListExample.php
+     *
      * @param string|null $account_id      Account ID (optional)
      * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -1774,6 +1816,8 @@ class FaxLineApi
      * Operation faxLineListWithHttpInfo
      *
      * List Fax Lines
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineListExample.php
      *
      * @param string|null $account_id      Account ID (optional)
      * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -1915,6 +1959,8 @@ class FaxLineApi
      *
      * List Fax Lines
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineListExample.php
+     *
      * @param string|null $account_id      Account ID (optional)
      * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -1939,6 +1985,8 @@ class FaxLineApi
      * Operation faxLineListAsyncWithHttpInfo
      *
      * List Fax Lines
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineListExample.php
      *
      * @param string|null $account_id      Account ID (optional)
      * @param int|null    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -2119,6 +2167,8 @@ class FaxLineApi
      *
      * Remove Fax Line Access
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineRemoveUserExample.php
+     *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request fax_line_remove_user_request (required)
      *
      * @return Model\FaxLineResponse
@@ -2135,6 +2185,8 @@ class FaxLineApi
      * Operation faxLineRemoveUserWithHttpInfo
      *
      * Remove Fax Line Access
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineRemoveUserExample.php
      *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
      * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
@@ -2273,6 +2325,8 @@ class FaxLineApi
      *
      * Remove Fax Line Access
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineRemoveUserExample.php
+     *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
      * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
@@ -2294,6 +2348,8 @@ class FaxLineApi
      * Operation faxLineRemoveUserAsyncWithHttpInfo
      *
      * Remove Fax Line Access
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineRemoveUserExample.php
      *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
      * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation

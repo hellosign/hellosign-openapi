@@ -123,6 +123,7 @@ export class AccountApi {
   /**
    * Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
    * @summary Create Account
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountCreateExample.ts
    * @param accountCreateRequest
    * @param options
    */
@@ -268,6 +269,7 @@ export class AccountApi {
   /**
    * Returns the properties and settings of your Account.
    * @summary Get Account
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountGetExample.ts
    * @param accountId &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account.
    * @param emailAddress &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account.
    * @param options
@@ -394,6 +396,7 @@ export class AccountApi {
   /**
    * Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
    * @summary Update Account
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountUpdateExample.ts
    * @param accountUpdateRequest
    * @param options
    */
@@ -537,6 +540,7 @@ export class AccountApi {
   /**
    * Verifies whether an Dropbox Sign Account exists for the given email address.
    * @summary Verify Account
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountVerifyExample.ts
    * @param accountVerifyRequest
    * @param options
    */

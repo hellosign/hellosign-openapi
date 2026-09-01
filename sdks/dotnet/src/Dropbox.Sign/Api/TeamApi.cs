@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamAddMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
@@ -46,6 +47,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamAddMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
@@ -58,6 +60,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -70,6 +73,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -81,6 +85,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
@@ -92,6 +97,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -102,6 +108,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
@@ -113,6 +120,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
@@ -123,6 +131,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides information about a team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInfoExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -135,6 +144,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides information about a team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInfoExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -146,6 +156,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a list of team invites (and their roles).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInvitesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailAddress">The email address for which to display the team invites. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -158,6 +169,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a list of team invites (and their roles).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInvitesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailAddress">The email address for which to display the team invites. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -169,6 +181,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a paginated list of members (and their roles) that belong to a given team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamMembersExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team that a member list is being requested from.</param>
         /// <param name="page">Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -183,6 +196,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a paginated list of members (and their roles) that belong to a given team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamMembersExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team that a member list is being requested from.</param>
         /// <param name="page">Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -196,6 +210,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -208,6 +223,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -219,6 +235,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a paginated list of sub teams that belong to a given team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSubTeamsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the parent Team.</param>
         /// <param name="page">Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -233,6 +250,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a paginated list of sub teams that belong to a given team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSubTeamsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the parent Team.</param>
         /// <param name="page">Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -246,6 +264,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates the name of your Team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -258,6 +277,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates the name of your Team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -278,6 +298,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamAddMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
@@ -292,6 +313,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamAddMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
@@ -305,6 +327,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -318,6 +341,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -330,6 +354,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -342,6 +367,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -353,6 +379,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -365,6 +392,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -376,6 +404,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides information about a team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInfoExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -389,6 +418,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides information about a team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInfoExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -401,6 +431,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a list of team invites (and their roles).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInvitesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailAddress">The email address for which to display the team invites. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -414,6 +445,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a list of team invites (and their roles).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInvitesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailAddress">The email address for which to display the team invites. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -426,6 +458,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a paginated list of members (and their roles) that belong to a given team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamMembersExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team that a member list is being requested from.</param>
         /// <param name="page">Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -441,6 +474,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a paginated list of members (and their roles) that belong to a given team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamMembersExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team that a member list is being requested from.</param>
         /// <param name="page">Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -455,6 +489,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -468,6 +503,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -480,6 +516,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a paginated list of sub teams that belong to a given team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSubTeamsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the parent Team.</param>
         /// <param name="page">Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -495,6 +532,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Provides a paginated list of sub teams that belong to a given team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSubTeamsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the parent Team.</param>
         /// <param name="page">Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -509,6 +547,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates the name of your Team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -522,6 +561,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates the name of your Team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -651,6 +691,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add User to Team Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamAddMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
@@ -665,6 +706,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add User to Team Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamAddMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
@@ -747,6 +789,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add User to Team Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamAddMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
@@ -762,6 +805,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add User to Team Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamAddMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
@@ -847,6 +891,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Team Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -860,6 +905,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Team Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -937,6 +983,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Team Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -951,6 +998,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Team Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1031,6 +1079,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Team Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
@@ -1042,6 +1091,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Team Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -1103,6 +1153,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Team Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1115,6 +1166,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Team Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1179,6 +1231,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Team Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
@@ -1191,6 +1244,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Team Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
@@ -1252,6 +1306,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Team Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1265,6 +1320,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Team Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1329,6 +1385,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Team Info Provides information about a team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInfoExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1342,6 +1399,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Team Info Provides information about a team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInfoExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1408,6 +1466,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Team Info Provides information about a team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInfoExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1422,6 +1481,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Team Info Provides information about a team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInfoExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1491,6 +1551,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Team Invites Provides a list of team invites (and their roles).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInvitesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailAddress">The email address for which to display the team invites. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1504,6 +1565,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Team Invites Provides a list of team invites (and their roles).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInvitesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailAddress">The email address for which to display the team invites. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1570,6 +1632,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Team Invites Provides a list of team invites (and their roles).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInvitesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailAddress">The email address for which to display the team invites. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1584,6 +1647,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Team Invites Provides a list of team invites (and their roles).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamInvitesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailAddress">The email address for which to display the team invites. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1653,6 +1717,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Team Members Provides a paginated list of members (and their roles) that belong to a given team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamMembersExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team that a member list is being requested from.</param>
         /// <param name="page">Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -1668,6 +1733,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Team Members Provides a paginated list of members (and their roles) that belong to a given team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamMembersExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team that a member list is being requested from.</param>
         /// <param name="page">Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -1747,6 +1813,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Team Members Provides a paginated list of members (and their roles) that belong to a given team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamMembersExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team that a member list is being requested from.</param>
         /// <param name="page">Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -1763,6 +1830,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Team Members Provides a paginated list of members (and their roles) that belong to a given team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamMembersExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the team that a member list is being requested from.</param>
         /// <param name="page">Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -1845,6 +1913,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove User from Team Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1858,6 +1927,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove User from Team Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1935,6 +2005,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove User from Team Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1949,6 +2020,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove User from Team Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2029,6 +2101,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Sub Teams Provides a paginated list of sub teams that belong to a given team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSubTeamsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the parent Team.</param>
         /// <param name="page">Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -2044,6 +2117,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Sub Teams Provides a paginated list of sub teams that belong to a given team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSubTeamsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the parent Team.</param>
         /// <param name="page">Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -2123,6 +2197,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Sub Teams Provides a paginated list of sub teams that belong to a given team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSubTeamsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the parent Team.</param>
         /// <param name="page">Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -2139,6 +2214,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Sub Teams Provides a paginated list of sub teams that belong to a given team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSubTeamsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamId">The id of the parent Team.</param>
         /// <param name="page">Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -2221,6 +2297,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Team Updates the name of your Team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2234,6 +2311,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Team Updates the name of your Team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2311,6 +2389,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Team Updates the name of your Team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2325,6 +2404,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Team Updates the name of your Team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>

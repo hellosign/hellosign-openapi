@@ -133,6 +133,8 @@ class ReportApi
      *
      * Create Report
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ReportCreateExample.php
+     *
      * @param Model\ReportCreateRequest $report_create_request report_create_request (required)
      *
      * @return Model\ReportCreateResponse
@@ -149,6 +151,8 @@ class ReportApi
      * Operation reportCreateWithHttpInfo
      *
      * Create Report
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ReportCreateExample.php
      *
      * @param Model\ReportCreateRequest $report_create_request (required)
      * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
@@ -287,6 +291,8 @@ class ReportApi
      *
      * Create Report
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ReportCreateExample.php
+     *
      * @param Model\ReportCreateRequest $report_create_request (required)
      * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
@@ -308,6 +314,8 @@ class ReportApi
      * Operation reportCreateAsyncWithHttpInfo
      *
      * Create Report
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ReportCreateExample.php
      *
      * @param Model\ReportCreateRequest $report_create_request (required)
      * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation

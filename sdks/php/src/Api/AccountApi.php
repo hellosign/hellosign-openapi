@@ -142,6 +142,8 @@ class AccountApi
      *
      * Create Account
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountCreateExample.php
+     *
      * @param Model\AccountCreateRequest $account_create_request account_create_request (required)
      *
      * @return Model\AccountCreateResponse
@@ -158,6 +160,8 @@ class AccountApi
      * Operation accountCreateWithHttpInfo
      *
      * Create Account
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountCreateExample.php
      *
      * @param Model\AccountCreateRequest $account_create_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
@@ -296,6 +300,8 @@ class AccountApi
      *
      * Create Account
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountCreateExample.php
+     *
      * @param Model\AccountCreateRequest $account_create_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
@@ -317,6 +323,8 @@ class AccountApi
      * Operation accountCreateAsyncWithHttpInfo
      *
      * Create Account
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountCreateExample.php
      *
      * @param Model\AccountCreateRequest $account_create_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
@@ -481,6 +489,8 @@ class AccountApi
      *
      * Get Account
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountGetExample.php
+     *
      * @param string|null $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
      * @param string|null $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
      *
@@ -498,6 +508,8 @@ class AccountApi
      * Operation accountGetWithHttpInfo
      *
      * Get Account
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountGetExample.php
      *
      * @param string|null $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
      * @param string|null $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
@@ -637,6 +649,8 @@ class AccountApi
      *
      * Get Account
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountGetExample.php
+     *
      * @param string|null $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
      * @param string|null $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
      * @param string      $contentType   The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
@@ -659,6 +673,8 @@ class AccountApi
      * Operation accountGetAsyncWithHttpInfo
      *
      * Get Account
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountGetExample.php
      *
      * @param string|null $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
      * @param string|null $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
@@ -821,6 +837,8 @@ class AccountApi
      *
      * Update Account
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountUpdateExample.php
+     *
      * @param Model\AccountUpdateRequest $account_update_request account_update_request (required)
      *
      * @return Model\AccountGetResponse
@@ -837,6 +855,8 @@ class AccountApi
      * Operation accountUpdateWithHttpInfo
      *
      * Update Account
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountUpdateExample.php
      *
      * @param Model\AccountUpdateRequest $account_update_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
@@ -975,6 +995,8 @@ class AccountApi
      *
      * Update Account
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountUpdateExample.php
+     *
      * @param Model\AccountUpdateRequest $account_update_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
@@ -996,6 +1018,8 @@ class AccountApi
      * Operation accountUpdateAsyncWithHttpInfo
      *
      * Update Account
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountUpdateExample.php
      *
      * @param Model\AccountUpdateRequest $account_update_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
@@ -1160,6 +1184,8 @@ class AccountApi
      *
      * Verify Account
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountVerifyExample.php
+     *
      * @param Model\AccountVerifyRequest $account_verify_request account_verify_request (required)
      *
      * @return Model\AccountVerifyResponse
@@ -1176,6 +1202,8 @@ class AccountApi
      * Operation accountVerifyWithHttpInfo
      *
      * Verify Account
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountVerifyExample.php
      *
      * @param Model\AccountVerifyRequest $account_verify_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
@@ -1314,6 +1342,8 @@ class AccountApi
      *
      * Verify Account
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountVerifyExample.php
+     *
      * @param Model\AccountVerifyRequest $account_verify_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
@@ -1335,6 +1365,8 @@ class AccountApi
      * Operation accountVerifyAsyncWithHttpInfo
      *
      * Verify Account
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountVerifyExample.php
      *
      * @param Model\AccountVerifyRequest $account_verify_request (required)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation

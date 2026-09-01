@@ -145,6 +145,8 @@ class UnclaimedDraftApi
      *
      * Create Unclaimed Draft
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateExample.php
+     *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request unclaimed_draft_create_request (required)
      *
      * @return Model\UnclaimedDraftCreateResponse
@@ -161,6 +163,8 @@ class UnclaimedDraftApi
      * Operation unclaimedDraftCreateWithHttpInfo
      *
      * Create Unclaimed Draft
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateExample.php
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
@@ -299,6 +303,8 @@ class UnclaimedDraftApi
      *
      * Create Unclaimed Draft
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateExample.php
+     *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
@@ -320,6 +326,8 @@ class UnclaimedDraftApi
      * Operation unclaimedDraftCreateAsyncWithHttpInfo
      *
      * Create Unclaimed Draft
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateExample.php
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
@@ -484,6 +492,8 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.php
+     *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request unclaimed_draft_create_embedded_request (required)
      *
      * @return Model\UnclaimedDraftCreateResponse
@@ -500,6 +510,8 @@ class UnclaimedDraftApi
      * Operation unclaimedDraftCreateEmbeddedWithHttpInfo
      *
      * Create Embedded Unclaimed Draft
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
@@ -638,6 +650,8 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.php
+     *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
@@ -659,6 +673,8 @@ class UnclaimedDraftApi
      * Operation unclaimedDraftCreateEmbeddedAsyncWithHttpInfo
      *
      * Create Embedded Unclaimed Draft
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
@@ -823,6 +839,8 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
+     *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request unclaimed_draft_create_embedded_with_template_request (required)
      *
      * @return Model\UnclaimedDraftCreateResponse
@@ -839,6 +857,8 @@ class UnclaimedDraftApi
      * Operation unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo
      *
      * Create Embedded Unclaimed Draft with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
@@ -977,6 +997,8 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
+     *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
@@ -998,6 +1020,8 @@ class UnclaimedDraftApi
      * Operation unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo
      *
      * Create Embedded Unclaimed Draft with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
@@ -1162,6 +1186,8 @@ class UnclaimedDraftApi
      *
      * Edit and Resend Unclaimed Draft
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftEditAndResendExample.php
+     *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request unclaimed_draft_edit_and_resend_request (required)
      *
@@ -1179,6 +1205,8 @@ class UnclaimedDraftApi
      * Operation unclaimedDraftEditAndResendWithHttpInfo
      *
      * Edit and Resend Unclaimed Draft
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftEditAndResendExample.php
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
@@ -1318,6 +1346,8 @@ class UnclaimedDraftApi
      *
      * Edit and Resend Unclaimed Draft
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftEditAndResendExample.php
+     *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
      * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
@@ -1340,6 +1370,8 @@ class UnclaimedDraftApi
      * Operation unclaimedDraftEditAndResendAsyncWithHttpInfo
      *
      * Edit and Resend Unclaimed Draft
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftEditAndResendExample.php
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)

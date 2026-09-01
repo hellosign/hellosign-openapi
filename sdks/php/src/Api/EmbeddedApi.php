@@ -136,6 +136,8 @@ class EmbeddedApi
      *
      * Get Embedded Template Edit URL
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/EmbeddedEditUrlExample.php
+     *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request embedded_edit_url_request (required)
      *
@@ -153,6 +155,8 @@ class EmbeddedApi
      * Operation embeddedEditUrlWithHttpInfo
      *
      * Get Embedded Template Edit URL
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/EmbeddedEditUrlExample.php
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
@@ -292,6 +296,8 @@ class EmbeddedApi
      *
      * Get Embedded Template Edit URL
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/EmbeddedEditUrlExample.php
+     *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
@@ -314,6 +320,8 @@ class EmbeddedApi
      * Operation embeddedEditUrlAsyncWithHttpInfo
      *
      * Get Embedded Template Edit URL
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/EmbeddedEditUrlExample.php
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
@@ -496,6 +504,8 @@ class EmbeddedApi
      *
      * Get Embedded Sign URL
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/EmbeddedSignUrlExample.php
+     *
      * @param string $signature_id The id of the signature to get a signature url for. (required)
      *
      * @return Model\EmbeddedSignUrlResponse
@@ -512,6 +522,8 @@ class EmbeddedApi
      * Operation embeddedSignUrlWithHttpInfo
      *
      * Get Embedded Sign URL
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/EmbeddedSignUrlExample.php
      *
      * @param string $signature_id The id of the signature to get a signature url for. (required)
      * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
@@ -650,6 +662,8 @@ class EmbeddedApi
      *
      * Get Embedded Sign URL
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/EmbeddedSignUrlExample.php
+     *
      * @param string $signature_id The id of the signature to get a signature url for. (required)
      * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
      *
@@ -671,6 +685,8 @@ class EmbeddedApi
      * Operation embeddedSignUrlAsyncWithHttpInfo
      *
      * Get Embedded Sign URL
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/EmbeddedSignUrlExample.php
      *
      * @param string $signature_id The id of the signature to get a signature url for. (required)
      * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation

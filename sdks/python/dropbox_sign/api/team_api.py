@@ -71,6 +71,8 @@ class TeamApi:
 
         Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamAddMemberExample.py
+
         :param team_add_member_request: (required)
         :type team_add_member_request: TeamAddMemberRequest
         :param team_id: The id of the team.
@@ -110,6 +112,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -142,6 +145,8 @@ class TeamApi:
 
         Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamAddMemberExample.py
+
         :param team_add_member_request: (required)
         :type team_add_member_request: TeamAddMemberRequest
         :param team_id: The id of the team.
@@ -181,6 +186,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -213,6 +219,8 @@ class TeamApi:
 
         Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamAddMemberExample.py
+
         :param team_add_member_request: (required)
         :type team_add_member_request: TeamAddMemberRequest
         :param team_id: The id of the team.
@@ -252,6 +260,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -368,6 +377,8 @@ class TeamApi:
 
         Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamCreateExample.py
+
         :param team_create_request: (required)
         :type team_create_request: TeamCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -404,6 +415,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -433,6 +445,8 @@ class TeamApi:
 
         Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamCreateExample.py
+
         :param team_create_request: (required)
         :type team_create_request: TeamCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -469,6 +483,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -498,6 +513,8 @@ class TeamApi:
 
         Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamCreateExample.py
+
         :param team_create_request: (required)
         :type team_create_request: TeamCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -534,6 +551,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -644,6 +662,8 @@ class TeamApi:
 
         Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamDeleteExample.py
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -677,6 +697,7 @@ class TeamApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -705,6 +726,8 @@ class TeamApi:
 
         Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamDeleteExample.py
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -738,6 +761,7 @@ class TeamApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -766,6 +790,8 @@ class TeamApi:
 
         Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamDeleteExample.py
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -799,6 +825,7 @@ class TeamApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -874,6 +901,8 @@ class TeamApi:
 
         Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamGetExample.py
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -907,6 +936,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -935,6 +965,8 @@ class TeamApi:
 
         Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamGetExample.py
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -968,6 +1000,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -996,6 +1029,8 @@ class TeamApi:
 
         Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamGetExample.py
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1029,6 +1064,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1107,6 +1143,8 @@ class TeamApi:
 
         Provides information about a team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamInfoExample.py
+
         :param team_id: The id of the team.
         :type team_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1143,6 +1181,7 @@ class TeamApi:
             "200": "TeamGetInfoResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1174,6 +1213,8 @@ class TeamApi:
 
         Provides information about a team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamInfoExample.py
+
         :param team_id: The id of the team.
         :type team_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1210,6 +1251,7 @@ class TeamApi:
             "200": "TeamGetInfoResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1241,6 +1283,8 @@ class TeamApi:
 
         Provides information about a team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamInfoExample.py
+
         :param team_id: The id of the team.
         :type team_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1277,6 +1321,7 @@ class TeamApi:
             "200": "TeamGetInfoResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1363,6 +1408,8 @@ class TeamApi:
 
         Provides a list of team invites (and their roles).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamInvitesExample.py
+
         :param email_address: The email address for which to display the team invites.
         :type email_address: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1399,6 +1446,7 @@ class TeamApi:
             "200": "TeamInvitesResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1433,6 +1481,8 @@ class TeamApi:
 
         Provides a list of team invites (and their roles).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamInvitesExample.py
+
         :param email_address: The email address for which to display the team invites.
         :type email_address: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1469,6 +1519,7 @@ class TeamApi:
             "200": "TeamInvitesResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1503,6 +1554,8 @@ class TeamApi:
 
         Provides a list of team invites (and their roles).
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamInvitesExample.py
+
         :param email_address: The email address for which to display the team invites.
         :type email_address: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1539,6 +1592,7 @@ class TeamApi:
             "200": "TeamInvitesResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1637,6 +1691,8 @@ class TeamApi:
 
         Provides a paginated list of members (and their roles) that belong to a given team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamMembersExample.py
+
         :param team_id: The id of the team that a member list is being requested from. (required)
         :type team_id: str
         :param page: Which page number of the team member list to return. Defaults to `1`.
@@ -1679,6 +1735,7 @@ class TeamApi:
             "200": "TeamMembersResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1725,6 +1782,8 @@ class TeamApi:
 
         Provides a paginated list of members (and their roles) that belong to a given team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamMembersExample.py
+
         :param team_id: The id of the team that a member list is being requested from. (required)
         :type team_id: str
         :param page: Which page number of the team member list to return. Defaults to `1`.
@@ -1767,6 +1826,7 @@ class TeamApi:
             "200": "TeamMembersResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1813,6 +1873,8 @@ class TeamApi:
 
         Provides a paginated list of members (and their roles) that belong to a given team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamMembersExample.py
+
         :param team_id: The id of the team that a member list is being requested from. (required)
         :type team_id: str
         :param page: Which page number of the team member list to return. Defaults to `1`.
@@ -1855,6 +1917,7 @@ class TeamApi:
             "200": "TeamMembersResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1944,6 +2007,8 @@ class TeamApi:
 
         Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamRemoveMemberExample.py
+
         :param team_remove_member_request: (required)
         :type team_remove_member_request: TeamRemoveMemberRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1980,6 +2045,7 @@ class TeamApi:
             "201": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2009,6 +2075,8 @@ class TeamApi:
 
         Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamRemoveMemberExample.py
+
         :param team_remove_member_request: (required)
         :type team_remove_member_request: TeamRemoveMemberRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -2045,6 +2113,7 @@ class TeamApi:
             "201": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2074,6 +2143,8 @@ class TeamApi:
 
         Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamRemoveMemberExample.py
+
         :param team_remove_member_request: (required)
         :type team_remove_member_request: TeamRemoveMemberRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -2110,6 +2181,7 @@ class TeamApi:
             "201": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2233,6 +2305,8 @@ class TeamApi:
 
         Provides a paginated list of sub teams that belong to a given team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamSubTeamsExample.py
+
         :param team_id: The id of the parent Team. (required)
         :type team_id: str
         :param page: Which page number of the SubTeam List to return. Defaults to `1`.
@@ -2275,6 +2349,7 @@ class TeamApi:
             "200": "TeamSubTeamsResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2316,6 +2391,8 @@ class TeamApi:
 
         Provides a paginated list of sub teams that belong to a given team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamSubTeamsExample.py
+
         :param team_id: The id of the parent Team. (required)
         :type team_id: str
         :param page: Which page number of the SubTeam List to return. Defaults to `1`.
@@ -2358,6 +2435,7 @@ class TeamApi:
             "200": "TeamSubTeamsResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2399,6 +2477,8 @@ class TeamApi:
 
         Provides a paginated list of sub teams that belong to a given team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamSubTeamsExample.py
+
         :param team_id: The id of the parent Team. (required)
         :type team_id: str
         :param page: Which page number of the SubTeam List to return. Defaults to `1`.
@@ -2441,6 +2521,7 @@ class TeamApi:
             "200": "TeamSubTeamsResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2530,6 +2611,8 @@ class TeamApi:
 
         Updates the name of your Team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamUpdateExample.py
+
         :param team_update_request: (required)
         :type team_update_request: TeamUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -2566,6 +2649,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2595,6 +2679,8 @@ class TeamApi:
 
         Updates the name of your Team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamUpdateExample.py
+
         :param team_update_request: (required)
         :type team_update_request: TeamUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -2631,6 +2717,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2660,6 +2747,8 @@ class TeamApi:
 
         Updates the name of your Team.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/TeamUpdateExample.py
+
         :param team_update_request: (required)
         :type team_update_request: TeamUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -2696,6 +2785,7 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

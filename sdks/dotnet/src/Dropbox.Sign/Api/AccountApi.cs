@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -45,6 +46,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -56,6 +58,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of your Account.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
@@ -69,6 +72,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of your Account.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
@@ -81,6 +85,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -93,6 +98,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -104,6 +110,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Verifies whether an Dropbox Sign Account exists for the given email address.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -116,6 +123,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Verifies whether an Dropbox Sign Account exists for the given email address.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -136,6 +144,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -149,6 +158,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -161,6 +171,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of your Account.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
@@ -175,6 +186,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the properties and settings of your Account.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
@@ -188,6 +200,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -201,6 +214,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -213,6 +227,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Verifies whether an Dropbox Sign Account exists for the given email address.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -226,6 +241,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Verifies whether an Dropbox Sign Account exists for the given email address.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -355,6 +371,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Account Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -368,6 +385,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Account Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -445,6 +463,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Account Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -459,6 +478,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Account Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -539,6 +559,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Account Returns the properties and settings of your Account.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
@@ -553,6 +574,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Account Returns the properties and settings of your Account.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
@@ -624,6 +646,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Account Returns the properties and settings of your Account.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
@@ -639,6 +662,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Account Returns the properties and settings of your Account.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
@@ -713,6 +737,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Account Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -726,6 +751,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Account Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -803,6 +829,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Account Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -817,6 +844,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Account Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -897,6 +925,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Verify Account Verifies whether an Dropbox Sign Account exists for the given email address.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -910,6 +939,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Verify Account Verifies whether an Dropbox Sign Account exists for the given email address.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -987,6 +1017,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Verify Account Verifies whether an Dropbox Sign Account exists for the given email address.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1001,6 +1032,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Verify Account Verifies whether an Dropbox Sign Account exists for the given email address.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>

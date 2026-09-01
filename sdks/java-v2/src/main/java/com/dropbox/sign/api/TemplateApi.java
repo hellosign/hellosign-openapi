@@ -62,6 +62,7 @@ public class TemplateApi {
   /**
    * Add User to Template
    * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateAddUserExample.java
    * @param templateId The id of the Template to give the Account access to. (required)
    * @param templateAddUserRequest  (required)
    * @return TemplateGetResponse
@@ -82,6 +83,7 @@ public class TemplateApi {
   /**
    * Add User to Template
    * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateAddUserExample.java
    * @param templateId The id of the Template to give the Account access to. (required)
    * @param templateAddUserRequest  (required)
    * @return ApiResponse&lt;TemplateGetResponse&gt;
@@ -134,6 +136,7 @@ public class TemplateApi {
   /**
    * Create Template
    * Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateCreateExample.java
    * @param templateCreateRequest  (required)
    * @return TemplateCreateResponse
    * @throws ApiException if fails to make API call
@@ -153,6 +156,7 @@ public class TemplateApi {
   /**
    * Create Template
    * Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateCreateExample.java
    * @param templateCreateRequest  (required)
    * @return ApiResponse&lt;TemplateCreateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -197,6 +201,7 @@ public class TemplateApi {
   /**
    * Create Embedded Template Draft
    * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateCreateEmbeddedDraftExample.java
    * @param templateCreateEmbeddedDraftRequest  (required)
    * @return TemplateCreateEmbeddedDraftResponse
    * @throws ApiException if fails to make API call
@@ -216,6 +221,7 @@ public class TemplateApi {
   /**
    * Create Embedded Template Draft
    * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateCreateEmbeddedDraftExample.java
    * @param templateCreateEmbeddedDraftRequest  (required)
    * @return ApiResponse&lt;TemplateCreateEmbeddedDraftResponse&gt;
    * @throws ApiException if fails to make API call
@@ -260,6 +266,7 @@ public class TemplateApi {
   /**
    * Delete Template
    * Completely deletes the template specified from the account.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateDeleteExample.java
    * @param templateId The id of the Template to delete. (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -278,6 +285,7 @@ public class TemplateApi {
   /**
    * Delete Template
    * Completely deletes the template specified from the account.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateDeleteExample.java
    * @param templateId The id of the Template to delete. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -325,6 +333,7 @@ public class TemplateApi {
   /**
    * Get Template Files
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateFilesExample.java
    * @param templateId The id of the template files to retrieve. (required)
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
    * @return File
@@ -364,6 +373,7 @@ public class TemplateApi {
   /**
    * Get Template Files
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateFilesExample.java
    * @param templateId The id of the template files to retrieve. (required)
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
    * @return ApiResponse&lt;File&gt;
@@ -418,6 +428,7 @@ public class TemplateApi {
   /**
    * Get Template Files as Data Uri
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateFilesAsDataUriExample.java
    * @param templateId The id of the template files to retrieve. (required)
    * @return FileResponseDataUri
    * @throws ApiException if fails to make API call
@@ -437,6 +448,7 @@ public class TemplateApi {
   /**
    * Get Template Files as Data Uri
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateFilesAsDataUriExample.java
    * @param templateId The id of the template files to retrieve. (required)
    * @return ApiResponse&lt;FileResponseDataUri&gt;
    * @throws ApiException if fails to make API call
@@ -485,6 +497,7 @@ public class TemplateApi {
   /**
    * Get Template Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateFilesAsFileUrlExample.java
    * @param templateId The id of the template files to retrieve. (required)
    * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return FileResponse
@@ -524,6 +537,7 @@ public class TemplateApi {
   /**
    * Get Template Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateFilesAsFileUrlExample.java
    * @param templateId The id of the template files to retrieve. (required)
    * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return ApiResponse&lt;FileResponse&gt;
@@ -581,6 +595,7 @@ public class TemplateApi {
   /**
    * Get Template
    * Returns the Template specified by the &#x60;template_id&#x60; parameter.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateGetExample.java
    * @param templateId The id of the Template to retrieve. (required)
    * @return TemplateGetResponse
    * @throws ApiException if fails to make API call
@@ -600,6 +615,7 @@ public class TemplateApi {
   /**
    * Get Template
    * Returns the Template specified by the &#x60;template_id&#x60; parameter.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateGetExample.java
    * @param templateId The id of the Template to retrieve. (required)
    * @return ApiResponse&lt;TemplateGetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -648,6 +664,7 @@ public class TemplateApi {
   /**
    * List Templates
    * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateListExample.java
    * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
    * @param page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -755,6 +772,7 @@ public class TemplateApi {
   /**
    * List Templates
    * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateListExample.java
    * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
    * @param page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -811,6 +829,7 @@ public class TemplateApi {
   /**
    * Remove User from Template
    * Removes the specified Account&#39;s access to the specified Template.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateRemoveUserExample.java
    * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
    * @param templateRemoveUserRequest  (required)
    * @return TemplateGetResponse
@@ -831,6 +850,7 @@ public class TemplateApi {
   /**
    * Remove User from Template
    * Removes the specified Account&#39;s access to the specified Template.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateRemoveUserExample.java
    * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
    * @param templateRemoveUserRequest  (required)
    * @return ApiResponse&lt;TemplateGetResponse&gt;
@@ -883,6 +903,7 @@ public class TemplateApi {
   /**
    * Update Template Files
    * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateUpdateFilesExample.java
    * @param templateId The ID of the template whose files to update. (required)
    * @param templateUpdateFilesRequest  (required)
    * @return TemplateUpdateFilesResponse
@@ -903,6 +924,7 @@ public class TemplateApi {
   /**
    * Update Template Files
    * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateUpdateFilesExample.java
    * @param templateId The ID of the template whose files to update. (required)
    * @param templateUpdateFilesRequest  (required)
    * @return ApiResponse&lt;TemplateUpdateFilesResponse&gt;

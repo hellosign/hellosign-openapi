@@ -201,6 +201,8 @@ class SignatureRequestApi
      *
      * Embedded Bulk Send with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
+     *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request signature_request_bulk_create_embedded_with_template_request (required)
      *
      * @return Model\BulkSendJobSendResponse
@@ -217,6 +219,8 @@ class SignatureRequestApi
      * Operation signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo
      *
      * Embedded Bulk Send with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
      * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
@@ -355,6 +359,8 @@ class SignatureRequestApi
      *
      * Embedded Bulk Send with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
+     *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
      * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
@@ -376,6 +382,8 @@ class SignatureRequestApi
      * Operation signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo
      *
      * Embedded Bulk Send with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
      * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
@@ -536,6 +544,8 @@ class SignatureRequestApi
      *
      * Bulk Send with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.php
+     *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request signature_request_bulk_send_with_template_request (required)
      *
      * @return Model\BulkSendJobSendResponse
@@ -552,6 +562,8 @@ class SignatureRequestApi
      * Operation signatureRequestBulkSendWithTemplateWithHttpInfo
      *
      * Bulk Send with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
      * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
@@ -690,6 +702,8 @@ class SignatureRequestApi
      *
      * Bulk Send with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.php
+     *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
      * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
@@ -711,6 +725,8 @@ class SignatureRequestApi
      * Operation signatureRequestBulkSendWithTemplateAsyncWithHttpInfo
      *
      * Bulk Send with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
      * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
@@ -875,6 +891,8 @@ class SignatureRequestApi
      *
      * Cancel Incomplete Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCancelExample.php
+     *
      * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -889,6 +907,8 @@ class SignatureRequestApi
      * Operation signatureRequestCancelWithHttpInfo
      *
      * Cancel Incomplete Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCancelExample.php
      *
      * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
@@ -941,6 +961,8 @@ class SignatureRequestApi
      *
      * Cancel Incomplete Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCancelExample.php
+     *
      * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
@@ -962,6 +984,8 @@ class SignatureRequestApi
      * Operation signatureRequestCancelAsyncWithHttpInfo
      *
      * Cancel Incomplete Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCancelExample.php
      *
      * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
@@ -1106,6 +1130,8 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedExample.php
+     *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request signature_request_create_embedded_request (required)
      *
      * @return Model\SignatureRequestGetResponse
@@ -1122,6 +1148,8 @@ class SignatureRequestApi
      * Operation signatureRequestCreateEmbeddedWithHttpInfo
      *
      * Create Embedded Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
      * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
@@ -1260,6 +1288,8 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedExample.php
+     *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
      * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
@@ -1281,6 +1311,8 @@ class SignatureRequestApi
      * Operation signatureRequestCreateEmbeddedAsyncWithHttpInfo
      *
      * Create Embedded Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
      * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
@@ -1445,6 +1477,8 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
+     *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request signature_request_create_embedded_with_template_request (required)
      *
      * @return Model\SignatureRequestGetResponse
@@ -1461,6 +1495,8 @@ class SignatureRequestApi
      * Operation signatureRequestCreateEmbeddedWithTemplateWithHttpInfo
      *
      * Create Embedded Signature Request with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
      * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
@@ -1599,6 +1635,8 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
+     *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
      * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
@@ -1620,6 +1658,8 @@ class SignatureRequestApi
      * Operation signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo
      *
      * Create Embedded Signature Request with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
      * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
@@ -1784,6 +1824,8 @@ class SignatureRequestApi
      *
      * Edit Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditExample.php
+     *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request signature_request_edit_request (required)
      *
@@ -1801,6 +1843,8 @@ class SignatureRequestApi
      * Operation signatureRequestEditWithHttpInfo
      *
      * Edit Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditExample.php
      *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
@@ -1940,6 +1984,8 @@ class SignatureRequestApi
      *
      * Edit Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditExample.php
+     *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
@@ -1962,6 +2008,8 @@ class SignatureRequestApi
      * Operation signatureRequestEditAsyncWithHttpInfo
      *
      * Edit Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditExample.php
      *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
@@ -2144,6 +2192,8 @@ class SignatureRequestApi
      *
      * Edit Embedded Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditEmbeddedExample.php
+     *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request signature_request_edit_embedded_request (required)
      *
@@ -2161,6 +2211,8 @@ class SignatureRequestApi
      * Operation signatureRequestEditEmbeddedWithHttpInfo
      *
      * Edit Embedded Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditEmbeddedExample.php
      *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
@@ -2300,6 +2352,8 @@ class SignatureRequestApi
      *
      * Edit Embedded Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditEmbeddedExample.php
+     *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
@@ -2322,6 +2376,8 @@ class SignatureRequestApi
      * Operation signatureRequestEditEmbeddedAsyncWithHttpInfo
      *
      * Edit Embedded Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditEmbeddedExample.php
      *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
@@ -2504,6 +2560,8 @@ class SignatureRequestApi
      *
      * Edit Embedded Signature Request with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditEmbeddedWithTemplateExample.php
+     *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request signature_request_edit_embedded_with_template_request (required)
      *
@@ -2521,6 +2579,8 @@ class SignatureRequestApi
      * Operation signatureRequestEditEmbeddedWithTemplateWithHttpInfo
      *
      * Edit Embedded Signature Request with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditEmbeddedWithTemplateExample.php
      *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
@@ -2660,6 +2720,8 @@ class SignatureRequestApi
      *
      * Edit Embedded Signature Request with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditEmbeddedWithTemplateExample.php
+     *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
@@ -2682,6 +2744,8 @@ class SignatureRequestApi
      * Operation signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo
      *
      * Edit Embedded Signature Request with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditEmbeddedWithTemplateExample.php
      *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
@@ -2864,6 +2928,8 @@ class SignatureRequestApi
      *
      * Edit Signature Request With Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditWithTemplateExample.php
+     *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request signature_request_edit_with_template_request (required)
      *
@@ -2881,6 +2947,8 @@ class SignatureRequestApi
      * Operation signatureRequestEditWithTemplateWithHttpInfo
      *
      * Edit Signature Request With Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditWithTemplateExample.php
      *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
@@ -3020,6 +3088,8 @@ class SignatureRequestApi
      *
      * Edit Signature Request With Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditWithTemplateExample.php
+     *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
@@ -3042,6 +3112,8 @@ class SignatureRequestApi
      * Operation signatureRequestEditWithTemplateAsyncWithHttpInfo
      *
      * Edit Signature Request With Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestEditWithTemplateExample.php
      *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
@@ -3224,6 +3296,8 @@ class SignatureRequestApi
      *
      * Download Files
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesExample.php
+     *
      * @param string      $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string|null $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
      *
@@ -3241,6 +3315,8 @@ class SignatureRequestApi
      * Operation signatureRequestFilesWithHttpInfo
      *
      * Download Files
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesExample.php
      *
      * @param string      $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string|null $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
@@ -3380,6 +3456,8 @@ class SignatureRequestApi
      *
      * Download Files
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesExample.php
+     *
      * @param string      $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string|null $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
      * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
@@ -3402,6 +3480,8 @@ class SignatureRequestApi
      * Operation signatureRequestFilesAsyncWithHttpInfo
      *
      * Download Files
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesExample.php
      *
      * @param string      $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string|null $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
@@ -3571,6 +3651,8 @@ class SignatureRequestApi
      *
      * Download Files as Data Uri
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesAsDataUriExample.php
+     *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      *
      * @return Model\FileResponseDataUri
@@ -3587,6 +3669,8 @@ class SignatureRequestApi
      * Operation signatureRequestFilesAsDataUriWithHttpInfo
      *
      * Download Files as Data Uri
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesAsDataUriExample.php
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
@@ -3725,6 +3809,8 @@ class SignatureRequestApi
      *
      * Download Files as Data Uri
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesAsDataUriExample.php
+     *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
      *
@@ -3746,6 +3832,8 @@ class SignatureRequestApi
      * Operation signatureRequestFilesAsDataUriAsyncWithHttpInfo
      *
      * Download Files as Data Uri
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesAsDataUriExample.php
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
@@ -3903,6 +3991,8 @@ class SignatureRequestApi
      *
      * Download Files as File Url
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesAsFileUrlExample.php
+     *
      * @param string   $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param int|null $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
@@ -3920,6 +4010,8 @@ class SignatureRequestApi
      * Operation signatureRequestFilesAsFileUrlWithHttpInfo
      *
      * Download Files as File Url
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesAsFileUrlExample.php
      *
      * @param string   $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param int|null $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
@@ -4059,6 +4151,8 @@ class SignatureRequestApi
      *
      * Download Files as File Url
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesAsFileUrlExample.php
+     *
      * @param string   $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param int|null $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      * @param string   $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
@@ -4081,6 +4175,8 @@ class SignatureRequestApi
      * Operation signatureRequestFilesAsFileUrlAsyncWithHttpInfo
      *
      * Download Files as File Url
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestFilesAsFileUrlExample.php
      *
      * @param string   $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param int|null $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
@@ -4250,6 +4346,8 @@ class SignatureRequestApi
      *
      * Get Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestGetExample.php
+     *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      *
      * @return Model\SignatureRequestGetResponse
@@ -4266,6 +4364,8 @@ class SignatureRequestApi
      * Operation signatureRequestGetWithHttpInfo
      *
      * Get Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestGetExample.php
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
@@ -4404,6 +4504,8 @@ class SignatureRequestApi
      *
      * Get Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestGetExample.php
+     *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
      *
@@ -4425,6 +4527,8 @@ class SignatureRequestApi
      * Operation signatureRequestGetAsyncWithHttpInfo
      *
      * Get Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestGetExample.php
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
@@ -4582,6 +4686,8 @@ class SignatureRequestApi
      *
      * List Signature Requests
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestListExample.php
+     *
      * @param string|null $account_id Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
      * @param int|null    $page       Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null    $page_size  Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -4601,6 +4707,8 @@ class SignatureRequestApi
      * Operation signatureRequestListWithHttpInfo
      *
      * List Signature Requests
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestListExample.php
      *
      * @param string|null $account_id  Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
      * @param int|null    $page        Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -4742,6 +4850,8 @@ class SignatureRequestApi
      *
      * List Signature Requests
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestListExample.php
+     *
      * @param string|null $account_id  Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
      * @param int|null    $page        Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -4766,6 +4876,8 @@ class SignatureRequestApi
      * Operation signatureRequestListAsyncWithHttpInfo
      *
      * List Signature Requests
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestListExample.php
      *
      * @param string|null $account_id  Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
      * @param int|null    $page        Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -4950,6 +5062,8 @@ class SignatureRequestApi
      *
      * Release On-Hold Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestReleaseHoldExample.php
+     *
      * @param string $signature_request_id The id of the SignatureRequest to release. (required)
      *
      * @return Model\SignatureRequestGetResponse
@@ -4966,6 +5080,8 @@ class SignatureRequestApi
      * Operation signatureRequestReleaseHoldWithHttpInfo
      *
      * Release On-Hold Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestReleaseHoldExample.php
      *
      * @param string $signature_request_id The id of the SignatureRequest to release. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
@@ -5104,6 +5220,8 @@ class SignatureRequestApi
      *
      * Release On-Hold Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestReleaseHoldExample.php
+     *
      * @param string $signature_request_id The id of the SignatureRequest to release. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
@@ -5125,6 +5243,8 @@ class SignatureRequestApi
      * Operation signatureRequestReleaseHoldAsyncWithHttpInfo
      *
      * Release On-Hold Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestReleaseHoldExample.php
      *
      * @param string $signature_request_id The id of the SignatureRequest to release. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
@@ -5282,6 +5402,8 @@ class SignatureRequestApi
      *
      * Send Request Reminder
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemindExample.php
+     *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request signature_request_remind_request (required)
      *
@@ -5299,6 +5421,8 @@ class SignatureRequestApi
      * Operation signatureRequestRemindWithHttpInfo
      *
      * Send Request Reminder
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemindExample.php
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
@@ -5438,6 +5562,8 @@ class SignatureRequestApi
      *
      * Send Request Reminder
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemindExample.php
+     *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
@@ -5460,6 +5586,8 @@ class SignatureRequestApi
      * Operation signatureRequestRemindAsyncWithHttpInfo
      *
      * Send Request Reminder
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemindExample.php
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
@@ -5642,6 +5770,8 @@ class SignatureRequestApi
      *
      * Remove Signature Request Access
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemoveExample.php
+     *
      * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -5656,6 +5786,8 @@ class SignatureRequestApi
      * Operation signatureRequestRemoveWithHttpInfo
      *
      * Remove Signature Request Access
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemoveExample.php
      *
      * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
@@ -5708,6 +5840,8 @@ class SignatureRequestApi
      *
      * Remove Signature Request Access
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemoveExample.php
+     *
      * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
@@ -5729,6 +5863,8 @@ class SignatureRequestApi
      * Operation signatureRequestRemoveAsyncWithHttpInfo
      *
      * Remove Signature Request Access
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemoveExample.php
      *
      * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
      * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
@@ -5869,6 +6005,8 @@ class SignatureRequestApi
      *
      * Send Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendExample.php
+     *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request signature_request_send_request (required)
      *
      * @return Model\SignatureRequestGetResponse
@@ -5885,6 +6023,8 @@ class SignatureRequestApi
      * Operation signatureRequestSendWithHttpInfo
      *
      * Send Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendExample.php
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
@@ -6023,6 +6163,8 @@ class SignatureRequestApi
      *
      * Send Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendExample.php
+     *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
@@ -6044,6 +6186,8 @@ class SignatureRequestApi
      * Operation signatureRequestSendAsyncWithHttpInfo
      *
      * Send Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendExample.php
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
@@ -6208,6 +6352,8 @@ class SignatureRequestApi
      *
      * Send with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendWithTemplateExample.php
+     *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request signature_request_send_with_template_request (required)
      *
      * @return Model\SignatureRequestGetResponse
@@ -6224,6 +6370,8 @@ class SignatureRequestApi
      * Operation signatureRequestSendWithTemplateWithHttpInfo
      *
      * Send with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
@@ -6362,6 +6510,8 @@ class SignatureRequestApi
      *
      * Send with Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendWithTemplateExample.php
+     *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
@@ -6383,6 +6533,8 @@ class SignatureRequestApi
      * Operation signatureRequestSendWithTemplateAsyncWithHttpInfo
      *
      * Send with Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
@@ -6547,6 +6699,8 @@ class SignatureRequestApi
      *
      * Update Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestUpdateExample.php
+     *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request signature_request_update_request (required)
      *
@@ -6564,6 +6718,8 @@ class SignatureRequestApi
      * Operation signatureRequestUpdateWithHttpInfo
      *
      * Update Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestUpdateExample.php
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
@@ -6703,6 +6859,8 @@ class SignatureRequestApi
      *
      * Update Signature Request
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestUpdateExample.php
+     *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
@@ -6725,6 +6883,8 @@ class SignatureRequestApi
      * Operation signatureRequestUpdateAsyncWithHttpInfo
      *
      * Update Signature Request
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestUpdateExample.php
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)

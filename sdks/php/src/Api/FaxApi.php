@@ -147,6 +147,8 @@ class FaxApi
      *
      * Delete Fax
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxDeleteExample.php
+     *
      * @param string $fax_id Fax ID (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -161,6 +163,8 @@ class FaxApi
      * Operation faxDeleteWithHttpInfo
      *
      * Delete Fax
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxDeleteExample.php
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxDelete'] to see the possible values for this operation
@@ -213,6 +217,8 @@ class FaxApi
      *
      * Delete Fax
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxDeleteExample.php
+     *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxDelete'] to see the possible values for this operation
      *
@@ -234,6 +240,8 @@ class FaxApi
      * Operation faxDeleteAsyncWithHttpInfo
      *
      * Delete Fax
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxDeleteExample.php
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxDelete'] to see the possible values for this operation
@@ -374,6 +382,8 @@ class FaxApi
      *
      * Download Fax Files
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxFilesExample.php
+     *
      * @param string $fax_id Fax ID (required)
      *
      * @return SplFileObject
@@ -390,6 +400,8 @@ class FaxApi
      * Operation faxFilesWithHttpInfo
      *
      * Download Fax Files
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxFilesExample.php
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxFiles'] to see the possible values for this operation
@@ -528,6 +540,8 @@ class FaxApi
      *
      * Download Fax Files
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxFilesExample.php
+     *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxFiles'] to see the possible values for this operation
      *
@@ -549,6 +563,8 @@ class FaxApi
      * Operation faxFilesAsyncWithHttpInfo
      *
      * Download Fax Files
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxFilesExample.php
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxFiles'] to see the possible values for this operation
@@ -702,6 +718,8 @@ class FaxApi
      *
      * Get Fax
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxGetExample.php
+     *
      * @param string $fax_id Fax ID (required)
      *
      * @return Model\FaxGetResponse
@@ -718,6 +736,8 @@ class FaxApi
      * Operation faxGetWithHttpInfo
      *
      * Get Fax
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxGetExample.php
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxGet'] to see the possible values for this operation
@@ -856,6 +876,8 @@ class FaxApi
      *
      * Get Fax
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxGetExample.php
+     *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxGet'] to see the possible values for this operation
      *
@@ -877,6 +899,8 @@ class FaxApi
      * Operation faxGetAsyncWithHttpInfo
      *
      * Get Fax
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxGetExample.php
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxGet'] to see the possible values for this operation
@@ -1030,6 +1054,8 @@ class FaxApi
      *
      * Lists Faxes
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxListExample.php
+     *
      * @param int|null $page      Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
@@ -1047,6 +1073,8 @@ class FaxApi
      * Operation faxListWithHttpInfo
      *
      * Lists Faxes
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxListExample.php
      *
      * @param int|null $page        Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -1186,6 +1214,8 @@ class FaxApi
      *
      * Lists Faxes
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxListExample.php
+     *
      * @param int|null $page        Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param string   $contentType The value for the Content-Type header. Check self::contentTypes['faxList'] to see the possible values for this operation
@@ -1208,6 +1238,8 @@ class FaxApi
      * Operation faxListAsyncWithHttpInfo
      *
      * Lists Faxes
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxListExample.php
      *
      * @param int|null $page        Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -1377,6 +1409,8 @@ class FaxApi
      *
      * Send Fax
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxSendExample.php
+     *
      * @param Model\FaxSendRequest $fax_send_request fax_send_request (required)
      *
      * @return Model\FaxGetResponse
@@ -1393,6 +1427,8 @@ class FaxApi
      * Operation faxSendWithHttpInfo
      *
      * Send Fax
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxSendExample.php
      *
      * @param Model\FaxSendRequest $fax_send_request (required)
      * @param string               $contentType      The value for the Content-Type header. Check self::contentTypes['faxSend'] to see the possible values for this operation
@@ -1531,6 +1567,8 @@ class FaxApi
      *
      * Send Fax
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxSendExample.php
+     *
      * @param Model\FaxSendRequest $fax_send_request (required)
      * @param string               $contentType      The value for the Content-Type header. Check self::contentTypes['faxSend'] to see the possible values for this operation
      *
@@ -1552,6 +1590,8 @@ class FaxApi
      * Operation faxSendAsyncWithHttpInfo
      *
      * Send Fax
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxSendExample.php
      *
      * @param Model\FaxSendRequest $fax_send_request (required)
      * @param string               $contentType      The value for the Content-Type header. Check self::contentTypes['faxSend'] to see the possible values for this operation

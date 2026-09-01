@@ -147,6 +147,8 @@ class ApiAppApi
      *
      * Create API App
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppCreateExample.php
+     *
      * @param Model\ApiAppCreateRequest $api_app_create_request api_app_create_request (required)
      *
      * @return Model\ApiAppGetResponse
@@ -163,6 +165,8 @@ class ApiAppApi
      * Operation apiAppCreateWithHttpInfo
      *
      * Create API App
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppCreateExample.php
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request (required)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
@@ -301,6 +305,8 @@ class ApiAppApi
      *
      * Create API App
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppCreateExample.php
+     *
      * @param Model\ApiAppCreateRequest $api_app_create_request (required)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
@@ -322,6 +328,8 @@ class ApiAppApi
      * Operation apiAppCreateAsyncWithHttpInfo
      *
      * Create API App
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppCreateExample.php
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request (required)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
@@ -486,6 +494,8 @@ class ApiAppApi
      *
      * Delete API App
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppDeleteExample.php
+     *
      * @param string $client_id The client id of the API App to delete. (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -500,6 +510,8 @@ class ApiAppApi
      * Operation apiAppDeleteWithHttpInfo
      *
      * Delete API App
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppDeleteExample.php
      *
      * @param string $client_id   The client id of the API App to delete. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
@@ -552,6 +564,8 @@ class ApiAppApi
      *
      * Delete API App
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppDeleteExample.php
+     *
      * @param string $client_id   The client id of the API App to delete. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
      *
@@ -573,6 +587,8 @@ class ApiAppApi
      * Operation apiAppDeleteAsyncWithHttpInfo
      *
      * Delete API App
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppDeleteExample.php
      *
      * @param string $client_id   The client id of the API App to delete. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
@@ -717,6 +733,8 @@ class ApiAppApi
      *
      * Get API App
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppGetExample.php
+     *
      * @param string $client_id The client id of the API App to retrieve. (required)
      *
      * @return Model\ApiAppGetResponse
@@ -733,6 +751,8 @@ class ApiAppApi
      * Operation apiAppGetWithHttpInfo
      *
      * Get API App
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppGetExample.php
      *
      * @param string $client_id   The client id of the API App to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
@@ -871,6 +891,8 @@ class ApiAppApi
      *
      * Get API App
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppGetExample.php
+     *
      * @param string $client_id   The client id of the API App to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
      *
@@ -892,6 +914,8 @@ class ApiAppApi
      * Operation apiAppGetAsyncWithHttpInfo
      *
      * Get API App
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppGetExample.php
      *
      * @param string $client_id   The client id of the API App to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
@@ -1049,6 +1073,8 @@ class ApiAppApi
      *
      * List API Apps
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppListExample.php
+     *
      * @param int|null $page      Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
@@ -1066,6 +1092,8 @@ class ApiAppApi
      * Operation apiAppListWithHttpInfo
      *
      * List API Apps
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppListExample.php
      *
      * @param int|null $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -1205,6 +1233,8 @@ class ApiAppApi
      *
      * List API Apps
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppListExample.php
+     *
      * @param int|null $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param string   $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
@@ -1227,6 +1257,8 @@ class ApiAppApi
      * Operation apiAppListAsyncWithHttpInfo
      *
      * List API Apps
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppListExample.php
      *
      * @param int|null $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -1389,6 +1421,8 @@ class ApiAppApi
      *
      * Update API App
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppUpdateExample.php
+     *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request api_app_update_request (required)
      *
@@ -1406,6 +1440,8 @@ class ApiAppApi
      * Operation apiAppUpdateWithHttpInfo
      *
      * Update API App
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppUpdateExample.php
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
@@ -1545,6 +1581,8 @@ class ApiAppApi
      *
      * Update API App
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppUpdateExample.php
+     *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
@@ -1567,6 +1605,8 @@ class ApiAppApi
      * Operation apiAppUpdateAsyncWithHttpInfo
      *
      * Update API App
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppUpdateExample.php
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request (required)

@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new API App.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -45,6 +46,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new API App.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -56,6 +58,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes an API App. Can only be invoked for apps you own.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -68,6 +71,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes an API App. Can only be invoked for apps you own.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -79,6 +83,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns an object with information about an API App.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -91,6 +96,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns an object with information about an API App.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -102,6 +108,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -115,6 +122,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -127,6 +135,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
@@ -140,6 +149,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
@@ -161,6 +171,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new API App.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -174,6 +185,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a new API App.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -186,6 +198,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes an API App. Can only be invoked for apps you own.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -199,6 +212,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes an API App. Can only be invoked for apps you own.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -211,6 +225,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns an object with information about an API App.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -224,6 +239,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns an object with information about an API App.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -236,6 +252,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -250,6 +267,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -263,6 +281,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
@@ -277,6 +296,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
@@ -407,6 +427,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create API App Creates a new API App.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -420,6 +441,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create API App Creates a new API App.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -497,6 +519,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create API App Creates a new API App.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -511,6 +534,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create API App Creates a new API App.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -591,6 +615,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete API App Deletes an API App. Can only be invoked for apps you own.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -603,6 +628,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete API App Deletes an API App. Can only be invoked for apps you own.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -672,6 +698,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete API App Deletes an API App. Can only be invoked for apps you own.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -685,6 +712,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete API App Deletes an API App. Can only be invoked for apps you own.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -757,6 +785,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get API App Returns an object with information about an API App.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -770,6 +799,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get API App Returns an object with information about an API App.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -839,6 +869,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get API App Returns an object with information about an API App.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -853,6 +884,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get API App Returns an object with information about an API App.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -925,6 +957,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List API Apps Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -939,6 +972,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List API Apps Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -1010,6 +1044,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List API Apps Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -1025,6 +1060,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List API Apps Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -1099,6 +1135,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update API App Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
@@ -1113,6 +1150,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update API App Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
@@ -1198,6 +1236,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update API App Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
@@ -1213,6 +1252,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update API App Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>

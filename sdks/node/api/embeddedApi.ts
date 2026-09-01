@@ -120,6 +120,7 @@ export class EmbeddedApi {
   /**
    * Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
    * @summary Get Embedded Template Edit URL
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/EmbeddedEditUrlExample.ts
    * @param templateId The id of the template to edit.
    * @param embeddedEditUrlRequest
    * @param options
@@ -282,6 +283,7 @@ export class EmbeddedApi {
   /**
    * Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
    * @summary Get Embedded Sign URL
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/EmbeddedSignUrlExample.ts
    * @param signatureId The id of the signature to get a signature url for.
    * @param options
    */

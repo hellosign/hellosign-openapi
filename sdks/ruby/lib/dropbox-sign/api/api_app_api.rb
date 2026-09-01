@@ -24,6 +24,7 @@ module Dropbox::Sign
     end
     # Create API App
     # Creates a new API App.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppCreateExample.rb
     # @param api_app_create_request [ApiAppCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ApiAppGetResponse]
@@ -34,6 +35,7 @@ module Dropbox::Sign
 
     # Create API App
     # Creates a new API App.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppCreateExample.rb
     # @param api_app_create_request [ApiAppCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiAppGetResponse, Integer, Hash)>] ApiAppGetResponse data, response status code and response headers
@@ -134,6 +136,7 @@ module Dropbox::Sign
 
     # Delete API App
     # Deletes an API App. Can only be invoked for apps you own.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppDeleteExample.rb
     # @param client_id [String] The client id of the API App to delete.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -144,6 +147,7 @@ module Dropbox::Sign
 
     # Delete API App
     # Deletes an API App. Can only be invoked for apps you own.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppDeleteExample.rb
     # @param client_id [String] The client id of the API App to delete.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -202,6 +206,7 @@ module Dropbox::Sign
 
     # Get API App
     # Returns an object with information about an API App.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppGetExample.rb
     # @param client_id [String] The client id of the API App to retrieve.
     # @param [Hash] opts the optional parameters
     # @return [ApiAppGetResponse]
@@ -212,6 +217,7 @@ module Dropbox::Sign
 
     # Get API App
     # Returns an object with information about an API App.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppGetExample.rb
     # @param client_id [String] The client id of the API App to retrieve.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiAppGetResponse, Integer, Hash)>] ApiAppGetResponse data, response status code and response headers
@@ -297,6 +303,7 @@ module Dropbox::Sign
 
     # List API Apps
     # Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppListExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (default to 1)
     # @option opts [Integer] :page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (default to 20)
@@ -308,6 +315,7 @@ module Dropbox::Sign
 
     # List API Apps
     # Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppListExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (default to 1)
     # @option opts [Integer] :page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (default to 20)
@@ -392,6 +400,7 @@ module Dropbox::Sign
 
     # Update API App
     # Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppUpdateExample.rb
     # @param client_id [String] The client id of the API App to update.
     # @param api_app_update_request [ApiAppUpdateRequest] 
     # @param [Hash] opts the optional parameters
@@ -403,6 +412,7 @@ module Dropbox::Sign
 
     # Update API App
     # Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/ApiAppUpdateExample.rb
     # @param client_id [String] The client id of the API App to update.
     # @param api_app_update_request [ApiAppUpdateRequest] 
     # @param [Hash] opts the optional parameters
