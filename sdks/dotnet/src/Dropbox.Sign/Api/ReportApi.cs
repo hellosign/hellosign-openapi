@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -45,6 +46,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -65,6 +67,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -78,6 +81,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -207,6 +211,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Report Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -220,6 +225,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Report Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -291,6 +297,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Report Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -305,6 +312,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Report Request the creation of one or more report(s).  When the report(s) have been generated, you will receive an email (one per requested report type) containing a link to download the report as a CSV file. The requested date range may be up to 12 months in duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>

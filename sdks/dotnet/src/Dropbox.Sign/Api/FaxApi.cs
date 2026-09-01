@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes the specified Fax from the system
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -45,6 +46,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes the specified Fax from the system
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -56,6 +58,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Downloads files associated with a Fax
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -68,6 +71,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Downloads files associated with a Fax
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -79,6 +83,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns information about a Fax
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -91,6 +96,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns information about a Fax
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -102,6 +108,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns properties of multiple Faxes
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -115,6 +122,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns properties of multiple Faxes
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -127,6 +135,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates and sends a new Fax with the submitted file(s)
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -139,6 +148,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates and sends a new Fax with the submitted file(s)
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -159,6 +169,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes the specified Fax from the system
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -172,6 +183,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Deletes the specified Fax from the system
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -184,6 +196,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Downloads files associated with a Fax
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -197,6 +210,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Downloads files associated with a Fax
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -209,6 +223,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns information about a Fax
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -222,6 +237,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns information about a Fax
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -234,6 +250,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns properties of multiple Faxes
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -248,6 +265,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns properties of multiple Faxes
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -261,6 +279,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates and sends a new Fax with the submitted file(s)
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -274,6 +293,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates and sends a new Fax with the submitted file(s)
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -403,6 +423,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Fax Deletes the specified Fax from the system
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -415,6 +436,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Fax Deletes the specified Fax from the system
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -478,6 +500,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Fax Deletes the specified Fax from the system
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -491,6 +514,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Fax Deletes the specified Fax from the system
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -557,6 +581,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Download Fax Files Downloads files associated with a Fax
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -570,6 +595,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Download Fax Files Downloads files associated with a Fax
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -634,6 +660,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Download Fax Files Downloads files associated with a Fax
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -648,6 +675,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Download Fax Files Downloads files associated with a Fax
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -715,6 +743,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Fax Returns information about a Fax
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -728,6 +757,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Fax Returns information about a Fax
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -791,6 +821,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Fax Returns information about a Fax
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -805,6 +836,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Fax Returns information about a Fax
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -871,6 +903,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Lists Faxes Returns properties of multiple Faxes
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -885,6 +918,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Lists Faxes Returns properties of multiple Faxes
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -950,6 +984,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Lists Faxes Returns properties of multiple Faxes
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -965,6 +1000,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Lists Faxes Returns properties of multiple Faxes
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
@@ -1033,6 +1069,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Send Fax Creates and sends a new Fax with the submitted file(s)
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1046,6 +1083,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Send Fax Creates and sends a new Fax with the submitted file(s)
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1117,6 +1155,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Send Fax Creates and sends a new Fax with the submitted file(s)
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1131,6 +1170,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Send Fax Creates and sends a new Fax with the submitted file(s)
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>

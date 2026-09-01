@@ -24,6 +24,7 @@ module Dropbox::Sign
     end
     # Create Account
     # Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountCreateExample.rb
     # @param account_create_request [AccountCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [AccountCreateResponse]
@@ -34,6 +35,7 @@ module Dropbox::Sign
 
     # Create Account
     # Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountCreateExample.rb
     # @param account_create_request [AccountCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountCreateResponse, Integer, Hash)>] AccountCreateResponse data, response status code and response headers
@@ -134,6 +136,7 @@ module Dropbox::Sign
 
     # Get Account
     # Returns the properties and settings of your Account.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountGetExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_id &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account.
     # @option opts [String] :email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account.
@@ -145,6 +148,7 @@ module Dropbox::Sign
 
     # Get Account
     # Returns the properties and settings of your Account.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountGetExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_id &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account.
     # @option opts [String] :email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account.
@@ -229,6 +233,7 @@ module Dropbox::Sign
 
     # Update Account
     # Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountUpdateExample.rb
     # @param account_update_request [AccountUpdateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [AccountGetResponse]
@@ -239,6 +244,7 @@ module Dropbox::Sign
 
     # Update Account
     # Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountUpdateExample.rb
     # @param account_update_request [AccountUpdateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountGetResponse, Integer, Hash)>] AccountGetResponse data, response status code and response headers
@@ -339,6 +345,7 @@ module Dropbox::Sign
 
     # Verify Account
     # Verifies whether an Dropbox Sign Account exists for the given email address.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountVerifyExample.rb
     # @param account_verify_request [AccountVerifyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [AccountVerifyResponse]
@@ -349,6 +356,7 @@ module Dropbox::Sign
 
     # Verify Account
     # Verifies whether an Dropbox Sign Account exists for the given email address.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountVerifyExample.rb
     # @param account_verify_request [AccountVerifyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountVerifyResponse, Integer, Hash)>] AccountVerifyResponse data, response status code and response headers

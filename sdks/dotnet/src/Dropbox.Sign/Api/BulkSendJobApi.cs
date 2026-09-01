@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bulkSendJobId">The id of the BulkSendJob to retrieve.</param>
         /// <param name="page">Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -47,6 +48,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bulkSendJobId">The id of the BulkSendJob to retrieve.</param>
         /// <param name="page">Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -60,6 +62,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of BulkSendJob that you can access.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)</param>
@@ -73,6 +76,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of BulkSendJob that you can access.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)</param>
@@ -94,6 +98,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bulkSendJobId">The id of the BulkSendJob to retrieve.</param>
         /// <param name="page">Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -109,6 +114,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bulkSendJobId">The id of the BulkSendJob to retrieve.</param>
         /// <param name="page">Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -123,6 +129,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of BulkSendJob that you can access.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)</param>
@@ -137,6 +144,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of BulkSendJob that you can access.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)</param>
@@ -267,6 +275,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Bulk Send Job Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bulkSendJobId">The id of the BulkSendJob to retrieve.</param>
         /// <param name="page">Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -282,6 +291,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Bulk Send Job Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bulkSendJobId">The id of the BulkSendJob to retrieve.</param>
         /// <param name="page">Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -361,6 +371,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Bulk Send Job Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bulkSendJobId">The id of the BulkSendJob to retrieve.</param>
         /// <param name="page">Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -377,6 +388,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Bulk Send Job Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bulkSendJobId">The id of the BulkSendJob to retrieve.</param>
         /// <param name="page">Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -459,6 +471,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Bulk Send Jobs Returns a list of BulkSendJob that you can access.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)</param>
@@ -473,6 +486,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Bulk Send Jobs Returns a list of BulkSendJob that you can access.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)</param>
@@ -544,6 +558,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Bulk Send Jobs Returns a list of BulkSendJob that you can access.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)</param>
@@ -559,6 +574,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Bulk Send Jobs Returns a list of BulkSendJob that you can access.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/BulkSendJobListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)</param>

@@ -68,6 +68,8 @@ class FaxLineApi:
 
         Grants a user access to the specified Fax Line.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineAddUserExample.py
+
         :param fax_line_add_user_request: (required)
         :type fax_line_add_user_request: FaxLineAddUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -104,6 +106,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -133,6 +136,8 @@ class FaxLineApi:
 
         Grants a user access to the specified Fax Line.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineAddUserExample.py
+
         :param fax_line_add_user_request: (required)
         :type fax_line_add_user_request: FaxLineAddUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -169,6 +174,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -198,6 +204,8 @@ class FaxLineApi:
 
         Grants a user access to the specified Fax Line.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineAddUserExample.py
+
         :param fax_line_add_user_request: (required)
         :type fax_line_add_user_request: FaxLineAddUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -234,6 +242,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -356,6 +365,8 @@ class FaxLineApi:
 
         Returns a list of available area codes for a given state/province and city
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineAreaCodeGetExample.py
+
         :param country: Filter area codes by country (required)
         :type country: str
         :param state: Filter area codes by state
@@ -401,6 +412,7 @@ class FaxLineApi:
             "200": "FaxLineAreaCodeGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -441,6 +453,8 @@ class FaxLineApi:
 
         Returns a list of available area codes for a given state/province and city
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineAreaCodeGetExample.py
+
         :param country: Filter area codes by country (required)
         :type country: str
         :param state: Filter area codes by state
@@ -486,6 +500,7 @@ class FaxLineApi:
             "200": "FaxLineAreaCodeGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -526,6 +541,8 @@ class FaxLineApi:
 
         Returns a list of available area codes for a given state/province and city
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineAreaCodeGetExample.py
+
         :param country: Filter area codes by country (required)
         :type country: str
         :param state: Filter area codes by state
@@ -571,6 +588,7 @@ class FaxLineApi:
             "200": "FaxLineAreaCodeGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -667,6 +685,8 @@ class FaxLineApi:
 
         Purchases a new Fax Line
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineCreateExample.py
+
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -703,6 +723,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -732,6 +753,8 @@ class FaxLineApi:
 
         Purchases a new Fax Line
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineCreateExample.py
+
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -768,6 +791,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -797,6 +821,8 @@ class FaxLineApi:
 
         Purchases a new Fax Line
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineCreateExample.py
+
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -833,6 +859,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -944,6 +971,8 @@ class FaxLineApi:
 
         Deletes the specified Fax Line from the subscription.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineDeleteExample.py
+
         :param fax_line_delete_request: (required)
         :type fax_line_delete_request: FaxLineDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -980,6 +1009,7 @@ class FaxLineApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1009,6 +1039,8 @@ class FaxLineApi:
 
         Deletes the specified Fax Line from the subscription.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineDeleteExample.py
+
         :param fax_line_delete_request: (required)
         :type fax_line_delete_request: FaxLineDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1045,6 +1077,7 @@ class FaxLineApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1074,6 +1107,8 @@ class FaxLineApi:
 
         Deletes the specified Fax Line from the subscription.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineDeleteExample.py
+
         :param fax_line_delete_request: (required)
         :type fax_line_delete_request: FaxLineDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1110,6 +1145,7 @@ class FaxLineApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1221,6 +1257,8 @@ class FaxLineApi:
 
         Returns the properties and settings of a Fax Line.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineGetExample.py
+
         :param number: The Fax Line number (required)
         :type number: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1257,6 +1295,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1286,6 +1325,8 @@ class FaxLineApi:
 
         Returns the properties and settings of a Fax Line.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineGetExample.py
+
         :param number: The Fax Line number (required)
         :type number: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1322,6 +1363,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1351,6 +1393,8 @@ class FaxLineApi:
 
         Returns the properties and settings of a Fax Line.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineGetExample.py
+
         :param number: The Fax Line number (required)
         :type number: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1387,6 +1431,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1488,6 +1533,8 @@ class FaxLineApi:
 
         Returns the properties and settings of multiple Fax Lines.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineListExample.py
+
         :param account_id: Account ID
         :type account_id: str
         :param page: Which page number of the Fax Line List to return. Defaults to `1`.
@@ -1533,6 +1580,7 @@ class FaxLineApi:
             "200": "FaxLineListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1582,6 +1630,8 @@ class FaxLineApi:
 
         Returns the properties and settings of multiple Fax Lines.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineListExample.py
+
         :param account_id: Account ID
         :type account_id: str
         :param page: Which page number of the Fax Line List to return. Defaults to `1`.
@@ -1627,6 +1677,7 @@ class FaxLineApi:
             "200": "FaxLineListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1676,6 +1727,8 @@ class FaxLineApi:
 
         Returns the properties and settings of multiple Fax Lines.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineListExample.py
+
         :param account_id: Account ID
         :type account_id: str
         :param page: Which page number of the Fax Line List to return. Defaults to `1`.
@@ -1721,6 +1774,7 @@ class FaxLineApi:
             "200": "FaxLineListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1817,6 +1871,8 @@ class FaxLineApi:
 
         Removes a user's access to the specified Fax Line
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineRemoveUserExample.py
+
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1853,6 +1909,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1882,6 +1939,8 @@ class FaxLineApi:
 
         Removes a user's access to the specified Fax Line
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineRemoveUserExample.py
+
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1918,6 +1977,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1947,6 +2007,8 @@ class FaxLineApi:
 
         Removes a user's access to the specified Fax Line
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/FaxLineRemoveUserExample.py
+
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1983,6 +2045,7 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

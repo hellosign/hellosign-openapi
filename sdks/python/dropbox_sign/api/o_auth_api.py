@@ -59,6 +59,8 @@ class OAuthApi:
 
         Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/OauthTokenGenerateExample.py
+
         :param o_auth_token_generate_request: (required)
         :type o_auth_token_generate_request: OAuthTokenGenerateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -95,6 +97,7 @@ class OAuthApi:
             "200": "OAuthTokenResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -124,6 +127,8 @@ class OAuthApi:
 
         Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/OauthTokenGenerateExample.py
+
         :param o_auth_token_generate_request: (required)
         :type o_auth_token_generate_request: OAuthTokenGenerateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -160,6 +165,7 @@ class OAuthApi:
             "200": "OAuthTokenResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -189,6 +195,8 @@ class OAuthApi:
 
         Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/OauthTokenGenerateExample.py
+
         :param o_auth_token_generate_request: (required)
         :type o_auth_token_generate_request: OAuthTokenGenerateRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -225,6 +233,7 @@ class OAuthApi:
             "200": "OAuthTokenResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -337,6 +346,8 @@ class OAuthApi:
 
         Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see `expires_in`), along with a refresh token that can be used to acquire a new access token after the current one has expired.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/OauthTokenRefreshExample.py
+
         :param o_auth_token_refresh_request: (required)
         :type o_auth_token_refresh_request: OAuthTokenRefreshRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -373,6 +384,7 @@ class OAuthApi:
             "200": "OAuthTokenResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -402,6 +414,8 @@ class OAuthApi:
 
         Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see `expires_in`), along with a refresh token that can be used to acquire a new access token after the current one has expired.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/OauthTokenRefreshExample.py
+
         :param o_auth_token_refresh_request: (required)
         :type o_auth_token_refresh_request: OAuthTokenRefreshRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -438,6 +452,7 @@ class OAuthApi:
             "200": "OAuthTokenResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -467,6 +482,8 @@ class OAuthApi:
 
         Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see `expires_in`), along with a refresh token that can be used to acquire a new access token after the current one has expired.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/OauthTokenRefreshExample.py
+
         :param o_auth_token_refresh_request: (required)
         :type o_auth_token_refresh_request: OAuthTokenRefreshRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -503,6 +520,7 @@ class OAuthApi:
             "200": "OAuthTokenResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

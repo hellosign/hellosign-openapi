@@ -75,6 +75,8 @@ class BulkSendJobApi:
 
         Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/BulkSendJobGetExample.py
+
         :param bulk_send_job_id: The id of the BulkSendJob to retrieve. (required)
         :type bulk_send_job_id: str
         :param page: Which page number of the BulkSendJob list to return. Defaults to `1`.
@@ -117,6 +119,7 @@ class BulkSendJobApi:
             "200": "BulkSendJobGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -160,6 +163,8 @@ class BulkSendJobApi:
 
         Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/BulkSendJobGetExample.py
+
         :param bulk_send_job_id: The id of the BulkSendJob to retrieve. (required)
         :type bulk_send_job_id: str
         :param page: Which page number of the BulkSendJob list to return. Defaults to `1`.
@@ -202,6 +207,7 @@ class BulkSendJobApi:
             "200": "BulkSendJobGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -245,6 +251,8 @@ class BulkSendJobApi:
 
         Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/BulkSendJobGetExample.py
+
         :param bulk_send_job_id: The id of the BulkSendJob to retrieve. (required)
         :type bulk_send_job_id: str
         :param page: Which page number of the BulkSendJob list to return. Defaults to `1`.
@@ -287,6 +295,7 @@ class BulkSendJobApi:
             "200": "BulkSendJobGetResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -387,6 +396,8 @@ class BulkSendJobApi:
 
         Returns a list of BulkSendJob that you can access.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/BulkSendJobListExample.py
+
         :param page: Which page number of the BulkSendJob List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.
@@ -426,6 +437,7 @@ class BulkSendJobApi:
             "200": "BulkSendJobListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -466,6 +478,8 @@ class BulkSendJobApi:
 
         Returns a list of BulkSendJob that you can access.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/BulkSendJobListExample.py
+
         :param page: Which page number of the BulkSendJob List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.
@@ -505,6 +519,7 @@ class BulkSendJobApi:
             "200": "BulkSendJobListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -545,6 +560,8 @@ class BulkSendJobApi:
 
         Returns a list of BulkSendJob that you can access.
 
+        Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/BulkSendJobListExample.py
+
         :param page: Which page number of the BulkSendJob List to return. Defaults to `1`.
         :type page: int
         :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.
@@ -584,6 +601,7 @@ class BulkSendJobApi:
             "200": "BulkSendJobListResponse",
             "4XX": "ErrorResponse",
         }
+
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

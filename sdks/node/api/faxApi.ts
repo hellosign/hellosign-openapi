@@ -121,6 +121,7 @@ export class FaxApi {
   /**
    * Deletes the specified Fax from the system
    * @summary Delete Fax
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxDeleteExample.ts
    * @param faxId Fax ID
    * @param options
    */
@@ -222,6 +223,7 @@ export class FaxApi {
   /**
    * Downloads files associated with a Fax
    * @summary Download Fax Files
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxFilesExample.ts
    * @param faxId Fax ID
    * @param options
    */
@@ -339,6 +341,7 @@ export class FaxApi {
   /**
    * Returns information about a Fax
    * @summary Get Fax
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxGetExample.ts
    * @param faxId Fax ID
    * @param options
    */
@@ -456,6 +459,7 @@ export class FaxApi {
   /**
    * Returns properties of multiple Faxes
    * @summary Lists Faxes
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxListExample.ts
    * @param page Which page number of the Fax List to return. Defaults to &#x60;1&#x60;.
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;.
    * @param options
@@ -577,6 +581,7 @@ export class FaxApi {
   /**
    * Creates and sends a new Fax with the submitted file(s)
    * @summary Send Fax
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxSendExample.ts
    * @param faxSendRequest
    * @param options
    */

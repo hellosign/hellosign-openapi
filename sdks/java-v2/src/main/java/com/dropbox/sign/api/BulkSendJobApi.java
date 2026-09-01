@@ -51,6 +51,7 @@ public class BulkSendJobApi {
   /**
    * Get Bulk Send Job
    * Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/BulkSendJobGetExample.java
    * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
    * @param page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
@@ -111,6 +112,7 @@ public class BulkSendJobApi {
   /**
    * Get Bulk Send Job
    * Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/BulkSendJobGetExample.java
    * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
    * @param page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
@@ -173,6 +175,7 @@ public class BulkSendJobApi {
   /**
    * List Bulk Send Jobs
    * Returns a list of BulkSendJob that you can access.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/BulkSendJobListExample.java
    * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
    * @return BulkSendJobListResponse
@@ -232,6 +235,7 @@ public class BulkSendJobApi {
   /**
    * List Bulk Send Jobs
    * Returns a list of BulkSendJob that you can access.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/BulkSendJobListExample.java
    * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
    * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
    * @return ApiResponse&lt;BulkSendJobListResponse&gt;

@@ -33,6 +33,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
@@ -46,6 +47,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
@@ -58,6 +60,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -70,6 +73,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -81,6 +85,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -93,6 +98,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -104,6 +110,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Completely deletes the template specified from the account.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -116,6 +123,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Completely deletes the template specified from the account.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -127,6 +135,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
@@ -140,6 +149,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
@@ -152,6 +162,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsDataUriExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -164,6 +175,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsDataUriExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -175,6 +187,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsFileUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
@@ -188,6 +201,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsFileUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
@@ -200,6 +214,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the Template specified by the &#x60;template_id&#x60; parameter.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -212,6 +227,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the Template specified by the &#x60;template_id&#x60; parameter.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -223,6 +239,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)</param>
         /// <param name="page">Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -238,6 +255,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)</param>
         /// <param name="page">Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -252,6 +270,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes the specified Account&#39;s access to the specified Template.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
@@ -265,6 +284,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes the specified Account&#39;s access to the specified Template.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
@@ -277,6 +297,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateUpdateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
@@ -290,6 +311,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateUpdateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
@@ -311,6 +333,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
@@ -325,6 +348,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
@@ -338,6 +362,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -351,6 +376,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -363,6 +389,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -376,6 +403,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -388,6 +416,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Completely deletes the template specified from the account.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -401,6 +430,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Completely deletes the template specified from the account.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -413,6 +443,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
@@ -427,6 +458,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
@@ -440,6 +472,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsDataUriExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -453,6 +486,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsDataUriExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -465,6 +499,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsFileUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
@@ -479,6 +514,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsFileUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
@@ -492,6 +528,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the Template specified by the &#x60;template_id&#x60; parameter.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -505,6 +542,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns the Template specified by the &#x60;template_id&#x60; parameter.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -517,6 +555,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)</param>
         /// <param name="page">Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -533,6 +572,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)</param>
         /// <param name="page">Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -548,6 +588,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes the specified Account&#39;s access to the specified Template.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
@@ -562,6 +603,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Removes the specified Account&#39;s access to the specified Template.
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
@@ -575,6 +617,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateUpdateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
@@ -589,6 +632,7 @@ namespace Dropbox.Sign.Api
         /// <remarks>
         /// Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
         /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateUpdateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
@@ -719,6 +763,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add User to Template Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
@@ -733,6 +778,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add User to Template Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
@@ -818,6 +864,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add User to Template Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
@@ -833,6 +880,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Add User to Template Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
@@ -921,6 +969,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Template Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -934,6 +983,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Template Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1011,6 +1061,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Template Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1025,6 +1076,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Template Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1105,6 +1157,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Embedded Template Draft The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1118,6 +1171,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Embedded Template Draft The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1195,6 +1249,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Embedded Template Draft The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1209,6 +1264,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Create Embedded Template Draft The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1289,6 +1345,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Template Completely deletes the template specified from the account.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1301,6 +1358,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Template Completely deletes the template specified from the account.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1370,6 +1428,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Template Completely deletes the template specified from the account.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1383,6 +1442,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Delete Template Completely deletes the template specified from the account.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1455,6 +1515,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
@@ -1469,6 +1530,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
@@ -1545,6 +1607,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
@@ -1560,6 +1623,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
@@ -1639,6 +1703,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files as Data Uri Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsDataUriExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1652,6 +1717,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files as Data Uri Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsDataUriExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1721,6 +1787,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files as Data Uri Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsDataUriExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1735,6 +1802,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files as Data Uri Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsDataUriExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1807,6 +1875,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files as File Url Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsFileUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
@@ -1821,6 +1890,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files as File Url Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsFileUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
@@ -1895,6 +1965,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files as File Url Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsFileUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
@@ -1910,6 +1981,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Files as File Url Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateFilesAsFileUrlExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
@@ -1987,6 +2059,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Returns the Template specified by the &#x60;template_id&#x60; parameter.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2000,6 +2073,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Returns the Template specified by the &#x60;template_id&#x60; parameter.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2069,6 +2143,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Returns the Template specified by the &#x60;template_id&#x60; parameter.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2083,6 +2158,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Get Template Returns the Template specified by the &#x60;template_id&#x60; parameter.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateGetExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2155,6 +2231,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Templates Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)</param>
         /// <param name="page">Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -2171,6 +2248,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Templates Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)</param>
         /// <param name="page">Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -2252,6 +2330,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Templates Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)</param>
         /// <param name="page">Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -2269,6 +2348,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// List Templates Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateListExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)</param>
         /// <param name="page">Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)</param>
@@ -2353,6 +2433,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove User from Template Removes the specified Account&#39;s access to the specified Template.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
@@ -2367,6 +2448,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove User from Template Removes the specified Account&#39;s access to the specified Template.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
@@ -2452,6 +2534,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove User from Template Removes the specified Account&#39;s access to the specified Template.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
@@ -2467,6 +2550,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Remove User from Template Removes the specified Account&#39;s access to the specified Template.
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
@@ -2555,6 +2639,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Template Files Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateUpdateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
@@ -2569,6 +2654,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Template Files Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateUpdateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
@@ -2654,6 +2740,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Template Files Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateUpdateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
@@ -2669,6 +2756,7 @@ namespace Dropbox.Sign.Api
         /// <summary>
         /// Update Template Files Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
         /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateUpdateFilesExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>

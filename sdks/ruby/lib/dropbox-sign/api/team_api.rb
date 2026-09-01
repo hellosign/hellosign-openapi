@@ -24,6 +24,7 @@ module Dropbox::Sign
     end
     # Add User to Team
     # Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamAddMemberExample.rb
     # @param team_add_member_request [TeamAddMemberRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :team_id The id of the team.
@@ -35,6 +36,7 @@ module Dropbox::Sign
 
     # Add User to Team
     # Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamAddMemberExample.rb
     # @param team_add_member_request [TeamAddMemberRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :team_id The id of the team.
@@ -137,6 +139,7 @@ module Dropbox::Sign
 
     # Create Team
     # Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamCreateExample.rb
     # @param team_create_request [TeamCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [TeamGetResponse]
@@ -147,6 +150,7 @@ module Dropbox::Sign
 
     # Create Team
     # Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamCreateExample.rb
     # @param team_create_request [TeamCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TeamGetResponse, Integer, Hash)>] TeamGetResponse data, response status code and response headers
@@ -247,6 +251,7 @@ module Dropbox::Sign
 
     # Delete Team
     # Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamDeleteExample.rb
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def team_delete(opts = {})
@@ -256,6 +261,7 @@ module Dropbox::Sign
 
     # Delete Team
     # Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamDeleteExample.rb
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def team_delete_with_http_info(opts = {})
@@ -309,6 +315,7 @@ module Dropbox::Sign
 
     # Get Team
     # Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamGetExample.rb
     # @param [Hash] opts the optional parameters
     # @return [TeamGetResponse]
     def team_get(opts = {})
@@ -318,6 +325,7 @@ module Dropbox::Sign
 
     # Get Team
     # Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamGetExample.rb
     # @param [Hash] opts the optional parameters
     # @return [Array<(TeamGetResponse, Integer, Hash)>] TeamGetResponse data, response status code and response headers
     def team_get_with_http_info(opts = {})
@@ -398,6 +406,7 @@ module Dropbox::Sign
 
     # Get Team Info
     # Provides information about a team.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamInfoExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [String] :team_id The id of the team.
     # @return [TeamGetInfoResponse]
@@ -408,6 +417,7 @@ module Dropbox::Sign
 
     # Get Team Info
     # Provides information about a team.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamInfoExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [String] :team_id The id of the team.
     # @return [Array<(TeamGetInfoResponse, Integer, Hash)>] TeamGetInfoResponse data, response status code and response headers
@@ -490,6 +500,7 @@ module Dropbox::Sign
 
     # List Team Invites
     # Provides a list of team invites (and their roles).
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamInvitesExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [String] :email_address The email address for which to display the team invites.
     # @return [TeamInvitesResponse]
@@ -500,6 +511,7 @@ module Dropbox::Sign
 
     # List Team Invites
     # Provides a list of team invites (and their roles).
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamInvitesExample.rb
     # @param [Hash] opts the optional parameters
     # @option opts [String] :email_address The email address for which to display the team invites.
     # @return [Array<(TeamInvitesResponse, Integer, Hash)>] TeamInvitesResponse data, response status code and response headers
@@ -582,6 +594,7 @@ module Dropbox::Sign
 
     # List Team Members
     # Provides a paginated list of members (and their roles) that belong to a given team.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamMembersExample.rb
     # @param team_id [String] The id of the team that a member list is being requested from.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (default to 1)
@@ -594,6 +607,7 @@ module Dropbox::Sign
 
     # List Team Members
     # Provides a paginated list of members (and their roles) that belong to a given team.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamMembersExample.rb
     # @param team_id [String] The id of the team that a member list is being requested from.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (default to 1)
@@ -691,6 +705,7 @@ module Dropbox::Sign
 
     # Remove User from Team
     # Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamRemoveMemberExample.rb
     # @param team_remove_member_request [TeamRemoveMemberRequest] 
     # @param [Hash] opts the optional parameters
     # @return [TeamGetResponse]
@@ -701,6 +716,7 @@ module Dropbox::Sign
 
     # Remove User from Team
     # Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamRemoveMemberExample.rb
     # @param team_remove_member_request [TeamRemoveMemberRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TeamGetResponse, Integer, Hash)>] TeamGetResponse data, response status code and response headers
@@ -801,6 +817,7 @@ module Dropbox::Sign
 
     # List Sub Teams
     # Provides a paginated list of sub teams that belong to a given team.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamSubTeamsExample.rb
     # @param team_id [String] The id of the parent Team.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (default to 1)
@@ -813,6 +830,7 @@ module Dropbox::Sign
 
     # List Sub Teams
     # Provides a paginated list of sub teams that belong to a given team.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamSubTeamsExample.rb
     # @param team_id [String] The id of the parent Team.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (default to 1)
@@ -910,6 +928,7 @@ module Dropbox::Sign
 
     # Update Team
     # Updates the name of your Team.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamUpdateExample.rb
     # @param team_update_request [TeamUpdateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [TeamGetResponse]
@@ -920,6 +939,7 @@ module Dropbox::Sign
 
     # Update Team
     # Updates the name of your Team.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamUpdateExample.rb
     # @param team_update_request [TeamUpdateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TeamGetResponse, Integer, Hash)>] TeamGetResponse data, response status code and response headers

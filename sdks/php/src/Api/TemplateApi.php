@@ -167,6 +167,8 @@ class TemplateApi
      *
      * Add User to Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateAddUserExample.php
+     *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request template_add_user_request (required)
      *
@@ -184,6 +186,8 @@ class TemplateApi
      * Operation templateAddUserWithHttpInfo
      *
      * Add User to Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateAddUserExample.php
      *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request (required)
@@ -323,6 +327,8 @@ class TemplateApi
      *
      * Add User to Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateAddUserExample.php
+     *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request (required)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
@@ -345,6 +351,8 @@ class TemplateApi
      * Operation templateAddUserAsyncWithHttpInfo
      *
      * Add User to Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateAddUserExample.php
      *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request (required)
@@ -527,6 +535,8 @@ class TemplateApi
      *
      * Create Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateExample.php
+     *
      * @param Model\TemplateCreateRequest $template_create_request template_create_request (required)
      *
      * @return Model\TemplateCreateResponse
@@ -543,6 +553,8 @@ class TemplateApi
      * Operation templateCreateWithHttpInfo
      *
      * Create Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateExample.php
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
@@ -681,6 +693,8 @@ class TemplateApi
      *
      * Create Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateExample.php
+     *
      * @param Model\TemplateCreateRequest $template_create_request (required)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
@@ -702,6 +716,8 @@ class TemplateApi
      * Operation templateCreateAsyncWithHttpInfo
      *
      * Create Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateExample.php
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
@@ -866,6 +882,8 @@ class TemplateApi
      *
      * Create Embedded Template Draft
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateEmbeddedDraftExample.php
+     *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request template_create_embedded_draft_request (required)
      *
      * @return Model\TemplateCreateEmbeddedDraftResponse
@@ -882,6 +900,8 @@ class TemplateApi
      * Operation templateCreateEmbeddedDraftWithHttpInfo
      *
      * Create Embedded Template Draft
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateEmbeddedDraftExample.php
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
      * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
@@ -1020,6 +1040,8 @@ class TemplateApi
      *
      * Create Embedded Template Draft
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateEmbeddedDraftExample.php
+     *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
      * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
@@ -1041,6 +1063,8 @@ class TemplateApi
      * Operation templateCreateEmbeddedDraftAsyncWithHttpInfo
      *
      * Create Embedded Template Draft
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateEmbeddedDraftExample.php
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
      * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
@@ -1205,6 +1229,8 @@ class TemplateApi
      *
      * Delete Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateDeleteExample.php
+     *
      * @param string $template_id The id of the Template to delete. (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1219,6 +1245,8 @@ class TemplateApi
      * Operation templateDeleteWithHttpInfo
      *
      * Delete Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateDeleteExample.php
      *
      * @param string $template_id The id of the Template to delete. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
@@ -1271,6 +1299,8 @@ class TemplateApi
      *
      * Delete Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateDeleteExample.php
+     *
      * @param string $template_id The id of the Template to delete. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
@@ -1292,6 +1322,8 @@ class TemplateApi
      * Operation templateDeleteAsyncWithHttpInfo
      *
      * Delete Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateDeleteExample.php
      *
      * @param string $template_id The id of the Template to delete. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
@@ -1436,6 +1468,8 @@ class TemplateApi
      *
      * Get Template Files
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesExample.php
+     *
      * @param string      $template_id The id of the template files to retrieve. (required)
      * @param string|null $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
      *
@@ -1453,6 +1487,8 @@ class TemplateApi
      * Operation templateFilesWithHttpInfo
      *
      * Get Template Files
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesExample.php
      *
      * @param string      $template_id The id of the template files to retrieve. (required)
      * @param string|null $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
@@ -1592,6 +1628,8 @@ class TemplateApi
      *
      * Get Template Files
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesExample.php
+     *
      * @param string      $template_id The id of the template files to retrieve. (required)
      * @param string|null $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
      * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
@@ -1614,6 +1652,8 @@ class TemplateApi
      * Operation templateFilesAsyncWithHttpInfo
      *
      * Get Template Files
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesExample.php
      *
      * @param string      $template_id The id of the template files to retrieve. (required)
      * @param string|null $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
@@ -1783,6 +1823,8 @@ class TemplateApi
      *
      * Get Template Files as Data Uri
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesAsDataUriExample.php
+     *
      * @param string $template_id The id of the template files to retrieve. (required)
      *
      * @return Model\FileResponseDataUri
@@ -1799,6 +1841,8 @@ class TemplateApi
      * Operation templateFilesAsDataUriWithHttpInfo
      *
      * Get Template Files as Data Uri
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesAsDataUriExample.php
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
@@ -1937,6 +1981,8 @@ class TemplateApi
      *
      * Get Template Files as Data Uri
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesAsDataUriExample.php
+     *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
      *
@@ -1958,6 +2004,8 @@ class TemplateApi
      * Operation templateFilesAsDataUriAsyncWithHttpInfo
      *
      * Get Template Files as Data Uri
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesAsDataUriExample.php
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
@@ -2115,6 +2163,8 @@ class TemplateApi
      *
      * Get Template Files as File Url
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesAsFileUrlExample.php
+     *
      * @param string   $template_id    The id of the template files to retrieve. (required)
      * @param int|null $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
@@ -2132,6 +2182,8 @@ class TemplateApi
      * Operation templateFilesAsFileUrlWithHttpInfo
      *
      * Get Template Files as File Url
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesAsFileUrlExample.php
      *
      * @param string   $template_id    The id of the template files to retrieve. (required)
      * @param int|null $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
@@ -2271,6 +2323,8 @@ class TemplateApi
      *
      * Get Template Files as File Url
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesAsFileUrlExample.php
+     *
      * @param string   $template_id    The id of the template files to retrieve. (required)
      * @param int|null $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      * @param string   $contentType    The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
@@ -2293,6 +2347,8 @@ class TemplateApi
      * Operation templateFilesAsFileUrlAsyncWithHttpInfo
      *
      * Get Template Files as File Url
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateFilesAsFileUrlExample.php
      *
      * @param string   $template_id    The id of the template files to retrieve. (required)
      * @param int|null $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
@@ -2462,6 +2518,8 @@ class TemplateApi
      *
      * Get Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateGetExample.php
+     *
      * @param string $template_id The id of the Template to retrieve. (required)
      *
      * @return Model\TemplateGetResponse
@@ -2478,6 +2536,8 @@ class TemplateApi
      * Operation templateGetWithHttpInfo
      *
      * Get Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateGetExample.php
      *
      * @param string $template_id The id of the Template to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
@@ -2616,6 +2676,8 @@ class TemplateApi
      *
      * Get Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateGetExample.php
+     *
      * @param string $template_id The id of the Template to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
@@ -2637,6 +2699,8 @@ class TemplateApi
      * Operation templateGetAsyncWithHttpInfo
      *
      * Get Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateGetExample.php
      *
      * @param string $template_id The id of the Template to retrieve. (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
@@ -2794,6 +2858,8 @@ class TemplateApi
      *
      * List Templates
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateListExample.php
+     *
      * @param string|null $account_id Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
      * @param int|null    $page       Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null    $page_size  Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -2813,6 +2879,8 @@ class TemplateApi
      * Operation templateListWithHttpInfo
      *
      * List Templates
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateListExample.php
      *
      * @param string|null $account_id  Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
      * @param int|null    $page        Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -2954,6 +3022,8 @@ class TemplateApi
      *
      * List Templates
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateListExample.php
+     *
      * @param string|null $account_id  Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
      * @param int|null    $page        Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int|null    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
@@ -2978,6 +3048,8 @@ class TemplateApi
      * Operation templateListAsyncWithHttpInfo
      *
      * List Templates
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateListExample.php
      *
      * @param string|null $account_id  Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
      * @param int|null    $page        Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
@@ -3169,6 +3241,8 @@ class TemplateApi
      *
      * Remove User from Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateRemoveUserExample.php
+     *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request template_remove_user_request (required)
      *
@@ -3186,6 +3260,8 @@ class TemplateApi
      * Operation templateRemoveUserWithHttpInfo
      *
      * Remove User from Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateRemoveUserExample.php
      *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
@@ -3325,6 +3401,8 @@ class TemplateApi
      *
      * Remove User from Template
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateRemoveUserExample.php
+     *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
      * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
@@ -3347,6 +3425,8 @@ class TemplateApi
      * Operation templateRemoveUserAsyncWithHttpInfo
      *
      * Remove User from Template
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateRemoveUserExample.php
      *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
@@ -3529,6 +3609,8 @@ class TemplateApi
      *
      * Update Template Files
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateUpdateFilesExample.php
+     *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request template_update_files_request (required)
      *
@@ -3546,6 +3628,8 @@ class TemplateApi
      * Operation templateUpdateFilesWithHttpInfo
      *
      * Update Template Files
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateUpdateFilesExample.php
      *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
@@ -3685,6 +3769,8 @@ class TemplateApi
      *
      * Update Template Files
      *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateUpdateFilesExample.php
+     *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
      * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
@@ -3707,6 +3793,8 @@ class TemplateApi
      * Operation templateUpdateFilesAsyncWithHttpInfo
      *
      * Update Template Files
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateUpdateFilesExample.php
      *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
