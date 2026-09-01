@@ -29062,6 +29062,13 @@ components:
             - template_error
             - callback_test
             - signature_request_signer_removed
+            - fax_received
+            - fax_sent
+            - fax_on_hold
+            - fax_busy
+            - fax_no_answer
+            - fax_disconnected
+            - fax_blacklisted
         event_hash:
           description: Generated hash used to verify source of event data.
           type: string
@@ -29550,6 +29557,146 @@ components:
       type: object
       x-fern-audiences:
         - events
+    EventCallbackFaxReceived:
+      title: Fax Received Event
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            - properties:
+                event_type:
+                  type: string
+                  enum:
+                    - fax_received
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackFaxSent:
+      title: Fax Sent Event
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            - properties:
+                event_type:
+                  type: string
+                  enum:
+                    - fax_sent
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackFaxOnHold:
+      title: Fax On Hold Event
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            - properties:
+                event_type:
+                  type: string
+                  enum:
+                    - fax_on_hold
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackFaxBusy:
+      title: Fax Busy Event
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            - properties:
+                event_type:
+                  type: string
+                  enum:
+                    - fax_busy
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackFaxNoAnswer:
+      title: Fax No Answer Event
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            - properties:
+                event_type:
+                  type: string
+                  enum:
+                    - fax_no_answer
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackFaxDisconnected:
+      title: Fax Disconnected Event
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            - properties:
+                event_type:
+                  type: string
+                  enum:
+                    - fax_disconnected
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+    EventCallbackFaxBlacklisted:
+      title: Fax Blacklisted Event
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            - properties:
+                event_type:
+                  type: string
+                  enum:
+                    - fax_blacklisted
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
     EventCallbackPayload:
       title: Event Callback Payload
       description: JSON payload delivered for a webhook event. The concrete shape is selected by `event.event_type`.
@@ -29600,6 +29747,20 @@ components:
           $ref: '#/components/schemas/EventCallbackSignUrlInvalid'
         -
           $ref: '#/components/schemas/EventCallbackCallbackTest'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxReceived'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxSent'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxOnHold'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxBusy'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxNoAnswer'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxDisconnected'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxBlacklisted'
       x-fern-audiences:
         - events
   responses:
@@ -34248,6 +34409,237 @@ components:
             reported_for_app_id: null
       x-fern-audiences:
         - events
+    EventCallbackFaxReceived:
+      summary: Fax Received Event Example
+      value:
+        event:
+          event_time: '1738001529'
+          event_type: fax_received
+          event_hash: 950d3bdf03a30d520dfa6ac51a952ff93fe3a4d9754dd1412b6aec36206c1e81
+          event_metadata:
+            related_signature_id: null
+            reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
+            reported_for_app_id: null
+        transmission:
+          test_mode: false
+          signature_request_id: ''
+          title: Example Fax
+          original_title: Example Fax
+          subject: null
+          message: Please read
+          metadata: {}
+          created_at: 1738001529
+          is_complete: false
+          is_declined: false
+          has_error: false
+          files_url: https://api.hellosign.com/v3/fax/files/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          cc_email_addresses: []
+          final_copy_uri: /v3/transmission/final_copy/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          template_ids: []
+          custom_fields: []
+          attachments: []
+          response_data: []
+          signatures: []
+      x-fern-audiences:
+        - events
+    EventCallbackFaxSent:
+      summary: Fax Sent Event Example
+      value:
+        event:
+          event_time: '1738001529'
+          event_type: fax_sent
+          event_hash: 950d3bdf03a30d520dfa6ac51a952ff93fe3a4d9754dd1412b6aec36206c1e81
+          event_metadata:
+            related_signature_id: null
+            reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
+            reported_for_app_id: null
+        transmission:
+          test_mode: false
+          signature_request_id: ''
+          title: Example Fax
+          original_title: Example Fax
+          subject: null
+          message: Please read
+          metadata: {}
+          created_at: 1738001529
+          is_complete: false
+          is_declined: false
+          has_error: false
+          files_url: https://api.hellosign.com/v3/fax/files/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          cc_email_addresses: []
+          final_copy_uri: /v3/transmission/final_copy/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          template_ids: []
+          custom_fields: []
+          attachments: []
+          response_data: []
+          signatures: []
+      x-fern-audiences:
+        - events
+    EventCallbackFaxOnHold:
+      summary: Fax On Hold Event Example
+      value:
+        event:
+          event_time: '1738001529'
+          event_type: fax_on_hold
+          event_hash: 950d3bdf03a30d520dfa6ac51a952ff93fe3a4d9754dd1412b6aec36206c1e81
+          event_metadata:
+            related_signature_id: null
+            reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
+            reported_for_app_id: null
+        transmission:
+          test_mode: false
+          signature_request_id: ''
+          title: Example Fax
+          original_title: Example Fax
+          subject: null
+          message: Please read
+          metadata: {}
+          created_at: 1738001529
+          is_complete: false
+          is_declined: false
+          has_error: false
+          files_url: https://api.hellosign.com/v3/fax/files/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          cc_email_addresses: []
+          final_copy_uri: /v3/transmission/final_copy/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          template_ids: []
+          custom_fields: []
+          attachments: []
+          response_data: []
+          signatures: []
+      x-fern-audiences:
+        - events
+    EventCallbackFaxBusy:
+      summary: Fax Busy Event Example
+      value:
+        event:
+          event_time: '1738001529'
+          event_type: fax_busy
+          event_hash: 950d3bdf03a30d520dfa6ac51a952ff93fe3a4d9754dd1412b6aec36206c1e81
+          event_metadata:
+            related_signature_id: null
+            reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
+            reported_for_app_id: null
+        transmission:
+          test_mode: false
+          signature_request_id: ''
+          title: Example Fax
+          original_title: Example Fax
+          subject: null
+          message: Please read
+          metadata: {}
+          created_at: 1738001529
+          is_complete: false
+          is_declined: false
+          has_error: true
+          files_url: https://api.hellosign.com/v3/fax/files/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          cc_email_addresses: []
+          final_copy_uri: /v3/transmission/final_copy/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          template_ids: []
+          custom_fields: []
+          attachments: []
+          response_data: []
+          signatures: []
+      x-fern-audiences:
+        - events
+    EventCallbackFaxNoAnswer:
+      summary: Fax No Answer Event Example
+      value:
+        event:
+          event_time: '1738001529'
+          event_type: fax_no_answer
+          event_hash: 950d3bdf03a30d520dfa6ac51a952ff93fe3a4d9754dd1412b6aec36206c1e81
+          event_metadata:
+            related_signature_id: null
+            reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
+            reported_for_app_id: null
+        transmission:
+          test_mode: false
+          signature_request_id: ''
+          title: Example Fax
+          original_title: Example Fax
+          subject: null
+          message: Please read
+          metadata: {}
+          created_at: 1738001529
+          is_complete: false
+          is_declined: false
+          has_error: true
+          files_url: https://api.hellosign.com/v3/fax/files/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          cc_email_addresses: []
+          final_copy_uri: /v3/transmission/final_copy/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          template_ids: []
+          custom_fields: []
+          attachments: []
+          response_data: []
+          signatures: []
+      x-fern-audiences:
+        - events
+    EventCallbackFaxDisconnected:
+      summary: Fax Disconnected Event Example
+      value:
+        event:
+          event_time: '1738001529'
+          event_type: fax_disconnected
+          event_hash: 950d3bdf03a30d520dfa6ac51a952ff93fe3a4d9754dd1412b6aec36206c1e81
+          event_metadata:
+            related_signature_id: null
+            reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
+            reported_for_app_id: null
+        transmission:
+          test_mode: false
+          signature_request_id: ''
+          title: Example Fax
+          original_title: Example Fax
+          subject: null
+          message: Please read
+          metadata: {}
+          created_at: 1738001529
+          is_complete: false
+          is_declined: false
+          has_error: true
+          files_url: https://api.hellosign.com/v3/fax/files/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          cc_email_addresses: []
+          final_copy_uri: /v3/transmission/final_copy/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          template_ids: []
+          custom_fields: []
+          attachments: []
+          response_data: []
+          signatures: []
+      x-fern-audiences:
+        - events
+    EventCallbackFaxBlacklisted:
+      summary: Fax Blacklisted Event Example
+      value:
+        event:
+          event_time: '1738001529'
+          event_type: fax_blacklisted
+          event_hash: 950d3bdf03a30d520dfa6ac51a952ff93fe3a4d9754dd1412b6aec36206c1e81
+          event_metadata:
+            related_signature_id: null
+            reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
+            reported_for_app_id: null
+        transmission:
+          test_mode: false
+          signature_request_id: ''
+          title: Example Fax
+          original_title: Example Fax
+          subject: null
+          message: Please read
+          metadata: {}
+          created_at: 1738001529
+          is_complete: false
+          is_declined: false
+          has_error: true
+          files_url: https://api.hellosign.com/v3/fax/files/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          cc_email_addresses: []
+          final_copy_uri: /v3/transmission/final_copy/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407
+          template_ids: []
+          custom_fields: []
+          attachments: []
+          response_data: []
+          signatures: []
+      x-fern-audiences:
+        - events
   requestBodies:
     EventCallbackAccountRequest:
       description: |-
@@ -34386,6 +34778,20 @@ webhooks:
                 $ref: '#/components/examples/EventCallbackSignUrlInvalid'
               callback_test_example:
                 $ref: '#/components/examples/EventCallbackCallbackTest'
+              fax_received_example:
+                $ref: '#/components/examples/EventCallbackFaxReceived'
+              fax_sent_example:
+                $ref: '#/components/examples/EventCallbackFaxSent'
+              fax_on_hold_example:
+                $ref: '#/components/examples/EventCallbackFaxOnHold'
+              fax_busy_example:
+                $ref: '#/components/examples/EventCallbackFaxBusy'
+              fax_no_answer_example:
+                $ref: '#/components/examples/EventCallbackFaxNoAnswer'
+              fax_disconnected_example:
+                $ref: '#/components/examples/EventCallbackFaxDisconnected'
+              fax_blacklisted_example:
+                $ref: '#/components/examples/EventCallbackFaxBlacklisted'
       responses:
         '200':
           $ref: '#/components/responses/EventCallbackResponse'
@@ -34464,6 +34870,20 @@ webhooks:
                 $ref: '#/components/examples/EventCallbackSignUrlInvalid'
               callback_test_example:
                 $ref: '#/components/examples/EventCallbackCallbackTest'
+              fax_received_example:
+                $ref: '#/components/examples/EventCallbackFaxReceived'
+              fax_sent_example:
+                $ref: '#/components/examples/EventCallbackFaxSent'
+              fax_on_hold_example:
+                $ref: '#/components/examples/EventCallbackFaxOnHold'
+              fax_busy_example:
+                $ref: '#/components/examples/EventCallbackFaxBusy'
+              fax_no_answer_example:
+                $ref: '#/components/examples/EventCallbackFaxNoAnswer'
+              fax_disconnected_example:
+                $ref: '#/components/examples/EventCallbackFaxDisconnected'
+              fax_blacklisted_example:
+                $ref: '#/components/examples/EventCallbackFaxBlacklisted'
       responses:
         '200':
           $ref: '#/components/responses/EventCallbackResponse'

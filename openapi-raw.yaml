@@ -13246,6 +13246,13 @@ components:
             - template_error
             - callback_test
             - signature_request_signer_removed
+            - fax_received
+            - fax_sent
+            - fax_on_hold
+            - fax_busy
+            - fax_no_answer
+            - fax_disconnected
+            - fax_blacklisted
         event_hash:
           description: '_t__EventCallbackRequestEvent::EVENT_HASH'
           type: string
@@ -13757,6 +13764,153 @@ components:
       x-fern-audiences:
         - events
       x-hideOn: sdk
+    EventCallbackFaxReceived:
+      title: '_t__EventCallbackFaxReceived::EVENT_TITLE'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [fax_received]
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+      x-hideOn: sdk
+    EventCallbackFaxSent:
+      title: '_t__EventCallbackFaxSent::EVENT_TITLE'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [fax_sent]
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+      x-hideOn: sdk
+    EventCallbackFaxOnHold:
+      title: '_t__EventCallbackFaxOnHold::EVENT_TITLE'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [fax_on_hold]
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+      x-hideOn: sdk
+    EventCallbackFaxBusy:
+      title: '_t__EventCallbackFaxBusy::EVENT_TITLE'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [fax_busy]
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+      x-hideOn: sdk
+    EventCallbackFaxNoAnswer:
+      title: '_t__EventCallbackFaxNoAnswer::EVENT_TITLE'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [fax_no_answer]
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+      x-hideOn: sdk
+    EventCallbackFaxDisconnected:
+      title: '_t__EventCallbackFaxDisconnected::EVENT_TITLE'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [fax_disconnected]
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+      x-hideOn: sdk
+    EventCallbackFaxBlacklisted:
+      title: '_t__EventCallbackFaxBlacklisted::EVENT_TITLE'
+      required:
+        - event
+      properties:
+        event:
+          allOf:
+            -
+              $ref: '#/components/schemas/EventCallbackRequestEvent'
+            -
+              properties:
+                event_type:
+                  type: string
+                  enum: [fax_blacklisted]
+              type: object
+        transmission:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+      type: object
+      x-fern-audiences:
+        - events
+      x-hideOn: sdk
     EventCallbackPayload:
       title: 'Event Callback Payload'
       description: 'JSON payload delivered for a webhook event. The concrete shape is selected by `event.event_type`.'
@@ -13807,6 +13961,20 @@ components:
           $ref: '#/components/schemas/EventCallbackSignUrlInvalid'
         -
           $ref: '#/components/schemas/EventCallbackCallbackTest'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxReceived'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxSent'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxOnHold'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxBusy'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxNoAnswer'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxDisconnected'
+        -
+          $ref: '#/components/schemas/EventCallbackFaxBlacklisted'
       x-fern-audiences:
         - events
       x-hideOn: sdk
@@ -14492,6 +14660,48 @@ components:
         $ref: examples/json/EventCallbackCallbackTest.json
       x-fern-audiences:
         - events
+    EventCallbackFaxReceived:
+      summary: '_t__EventCallbackFaxReceived::EVENT_EXAMPLE_SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackFaxReceived.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxSent:
+      summary: '_t__EventCallbackFaxSent::EVENT_EXAMPLE_SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackFaxSent.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxOnHold:
+      summary: '_t__EventCallbackFaxOnHold::EVENT_EXAMPLE_SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackFaxOnHold.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxBusy:
+      summary: '_t__EventCallbackFaxBusy::EVENT_EXAMPLE_SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackFaxBusy.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxNoAnswer:
+      summary: '_t__EventCallbackFaxNoAnswer::EVENT_EXAMPLE_SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackFaxNoAnswer.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxDisconnected:
+      summary: '_t__EventCallbackFaxDisconnected::EVENT_EXAMPLE_SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackFaxDisconnected.json
+      x-fern-audiences:
+        - events
+    EventCallbackFaxBlacklisted:
+      summary: '_t__EventCallbackFaxBlacklisted::EVENT_EXAMPLE_SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackFaxBlacklisted.json
+      x-fern-audiences:
+        - events
   requestBodies:
     EventCallbackAccountRequest:
       description: '_t__EventCallbackAccountRequest::DESCRIPTION'
@@ -14666,6 +14876,20 @@ x-webhooks:
                 $ref: '#/components/examples/EventCallbackSignUrlInvalid'
               callback_test_example:
                 $ref: '#/components/examples/EventCallbackCallbackTest'
+              fax_received_example:
+                $ref: '#/components/examples/EventCallbackFaxReceived'
+              fax_sent_example:
+                $ref: '#/components/examples/EventCallbackFaxSent'
+              fax_on_hold_example:
+                $ref: '#/components/examples/EventCallbackFaxOnHold'
+              fax_busy_example:
+                $ref: '#/components/examples/EventCallbackFaxBusy'
+              fax_no_answer_example:
+                $ref: '#/components/examples/EventCallbackFaxNoAnswer'
+              fax_disconnected_example:
+                $ref: '#/components/examples/EventCallbackFaxDisconnected'
+              fax_blacklisted_example:
+                $ref: '#/components/examples/EventCallbackFaxBlacklisted'
       responses:
         '200':
           $ref: '#/components/responses/EventCallbackResponse'
@@ -14736,6 +14960,20 @@ x-webhooks:
                 $ref: '#/components/examples/EventCallbackSignUrlInvalid'
               callback_test_example:
                 $ref: '#/components/examples/EventCallbackCallbackTest'
+              fax_received_example:
+                $ref: '#/components/examples/EventCallbackFaxReceived'
+              fax_sent_example:
+                $ref: '#/components/examples/EventCallbackFaxSent'
+              fax_on_hold_example:
+                $ref: '#/components/examples/EventCallbackFaxOnHold'
+              fax_busy_example:
+                $ref: '#/components/examples/EventCallbackFaxBusy'
+              fax_no_answer_example:
+                $ref: '#/components/examples/EventCallbackFaxNoAnswer'
+              fax_disconnected_example:
+                $ref: '#/components/examples/EventCallbackFaxDisconnected'
+              fax_blacklisted_example:
+                $ref: '#/components/examples/EventCallbackFaxBlacklisted'
       responses:
         '200':
           $ref: '#/components/responses/EventCallbackResponse'

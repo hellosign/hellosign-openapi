@@ -42,6 +42,13 @@ Basic information about the event that occurred.
 | TEMPLATE_ERROR | &quot;template_error&quot; |
 | CALLBACK_TEST | &quot;callback_test&quot; |
 | SIGNATURE_REQUEST_SIGNER_REMOVED | &quot;signature_request_signer_removed&quot; |
+| FAX_RECEIVED | &quot;fax_received&quot; |
+| FAX_SENT | &quot;fax_sent&quot; |
+| FAX_ON_HOLD | &quot;fax_on_hold&quot; |
+| FAX_BUSY | &quot;fax_busy&quot; |
+| FAX_NO_ANSWER | &quot;fax_no_answer&quot; |
+| FAX_DISCONNECTED | &quot;fax_disconnected&quot; |
+| FAX_BLACKLISTED | &quot;fax_blacklisted&quot; |
 
 
 
