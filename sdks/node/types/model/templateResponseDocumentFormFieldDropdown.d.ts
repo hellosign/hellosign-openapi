@@ -3,6 +3,7 @@ import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumen
 export declare class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocumentFormFieldBase {
     "type": string;
     "group"?: string | null;
+    "options"?: Array<string>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

@@ -37,6 +37,10 @@ export class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
    * The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
    */
   "group"?: string | null;
+  /**
+   * The options available for this dropdown form field.
+   */
+  "options"?: Array<string>;
 
   static discriminator: string | undefined = undefined;
 
@@ -50,6 +54,11 @@ export class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
       name: "group",
       baseName: "group",
       type: "string",
+    },
+    {
+      name: "options",
+      baseName: "options",
+      type: "Array<string>",
     },
   ];
 
