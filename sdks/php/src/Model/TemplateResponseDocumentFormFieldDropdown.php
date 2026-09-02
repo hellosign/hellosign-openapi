@@ -59,6 +59,7 @@ class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocument
     protected static $openAPITypes = [
         'type' => 'string',
         'group' => 'string',
+        'options' => 'string[]',
     ];
 
     /**
@@ -71,6 +72,7 @@ class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocument
     protected static $openAPIFormats = [
         'type' => null,
         'group' => null,
+        'options' => null,
     ];
 
     /**
@@ -81,6 +83,7 @@ class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocument
     protected static array $openAPINullables = [
         'type' => false,
         'group' => true,
+        'options' => false,
     ];
 
     /**
@@ -163,6 +166,7 @@ class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocument
     protected static $attributeMap = [
         'type' => 'type',
         'group' => 'group',
+        'options' => 'options',
     ];
 
     /**
@@ -173,6 +177,7 @@ class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocument
     protected static $setters = [
         'type' => 'setType',
         'group' => 'setGroup',
+        'options' => 'setOptions',
     ];
 
     /**
@@ -183,6 +188,7 @@ class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocument
     protected static $getters = [
         'type' => 'getType',
         'group' => 'getGroup',
+        'options' => 'getOptions',
     ];
 
     /**
@@ -238,6 +244,7 @@ class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocument
 
         $this->setIfExists('type', $data ?? [], 'dropdown');
         $this->setIfExists('group', $data ?? [], null);
+        $this->setIfExists('options', $data ?? [], null);
     }
 
     /**
@@ -359,6 +366,33 @@ class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocument
             }
         }
         $this->container['group'] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Gets options
+     *
+     * @return string[]|null
+     */
+    public function getOptions()
+    {
+        return $this->container['options'];
+    }
+
+    /**
+     * Sets options
+     *
+     * @param string[]|null $options the options available for this dropdown form field
+     *
+     * @return self
+     */
+    public function setOptions(?array $options)
+    {
+        if (is_null($options)) {
+            throw new InvalidArgumentException('non-nullable options cannot be null');
+        }
+        $this->container['options'] = $options;
 
         return $this;
     }
