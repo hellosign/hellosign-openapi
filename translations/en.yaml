@@ -1491,6 +1491,34 @@
 "EventCallbackCallbackTest::EVENT_TITLE": Callback Test Event
 "EventCallbackCallbackTest::EVENT_EXAMPLE_SUMMARY": Callback Test Event Example
 
+"EventCallbackFaxReceived::TITLE": Fax Received
+"EventCallbackFaxReceived::EVENT_TITLE": Fax Received Event
+"EventCallbackFaxReceived::EVENT_EXAMPLE_SUMMARY": Fax Received Event Example
+
+"EventCallbackFaxSent::TITLE": Fax Sent
+"EventCallbackFaxSent::EVENT_TITLE": Fax Sent Event
+"EventCallbackFaxSent::EVENT_EXAMPLE_SUMMARY": Fax Sent Event Example
+
+"EventCallbackFaxOnHold::TITLE": Fax On Hold
+"EventCallbackFaxOnHold::EVENT_TITLE": Fax On Hold Event
+"EventCallbackFaxOnHold::EVENT_EXAMPLE_SUMMARY": Fax On Hold Event Example
+
+"EventCallbackFaxBusy::TITLE": Fax Busy
+"EventCallbackFaxBusy::EVENT_TITLE": Fax Busy Event
+"EventCallbackFaxBusy::EVENT_EXAMPLE_SUMMARY": Fax Busy Event Example
+
+"EventCallbackFaxNoAnswer::TITLE": Fax No Answer
+"EventCallbackFaxNoAnswer::EVENT_TITLE": Fax No Answer Event
+"EventCallbackFaxNoAnswer::EVENT_EXAMPLE_SUMMARY": Fax No Answer Event Example
+
+"EventCallbackFaxDisconnected::TITLE": Fax Disconnected
+"EventCallbackFaxDisconnected::EVENT_TITLE": Fax Disconnected Event
+"EventCallbackFaxDisconnected::EVENT_EXAMPLE_SUMMARY": Fax Disconnected Event Example
+
+"EventCallbackFaxBlacklisted::TITLE": Fax Blacklisted
+"EventCallbackFaxBlacklisted::EVENT_TITLE": Fax Blacklisted Event
+"EventCallbackFaxBlacklisted::EVENT_EXAMPLE_SUMMARY": Fax Blacklisted Event Example
+
 "ListInfoResponse::DESCRIPTION": Contains pagination information about the data returned.
 "ListInfoResponse::NUM_PAGES": Total number of pages available.
 "ListInfoResponse::NUM_RESULTS": Total number of objects available.

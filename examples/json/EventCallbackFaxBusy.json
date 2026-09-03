@@ -1,0 +1,33 @@
+{
+  "event": {
+    "event_time": "1738001529",
+    "event_type": "fax_busy",
+    "event_hash": "950d3bdf03a30d520dfa6ac51a952ff93fe3a4d9754dd1412b6aec36206c1e81",
+    "event_metadata": {
+      "related_signature_id": null,
+      "reported_for_account_id": "63522885f9261e2b04eea043933ee7313eb674fd",
+      "reported_for_app_id": null
+    }
+  },
+  "transmission": {
+    "test_mode": false,
+    "signature_request_id": "",
+    "title": "Example Fax",
+    "original_title": "Example Fax",
+    "subject": null,
+    "message": "Please read",
+    "metadata": {},
+    "created_at": 1738001529,
+    "is_complete": false,
+    "is_declined": false,
+    "has_error": true,
+    "files_url": "https://api.hellosign.com/v3/fax/files/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407",
+    "cc_email_addresses": [],
+    "final_copy_uri": "/v3/transmission/final_copy/9c2c7e8c2ed1839f75a9a0227ce2954b1d7c3407",
+    "template_ids": [],
+    "custom_fields": [],
+    "attachments": [],
+    "response_data": [],
+    "signatures": []
+  }
+}

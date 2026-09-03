@@ -86,7 +86,21 @@ public class EventCallbackRequestEvent {
 
         CALLBACK_TEST(String.valueOf("callback_test")),
 
-        SIGNATURE_REQUEST_SIGNER_REMOVED(String.valueOf("signature_request_signer_removed"));
+        SIGNATURE_REQUEST_SIGNER_REMOVED(String.valueOf("signature_request_signer_removed")),
+
+        FAX_RECEIVED(String.valueOf("fax_received")),
+
+        FAX_SENT(String.valueOf("fax_sent")),
+
+        FAX_ON_HOLD(String.valueOf("fax_on_hold")),
+
+        FAX_BUSY(String.valueOf("fax_busy")),
+
+        FAX_NO_ANSWER(String.valueOf("fax_no_answer")),
+
+        FAX_DISCONNECTED(String.valueOf("fax_disconnected")),
+
+        FAX_BLACKLISTED(String.valueOf("fax_blacklisted"));
 
         private String value;
 

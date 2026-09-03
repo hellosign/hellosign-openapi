@@ -18163,6 +18163,13 @@ var EventCallbackRequestEvent = class _EventCallbackRequestEvent {
     EventTypeEnum2["TemplateError"] = "template_error";
     EventTypeEnum2["CallbackTest"] = "callback_test";
     EventTypeEnum2["SignatureRequestSignerRemoved"] = "signature_request_signer_removed";
+    EventTypeEnum2["FaxReceived"] = "fax_received";
+    EventTypeEnum2["FaxSent"] = "fax_sent";
+    EventTypeEnum2["FaxOnHold"] = "fax_on_hold";
+    EventTypeEnum2["FaxBusy"] = "fax_busy";
+    EventTypeEnum2["FaxNoAnswer"] = "fax_no_answer";
+    EventTypeEnum2["FaxDisconnected"] = "fax_disconnected";
+    EventTypeEnum2["FaxBlacklisted"] = "fax_blacklisted";
   })(EventTypeEnum = EventCallbackRequestEvent2.EventTypeEnum || (EventCallbackRequestEvent2.EventTypeEnum = {}));
 })(EventCallbackRequestEvent || (EventCallbackRequestEvent = {}));
 
