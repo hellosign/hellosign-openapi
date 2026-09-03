@@ -25141,6 +25141,11 @@ var TemplateResponseDocumentFormFieldDropdown = class _TemplateResponseDocumentF
         name: "group",
         baseName: "group",
         type: "string"
+      },
+      {
+        name: "options",
+        baseName: "options",
+        type: "Array<string>"
       }
     ];
   }

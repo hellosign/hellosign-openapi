@@ -41,6 +41,9 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
         default=None,
         description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
     )
+    options: Optional[List[StrictStr]] = Field(
+        default=None, description="The options available for this dropdown form field."
+    )
     __properties: ClassVar[List[str]] = [
         "type",
         "api_id",
@@ -52,6 +55,7 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
         "height",
         "required",
         "group",
+        "options",
     ]
 
     model_config = ConfigDict(
@@ -127,6 +131,7 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
                 "height": obj.get("height"),
                 "required": obj.get("required"),
                 "group": obj.get("group"),
+                "options": obj.get("options"),
             }
         )
         return _obj
@@ -146,6 +151,7 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
         return {
             "type": "(str,)",
             "group": "(str,)",
+            "options": "(List[str],)",
             "api_id": "(str,)",
             "name": "(str,)",
             "signer": "(int, str,)",
@@ -158,4 +164,6 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in []
+        return property_name in [
+            "options",
+        ]
