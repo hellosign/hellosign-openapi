@@ -8265,6 +8265,9 @@ components:
         - end_date
         - report_type
       properties:
+        start_date:
+          description: '_t__ReportCreate::START_DATE'
+          type: string
         end_date:
           description: '_t__ReportCreate::END_DATE'
           type: string
@@ -8280,9 +8283,6 @@ components:
               - fax_usage
           maxItems: 2
           minItems: 1
-        start_date:
-          description: '_t__ReportCreate::START_DATE'
-          type: string
       type: object
     SignatureRequestBulkCreateEmbeddedWithTemplateRequest:
       required:

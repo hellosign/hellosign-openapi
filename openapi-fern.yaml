@@ -23515,6 +23515,9 @@ components:
         - end_date
         - report_type
       properties:
+        start_date:
+          description: The (inclusive) start date for the report data in `MM/DD/YYYY` format.
+          type: string
         end_date:
           description: The (inclusive) end date for the report data in `MM/DD/YYYY` format.
           type: string
@@ -23530,9 +23533,6 @@ components:
               - fax_usage
           maxItems: 2
           minItems: 1
-        start_date:
-          description: The (inclusive) start date for the report data in `MM/DD/YYYY` format.
-          type: string
       type: object
     SignatureRequestBulkCreateEmbeddedWithTemplateRequest:
       required:
