@@ -60,7 +60,7 @@ Some translation values are references to other files, like so:
 
 The matching file can be found at [markdown/en/tags/account-tag-description.md](markdown/en/tags/account-tag-description.md) and any changes should be made directly against that file's contents.
 
-To apply changes made against the translation file(s), simply run the [build](build) script. You will see the changes reflected on the [openapi.yaml](openapi.yaml) and [openapi-sdk.yaml](openapi-sdk.yaml) files.
+To apply changes made against the translation file(s), simply run the [build](build) script. You will see the changes reflected on the [openapi.yaml](openapi.yaml), [openapi-fern.yaml](openapi-fern.yaml), and [openapi-sdk.yaml](openapi-sdk.yaml) files.
 
 Translation changes will affect all SDKs so you must rebuild them. See the [Rebuilding SDKs](#rebuilding-sdks) section for more information.
 
@@ -73,6 +73,34 @@ Each endpoint has at least one example for each of our SDKs. The Node SDK has tw
 If you make changes to any of the code samples you should also rebuild the SDKs because examples are embedded in the documentation for each SDK.
 
 If you make a change to only a single language you only need to rebuild that SDK, otherwise it is best to rebuild all SDKs. See the [Rebuilding SDKs](#rebuilding-sdks) section for more information.
+
+### Updating the Fern API Reference
+
+The [build](build) script generates the self-contained
+[openapi-fern.yaml](openapi-fern.yaml) consumed by the
+[sign-api-documentation](https://github.com/hellosign/sign-api-documentation)
+repository. When an OpenAPI change should be published in the Fern API
+reference, copy that generated file into the documentation repository:
+
+Do not publish the API reference change until the corresponding API
+functionality and all affected SDK versions are available to customers. Confirm
+the SDK packages are published in their public registries before merging the
+documentation change.
+
+```bash
+# In a sibling sign-api-documentation clone
+cp ../hellosign-openapi/openapi-fern.yaml fern/openapi.yaml
+fern check
+```
+
+The documentation repository also provides an equivalent guarded copy helper:
+
+```bash
+npm run sync:openapi -- --write --check
+```
+
+Commit the updated `fern/openapi.yaml` in the documentation pull request. This
+step is unnecessary when the generated file has not changed.
 
 ### Rebuilding SDKs
 
