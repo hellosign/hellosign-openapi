@@ -81,6 +81,9 @@ from dropbox_sign.models.event_callback_request_event import EventCallbackReques
 from dropbox_sign.models.event_callback_request_event_metadata import (
     EventCallbackRequestEventMetadata,
 )
+from dropbox_sign.models.fax_draft_create_request import FaxDraftCreateRequest
+from dropbox_sign.models.fax_draft_create_response import FaxDraftCreateResponse
+from dropbox_sign.models.fax_draft_response import FaxDraftResponse
 from dropbox_sign.models.fax_get_response import FaxGetResponse
 from dropbox_sign.models.fax_line_add_user_request import FaxLineAddUserRequest
 from dropbox_sign.models.fax_line_area_code_get_country_enum import (
@@ -216,6 +219,7 @@ from dropbox_sign.models.sub_bulk_signer_list_custom_field import (
 from dropbox_sign.models.sub_cc import SubCC
 from dropbox_sign.models.sub_custom_field import SubCustomField
 from dropbox_sign.models.sub_editor_options import SubEditorOptions
+from dropbox_sign.models.sub_editor_page_options import SubEditorPageOptions
 from dropbox_sign.models.sub_field_options import SubFieldOptions
 from dropbox_sign.models.sub_form_field_group import SubFormFieldGroup
 from dropbox_sign.models.sub_form_field_rule import SubFormFieldRule

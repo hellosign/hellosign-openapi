@@ -5,6 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**FaxDelete**](FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| [**FaxDraftCreate**](FaxApi.md#faxdraftcreate) | **POST** /fax/draft/create | Create Fax Draft |
 | [**FaxFiles**](FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | [**FaxGet**](FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | [**FaxList**](FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
@@ -96,6 +97,118 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="faxdraftcreate"></a>
+# **FaxDraftCreate**
+> FaxDraftCreateResponse FaxDraftCreate (FaxDraftCreateRequest faxDraftCreateRequest)
+
+Create Fax Draft
+
+Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+namespace Dropbox.SignSandbox;
+
+public class FaxDraftCreateExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+
+        var editorOptions = new SubEditorPageOptions(
+            forceUploadPage: false,
+            forceEditorPage: true,
+            forceReviewPage: true
+        );
+        var faxDraftCreateRequest = new FaxDraftCreateRequest(
+            clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+            fileUrls: new List<string>
+            {
+                "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+            },
+            recipients: new List<string>
+            {
+                "+14155552671",
+            },
+            editorOptions: editorOptions,
+            testMode: true
+        );
+
+        try
+        {
+            var response = new FaxApi(config).FaxDraftCreate(
+                faxDraftCreateRequest: faxDraftCreateRequest
+            );
+
+            Console.WriteLine(response);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling FaxApi#FaxDraftCreate: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the FaxDraftCreateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create Fax Draft
+    ApiResponse<FaxDraftCreateResponse> response = apiInstance.FaxDraftCreateWithHttpInfo(faxDraftCreateRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FaxApi.FaxDraftCreateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **faxDraftCreateRequest** | [**FaxDraftCreateRequest**](FaxDraftCreateRequest.md) |  |  |
+
+### Return type
+
+[**FaxDraftCreateResponse**](FaxDraftCreateResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

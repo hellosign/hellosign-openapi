@@ -1,4 +1,4 @@
-import { Authentication, FaxGetResponse, FaxListResponse, FaxSendRequest, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
+import { Authentication, FaxDraftCreateRequest, FaxDraftCreateResponse, FaxGetResponse, FaxListResponse, FaxSendRequest, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
 import { optionsI, returnTypeI, returnTypeT } from "./";
 export declare enum FaxApiApiKeys {
 }
@@ -25,6 +25,7 @@ export declare class FaxApi {
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
     faxDelete(faxId: string, options?: optionsI): Promise<returnTypeI>;
+    faxDraftCreate(faxDraftCreateRequest: FaxDraftCreateRequest, options?: optionsI): Promise<returnTypeT<FaxDraftCreateResponse>>;
     faxFiles(faxId: string, options?: optionsI): Promise<returnTypeT<Buffer>>;
     faxGet(faxId: string, options?: optionsI): Promise<returnTypeT<FaxGetResponse>>;
     faxList(page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<FaxListResponse>>;

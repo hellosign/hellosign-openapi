@@ -5,6 +5,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**faxDelete()**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| [**faxDraftCreate()**](FaxApi.md#faxDraftCreate) | **POST** /fax/draft/create | Create Fax Draft |
 | [**faxFiles()**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | [**faxGet()**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax |
 | [**faxList()**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes |
@@ -57,6 +58,73 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `faxDraftCreate()`
+
+```typescript
+faxDraftCreate(faxDraftCreateRequest: FaxDraftCreateRequest): FaxDraftCreateResponse
+```
+
+Create Fax Draft
+
+Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+
+### TypeScript Example
+
+```typescript
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.FaxApi();
+apiCaller.username = "YOUR_API_KEY";
+
+const faxDraftCreateRequest: models.FaxDraftCreateRequest = {
+  clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  fileUrls: [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+  ],
+  recipients: ["+14155552671"],
+  editorOptions: {
+    forceUploadPage: false,
+    forceEditorPage: true,
+    forceReviewPage: true,
+  },
+  testMode: true,
+};
+
+apiCaller.faxDraftCreate(
+  faxDraftCreateRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling FaxApi#faxDraftCreate:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **faxDraftCreateRequest** | [**FaxDraftCreateRequest**](../model/FaxDraftCreateRequest.md)|  | |
+
+### Return type
+
+[**FaxDraftCreateResponse**](../model/FaxDraftCreateResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

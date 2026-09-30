@@ -5,6 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [`fax_delete`](FaxApi.md#fax_delete) | **DELETE** `/fax/{fax_id}` | Delete Fax |
+| [`fax_draft_create`](FaxApi.md#fax_draft_create) | **POST** `/fax/draft/create` | Create Fax Draft |
 | [`fax_files`](FaxApi.md#fax_files) | **GET** `/fax/files/{fax_id}` | Download Fax Files |
 | [`fax_get`](FaxApi.md#fax_get) | **GET** `/fax/{fax_id}` | Get Fax |
 | [`fax_list`](FaxApi.md#fax_list) | **GET** `/fax/list` | Lists Faxes |
@@ -74,6 +75,88 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## `fax_draft_create`
+
+> `<FaxDraftCreateResponse> fax_draft_create(fax_draft_create_request)`
+
+Create Fax Draft
+
+Creates a Fax draft and returns a URL for preparing and sending the Fax.  When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+
+### Examples
+
+```ruby
+require "json"
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+end
+
+editor_options = Dropbox::Sign::SubEditorPageOptions.new
+editor_options.force_upload_page = false
+editor_options.force_editor_page = true
+editor_options.force_review_page = true
+
+fax_draft_create_request = Dropbox::Sign::FaxDraftCreateRequest.new
+fax_draft_create_request.client_id = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a"
+fax_draft_create_request.file_urls = [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+]
+fax_draft_create_request.recipients = ["+14155552671"]
+fax_draft_create_request.editor_options = editor_options
+fax_draft_create_request.test_mode = true
+
+begin
+  response = Dropbox::Sign::FaxApi.new.fax_draft_create(
+    fax_draft_create_request,
+  )
+
+  p response
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling FaxApi#fax_draft_create: #{e}"
+end
+
+```
+
+#### Using the `fax_draft_create_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<FaxDraftCreateResponse>, Integer, Hash)> fax_draft_create_with_http_info(fax_draft_create_request)`
+
+```ruby
+begin
+  # Create Fax Draft
+  data, status_code, headers = api_instance.fax_draft_create_with_http_info(fax_draft_create_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FaxDraftCreateResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling FaxApi->fax_draft_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `fax_draft_create_request` | [**FaxDraftCreateRequest**](FaxDraftCreateRequest.md) |  |  |
+
+### Return type
+
+[**FaxDraftCreateResponse**](FaxDraftCreateResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 

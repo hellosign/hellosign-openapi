@@ -5,6 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 [**faxDelete**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax
+[**faxDraftCreate**](FaxApi.md#faxDraftCreate) | **POST** /fax/draft/create | Create Fax Draft
 [**faxFiles**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | Download Fax Files
 [**faxGet**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax
 [**faxList**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes
@@ -88,6 +89,97 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## faxDraftCreate
+
+> FaxDraftCreateResponse faxDraftCreate(faxDraftCreateRequest)
+
+Create Fax Draft
+
+Creates a Fax draft and returns a URL for preparing and sending the Fax.
+
+When `client_id` is provided, the draft is embedded and the returned URL must be opened in an approved iframe. When `client_id` is omitted, the draft is a normal Fax draft that opens in Dropbox Fax.
+
+### Example
+
+```java
+package com.dropbox.sign_sandbox;
+
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.FaxApi;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.FaxDraftCreateRequest;
+import com.dropbox.sign.model.SubEditorPageOptions;
+
+import java.util.List;
+
+public class FaxDraftCreateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+
+        var editorOptions = new SubEditorPageOptions();
+        editorOptions.forceUploadPage(false);
+        editorOptions.forceEditorPage(true);
+        editorOptions.forceReviewPage(true);
+
+        var faxDraftCreateRequest = new FaxDraftCreateRequest();
+        faxDraftCreateRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");
+        faxDraftCreateRequest.fileUrls(List.of(
+            "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
+        ));
+        faxDraftCreateRequest.recipients(List.of("+14155552671"));
+        faxDraftCreateRequest.editorOptions(editorOptions);
+        faxDraftCreateRequest.testMode(true);
+
+        try
+        {
+            var response = new FaxApi(config).faxDraftCreate(
+                faxDraftCreateRequest
+            );
+
+            System.out.println(response);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FaxApi#faxDraftCreate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **faxDraftCreateRequest** | [**FaxDraftCreateRequest**](FaxDraftCreateRequest.md)|  |
+
+### Return type
+
+[**FaxDraftCreateResponse**](FaxDraftCreateResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
