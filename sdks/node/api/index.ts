@@ -1,6 +1,7 @@
 import { AccountApi } from "./accountApi";
 import { ApiAppApi } from "./apiAppApi";
 import { BulkSendJobApi } from "./bulkSendJobApi";
+import { DocumentApi } from "./documentApi";
 import { EmbeddedApi } from "./embeddedApi";
 import { FaxApi } from "./faxApi";
 import { FaxLineApi } from "./faxLineApi";
@@ -15,6 +16,7 @@ export {
   AccountApi,
   ApiAppApi,
   BulkSendJobApi,
+  DocumentApi,
   EmbeddedApi,
   FaxApi,
   FaxLineApi,
@@ -41,6 +43,7 @@ export const APIS = [
   AccountApi,
   ApiAppApi,
   BulkSendJobApi,
+  DocumentApi,
   EmbeddedApi,
   FaxApi,
   FaxLineApi,

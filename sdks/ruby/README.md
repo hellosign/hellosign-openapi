@@ -118,6 +118,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::ApiAppApi* | [**api_app_update**](docs/ApiAppApi.md#api_app_update) | **PUT** /api_app/{client_id} | Update API App |
 |*Dropbox::Sign::BulkSendJobApi* | [**bulk_send_job_get**](docs/BulkSendJobApi.md#bulk_send_job_get) | **GET** /bulk_send_job/{bulk_send_job_id} | Get Bulk Send Job |
 |*Dropbox::Sign::BulkSendJobApi* | [**bulk_send_job_list**](docs/BulkSendJobApi.md#bulk_send_job_list) | **GET** /bulk_send_job/list | List Bulk Send Jobs |
+|*Dropbox::Sign::DocumentApi* | [**document_detect_fields**](docs/DocumentApi.md#document_detect_fields) | **POST** /document/detect_fields | Detect Document Fields |
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_edit_url**](docs/EmbeddedApi.md#embedded_edit_url) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_sign_url**](docs/EmbeddedApi.md#embedded_sign_url) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 |*Dropbox::Sign::FaxApi* | [**fax_delete**](docs/FaxApi.md#fax_delete) | **DELETE** /fax/{fax_id} | Delete Fax |
@@ -209,6 +210,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::BulkSendJobListResponse](docs/BulkSendJobListResponse.md)
  - [Dropbox::Sign::BulkSendJobResponse](docs/BulkSendJobResponse.md)
  - [Dropbox::Sign::BulkSendJobSendResponse](docs/BulkSendJobSendResponse.md)
+ - [Dropbox::Sign::DocumentFieldDetectionResponse](docs/DocumentFieldDetectionResponse.md)
+ - [Dropbox::Sign::DocumentFieldDetectionResponseDetectionResult](docs/DocumentFieldDetectionResponseDetectionResult.md)
  - [Dropbox::Sign::EmbeddedEditUrlRequest](docs/EmbeddedEditUrlRequest.md)
  - [Dropbox::Sign::EmbeddedEditUrlResponse](docs/EmbeddedEditUrlResponse.md)
  - [Dropbox::Sign::EmbeddedEditUrlResponseEmbedded](docs/EmbeddedEditUrlResponseEmbedded.md)

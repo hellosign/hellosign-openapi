@@ -107,6 +107,19 @@
 "BulkSendJobList::PAGE": Which page number of the BulkSendJob List to return. Defaults to `1`.
 "BulkSendJobList::PAGE_SIZE": Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.
 
+"DocumentFieldDetection::SUMMARY": Detect Document Fields
+"DocumentFieldDetection::DESCRIPTION": Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
+"DocumentFieldDetection::FILE": |-
+  The PDF file to analyze.
+
+  This endpoint requires either `file` or `file_url`, but not both.
+"DocumentFieldDetection::FILE_URL": |-
+  The URL of the PDF file to analyze.
+
+  This endpoint requires either `file` or `file_url`, but not both.
+"DocumentFieldDetection::DETECTION_MODE": The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags.
+"DocumentFieldDetection::PAGE_RANGE": The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`.
+
 "EmbeddedEditUrl::SUMMARY": Get Embedded Template Edit URL
 "EmbeddedEditUrl::DESCRIPTION": Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
 "EmbeddedEditUrl::ALLOW_EDIT_CCS": This allows the requester to enable/disable to add or change CC roles when editing the template.
@@ -1356,6 +1369,16 @@
 "BulkSendJobGetResponse::SIGNATURE_REQUESTS": Contains information about the Signature Requests sent in bulk.
 "BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID": The id of the BulkSendJob.
 
+"DocumentFieldDetectionResponse::DOCUMENT_HASH": The SHA-256 hash of the analyzed document.
+"DocumentFieldDetectionResponse::DETECTION_MODE": |-
+  The field detection method used to analyze the document: `annotations` or `text_tags`.
+"DocumentFieldDetectionResponse::PAGE_COUNT": The total number of pages in the document.
+"DocumentFieldDetectionResponse::PAGES_ANALYZED": The zero-based page indexes analyzed, represented by the requested `page_range`, or `all` when every page was analyzed.
+"DocumentFieldDetectionResponse::DETECTED_AT": The Unix timestamp when the field detection result was generated.
+"DocumentFieldDetectionResponse::WARNINGS": Non-fatal issues encountered during field detection.
+"DocumentFieldDetectionResponse::ERRORS": Errors encountered during field detection. Successfully detected fields may still be included in the response.
+"DocumentFieldDetectionResponse::SUGGESTIONS": Suggestions for improving the field detection results.
+
 "Common::RateLimiting::LIMIT": The maximum number of requests per hour that you can make.
 "Common::RateLimiting::REMAINING": The number of requests remaining in the current rate limit window.
 "Common::RateLimiting::RESET": The Unix time at which the rate limit will reset to its maximum.
@@ -1892,6 +1915,8 @@
 "BulkSendJobGet::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here."
 "BulkSendJobList::SEO::TITLE": "List Bulk Send Jobs | Documentation | Dropbox Sign for Developers"
 "BulkSendJobList::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to return a list of BulkSendJob that you can access, click here."
+"DocumentDetectFields::SEO::TITLE": "Detect Document Fields | API Documentation | Dropbox Sign for Developers"
+"DocumentDetectFields::SEO::DESCRIPTION": "Use the Dropbox Sign API to detect form fields in PDF documents from PDF form annotations or Dropbox Sign text tags."
 "EmbeddedEditUrl::SEO::TITLE": "Get Embedded Template URL | iFrame | Dropbox Sign for Developers"
 "EmbeddedEditUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here."
 "EmbeddedSignUrl::SEO::TITLE": "Get Embedded Sign URL | iFrame | Dropbox Sign for Developers"

@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
 *ApiAppApi* | [**ApiAppUpdate**](docs/ApiAppApi.md#apiappupdate) | **PUT** /api_app/{client_id} | Update API App
 *BulkSendJobApi* | [**BulkSendJobGet**](docs/BulkSendJobApi.md#bulksendjobget) | **GET** /bulk_send_job/{bulk_send_job_id} | Get Bulk Send Job
 *BulkSendJobApi* | [**BulkSendJobList**](docs/BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs
+*DocumentApi* | [**DocumentDetectFields**](docs/DocumentApi.md#documentdetectfields) | **POST** /document/detect_fields | Detect Document Fields
 *EmbeddedApi* | [**EmbeddedEditUrl**](docs/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**EmbeddedSignUrl**](docs/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
 *FaxApi* | [**FaxDelete**](docs/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax
@@ -234,6 +235,8 @@ Class | Method | HTTP request | Description
  - [Model.BulkSendJobListResponse](docs/BulkSendJobListResponse.md)
  - [Model.BulkSendJobResponse](docs/BulkSendJobResponse.md)
  - [Model.BulkSendJobSendResponse](docs/BulkSendJobSendResponse.md)
+ - [Model.DocumentFieldDetectionResponse](docs/DocumentFieldDetectionResponse.md)
+ - [Model.DocumentFieldDetectionResponseDetectionResult](docs/DocumentFieldDetectionResponseDetectionResult.md)
  - [Model.EmbeddedEditUrlRequest](docs/EmbeddedEditUrlRequest.md)
  - [Model.EmbeddedEditUrlResponse](docs/EmbeddedEditUrlResponse.md)
  - [Model.EmbeddedEditUrlResponseEmbedded](docs/EmbeddedEditUrlResponseEmbedded.md)

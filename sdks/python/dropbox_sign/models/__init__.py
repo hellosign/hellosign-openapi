@@ -48,6 +48,12 @@ from dropbox_sign.models.bulk_send_job_get_response_signature_requests import (
 from dropbox_sign.models.bulk_send_job_list_response import BulkSendJobListResponse
 from dropbox_sign.models.bulk_send_job_response import BulkSendJobResponse
 from dropbox_sign.models.bulk_send_job_send_response import BulkSendJobSendResponse
+from dropbox_sign.models.document_field_detection_response import (
+    DocumentFieldDetectionResponse,
+)
+from dropbox_sign.models.document_field_detection_response_detection_result import (
+    DocumentFieldDetectionResponseDetectionResult,
+)
 from dropbox_sign.models.embedded_edit_url_request import EmbeddedEditUrlRequest
 from dropbox_sign.models.embedded_edit_url_response import EmbeddedEditUrlResponse
 from dropbox_sign.models.embedded_edit_url_response_embedded import (

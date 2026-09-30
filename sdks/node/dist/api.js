@@ -13173,6 +13173,9 @@ __export(api_exports, {
   BulkSendJobListResponse: () => BulkSendJobListResponse,
   BulkSendJobResponse: () => BulkSendJobResponse,
   BulkSendJobSendResponse: () => BulkSendJobSendResponse,
+  DocumentApi: () => DocumentApi,
+  DocumentFieldDetectionResponse: () => DocumentFieldDetectionResponse,
+  DocumentFieldDetectionResponseDetectionResult: () => DocumentFieldDetectionResponseDetectionResult,
   EmbeddedApi: () => EmbeddedApi,
   EmbeddedEditUrlRequest: () => EmbeddedEditUrlRequest,
   EmbeddedEditUrlResponse: () => EmbeddedEditUrlResponse,
@@ -17752,6 +17755,105 @@ var BulkSendJobSendResponse = class _BulkSendJobSendResponse {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "BulkSendJobSendResponse");
+  }
+};
+
+// model/documentFieldDetectionResponse.ts
+var DocumentFieldDetectionResponse = class _DocumentFieldDetectionResponse {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "detectionResult",
+        baseName: "detection_result",
+        type: "DocumentFieldDetectionResponseDetectionResult"
+      },
+      {
+        name: "warnings",
+        baseName: "warnings",
+        type: "Array<WarningResponse>"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _DocumentFieldDetectionResponse.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "DocumentFieldDetectionResponse");
+  }
+};
+
+// model/documentFieldDetectionResponseDetectionResult.ts
+var DocumentFieldDetectionResponseDetectionResult = class _DocumentFieldDetectionResponseDetectionResult {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "documentHash",
+        baseName: "document_hash",
+        type: "string"
+      },
+      {
+        name: "detectionMode",
+        baseName: "detection_mode",
+        type: "string"
+      },
+      {
+        name: "pageCount",
+        baseName: "page_count",
+        type: "number"
+      },
+      {
+        name: "pagesAnalyzed",
+        baseName: "pages_analyzed",
+        type: "string"
+      },
+      {
+        name: "detectedAt",
+        baseName: "detected_at",
+        type: "number"
+      },
+      {
+        name: "formFieldsPerDocument",
+        baseName: "form_fields_per_document",
+        type: "Array<SubFormFieldsPerDocumentBase>"
+      },
+      {
+        name: "formFieldGroups",
+        baseName: "form_field_groups",
+        type: "Array<SubFormFieldGroup>"
+      },
+      {
+        name: "warnings",
+        baseName: "warnings",
+        type: "Array<WarningResponse>"
+      },
+      {
+        name: "errors",
+        baseName: "errors",
+        type: "Array<ErrorResponseError>"
+      },
+      {
+        name: "suggestions",
+        baseName: "suggestions",
+        type: "Array<string>"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _DocumentFieldDetectionResponseDetectionResult.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "DocumentFieldDetectionResponseDetectionResult"
+    );
   }
 };
 
@@ -26933,6 +27035,8 @@ var typeMap = {
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
+  DocumentFieldDetectionResponse,
+  DocumentFieldDetectionResponseDetectionResult,
   EmbeddedEditUrlRequest,
   EmbeddedEditUrlResponse,
   EmbeddedEditUrlResponseEmbedded,
@@ -28588,11 +28692,216 @@ function handleErrorRangeResponse3(reject, response, code, returnType) {
   return false;
 }
 
-// api/embeddedApi.ts
+// api/documentApi.ts
 var defaultBasePath4 = "https://api.hellosign.com/v3";
-var EmbeddedApi = class {
+var DocumentApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath4;
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
+    this._useQuerystring = false;
+    this.authentications = {
+      default: new VoidAuth(),
+      api_key: new HttpBasicAuth(),
+      oauth2: new HttpBearerAuth()
+    };
+    this.interceptors = [];
+    if (basePath) {
+      this.basePath = basePath;
+    }
+  }
+  set useQuerystring(value) {
+    this._useQuerystring = value;
+  }
+  set basePath(basePath) {
+    this._basePath = basePath;
+  }
+  set defaultHeaders(defaultHeaders) {
+    this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
+  }
+  get defaultHeaders() {
+    return this._defaultHeaders;
+  }
+  get basePath() {
+    return this._basePath;
+  }
+  setDefaultAuthentication(auth) {
+    this.authentications.default = auth;
+  }
+  setApiKey(key) {
+    this.authentications.api_key.username = key;
+  }
+  set username(username) {
+    this.authentications.api_key.username = username;
+  }
+  set password(password) {
+    this.authentications.api_key.password = password;
+  }
+  set accessToken(accessToken) {
+    this.authentications.oauth2.accessToken = accessToken;
+  }
+  addInterceptor(interceptor) {
+    this.interceptors.push(interceptor);
+  }
+  /**
+   * Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
+   * @summary Detect Document Fields
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/DocumentDetectFieldsExample.ts
+   * @param detectionMode The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.
+   * @param file The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
+   * @param fileUrl The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
+   * @param pageRange The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;.
+   * @param options
+   */
+  async documentDetectFields(detectionMode, file, fileUrl, pageRange, options = { headers: {} }) {
+    const localVarPath = this.basePath + "/document/detect_fields";
+    let localVarQueryParameters = {};
+    let localVarHeaderParams = Object.assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams = {};
+    let localVarBodyParams = void 0;
+    if (detectionMode === null || detectionMode === void 0) {
+      throw new Error(
+        "Required parameter detectionMode was null or undefined when calling documentDetectFields."
+      );
+    }
+    Object.assign(localVarHeaderParams, options.headers);
+    let localVarUseFormData = false;
+    if (file !== void 0) {
+      localVarFormParams["file"] = file;
+    }
+    localVarUseFormData = true;
+    if (fileUrl !== void 0) {
+      localVarFormParams["file_url"] = ObjectSerializer.serialize(
+        fileUrl,
+        "string"
+      );
+    }
+    if (detectionMode !== void 0) {
+      localVarFormParams["detection_mode"] = ObjectSerializer.serialize(
+        detectionMode,
+        "string"
+      );
+    }
+    if (pageRange !== void 0) {
+      localVarFormParams["page_range"] = ObjectSerializer.serialize(
+        pageRange,
+        "string"
+      );
+    }
+    let localVarRequestOptions = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json"
+    };
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(
+      () => this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(
+        () => interceptor(localVarRequestOptions)
+      );
+    }
+    return interceptorPromise.then(() => {
+      return new Promise(
+        (resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse4(
+                resolve,
+                reject,
+                response,
+                "DocumentFieldDetectionResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse4(
+                reject,
+                error.response,
+                200,
+                "DocumentFieldDetectionResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse4(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+};
+function handleSuccessfulResponse4(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse4(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse4(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
+
+// api/embeddedApi.ts
+var defaultBasePath5 = "https://api.hellosign.com/v3";
+var EmbeddedApi = class {
+  constructor(basePath) {
+    this._basePath = defaultBasePath5;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -28735,7 +29044,7 @@ var EmbeddedApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse4(
+              handleSuccessfulResponse5(
                 resolve,
                 reject,
                 response,
@@ -28747,7 +29056,7 @@ var EmbeddedApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse4(
+              if (handleErrorCodeResponse5(
                 reject,
                 error.response,
                 200,
@@ -28755,7 +29064,7 @@ var EmbeddedApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse4(
+              if (handleErrorRangeResponse5(
                 reject,
                 error.response,
                 "4XX",
@@ -28837,7 +29146,7 @@ var EmbeddedApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse4(
+              handleSuccessfulResponse5(
                 resolve,
                 reject,
                 response,
@@ -28849,7 +29158,7 @@ var EmbeddedApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse4(
+              if (handleErrorCodeResponse5(
                 reject,
                 error.response,
                 200,
@@ -28857,7 +29166,7 @@ var EmbeddedApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse4(
+              if (handleErrorRangeResponse5(
                 reject,
                 error.response,
                 "4XX",
@@ -28879,7 +29188,7 @@ function deserializeIfNeeded3(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse4(resolve, reject, response, returnType) {
+function handleSuccessfulResponse5(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -28890,7 +29199,7 @@ function handleSuccessfulResponse4(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse4(reject, response, code, returnType) {
+function handleErrorCodeResponse5(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -28898,7 +29207,7 @@ function handleErrorCodeResponse4(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse4(reject, response, code, returnType) {
+function handleErrorRangeResponse5(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -28910,10 +29219,10 @@ function handleErrorRangeResponse4(reject, response, code, returnType) {
 }
 
 // api/faxApi.ts
-var defaultBasePath5 = "https://api.hellosign.com/v3";
+var defaultBasePath6 = "https://api.hellosign.com/v3";
 var FaxApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath5;
+    this._basePath = defaultBasePath6;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -29020,14 +29329,14 @@ var FaxApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse5(resolve, reject, response);
+            handleSuccessfulResponse6(resolve, reject, response);
           },
           (error) => {
             if (error.response == null) {
               reject(error);
               return;
             }
-            if (handleErrorRangeResponse5(
+            if (handleErrorRangeResponse6(
               reject,
               error.response,
               "4XX",
@@ -29102,7 +29411,7 @@ var FaxApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse5(
+            handleSuccessfulResponse6(
               resolve,
               reject,
               response,
@@ -29114,7 +29423,7 @@ var FaxApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse5(
+            if (handleErrorCodeResponse6(
               reject,
               error.response,
               200,
@@ -29122,7 +29431,7 @@ var FaxApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse5(
+            if (handleErrorRangeResponse6(
               reject,
               error.response,
               "4XX",
@@ -29197,7 +29506,7 @@ var FaxApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse5(
+            handleSuccessfulResponse6(
               resolve,
               reject,
               response,
@@ -29209,7 +29518,7 @@ var FaxApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse5(
+            if (handleErrorCodeResponse6(
               reject,
               error.response,
               200,
@@ -29217,7 +29526,7 @@ var FaxApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse5(
+            if (handleErrorRangeResponse6(
               reject,
               error.response,
               "4XX",
@@ -29297,7 +29606,7 @@ var FaxApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse5(
+            handleSuccessfulResponse6(
               resolve,
               reject,
               response,
@@ -29309,7 +29618,7 @@ var FaxApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse5(
+            if (handleErrorCodeResponse6(
               reject,
               error.response,
               200,
@@ -29317,7 +29626,7 @@ var FaxApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse5(
+            if (handleErrorRangeResponse6(
               reject,
               error.response,
               "4XX",
@@ -29407,7 +29716,7 @@ var FaxApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse5(
+            handleSuccessfulResponse6(
               resolve,
               reject,
               response,
@@ -29419,7 +29728,7 @@ var FaxApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse5(
+            if (handleErrorCodeResponse6(
               reject,
               error.response,
               200,
@@ -29427,7 +29736,7 @@ var FaxApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse5(
+            if (handleErrorRangeResponse6(
               reject,
               error.response,
               "4XX",
@@ -29448,7 +29757,7 @@ function deserializeIfNeeded4(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse5(resolve, reject, response, returnType) {
+function handleSuccessfulResponse6(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -29459,7 +29768,7 @@ function handleSuccessfulResponse5(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse5(reject, response, code, returnType) {
+function handleErrorCodeResponse6(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -29467,7 +29776,7 @@ function handleErrorCodeResponse5(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse5(reject, response, code, returnType) {
+function handleErrorRangeResponse6(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -29479,10 +29788,10 @@ function handleErrorRangeResponse5(reject, response, code, returnType) {
 }
 
 // api/faxLineApi.ts
-var defaultBasePath6 = "https://api.hellosign.com/v3";
+var defaultBasePath7 = "https://api.hellosign.com/v3";
 var FaxLineApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath6;
+    this._basePath = defaultBasePath7;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -29610,7 +29919,7 @@ var FaxLineApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse6(
+            handleSuccessfulResponse7(
               resolve,
               reject,
               response,
@@ -29622,7 +29931,7 @@ var FaxLineApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse6(
+            if (handleErrorCodeResponse7(
               reject,
               error.response,
               200,
@@ -29630,7 +29939,7 @@ var FaxLineApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse6(
+            if (handleErrorRangeResponse7(
               reject,
               error.response,
               "4XX",
@@ -29730,7 +30039,7 @@ var FaxLineApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse6(
+              handleSuccessfulResponse7(
                 resolve,
                 reject,
                 response,
@@ -29742,7 +30051,7 @@ var FaxLineApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse6(
+              if (handleErrorCodeResponse7(
                 reject,
                 error.response,
                 200,
@@ -29750,7 +30059,7 @@ var FaxLineApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse6(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -29847,7 +30156,7 @@ var FaxLineApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse6(
+            handleSuccessfulResponse7(
               resolve,
               reject,
               response,
@@ -29859,7 +30168,7 @@ var FaxLineApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse6(
+            if (handleErrorCodeResponse7(
               reject,
               error.response,
               200,
@@ -29867,7 +30176,7 @@ var FaxLineApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse6(
+            if (handleErrorRangeResponse7(
               reject,
               error.response,
               "4XX",
@@ -29963,14 +30272,14 @@ var FaxLineApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse6(resolve, reject, response);
+            handleSuccessfulResponse7(resolve, reject, response);
           },
           (error) => {
             if (error.response == null) {
               reject(error);
               return;
             }
-            if (handleErrorRangeResponse6(
+            if (handleErrorRangeResponse7(
               reject,
               error.response,
               "4XX",
@@ -30048,7 +30357,7 @@ var FaxLineApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse6(
+            handleSuccessfulResponse7(
               resolve,
               reject,
               response,
@@ -30060,7 +30369,7 @@ var FaxLineApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse6(
+            if (handleErrorCodeResponse7(
               reject,
               error.response,
               200,
@@ -30068,7 +30377,7 @@ var FaxLineApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse6(
+            if (handleErrorRangeResponse7(
               reject,
               error.response,
               "4XX",
@@ -30163,7 +30472,7 @@ var FaxLineApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse6(
+              handleSuccessfulResponse7(
                 resolve,
                 reject,
                 response,
@@ -30175,7 +30484,7 @@ var FaxLineApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse6(
+              if (handleErrorCodeResponse7(
                 reject,
                 error.response,
                 200,
@@ -30183,7 +30492,7 @@ var FaxLineApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse6(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -30280,7 +30589,7 @@ var FaxLineApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse6(
+            handleSuccessfulResponse7(
               resolve,
               reject,
               response,
@@ -30292,7 +30601,7 @@ var FaxLineApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse6(
+            if (handleErrorCodeResponse7(
               reject,
               error.response,
               200,
@@ -30300,7 +30609,7 @@ var FaxLineApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse6(
+            if (handleErrorRangeResponse7(
               reject,
               error.response,
               "4XX",
@@ -30321,7 +30630,7 @@ function deserializeIfNeeded5(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse6(resolve, reject, response, returnType) {
+function handleSuccessfulResponse7(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -30332,7 +30641,7 @@ function handleSuccessfulResponse6(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse6(reject, response, code, returnType) {
+function handleErrorCodeResponse7(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -30340,7 +30649,7 @@ function handleErrorCodeResponse6(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse6(reject, response, code, returnType) {
+function handleErrorRangeResponse7(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -30352,10 +30661,10 @@ function handleErrorRangeResponse6(reject, response, code, returnType) {
 }
 
 // api/oAuthApi.ts
-var defaultBasePath7 = "https://app.hellosign.com";
+var defaultBasePath8 = "https://app.hellosign.com";
 var OAuthApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath7;
+    this._basePath = defaultBasePath8;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -30478,7 +30787,7 @@ var OAuthApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse7(
+            handleSuccessfulResponse8(
               resolve,
               reject,
               response,
@@ -30490,7 +30799,7 @@ var OAuthApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse7(
+            if (handleErrorCodeResponse8(
               reject,
               error.response,
               200,
@@ -30498,7 +30807,7 @@ var OAuthApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse7(
+            if (handleErrorRangeResponse8(
               reject,
               error.response,
               "4XX",
@@ -30589,7 +30898,7 @@ var OAuthApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse7(
+            handleSuccessfulResponse8(
               resolve,
               reject,
               response,
@@ -30601,7 +30910,7 @@ var OAuthApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse7(
+            if (handleErrorCodeResponse8(
               reject,
               error.response,
               200,
@@ -30609,7 +30918,7 @@ var OAuthApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse7(
+            if (handleErrorRangeResponse8(
               reject,
               error.response,
               "4XX",
@@ -30630,7 +30939,7 @@ function deserializeIfNeeded6(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse7(resolve, reject, response, returnType) {
+function handleSuccessfulResponse8(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -30641,7 +30950,7 @@ function handleSuccessfulResponse7(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse7(reject, response, code, returnType) {
+function handleErrorCodeResponse8(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -30649,7 +30958,7 @@ function handleErrorCodeResponse7(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse7(reject, response, code, returnType) {
+function handleErrorRangeResponse8(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -30661,10 +30970,10 @@ function handleErrorRangeResponse7(reject, response, code, returnType) {
 }
 
 // api/reportApi.ts
-var defaultBasePath8 = "https://api.hellosign.com/v3";
+var defaultBasePath9 = "https://api.hellosign.com/v3";
 var ReportApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath8;
+    this._basePath = defaultBasePath9;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -30793,7 +31102,7 @@ var ReportApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse8(
+              handleSuccessfulResponse9(
                 resolve,
                 reject,
                 response,
@@ -30805,7 +31114,7 @@ var ReportApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse8(
+              if (handleErrorCodeResponse9(
                 reject,
                 error.response,
                 200,
@@ -30813,7 +31122,7 @@ var ReportApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -30835,7 +31144,7 @@ function deserializeIfNeeded7(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse8(resolve, reject, response, returnType) {
+function handleSuccessfulResponse9(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -30846,7 +31155,7 @@ function handleSuccessfulResponse8(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse8(reject, response, code, returnType) {
+function handleErrorCodeResponse9(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -30854,7 +31163,7 @@ function handleErrorCodeResponse8(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse8(reject, response, code, returnType) {
+function handleErrorRangeResponse9(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -30866,10 +31175,10 @@ function handleErrorRangeResponse8(reject, response, code, returnType) {
 }
 
 // api/signatureRequestApi.ts
-var defaultBasePath9 = "https://api.hellosign.com/v3";
+var defaultBasePath10 = "https://api.hellosign.com/v3";
 var SignatureRequestApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath9;
+    this._basePath = defaultBasePath10;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -30998,7 +31307,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -31010,7 +31319,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -31018,7 +31327,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31121,7 +31430,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -31133,7 +31442,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -31141,7 +31450,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31222,14 +31531,14 @@ var SignatureRequestApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse9(resolve, reject, response);
+            handleSuccessfulResponse10(resolve, reject, response);
           },
           (error) => {
             if (error.response == null) {
               reject(error);
               return;
             }
-            if (handleErrorRangeResponse9(
+            if (handleErrorRangeResponse10(
               reject,
               error.response,
               "4XX",
@@ -31331,7 +31640,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -31343,7 +31652,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -31351,7 +31660,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31454,7 +31763,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -31466,7 +31775,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -31474,7 +31783,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31586,7 +31895,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -31598,7 +31907,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -31606,7 +31915,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31718,7 +32027,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -31730,7 +32039,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -31738,7 +32047,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31850,7 +32159,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -31862,7 +32171,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -31870,7 +32179,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31982,7 +32291,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -31994,7 +32303,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -32002,7 +32311,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -32090,7 +32399,7 @@ var SignatureRequestApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse9(
+            handleSuccessfulResponse10(
               resolve,
               reject,
               response,
@@ -32102,7 +32411,7 @@ var SignatureRequestApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse9(
+            if (handleErrorCodeResponse10(
               reject,
               error.response,
               200,
@@ -32110,7 +32419,7 @@ var SignatureRequestApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse9(
+            if (handleErrorRangeResponse10(
               reject,
               error.response,
               "4XX",
@@ -32191,7 +32500,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -32203,7 +32512,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -32211,7 +32520,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -32299,7 +32608,7 @@ var SignatureRequestApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse9(
+            handleSuccessfulResponse10(
               resolve,
               reject,
               response,
@@ -32311,7 +32620,7 @@ var SignatureRequestApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse9(
+            if (handleErrorCodeResponse10(
               reject,
               error.response,
               200,
@@ -32319,7 +32628,7 @@ var SignatureRequestApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse9(
+            if (handleErrorRangeResponse10(
               reject,
               error.response,
               "4XX",
@@ -32400,7 +32709,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -32412,7 +32721,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -32420,7 +32729,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -32521,7 +32830,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -32533,7 +32842,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -32541,7 +32850,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -32623,7 +32932,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -32635,7 +32944,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -32643,7 +32952,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -32755,7 +33064,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -32767,7 +33076,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -32775,7 +33084,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -32851,14 +33160,14 @@ var SignatureRequestApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse9(resolve, reject, response);
+            handleSuccessfulResponse10(resolve, reject, response);
           },
           (error) => {
             if (error.response == null) {
               reject(error);
               return;
             }
-            if (handleErrorRangeResponse9(
+            if (handleErrorRangeResponse10(
               reject,
               error.response,
               "4XX",
@@ -32960,7 +33269,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -32972,7 +33281,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -32980,7 +33289,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -33083,7 +33392,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -33095,7 +33404,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -33103,7 +33412,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -33215,7 +33524,7 @@ var SignatureRequestApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -33227,7 +33536,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -33235,7 +33544,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -33257,7 +33566,7 @@ function deserializeIfNeeded8(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse9(resolve, reject, response, returnType) {
+function handleSuccessfulResponse10(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -33268,7 +33577,7 @@ function handleSuccessfulResponse9(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse9(reject, response, code, returnType) {
+function handleErrorCodeResponse10(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -33276,7 +33585,7 @@ function handleErrorCodeResponse9(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse9(reject, response, code, returnType) {
+function handleErrorRangeResponse10(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -33288,10 +33597,10 @@ function handleErrorRangeResponse9(reject, response, code, returnType) {
 }
 
 // api/teamApi.ts
-var defaultBasePath10 = "https://api.hellosign.com/v3";
+var defaultBasePath11 = "https://api.hellosign.com/v3";
 var TeamApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath10;
+    this._basePath = defaultBasePath11;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -33431,7 +33740,7 @@ var TeamApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse10(
+            handleSuccessfulResponse11(
               resolve,
               reject,
               response,
@@ -33443,7 +33752,7 @@ var TeamApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse10(
+            if (handleErrorCodeResponse11(
               reject,
               error.response,
               200,
@@ -33451,7 +33760,7 @@ var TeamApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse10(
+            if (handleErrorRangeResponse11(
               reject,
               error.response,
               "4XX",
@@ -33549,7 +33858,7 @@ var TeamApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse10(
+            handleSuccessfulResponse11(
               resolve,
               reject,
               response,
@@ -33561,7 +33870,7 @@ var TeamApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse10(
+            if (handleErrorCodeResponse11(
               reject,
               error.response,
               200,
@@ -33569,7 +33878,7 @@ var TeamApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse10(
+            if (handleErrorRangeResponse11(
               reject,
               error.response,
               "4XX",
@@ -33640,14 +33949,14 @@ var TeamApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse10(resolve, reject, response);
+            handleSuccessfulResponse11(resolve, reject, response);
           },
           (error) => {
             if (error.response == null) {
               reject(error);
               return;
             }
-            if (handleErrorRangeResponse10(
+            if (handleErrorRangeResponse11(
               reject,
               error.response,
               "4XX",
@@ -33718,7 +34027,7 @@ var TeamApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse10(
+            handleSuccessfulResponse11(
               resolve,
               reject,
               response,
@@ -33730,7 +34039,7 @@ var TeamApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse10(
+            if (handleErrorCodeResponse11(
               reject,
               error.response,
               200,
@@ -33738,7 +34047,7 @@ var TeamApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse10(
+            if (handleErrorRangeResponse11(
               reject,
               error.response,
               "4XX",
@@ -33817,7 +34126,7 @@ var TeamApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse10(
+              handleSuccessfulResponse11(
                 resolve,
                 reject,
                 response,
@@ -33829,7 +34138,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse10(
+              if (handleErrorCodeResponse11(
                 reject,
                 error.response,
                 200,
@@ -33837,7 +34146,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse10(
+              if (handleErrorRangeResponse11(
                 reject,
                 error.response,
                 "4XX",
@@ -33917,7 +34226,7 @@ var TeamApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse10(
+              handleSuccessfulResponse11(
                 resolve,
                 reject,
                 response,
@@ -33929,7 +34238,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse10(
+              if (handleErrorCodeResponse11(
                 reject,
                 error.response,
                 200,
@@ -33937,7 +34246,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse10(
+              if (handleErrorRangeResponse11(
                 reject,
                 error.response,
                 "4XX",
@@ -34033,7 +34342,7 @@ var TeamApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse10(
+              handleSuccessfulResponse11(
                 resolve,
                 reject,
                 response,
@@ -34045,7 +34354,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse10(
+              if (handleErrorCodeResponse11(
                 reject,
                 error.response,
                 200,
@@ -34053,7 +34362,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse10(
+              if (handleErrorRangeResponse11(
                 reject,
                 error.response,
                 "4XX",
@@ -34155,7 +34464,7 @@ var TeamApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse10(
+            handleSuccessfulResponse11(
               resolve,
               reject,
               response,
@@ -34167,7 +34476,7 @@ var TeamApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse10(
+            if (handleErrorCodeResponse11(
               reject,
               error.response,
               201,
@@ -34175,7 +34484,7 @@ var TeamApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse10(
+            if (handleErrorRangeResponse11(
               reject,
               error.response,
               "4XX",
@@ -34270,7 +34579,7 @@ var TeamApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse10(
+              handleSuccessfulResponse11(
                 resolve,
                 reject,
                 response,
@@ -34282,7 +34591,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse10(
+              if (handleErrorCodeResponse11(
                 reject,
                 error.response,
                 200,
@@ -34290,7 +34599,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse10(
+              if (handleErrorRangeResponse11(
                 reject,
                 error.response,
                 "4XX",
@@ -34389,7 +34698,7 @@ var TeamApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse10(
+            handleSuccessfulResponse11(
               resolve,
               reject,
               response,
@@ -34401,7 +34710,7 @@ var TeamApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse10(
+            if (handleErrorCodeResponse11(
               reject,
               error.response,
               200,
@@ -34409,7 +34718,7 @@ var TeamApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse10(
+            if (handleErrorRangeResponse11(
               reject,
               error.response,
               "4XX",
@@ -34430,7 +34739,7 @@ function deserializeIfNeeded9(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse10(resolve, reject, response, returnType) {
+function handleSuccessfulResponse11(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -34441,7 +34750,7 @@ function handleSuccessfulResponse10(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse10(reject, response, code, returnType) {
+function handleErrorCodeResponse11(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -34449,7 +34758,7 @@ function handleErrorCodeResponse10(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse10(reject, response, code, returnType) {
+function handleErrorRangeResponse11(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -34461,10 +34770,10 @@ function handleErrorRangeResponse10(reject, response, code, returnType) {
 }
 
 // api/templateApi.ts
-var defaultBasePath11 = "https://api.hellosign.com/v3";
+var defaultBasePath12 = "https://api.hellosign.com/v3";
 var TemplateApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath11;
+    this._basePath = defaultBasePath12;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -34607,7 +34916,7 @@ var TemplateApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse11(
+              handleSuccessfulResponse12(
                 resolve,
                 reject,
                 response,
@@ -34619,7 +34928,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse11(
+              if (handleErrorCodeResponse12(
                 reject,
                 error.response,
                 200,
@@ -34627,7 +34936,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse11(
+              if (handleErrorRangeResponse12(
                 reject,
                 error.response,
                 "4XX",
@@ -34730,7 +35039,7 @@ var TemplateApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse11(
+              handleSuccessfulResponse12(
                 resolve,
                 reject,
                 response,
@@ -34742,7 +35051,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse11(
+              if (handleErrorCodeResponse12(
                 reject,
                 error.response,
                 200,
@@ -34750,7 +35059,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse11(
+              if (handleErrorRangeResponse12(
                 reject,
                 error.response,
                 "4XX",
@@ -34853,7 +35162,7 @@ var TemplateApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse11(
+              handleSuccessfulResponse12(
                 resolve,
                 reject,
                 response,
@@ -34865,7 +35174,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse11(
+              if (handleErrorCodeResponse12(
                 reject,
                 error.response,
                 200,
@@ -34873,7 +35182,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse11(
+              if (handleErrorRangeResponse12(
                 reject,
                 error.response,
                 "4XX",
@@ -34954,14 +35263,14 @@ var TemplateApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse11(resolve, reject, response);
+            handleSuccessfulResponse12(resolve, reject, response);
           },
           (error) => {
             if (error.response == null) {
               reject(error);
               return;
             }
-            if (handleErrorRangeResponse11(
+            if (handleErrorRangeResponse12(
               reject,
               error.response,
               "4XX",
@@ -35048,7 +35357,7 @@ var TemplateApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse11(
+            handleSuccessfulResponse12(
               resolve,
               reject,
               response,
@@ -35060,7 +35369,7 @@ var TemplateApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse11(
+            if (handleErrorCodeResponse12(
               reject,
               error.response,
               200,
@@ -35068,7 +35377,7 @@ var TemplateApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse11(
+            if (handleErrorRangeResponse12(
               reject,
               error.response,
               "4XX",
@@ -35149,7 +35458,7 @@ var TemplateApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse11(
+              handleSuccessfulResponse12(
                 resolve,
                 reject,
                 response,
@@ -35161,7 +35470,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse11(
+              if (handleErrorCodeResponse12(
                 reject,
                 error.response,
                 200,
@@ -35169,7 +35478,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse11(
+              if (handleErrorRangeResponse12(
                 reject,
                 error.response,
                 "4XX",
@@ -35257,7 +35566,7 @@ var TemplateApi = class {
       return new Promise((resolve, reject) => {
         axios_default.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse11(
+            handleSuccessfulResponse12(
               resolve,
               reject,
               response,
@@ -35269,7 +35578,7 @@ var TemplateApi = class {
               reject(error);
               return;
             }
-            if (handleErrorCodeResponse11(
+            if (handleErrorCodeResponse12(
               reject,
               error.response,
               200,
@@ -35277,7 +35586,7 @@ var TemplateApi = class {
             )) {
               return;
             }
-            if (handleErrorRangeResponse11(
+            if (handleErrorRangeResponse12(
               reject,
               error.response,
               "4XX",
@@ -35358,7 +35667,7 @@ var TemplateApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse11(
+              handleSuccessfulResponse12(
                 resolve,
                 reject,
                 response,
@@ -35370,7 +35679,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse11(
+              if (handleErrorCodeResponse12(
                 reject,
                 error.response,
                 200,
@@ -35378,7 +35687,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse11(
+              if (handleErrorRangeResponse12(
                 reject,
                 error.response,
                 "4XX",
@@ -35479,7 +35788,7 @@ var TemplateApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse11(
+              handleSuccessfulResponse12(
                 resolve,
                 reject,
                 response,
@@ -35491,7 +35800,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse11(
+              if (handleErrorCodeResponse12(
                 reject,
                 error.response,
                 200,
@@ -35499,7 +35808,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse11(
+              if (handleErrorRangeResponse12(
                 reject,
                 error.response,
                 "4XX",
@@ -35611,7 +35920,7 @@ var TemplateApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse11(
+              handleSuccessfulResponse12(
                 resolve,
                 reject,
                 response,
@@ -35623,7 +35932,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse11(
+              if (handleErrorCodeResponse12(
                 reject,
                 error.response,
                 200,
@@ -35631,7 +35940,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse11(
+              if (handleErrorRangeResponse12(
                 reject,
                 error.response,
                 "4XX",
@@ -35743,7 +36052,7 @@ var TemplateApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse11(
+              handleSuccessfulResponse12(
                 resolve,
                 reject,
                 response,
@@ -35755,7 +36064,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse11(
+              if (handleErrorCodeResponse12(
                 reject,
                 error.response,
                 200,
@@ -35763,7 +36072,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse11(
+              if (handleErrorRangeResponse12(
                 reject,
                 error.response,
                 "4XX",
@@ -35785,7 +36094,7 @@ function deserializeIfNeeded10(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse11(resolve, reject, response, returnType) {
+function handleSuccessfulResponse12(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -35796,7 +36105,7 @@ function handleSuccessfulResponse11(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse11(reject, response, code, returnType) {
+function handleErrorCodeResponse12(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -35804,7 +36113,7 @@ function handleErrorCodeResponse11(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse11(reject, response, code, returnType) {
+function handleErrorRangeResponse12(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -35816,10 +36125,10 @@ function handleErrorRangeResponse11(reject, response, code, returnType) {
 }
 
 // api/unclaimedDraftApi.ts
-var defaultBasePath12 = "https://api.hellosign.com/v3";
+var defaultBasePath13 = "https://api.hellosign.com/v3";
 var UnclaimedDraftApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath12;
+    this._basePath = defaultBasePath13;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -35953,7 +36262,7 @@ var UnclaimedDraftApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse12(
+              handleSuccessfulResponse13(
                 resolve,
                 reject,
                 response,
@@ -35965,7 +36274,7 @@ var UnclaimedDraftApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse12(
+              if (handleErrorCodeResponse13(
                 reject,
                 error.response,
                 200,
@@ -35973,7 +36282,7 @@ var UnclaimedDraftApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse12(
+              if (handleErrorRangeResponse13(
                 reject,
                 error.response,
                 "4XX",
@@ -36076,7 +36385,7 @@ var UnclaimedDraftApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse12(
+              handleSuccessfulResponse13(
                 resolve,
                 reject,
                 response,
@@ -36088,7 +36397,7 @@ var UnclaimedDraftApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse12(
+              if (handleErrorCodeResponse13(
                 reject,
                 error.response,
                 200,
@@ -36096,7 +36405,7 @@ var UnclaimedDraftApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse12(
+              if (handleErrorRangeResponse13(
                 reject,
                 error.response,
                 "4XX",
@@ -36199,7 +36508,7 @@ var UnclaimedDraftApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse12(
+              handleSuccessfulResponse13(
                 resolve,
                 reject,
                 response,
@@ -36211,7 +36520,7 @@ var UnclaimedDraftApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse12(
+              if (handleErrorCodeResponse13(
                 reject,
                 error.response,
                 200,
@@ -36219,7 +36528,7 @@ var UnclaimedDraftApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse12(
+              if (handleErrorRangeResponse13(
                 reject,
                 error.response,
                 "4XX",
@@ -36331,7 +36640,7 @@ var UnclaimedDraftApi = class {
         (resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse12(
+              handleSuccessfulResponse13(
                 resolve,
                 reject,
                 response,
@@ -36343,7 +36652,7 @@ var UnclaimedDraftApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse12(
+              if (handleErrorCodeResponse13(
                 reject,
                 error.response,
                 200,
@@ -36351,7 +36660,7 @@ var UnclaimedDraftApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse12(
+              if (handleErrorRangeResponse13(
                 reject,
                 error.response,
                 "4XX",
@@ -36373,7 +36682,7 @@ function deserializeIfNeeded11(obj, classname) {
   }
   return obj;
 }
-function handleSuccessfulResponse12(resolve, reject, response, returnType) {
+function handleSuccessfulResponse13(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -36384,7 +36693,7 @@ function handleSuccessfulResponse12(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse12(reject, response, code, returnType) {
+function handleErrorCodeResponse13(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -36392,7 +36701,7 @@ function handleErrorCodeResponse12(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse12(reject, response, code, returnType) {
+function handleErrorRangeResponse13(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -36480,6 +36789,7 @@ var APIS = [
   AccountApi,
   ApiAppApi,
   BulkSendJobApi,
+  DocumentApi,
   EmbeddedApi,
   FaxApi,
   FaxLineApi,
@@ -36522,6 +36832,9 @@ var APIS = [
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
+  DocumentApi,
+  DocumentFieldDetectionResponse,
+  DocumentFieldDetectionResponseDetectionResult,
   EmbeddedApi,
   EmbeddedEditUrlRequest,
   EmbeddedEditUrlResponse,

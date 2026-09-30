@@ -23,6 +23,8 @@ import { BulkSendJobGetResponseSignatureRequests } from "./bulkSendJobGetRespons
 import { BulkSendJobListResponse } from "./bulkSendJobListResponse";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { BulkSendJobSendResponse } from "./bulkSendJobSendResponse";
+import { DocumentFieldDetectionResponse } from "./documentFieldDetectionResponse";
+import { DocumentFieldDetectionResponseDetectionResult } from "./documentFieldDetectionResponseDetectionResult";
 import { EmbeddedEditUrlRequest } from "./embeddedEditUrlRequest";
 import { EmbeddedEditUrlResponse } from "./embeddedEditUrlResponse";
 import { EmbeddedEditUrlResponseEmbedded } from "./embeddedEditUrlResponseEmbedded";
@@ -281,6 +283,9 @@ export let typeMap: { [index: string]: any } = {
   BulkSendJobListResponse: BulkSendJobListResponse,
   BulkSendJobResponse: BulkSendJobResponse,
   BulkSendJobSendResponse: BulkSendJobSendResponse,
+  DocumentFieldDetectionResponse: DocumentFieldDetectionResponse,
+  DocumentFieldDetectionResponseDetectionResult:
+    DocumentFieldDetectionResponseDetectionResult,
   EmbeddedEditUrlRequest: EmbeddedEditUrlRequest,
   EmbeddedEditUrlResponse: EmbeddedEditUrlResponse,
   EmbeddedEditUrlResponseEmbedded: EmbeddedEditUrlResponseEmbedded,
@@ -511,6 +516,8 @@ export {
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
+  DocumentFieldDetectionResponse,
+  DocumentFieldDetectionResponseDetectionResult,
   EmbeddedEditUrlRequest,
   EmbeddedEditUrlResponse,
   EmbeddedEditUrlResponseEmbedded,

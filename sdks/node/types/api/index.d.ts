@@ -1,6 +1,7 @@
 import { AccountApi } from "./accountApi";
 import { ApiAppApi } from "./apiAppApi";
 import { BulkSendJobApi } from "./bulkSendJobApi";
+import { DocumentApi } from "./documentApi";
 import { EmbeddedApi } from "./embeddedApi";
 import { FaxApi } from "./faxApi";
 import { FaxLineApi } from "./faxLineApi";
@@ -10,6 +11,6 @@ import { SignatureRequestApi } from "./signatureRequestApi";
 import { TeamApi } from "./teamApi";
 import { TemplateApi } from "./templateApi";
 import { UnclaimedDraftApi } from "./unclaimedDraftApi";
-export { AccountApi, ApiAppApi, BulkSendJobApi, EmbeddedApi, FaxApi, FaxLineApi, OAuthApi, ReportApi, SignatureRequestApi, TeamApi, TemplateApi, UnclaimedDraftApi, };
+export { AccountApi, ApiAppApi, BulkSendJobApi, DocumentApi, EmbeddedApi, FaxApi, FaxLineApi, OAuthApi, ReportApi, SignatureRequestApi, TeamApi, TemplateApi, UnclaimedDraftApi, };
 export { generateFormData, HttpError, optionsI, queryParamsSerializer, returnTypeI, returnTypeT, toFormData, USER_AGENT, } from "./apis";
-export declare const APIS: (typeof AccountApi | typeof ApiAppApi | typeof BulkSendJobApi | typeof EmbeddedApi | typeof FaxApi | typeof FaxLineApi | typeof OAuthApi | typeof ReportApi | typeof SignatureRequestApi | typeof TeamApi | typeof TemplateApi | typeof UnclaimedDraftApi)[];
+export declare const APIS: (typeof AccountApi | typeof ApiAppApi | typeof BulkSendJobApi | typeof DocumentApi | typeof EmbeddedApi | typeof FaxApi | typeof FaxLineApi | typeof OAuthApi | typeof ReportApi | typeof SignatureRequestApi | typeof TeamApi | typeof TemplateApi | typeof UnclaimedDraftApi)[];
