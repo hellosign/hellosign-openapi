@@ -25,7 +25,7 @@ module Dropbox::Sign
     # Detect Document Fields
     # Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/DocumentDetectFieldsExample.rb
-    # @param document_field_detection_request [DocumentFieldDetectionRequest]
+    # @param document_field_detection_request [DocumentFieldDetectionRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentFieldDetectionResponse]
     def document_detect_fields(document_field_detection_request, opts = {})
@@ -36,7 +36,7 @@ module Dropbox::Sign
     # Detect Document Fields
     # Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/DocumentDetectFieldsExample.rb
-    # @param document_field_detection_request [DocumentFieldDetectionRequest]
+    # @param document_field_detection_request [DocumentFieldDetectionRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentFieldDetectionResponse, Integer, Hash)>] DocumentFieldDetectionResponse data, response status code and response headers
     def document_detect_fields_with_http_info(document_field_detection_request, opts = {})

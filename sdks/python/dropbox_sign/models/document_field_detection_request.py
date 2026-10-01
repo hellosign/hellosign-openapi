@@ -43,13 +43,11 @@ class DocumentFieldDetectionRequest(BaseModel):
     detection_mode: StrictStr = Field(
         description="The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags."
     )
-    file: Optional[
-        Union[
-            StrictBytes, StrictStr, io.IOBase, Tuple[StrictStr, StrictBytes, io.IOBase]
-        ]
-    ] = Field(
-        default=None,
-        description="The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both.",
+    file: Optional[Union[StrictBytes, StrictStr, io.IOBase, Tuple[StrictStr, StrictBytes, io.IOBase]]] = (
+        Field(
+            default=None,
+            description="The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both.",
+        )
     )
     file_url: Optional[StrictStr] = Field(
         default=None,

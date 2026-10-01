@@ -59,7 +59,7 @@ public class DocumentFieldDetectionRequest {
   @jakarta.annotation.Nullable
   private String pageRange;
 
-  public DocumentFieldDetectionRequest() {
+  public DocumentFieldDetectionRequest() { 
   }
 
   /**
@@ -331,3 +331,4 @@ public class DocumentFieldDetectionRequest {
   }
 
 }
+
