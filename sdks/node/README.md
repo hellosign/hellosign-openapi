@@ -90,6 +90,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *ApiAppApi* | [**apiAppUpdate**](./docs/api/ApiAppApi.md#apiappupdate) | **PUT** /api_app/{client_id} | Update API App |
 | *BulkSendJobApi* | [**bulkSendJobGet**](./docs/api/BulkSendJobApi.md#bulksendjobget) | **GET** /bulk_send_job/{bulk_send_job_id} | Get Bulk Send Job |
 | *BulkSendJobApi* | [**bulkSendJobList**](./docs/api/BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs |
+| *DocumentApi* | [**documentDetectFields**](./docs/api/DocumentApi.md#documentdetectfields) | **POST** /document/detect_fields | Detect Document Fields |
 | *EmbeddedApi* | [**embeddedEditUrl**](./docs/api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](./docs/api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 | *FaxApi* | [**faxDelete**](./docs/api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
@@ -180,6 +181,9 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [BulkSendJobListResponse](./docs/model/BulkSendJobListResponse.md)
 - [BulkSendJobResponse](./docs/model/BulkSendJobResponse.md)
 - [BulkSendJobSendResponse](./docs/model/BulkSendJobSendResponse.md)
+- [DocumentFieldDetectionRequest](./docs/model/DocumentFieldDetectionRequest.md)
+- [DocumentFieldDetectionResponse](./docs/model/DocumentFieldDetectionResponse.md)
+- [DocumentFieldDetectionResponseDetectionResult](./docs/model/DocumentFieldDetectionResponseDetectionResult.md)
 - [EmbeddedEditUrlRequest](./docs/model/EmbeddedEditUrlRequest.md)
 - [EmbeddedEditUrlResponse](./docs/model/EmbeddedEditUrlResponse.md)
 - [EmbeddedEditUrlResponseEmbedded](./docs/model/EmbeddedEditUrlResponseEmbedded.md)

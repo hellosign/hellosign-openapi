@@ -4,6 +4,7 @@
 from dropbox_sign.api.account_api import AccountApi
 from dropbox_sign.api.api_app_api import ApiAppApi
 from dropbox_sign.api.bulk_send_job_api import BulkSendJobApi
+from dropbox_sign.api.document_api import DocumentApi
 from dropbox_sign.api.embedded_api import EmbeddedApi
 from dropbox_sign.api.fax_api import FaxApi
 from dropbox_sign.api.fax_line_api import FaxLineApi
