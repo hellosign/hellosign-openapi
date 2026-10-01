@@ -26,20 +26,22 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 import {
   Authentication,
+  DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse,
   HttpBasicAuth,
   HttpBearerAuth,
   Interceptor,
   ObjectSerializer,
-  RequestFile,
   VoidAuth,
 } from "../model";
 
 import {
+  generateFormData,
   HttpError,
   optionsI,
   queryParamsSerializer,
   returnTypeT,
+  toFormData,
   USER_AGENT,
 } from "./";
 
@@ -118,19 +120,17 @@ export class DocumentApi {
    * Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
    * @summary Detect Document Fields
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/DocumentDetectFieldsExample.ts
-   * @param detectionMode The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.
-   * @param file The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
-   * @param fileUrl The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
-   * @param pageRange The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;.
+   * @param documentFieldDetectionRequest
    * @param options
    */
   public async documentDetectFields(
-    detectionMode: string,
-    file?: RequestFile,
-    fileUrl?: string,
-    pageRange?: string,
+    documentFieldDetectionRequest: DocumentFieldDetectionRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<DocumentFieldDetectionResponse>> {
+    documentFieldDetectionRequest = deserializeIfNeeded(
+      documentFieldDetectionRequest,
+      "DocumentFieldDetectionRequest"
+    );
     const localVarPath = this.basePath + "/document/detect_fields";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -147,10 +147,13 @@ export class DocumentApi {
     let localVarFormParams: any = {};
     let localVarBodyParams: any = undefined;
 
-    // verify required parameter 'detectionMode' is not null or undefined
-    if (detectionMode === null || detectionMode === undefined) {
+    // verify required parameter 'documentFieldDetectionRequest' is not null or undefined
+    if (
+      documentFieldDetectionRequest === null ||
+      documentFieldDetectionRequest === undefined
+    ) {
       throw new Error(
-        "Required parameter detectionMode was null or undefined when calling documentDetectFields."
+        "Required parameter documentFieldDetectionRequest was null or undefined when calling documentDetectFields."
       );
     }
 
@@ -158,29 +161,24 @@ export class DocumentApi {
 
     let localVarUseFormData = false;
 
-    if (file !== undefined) {
-      localVarFormParams["file"] = file;
-    }
-    localVarUseFormData = true;
+    const result = generateFormData(
+      documentFieldDetectionRequest,
+      DocumentFieldDetectionRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
 
-    if (fileUrl !== undefined) {
-      localVarFormParams["file_url"] = ObjectSerializer.serialize(
-        fileUrl,
-        "string"
-      );
-    }
-
-    if (detectionMode !== undefined) {
-      localVarFormParams["detection_mode"] = ObjectSerializer.serialize(
-        detectionMode,
-        "string"
-      );
-    }
-
-    if (pageRange !== undefined) {
-      localVarFormParams["page_range"] = ObjectSerializer.serialize(
-        pageRange,
-        "string"
+    let data = {};
+    if (localVarUseFormData) {
+      const formData = toFormData(result.data);
+      data = formData;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData.getHeaders(),
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        documentFieldDetectionRequest,
+        "DocumentFieldDetectionRequest"
       );
     }
 
@@ -195,6 +193,7 @@ export class DocumentApi {
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
       responseType: "json",
+      data,
     };
 
     let authenticationPromise = Promise.resolve();

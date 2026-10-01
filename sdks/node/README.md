@@ -181,6 +181,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [BulkSendJobListResponse](./docs/model/BulkSendJobListResponse.md)
 - [BulkSendJobResponse](./docs/model/BulkSendJobResponse.md)
 - [BulkSendJobSendResponse](./docs/model/BulkSendJobSendResponse.md)
+- [DocumentFieldDetectionRequest](./docs/model/DocumentFieldDetectionRequest.md)
 - [DocumentFieldDetectionResponse](./docs/model/DocumentFieldDetectionResponse.md)
 - [DocumentFieldDetectionResponseDetectionResult](./docs/model/DocumentFieldDetectionResponseDetectionResult.md)
 - [EmbeddedEditUrlRequest](./docs/model/EmbeddedEditUrlRequest.md)

@@ -17,9 +17,10 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBytes, StrictStr, field_validator
-from typing import Optional, Tuple, Union
-from typing_extensions import Annotated
+from typing import Optional
+from dropbox_sign.models.document_field_detection_request import (
+    DocumentFieldDetectionRequest,
+)
 from dropbox_sign.models.document_field_detection_response import (
     DocumentFieldDetectionResponse,
 )
@@ -45,30 +46,7 @@ class DocumentApi:
     @validate_call
     def document_detect_fields(
         self,
-        detection_mode: Annotated[
-            StrictStr,
-            Field(
-                description="The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags."
-            ),
-        ],
-        file: Annotated[
-            Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]],
-            Field(
-                description="The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both."
-            ),
-        ] = None,
-        file_url: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both."
-            ),
-        ] = None,
-        page_range: Annotated[
-            Optional[Annotated[str, Field(strict=True)]],
-            Field(
-                description="The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`."
-            ),
-        ] = None,
+        document_field_detection_request: Optional[DocumentFieldDetectionRequest],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -87,14 +65,8 @@ class DocumentApi:
 
         Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/DocumentDetectFieldsExample.py
 
-        :param detection_mode: The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags. (required)
-        :type detection_mode: str
-        :param file: The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both.
-        :type file: io.IOBase
-        :param file_url: The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both.
-        :type file_url: str
-        :param page_range: The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`.
-        :type page_range: str
+        :param document_field_detection_request: (required)
+        :type document_field_detection_request: DocumentFieldDetectionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -118,10 +90,7 @@ class DocumentApi:
         """  # noqa: E501
 
         _param = self._document_detect_fields_serialize(
-            detection_mode=detection_mode,
-            file=file,
-            file_url=file_url,
-            page_range=page_range,
+            document_field_detection_request=document_field_detection_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -145,30 +114,7 @@ class DocumentApi:
     @validate_call
     def document_detect_fields_with_http_info(
         self,
-        detection_mode: Annotated[
-            StrictStr,
-            Field(
-                description="The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags."
-            ),
-        ],
-        file: Annotated[
-            Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]],
-            Field(
-                description="The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both."
-            ),
-        ] = None,
-        file_url: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both."
-            ),
-        ] = None,
-        page_range: Annotated[
-            Optional[Annotated[str, Field(strict=True)]],
-            Field(
-                description="The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`."
-            ),
-        ] = None,
+        document_field_detection_request: Optional[DocumentFieldDetectionRequest],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -187,14 +133,8 @@ class DocumentApi:
 
         Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/DocumentDetectFieldsExample.py
 
-        :param detection_mode: The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags. (required)
-        :type detection_mode: str
-        :param file: The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both.
-        :type file: io.IOBase
-        :param file_url: The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both.
-        :type file_url: str
-        :param page_range: The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`.
-        :type page_range: str
+        :param document_field_detection_request: (required)
+        :type document_field_detection_request: DocumentFieldDetectionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -218,10 +158,7 @@ class DocumentApi:
         """  # noqa: E501
 
         _param = self._document_detect_fields_serialize(
-            detection_mode=detection_mode,
-            file=file,
-            file_url=file_url,
-            page_range=page_range,
+            document_field_detection_request=document_field_detection_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -245,30 +182,7 @@ class DocumentApi:
     @validate_call
     def document_detect_fields_without_preload_content(
         self,
-        detection_mode: Annotated[
-            StrictStr,
-            Field(
-                description="The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags."
-            ),
-        ],
-        file: Annotated[
-            Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]],
-            Field(
-                description="The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both."
-            ),
-        ] = None,
-        file_url: Annotated[
-            Optional[StrictStr],
-            Field(
-                description="The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both."
-            ),
-        ] = None,
-        page_range: Annotated[
-            Optional[Annotated[str, Field(strict=True)]],
-            Field(
-                description="The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`."
-            ),
-        ] = None,
+        document_field_detection_request: Optional[DocumentFieldDetectionRequest],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -287,14 +201,8 @@ class DocumentApi:
 
         Example: https://github.com/hellosign/dropbox-sign-python/blob/main/examples/DocumentDetectFieldsExample.py
 
-        :param detection_mode: The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags. (required)
-        :type detection_mode: str
-        :param file: The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both.
-        :type file: io.IOBase
-        :param file_url: The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both.
-        :type file_url: str
-        :param page_range: The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`.
-        :type page_range: str
+        :param document_field_detection_request: (required)
+        :type document_field_detection_request: DocumentFieldDetectionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -318,10 +226,7 @@ class DocumentApi:
         """  # noqa: E501
 
         _param = self._document_detect_fields_serialize(
-            detection_mode=detection_mode,
-            file=file,
-            file_url=file_url,
-            page_range=page_range,
+            document_field_detection_request=document_field_detection_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -340,10 +245,7 @@ class DocumentApi:
 
     def _document_detect_fields_serialize(
         self,
-        detection_mode,
-        file,
-        file_url,
-        page_range,
+        document_field_detection_request,
         _request_auth,
         _content_type,
         _headers,
@@ -363,19 +265,35 @@ class DocumentApi:
         ] = {}
         _body_params: Optional[bytes] = None
 
+        has_files = False
+        body_param = document_field_detection_request
+        excluded_json_fields = set([])
+        for param_name, param_type in body_param.openapi_types().items():
+            param_value = getattr(body_param, param_name)
+            if param_value is None:
+                continue
+
+            if "io.IOBase" in param_type:
+                has_files = True
+                _content_type = "multipart/form-data"
+                excluded_json_fields.add(param_name)
+
+                if isinstance(param_value, list):
+                    for index, item in enumerate(param_value):
+                        _files[f"{param_name}[{index}]"] = item
+                else:
+                    _files[param_name] = param_value
+
+        if has_files is True:
+            _form_params = body_param.to_json_form_params(excluded_json_fields)
+
         # process the path parameters
         # process the query parameters
         # process the header parameters
         # process the form parameters
-        if file is not None:
-            _files["file"] = file
-        if file_url is not None:
-            _form_params.append(("file_url", file_url))
-        if detection_mode is not None:
-            _form_params.append(("detection_mode", detection_mode))
-        if page_range is not None:
-            _form_params.append(("page_range", page_range))
         # process the body parameter
+        if document_field_detection_request is not None and has_files is False:
+            _body_params = document_field_detection_request
 
         # set the HTTP header `Accept`
         if "Accept" not in _header_params:
@@ -388,7 +306,7 @@ class DocumentApi:
             _header_params["Content-Type"] = _content_type
         else:
             _default_content_type = self.api_client.select_header_content_type(
-                ["multipart/form-data"]
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
                 _header_params["Content-Type"] = _default_content_type

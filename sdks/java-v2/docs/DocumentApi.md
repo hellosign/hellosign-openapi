@@ -10,7 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## documentDetectFields
 
-> DocumentFieldDetectionResponse documentDetectFields(detectionMode, _file, fileUrl, pageRange)
+> DocumentFieldDetectionResponse documentDetectFields(documentFieldDetectionRequest)
 
 Detect Document Fields
 
@@ -44,18 +44,20 @@ public class DocumentDetectFieldsExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+        var documentFieldDetectionRequest = new DocumentFieldDetectionRequest();
+        documentFieldDetectionRequest.detectionMode("annotations");
+        documentFieldDetectionRequest._file(new File("./example_document.pdf"));
+        documentFieldDetectionRequest.pageRange("all");
+
         try
         {
-            var response = new SignatureRequestApi(config).documentDetectFields(
-                "annotations", // detectionMode
-                new File("./example_document.pdf"), // _file
-                null, // fileUrl
-                "all" // pageRange
+            var response = new DocumentApi(config).documentDetectFields(
+                documentFieldDetectionRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequestApi#documentDetectFields");
+            System.err.println("Exception when calling DocumentApi#documentDetectFields");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -71,10 +73,7 @@ public class DocumentDetectFieldsExample
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
- **detectionMode** | [**String**](String.md)| The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags. |
- **_file** | **File**| The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional]
- **fileUrl** | **URI**| The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional]
- **pageRange** | **String**| The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`. | [optional]
+ **documentFieldDetectionRequest** | [**DocumentFieldDetectionRequest**](DocumentFieldDetectionRequest.md)|  |
 
 ### Return type
 
@@ -86,7 +85,7 @@ public class DocumentDetectFieldsExample
 
 ### HTTP request headers
 
-- **Content-Type**: multipart/form-data
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 ### HTTP response details

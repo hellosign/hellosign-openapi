@@ -253,6 +253,7 @@ Class | Method | HTTP request | Description
  - [BulkSendJobListResponse](docs/BulkSendJobListResponse.md)
  - [BulkSendJobResponse](docs/BulkSendJobResponse.md)
  - [BulkSendJobSendResponse](docs/BulkSendJobSendResponse.md)
+ - [DocumentFieldDetectionRequest](docs/DocumentFieldDetectionRequest.md)
  - [DocumentFieldDetectionResponse](docs/DocumentFieldDetectionResponse.md)
  - [DocumentFieldDetectionResponseDetectionResult](docs/DocumentFieldDetectionResponseDetectionResult.md)
  - [EmbeddedEditUrlRequest](docs/EmbeddedEditUrlRequest.md)

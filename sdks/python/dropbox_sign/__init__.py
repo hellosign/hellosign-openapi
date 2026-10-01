@@ -65,6 +65,9 @@ from dropbox_sign.models.bulk_send_job_get_response_signature_requests import (
 from dropbox_sign.models.bulk_send_job_list_response import BulkSendJobListResponse
 from dropbox_sign.models.bulk_send_job_response import BulkSendJobResponse
 from dropbox_sign.models.bulk_send_job_send_response import BulkSendJobSendResponse
+from dropbox_sign.models.document_field_detection_request import (
+    DocumentFieldDetectionRequest,
+)
 from dropbox_sign.models.document_field_detection_response import (
     DocumentFieldDetectionResponse,
 )

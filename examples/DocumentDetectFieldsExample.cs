@@ -17,22 +17,26 @@ public class DocumentDetectFieldsExample
         config.Username = "YOUR_API_KEY";
         // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
+        var documentFieldDetectionRequest = new DocumentFieldDetectionRequest(
+            detectionMode: "annotations",
+            file: new FileStream(
+                path: "./example_document.pdf",
+                mode: FileMode.Open
+            ),
+            pageRange: "all"
+        );
+
         try
         {
-            var response = new SignatureRequestApi(config).DocumentDetectFields(
-                detectionMode: "annotations",
-                file: new FileStream(
-                    path: "./example_document.pdf",
-                    mode: FileMode.Open
-                ),
-                pageRange: "all"
+            var response = new DocumentApi(config).DocumentDetectFields(
+                documentFieldDetectionRequest: documentFieldDetectionRequest
             );
 
             Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequestApi#DocumentDetectFields: " + e.Message);
+            Console.WriteLine("Exception when calling DocumentApi#DocumentDetectFields: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

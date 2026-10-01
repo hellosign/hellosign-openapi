@@ -9,7 +9,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `document_detect_fields`
 
-> `<DocumentFieldDetectionResponse> document_detect_fields(detection_mode, opts)`
+> `<DocumentFieldDetectionResponse> document_detect_fields(document_field_detection_request)`
 
 Detect Document Fields
 
@@ -26,19 +26,19 @@ Dropbox::Sign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
+document_field_detection_request = Dropbox::Sign::DocumentFieldDetectionRequest.new
+document_field_detection_request.detection_mode = "annotations"
+document_field_detection_request.file = File.new("./example_document.pdf", "r")
+document_field_detection_request.page_range = "all"
+
 begin
-  response = Dropbox::Sign::SignatureRequestApi.new.document_detect_fields(
-    "annotations", # detection_mode
-      {
-          file: File.new("./example_document.pdf", "r"),
-          file_url: nil,
-          page_range: "all",
-      },
+  response = Dropbox::Sign::DocumentApi.new.document_detect_fields(
+    document_field_detection_request,
   )
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling SignatureRequestApi#document_detect_fields: #{e}"
+  puts "Exception when calling DocumentApi#document_detect_fields: #{e}"
 end
 
 ```
@@ -47,12 +47,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<DocumentFieldDetectionResponse>, Integer, Hash)> document_detect_fields_with_http_info(detection_mode, opts)`
+> `<Array(<DocumentFieldDetectionResponse>, Integer, Hash)> document_detect_fields_with_http_info(document_field_detection_request)`
 
 ```ruby
 begin
   # Detect Document Fields
-  data, status_code, headers = api_instance.document_detect_fields_with_http_info(detection_mode, opts)
+  data, status_code, headers = api_instance.document_detect_fields_with_http_info(document_field_detection_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentFieldDetectionResponse>
@@ -65,10 +65,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `detection_mode` | **String** | The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags. |  |
-| `file` | **File** | The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional] |
-| `file_url` | **String** | The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional] |
-| `page_range` | **String** | The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`. | [optional] |
+| `document_field_detection_request` | [**DocumentFieldDetectionRequest**](DocumentFieldDetectionRequest.md) |  |  |
 
 ### Return type
 
@@ -80,6 +77,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: multipart/form-data
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 

@@ -210,6 +210,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::BulkSendJobListResponse](docs/BulkSendJobListResponse.md)
  - [Dropbox::Sign::BulkSendJobResponse](docs/BulkSendJobResponse.md)
  - [Dropbox::Sign::BulkSendJobSendResponse](docs/BulkSendJobSendResponse.md)
+ - [Dropbox::Sign::DocumentFieldDetectionRequest](docs/DocumentFieldDetectionRequest.md)
  - [Dropbox::Sign::DocumentFieldDetectionResponse](docs/DocumentFieldDetectionResponse.md)
  - [Dropbox::Sign::DocumentFieldDetectionResponseDetectionResult](docs/DocumentFieldDetectionResponseDetectionResult.md)
  - [Dropbox::Sign::EmbeddedEditUrlRequest](docs/EmbeddedEditUrlRequest.md)

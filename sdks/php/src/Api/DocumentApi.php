@@ -42,7 +42,6 @@ use InvalidArgumentException;
 use JsonException;
 use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
-use SplFileObject;
 
 /**
  * DocumentApi Class Doc Comment
@@ -69,6 +68,7 @@ class DocumentApi
      */
     public const contentTypes = [
         'documentDetectFields' => [
+            'application/json',
             'multipart/form-data',
         ],
     ];
@@ -136,18 +136,15 @@ class DocumentApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/DocumentDetectFieldsExample.php
      *
-     * @param string             $detection_mode The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags. (required)
-     * @param SplFileObject|null $file           The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $file_url       The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $page_range     The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)
+     * @param Model\DocumentFieldDetectionRequest $document_field_detection_request document_field_detection_request (required)
      *
      * @return Model\DocumentFieldDetectionResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function documentDetectFields(string $detection_mode, ?SplFileObject $file = null, ?string $file_url = null, ?string $page_range = null)
+    public function documentDetectFields(Model\DocumentFieldDetectionRequest $document_field_detection_request)
     {
-        list($response) = $this->documentDetectFieldsWithHttpInfo($detection_mode, $file, $file_url, $page_range);
+        list($response) = $this->documentDetectFieldsWithHttpInfo($document_field_detection_request);
         return $response;
     }
 
@@ -158,20 +155,17 @@ class DocumentApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/DocumentDetectFieldsExample.php
      *
-     * @param string             $detection_mode The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags. (required)
-     * @param SplFileObject|null $file           The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $file_url       The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $page_range     The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)
-     * @param string             $contentType    The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
+     * @param Model\DocumentFieldDetectionRequest $document_field_detection_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
      *
      * @return array of Model\DocumentFieldDetectionResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::documentDetectFields. This method will eventually become unavailable
      */
-    public function documentDetectFieldsWithHttpInfo(string $detection_mode, ?SplFileObject $file = null, ?string $file_url = null, ?string $page_range = null, string $contentType = self::contentTypes['documentDetectFields'][0])
+    public function documentDetectFieldsWithHttpInfo(Model\DocumentFieldDetectionRequest $document_field_detection_request, string $contentType = self::contentTypes['documentDetectFields'][0])
     {
-        $request = $this->documentDetectFieldsRequest($detection_mode, $file, $file_url, $page_range, $contentType);
+        $request = $this->documentDetectFieldsRequest($document_field_detection_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -300,19 +294,16 @@ class DocumentApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/DocumentDetectFieldsExample.php
      *
-     * @param string             $detection_mode The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags. (required)
-     * @param SplFileObject|null $file           The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $file_url       The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $page_range     The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)
-     * @param string             $contentType    The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
+     * @param Model\DocumentFieldDetectionRequest $document_field_detection_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::documentDetectFields. This method will eventually become unavailable
      */
-    public function documentDetectFieldsAsync(string $detection_mode, ?SplFileObject $file = null, ?string $file_url = null, ?string $page_range = null, string $contentType = self::contentTypes['documentDetectFields'][0])
+    public function documentDetectFieldsAsync(Model\DocumentFieldDetectionRequest $document_field_detection_request, string $contentType = self::contentTypes['documentDetectFields'][0])
     {
-        return $this->documentDetectFieldsAsyncWithHttpInfo($detection_mode, $file, $file_url, $page_range, $contentType)
+        return $this->documentDetectFieldsAsyncWithHttpInfo($document_field_detection_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -327,20 +318,17 @@ class DocumentApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/DocumentDetectFieldsExample.php
      *
-     * @param string             $detection_mode The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags. (required)
-     * @param SplFileObject|null $file           The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $file_url       The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $page_range     The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)
-     * @param string             $contentType    The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
+     * @param Model\DocumentFieldDetectionRequest $document_field_detection_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::documentDetectFields. This method will eventually become unavailable
      */
-    public function documentDetectFieldsAsyncWithHttpInfo(string $detection_mode, ?SplFileObject $file = null, ?string $file_url = null, ?string $page_range = null, string $contentType = self::contentTypes['documentDetectFields'][0])
+    public function documentDetectFieldsAsyncWithHttpInfo(Model\DocumentFieldDetectionRequest $document_field_detection_request, string $contentType = self::contentTypes['documentDetectFields'][0])
     {
         $returnType = '\Dropbox\Sign\Model\DocumentFieldDetectionResponse';
-        $request = $this->documentDetectFieldsRequest($detection_mode, $file, $file_url, $page_range, $contentType);
+        $request = $this->documentDetectFieldsRequest($document_field_detection_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -381,27 +369,20 @@ class DocumentApi
     /**
      * Create request for operation 'documentDetectFields'
      *
-     * @param string             $detection_mode The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags. (required)
-     * @param SplFileObject|null $file           The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $file_url       The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param string|null        $page_range     The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)
-     * @param string             $contentType    The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
+     * @param Model\DocumentFieldDetectionRequest $document_field_detection_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::documentDetectFields. This method will eventually become unavailable
      */
-    public function documentDetectFieldsRequest(string $detection_mode, ?SplFileObject $file = null, ?string $file_url = null, ?string $page_range = null, string $contentType = self::contentTypes['documentDetectFields'][0])
+    public function documentDetectFieldsRequest(Model\DocumentFieldDetectionRequest $document_field_detection_request, string $contentType = self::contentTypes['documentDetectFields'][0])
     {
-        // verify the required parameter 'detection_mode' is set
-        if ($detection_mode === null || (is_array($detection_mode) && count($detection_mode) === 0)) {
+        // verify the required parameter 'document_field_detection_request' is set
+        if ($document_field_detection_request === null || (is_array($document_field_detection_request) && count($document_field_detection_request) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $detection_mode when calling documentDetectFields'
+                'Missing the required parameter $document_field_detection_request when calling documentDetectFields'
             );
-        }
-
-        if ($page_range !== null && !preg_match('/^(?:all|\\d+(?:-\\d+)?(?:,\\d+(?:-\\d+)?)*)$/', $page_range)) {
-            throw new InvalidArgumentException('invalid value for "page_range" when calling DocumentApi.documentDetectFields, must conform to the pattern /^(?:all|\\d+(?:-\\d+)?(?:,\\d+(?:-\\d+)?)*)$/.');
         }
 
         $resourcePath = '/document/detect_fields';
@@ -411,30 +392,11 @@ class DocumentApi
         $httpBody = '';
         $multipart = false;
 
-        // form params
-        if ($file !== null) {
-            $multipart = true;
-            $formParams['file'] = [];
-            $paramFiles = is_array($file) ? $file : [$file];
-            foreach ($paramFiles as $paramFile) {
-                $formParams['file'][] = \GuzzleHttp\Psr7\Utils::tryFopen(
-                    ObjectSerializer::toFormValue($paramFile),
-                    'rb'
-                );
-            }
-        }
-        // form params
-        if ($file_url !== null) {
-            $formParams['file_url'] = ObjectSerializer::toFormValue($file_url);
-        }
-        // form params
-        if ($detection_mode !== null) {
-            $formParams['detection_mode'] = ObjectSerializer::toFormValue($detection_mode);
-        }
-        // form params
-        if ($page_range !== null) {
-            $formParams['page_range'] = ObjectSerializer::toFormValue($page_range);
-        }
+        $formParams = ObjectSerializer::getFormParams(
+            $document_field_detection_request
+        );
+
+        $multipart = !empty($formParams);
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -443,7 +405,14 @@ class DocumentApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (count($formParams) === 0) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($document_field_detection_request));
+            } else {
+                $httpBody = $document_field_detection_request;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -464,6 +433,9 @@ class DocumentApi
                     ];
                 }
 
+                if ($payloadHook = $this->config->getPayloadHook()) {
+                    $payloadHook('multipart', $multipartContents, $document_field_detection_request);
+                }
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

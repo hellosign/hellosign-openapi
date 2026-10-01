@@ -10,7 +10,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `documentDetectFields()`
 
 ```php
-documentDetectFields($detection_mode, $file, $file_url, $page_range): \Dropbox\Sign\Model\DocumentFieldDetectionResponse
+documentDetectFields($document_field_detection_request): \Dropbox\Sign\Model\DocumentFieldDetectionResponse
 ```
 Detect Document Fields
 
@@ -32,16 +32,19 @@ $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 $config->setUsername("YOUR_API_KEY");
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
+$document_field_detection_request = (new Dropbox\Sign\Model\DocumentFieldDetectionRequest())
+    ->setDetectionMode("annotations")
+    ->setFile(new SplFileObject("./example_document.pdf"))
+    ->setPageRange("all");
+
 try {
-    $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->documentDetectFields(
-        detection_mode: "annotations",
-        file: new SplFileObject("./example_document.pdf"),
-        page_range: "all",
+    $response = (new Dropbox\Sign\Api\DocumentApi(config: $config))->documentDetectFields(
+        document_field_detection_request: $document_field_detection_request,
     );
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequestApi#documentDetectFields: {$e->getMessage()}";
+    echo "Exception when calling DocumentApi#documentDetectFields: {$e->getMessage()}";
 }
 
 ```
@@ -50,10 +53,7 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **detection_mode** | **string**| The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags. | |
-| **file** | **\SplFileObject****\SplFileObject**| The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional] |
-| **file_url** | **string**| The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional] |
-| **page_range** | **string**| The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`. | [optional] |
+| **document_field_detection_request** | [**\Dropbox\Sign\Model\DocumentFieldDetectionRequest**](../Model/DocumentFieldDetectionRequest.md)|  | |
 
 ### Return type
 
@@ -65,7 +65,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `multipart/form-data`
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

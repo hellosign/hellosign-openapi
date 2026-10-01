@@ -3091,6 +3091,9 @@ paths:
       requestBody:
         required: true
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentFieldDetectionRequest'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/DocumentFieldDetectionRequest'
@@ -3151,16 +3154,19 @@ paths:
             $config->setUsername("YOUR_API_KEY");
             // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
+            $document_field_detection_request = (new Dropbox\Sign\Model\DocumentFieldDetectionRequest())
+                ->setDetectionMode("annotations")
+                ->setFile(new SplFileObject("./example_document.pdf"))
+                ->setPageRange("all");
+
             try {
-                $response = (new Dropbox\Sign\Api\SignatureRequestApi(config: $config))->documentDetectFields(
-                    detection_mode: "annotations",
-                    file: new SplFileObject("./example_document.pdf"),
-                    page_range: "all",
+                $response = (new Dropbox\Sign\Api\DocumentApi(config: $config))->documentDetectFields(
+                    document_field_detection_request: $document_field_detection_request,
                 );
 
                 print_r($response);
             } catch (Dropbox\Sign\ApiException $e) {
-                echo "Exception when calling SignatureRequestApi#documentDetectFields: {$e->getMessage()}";
+                echo "Exception when calling DocumentApi#documentDetectFields: {$e->getMessage()}";
             }
         - lang: csharp
           label: C#
@@ -3184,22 +3190,26 @@ paths:
                     config.Username = "YOUR_API_KEY";
                     // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
+                    var documentFieldDetectionRequest = new DocumentFieldDetectionRequest(
+                        detectionMode: "annotations",
+                        file: new FileStream(
+                            path: "./example_document.pdf",
+                            mode: FileMode.Open
+                        ),
+                        pageRange: "all"
+                    );
+
                     try
                     {
-                        var response = new SignatureRequestApi(config).DocumentDetectFields(
-                            detectionMode: "annotations",
-                            file: new FileStream(
-                                path: "./example_document.pdf",
-                                mode: FileMode.Open
-                            ),
-                            pageRange: "all"
+                        var response = new DocumentApi(config).DocumentDetectFields(
+                            documentFieldDetectionRequest: documentFieldDetectionRequest
                         );
 
                         Console.WriteLine(response);
                     }
                     catch (ApiException e)
                     {
-                        Console.WriteLine("Exception when calling SignatureRequestApi#DocumentDetectFields: " + e.Message);
+                        Console.WriteLine("Exception when calling DocumentApi#DocumentDetectFields: " + e.Message);
                         Console.WriteLine("Status Code: " + e.ErrorCode);
                         Console.WriteLine(e.StackTrace);
                     }
@@ -3212,19 +3222,22 @@ paths:
             import api from "@dropbox/sign"
             import models from "@dropbox/sign"
 
-            const apiCaller = new api.SignatureRequestApi();
+            const apiCaller = new api.DocumentApi();
             apiCaller.username = "YOUR_API_KEY";
             // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
+            const documentFieldDetectionRequest: models.DocumentFieldDetectionRequest = {
+              detectionMode: "annotations",
+              file: fs.createReadStream("./example_document.pdf"),
+              pageRange: "all",
+            };
+
             apiCaller.documentDetectFields(
-              "annotations", // detectionMode
-              fs.createReadStream("./example_document.pdf"), // file
-              undefined, // fileUrl
-              "all", // pageRange
+              documentFieldDetectionRequest,
             ).then(response => {
               console.log(response.body);
             }).catch(error => {
-              console.log("Exception when calling SignatureRequestApi#documentDetectFields:");
+              console.log("Exception when calling DocumentApi#documentDetectFields:");
               console.log(error.body);
             });
         - lang: Java
@@ -3255,18 +3268,20 @@ paths:
                     ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
                     // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+                    var documentFieldDetectionRequest = new DocumentFieldDetectionRequest();
+                    documentFieldDetectionRequest.detectionMode("annotations");
+                    documentFieldDetectionRequest._file(new File("./example_document.pdf"));
+                    documentFieldDetectionRequest.pageRange("all");
+
                     try
                     {
-                        var response = new SignatureRequestApi(config).documentDetectFields(
-                            "annotations", // detectionMode
-                            new File("./example_document.pdf"), // _file
-                            null, // fileUrl
-                            "all" // pageRange
+                        var response = new DocumentApi(config).documentDetectFields(
+                            documentFieldDetectionRequest
                         );
 
                         System.out.println(response);
                     } catch (ApiException e) {
-                        System.err.println("Exception when calling SignatureRequestApi#documentDetectFields");
+                        System.err.println("Exception when calling DocumentApi#documentDetectFields");
                         System.err.println("Status code: " + e.getCode());
                         System.err.println("Reason: " + e.getResponseBody());
                         System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3285,19 +3300,19 @@ paths:
                 # config.access_token = "YOUR_ACCESS_TOKEN"
             end
 
+            document_field_detection_request = Dropbox::Sign::DocumentFieldDetectionRequest.new
+            document_field_detection_request.detection_mode = "annotations"
+            document_field_detection_request.file = File.new("./example_document.pdf", "r")
+            document_field_detection_request.page_range = "all"
+
             begin
-                response = Dropbox::Sign::SignatureRequestApi.new.document_detect_fields(
-                    "annotations", # detection_mode
-                    {
-                        file: File.new("./example_document.pdf", "r"),
-                        file_url: nil,
-                        page_range: "all",
-                    },
+                response = Dropbox::Sign::DocumentApi.new.document_detect_fields(
+                    document_field_detection_request,
                 )
 
                 p response
             rescue Dropbox::Sign::ApiError => e
-                puts "Exception when calling SignatureRequestApi#document_detect_fields: #{e}"
+                puts "Exception when calling DocumentApi#document_detect_fields: #{e}"
             end
         - lang: Python
           label: Python
@@ -3314,16 +3329,20 @@ paths:
             )
 
             with ApiClient(configuration) as api_client:
+                document_field_detection_request = models.DocumentFieldDetectionRequest(
+                    detection_mode="annotations",
+                    file=open("./example_document.pdf", "rb").read(),
+                    page_range="all",
+                )
+
                 try:
-                    response = api.SignatureRequestApi(api_client).document_detect_fields(
-                        detection_mode="annotations",
-                        file=open("./example_document.pdf", "rb").read(),
-                        page_range="all",
+                    response = api.DocumentApi(api_client).document_detect_fields(
+                        document_field_detection_request=document_field_detection_request,
                     )
 
                     pprint(response)
                 except ApiException as e:
-                    print("Exception when calling SignatureRequestApi#document_detect_fields: %s\n" % e)
+                    print("Exception when calling DocumentApi#document_detect_fields: %s\n" % e)
         - lang: cURL
           label: cURL
           source: |

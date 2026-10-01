@@ -23,18 +23,20 @@ public class DocumentDetectFieldsExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+        var documentFieldDetectionRequest = new DocumentFieldDetectionRequest();
+        documentFieldDetectionRequest.detectionMode("annotations");
+        documentFieldDetectionRequest._file(new File("./example_document.pdf"));
+        documentFieldDetectionRequest.pageRange("all");
+
         try
         {
-            var response = new SignatureRequestApi(config).documentDetectFields(
-                "annotations", // detectionMode
-                new File("./example_document.pdf"), // _file
-                null, // fileUrl
-                "all" // pageRange
+            var response = new DocumentApi(config).documentDetectFields(
+                documentFieldDetectionRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequestApi#documentDetectFields");
+            System.err.println("Exception when calling DocumentApi#documentDetectFields");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

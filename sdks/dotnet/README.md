@@ -235,6 +235,7 @@ Class | Method | HTTP request | Description
  - [Model.BulkSendJobListResponse](docs/BulkSendJobListResponse.md)
  - [Model.BulkSendJobResponse](docs/BulkSendJobResponse.md)
  - [Model.BulkSendJobSendResponse](docs/BulkSendJobSendResponse.md)
+ - [Model.DocumentFieldDetectionRequest](docs/DocumentFieldDetectionRequest.md)
  - [Model.DocumentFieldDetectionResponse](docs/DocumentFieldDetectionResponse.md)
  - [Model.DocumentFieldDetectionResponseDetectionResult](docs/DocumentFieldDetectionResponseDetectionResult.md)
  - [Model.EmbeddedEditUrlRequest](docs/EmbeddedEditUrlRequest.md)

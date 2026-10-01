@@ -35,13 +35,10 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="detectionMode">The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.</param>
-        /// <param name="file">The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="fileUrl">The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="pageRange">The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)</param>
+        /// <param name="documentFieldDetectionRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DocumentFieldDetectionResponse</returns>
-        DocumentFieldDetectionResponse DocumentDetectFields(string detectionMode, System.IO.Stream? file = default(System.IO.Stream?), string? fileUrl = default(string?), string? pageRange = default(string?), int operationIndex = 0);
+        DocumentFieldDetectionResponse DocumentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0);
 
         /// <summary>
         /// Detect Document Fields
@@ -51,13 +48,10 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="detectionMode">The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.</param>
-        /// <param name="file">The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="fileUrl">The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="pageRange">The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)</param>
+        /// <param name="documentFieldDetectionRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DocumentFieldDetectionResponse</returns>
-        ApiResponse<DocumentFieldDetectionResponse> DocumentDetectFieldsWithHttpInfo(string detectionMode, System.IO.Stream? file = default(System.IO.Stream?), string? fileUrl = default(string?), string? pageRange = default(string?), int operationIndex = 0);
+        ApiResponse<DocumentFieldDetectionResponse> DocumentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -75,14 +69,11 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="detectionMode">The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.</param>
-        /// <param name="file">The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="fileUrl">The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="pageRange">The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)</param>
+        /// <param name="documentFieldDetectionRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentFieldDetectionResponse</returns>
-        System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(string detectionMode, System.IO.Stream? file = default(System.IO.Stream?), string? fileUrl = default(string?), string? pageRange = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Detect Document Fields
@@ -92,14 +83,11 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="detectionMode">The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.</param>
-        /// <param name="file">The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="fileUrl">The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="pageRange">The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)</param>
+        /// <param name="documentFieldDetectionRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentFieldDetectionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(string detectionMode, System.IO.Stream? file = default(System.IO.Stream?), string? fileUrl = default(string?), string? pageRange = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -225,15 +213,12 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="detectionMode">The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.</param>
-        /// <param name="file">The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="fileUrl">The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="pageRange">The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)</param>
+        /// <param name="documentFieldDetectionRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DocumentFieldDetectionResponse</returns>
-        public DocumentFieldDetectionResponse DocumentDetectFields(string detectionMode, System.IO.Stream? file = default(System.IO.Stream?), string? fileUrl = default(string?), string? pageRange = default(string?), int operationIndex = 0)
+        public DocumentFieldDetectionResponse DocumentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = DocumentDetectFieldsWithHttpInfo(detectionMode, file, fileUrl, pageRange);
+            Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = DocumentDetectFieldsWithHttpInfo(documentFieldDetectionRequest);
             return localVarResponse.Data;
         }
 
@@ -242,26 +227,31 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="detectionMode">The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.</param>
-        /// <param name="file">The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="fileUrl">The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="pageRange">The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)</param>
+        /// <param name="documentFieldDetectionRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DocumentFieldDetectionResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> DocumentDetectFieldsWithHttpInfo(string detectionMode, System.IO.Stream? file = default(System.IO.Stream?), string? fileUrl = default(string?), string? pageRange = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> DocumentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0)
         {
-            // verify the required parameter 'detectionMode' is set
-            if (detectionMode == null)
+            // verify the required parameter 'documentFieldDetectionRequest' is set
+            if (documentFieldDetectionRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'detectionMode' when calling DocumentApi->DocumentDetectFields");
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'documentFieldDetectionRequest' when calling DocumentApi->DocumentDetectFields");
             }
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "multipart/form-data"
-            };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = "";
+            var openApiTypes = documentFieldDetectionRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = documentFieldDetectionRequest;
+            }
 
             // to determine the Accept header
             string[] _accepts = new string[] {
@@ -279,19 +269,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (file != null)
-            {
-                localVarRequestOptions.FileParameters.Add("file", file);
-            }
-            if (fileUrl != null)
-            {
-                localVarRequestOptions.FormParameters.Add("file_url", Dropbox.Sign.Client.ClientUtils.ParameterToString(fileUrl)); // form parameter
-            }
-            localVarRequestOptions.FormParameters.Add("detection_mode", Dropbox.Sign.Client.ClientUtils.ParameterToString(detectionMode)); // form parameter
-            if (pageRange != null)
-            {
-                localVarRequestOptions.FormParameters.Add("page_range", Dropbox.Sign.Client.ClientUtils.ParameterToString(pageRange)); // form parameter
-            }
 
             localVarRequestOptions.Operation = "DocumentApi.DocumentDetectFields";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -328,16 +305,13 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="detectionMode">The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.</param>
-        /// <param name="file">The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="fileUrl">The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="pageRange">The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)</param>
+        /// <param name="documentFieldDetectionRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentFieldDetectionResponse</returns>
-        public async System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(string detectionMode, System.IO.Stream? file = default(System.IO.Stream?), string? fileUrl = default(string?), string? pageRange = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = await DocumentDetectFieldsWithHttpInfoAsync(detectionMode, file, fileUrl, pageRange, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = await DocumentDetectFieldsWithHttpInfoAsync(documentFieldDetectionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -346,28 +320,33 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="detectionMode">The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.</param>
-        /// <param name="file">The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="fileUrl">The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)</param>
-        /// <param name="pageRange">The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;. (optional)</param>
+        /// <param name="documentFieldDetectionRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentFieldDetectionResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(string detectionMode, System.IO.Stream? file = default(System.IO.Stream?), string? fileUrl = default(string?), string? pageRange = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            // verify the required parameter 'detectionMode' is set
-            if (detectionMode == null)
+            // verify the required parameter 'documentFieldDetectionRequest' is set
+            if (documentFieldDetectionRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'detectionMode' when calling DocumentApi->DocumentDetectFields");
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'documentFieldDetectionRequest' when calling DocumentApi->DocumentDetectFields");
             }
 
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] {
-                "multipart/form-data"
-            };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = "";
+            var openApiTypes = documentFieldDetectionRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = documentFieldDetectionRequest;
+            }
 
             // to determine the Accept header
             string[] _accepts = new string[] {
@@ -385,19 +364,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (file != null)
-            {
-                localVarRequestOptions.FileParameters.Add("file", file);
-            }
-            if (fileUrl != null)
-            {
-                localVarRequestOptions.FormParameters.Add("file_url", Dropbox.Sign.Client.ClientUtils.ParameterToString(fileUrl)); // form parameter
-            }
-            localVarRequestOptions.FormParameters.Add("detection_mode", Dropbox.Sign.Client.ClientUtils.ParameterToString(detectionMode)); // form parameter
-            if (pageRange != null)
-            {
-                localVarRequestOptions.FormParameters.Add("page_range", Dropbox.Sign.Client.ClientUtils.ParameterToString(pageRange)); // form parameter
-            }
 
             localVarRequestOptions.Operation = "DocumentApi.DocumentDetectFields";
             localVarRequestOptions.OperationIndex = operationIndex;

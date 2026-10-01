@@ -25,39 +25,24 @@ module Dropbox::Sign
     # Detect Document Fields
     # Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/DocumentDetectFieldsExample.rb
-    # @param detection_mode [String] The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.
+    # @param document_field_detection_request [DocumentFieldDetectionRequest]
     # @param [Hash] opts the optional parameters
-    # @option opts [File] :file The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
-    # @option opts [String] :file_url The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
-    # @option opts [String] :page_range The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;.
     # @return [DocumentFieldDetectionResponse]
-    def document_detect_fields(detection_mode, opts = {})
-      data, _status_code, _headers = document_detect_fields_with_http_info(detection_mode, opts)
+    def document_detect_fields(document_field_detection_request, opts = {})
+      data, _status_code, _headers = document_detect_fields_with_http_info(document_field_detection_request, opts)
       data
     end
 
     # Detect Document Fields
     # Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/DocumentDetectFieldsExample.rb
-    # @param detection_mode [String] The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.
+    # @param document_field_detection_request [DocumentFieldDetectionRequest]
     # @param [Hash] opts the optional parameters
-    # @option opts [File] :file The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
-    # @option opts [String] :file_url The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
-    # @option opts [String] :page_range The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;.
     # @return [Array<(DocumentFieldDetectionResponse, Integer, Hash)>] DocumentFieldDetectionResponse data, response status code and response headers
-    def document_detect_fields_with_http_info(detection_mode, opts = {})
+    def document_detect_fields_with_http_info(document_field_detection_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DocumentApi.document_detect_fields ...'
       end
-      # verify the required parameter 'detection_mode' is set
-      if @api_client.config.client_side_validation && detection_mode.nil?
-        fail ArgumentError, "Missing the required parameter 'detection_mode' when calling DocumentApi.document_detect_fields"
-      end
-      pattern = Regexp.new(/^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$/)
-      if @api_client.config.client_side_validation && !opts[:'page_range'].nil? && opts[:'page_range'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"page_range\"]' when calling DocumentApi.document_detect_fields, must conform to the pattern #{pattern}."
-      end
-
       # resource path
       local_var_path = '/document/detect_fields'
 
@@ -69,16 +54,26 @@ module Dropbox::Sign
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      content_type = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
 
       post_body = {}
       form_params = opts[:form_params] || {}
+      result = @api_client.generate_form_data(
+        document_field_detection_request,
+        Dropbox::Sign::DocumentFieldDetectionRequest.openapi_types
+      )
 
-      # http body (model)
-      post_body = opts[:debug_body]
+      # form parameters
+      if result[:has_file]
+        form_params = opts[:form_params] || result[:params]
+        header_params['Content-Type'] = 'multipart/form-data'
+      else
+        # http body (model)
+        post_body = opts[:debug_body] || result[:params]
+      end
 
       # return_type
       return_type = opts[:debug_return_type] || 'DocumentFieldDetectionResponse'

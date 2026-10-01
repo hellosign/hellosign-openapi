@@ -1,4 +1,4 @@
-import { Authentication, DocumentFieldDetectionResponse, HttpBasicAuth, HttpBearerAuth, Interceptor, RequestFile } from "../model";
+import { Authentication, DocumentFieldDetectionRequest, DocumentFieldDetectionResponse, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
 import { optionsI, returnTypeT } from "./";
 export declare enum DocumentApiApiKeys {
 }
@@ -24,5 +24,5 @@ export declare class DocumentApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    documentDetectFields(detectionMode: string, file?: RequestFile, fileUrl?: string, pageRange?: string, options?: optionsI): Promise<returnTypeT<DocumentFieldDetectionResponse>>;
+    documentDetectFields(documentFieldDetectionRequest: DocumentFieldDetectionRequest, options?: optionsI): Promise<returnTypeT<DocumentFieldDetectionResponse>>;
 }

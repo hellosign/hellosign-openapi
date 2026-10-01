@@ -6,17 +6,17 @@ Dropbox::Sign.configure do |config|
     # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
+document_field_detection_request = Dropbox::Sign::DocumentFieldDetectionRequest.new
+document_field_detection_request.detection_mode = "annotations"
+document_field_detection_request.file = File.new("./example_document.pdf", "r")
+document_field_detection_request.page_range = "all"
+
 begin
-    response = Dropbox::Sign::SignatureRequestApi.new.document_detect_fields(
-        "annotations", # detection_mode
-        {
-            file: File.new("./example_document.pdf", "r"),
-            file_url: nil,
-            page_range: "all",
-        },
+    response = Dropbox::Sign::DocumentApi.new.document_detect_fields(
+        document_field_detection_request,
     )
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling SignatureRequestApi#document_detect_fields: #{e}"
+    puts "Exception when calling DocumentApi#document_detect_fields: #{e}"
 end

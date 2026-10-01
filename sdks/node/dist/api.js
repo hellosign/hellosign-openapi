@@ -13174,6 +13174,7 @@ __export(api_exports, {
   BulkSendJobResponse: () => BulkSendJobResponse,
   BulkSendJobSendResponse: () => BulkSendJobSendResponse,
   DocumentApi: () => DocumentApi,
+  DocumentFieldDetectionRequest: () => DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse: () => DocumentFieldDetectionResponse,
   DocumentFieldDetectionResponseDetectionResult: () => DocumentFieldDetectionResponseDetectionResult,
   EmbeddedApi: () => EmbeddedApi,
@@ -17755,6 +17756,44 @@ var BulkSendJobSendResponse = class _BulkSendJobSendResponse {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "BulkSendJobSendResponse");
+  }
+};
+
+// model/documentFieldDetectionRequest.ts
+var DocumentFieldDetectionRequest = class _DocumentFieldDetectionRequest {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "detectionMode",
+        baseName: "detection_mode",
+        type: "string"
+      },
+      {
+        name: "file",
+        baseName: "file",
+        type: "RequestFile"
+      },
+      {
+        name: "fileUrl",
+        baseName: "file_url",
+        type: "string"
+      },
+      {
+        name: "pageRange",
+        baseName: "page_range",
+        type: "string"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _DocumentFieldDetectionRequest.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "DocumentFieldDetectionRequest");
   }
 };
 
@@ -27035,6 +27074,7 @@ var typeMap = {
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
+  DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse,
   DocumentFieldDetectionResponseDetectionResult,
   EmbeddedEditUrlRequest,
@@ -28746,13 +28786,14 @@ var DocumentApi = class {
    * Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
    * @summary Detect Document Fields
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/DocumentDetectFieldsExample.ts
-   * @param detectionMode The field detection method to use. Set to &#x60;annotations&#x60; to detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.
-   * @param file The PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
-   * @param fileUrl The URL of the PDF file to analyze.  This endpoint requires either &#x60;file&#x60; or &#x60;file_url&#x60;, but not both.
-   * @param pageRange The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;. Defaults to &#x60;all&#x60;.
+   * @param documentFieldDetectionRequest
    * @param options
    */
-  async documentDetectFields(detectionMode, file, fileUrl, pageRange, options = { headers: {} }) {
+  async documentDetectFields(documentFieldDetectionRequest, options = { headers: {} }) {
+    documentFieldDetectionRequest = deserializeIfNeeded3(
+      documentFieldDetectionRequest,
+      "DocumentFieldDetectionRequest"
+    );
     const localVarPath = this.basePath + "/document/detect_fields";
     let localVarQueryParameters = {};
     let localVarHeaderParams = Object.assign(
@@ -28767,33 +28808,30 @@ var DocumentApi = class {
     }
     let localVarFormParams = {};
     let localVarBodyParams = void 0;
-    if (detectionMode === null || detectionMode === void 0) {
+    if (documentFieldDetectionRequest === null || documentFieldDetectionRequest === void 0) {
       throw new Error(
-        "Required parameter detectionMode was null or undefined when calling documentDetectFields."
+        "Required parameter documentFieldDetectionRequest was null or undefined when calling documentDetectFields."
       );
     }
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
-    if (file !== void 0) {
-      localVarFormParams["file"] = file;
-    }
-    localVarUseFormData = true;
-    if (fileUrl !== void 0) {
-      localVarFormParams["file_url"] = ObjectSerializer.serialize(
-        fileUrl,
-        "string"
-      );
-    }
-    if (detectionMode !== void 0) {
-      localVarFormParams["detection_mode"] = ObjectSerializer.serialize(
-        detectionMode,
-        "string"
-      );
-    }
-    if (pageRange !== void 0) {
-      localVarFormParams["page_range"] = ObjectSerializer.serialize(
-        pageRange,
-        "string"
+    const result = generateFormData(
+      documentFieldDetectionRequest,
+      DocumentFieldDetectionRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+    let data = {};
+    if (localVarUseFormData) {
+      const formData2 = toFormData3(result.data);
+      data = formData2;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData2.getHeaders()
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        documentFieldDetectionRequest,
+        "DocumentFieldDetectionRequest"
       );
     }
     let localVarRequestOptions = {
@@ -28804,7 +28842,8 @@ var DocumentApi = class {
       paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
-      responseType: "json"
+      responseType: "json",
+      data
     };
     let authenticationPromise = Promise.resolve();
     if (this.authentications.api_key.username) {
@@ -28867,6 +28906,12 @@ var DocumentApi = class {
     });
   }
 };
+function deserializeIfNeeded3(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
 function handleSuccessfulResponse4(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
@@ -28956,7 +29001,7 @@ var EmbeddedApi = class {
    * @param options
    */
   async embeddedEditUrl(templateId, embeddedEditUrlRequest, options = { headers: {} }) {
-    embeddedEditUrlRequest = deserializeIfNeeded3(
+    embeddedEditUrlRequest = deserializeIfNeeded4(
       embeddedEditUrlRequest,
       "EmbeddedEditUrlRequest"
     );
@@ -29182,7 +29227,7 @@ var EmbeddedApi = class {
     });
   }
 };
-function deserializeIfNeeded3(obj, classname) {
+function deserializeIfNeeded4(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -29648,7 +29693,7 @@ var FaxApi = class {
    * @param options
    */
   async faxSend(faxSendRequest, options = { headers: {} }) {
-    faxSendRequest = deserializeIfNeeded4(faxSendRequest, "FaxSendRequest");
+    faxSendRequest = deserializeIfNeeded5(faxSendRequest, "FaxSendRequest");
     const localVarPath = this.basePath + "/fax/send";
     let localVarQueryParameters = {};
     let localVarHeaderParams = Object.assign(
@@ -29751,7 +29796,7 @@ var FaxApi = class {
     });
   }
 };
-function deserializeIfNeeded4(obj, classname) {
+function deserializeIfNeeded5(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -29845,7 +29890,7 @@ var FaxLineApi = class {
    * @param options
    */
   async faxLineAddUser(faxLineAddUserRequest, options = { headers: {} }) {
-    faxLineAddUserRequest = deserializeIfNeeded5(
+    faxLineAddUserRequest = deserializeIfNeeded6(
       faxLineAddUserRequest,
       "FaxLineAddUserRequest"
     );
@@ -30082,7 +30127,7 @@ var FaxLineApi = class {
    * @param options
    */
   async faxLineCreate(faxLineCreateRequest, options = { headers: {} }) {
-    faxLineCreateRequest = deserializeIfNeeded5(
+    faxLineCreateRequest = deserializeIfNeeded6(
       faxLineCreateRequest,
       "FaxLineCreateRequest"
     );
@@ -30198,7 +30243,7 @@ var FaxLineApi = class {
    * @param options
    */
   async faxLineDelete(faxLineDeleteRequest, options = { headers: {} }) {
-    faxLineDeleteRequest = deserializeIfNeeded5(
+    faxLineDeleteRequest = deserializeIfNeeded6(
       faxLineDeleteRequest,
       "FaxLineDeleteRequest"
     );
@@ -30515,7 +30560,7 @@ var FaxLineApi = class {
    * @param options
    */
   async faxLineRemoveUser(faxLineRemoveUserRequest, options = { headers: {} }) {
-    faxLineRemoveUserRequest = deserializeIfNeeded5(
+    faxLineRemoveUserRequest = deserializeIfNeeded6(
       faxLineRemoveUserRequest,
       "FaxLineRemoveUserRequest"
     );
@@ -30624,7 +30669,7 @@ var FaxLineApi = class {
     });
   }
 };
-function deserializeIfNeeded5(obj, classname) {
+function deserializeIfNeeded6(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -30718,7 +30763,7 @@ var OAuthApi = class {
    * @param options
    */
   async oauthTokenGenerate(oAuthTokenGenerateRequest, options = { headers: {} }) {
-    oAuthTokenGenerateRequest = deserializeIfNeeded6(
+    oAuthTokenGenerateRequest = deserializeIfNeeded7(
       oAuthTokenGenerateRequest,
       "OAuthTokenGenerateRequest"
     );
@@ -30829,7 +30874,7 @@ var OAuthApi = class {
    * @param options
    */
   async oauthTokenRefresh(oAuthTokenRefreshRequest, options = { headers: {} }) {
-    oAuthTokenRefreshRequest = deserializeIfNeeded6(
+    oAuthTokenRefreshRequest = deserializeIfNeeded7(
       oAuthTokenRefreshRequest,
       "OAuthTokenRefreshRequest"
     );
@@ -30933,7 +30978,7 @@ var OAuthApi = class {
     });
   }
 };
-function deserializeIfNeeded6(obj, classname) {
+function deserializeIfNeeded7(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -31027,7 +31072,7 @@ var ReportApi = class {
    * @param options
    */
   async reportCreate(reportCreateRequest, options = { headers: {} }) {
-    reportCreateRequest = deserializeIfNeeded7(
+    reportCreateRequest = deserializeIfNeeded8(
       reportCreateRequest,
       "ReportCreateRequest"
     );
@@ -31138,7 +31183,7 @@ var ReportApi = class {
     });
   }
 };
-function deserializeIfNeeded7(obj, classname) {
+function deserializeIfNeeded8(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -31232,7 +31277,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestBulkCreateEmbeddedWithTemplate(signatureRequestBulkCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-    signatureRequestBulkCreateEmbeddedWithTemplateRequest = deserializeIfNeeded8(
+    signatureRequestBulkCreateEmbeddedWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestBulkCreateEmbeddedWithTemplateRequest,
       "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
     );
@@ -31350,7 +31395,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestBulkSendWithTemplate(signatureRequestBulkSendWithTemplateRequest, options = { headers: {} }) {
-    signatureRequestBulkSendWithTemplateRequest = deserializeIfNeeded8(
+    signatureRequestBulkSendWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestBulkSendWithTemplateRequest,
       "SignatureRequestBulkSendWithTemplateRequest"
     );
@@ -31560,7 +31605,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest, options = { headers: {} }) {
-    signatureRequestCreateEmbeddedRequest = deserializeIfNeeded8(
+    signatureRequestCreateEmbeddedRequest = deserializeIfNeeded9(
       signatureRequestCreateEmbeddedRequest,
       "SignatureRequestCreateEmbeddedRequest"
     );
@@ -31683,7 +31728,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-    signatureRequestCreateEmbeddedWithTemplateRequest = deserializeIfNeeded8(
+    signatureRequestCreateEmbeddedWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestCreateEmbeddedWithTemplateRequest,
       "SignatureRequestCreateEmbeddedWithTemplateRequest"
     );
@@ -31807,7 +31852,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestEdit(signatureRequestId, signatureRequestEditRequest, options = { headers: {} }) {
-    signatureRequestEditRequest = deserializeIfNeeded8(
+    signatureRequestEditRequest = deserializeIfNeeded9(
       signatureRequestEditRequest,
       "SignatureRequestEditRequest"
     );
@@ -31939,7 +31984,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestEditEmbedded(signatureRequestId, signatureRequestEditEmbeddedRequest, options = { headers: {} }) {
-    signatureRequestEditEmbeddedRequest = deserializeIfNeeded8(
+    signatureRequestEditEmbeddedRequest = deserializeIfNeeded9(
       signatureRequestEditEmbeddedRequest,
       "SignatureRequestEditEmbeddedRequest"
     );
@@ -32071,7 +32116,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestEditEmbeddedWithTemplate(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, options = { headers: {} }) {
-    signatureRequestEditEmbeddedWithTemplateRequest = deserializeIfNeeded8(
+    signatureRequestEditEmbeddedWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestEditEmbeddedWithTemplateRequest,
       "SignatureRequestEditEmbeddedWithTemplateRequest"
     );
@@ -32203,7 +32248,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestEditWithTemplate(signatureRequestId, signatureRequestEditWithTemplateRequest, options = { headers: {} }) {
-    signatureRequestEditWithTemplateRequest = deserializeIfNeeded8(
+    signatureRequestEditWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestEditWithTemplateRequest,
       "SignatureRequestEditWithTemplateRequest"
     );
@@ -32976,7 +33021,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestRemind(signatureRequestId, signatureRequestRemindRequest, options = { headers: {} }) {
-    signatureRequestRemindRequest = deserializeIfNeeded8(
+    signatureRequestRemindRequest = deserializeIfNeeded9(
       signatureRequestRemindRequest,
       "SignatureRequestRemindRequest"
     );
@@ -33189,7 +33234,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestSend(signatureRequestSendRequest, options = { headers: {} }) {
-    signatureRequestSendRequest = deserializeIfNeeded8(
+    signatureRequestSendRequest = deserializeIfNeeded9(
       signatureRequestSendRequest,
       "SignatureRequestSendRequest"
     );
@@ -33312,7 +33357,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestSendWithTemplate(signatureRequestSendWithTemplateRequest, options = { headers: {} }) {
-    signatureRequestSendWithTemplateRequest = deserializeIfNeeded8(
+    signatureRequestSendWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestSendWithTemplateRequest,
       "SignatureRequestSendWithTemplateRequest"
     );
@@ -33436,7 +33481,7 @@ var SignatureRequestApi = class {
    * @param options
    */
   async signatureRequestUpdate(signatureRequestId, signatureRequestUpdateRequest, options = { headers: {} }) {
-    signatureRequestUpdateRequest = deserializeIfNeeded8(
+    signatureRequestUpdateRequest = deserializeIfNeeded9(
       signatureRequestUpdateRequest,
       "SignatureRequestUpdateRequest"
     );
@@ -33560,7 +33605,7 @@ var SignatureRequestApi = class {
     });
   }
 };
-function deserializeIfNeeded8(obj, classname) {
+function deserializeIfNeeded9(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -33655,7 +33700,7 @@ var TeamApi = class {
    * @param options
    */
   async teamAddMember(teamAddMemberRequest, teamId, options = { headers: {} }) {
-    teamAddMemberRequest = deserializeIfNeeded9(
+    teamAddMemberRequest = deserializeIfNeeded10(
       teamAddMemberRequest,
       "TeamAddMemberRequest"
     );
@@ -33782,7 +33827,7 @@ var TeamApi = class {
    * @param options
    */
   async teamCreate(teamCreateRequest, options = { headers: {} }) {
-    teamCreateRequest = deserializeIfNeeded9(
+    teamCreateRequest = deserializeIfNeeded10(
       teamCreateRequest,
       "TeamCreateRequest"
     );
@@ -34385,7 +34430,7 @@ var TeamApi = class {
    * @param options
    */
   async teamRemoveMember(teamRemoveMemberRequest, options = { headers: {} }) {
-    teamRemoveMemberRequest = deserializeIfNeeded9(
+    teamRemoveMemberRequest = deserializeIfNeeded10(
       teamRemoveMemberRequest,
       "TeamRemoveMemberRequest"
     );
@@ -34622,7 +34667,7 @@ var TeamApi = class {
    * @param options
    */
   async teamUpdate(teamUpdateRequest, options = { headers: {} }) {
-    teamUpdateRequest = deserializeIfNeeded9(
+    teamUpdateRequest = deserializeIfNeeded10(
       teamUpdateRequest,
       "TeamUpdateRequest"
     );
@@ -34733,7 +34778,7 @@ var TeamApi = class {
     });
   }
 };
-function deserializeIfNeeded9(obj, classname) {
+function deserializeIfNeeded10(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -34828,7 +34873,7 @@ var TemplateApi = class {
    * @param options
    */
   async templateAddUser(templateId, templateAddUserRequest, options = { headers: {} }) {
-    templateAddUserRequest = deserializeIfNeeded10(
+    templateAddUserRequest = deserializeIfNeeded11(
       templateAddUserRequest,
       "TemplateAddUserRequest"
     );
@@ -34959,7 +35004,7 @@ var TemplateApi = class {
    * @param options
    */
   async templateCreate(templateCreateRequest, options = { headers: {} }) {
-    templateCreateRequest = deserializeIfNeeded10(
+    templateCreateRequest = deserializeIfNeeded11(
       templateCreateRequest,
       "TemplateCreateRequest"
     );
@@ -35082,7 +35127,7 @@ var TemplateApi = class {
    * @param options
    */
   async templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest, options = { headers: {} }) {
-    templateCreateEmbeddedDraftRequest = deserializeIfNeeded10(
+    templateCreateEmbeddedDraftRequest = deserializeIfNeeded11(
       templateCreateEmbeddedDraftRequest,
       "TemplateCreateEmbeddedDraftRequest"
     );
@@ -35832,7 +35877,7 @@ var TemplateApi = class {
    * @param options
    */
   async templateRemoveUser(templateId, templateRemoveUserRequest, options = { headers: {} }) {
-    templateRemoveUserRequest = deserializeIfNeeded10(
+    templateRemoveUserRequest = deserializeIfNeeded11(
       templateRemoveUserRequest,
       "TemplateRemoveUserRequest"
     );
@@ -35964,7 +36009,7 @@ var TemplateApi = class {
    * @param options
    */
   async templateUpdateFiles(templateId, templateUpdateFilesRequest, options = { headers: {} }) {
-    templateUpdateFilesRequest = deserializeIfNeeded10(
+    templateUpdateFilesRequest = deserializeIfNeeded11(
       templateUpdateFilesRequest,
       "TemplateUpdateFilesRequest"
     );
@@ -36088,7 +36133,7 @@ var TemplateApi = class {
     });
   }
 };
-function deserializeIfNeeded10(obj, classname) {
+function deserializeIfNeeded11(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -36182,7 +36227,7 @@ var UnclaimedDraftApi = class {
    * @param options
    */
   async unclaimedDraftCreate(unclaimedDraftCreateRequest, options = { headers: {} }) {
-    unclaimedDraftCreateRequest = deserializeIfNeeded11(
+    unclaimedDraftCreateRequest = deserializeIfNeeded12(
       unclaimedDraftCreateRequest,
       "UnclaimedDraftCreateRequest"
     );
@@ -36305,7 +36350,7 @@ var UnclaimedDraftApi = class {
    * @param options
    */
   async unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest, options = { headers: {} }) {
-    unclaimedDraftCreateEmbeddedRequest = deserializeIfNeeded11(
+    unclaimedDraftCreateEmbeddedRequest = deserializeIfNeeded12(
       unclaimedDraftCreateEmbeddedRequest,
       "UnclaimedDraftCreateEmbeddedRequest"
     );
@@ -36428,7 +36473,7 @@ var UnclaimedDraftApi = class {
    * @param options
    */
   async unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-    unclaimedDraftCreateEmbeddedWithTemplateRequest = deserializeIfNeeded11(
+    unclaimedDraftCreateEmbeddedWithTemplateRequest = deserializeIfNeeded12(
       unclaimedDraftCreateEmbeddedWithTemplateRequest,
       "UnclaimedDraftCreateEmbeddedWithTemplateRequest"
     );
@@ -36552,7 +36597,7 @@ var UnclaimedDraftApi = class {
    * @param options
    */
   async unclaimedDraftEditAndResend(signatureRequestId, unclaimedDraftEditAndResendRequest, options = { headers: {} }) {
-    unclaimedDraftEditAndResendRequest = deserializeIfNeeded11(
+    unclaimedDraftEditAndResendRequest = deserializeIfNeeded12(
       unclaimedDraftEditAndResendRequest,
       "UnclaimedDraftEditAndResendRequest"
     );
@@ -36676,7 +36721,7 @@ var UnclaimedDraftApi = class {
     });
   }
 };
-function deserializeIfNeeded11(obj, classname) {
+function deserializeIfNeeded12(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
@@ -36833,6 +36878,7 @@ var APIS = [
   BulkSendJobResponse,
   BulkSendJobSendResponse,
   DocumentApi,
+  DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse,
   DocumentFieldDetectionResponseDetectionResult,
   EmbeddedApi,

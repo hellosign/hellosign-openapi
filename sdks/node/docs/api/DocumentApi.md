@@ -10,7 +10,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `documentDetectFields()`
 
 ```typescript
-documentDetectFields(detectionMode: string, file: RequestFile, fileUrl: string, pageRange: string): DocumentFieldDetectionResponse
+documentDetectFields(documentFieldDetectionRequest: DocumentFieldDetectionRequest): DocumentFieldDetectionResponse
 ```
 
 Detect Document Fields
@@ -46,10 +46,7 @@ apiCaller.documentDetectFields(
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **detectionMode** | **string**| The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags. | |
-| **file** | **RequestFile****RequestFile**| The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional] |
-| **fileUrl** | **string**| The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional] |
-| **pageRange** | **string**| The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`. | [optional] |
+| **documentFieldDetectionRequest** | [**DocumentFieldDetectionRequest**](../model/DocumentFieldDetectionRequest.md)|  | |
 
 ### Return type
 
@@ -61,7 +58,7 @@ apiCaller.documentDetectFields(
 
 ### HTTP request headers
 
-- **Content-Type**: `multipart/form-data`
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

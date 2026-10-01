@@ -4,11 +4,9 @@ import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.ApiResponse;
 import com.dropbox.sign.Configuration;
+import com.dropbox.sign.model.DocumentFieldDetectionRequest;
 import com.dropbox.sign.model.DocumentFieldDetectionResponse;
-import java.io.File;
-import java.net.URI;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
@@ -49,16 +47,7 @@ public class DocumentApi {
      * Detect Document Fields Detects form fields in a PDF document using either PDF form
      * annotations or Dropbox Sign text tags.
      *
-     * @param detectionMode The field detection method to use. Set to &#x60;annotations&#x60; to
-     *     detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.
-     *     (required)
-     * @param _file The PDF file to analyze. This endpoint requires either &#x60;file&#x60; or
-     *     &#x60;file_url&#x60;, but not both. (optional)
-     * @param fileUrl The URL of the PDF file to analyze. This endpoint requires either
-     *     &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param pageRange The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual
-     *     pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;.
-     *     Defaults to &#x60;all&#x60;. (optional)
+     * @param documentFieldDetectionRequest (required)
      * @return DocumentFieldDetectionResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -70,90 +59,15 @@ public class DocumentApi {
      * </table>
      */
     public DocumentFieldDetectionResponse documentDetectFields(
-            String detectionMode, File _file, URI fileUrl, String pageRange) throws ApiException {
-        return documentDetectFieldsWithHttpInfo(detectionMode, _file, fileUrl, pageRange).getData();
-    }
-
-    /**
-     * @see DocumentApi#documentDetectFields(String, File, URI, String)
-     */
-    public DocumentFieldDetectionResponse documentDetectFields(String detectionMode)
-            throws ApiException {
-        File _file = null;
-        URI fileUrl = null;
-        String pageRange = null;
-
-        return documentDetectFieldsWithHttpInfo(detectionMode, _file, fileUrl, pageRange).getData();
-    }
-
-    /**
-     * @see DocumentApi#documentDetectFieldsWithHttpInfo(String, File, URI, String)
-     */
-    public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(
-            String detectionMode) throws ApiException {
-        File _file = null;
-        URI fileUrl = null;
-        String pageRange = null;
-
-        return documentDetectFieldsWithHttpInfo(detectionMode, _file, fileUrl, pageRange);
-    }
-
-    /**
-     * @see DocumentApi#documentDetectFields(String, File, URI, String)
-     */
-    public DocumentFieldDetectionResponse documentDetectFields(String detectionMode, File _file)
-            throws ApiException {
-        URI fileUrl = null;
-        String pageRange = null;
-
-        return documentDetectFieldsWithHttpInfo(detectionMode, _file, fileUrl, pageRange).getData();
-    }
-
-    /**
-     * @see DocumentApi#documentDetectFieldsWithHttpInfo(String, File, URI, String)
-     */
-    public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(
-            String detectionMode, File _file) throws ApiException {
-        URI fileUrl = null;
-        String pageRange = null;
-
-        return documentDetectFieldsWithHttpInfo(detectionMode, _file, fileUrl, pageRange);
-    }
-
-    /**
-     * @see DocumentApi#documentDetectFields(String, File, URI, String)
-     */
-    public DocumentFieldDetectionResponse documentDetectFields(
-            String detectionMode, File _file, URI fileUrl) throws ApiException {
-        String pageRange = null;
-
-        return documentDetectFieldsWithHttpInfo(detectionMode, _file, fileUrl, pageRange).getData();
-    }
-
-    /**
-     * @see DocumentApi#documentDetectFieldsWithHttpInfo(String, File, URI, String)
-     */
-    public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(
-            String detectionMode, File _file, URI fileUrl) throws ApiException {
-        String pageRange = null;
-
-        return documentDetectFieldsWithHttpInfo(detectionMode, _file, fileUrl, pageRange);
+            DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
+        return documentDetectFieldsWithHttpInfo(documentFieldDetectionRequest).getData();
     }
 
     /**
      * Detect Document Fields Detects form fields in a PDF document using either PDF form
      * annotations or Dropbox Sign text tags.
      *
-     * @param detectionMode The field detection method to use. Set to &#x60;annotations&#x60; to
-     *     detect PDF form annotations or &#x60;text_tags&#x60; to detect Dropbox Sign text tags.
-     *     (required)
-     * @param _file The PDF file to analyze. This endpoint requires either &#x60;file&#x60; or
-     *     &#x60;file_url&#x60;, but not both. (optional)
-     * @param fileUrl The URL of the PDF file to analyze. This endpoint requires either
-     *     &#x60;file&#x60; or &#x60;file_url&#x60;, but not both. (optional)
-     * @param pageRange The zero-based page indexes to analyze. Accepts &#x60;all&#x60;, individual
-     *     pages, inclusive ranges, or comma-separated combinations, such as &#x60;0-2,5,7-9&#x60;.
-     *     Defaults to &#x60;all&#x60;. (optional)
+     * @param documentFieldDetectionRequest (required)
      * @return ApiResponse&lt;DocumentFieldDetectionResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -165,24 +79,25 @@ public class DocumentApi {
      * </table>
      */
     public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(
-            String detectionMode, File _file, URI fileUrl, String pageRange) throws ApiException {
+            DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
 
         // Check required parameters
-        if (detectionMode == null) {
+        if (documentFieldDetectionRequest == null) {
             throw new ApiException(
                     400,
-                    "Missing the required parameter 'detectionMode' when calling"
+                    "Missing the required parameter 'documentFieldDetectionRequest' when calling"
                             + " documentDetectFields");
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
         Map<String, Object> localVarFormParams = new LinkedHashMap<>();
-        localVarFormParams = new HashMap<String, Object>();
+        localVarFormParams = documentFieldDetectionRequest.createFormData();
         boolean isFileTypeFound = !localVarFormParams.isEmpty();
         String localVarContentType =
                 isFileTypeFound
                         ? "multipart/form-data"
-                        : apiClient.selectHeaderContentType("multipart/form-data");
+                        : apiClient.selectHeaderContentType(
+                                "application/json", "multipart/form-data");
         String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
         GenericType<DocumentFieldDetectionResponse> localVarReturnType =
                 new GenericType<DocumentFieldDetectionResponse>() {};
@@ -191,7 +106,7 @@ public class DocumentApi {
                 "/document/detect_fields",
                 "POST",
                 new ArrayList<>(),
-                null,
+                isFileTypeFound ? null : documentFieldDetectionRequest,
                 new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,
@@ -199,6 +114,6 @@ public class DocumentApi {
                 localVarContentType,
                 localVarAuthNames,
                 localVarReturnType,
-                false);
+                true);
     }
 }

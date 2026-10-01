@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # ```document_detect_fields```
-> ```DocumentFieldDetectionResponse document_detect_fields(detection_mode)```
+> ```DocumentFieldDetectionResponse document_detect_fields(document_field_detection_request)```
 
 Detect Document Fields
 
@@ -32,19 +32,20 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
+    document_field_detection_request = models.DocumentFieldDetectionRequest(
+        detection_mode="annotations",
+        file=open("./example_document.pdf", "rb").read(),
+        page_range="all",
+    )
+
     try:
-        response = api.SignatureRequestApi(api_client).document_detect_fields(
-            detection_mode="annotations",
-            file=open("./example_document.pdf", "rb").read(),
-            page_range="all",
+        response = api.DocumentApi(api_client).document_detect_fields(
+            document_field_detection_request=document_field_detection_request,
         )
 
         pprint(response)
     except ApiException as e:
-        print(
-            "Exception when calling SignatureRequestApi#document_detect_fields: %s\n"
-            % e
-        )
+        print("Exception when calling DocumentApi#document_detect_fields: %s\n" % e)
 
 ```
 ```
@@ -52,10 +53,7 @@ with ApiClient(configuration) as api_client:
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `detection_mode` | **str** | The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags. |  |
-| `file` | **io.IOBase** | The PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional] |
-| `file_url` | **str** | The URL of the PDF file to analyze.  This endpoint requires either `file` or `file_url`, but not both. | [optional] |
-| `page_range` | **str** | The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`. | [optional] |
+| `document_field_detection_request` | [**DocumentFieldDetectionRequest**](DocumentFieldDetectionRequest.md) |  |  |
 
 ### Return type
 
@@ -67,7 +65,7 @@ with ApiClient(configuration) as api_client:
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
