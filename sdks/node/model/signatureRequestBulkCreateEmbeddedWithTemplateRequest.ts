@@ -80,6 +80,10 @@ export class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
    * The title you want to assign to the SignatureRequest.
    */
   "title"?: string;
+  /**
+   * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+   */
+  "expiresAt"?: number | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -148,6 +152,11 @@ export class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
       name: "title",
       baseName: "title",
       type: "string",
+    },
+    {
+      name: "expiresAt",
+      baseName: "expires_at",
+      type: "number",
     },
   ];
 

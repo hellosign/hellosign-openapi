@@ -46,6 +46,7 @@ import com.dropbox.sign.ApiException;
   FaxResponse.JSON_PROPERTY_SENDER,
   FaxResponse.JSON_PROPERTY_FILES_URL,
   FaxResponse.JSON_PROPERTY_TRANSMISSIONS,
+  FaxResponse.JSON_PROPERTY_TEST_MODE,
   FaxResponse.JSON_PROPERTY_SUBJECT,
   FaxResponse.JSON_PROPERTY_MESSAGE,
   FaxResponse.JSON_PROPERTY_FINAL_COPY_URI
@@ -84,6 +85,10 @@ public class FaxResponse {
   public static final String JSON_PROPERTY_TRANSMISSIONS = "transmissions";
   @jakarta.annotation.Nonnull
   private List<FaxResponseTransmission> transmissions = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+  @jakarta.annotation.Nonnull
+  private Boolean testMode = false;
 
   public static final String JSON_PROPERTY_SUBJECT = "subject";
   @jakarta.annotation.Nullable
@@ -331,6 +336,31 @@ public class FaxResponse {
   }
 
 
+  public FaxResponse testMode(@jakarta.annotation.Nonnull Boolean testMode) {
+    this.testMode = testMode;
+    return this;
+  }
+
+  /**
+   * Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to &#x60;false&#x60;.
+   * @return testMode
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getTestMode() {
+    return testMode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTestMode(@jakarta.annotation.Nonnull Boolean testMode) {
+    this.testMode = testMode;
+  }
+
+
   public FaxResponse subject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
     return this;
@@ -426,6 +456,7 @@ public class FaxResponse {
         Objects.equals(this.sender, faxResponse.sender) &&
         Objects.equals(this.filesUrl, faxResponse.filesUrl) &&
         Objects.equals(this.transmissions, faxResponse.transmissions) &&
+        Objects.equals(this.testMode, faxResponse.testMode) &&
         Objects.equals(this.subject, faxResponse.subject) &&
         Objects.equals(this.message, faxResponse.message) &&
         Objects.equals(this.finalCopyUri, faxResponse.finalCopyUri);
@@ -433,7 +464,7 @@ public class FaxResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(faxId, title, originalTitle, metadata, createdAt, sender, filesUrl, transmissions, subject, message, finalCopyUri);
+    return Objects.hash(faxId, title, originalTitle, metadata, createdAt, sender, filesUrl, transmissions, testMode, subject, message, finalCopyUri);
   }
 
   @Override
@@ -448,6 +479,7 @@ public class FaxResponse {
     sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
     sb.append("    filesUrl: ").append(toIndentedString(filesUrl)).append("\n");
     sb.append("    transmissions: ").append(toIndentedString(transmissions)).append("\n");
+    sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    finalCopyUri: ").append(toIndentedString(finalCopyUri)).append("\n");
@@ -609,6 +641,25 @@ public class FaxResponse {
         }
         else {
             map.put("transmissions", JSON.getDefault().getMapper().writeValueAsString(transmissions));
+        }
+    }
+    if (testMode != null) {
+        if (isFileTypeOrListOfFiles(testMode)) {
+            fileTypeFound = true;
+        }
+
+        if (testMode.getClass().equals(java.io.File.class) ||
+            testMode.getClass().equals(Integer.class) ||
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
+            map.put("test_mode", testMode);
+        } else if (isListOfFile(testMode)) {
+            for(int i = 0; i< getListSize(testMode); i++) {
+                map.put("test_mode[" + i + "]", getFromList(testMode, i));
+            }
+        }
+        else {
+            map.put("test_mode", JSON.getDefault().getMapper().writeValueAsString(testMode));
         }
     }
     if (subject != null) {

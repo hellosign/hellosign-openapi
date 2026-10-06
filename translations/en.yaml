@@ -107,6 +107,19 @@
 "BulkSendJobList::PAGE": Which page number of the BulkSendJob List to return. Defaults to `1`.
 "BulkSendJobList::PAGE_SIZE": Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.
 
+"DocumentFieldDetection::SUMMARY": Detect Document Fields
+"DocumentFieldDetection::DESCRIPTION": Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
+"DocumentFieldDetection::FILE": |-
+  The PDF file to analyze.
+
+  This endpoint requires either `file` or `file_url`, but not both.
+"DocumentFieldDetection::FILE_URL": |-
+  The URL of the PDF file to analyze.
+
+  This endpoint requires either `file` or `file_url`, but not both.
+"DocumentFieldDetection::DETECTION_MODE": The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags.
+"DocumentFieldDetection::PAGE_RANGE": The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`.
+
 "EmbeddedEditUrl::SUMMARY": Get Embedded Template Edit URL
 "EmbeddedEditUrl::DESCRIPTION": Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
 "EmbeddedEditUrl::ALLOW_EDIT_CCS": This allows the requester to enable/disable to add or change CC roles when editing the template.
@@ -175,6 +188,7 @@
 "FaxResponse::TRANSMISSIONS": Fax Transmissions List
 "FaxResponse::FILES_URL": Fax Files URL
 "FaxResponse::FINAL_COPY_URI": The path where the completed document can be downloaded
+"FaxResponse::TEST_MODE": Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.
 "Sub::FaxResponseTransmission::RECIPIENT": Fax Transmission Recipient
 "Sub::FaxResponseTransmission::STATUS_CODE": Fax Transmission Status Code
 "Sub::FaxResponseTransmission::SENT_AT": Fax Transmission Sent Timestamp
@@ -251,6 +265,7 @@
   **NOTE:** Only available for Standard plan and higher.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
+"SignatureRequestBulkCreateEmbeddedWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::SIGNER_FILE": |-
   `signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:
@@ -287,6 +302,7 @@
 
   **NOTE:** Only available for Standard plan and higher.
 "SignatureRequestBulkSendWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
+"SignatureRequestBulkSendWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestBulkSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestBulkSendWithTemplate::SIGNER_FILE": |-
   `signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:
@@ -386,6 +402,7 @@
   Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **files** or **file_urls[]**, but not both.
+"SignatureRequestCreateEmbeddedWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestCreateEmbeddedWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
@@ -526,6 +543,7 @@
   Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **files** or **file_urls[]**, but not both.
+"SignatureRequestSendWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE": |-
   Send with a value of `true` if you wish to enable
   [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
@@ -1356,6 +1374,16 @@
 "BulkSendJobGetResponse::SIGNATURE_REQUESTS": Contains information about the Signature Requests sent in bulk.
 "BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID": The id of the BulkSendJob.
 
+"DocumentFieldDetectionResponse::DOCUMENT_HASH": The SHA-256 hash of the analyzed document.
+"DocumentFieldDetectionResponse::DETECTION_MODE": |-
+  The field detection method used to analyze the document: `annotations` or `text_tags`.
+"DocumentFieldDetectionResponse::PAGE_COUNT": The total number of pages in the document.
+"DocumentFieldDetectionResponse::PAGES_ANALYZED": The zero-based page indexes analyzed, represented by the requested `page_range`, or `all` when every page was analyzed.
+"DocumentFieldDetectionResponse::DETECTED_AT": The Unix timestamp when the field detection result was generated.
+"DocumentFieldDetectionResponse::WARNINGS": Non-fatal issues encountered during field detection.
+"DocumentFieldDetectionResponse::ERRORS": Errors encountered during field detection. Successfully detected fields may still be included in the response.
+"DocumentFieldDetectionResponse::SUGGESTIONS": Suggestions for improving the field detection results.
+
 "Common::RateLimiting::LIMIT": The maximum number of requests per hour that you can make.
 "Common::RateLimiting::REMAINING": The number of requests remaining in the current rate limit window.
 "Common::RateLimiting::RESET": The Unix time at which the rate limit will reset to its maximum.
@@ -1892,6 +1920,8 @@
 "BulkSendJobGet::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here."
 "BulkSendJobList::SEO::TITLE": "List Bulk Send Jobs | Documentation | Dropbox Sign for Developers"
 "BulkSendJobList::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to return a list of BulkSendJob that you can access, click here."
+"DocumentDetectFields::SEO::TITLE": "Detect Document Fields | API Documentation | Dropbox Sign for Developers"
+"DocumentDetectFields::SEO::DESCRIPTION": "Use the Dropbox Sign API to detect form fields in PDF documents from PDF form annotations or Dropbox Sign text tags."
 "EmbeddedEditUrl::SEO::TITLE": "Get Embedded Template URL | iFrame | Dropbox Sign for Developers"
 "EmbeddedEditUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here."
 "EmbeddedSignUrl::SEO::TITLE": "Get Embedded Sign URL | iFrame | Dropbox Sign for Developers"

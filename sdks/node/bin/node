@@ -8,5 +8,6 @@ ROOT_DIR="${DIR}/.."
 docker run --rm \
   -v "${ROOT_DIR}:/app" \
   -v "dropbox-sign-sdk-npm-cache:/root/.npm" \
+  -v "dropbox-sign-sdk-node-modules:/app/node_modules" \
   -w /app \
   node:18 "$@"

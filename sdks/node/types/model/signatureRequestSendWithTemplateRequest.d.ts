@@ -23,6 +23,7 @@ export declare class SignatureRequestSendWithTemplateRequest {
     "subject"?: string;
     "testMode"?: boolean;
     "title"?: string;
+    "expiresAt"?: number | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

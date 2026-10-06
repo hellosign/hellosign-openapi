@@ -18,7 +18,15 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictStr
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictBytes,
+    StrictInt,
+    StrictStr,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from dropbox_sign.models.sub_cc import SubCC
@@ -95,6 +103,10 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest(BaseModel):
         default=False,
         description="Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.",
     )
+    expires_at: Optional[StrictInt] = Field(
+        default=None,
+        description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.",
+    )
     __properties: ClassVar[List[str]] = [
         "template_ids",
         "client_id",
@@ -111,6 +123,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest(BaseModel):
         "test_mode",
         "title",
         "populate_auto_fill_fields",
+        "expires_at",
     ]
 
     model_config = ConfigDict(
@@ -244,6 +257,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest(BaseModel):
                     if obj.get("populate_auto_fill_fields") is not None
                     else False
                 ),
+                "expires_at": obj.get("expires_at"),
             }
         )
         return _obj
@@ -276,6 +290,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest(BaseModel):
             "test_mode": "(bool,)",
             "title": "(str,)",
             "populate_auto_fill_fields": "(bool,)",
+            "expires_at": "(int,)",
         }
 
     @classmethod

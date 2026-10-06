@@ -71,6 +71,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         'subject' => 'string',
         'test_mode' => 'bool',
         'title' => 'string',
+        'expires_at' => 'int',
     ];
 
     /**
@@ -94,6 +95,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         'subject' => null,
         'test_mode' => null,
         'title' => null,
+        'expires_at' => null,
     ];
 
     /**
@@ -115,6 +117,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         'subject' => false,
         'test_mode' => false,
         'title' => false,
+        'expires_at' => true,
     ];
 
     /**
@@ -208,6 +211,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         'subject' => 'subject',
         'test_mode' => 'test_mode',
         'title' => 'title',
+        'expires_at' => 'expires_at',
     ];
 
     /**
@@ -229,6 +233,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         'subject' => 'setSubject',
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
+        'expires_at' => 'setExpiresAt',
     ];
 
     /**
@@ -250,6 +255,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         'subject' => 'getSubject',
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
+        'expires_at' => 'getExpiresAt',
     ];
 
     /**
@@ -321,6 +327,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('expires_at', $data ?? [], null);
     }
 
     /**
@@ -760,6 +767,40 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         }
 
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_at
+     *
+     * @return int|null
+     */
+    public function getExpiresAt()
+    {
+        return $this->container['expires_at'];
+    }
+
+    /**
+     * Sets expires_at
+     *
+     * @param int|null $expires_at When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+     *
+     * @return self
+     */
+    public function setExpiresAt(?int $expires_at)
+    {
+        if (is_null($expires_at)) {
+            array_push($this->openAPINullablesSetToNull, 'expires_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expires_at', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['expires_at'] = $expires_at;
 
         return $this;
     }

@@ -9,6 +9,7 @@ ROOT_DIR="${DIR}/.."
 WORKING_DIR="/app/php"
 
 docker run --rm \
+  --platform linux/amd64 \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
   -v "dropbox-sign-sdk-composer-cache:/.composer" \
   -w "${WORKING_DIR}" \

@@ -42,7 +42,8 @@ import java.util.Objects;
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SUBJECT,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
-    SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS
+    SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
+    SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -96,6 +97,9 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
     public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS =
             "populate_auto_fill_fields";
     @javax.annotation.Nullable private Boolean populateAutoFillFields = false;
+
+    public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+    @javax.annotation.Nullable private Integer expiresAt;
 
     public SignatureRequestCreateEmbeddedWithTemplateRequest() {}
 
@@ -543,6 +547,31 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
         this.populateAutoFillFields = populateAutoFillFields;
     }
 
+    public SignatureRequestCreateEmbeddedWithTemplateRequest expiresAt(
+            @javax.annotation.Nullable Integer expiresAt) {
+        this.expiresAt = expiresAt;
+        return this;
+    }
+
+    /**
+     * When the signature request will expire. Unsigned signatures will be moved to the expired
+     * status, and no longer signable. See [Signature Request Expiration
+     * Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+     *
+     * @return expiresAt
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getExpiresAt() {
+        return expiresAt;
+    }
+
+    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
     /**
      * Return true if this SignatureRequestCreateEmbeddedWithTemplateRequest object is equal to o.
      */
@@ -590,7 +619,10 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
                         this.title, signatureRequestCreateEmbeddedWithTemplateRequest.title)
                 && Objects.equals(
                         this.populateAutoFillFields,
-                        signatureRequestCreateEmbeddedWithTemplateRequest.populateAutoFillFields);
+                        signatureRequestCreateEmbeddedWithTemplateRequest.populateAutoFillFields)
+                && Objects.equals(
+                        this.expiresAt,
+                        signatureRequestCreateEmbeddedWithTemplateRequest.expiresAt);
     }
 
     @Override
@@ -610,7 +642,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
                 subject,
                 testMode,
                 title,
-                populateAutoFillFields);
+                populateAutoFillFields,
+                expiresAt);
     }
 
     @Override
@@ -634,6 +667,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
         sb.append("    populateAutoFillFields: ")
                 .append(toIndentedString(populateAutoFillFields))
                 .append("\n");
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -930,6 +964,26 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
                             JSON.getDefault()
                                     .getMapper()
                                     .writeValueAsString(populateAutoFillFields));
+                }
+            }
+            if (expiresAt != null) {
+                if (isFileTypeOrListOfFiles(expiresAt)) {
+                    fileTypeFound = true;
+                }
+
+                if (expiresAt.getClass().equals(java.io.File.class)
+                        || expiresAt.getClass().equals(Integer.class)
+                        || expiresAt.getClass().equals(String.class)
+                        || expiresAt.getClass().isEnum()) {
+                    map.put("expires_at", expiresAt);
+                } else if (isListOfFile(expiresAt)) {
+                    for (int i = 0; i < getListSize(expiresAt); i++) {
+                        map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+                    }
+                } else {
+                    map.put(
+                            "expires_at",
+                            JSON.getDefault().getMapper().writeValueAsString(expiresAt));
                 }
             }
         } catch (Exception e) {

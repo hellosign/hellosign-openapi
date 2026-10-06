@@ -50,6 +50,10 @@ module Dropbox::Sign
     # @return [Array<FaxResponseTransmission>]
     attr_accessor :transmissions
 
+    # Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.
+    # @return [Boolean]
+    attr_accessor :test_mode
+
     # Fax Subject
     # @return [String, nil]
     attr_accessor :subject
@@ -73,6 +77,7 @@ module Dropbox::Sign
         :'sender' => :'sender',
         :'files_url' => :'files_url',
         :'transmissions' => :'transmissions',
+        :'test_mode' => :'test_mode',
         :'subject' => :'subject',
         :'message' => :'message',
         :'final_copy_uri' => :'final_copy_uri'
@@ -100,6 +105,7 @@ module Dropbox::Sign
         :'sender' => :'String',
         :'files_url' => :'String',
         :'transmissions' => :'Array<FaxResponseTransmission>',
+        :'test_mode' => :'Boolean',
         :'subject' => :'String',
         :'message' => :'String',
         :'final_copy_uri' => :'String'
@@ -192,6 +198,12 @@ module Dropbox::Sign
         end
       end
 
+      if attributes.key?(:'test_mode')
+        self.test_mode = attributes[:'test_mode']
+      else
+        self.test_mode = false
+      end
+
       if attributes.key?(:'subject')
         self.subject = attributes[:'subject']
       end
@@ -241,6 +253,10 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "transmissions", transmissions cannot be nil.')
       end
 
+      if @test_mode.nil?
+        invalid_properties.push('invalid value for "test_mode", test_mode cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -255,6 +271,7 @@ module Dropbox::Sign
       return false if @sender.nil?
       return false if @files_url.nil?
       return false if @transmissions.nil?
+      return false if @test_mode.nil?
       true
     end
 
@@ -338,6 +355,16 @@ module Dropbox::Sign
       @transmissions = transmissions
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] test_mode Value to be assigned
+    def test_mode=(test_mode)
+      if test_mode.nil?
+        fail ArgumentError, 'test_mode cannot be nil'
+      end
+
+      @test_mode = test_mode
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -351,6 +378,7 @@ module Dropbox::Sign
           sender == o.sender &&
           files_url == o.files_url &&
           transmissions == o.transmissions &&
+          test_mode == o.test_mode &&
           subject == o.subject &&
           message == o.message &&
           final_copy_uri == o.final_copy_uri
@@ -365,7 +393,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [fax_id, title, original_title, metadata, created_at, sender, files_url, transmissions, subject, message, final_copy_uri].hash
+      [fax_id, title, original_title, metadata, created_at, sender, files_url, transmissions, test_mode, subject, message, final_copy_uri].hash
     end
 
     # Builds the object from hash

@@ -13,6 +13,7 @@ if [[ -n "$GITHUB_ACTIONS" && -n "${DOCKER_USERNAME:-}" && -n "${DOCKER_TOKEN:-}
 fi
 
 # cleanup
+rm -f "${DIR}/composer.lock"
 rm -f "${DIR}/src/Api/"*.php
 rm -f "${DIR}/src/Model/"*.php
 
