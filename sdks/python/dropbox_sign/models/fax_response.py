@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.fax_response_transmission import FaxResponseTransmission
 from typing import Optional, Set
@@ -43,6 +43,9 @@ class FaxResponse(BaseModel):
     transmissions: List[FaxResponseTransmission] = Field(
         description="Fax Transmissions List"
     )
+    test_mode: StrictBool = Field(
+        description="Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`."
+    )
     subject: Optional[StrictStr] = Field(default=None, description="Fax Subject")
     message: Optional[StrictStr] = Field(default=None, description="Fax Message")
     final_copy_uri: Optional[StrictStr] = Field(
@@ -58,6 +61,7 @@ class FaxResponse(BaseModel):
         "sender",
         "files_url",
         "transmissions",
+        "test_mode",
         "subject",
         "message",
         "final_copy_uri",
@@ -148,6 +152,9 @@ class FaxResponse(BaseModel):
                     if obj.get("transmissions") is not None
                     else None
                 ),
+                "test_mode": (
+                    obj.get("test_mode") if obj.get("test_mode") is not None else False
+                ),
                 "subject": obj.get("subject"),
                 "message": obj.get("message"),
                 "final_copy_uri": obj.get("final_copy_uri"),
@@ -176,6 +183,7 @@ class FaxResponse(BaseModel):
             "sender": "(str,)",
             "files_url": "(str,)",
             "transmissions": "(List[FaxResponseTransmission],)",
+            "test_mode": "(bool,)",
             "subject": "(str,)",
             "message": "(str,)",
             "final_copy_uri": "(str,)",

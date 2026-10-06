@@ -52,7 +52,8 @@ namespace Dropbox.Sign.Model
         /// <param name="filesUrl">Fax Files URL (required).</param>
         /// <param name="finalCopyUri">The path where the completed document can be downloaded.</param>
         /// <param name="transmissions">Fax Transmissions List (required).</param>
-        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), string sender = default(string), string filesUrl = default(string), string finalCopyUri = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>))
+        /// <param name="testMode">Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to &#x60;false&#x60;. (required) (default to false).</param>
+        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), string sender = default(string), string filesUrl = default(string), string finalCopyUri = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>), bool testMode = false)
         {
 
             // to ensure "faxId" is required (not null)
@@ -98,6 +99,7 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("transmissions is a required property for FaxResponse and cannot be null");
             }
             this.Transmissions = transmissions;
+            this.TestMode = testMode;
             this.Subject = subject;
             this.Message = message;
             this.FinalCopyUri = finalCopyUri;
@@ -176,6 +178,13 @@ namespace Dropbox.Sign.Model
         public List<FaxResponseTransmission> Transmissions { get; set; }
 
         /// <summary>
+        /// Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to &#x60;false&#x60;.
+        /// </summary>
+        /// <value>Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to &#x60;false&#x60;.</value>
+        [DataMember(Name = "test_mode", IsRequired = true, EmitDefaultValue = true)]
+        public bool TestMode { get; set; }
+
+        /// <summary>
         /// Fax Subject
         /// </summary>
         /// <value>Fax Subject</value>
@@ -212,6 +221,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  Sender: ").Append(Sender).Append("\n");
             sb.Append("  FilesUrl: ").Append(FilesUrl).Append("\n");
             sb.Append("  Transmissions: ").Append(Transmissions).Append("\n");
+            sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  FinalCopyUri: ").Append(FinalCopyUri).Append("\n");
@@ -292,6 +302,10 @@ namespace Dropbox.Sign.Model
                     this.Transmissions.SequenceEqual(input.Transmissions)
                 ) &&
                 (
+                    this.TestMode == input.TestMode ||
+                    this.TestMode.Equals(input.TestMode)
+                ) &&
+                (
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
                     this.Subject.Equals(input.Subject))
@@ -346,6 +360,7 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Transmissions.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.TestMode.GetHashCode();
                 if (this.Subject != null)
                 {
                     hashCode = (hashCode * 59) + this.Subject.GetHashCode();
@@ -429,6 +444,13 @@ namespace Dropbox.Sign.Model
                 Property = "Transmissions",
                 Type = "List<FaxResponseTransmission>",
                 Value = Transmissions,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "test_mode",
+                Property = "TestMode",
+                Type = "bool",
+                Value = TestMode,
             });
             types.Add(new OpenApiType()
             {

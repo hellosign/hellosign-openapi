@@ -21769,6 +21769,12 @@ var FaxListResponse = class _FaxListResponse {
 
 // model/faxResponse.ts
 var FaxResponse = class _FaxResponse {
+  constructor() {
+    /**
+     * Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.
+     */
+    this["testMode"] = false;
+  }
   static {
     this.discriminator = void 0;
   }
@@ -21813,6 +21819,11 @@ var FaxResponse = class _FaxResponse {
         name: "transmissions",
         baseName: "transmissions",
         type: "Array<FaxResponseTransmission>"
+      },
+      {
+        name: "testMode",
+        baseName: "test_mode",
+        type: "boolean"
       },
       {
         name: "subject",
@@ -22603,6 +22614,11 @@ var SignatureRequestBulkCreateEmbeddedWithTemplateRequest = class _SignatureRequ
         name: "title",
         baseName: "title",
         type: "string"
+      },
+      {
+        name: "expiresAt",
+        baseName: "expires_at",
+        type: "number"
       }
     ];
   }
@@ -22699,6 +22715,11 @@ var SignatureRequestBulkSendWithTemplateRequest = class _SignatureRequestBulkSen
         name: "title",
         baseName: "title",
         type: "string"
+      },
+      {
+        name: "expiresAt",
+        baseName: "expires_at",
+        type: "number"
       }
     ];
   }
@@ -22985,6 +23006,11 @@ var SignatureRequestCreateEmbeddedWithTemplateRequest = class _SignatureRequestC
         name: "populateAutoFillFields",
         baseName: "populate_auto_fill_fields",
         type: "boolean"
+      },
+      {
+        name: "expiresAt",
+        baseName: "expires_at",
+        type: "number"
       }
     ];
   }
@@ -24856,6 +24882,11 @@ var SignatureRequestSendWithTemplateRequest = class _SignatureRequestSendWithTem
         name: "title",
         baseName: "title",
         type: "string"
+      },
+      {
+        name: "expiresAt",
+        baseName: "expires_at",
+        type: "number"
       }
     ];
   }

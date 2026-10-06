@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 | `sender`<sup>*_required_</sup> | ```str``` |  Fax Sender Email  |  |
 | `files_url`<sup>*_required_</sup> | ```str``` |  Fax Files URL  |  |
 | `transmissions`<sup>*_required_</sup> | [```List[FaxResponseTransmission]```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
+| `test_mode`<sup>*_required_</sup> | ```bool``` |  Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.  |  [default to False] |
 | `subject` | ```str``` |  Fax Subject  |  |
 | `message` | ```str``` |  Fax Message  |  |
 | `final_copy_uri` | ```str``` |  The path where the completed document can be downloaded  |  |

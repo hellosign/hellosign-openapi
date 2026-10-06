@@ -77,6 +77,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :populate_auto_fill_fields
 
+    # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+    # @return [Integer, nil]
+    attr_accessor :expires_at
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -94,7 +98,8 @@ module Dropbox::Sign
         :'subject' => :'subject',
         :'test_mode' => :'test_mode',
         :'title' => :'title',
-        :'populate_auto_fill_fields' => :'populate_auto_fill_fields'
+        :'populate_auto_fill_fields' => :'populate_auto_fill_fields',
+        :'expires_at' => :'expires_at'
       }
     end
 
@@ -125,13 +130,15 @@ module Dropbox::Sign
         :'subject' => :'String',
         :'test_mode' => :'Boolean',
         :'title' => :'String',
-        :'populate_auto_fill_fields' => :'Boolean'
+        :'populate_auto_fill_fields' => :'Boolean',
+        :'expires_at' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'expires_at'
       ])
     end
 
@@ -254,6 +261,10 @@ module Dropbox::Sign
         self.populate_auto_fill_fields = attributes[:'populate_auto_fill_fields']
       else
         self.populate_auto_fill_fields = false
+      end
+
+      if attributes.key?(:'expires_at')
+        self.expires_at = attributes[:'expires_at']
       end
     end
 
@@ -385,7 +396,8 @@ module Dropbox::Sign
           subject == o.subject &&
           test_mode == o.test_mode &&
           title == o.title &&
-          populate_auto_fill_fields == o.populate_auto_fill_fields
+          populate_auto_fill_fields == o.populate_auto_fill_fields &&
+          expires_at == o.expires_at
     end
 
     # @see the `==` method
@@ -397,7 +409,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_ids, client_id, signers, allow_decline, ccs, custom_fields, files, file_urls, message, metadata, signing_options, subject, test_mode, title, populate_auto_fill_fields].hash
+      [template_ids, client_id, signers, allow_decline, ccs, custom_fields, files, file_urls, message, metadata, signing_options, subject, test_mode, title, populate_auto_fill_fields, expires_at].hash
     end
 
     # Builds the object from hash

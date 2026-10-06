@@ -56,7 +56,8 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
-        public SignatureRequestCreateEmbeddedWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool populateAutoFillFields = false)
+        /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
+        public SignatureRequestCreateEmbeddedWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool populateAutoFillFields = false, int? expiresAt = default(int?))
         {
 
             // to ensure "templateIds" is required (not null)
@@ -89,6 +90,7 @@ namespace Dropbox.Sign.Model
             this.TestMode = testMode;
             this.Title = title;
             this.PopulateAutoFillFields = populateAutoFillFields;
+            this.ExpiresAt = expiresAt;
         }
 
         /// <summary>
@@ -212,6 +214,13 @@ namespace Dropbox.Sign.Model
         public bool PopulateAutoFillFields { get; set; }
 
         /// <summary>
+        /// When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+        /// </summary>
+        /// <value>When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
+        [DataMember(Name = "expires_at", EmitDefaultValue = true)]
+        public int? ExpiresAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -234,6 +243,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  PopulateAutoFillFields: ").Append(PopulateAutoFillFields).Append("\n");
+            sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -347,6 +357,11 @@ namespace Dropbox.Sign.Model
                 (
                     this.PopulateAutoFillFields == input.PopulateAutoFillFields ||
                     this.PopulateAutoFillFields.Equals(input.PopulateAutoFillFields)
+                ) &&
+                (
+                    this.ExpiresAt == input.ExpiresAt ||
+                    (this.ExpiresAt != null &&
+                    this.ExpiresAt.Equals(input.ExpiresAt))
                 );
         }
 
@@ -410,6 +425,10 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.PopulateAutoFillFields.GetHashCode();
+                if (this.ExpiresAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -548,6 +567,13 @@ namespace Dropbox.Sign.Model
                 Property = "PopulateAutoFillFields",
                 Type = "bool",
                 Value = PopulateAutoFillFields,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "expires_at",
+                Property = "ExpiresAt",
+                Type = "int?",
+                Value = ExpiresAt,
             });
 
             return types;

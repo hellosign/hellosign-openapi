@@ -73,6 +73,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => 'bool',
         'title' => 'string',
         'populate_auto_fill_fields' => 'bool',
+        'expires_at' => 'int',
     ];
 
     /**
@@ -98,6 +99,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => null,
         'title' => null,
         'populate_auto_fill_fields' => null,
+        'expires_at' => null,
     ];
 
     /**
@@ -121,6 +123,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => false,
         'title' => false,
         'populate_auto_fill_fields' => false,
+        'expires_at' => true,
     ];
 
     /**
@@ -216,6 +219,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => 'test_mode',
         'title' => 'title',
         'populate_auto_fill_fields' => 'populate_auto_fill_fields',
+        'expires_at' => 'expires_at',
     ];
 
     /**
@@ -239,6 +243,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'populate_auto_fill_fields' => 'setPopulateAutoFillFields',
+        'expires_at' => 'setExpiresAt',
     ];
 
     /**
@@ -262,6 +267,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'populate_auto_fill_fields' => 'getPopulateAutoFillFields',
+        'expires_at' => 'getExpiresAt',
     ];
 
     /**
@@ -335,6 +341,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('populate_auto_fill_fields', $data ?? [], false);
+        $this->setIfExists('expires_at', $data ?? [], null);
     }
 
     /**
@@ -831,6 +838,40 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
             throw new InvalidArgumentException('non-nullable populate_auto_fill_fields cannot be null');
         }
         $this->container['populate_auto_fill_fields'] = $populate_auto_fill_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_at
+     *
+     * @return int|null
+     */
+    public function getExpiresAt()
+    {
+        return $this->container['expires_at'];
+    }
+
+    /**
+     * Sets expires_at
+     *
+     * @param int|null $expires_at When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+     *
+     * @return self
+     */
+    public function setExpiresAt(?int $expires_at)
+    {
+        if (is_null($expires_at)) {
+            array_push($this->openAPINullablesSetToNull, 'expires_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expires_at', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['expires_at'] = $expires_at;
 
         return $this;
     }

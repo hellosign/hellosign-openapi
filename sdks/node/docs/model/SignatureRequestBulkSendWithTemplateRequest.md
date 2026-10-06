@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 | `subject` | ```string``` |  The subject in the email that will be sent to the signers.  |  |
 | `testMode` | ```boolean``` |  Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.  |  [default to false] |
 | `title` | ```string``` |  The title you want to assign to the SignatureRequest.  |  |
+| `expiresAt` | ```number``` |  When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

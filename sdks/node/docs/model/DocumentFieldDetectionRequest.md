@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `detectionMode`<sup>*_required_</sup> | ```string``` |  The field detection method to use. Set to `annotations` to detect PDF form annotations or `text_tags` to detect Dropbox Sign text tags.  |  |
+| `detectionMode`<sup>*_required_</sup> | [```DocumentFieldDetectionRequestDetectionMode```](DocumentFieldDetectionRequestDetectionMode.md) |    |  |
 | `file` | ```RequestFile``` |  The PDF file to analyze.<br><br>This endpoint requires either `file` or `file_url`, but not both.  |  |
 | `fileUrl` | ```string``` |  The URL of the PDF file to analyze.<br><br>This endpoint requires either `file` or `file_url`, but not both.  |  |
 | `pageRange` | ```string``` |  The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`.  |  |

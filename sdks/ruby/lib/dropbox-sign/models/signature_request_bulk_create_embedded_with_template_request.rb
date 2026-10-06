@@ -70,6 +70,10 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :title
 
+    # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+    # @return [Integer, nil]
+    attr_accessor :expires_at
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -85,7 +89,8 @@ module Dropbox::Sign
         :'signing_redirect_url' => :'signing_redirect_url',
         :'subject' => :'subject',
         :'test_mode' => :'test_mode',
-        :'title' => :'title'
+        :'title' => :'title',
+        :'expires_at' => :'expires_at'
       }
     end
 
@@ -114,13 +119,15 @@ module Dropbox::Sign
         :'signing_redirect_url' => :'String',
         :'subject' => :'String',
         :'test_mode' => :'Boolean',
-        :'title' => :'String'
+        :'title' => :'String',
+        :'expires_at' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'expires_at'
       ])
     end
 
@@ -229,6 +236,10 @@ module Dropbox::Sign
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'expires_at')
+        self.expires_at = attributes[:'expires_at']
       end
     end
 
@@ -343,7 +354,8 @@ module Dropbox::Sign
           signing_redirect_url == o.signing_redirect_url &&
           subject == o.subject &&
           test_mode == o.test_mode &&
-          title == o.title
+          title == o.title &&
+          expires_at == o.expires_at
     end
 
     # @see the `==` method
@@ -355,7 +367,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_ids, client_id, signer_file, signer_list, allow_decline, ccs, custom_fields, message, metadata, signing_redirect_url, subject, test_mode, title].hash
+      [template_ids, client_id, signer_file, signer_list, allow_decline, ccs, custom_fields, message, metadata, signing_redirect_url, subject, test_mode, title, expires_at].hash
     end
 
     # Builds the object from hash

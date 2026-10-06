@@ -8061,13 +8061,6 @@ components:
           pattern: '^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$'
           example: '0-2,5,7-9'
       type: object
-      oneOf:
-        -
-          required:
-            - file
-        -
-          required:
-            - file_url
     EmbeddedEditUrlRequest:
       properties:
         allow_edit_ccs:
@@ -8466,6 +8459,10 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
+        expires_at:
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
+          type: integer
+          nullable: true
       type: object
     SignatureRequestBulkSendWithTemplateRequest:
       required:
@@ -8555,6 +8552,10 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
+        expires_at:
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
+          type: integer
+          nullable: true
       type: object
     SignatureRequestCreateEmbeddedRequest:
       required:
@@ -8795,6 +8796,10 @@ components:
             **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
+        expires_at:
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
+          type: integer
+          nullable: true
       type: object
     SignatureRequestEditRequest:
       properties:
@@ -9559,6 +9564,10 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
+        expires_at:
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
+          type: integer
+          nullable: true
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -12227,6 +12236,7 @@ components:
         - sender
         - files_url
         - transmissions
+        - test_mode
       properties:
         fax_id:
           description: 'Fax ID'
@@ -12267,6 +12277,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FaxResponseTransmission'
+        test_mode:
+          description: 'Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.'
+          type: boolean
+          default: false
       type: object
       x-internal-class: true
     FaxLineResponseFaxLine:

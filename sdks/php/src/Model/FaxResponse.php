@@ -65,6 +65,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'sender' => 'string',
         'files_url' => 'string',
         'transmissions' => '\Dropbox\Sign\Model\FaxResponseTransmission[]',
+        'test_mode' => 'bool',
         'subject' => 'string',
         'message' => 'string',
         'final_copy_uri' => 'string',
@@ -86,6 +87,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'sender' => null,
         'files_url' => null,
         'transmissions' => null,
+        'test_mode' => null,
         'subject' => null,
         'message' => null,
         'final_copy_uri' => null,
@@ -105,6 +107,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'sender' => false,
         'files_url' => false,
         'transmissions' => false,
+        'test_mode' => false,
         'subject' => true,
         'message' => true,
         'final_copy_uri' => true,
@@ -196,6 +199,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'sender' => 'sender',
         'files_url' => 'files_url',
         'transmissions' => 'transmissions',
+        'test_mode' => 'test_mode',
         'subject' => 'subject',
         'message' => 'message',
         'final_copy_uri' => 'final_copy_uri',
@@ -215,6 +219,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'sender' => 'setSender',
         'files_url' => 'setFilesUrl',
         'transmissions' => 'setTransmissions',
+        'test_mode' => 'setTestMode',
         'subject' => 'setSubject',
         'message' => 'setMessage',
         'final_copy_uri' => 'setFinalCopyUri',
@@ -234,6 +239,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'sender' => 'getSender',
         'files_url' => 'getFilesUrl',
         'transmissions' => 'getTransmissions',
+        'test_mode' => 'getTestMode',
         'subject' => 'getSubject',
         'message' => 'getMessage',
         'final_copy_uri' => 'getFinalCopyUri',
@@ -303,6 +309,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('sender', $data ?? [], null);
         $this->setIfExists('files_url', $data ?? [], null);
         $this->setIfExists('transmissions', $data ?? [], null);
+        $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('final_copy_uri', $data ?? [], null);
@@ -376,6 +383,9 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         }
         if ($this->container['transmissions'] === null) {
             $invalidProperties[] = "'transmissions' can't be null";
+        }
+        if ($this->container['test_mode'] === null) {
+            $invalidProperties[] = "'test_mode' can't be null";
         }
         return $invalidProperties;
     }
@@ -603,6 +613,33 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable transmissions cannot be null');
         }
         $this->container['transmissions'] = $transmissions;
+
+        return $this;
+    }
+
+    /**
+     * Gets test_mode
+     *
+     * @return bool
+     */
+    public function getTestMode()
+    {
+        return $this->container['test_mode'];
+    }
+
+    /**
+     * Sets test_mode
+     *
+     * @param bool $test_mode Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.
+     *
+     * @return self
+     */
+    public function setTestMode(bool $test_mode)
+    {
+        if (is_null($test_mode)) {
+            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
+        }
+        $this->container['test_mode'] = $test_mode;
 
         return $this;
     }

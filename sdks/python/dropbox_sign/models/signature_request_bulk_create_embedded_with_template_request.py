@@ -18,7 +18,15 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictStr
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictBytes,
+    StrictInt,
+    StrictStr,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from dropbox_sign.models.sub_bulk_signer_list import SubBulkSignerList
@@ -88,6 +96,10 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(BaseModel):
         default=None,
         description="The title you want to assign to the SignatureRequest.",
     )
+    expires_at: Optional[StrictInt] = Field(
+        default=None,
+        description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.",
+    )
     __properties: ClassVar[List[str]] = [
         "template_ids",
         "client_id",
@@ -102,6 +114,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(BaseModel):
         "subject",
         "test_mode",
         "title",
+        "expires_at",
     ]
 
     model_config = ConfigDict(
@@ -219,6 +232,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(BaseModel):
                     obj.get("test_mode") if obj.get("test_mode") is not None else False
                 ),
                 "title": obj.get("title"),
+                "expires_at": obj.get("expires_at"),
             }
         )
         return _obj
@@ -249,6 +263,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(BaseModel):
             "subject": "(str,)",
             "test_mode": "(bool,)",
             "title": "(str,)",
+            "expires_at": "(int,)",
         }
 
     @classmethod

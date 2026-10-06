@@ -114,6 +114,6 @@ public class DocumentApi {
                 localVarContentType,
                 localVarAuthNames,
                 localVarReturnType,
-                true);
+                false);
     }
 }

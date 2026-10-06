@@ -8119,13 +8119,6 @@ components:
           pattern: '^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$'
           example: '0-2,5,7-9'
       type: object
-      oneOf:
-        -
-          required:
-            - file
-        -
-          required:
-            - file_url
     EmbeddedEditUrlRequest:
       properties:
         allow_edit_ccs:
@@ -8489,6 +8482,10 @@ components:
           description: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::TITLE'
           type: string
           maxLength: 255
+        expires_at:
+          description: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::EXPIRES_AT'
+          type: integer
+          nullable: true
       type: object
     SignatureRequestBulkSendWithTemplateRequest:
       required:
@@ -8549,6 +8546,10 @@ components:
           description: '_t__SignatureRequestBulkSendWithTemplate::TITLE'
           type: string
           maxLength: 255
+        expires_at:
+          description: '_t__SignatureRequestBulkSendWithTemplate::EXPIRES_AT'
+          type: integer
+          nullable: true
       type: object
     SignatureRequestCreateEmbeddedRequest:
       required:
@@ -8742,6 +8743,10 @@ components:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
+        expires_at:
+          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::EXPIRES_AT'
+          type: integer
+          nullable: true
         signer_experience:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::SIGNER_EXPERIENCE'
           allOf:
@@ -9377,6 +9382,10 @@ components:
           description: '_t__SignatureRequestSendWithTemplate::TITLE'
           type: string
           maxLength: 255
+        expires_at:
+          description: '_t__SignatureRequestSendWithTemplate::EXPIRES_AT'
+          type: integer
+          nullable: true
         signer_experience:
           description: '_t__SignatureRequestSendWithTemplate::SIGNER_EXPERIENCE'
           allOf:
@@ -11794,6 +11803,7 @@ components:
         - sender
         - files_url
         - transmissions
+        - test_mode
       properties:
         fax_id:
           description: '_t__FaxResponse::FAX_ID'
@@ -11834,6 +11844,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FaxResponseTransmission'
+        test_mode:
+          description: '_t__FaxResponse::TEST_MODE'
+          type: boolean
+          default: false
       type: object
       x-internal-class: true
     FaxLineResponseFaxLine:

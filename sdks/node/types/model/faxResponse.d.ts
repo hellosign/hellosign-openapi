@@ -11,6 +11,7 @@ export declare class FaxResponse {
     "sender": string;
     "filesUrl": string;
     "transmissions": Array<FaxResponseTransmission>;
+    "testMode": boolean;
     "subject"?: string | null;
     "message"?: string | null;
     "finalCopyUri"?: string | null;

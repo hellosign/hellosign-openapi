@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 | `sender`<sup>*_required_</sup> | ```string``` |  Fax Sender Email  |  |
 | `files_url`<sup>*_required_</sup> | ```string``` |  Fax Files URL  |  |
 | `transmissions`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\FaxResponseTransmission[]```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
+| `test_mode`<sup>*_required_</sup> | ```bool``` |  Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.  |  [default to false] |
 | `subject` | ```string``` |  Fax Subject  |  |
 | `message` | ```string``` |  Fax Message  |  |
 | `final_copy_uri` | ```string``` |  The path where the completed document can be downloaded  |  |

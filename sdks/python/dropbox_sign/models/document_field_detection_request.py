@@ -57,7 +57,12 @@ class DocumentFieldDetectionRequest(BaseModel):
         default=None,
         description="The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`.",
     )
-    __properties: ClassVar[List[str]] = []
+    __properties: ClassVar[List[str]] = [
+        "detection_mode",
+        "file",
+        "file_url",
+        "page_range",
+    ]
 
     @field_validator("page_range")
     def page_range_validate_regular_expression(cls, value):
@@ -132,7 +137,14 @@ class DocumentFieldDetectionRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({})
+        _obj = cls.model_validate(
+            {
+                "detection_mode": obj.get("detection_mode"),
+                "file": obj.get("file"),
+                "file_url": obj.get("file_url"),
+                "page_range": obj.get("page_range"),
+            }
+        )
         return _obj
 
     @classmethod

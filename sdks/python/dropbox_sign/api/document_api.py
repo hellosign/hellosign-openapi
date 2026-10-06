@@ -17,7 +17,6 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from typing import Optional
 from dropbox_sign.models.document_field_detection_request import (
     DocumentFieldDetectionRequest,
 )
@@ -46,7 +45,7 @@ class DocumentApi:
     @validate_call
     def document_detect_fields(
         self,
-        document_field_detection_request: Optional[DocumentFieldDetectionRequest],
+        document_field_detection_request: DocumentFieldDetectionRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -114,7 +113,7 @@ class DocumentApi:
     @validate_call
     def document_detect_fields_with_http_info(
         self,
-        document_field_detection_request: Optional[DocumentFieldDetectionRequest],
+        document_field_detection_request: DocumentFieldDetectionRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -182,7 +181,7 @@ class DocumentApi:
     @validate_call
     def document_detect_fields_without_preload_content(
         self,
-        document_field_detection_request: Optional[DocumentFieldDetectionRequest],
+        document_field_detection_request: DocumentFieldDetectionRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

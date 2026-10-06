@@ -54,7 +54,8 @@ namespace Dropbox.Sign.Model
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
-        public SignatureRequestBulkCreateEmbeddedWithTemplateRequest(List<string> templateIds = default(List<string>), System.IO.Stream signerFile = default(System.IO.Stream), List<SubBulkSignerList> signerList = default(List<SubBulkSignerList>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string))
+        /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
+        public SignatureRequestBulkCreateEmbeddedWithTemplateRequest(List<string> templateIds = default(List<string>), System.IO.Stream signerFile = default(System.IO.Stream), List<SubBulkSignerList> signerList = default(List<SubBulkSignerList>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), int? expiresAt = default(int?))
         {
 
             // to ensure "templateIds" is required (not null)
@@ -80,6 +81,7 @@ namespace Dropbox.Sign.Model
             this.Subject = subject;
             this.TestMode = testMode;
             this.Title = title;
+            this.ExpiresAt = expiresAt;
         }
 
         /// <summary>
@@ -190,6 +192,13 @@ namespace Dropbox.Sign.Model
         public string Title { get; set; }
 
         /// <summary>
+        /// When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+        /// </summary>
+        /// <value>When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
+        [DataMember(Name = "expires_at", EmitDefaultValue = true)]
+        public int? ExpiresAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -210,6 +219,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -312,6 +322,11 @@ namespace Dropbox.Sign.Model
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
+                ) &&
+                (
+                    this.ExpiresAt == input.ExpiresAt ||
+                    (this.ExpiresAt != null &&
+                    this.ExpiresAt.Equals(input.ExpiresAt))
                 );
         }
 
@@ -369,6 +384,10 @@ namespace Dropbox.Sign.Model
                 if (this.Title != null)
                 {
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.ExpiresAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
                 }
                 return hashCode;
             }
@@ -494,6 +513,13 @@ namespace Dropbox.Sign.Model
                 Property = "Title",
                 Type = "string",
                 Value = Title,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "expires_at",
+                Property = "ExpiresAt",
+                Type = "int?",
+                Value = ExpiresAt,
             });
 
             return types;

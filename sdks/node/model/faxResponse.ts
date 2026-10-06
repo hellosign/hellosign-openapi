@@ -59,6 +59,10 @@ export class FaxResponse {
    */
   "transmissions": Array<FaxResponseTransmission>;
   /**
+   * Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.
+   */
+  "testMode": boolean = false;
+  /**
    * Fax Subject
    */
   "subject"?: string | null;
@@ -113,6 +117,11 @@ export class FaxResponse {
       name: "transmissions",
       baseName: "transmissions",
       type: "Array<FaxResponseTransmission>",
+    },
+    {
+      name: "testMode",
+      baseName: "test_mode",
+      type: "boolean",
     },
     {
       name: "subject",

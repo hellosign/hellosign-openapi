@@ -188,6 +188,7 @@
 "FaxResponse::TRANSMISSIONS": Fax Transmissions List
 "FaxResponse::FILES_URL": Fax Files URL
 "FaxResponse::FINAL_COPY_URI": The path where the completed document can be downloaded
+"FaxResponse::TEST_MODE": Whether this is a test fax. Test faxes are not delivered to the recipient. Defaults to `false`.
 "Sub::FaxResponseTransmission::RECIPIENT": Fax Transmission Recipient
 "Sub::FaxResponseTransmission::STATUS_CODE": Fax Transmission Status Code
 "Sub::FaxResponseTransmission::SENT_AT": Fax Transmission Sent Timestamp
@@ -264,6 +265,7 @@
   **NOTE:** Only available for Standard plan and higher.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
+"SignatureRequestBulkCreateEmbeddedWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::SIGNER_FILE": |-
   `signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:
@@ -300,6 +302,7 @@
 
   **NOTE:** Only available for Standard plan and higher.
 "SignatureRequestBulkSendWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
+"SignatureRequestBulkSendWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestBulkSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestBulkSendWithTemplate::SIGNER_FILE": |-
   `signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:
@@ -399,6 +402,7 @@
   Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **files** or **file_urls[]**, but not both.
+"SignatureRequestCreateEmbeddedWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestCreateEmbeddedWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
@@ -539,6 +543,7 @@
   Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **files** or **file_urls[]**, but not both.
+"SignatureRequestSendWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE": |-
   Send with a value of `true` if you wish to enable
   [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),

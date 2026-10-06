@@ -43,6 +43,10 @@ module Dropbox::Sign
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DocumentApi.document_detect_fields ...'
       end
+      # verify the required parameter 'document_field_detection_request' is set
+      if @api_client.config.client_side_validation && document_field_detection_request.nil?
+        fail ArgumentError, "Missing the required parameter 'document_field_detection_request' when calling DocumentApi.document_detect_fields"
+      end
       # resource path
       local_var_path = '/document/detect_fields'
 

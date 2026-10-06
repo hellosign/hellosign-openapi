@@ -56,7 +56,8 @@ import com.dropbox.sign.ApiException;
   SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SUBJECT,
   SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
   SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
-  SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS
+  SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
+  SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -120,6 +121,10 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS = "populate_auto_fill_fields";
   @jakarta.annotation.Nullable
   private Boolean populateAutoFillFields = false;
+
+  public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+  @jakarta.annotation.Nullable
+  private Integer expiresAt;
 
   public SignatureRequestCreateEmbeddedWithTemplateRequest() { 
   }
@@ -570,6 +575,31 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
   }
 
 
+  public SignatureRequestCreateEmbeddedWithTemplateRequest expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
+    this.expiresAt = expiresAt;
+    return this;
+  }
+
+  /**
+   * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+   * @return expiresAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getExpiresAt() {
+    return expiresAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
+    this.expiresAt = expiresAt;
+  }
+
+
   /**
    * Return true if this SignatureRequestCreateEmbeddedWithTemplateRequest object is equal to o.
    */
@@ -596,12 +626,13 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
         Objects.equals(this.subject, signatureRequestCreateEmbeddedWithTemplateRequest.subject) &&
         Objects.equals(this.testMode, signatureRequestCreateEmbeddedWithTemplateRequest.testMode) &&
         Objects.equals(this.title, signatureRequestCreateEmbeddedWithTemplateRequest.title) &&
-        Objects.equals(this.populateAutoFillFields, signatureRequestCreateEmbeddedWithTemplateRequest.populateAutoFillFields);
+        Objects.equals(this.populateAutoFillFields, signatureRequestCreateEmbeddedWithTemplateRequest.populateAutoFillFields) &&
+        Objects.equals(this.expiresAt, signatureRequestCreateEmbeddedWithTemplateRequest.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateIds, clientId, signers, allowDecline, ccs, customFields, files, fileUrls, message, metadata, signingOptions, subject, testMode, title, populateAutoFillFields);
+    return Objects.hash(templateIds, clientId, signers, allowDecline, ccs, customFields, files, fileUrls, message, metadata, signingOptions, subject, testMode, title, populateAutoFillFields, expiresAt);
   }
 
   @Override
@@ -623,6 +654,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    populateAutoFillFields: ").append(toIndentedString(populateAutoFillFields)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -914,6 +946,25 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
         }
         else {
             map.put("populate_auto_fill_fields", JSON.getDefault().getMapper().writeValueAsString(populateAutoFillFields));
+        }
+    }
+    if (expiresAt != null) {
+        if (isFileTypeOrListOfFiles(expiresAt)) {
+            fileTypeFound = true;
+        }
+
+        if (expiresAt.getClass().equals(java.io.File.class) ||
+            expiresAt.getClass().equals(Integer.class) ||
+            expiresAt.getClass().equals(String.class) ||
+            expiresAt.getClass().isEnum()) {
+            map.put("expires_at", expiresAt);
+        } else if (isListOfFile(expiresAt)) {
+            for(int i = 0; i< getListSize(expiresAt); i++) {
+                map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+            }
+        }
+        else {
+            map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
         }
     }
     } catch (Exception e) {

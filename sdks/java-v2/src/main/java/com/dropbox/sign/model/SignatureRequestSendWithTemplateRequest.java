@@ -58,7 +58,8 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SUBJECT,
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
-  SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE
+  SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE,
+  SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_EXPIRES_AT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -131,6 +132,10 @@ public class SignatureRequestSendWithTemplateRequest {
   public static final String JSON_PROPERTY_TITLE = "title";
   @jakarta.annotation.Nullable
   private String title;
+
+  public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+  @jakarta.annotation.Nullable
+  private Integer expiresAt;
 
   public SignatureRequestSendWithTemplateRequest() { 
   }
@@ -635,6 +640,31 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
 
+  public SignatureRequestSendWithTemplateRequest expiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
+    this.expiresAt = expiresAt;
+    return this;
+  }
+
+  /**
+   * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+   * @return expiresAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getExpiresAt() {
+    return expiresAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
+    this.expiresAt = expiresAt;
+  }
+
+
   /**
    * Return true if this SignatureRequestSendWithTemplateRequest object is equal to o.
    */
@@ -663,12 +693,13 @@ public class SignatureRequestSendWithTemplateRequest {
         Objects.equals(this.signingRedirectUrl, signatureRequestSendWithTemplateRequest.signingRedirectUrl) &&
         Objects.equals(this.subject, signatureRequestSendWithTemplateRequest.subject) &&
         Objects.equals(this.testMode, signatureRequestSendWithTemplateRequest.testMode) &&
-        Objects.equals(this.title, signatureRequestSendWithTemplateRequest.title);
+        Objects.equals(this.title, signatureRequestSendWithTemplateRequest.title) &&
+        Objects.equals(this.expiresAt, signatureRequestSendWithTemplateRequest.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
+    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, expiresAt);
   }
 
   @Override
@@ -692,6 +723,7 @@ public class SignatureRequestSendWithTemplateRequest {
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1021,6 +1053,25 @@ public class SignatureRequestSendWithTemplateRequest {
         }
         else {
             map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
+        }
+    }
+    if (expiresAt != null) {
+        if (isFileTypeOrListOfFiles(expiresAt)) {
+            fileTypeFound = true;
+        }
+
+        if (expiresAt.getClass().equals(java.io.File.class) ||
+            expiresAt.getClass().equals(Integer.class) ||
+            expiresAt.getClass().equals(String.class) ||
+            expiresAt.getClass().isEnum()) {
+            map.put("expires_at", expiresAt);
+        } else if (isListOfFile(expiresAt)) {
+            for(int i = 0; i< getListSize(expiresAt); i++) {
+                map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+            }
+        }
+        else {
+            map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
         }
     }
     } catch (Exception e) {
