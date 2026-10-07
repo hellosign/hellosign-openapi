@@ -53,44 +53,19 @@ public class UnclaimedDraftApi {
      * loaded. Subsequent access to the claim URL will result in a 404.
      *
      * @param unclaimedDraftCreateRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return UnclaimedDraftCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public UnclaimedDraftCreateResponse unclaimedDraftCreate(
-            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, String idempotencyKey)
-            throws ApiException {
-        return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest, idempotencyKey)
-                .getData();
-    }
-
-    /**
-     * @see UnclaimedDraftApi#unclaimedDraftCreate(UnclaimedDraftCreateRequest, String)
-     */
-    public UnclaimedDraftCreateResponse unclaimedDraftCreate(
             UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
-        String idempotencyKey = null;
-
-        return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest, idempotencyKey)
-                .getData();
-    }
-
-    /**
-     * @see UnclaimedDraftApi#unclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest, String)
-     */
-    public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateWithHttpInfo(
-            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
-        String idempotencyKey = null;
-
-        return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest, idempotencyKey);
+        return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest).getData();
     }
 
     /**
@@ -100,21 +75,18 @@ public class UnclaimedDraftApi {
      * loaded. Subsequent access to the claim URL will result in a 404.
      *
      * @param unclaimedDraftCreateRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateWithHttpInfo(
-            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, String idempotencyKey)
-            throws ApiException {
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
 
         // Check required parameters
         if (unclaimedDraftCreateRequest == null) {
@@ -122,13 +94,6 @@ public class UnclaimedDraftApi {
                     400,
                     "Missing the required parameter 'unclaimedDraftCreateRequest' when calling"
                             + " unclaimedDraftCreate");
-        }
-
-        // Header parameters
-        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-        if (idempotencyKey != null) {
-            localVarHeaderParams.put(
-                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -149,7 +114,7 @@ public class UnclaimedDraftApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : unclaimedDraftCreateRequest,
-                localVarHeaderParams,
+                new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,
@@ -169,53 +134,21 @@ public class UnclaimedDraftApi {
      * accessed on Dropbox Sign.
      *
      * @param unclaimedDraftCreateEmbeddedRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return UnclaimedDraftCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(
-            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
-            String idempotencyKey)
-            throws ApiException {
-        return unclaimedDraftCreateEmbeddedWithHttpInfo(
-                        unclaimedDraftCreateEmbeddedRequest, idempotencyKey)
-                .getData();
-    }
-
-    /**
-     * @see UnclaimedDraftApi#unclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest,
-     *     String)
-     */
-    public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(
             UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
             throws ApiException {
-        String idempotencyKey = null;
-
-        return unclaimedDraftCreateEmbeddedWithHttpInfo(
-                        unclaimedDraftCreateEmbeddedRequest, idempotencyKey)
+        return unclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest)
                 .getData();
-    }
-
-    /**
-     * @see
-     *     UnclaimedDraftApi#unclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest,
-     *     String)
-     */
-    public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithHttpInfo(
-            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
-            throws ApiException {
-        String idempotencyKey = null;
-
-        return unclaimedDraftCreateEmbeddedWithHttpInfo(
-                unclaimedDraftCreateEmbeddedRequest, idempotencyKey);
     }
 
     /**
@@ -228,21 +161,18 @@ public class UnclaimedDraftApi {
      * accessed on Dropbox Sign.
      *
      * @param unclaimedDraftCreateEmbeddedRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithHttpInfo(
-            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
-            String idempotencyKey)
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
             throws ApiException {
 
         // Check required parameters
@@ -251,13 +181,6 @@ public class UnclaimedDraftApi {
                     400,
                     "Missing the required parameter 'unclaimedDraftCreateEmbeddedRequest' when"
                             + " calling unclaimedDraftCreateEmbedded");
-        }
-
-        // Header parameters
-        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-        if (idempotencyKey != null) {
-            localVarHeaderParams.put(
-                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -278,7 +201,7 @@ public class UnclaimedDraftApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : unclaimedDraftCreateEmbeddedRequest,
-                localVarHeaderParams,
+                new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,
@@ -298,58 +221,23 @@ public class UnclaimedDraftApi {
      * whereas normal drafts can be used and accessed on Dropbox Sign.
      *
      * @param unclaimedDraftCreateEmbeddedWithTemplateRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return UnclaimedDraftCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(
             UnclaimedDraftCreateEmbeddedWithTemplateRequest
-                    unclaimedDraftCreateEmbeddedWithTemplateRequest,
-            String idempotencyKey)
-            throws ApiException {
-        return unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
-                        unclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey)
-                .getData();
-    }
-
-    /**
-     * @see
-     *     UnclaimedDraftApi#unclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest,
-     *     String)
-     */
-    public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(
-            UnclaimedDraftCreateEmbeddedWithTemplateRequest
                     unclaimedDraftCreateEmbeddedWithTemplateRequest)
             throws ApiException {
-        String idempotencyKey = null;
-
         return unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
-                        unclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey)
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest)
                 .getData();
-    }
-
-    /**
-     * @see
-     *     UnclaimedDraftApi#unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest,
-     *     String)
-     */
-    public ApiResponse<UnclaimedDraftCreateResponse>
-            unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
-                    UnclaimedDraftCreateEmbeddedWithTemplateRequest
-                            unclaimedDraftCreateEmbeddedWithTemplateRequest)
-                    throws ApiException {
-        String idempotencyKey = null;
-
-        return unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
-                unclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey);
     }
 
     /**
@@ -362,23 +250,20 @@ public class UnclaimedDraftApi {
      * whereas normal drafts can be used and accessed on Dropbox Sign.
      *
      * @param unclaimedDraftCreateEmbeddedWithTemplateRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<UnclaimedDraftCreateResponse>
             unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
                     UnclaimedDraftCreateEmbeddedWithTemplateRequest
-                            unclaimedDraftCreateEmbeddedWithTemplateRequest,
-                    String idempotencyKey)
+                            unclaimedDraftCreateEmbeddedWithTemplateRequest)
                     throws ApiException {
 
         // Check required parameters
@@ -388,13 +273,6 @@ public class UnclaimedDraftApi {
                     "Missing the required parameter"
                             + " 'unclaimedDraftCreateEmbeddedWithTemplateRequest' when calling"
                             + " unclaimedDraftCreateEmbeddedWithTemplate");
-        }
-
-        // Header parameters
-        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-        if (idempotencyKey != null) {
-            localVarHeaderParams.put(
-                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -415,7 +293,7 @@ public class UnclaimedDraftApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : unclaimedDraftCreateEmbeddedWithTemplateRequest,
-                localVarHeaderParams,
+                new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,
@@ -435,55 +313,23 @@ public class UnclaimedDraftApi {
      *
      * @param signatureRequestId The ID of the signature request to edit and resend. (required)
      * @param unclaimedDraftEditAndResendRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return UnclaimedDraftCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(
             String signatureRequestId,
-            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
-            String idempotencyKey)
-            throws ApiException {
-        return unclaimedDraftEditAndResendWithHttpInfo(
-                        signatureRequestId, unclaimedDraftEditAndResendRequest, idempotencyKey)
-                .getData();
-    }
-
-    /**
-     * @see UnclaimedDraftApi#unclaimedDraftEditAndResend(String,
-     *     UnclaimedDraftEditAndResendRequest, String)
-     */
-    public UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(
-            String signatureRequestId,
             UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
             throws ApiException {
-        String idempotencyKey = null;
-
         return unclaimedDraftEditAndResendWithHttpInfo(
-                        signatureRequestId, unclaimedDraftEditAndResendRequest, idempotencyKey)
+                        signatureRequestId, unclaimedDraftEditAndResendRequest)
                 .getData();
-    }
-
-    /**
-     * @see UnclaimedDraftApi#unclaimedDraftEditAndResendWithHttpInfo(String,
-     *     UnclaimedDraftEditAndResendRequest, String)
-     */
-    public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftEditAndResendWithHttpInfo(
-            String signatureRequestId,
-            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
-            throws ApiException {
-        String idempotencyKey = null;
-
-        return unclaimedDraftEditAndResendWithHttpInfo(
-                signatureRequestId, unclaimedDraftEditAndResendRequest, idempotencyKey);
     }
 
     /**
@@ -496,22 +342,19 @@ public class UnclaimedDraftApi {
      *
      * @param signatureRequestId The ID of the signature request to edit and resend. (required)
      * @param unclaimedDraftEditAndResendRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftEditAndResendWithHttpInfo(
             String signatureRequestId,
-            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
-            String idempotencyKey)
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
             throws ApiException {
 
         // Check required parameters
@@ -535,13 +378,6 @@ public class UnclaimedDraftApi {
                                 "\\{signature_request_id}",
                                 apiClient.escapeString(signatureRequestId.toString()));
 
-        // Header parameters
-        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-        if (idempotencyKey != null) {
-            localVarHeaderParams.put(
-                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
-        }
-
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
         Map<String, Object> localVarFormParams = new LinkedHashMap<>();
         localVarFormParams = unclaimedDraftEditAndResendRequest.createFormData();
@@ -559,7 +395,7 @@ public class UnclaimedDraftApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : unclaimedDraftEditAndResendRequest,
-                localVarHeaderParams,
+                new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,

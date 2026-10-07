@@ -148,15 +148,14 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateExample.php
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request unclaimed_draft_create_request (required)
-     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreate(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, ?string $idempotency_key = null)
+    public function unclaimedDraftCreate(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request)
     {
-        list($response) = $this->unclaimedDraftCreateWithHttpInfo($unclaimed_draft_create_request, $idempotency_key);
+        list($response) = $this->unclaimedDraftCreateWithHttpInfo($unclaimed_draft_create_request);
         return $response;
     }
 
@@ -168,7 +167,6 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateExample.php
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
-     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
@@ -176,9 +174,9 @@ class UnclaimedDraftApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreateWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
-        $request = $this->unclaimedDraftCreateRequest($unclaimed_draft_create_request, $idempotency_key, $contentType);
+        $request = $this->unclaimedDraftCreateRequest($unclaimed_draft_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -308,16 +306,15 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateExample.php
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
-     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateAsync(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreateAsync(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
-        return $this->unclaimedDraftCreateAsyncWithHttpInfo($unclaimed_draft_create_request, $idempotency_key, $contentType)
+        return $this->unclaimedDraftCreateAsyncWithHttpInfo($unclaimed_draft_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -333,17 +330,16 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateExample.php
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
-     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateAsyncWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreateAsyncWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
-        $request = $this->unclaimedDraftCreateRequest($unclaimed_draft_create_request, $idempotency_key, $contentType);
+        $request = $this->unclaimedDraftCreateRequest($unclaimed_draft_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -385,27 +381,19 @@ class UnclaimedDraftApi
      * Create request for operation 'unclaimedDraftCreate'
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
-     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateRequest(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreateRequest(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
         // verify the required parameter 'unclaimed_draft_create_request' is set
         if ($unclaimed_draft_create_request === null || (is_array($unclaimed_draft_create_request) && count($unclaimed_draft_create_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $unclaimed_draft_create_request when calling unclaimedDraftCreate'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling UnclaimedDraftApi.unclaimedDraftCreate, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling UnclaimedDraftApi.unclaimedDraftCreate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/unclaimed_draft/create';
@@ -420,11 +408,6 @@ class UnclaimedDraftApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -512,15 +495,14 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request unclaimed_draft_create_embedded_request (required)
-     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreateEmbedded(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, ?string $idempotency_key = null)
+    public function unclaimedDraftCreateEmbedded(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request)
     {
-        list($response) = $this->unclaimedDraftCreateEmbeddedWithHttpInfo($unclaimed_draft_create_embedded_request, $idempotency_key);
+        list($response) = $this->unclaimedDraftCreateEmbeddedWithHttpInfo($unclaimed_draft_create_embedded_request);
         return $response;
     }
 
@@ -532,7 +514,6 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
-     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
@@ -540,9 +521,9 @@ class UnclaimedDraftApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbeddedWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
-        $request = $this->unclaimedDraftCreateEmbeddedRequest($unclaimed_draft_create_embedded_request, $idempotency_key, $contentType);
+        $request = $this->unclaimedDraftCreateEmbeddedRequest($unclaimed_draft_create_embedded_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -672,16 +653,15 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
-     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedAsync(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbeddedAsync(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
-        return $this->unclaimedDraftCreateEmbeddedAsyncWithHttpInfo($unclaimed_draft_create_embedded_request, $idempotency_key, $contentType)
+        return $this->unclaimedDraftCreateEmbeddedAsyncWithHttpInfo($unclaimed_draft_create_embedded_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -697,17 +677,16 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
-     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbeddedAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
         $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
-        $request = $this->unclaimedDraftCreateEmbeddedRequest($unclaimed_draft_create_embedded_request, $idempotency_key, $contentType);
+        $request = $this->unclaimedDraftCreateEmbeddedRequest($unclaimed_draft_create_embedded_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -749,27 +728,19 @@ class UnclaimedDraftApi
      * Create request for operation 'unclaimedDraftCreateEmbedded'
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
-     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedRequest(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbeddedRequest(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
         // verify the required parameter 'unclaimed_draft_create_embedded_request' is set
         if ($unclaimed_draft_create_embedded_request === null || (is_array($unclaimed_draft_create_embedded_request) && count($unclaimed_draft_create_embedded_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $unclaimed_draft_create_embedded_request when calling unclaimedDraftCreateEmbedded'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling UnclaimedDraftApi.unclaimedDraftCreateEmbedded, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling UnclaimedDraftApi.unclaimedDraftCreateEmbedded, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/unclaimed_draft/create_embedded';
@@ -784,11 +755,6 @@ class UnclaimedDraftApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -876,15 +842,14 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request unclaimed_draft_create_embedded_with_template_request (required)
-     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplate(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, ?string $idempotency_key = null)
+    public function unclaimedDraftCreateEmbeddedWithTemplate(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request)
     {
-        list($response) = $this->unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo($unclaimed_draft_create_embedded_with_template_request, $idempotency_key);
+        list($response) = $this->unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo($unclaimed_draft_create_embedded_with_template_request);
         return $response;
     }
 
@@ -896,7 +861,6 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
-     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
@@ -904,9 +868,9 @@ class UnclaimedDraftApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
-        $request = $this->unclaimedDraftCreateEmbeddedWithTemplateRequest($unclaimed_draft_create_embedded_with_template_request, $idempotency_key, $contentType);
+        $request = $this->unclaimedDraftCreateEmbeddedWithTemplateRequest($unclaimed_draft_create_embedded_with_template_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1036,16 +1000,15 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
-     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplateAsync(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplateAsync(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
-        return $this->unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo($unclaimed_draft_create_embedded_with_template_request, $idempotency_key, $contentType)
+        return $this->unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo($unclaimed_draft_create_embedded_with_template_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1061,17 +1024,16 @@ class UnclaimedDraftApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
-     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
-        $request = $this->unclaimedDraftCreateEmbeddedWithTemplateRequest($unclaimed_draft_create_embedded_with_template_request, $idempotency_key, $contentType);
+        $request = $this->unclaimedDraftCreateEmbeddedWithTemplateRequest($unclaimed_draft_create_embedded_with_template_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1113,27 +1075,19 @@ class UnclaimedDraftApi
      * Create request for operation 'unclaimedDraftCreateEmbeddedWithTemplate'
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
-     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplateRequest(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplateRequest(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
         // verify the required parameter 'unclaimed_draft_create_embedded_with_template_request' is set
         if ($unclaimed_draft_create_embedded_with_template_request === null || (is_array($unclaimed_draft_create_embedded_with_template_request) && count($unclaimed_draft_create_embedded_with_template_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $unclaimed_draft_create_embedded_with_template_request when calling unclaimedDraftCreateEmbeddedWithTemplate'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling UnclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling UnclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/unclaimed_draft/create_embedded_with_template';
@@ -1148,11 +1102,6 @@ class UnclaimedDraftApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -1241,15 +1190,14 @@ class UnclaimedDraftApi
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request unclaimed_draft_edit_and_resend_request (required)
-     * @param string|null                              $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftEditAndResend(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, ?string $idempotency_key = null)
+    public function unclaimedDraftEditAndResend(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request)
     {
-        list($response) = $this->unclaimedDraftEditAndResendWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request, $idempotency_key);
+        list($response) = $this->unclaimedDraftEditAndResendWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request);
         return $response;
     }
 
@@ -1262,7 +1210,6 @@ class UnclaimedDraftApi
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
-     * @param string|null                              $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1270,9 +1217,9 @@ class UnclaimedDraftApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
-    public function unclaimedDraftEditAndResendWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResendWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
-        $request = $this->unclaimedDraftEditAndResendRequest($signature_request_id, $unclaimed_draft_edit_and_resend_request, $idempotency_key, $contentType);
+        $request = $this->unclaimedDraftEditAndResendRequest($signature_request_id, $unclaimed_draft_edit_and_resend_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1403,16 +1350,15 @@ class UnclaimedDraftApi
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
-     * @param string|null                              $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
-    public function unclaimedDraftEditAndResendAsync(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResendAsync(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
-        return $this->unclaimedDraftEditAndResendAsyncWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request, $idempotency_key, $contentType)
+        return $this->unclaimedDraftEditAndResendAsyncWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1429,17 +1375,16 @@ class UnclaimedDraftApi
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
-     * @param string|null                              $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
-    public function unclaimedDraftEditAndResendAsyncWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResendAsyncWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
         $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
-        $request = $this->unclaimedDraftEditAndResendRequest($signature_request_id, $unclaimed_draft_edit_and_resend_request, $idempotency_key, $contentType);
+        $request = $this->unclaimedDraftEditAndResendRequest($signature_request_id, $unclaimed_draft_edit_and_resend_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1482,14 +1427,13 @@ class UnclaimedDraftApi
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
-     * @param string|null                              $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
-    public function unclaimedDraftEditAndResendRequest(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResendRequest(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -1505,13 +1449,6 @@ class UnclaimedDraftApi
             );
         }
 
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling UnclaimedDraftApi.unclaimedDraftEditAndResend, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling UnclaimedDraftApi.unclaimedDraftEditAndResend, must be bigger than or equal to 1.');
-        }
-
         $resourcePath = '/unclaimed_draft/edit_and_resend/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
@@ -1524,11 +1461,6 @@ class UnclaimedDraftApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         // path params
         if ($signature_request_id !== null) {

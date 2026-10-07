@@ -121,12 +121,10 @@ export class DocumentApi {
    * @summary Detect Document Fields
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/DocumentDetectFieldsExample.ts
    * @param documentFieldDetectionRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async documentDetectFields(
     documentFieldDetectionRequest: DocumentFieldDetectionRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<DocumentFieldDetectionResponse>> {
     documentFieldDetectionRequest = deserializeIfNeeded(
@@ -159,10 +157,6 @@ export class DocumentApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

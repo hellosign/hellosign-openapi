@@ -1412,15 +1412,14 @@ class FaxApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxSendExample.php
      *
      * @param Model\FaxSendRequest $fax_send_request fax_send_request (required)
-     * @param string|null          $idempotency_key  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\FaxGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxSend(Model\FaxSendRequest $fax_send_request, ?string $idempotency_key = null)
+    public function faxSend(Model\FaxSendRequest $fax_send_request)
     {
-        list($response) = $this->faxSendWithHttpInfo($fax_send_request, $idempotency_key);
+        list($response) = $this->faxSendWithHttpInfo($fax_send_request);
         return $response;
     }
 
@@ -1432,7 +1431,6 @@ class FaxApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxSendExample.php
      *
      * @param Model\FaxSendRequest $fax_send_request (required)
-     * @param string|null          $idempotency_key  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string               $contentType      The value for the Content-Type header. Check self::contentTypes['faxSend'] to see the possible values for this operation
      *
      * @return array of Model\FaxGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1440,9 +1438,9 @@ class FaxApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxSend. This method will eventually become unavailable
      */
-    public function faxSendWithHttpInfo(Model\FaxSendRequest $fax_send_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxSend'][0])
+    public function faxSendWithHttpInfo(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
-        $request = $this->faxSendRequest($fax_send_request, $idempotency_key, $contentType);
+        $request = $this->faxSendRequest($fax_send_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1572,16 +1570,15 @@ class FaxApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxSendExample.php
      *
      * @param Model\FaxSendRequest $fax_send_request (required)
-     * @param string|null          $idempotency_key  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string               $contentType      The value for the Content-Type header. Check self::contentTypes['faxSend'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxSend. This method will eventually become unavailable
      */
-    public function faxSendAsync(Model\FaxSendRequest $fax_send_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxSend'][0])
+    public function faxSendAsync(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
-        return $this->faxSendAsyncWithHttpInfo($fax_send_request, $idempotency_key, $contentType)
+        return $this->faxSendAsyncWithHttpInfo($fax_send_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1597,17 +1594,16 @@ class FaxApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxSendExample.php
      *
      * @param Model\FaxSendRequest $fax_send_request (required)
-     * @param string|null          $idempotency_key  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string               $contentType      The value for the Content-Type header. Check self::contentTypes['faxSend'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxSend. This method will eventually become unavailable
      */
-    public function faxSendAsyncWithHttpInfo(Model\FaxSendRequest $fax_send_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxSend'][0])
+    public function faxSendAsyncWithHttpInfo(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxGetResponse';
-        $request = $this->faxSendRequest($fax_send_request, $idempotency_key, $contentType);
+        $request = $this->faxSendRequest($fax_send_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1649,27 +1645,19 @@ class FaxApi
      * Create request for operation 'faxSend'
      *
      * @param Model\FaxSendRequest $fax_send_request (required)
-     * @param string|null          $idempotency_key  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string               $contentType      The value for the Content-Type header. Check self::contentTypes['faxSend'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxSend. This method will eventually become unavailable
      */
-    public function faxSendRequest(Model\FaxSendRequest $fax_send_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxSend'][0])
+    public function faxSendRequest(Model\FaxSendRequest $fax_send_request, string $contentType = self::contentTypes['faxSend'][0])
     {
         // verify the required parameter 'fax_send_request' is set
         if ($fax_send_request === null || (is_array($fax_send_request) && count($fax_send_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $fax_send_request when calling faxSend'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling FaxApi.faxSend, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling FaxApi.faxSend, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/fax/send';
@@ -1684,11 +1672,6 @@ class FaxApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],

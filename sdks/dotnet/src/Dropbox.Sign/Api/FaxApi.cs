@@ -138,10 +138,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxGetResponse</returns>
-        FaxGetResponse FaxSend(FaxSendRequest faxSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        FaxGetResponse FaxSend(FaxSendRequest faxSendRequest, int operationIndex = 0);
 
         /// <summary>
         /// Send Fax
@@ -152,10 +151,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxGetResponse</returns>
-        ApiResponse<FaxGetResponse> FaxSendWithHttpInfo(FaxSendRequest faxSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<FaxGetResponse> FaxSendWithHttpInfo(FaxSendRequest faxSendRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -284,11 +282,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxGetResponse</returns>
-        System.Threading.Tasks.Task<FaxGetResponse> FaxSendAsync(FaxSendRequest faxSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxGetResponse> FaxSendAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Fax
@@ -299,11 +296,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxGetResponse>> FaxSendWithHttpInfoAsync(FaxSendRequest faxSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxGetResponse>> FaxSendWithHttpInfoAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1076,12 +1072,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxGetResponse</returns>
-        public FaxGetResponse FaxSend(FaxSendRequest faxSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public FaxGetResponse FaxSend(FaxSendRequest faxSendRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxGetResponse> localVarResponse = FaxSendWithHttpInfo(faxSendRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<FaxGetResponse> localVarResponse = FaxSendWithHttpInfo(faxSendRequest);
             return localVarResponse.Data;
         }
 
@@ -1091,10 +1086,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxGetResponse> FaxSendWithHttpInfo(FaxSendRequest faxSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<FaxGetResponse> FaxSendWithHttpInfo(FaxSendRequest faxSendRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxSendRequest' is set
             if (faxSendRequest == null)
@@ -1133,10 +1127,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "FaxApi.FaxSend";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1168,13 +1158,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxGetResponse</returns>
-        public async System.Threading.Tasks.Task<FaxGetResponse> FaxSendAsync(FaxSendRequest faxSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxGetResponse> FaxSendAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxGetResponse> localVarResponse = await FaxSendWithHttpInfoAsync(faxSendRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxGetResponse> localVarResponse = await FaxSendWithHttpInfoAsync(faxSendRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1184,11 +1173,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxGetResponse>> FaxSendWithHttpInfoAsync(FaxSendRequest faxSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxGetResponse>> FaxSendWithHttpInfoAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxSendRequest' is set
             if (faxSendRequest == null)
@@ -1228,10 +1216,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "FaxApi.FaxSend";
             localVarRequestOptions.OperationIndex = operationIndex;

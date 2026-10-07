@@ -24,14 +24,14 @@ export declare class TeamApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    teamAddMember(teamAddMemberRequest: TeamAddMemberRequest, teamId?: string, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
-    teamCreate(teamCreateRequest: TeamCreateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
+    teamAddMember(teamAddMemberRequest: TeamAddMemberRequest, teamId?: string, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
+    teamCreate(teamCreateRequest: TeamCreateRequest, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
     teamDelete(options?: optionsI): Promise<returnTypeI>;
     teamGet(options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
     teamInfo(teamId?: string, options?: optionsI): Promise<returnTypeT<TeamGetInfoResponse>>;
     teamInvites(emailAddress?: string, options?: optionsI): Promise<returnTypeT<TeamInvitesResponse>>;
     teamMembers(teamId: string, page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<TeamMembersResponse>>;
-    teamRemoveMember(teamRemoveMemberRequest: TeamRemoveMemberRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
+    teamRemoveMember(teamRemoveMemberRequest: TeamRemoveMemberRequest, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
     teamSubTeams(teamId: string, page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<TeamSubTeamsResponse>>;
-    teamUpdate(teamUpdateRequest: TeamUpdateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
+    teamUpdate(teamUpdateRequest: TeamUpdateRequest, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
 }

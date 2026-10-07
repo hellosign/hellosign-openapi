@@ -36,10 +36,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountCreateResponse</returns>
-        AccountCreateResponse AccountCreate(AccountCreateRequest accountCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        AccountCreateResponse AccountCreate(AccountCreateRequest accountCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Account
@@ -50,10 +49,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountCreateResponse</returns>
-        ApiResponse<AccountCreateResponse> AccountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<AccountCreateResponse> AccountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest, int operationIndex = 0);
         /// <summary>
         /// Get Account
         /// </summary>
@@ -90,10 +88,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountGetResponse</returns>
-        AccountGetResponse AccountUpdate(AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        AccountGetResponse AccountUpdate(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Update Account
@@ -104,10 +101,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountGetResponse</returns>
-        ApiResponse<AccountGetResponse> AccountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<AccountGetResponse> AccountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0);
         /// <summary>
         /// Verify Account
         /// </summary>
@@ -117,10 +113,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountVerifyResponse</returns>
-        AccountVerifyResponse AccountVerify(AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        AccountVerifyResponse AccountVerify(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0);
 
         /// <summary>
         /// Verify Account
@@ -131,10 +126,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountVerifyResponse</returns>
-        ApiResponse<AccountVerifyResponse> AccountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<AccountVerifyResponse> AccountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -153,11 +147,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountCreateResponse</returns>
-        System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Account
@@ -168,11 +161,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Account
         /// </summary>
@@ -211,11 +203,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Account
@@ -226,11 +217,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Verify Account
         /// </summary>
@@ -240,11 +230,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountVerifyResponse</returns>
-        System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Verify Account
@@ -255,11 +244,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountVerifyResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -386,12 +374,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountCreateResponse</returns>
-        public AccountCreateResponse AccountCreate(AccountCreateRequest accountCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public AccountCreateResponse AccountCreate(AccountCreateRequest accountCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse = AccountCreateWithHttpInfo(accountCreateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse = AccountCreateWithHttpInfo(accountCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -401,10 +388,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> AccountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> AccountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'accountCreateRequest' is set
             if (accountCreateRequest == null)
@@ -443,10 +429,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "AccountApi.AccountCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -484,13 +466,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountCreateResponse</returns>
-        public async System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse = await AccountCreateWithHttpInfoAsync(accountCreateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse = await AccountCreateWithHttpInfoAsync(accountCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -500,11 +481,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountCreateRequest' is set
             if (accountCreateRequest == null)
@@ -544,10 +524,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "AccountApi.AccountCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -764,12 +740,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountGetResponse</returns>
-        public AccountGetResponse AccountUpdate(AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public AccountGetResponse AccountUpdate(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = AccountUpdateWithHttpInfo(accountUpdateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = AccountUpdateWithHttpInfo(accountUpdateRequest);
             return localVarResponse.Data;
         }
 
@@ -779,10 +754,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<AccountGetResponse> AccountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<AccountGetResponse> AccountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'accountUpdateRequest' is set
             if (accountUpdateRequest == null)
@@ -821,10 +795,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "AccountApi.AccountUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -862,13 +832,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        public async System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = await AccountUpdateWithHttpInfoAsync(accountUpdateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = await AccountUpdateWithHttpInfoAsync(accountUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -878,11 +847,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountUpdateRequest' is set
             if (accountUpdateRequest == null)
@@ -922,10 +890,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "AccountApi.AccountUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -964,12 +928,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountVerifyResponse</returns>
-        public AccountVerifyResponse AccountVerify(AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public AccountVerifyResponse AccountVerify(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse = AccountVerifyWithHttpInfo(accountVerifyRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse = AccountVerifyWithHttpInfo(accountVerifyRequest);
             return localVarResponse.Data;
         }
 
@@ -979,10 +942,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountVerifyResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> AccountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> AccountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0)
         {
             // verify the required parameter 'accountVerifyRequest' is set
             if (accountVerifyRequest == null)
@@ -1021,10 +983,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "AccountApi.AccountVerify";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1062,13 +1020,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountVerifyResponse</returns>
-        public async System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse = await AccountVerifyWithHttpInfoAsync(accountVerifyRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse = await AccountVerifyWithHttpInfoAsync(accountVerifyRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1078,11 +1035,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountVerifyExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountVerifyRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountVerifyResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountVerifyRequest' is set
             if (accountVerifyRequest == null)
@@ -1122,10 +1078,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "AccountApi.AccountVerify";
             localVarRequestOptions.OperationIndex = operationIndex;

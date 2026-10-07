@@ -124,12 +124,10 @@ export class UnclaimedDraftApi {
    * @summary Create Unclaimed Draft
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateExample.ts
    * @param unclaimedDraftCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async unclaimedDraftCreate(
     unclaimedDraftCreateRequest: UnclaimedDraftCreateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<UnclaimedDraftCreateResponse>> {
     unclaimedDraftCreateRequest = deserializeIfNeeded(
@@ -162,10 +160,6 @@ export class UnclaimedDraftApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -279,12 +273,10 @@ export class UnclaimedDraftApi {
    * @summary Create Embedded Unclaimed Draft
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.ts
    * @param unclaimedDraftCreateEmbeddedRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async unclaimedDraftCreateEmbedded(
     unclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<UnclaimedDraftCreateResponse>> {
     unclaimedDraftCreateEmbeddedRequest = deserializeIfNeeded(
@@ -317,10 +309,6 @@ export class UnclaimedDraftApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -434,12 +422,10 @@ export class UnclaimedDraftApi {
    * @summary Create Embedded Unclaimed Draft with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.ts
    * @param unclaimedDraftCreateEmbeddedWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async unclaimedDraftCreateEmbeddedWithTemplate(
     unclaimedDraftCreateEmbeddedWithTemplateRequest: UnclaimedDraftCreateEmbeddedWithTemplateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<UnclaimedDraftCreateResponse>> {
     unclaimedDraftCreateEmbeddedWithTemplateRequest = deserializeIfNeeded(
@@ -473,10 +459,6 @@ export class UnclaimedDraftApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -591,13 +573,11 @@ export class UnclaimedDraftApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftEditAndResendExample.ts
    * @param signatureRequestId The ID of the signature request to edit and resend.
    * @param unclaimedDraftEditAndResendRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async unclaimedDraftEditAndResend(
     signatureRequestId: string,
     unclaimedDraftEditAndResendRequest: UnclaimedDraftEditAndResendRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<UnclaimedDraftCreateResponse>> {
     unclaimedDraftEditAndResendRequest = deserializeIfNeeded(
@@ -642,10 +622,6 @@ export class UnclaimedDraftApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

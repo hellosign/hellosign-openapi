@@ -154,15 +154,14 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAddUserExample.php
      *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request fax_line_add_user_request (required)
-     * @param string|null                 $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\FaxLineResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineAddUser(Model\FaxLineAddUserRequest $fax_line_add_user_request, ?string $idempotency_key = null)
+    public function faxLineAddUser(Model\FaxLineAddUserRequest $fax_line_add_user_request)
     {
-        list($response) = $this->faxLineAddUserWithHttpInfo($fax_line_add_user_request, $idempotency_key);
+        list($response) = $this->faxLineAddUserWithHttpInfo($fax_line_add_user_request);
         return $response;
     }
 
@@ -174,7 +173,6 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAddUserExample.php
      *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
-     * @param string|null                 $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
@@ -182,9 +180,9 @@ class FaxLineApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
-    public function faxLineAddUserWithHttpInfo(Model\FaxLineAddUserRequest $fax_line_add_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineAddUser'][0])
+    public function faxLineAddUserWithHttpInfo(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
-        $request = $this->faxLineAddUserRequest($fax_line_add_user_request, $idempotency_key, $contentType);
+        $request = $this->faxLineAddUserRequest($fax_line_add_user_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -314,16 +312,15 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAddUserExample.php
      *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
-     * @param string|null                 $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
-    public function faxLineAddUserAsync(Model\FaxLineAddUserRequest $fax_line_add_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineAddUser'][0])
+    public function faxLineAddUserAsync(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
-        return $this->faxLineAddUserAsyncWithHttpInfo($fax_line_add_user_request, $idempotency_key, $contentType)
+        return $this->faxLineAddUserAsyncWithHttpInfo($fax_line_add_user_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -339,17 +336,16 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineAddUserExample.php
      *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
-     * @param string|null                 $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
-    public function faxLineAddUserAsyncWithHttpInfo(Model\FaxLineAddUserRequest $fax_line_add_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineAddUser'][0])
+    public function faxLineAddUserAsyncWithHttpInfo(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
-        $request = $this->faxLineAddUserRequest($fax_line_add_user_request, $idempotency_key, $contentType);
+        $request = $this->faxLineAddUserRequest($fax_line_add_user_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -391,27 +387,19 @@ class FaxLineApi
      * Create request for operation 'faxLineAddUser'
      *
      * @param Model\FaxLineAddUserRequest $fax_line_add_user_request (required)
-     * @param string|null                 $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                      $contentType               The value for the Content-Type header. Check self::contentTypes['faxLineAddUser'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineAddUser. This method will eventually become unavailable
      */
-    public function faxLineAddUserRequest(Model\FaxLineAddUserRequest $fax_line_add_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineAddUser'][0])
+    public function faxLineAddUserRequest(Model\FaxLineAddUserRequest $fax_line_add_user_request, string $contentType = self::contentTypes['faxLineAddUser'][0])
     {
         // verify the required parameter 'fax_line_add_user_request' is set
         if ($fax_line_add_user_request === null || (is_array($fax_line_add_user_request) && count($fax_line_add_user_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $fax_line_add_user_request when calling faxLineAddUser'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling FaxLineApi.faxLineAddUser, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling FaxLineApi.faxLineAddUser, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/fax_line/add_user';
@@ -426,11 +414,6 @@ class FaxLineApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -893,15 +876,14 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineCreateExample.php
      *
      * @param Model\FaxLineCreateRequest $fax_line_create_request fax_line_create_request (required)
-     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\FaxLineResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineCreate(Model\FaxLineCreateRequest $fax_line_create_request, ?string $idempotency_key = null)
+    public function faxLineCreate(Model\FaxLineCreateRequest $fax_line_create_request)
     {
-        list($response) = $this->faxLineCreateWithHttpInfo($fax_line_create_request, $idempotency_key);
+        list($response) = $this->faxLineCreateWithHttpInfo($fax_line_create_request);
         return $response;
     }
 
@@ -913,7 +895,6 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineCreateExample.php
      *
      * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
-     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
@@ -921,9 +902,9 @@ class FaxLineApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
-    public function faxLineCreateWithHttpInfo(Model\FaxLineCreateRequest $fax_line_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineCreate'][0])
+    public function faxLineCreateWithHttpInfo(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
-        $request = $this->faxLineCreateRequest($fax_line_create_request, $idempotency_key, $contentType);
+        $request = $this->faxLineCreateRequest($fax_line_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1053,16 +1034,15 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineCreateExample.php
      *
      * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
-     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
-    public function faxLineCreateAsync(Model\FaxLineCreateRequest $fax_line_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineCreate'][0])
+    public function faxLineCreateAsync(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
-        return $this->faxLineCreateAsyncWithHttpInfo($fax_line_create_request, $idempotency_key, $contentType)
+        return $this->faxLineCreateAsyncWithHttpInfo($fax_line_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1078,17 +1058,16 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineCreateExample.php
      *
      * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
-     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
-    public function faxLineCreateAsyncWithHttpInfo(Model\FaxLineCreateRequest $fax_line_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineCreate'][0])
+    public function faxLineCreateAsyncWithHttpInfo(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
-        $request = $this->faxLineCreateRequest($fax_line_create_request, $idempotency_key, $contentType);
+        $request = $this->faxLineCreateRequest($fax_line_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1130,27 +1109,19 @@ class FaxLineApi
      * Create request for operation 'faxLineCreate'
      *
      * @param Model\FaxLineCreateRequest $fax_line_create_request (required)
-     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['faxLineCreate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineCreate. This method will eventually become unavailable
      */
-    public function faxLineCreateRequest(Model\FaxLineCreateRequest $fax_line_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineCreate'][0])
+    public function faxLineCreateRequest(Model\FaxLineCreateRequest $fax_line_create_request, string $contentType = self::contentTypes['faxLineCreate'][0])
     {
         // verify the required parameter 'fax_line_create_request' is set
         if ($fax_line_create_request === null || (is_array($fax_line_create_request) && count($fax_line_create_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $fax_line_create_request when calling faxLineCreate'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling FaxLineApi.faxLineCreate, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling FaxLineApi.faxLineCreate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/fax_line/create';
@@ -1165,11 +1136,6 @@ class FaxLineApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -2204,15 +2170,14 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineRemoveUserExample.php
      *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request fax_line_remove_user_request (required)
-     * @param string|null                    $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\FaxLineResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function faxLineRemoveUser(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, ?string $idempotency_key = null)
+    public function faxLineRemoveUser(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request)
     {
-        list($response) = $this->faxLineRemoveUserWithHttpInfo($fax_line_remove_user_request, $idempotency_key);
+        list($response) = $this->faxLineRemoveUserWithHttpInfo($fax_line_remove_user_request);
         return $response;
     }
 
@@ -2224,7 +2189,6 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineRemoveUserExample.php
      *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
-     * @param string|null                    $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
@@ -2232,9 +2196,9 @@ class FaxLineApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
-    public function faxLineRemoveUserWithHttpInfo(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
+    public function faxLineRemoveUserWithHttpInfo(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
-        $request = $this->faxLineRemoveUserRequest($fax_line_remove_user_request, $idempotency_key, $contentType);
+        $request = $this->faxLineRemoveUserRequest($fax_line_remove_user_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2364,16 +2328,15 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineRemoveUserExample.php
      *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
-     * @param string|null                    $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
-    public function faxLineRemoveUserAsync(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
+    public function faxLineRemoveUserAsync(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
-        return $this->faxLineRemoveUserAsyncWithHttpInfo($fax_line_remove_user_request, $idempotency_key, $contentType)
+        return $this->faxLineRemoveUserAsyncWithHttpInfo($fax_line_remove_user_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2389,17 +2352,16 @@ class FaxLineApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/FaxLineRemoveUserExample.php
      *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
-     * @param string|null                    $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
-    public function faxLineRemoveUserAsyncWithHttpInfo(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
+    public function faxLineRemoveUserAsyncWithHttpInfo(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineResponse';
-        $request = $this->faxLineRemoveUserRequest($fax_line_remove_user_request, $idempotency_key, $contentType);
+        $request = $this->faxLineRemoveUserRequest($fax_line_remove_user_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2441,27 +2403,19 @@ class FaxLineApi
      * Create request for operation 'faxLineRemoveUser'
      *
      * @param Model\FaxLineRemoveUserRequest $fax_line_remove_user_request (required)
-     * @param string|null                    $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['faxLineRemoveUser'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::faxLineRemoveUser. This method will eventually become unavailable
      */
-    public function faxLineRemoveUserRequest(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
+    public function faxLineRemoveUserRequest(Model\FaxLineRemoveUserRequest $fax_line_remove_user_request, string $contentType = self::contentTypes['faxLineRemoveUser'][0])
     {
         // verify the required parameter 'fax_line_remove_user_request' is set
         if ($fax_line_remove_user_request === null || (is_array($fax_line_remove_user_request) && count($fax_line_remove_user_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $fax_line_remove_user_request when calling faxLineRemoveUser'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling FaxLineApi.faxLineRemoveUser, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling FaxLineApi.faxLineRemoveUser, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/fax_line/remove_user';
@@ -2476,11 +2430,6 @@ class FaxLineApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],

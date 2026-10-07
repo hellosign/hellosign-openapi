@@ -287,7 +287,7 @@ end
 
 ## `fax_send`
 
-> `<FaxGetResponse> fax_send(fax_send_request, opts)`
+> `<FaxGetResponse> fax_send(fax_send_request)`
 
 Send Fax
 
@@ -331,12 +331,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<FaxGetResponse>, Integer, Hash)> fax_send_with_http_info(fax_send_request, opts)`
+> `<Array(<FaxGetResponse>, Integer, Hash)> fax_send_with_http_info(fax_send_request)`
 
 ```ruby
 begin
   # Send Fax
-  data, status_code, headers = api_instance.fax_send_with_http_info(fax_send_request, opts)
+  data, status_code, headers = api_instance.fax_send_with_http_info(fax_send_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FaxGetResponse>
@@ -350,7 +350,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `fax_send_request` | [**FaxSendRequest**](FaxSendRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

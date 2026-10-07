@@ -9,7 +9,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `document_detect_fields`
 
-> `<DocumentFieldDetectionResponse> document_detect_fields(document_field_detection_request, opts)`
+> `<DocumentFieldDetectionResponse> document_detect_fields(document_field_detection_request)`
 
 Detect Document Fields
 
@@ -47,12 +47,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<DocumentFieldDetectionResponse>, Integer, Hash)> document_detect_fields_with_http_info(document_field_detection_request, opts)`
+> `<Array(<DocumentFieldDetectionResponse>, Integer, Hash)> document_detect_fields_with_http_info(document_field_detection_request)`
 
 ```ruby
 begin
   # Detect Document Fields
-  data, status_code, headers = api_instance.document_detect_fields_with_http_info(document_field_detection_request, opts)
+  data, status_code, headers = api_instance.document_detect_fields_with_http_info(document_field_detection_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentFieldDetectionResponse>
@@ -66,7 +66,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `document_field_detection_request` | [**DocumentFieldDetectionRequest**](DocumentFieldDetectionRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

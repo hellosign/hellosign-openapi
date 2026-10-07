@@ -10,7 +10,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `reportCreate()`
 
 ```php
-reportCreate($report_create_request, $idempotency_key): \Dropbox\Sign\Model\ReportCreateResponse
+reportCreate($report_create_request): \Dropbox\Sign\Model\ReportCreateResponse
 ```
 Create Report
 
@@ -56,7 +56,6 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **report_create_request** | [**\Dropbox\Sign\Model\ReportCreateRequest**](../Model/ReportCreateRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

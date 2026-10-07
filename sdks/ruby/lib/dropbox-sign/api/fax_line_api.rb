@@ -27,7 +27,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineAddUserExample.rb
     # @param fax_line_add_user_request [FaxLineAddUserRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [FaxLineResponse]
     def fax_line_add_user(fax_line_add_user_request, opts = {})
       data, _status_code, _headers = fax_line_add_user_with_http_info(fax_line_add_user_request, opts)
@@ -39,7 +38,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineAddUserExample.rb
     # @param fax_line_add_user_request [FaxLineAddUserRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(FaxLineResponse, Integer, Hash)>] FaxLineResponse data, response status code and response headers
     def fax_line_add_user_with_http_info(fax_line_add_user_request, opts = {})
       if @api_client.config.debugging
@@ -49,14 +47,6 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && fax_line_add_user_request.nil?
         fail ArgumentError, "Missing the required parameter 'fax_line_add_user_request' when calling FaxLineApi.fax_line_add_user"
       end
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling FaxLineApi.fax_line_add_user, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling FaxLineApi.fax_line_add_user, the character length must be great than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/fax_line/add_user'
 
@@ -72,7 +62,6 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -270,7 +259,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineCreateExample.rb
     # @param fax_line_create_request [FaxLineCreateRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [FaxLineResponse]
     def fax_line_create(fax_line_create_request, opts = {})
       data, _status_code, _headers = fax_line_create_with_http_info(fax_line_create_request, opts)
@@ -282,7 +270,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineCreateExample.rb
     # @param fax_line_create_request [FaxLineCreateRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(FaxLineResponse, Integer, Hash)>] FaxLineResponse data, response status code and response headers
     def fax_line_create_with_http_info(fax_line_create_request, opts = {})
       if @api_client.config.debugging
@@ -292,14 +279,6 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && fax_line_create_request.nil?
         fail ArgumentError, "Missing the required parameter 'fax_line_create_request' when calling FaxLineApi.fax_line_create"
       end
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling FaxLineApi.fax_line_create, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling FaxLineApi.fax_line_create, the character length must be great than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/fax_line/create'
 
@@ -315,7 +294,6 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -679,7 +657,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineRemoveUserExample.rb
     # @param fax_line_remove_user_request [FaxLineRemoveUserRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [FaxLineResponse]
     def fax_line_remove_user(fax_line_remove_user_request, opts = {})
       data, _status_code, _headers = fax_line_remove_user_with_http_info(fax_line_remove_user_request, opts)
@@ -691,7 +668,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxLineRemoveUserExample.rb
     # @param fax_line_remove_user_request [FaxLineRemoveUserRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(FaxLineResponse, Integer, Hash)>] FaxLineResponse data, response status code and response headers
     def fax_line_remove_user_with_http_info(fax_line_remove_user_request, opts = {})
       if @api_client.config.debugging
@@ -701,14 +677,6 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && fax_line_remove_user_request.nil?
         fail ArgumentError, "Missing the required parameter 'fax_line_remove_user_request' when calling FaxLineApi.fax_line_remove_user"
       end
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling FaxLineApi.fax_line_remove_user, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling FaxLineApi.fax_line_remove_user, the character length must be great than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/fax_line/remove_user'
 
@@ -724,7 +692,6 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

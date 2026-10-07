@@ -24,15 +24,15 @@ export declare class TemplateApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    templateAddUser(templateId: string, templateAddUserRequest: TemplateAddUserRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
-    templateCreate(templateCreateRequest: TemplateCreateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TemplateCreateResponse>>;
-    templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TemplateCreateEmbeddedDraftResponse>>;
-    templateDelete(templateId: string, idempotencyKey?: string, options?: optionsI): Promise<returnTypeI>;
+    templateAddUser(templateId: string, templateAddUserRequest: TemplateAddUserRequest, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
+    templateCreate(templateCreateRequest: TemplateCreateRequest, options?: optionsI): Promise<returnTypeT<TemplateCreateResponse>>;
+    templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest, options?: optionsI): Promise<returnTypeT<TemplateCreateEmbeddedDraftResponse>>;
+    templateDelete(templateId: string, options?: optionsI): Promise<returnTypeI>;
     templateFiles(templateId: string, fileType?: "pdf" | "zip", options?: optionsI): Promise<returnTypeT<Buffer>>;
     templateFilesAsDataUri(templateId: string, options?: optionsI): Promise<returnTypeT<FileResponseDataUri>>;
     templateFilesAsFileUrl(templateId: string, forceDownload?: number, options?: optionsI): Promise<returnTypeT<FileResponse>>;
     templateGet(templateId: string, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
     templateList(accountId?: string, page?: number, pageSize?: number, query?: string, options?: optionsI): Promise<returnTypeT<TemplateListResponse>>;
-    templateRemoveUser(templateId: string, templateRemoveUserRequest: TemplateRemoveUserRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
-    templateUpdateFiles(templateId: string, templateUpdateFilesRequest: TemplateUpdateFilesRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<TemplateUpdateFilesResponse>>;
+    templateRemoveUser(templateId: string, templateRemoveUserRequest: TemplateRemoveUserRequest, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
+    templateUpdateFiles(templateId: string, templateUpdateFilesRequest: TemplateUpdateFilesRequest, options?: optionsI): Promise<returnTypeT<TemplateUpdateFilesResponse>>;
 }

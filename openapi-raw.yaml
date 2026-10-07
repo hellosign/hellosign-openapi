@@ -34,6 +34,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -46,6 +47,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -243,6 +245,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -255,6 +258,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -348,6 +352,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -360,6 +365,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -456,6 +462,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '201':
           description: 'successful operation'
@@ -468,6 +475,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -659,6 +667,7 @@ paths:
           example: 0dd3b823a682527788c4e40cb7b6f7e9
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -683,6 +692,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -963,12 +973,14 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '202':
           description: 'Resend queued'
           headers:
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
         4XX:
           description: failed_operation
           content:
@@ -1237,6 +1249,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -1249,6 +1262,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -1339,6 +1353,7 @@ paths:
           example: f57db65d3f933b5316d398057a36176831451a35
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -1360,6 +1375,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -1838,6 +1854,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -1850,6 +1867,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -2123,6 +2141,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -2135,6 +2154,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -2529,6 +2549,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -2541,6 +2562,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -2740,6 +2762,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -2752,6 +2775,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -3036,6 +3060,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -3048,6 +3073,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -3139,6 +3165,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -3151,6 +3178,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -3246,6 +3274,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -3258,6 +3287,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -3351,6 +3381,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -3363,6 +3394,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json: {  }
         4XX:
@@ -3461,6 +3493,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -3473,6 +3506,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -3569,6 +3603,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -3581,6 +3616,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -3673,6 +3709,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -3699,6 +3736,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -3794,6 +3832,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -3820,6 +3859,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -3914,6 +3954,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -3938,6 +3979,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -4032,6 +4074,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -4056,6 +4099,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -4708,6 +4752,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -4720,6 +4765,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -4812,6 +4858,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -4833,6 +4880,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -4930,6 +4978,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -4942,6 +4991,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json: {  }
         4XX:
@@ -5036,6 +5086,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -5048,6 +5099,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -5145,6 +5197,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -5157,6 +5210,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -5248,6 +5302,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -5269,6 +5324,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -5363,6 +5419,7 @@ paths:
           example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -5386,6 +5443,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -5479,6 +5537,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -5491,6 +5550,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -5754,6 +5814,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -5766,6 +5827,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -6173,6 +6235,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '201':
           description: 'successful operation'
@@ -6185,6 +6248,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -6393,6 +6457,7 @@ paths:
           example: f57db65d3f933b5316d398057a36176831451a35
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -6414,6 +6479,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -6516,6 +6582,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -6528,6 +6595,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -6632,6 +6700,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -6644,6 +6713,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -6738,6 +6808,7 @@ paths:
           example: f57db65d3f933b5316d398057a36176831451a35
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -6750,6 +6821,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json: {  }
         4XX:
@@ -7389,6 +7461,7 @@ paths:
           example: f57db65d3f933b5316d398057a36176831451a35
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -7410,6 +7483,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -7502,6 +7576,7 @@ paths:
           example: f57db65d3f933b5316d398057a36176831451a35
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -7526,6 +7601,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -7624,6 +7700,7 @@ paths:
           example: f57db65d3f933b5316d398057a36176831451a35
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -7648,6 +7725,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -7752,6 +7830,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -7764,6 +7843,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -7864,6 +7944,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -7876,6 +7957,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -7975,6 +8057,7 @@ paths:
       parameters:
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'
@@ -7987,6 +8070,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -8081,6 +8165,7 @@ paths:
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
         -
           $ref: '#/components/parameters/IdempotencyKey'
+          x-hideOn: sdk
       requestBody:
         required: true
         content:
@@ -8102,6 +8187,7 @@ paths:
               $ref: '#/components/headers/X-Ratelimit-Reset'
             Idempotent-Replayed:
               $ref: '#/components/headers/Idempotent-Replayed'
+              x-hideOn: sdk
           content:
             application/json:
               schema:
@@ -14442,6 +14528,7 @@ components:
         type: string
         maxLength: 255
         minLength: 1
+      x-hideOn: sdk
   examples:
     AccountCreateRequest:
       summary: 'Default Example'
@@ -15207,6 +15294,7 @@ components:
         type: boolean
         enum:
           - true
+      x-hideOn: sdk
   securitySchemes:
     api_key:
       type: http

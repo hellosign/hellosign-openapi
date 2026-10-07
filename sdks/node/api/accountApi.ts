@@ -125,12 +125,10 @@ export class AccountApi {
    * @summary Create Account
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountCreateExample.ts
    * @param accountCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async accountCreate(
     accountCreateRequest: AccountCreateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<AccountCreateResponse>> {
     accountCreateRequest = deserializeIfNeeded(
@@ -160,10 +158,6 @@ export class AccountApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -404,12 +398,10 @@ export class AccountApi {
    * @summary Update Account
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountUpdateExample.ts
    * @param accountUpdateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async accountUpdate(
     accountUpdateRequest: AccountUpdateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<AccountGetResponse>> {
     accountUpdateRequest = deserializeIfNeeded(
@@ -439,10 +431,6 @@ export class AccountApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -554,12 +542,10 @@ export class AccountApi {
    * @summary Verify Account
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountVerifyExample.ts
    * @param accountVerifyRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async accountVerify(
     accountVerifyRequest: AccountVerifyRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<AccountVerifyResponse>> {
     accountVerifyRequest = deserializeIfNeeded(
@@ -589,10 +575,6 @@ export class AccountApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

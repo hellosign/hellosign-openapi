@@ -55,12 +55,6 @@ class TeamApi:
         team_id: Annotated[
             Optional[StrictStr], Field(description="The id of the team.")
         ] = None,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -83,8 +77,6 @@ class TeamApi:
         :type team_add_member_request: TeamAddMemberRequest
         :param team_id: The id of the team.
         :type team_id: str
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -110,7 +102,6 @@ class TeamApi:
         _param = self._team_add_member_serialize(
             team_add_member_request=team_add_member_request,
             team_id=team_id,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -138,12 +129,6 @@ class TeamApi:
         team_id: Annotated[
             Optional[StrictStr], Field(description="The id of the team.")
         ] = None,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -166,8 +151,6 @@ class TeamApi:
         :type team_add_member_request: TeamAddMemberRequest
         :param team_id: The id of the team.
         :type team_id: str
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -193,7 +176,6 @@ class TeamApi:
         _param = self._team_add_member_serialize(
             team_add_member_request=team_add_member_request,
             team_id=team_id,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -221,12 +203,6 @@ class TeamApi:
         team_id: Annotated[
             Optional[StrictStr], Field(description="The id of the team.")
         ] = None,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -249,8 +225,6 @@ class TeamApi:
         :type team_add_member_request: TeamAddMemberRequest
         :param team_id: The id of the team.
         :type team_id: str
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -276,7 +250,6 @@ class TeamApi:
         _param = self._team_add_member_serialize(
             team_add_member_request=team_add_member_request,
             team_id=team_id,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -297,7 +270,6 @@ class TeamApi:
         self,
         team_add_member_request,
         team_id,
-        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -346,8 +318,6 @@ class TeamApi:
             _query_params.append(("team_id", team_id))
 
         # process the header parameters
-        if idempotency_key is not None:
-            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if team_add_member_request is not None and has_files is False:
@@ -391,12 +361,6 @@ class TeamApi:
     def team_create(
         self,
         team_create_request: TeamCreateRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -417,8 +381,6 @@ class TeamApi:
 
         :param team_create_request: (required)
         :type team_create_request: TeamCreateRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -443,7 +405,6 @@ class TeamApi:
 
         _param = self._team_create_serialize(
             team_create_request=team_create_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -468,12 +429,6 @@ class TeamApi:
     def team_create_with_http_info(
         self,
         team_create_request: TeamCreateRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -494,8 +449,6 @@ class TeamApi:
 
         :param team_create_request: (required)
         :type team_create_request: TeamCreateRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -520,7 +473,6 @@ class TeamApi:
 
         _param = self._team_create_serialize(
             team_create_request=team_create_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -545,12 +497,6 @@ class TeamApi:
     def team_create_without_preload_content(
         self,
         team_create_request: TeamCreateRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -571,8 +517,6 @@ class TeamApi:
 
         :param team_create_request: (required)
         :type team_create_request: TeamCreateRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -597,7 +541,6 @@ class TeamApi:
 
         _param = self._team_create_serialize(
             team_create_request=team_create_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -617,7 +560,6 @@ class TeamApi:
     def _team_create_serialize(
         self,
         team_create_request,
-        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -662,8 +604,6 @@ class TeamApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if idempotency_key is not None:
-            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if team_create_request is not None and has_files is False:
@@ -2051,12 +1991,6 @@ class TeamApi:
     def team_remove_member(
         self,
         team_remove_member_request: TeamRemoveMemberRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2077,8 +2011,6 @@ class TeamApi:
 
         :param team_remove_member_request: (required)
         :type team_remove_member_request: TeamRemoveMemberRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2103,7 +2035,6 @@ class TeamApi:
 
         _param = self._team_remove_member_serialize(
             team_remove_member_request=team_remove_member_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2128,12 +2059,6 @@ class TeamApi:
     def team_remove_member_with_http_info(
         self,
         team_remove_member_request: TeamRemoveMemberRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2154,8 +2079,6 @@ class TeamApi:
 
         :param team_remove_member_request: (required)
         :type team_remove_member_request: TeamRemoveMemberRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2180,7 +2103,6 @@ class TeamApi:
 
         _param = self._team_remove_member_serialize(
             team_remove_member_request=team_remove_member_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2205,12 +2127,6 @@ class TeamApi:
     def team_remove_member_without_preload_content(
         self,
         team_remove_member_request: TeamRemoveMemberRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2231,8 +2147,6 @@ class TeamApi:
 
         :param team_remove_member_request: (required)
         :type team_remove_member_request: TeamRemoveMemberRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2257,7 +2171,6 @@ class TeamApi:
 
         _param = self._team_remove_member_serialize(
             team_remove_member_request=team_remove_member_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2277,7 +2190,6 @@ class TeamApi:
     def _team_remove_member_serialize(
         self,
         team_remove_member_request,
-        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -2322,8 +2234,6 @@ class TeamApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if idempotency_key is not None:
-            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if team_remove_member_request is not None and has_files is False:
@@ -2685,12 +2595,6 @@ class TeamApi:
     def team_update(
         self,
         team_update_request: TeamUpdateRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2711,8 +2615,6 @@ class TeamApi:
 
         :param team_update_request: (required)
         :type team_update_request: TeamUpdateRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2737,7 +2639,6 @@ class TeamApi:
 
         _param = self._team_update_serialize(
             team_update_request=team_update_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2762,12 +2663,6 @@ class TeamApi:
     def team_update_with_http_info(
         self,
         team_update_request: TeamUpdateRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2788,8 +2683,6 @@ class TeamApi:
 
         :param team_update_request: (required)
         :type team_update_request: TeamUpdateRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2814,7 +2707,6 @@ class TeamApi:
 
         _param = self._team_update_serialize(
             team_update_request=team_update_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2839,12 +2731,6 @@ class TeamApi:
     def team_update_without_preload_content(
         self,
         team_update_request: TeamUpdateRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2865,8 +2751,6 @@ class TeamApi:
 
         :param team_update_request: (required)
         :type team_update_request: TeamUpdateRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2891,7 +2775,6 @@ class TeamApi:
 
         _param = self._team_update_serialize(
             team_update_request=team_update_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2911,7 +2794,6 @@ class TeamApi:
     def _team_update_serialize(
         self,
         team_update_request,
-        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -2956,8 +2838,6 @@ class TeamApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if idempotency_key is not None:
-            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if team_update_request is not None and has_files is False:

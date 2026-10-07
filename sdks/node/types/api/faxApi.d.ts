@@ -28,5 +28,5 @@ export declare class FaxApi {
     faxFiles(faxId: string, options?: optionsI): Promise<returnTypeT<Buffer>>;
     faxGet(faxId: string, options?: optionsI): Promise<returnTypeT<FaxGetResponse>>;
     faxList(page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<FaxListResponse>>;
-    faxSend(faxSendRequest: FaxSendRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<FaxGetResponse>>;
+    faxSend(faxSendRequest: FaxSendRequest, options?: optionsI): Promise<returnTypeT<FaxGetResponse>>;
 }

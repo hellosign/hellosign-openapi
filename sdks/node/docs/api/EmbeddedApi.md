@@ -11,7 +11,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `embeddedEditUrl()`
 
 ```typescript
-embeddedEditUrl(templateId: string, embeddedEditUrlRequest: EmbeddedEditUrlRequest, idempotencyKey: string): EmbeddedEditUrlResponse
+embeddedEditUrl(templateId: string, embeddedEditUrlRequest: EmbeddedEditUrlRequest): EmbeddedEditUrlResponse
 ```
 
 Get Embedded Template Edit URL
@@ -57,7 +57,6 @@ apiCaller.embeddedEditUrl(
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the template to edit. | |
 | **embeddedEditUrlRequest** | [**EmbeddedEditUrlRequest**](../model/EmbeddedEditUrlRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

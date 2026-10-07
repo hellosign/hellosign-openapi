@@ -11,7 +11,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="unclaimeddraftcreate"></a>
 # **UnclaimedDraftCreate**
-> UnclaimedDraftCreateResponse UnclaimedDraftCreate (UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = null)
+> UnclaimedDraftCreateResponse UnclaimedDraftCreate (UnclaimedDraftCreateRequest unclaimedDraftCreateRequest)
 
 Create Unclaimed Draft
 
@@ -88,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Unclaimed Draft
-    ApiResponse<UnclaimedDraftCreateResponse> response = apiInstance.UnclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest, idempotencyKey);
+    ApiResponse<UnclaimedDraftCreateResponse> response = apiInstance.UnclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -106,7 +106,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **unclaimedDraftCreateRequest** | [**UnclaimedDraftCreateRequest**](UnclaimedDraftCreateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -125,14 +124,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="unclaimeddraftcreateembedded"></a>
 # **UnclaimedDraftCreateEmbedded**
-> UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded (UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = null)
+> UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded (UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
 
 Create Embedded Unclaimed Draft
 
@@ -198,7 +197,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Embedded Unclaimed Draft
-    ApiResponse<UnclaimedDraftCreateResponse> response = apiInstance.UnclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest, idempotencyKey);
+    ApiResponse<UnclaimedDraftCreateResponse> response = apiInstance.UnclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -216,7 +215,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **unclaimedDraftCreateEmbeddedRequest** | [**UnclaimedDraftCreateEmbeddedRequest**](UnclaimedDraftCreateEmbeddedRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -235,14 +233,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="unclaimeddraftcreateembeddedwithtemplate"></a>
 # **UnclaimedDraftCreateEmbeddedWithTemplate**
-> UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate (UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = null)
+> UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate (UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest)
 
 Create Embedded Unclaimed Draft with Template
 
@@ -327,7 +325,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Embedded Unclaimed Draft with Template
-    ApiResponse<UnclaimedDraftCreateResponse> response = apiInstance.UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey);
+    ApiResponse<UnclaimedDraftCreateResponse> response = apiInstance.UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -345,7 +343,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **unclaimedDraftCreateEmbeddedWithTemplateRequest** | [**UnclaimedDraftCreateEmbeddedWithTemplateRequest**](UnclaimedDraftCreateEmbeddedWithTemplateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -364,14 +361,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="unclaimeddrafteditandresend"></a>
 # **UnclaimedDraftEditAndResend**
-> UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend (string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = null)
+> UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend (string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
 
 Edit and Resend Unclaimed Draft
 
@@ -430,7 +427,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Edit and Resend Unclaimed Draft
-    ApiResponse<UnclaimedDraftCreateResponse> response = apiInstance.UnclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest, idempotencyKey);
+    ApiResponse<UnclaimedDraftCreateResponse> response = apiInstance.UnclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -449,7 +446,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The ID of the signature request to edit and resend. |  |
 | **unclaimedDraftEditAndResendRequest** | [**UnclaimedDraftEditAndResendRequest**](UnclaimedDraftEditAndResendRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -468,7 +464,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

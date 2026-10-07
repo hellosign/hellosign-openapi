@@ -373,38 +373,18 @@ public class FaxApi {
    * Creates and sends a new Fax with the submitted file(s)
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/FaxSendExample.java
    * @param faxSendRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return FaxGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxGetResponse faxSend(FaxSendRequest faxSendRequest, String idempotencyKey) throws ApiException {
-    return faxSendWithHttpInfo(faxSendRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see FaxApi#faxSend(FaxSendRequest, String)
-   */
   public FaxGetResponse faxSend(FaxSendRequest faxSendRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return faxSendWithHttpInfo(faxSendRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see FaxApi#faxSendWithHttpInfo(FaxSendRequest, String)
-   */
-  public ApiResponse<FaxGetResponse> faxSendWithHttpInfo(FaxSendRequest faxSendRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return faxSendWithHttpInfo(faxSendRequest, idempotencyKey);
+    return faxSendWithHttpInfo(faxSendRequest).getData();
   }
 
 
@@ -413,28 +393,21 @@ public class FaxApi {
    * Creates and sends a new Fax with the submitted file(s)
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/FaxSendExample.java
    * @param faxSendRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;FaxGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxGetResponse> faxSendWithHttpInfo(FaxSendRequest faxSendRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<FaxGetResponse> faxSendWithHttpInfo(FaxSendRequest faxSendRequest) throws ApiException {
     
     // Check required parameters
     if (faxSendRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxSendRequest' when calling faxSend");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -450,7 +423,7 @@ public class FaxApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : faxSendRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,

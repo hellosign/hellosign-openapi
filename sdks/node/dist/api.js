@@ -30342,10 +30342,9 @@ var AccountApi = class {
    * @summary Create Account
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountCreateExample.ts
    * @param accountCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async accountCreate(accountCreateRequest, idempotencyKey, options = { headers: {} }) {
+  async accountCreate(accountCreateRequest, options = { headers: {} }) {
     accountCreateRequest = deserializeIfNeeded(
       accountCreateRequest,
       "AccountCreateRequest"
@@ -30369,10 +30368,6 @@ var AccountApi = class {
         "Required parameter accountCreateRequest was null or undefined when calling accountCreate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -30575,10 +30570,9 @@ var AccountApi = class {
    * @summary Update Account
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountUpdateExample.ts
    * @param accountUpdateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async accountUpdate(accountUpdateRequest, idempotencyKey, options = { headers: {} }) {
+  async accountUpdate(accountUpdateRequest, options = { headers: {} }) {
     accountUpdateRequest = deserializeIfNeeded(
       accountUpdateRequest,
       "AccountUpdateRequest"
@@ -30602,10 +30596,6 @@ var AccountApi = class {
         "Required parameter accountUpdateRequest was null or undefined when calling accountUpdate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -30701,10 +30691,9 @@ var AccountApi = class {
    * @summary Verify Account
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountVerifyExample.ts
    * @param accountVerifyRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async accountVerify(accountVerifyRequest, idempotencyKey, options = { headers: {} }) {
+  async accountVerify(accountVerifyRequest, options = { headers: {} }) {
     accountVerifyRequest = deserializeIfNeeded(
       accountVerifyRequest,
       "AccountVerifyRequest"
@@ -30728,10 +30717,6 @@ var AccountApi = class {
         "Required parameter accountVerifyRequest was null or undefined when calling accountVerify."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -30916,10 +30901,9 @@ var ApiAppApi = class {
    * @summary Create API App
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppCreateExample.ts
    * @param apiAppCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async apiAppCreate(apiAppCreateRequest, idempotencyKey, options = { headers: {} }) {
+  async apiAppCreate(apiAppCreateRequest, options = { headers: {} }) {
     apiAppCreateRequest = deserializeIfNeeded2(
       apiAppCreateRequest,
       "ApiAppCreateRequest"
@@ -30943,10 +30927,6 @@ var ApiAppApi = class {
         "Required parameter apiAppCreateRequest was null or undefined when calling apiAppCreate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -31335,10 +31315,9 @@ var ApiAppApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppUpdateExample.ts
    * @param clientId The client id of the API App to update.
    * @param apiAppUpdateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async apiAppUpdate(clientId, apiAppUpdateRequest, idempotencyKey, options = { headers: {} }) {
+  async apiAppUpdate(clientId, apiAppUpdateRequest, options = { headers: {} }) {
     apiAppUpdateRequest = deserializeIfNeeded2(
       apiAppUpdateRequest,
       "ApiAppUpdateRequest"
@@ -31370,10 +31349,6 @@ var ApiAppApi = class {
         "Required parameter apiAppUpdateRequest was null or undefined when calling apiAppUpdate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -31860,10 +31835,9 @@ var DocumentApi = class {
    * @summary Detect Document Fields
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/DocumentDetectFieldsExample.ts
    * @param documentFieldDetectionRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async documentDetectFields(documentFieldDetectionRequest, idempotencyKey, options = { headers: {} }) {
+  async documentDetectFields(documentFieldDetectionRequest, options = { headers: {} }) {
     documentFieldDetectionRequest = deserializeIfNeeded3(
       documentFieldDetectionRequest,
       "DocumentFieldDetectionRequest"
@@ -31887,10 +31861,6 @@ var DocumentApi = class {
         "Required parameter documentFieldDetectionRequest was null or undefined when calling documentDetectFields."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -32076,10 +32046,9 @@ var EmbeddedApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/EmbeddedEditUrlExample.ts
    * @param templateId The id of the template to edit.
    * @param embeddedEditUrlRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async embeddedEditUrl(templateId, embeddedEditUrlRequest, idempotencyKey, options = { headers: {} }) {
+  async embeddedEditUrl(templateId, embeddedEditUrlRequest, options = { headers: {} }) {
     embeddedEditUrlRequest = deserializeIfNeeded4(
       embeddedEditUrlRequest,
       "EmbeddedEditUrlRequest"
@@ -32111,10 +32080,6 @@ var EmbeddedApi = class {
         "Required parameter embeddedEditUrlRequest was null or undefined when calling embeddedEditUrl."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -32773,10 +32738,9 @@ var FaxApi = class {
    * @summary Send Fax
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxSendExample.ts
    * @param faxSendRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async faxSend(faxSendRequest, idempotencyKey, options = { headers: {} }) {
+  async faxSend(faxSendRequest, options = { headers: {} }) {
     faxSendRequest = deserializeIfNeeded5(faxSendRequest, "FaxSendRequest");
     const localVarPath = this.basePath + "/fax/send";
     let localVarQueryParameters = {};
@@ -32797,10 +32761,6 @@ var FaxApi = class {
         "Required parameter faxSendRequest was null or undefined when calling faxSend."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -32975,10 +32935,9 @@ var FaxLineApi = class {
    * @summary Add Fax Line User
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineAddUserExample.ts
    * @param faxLineAddUserRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async faxLineAddUser(faxLineAddUserRequest, idempotencyKey, options = { headers: {} }) {
+  async faxLineAddUser(faxLineAddUserRequest, options = { headers: {} }) {
     faxLineAddUserRequest = deserializeIfNeeded6(
       faxLineAddUserRequest,
       "FaxLineAddUserRequest"
@@ -33002,10 +32961,6 @@ var FaxLineApi = class {
         "Required parameter faxLineAddUserRequest was null or undefined when calling faxLineAddUser."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -33217,10 +33172,9 @@ var FaxLineApi = class {
    * @summary Purchase Fax Line
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineCreateExample.ts
    * @param faxLineCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async faxLineCreate(faxLineCreateRequest, idempotencyKey, options = { headers: {} }) {
+  async faxLineCreate(faxLineCreateRequest, options = { headers: {} }) {
     faxLineCreateRequest = deserializeIfNeeded6(
       faxLineCreateRequest,
       "FaxLineCreateRequest"
@@ -33244,10 +33198,6 @@ var FaxLineApi = class {
         "Required parameter faxLineCreateRequest was null or undefined when calling faxLineCreate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -33655,10 +33605,9 @@ var FaxLineApi = class {
    * @summary Remove Fax Line Access
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineRemoveUserExample.ts
    * @param faxLineRemoveUserRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async faxLineRemoveUser(faxLineRemoveUserRequest, idempotencyKey, options = { headers: {} }) {
+  async faxLineRemoveUser(faxLineRemoveUserRequest, options = { headers: {} }) {
     faxLineRemoveUserRequest = deserializeIfNeeded6(
       faxLineRemoveUserRequest,
       "FaxLineRemoveUserRequest"
@@ -33682,10 +33631,6 @@ var FaxLineApi = class {
         "Required parameter faxLineRemoveUserRequest was null or undefined when calling faxLineRemoveUser."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -34172,10 +34117,9 @@ var ReportApi = class {
    * @summary Create Report
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ReportCreateExample.ts
    * @param reportCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async reportCreate(reportCreateRequest, idempotencyKey, options = { headers: {} }) {
+  async reportCreate(reportCreateRequest, options = { headers: {} }) {
     reportCreateRequest = deserializeIfNeeded8(
       reportCreateRequest,
       "ReportCreateRequest"
@@ -34199,10 +34143,6 @@ var ReportApi = class {
         "Required parameter reportCreateRequest was null or undefined when calling reportCreate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -34382,10 +34322,9 @@ var SignatureRequestApi = class {
    * @summary Embedded Bulk Send with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.ts
    * @param signatureRequestBulkCreateEmbeddedWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestBulkCreateEmbeddedWithTemplate(signatureRequestBulkCreateEmbeddedWithTemplateRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestBulkCreateEmbeddedWithTemplate(signatureRequestBulkCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
     signatureRequestBulkCreateEmbeddedWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestBulkCreateEmbeddedWithTemplateRequest,
       "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
@@ -34409,10 +34348,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestBulkCreateEmbeddedWithTemplateRequest was null or undefined when calling signatureRequestBulkCreateEmbeddedWithTemplate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -34505,10 +34440,9 @@ var SignatureRequestApi = class {
    * @summary Bulk Send with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.ts
    * @param signatureRequestBulkSendWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestBulkSendWithTemplate(signatureRequestBulkSendWithTemplateRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestBulkSendWithTemplate(signatureRequestBulkSendWithTemplateRequest, options = { headers: {} }) {
     signatureRequestBulkSendWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestBulkSendWithTemplateRequest,
       "SignatureRequestBulkSendWithTemplateRequest"
@@ -34532,10 +34466,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestBulkSendWithTemplateRequest was null or undefined when calling signatureRequestBulkSendWithTemplate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -34633,10 +34563,9 @@ var SignatureRequestApi = class {
    * @summary Cancel Incomplete Signature Request
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCancelExample.ts
    * @param signatureRequestId The id of the incomplete SignatureRequest to cancel.
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestCancel(signatureRequestId, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestCancel(signatureRequestId, options = { headers: {} }) {
     const localVarPath = this.basePath + "/signature_request/cancel/{signature_request_id}".replace(
       "{signature_request_id}",
       encodeURIComponent(String(signatureRequestId))
@@ -34659,10 +34588,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestId was null or undefined when calling signatureRequestCancel."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     let localVarRequestOptions = {
@@ -34725,10 +34650,9 @@ var SignatureRequestApi = class {
    * @summary Create Embedded Signature Request
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCreateEmbeddedExample.ts
    * @param signatureRequestCreateEmbeddedRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest, options = { headers: {} }) {
     signatureRequestCreateEmbeddedRequest = deserializeIfNeeded9(
       signatureRequestCreateEmbeddedRequest,
       "SignatureRequestCreateEmbeddedRequest"
@@ -34752,10 +34676,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestCreateEmbeddedRequest was null or undefined when calling signatureRequestCreateEmbedded."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -34853,10 +34773,9 @@ var SignatureRequestApi = class {
    * @summary Create Embedded Signature Request with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.ts
    * @param signatureRequestCreateEmbeddedWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
     signatureRequestCreateEmbeddedWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestCreateEmbeddedWithTemplateRequest,
       "SignatureRequestCreateEmbeddedWithTemplateRequest"
@@ -34880,10 +34799,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestCreateEmbeddedWithTemplateRequest was null or undefined when calling signatureRequestCreateEmbeddedWithTemplate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -34982,10 +34897,9 @@ var SignatureRequestApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestEdit(signatureRequestId, signatureRequestEditRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestEdit(signatureRequestId, signatureRequestEditRequest, options = { headers: {} }) {
     signatureRequestEditRequest = deserializeIfNeeded9(
       signatureRequestEditRequest,
       "SignatureRequestEditRequest"
@@ -35017,10 +34931,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestEditRequest was null or undefined when calling signatureRequestEdit."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -35119,10 +35029,9 @@ var SignatureRequestApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditEmbeddedExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditEmbeddedRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestEditEmbedded(signatureRequestId, signatureRequestEditEmbeddedRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestEditEmbedded(signatureRequestId, signatureRequestEditEmbeddedRequest, options = { headers: {} }) {
     signatureRequestEditEmbeddedRequest = deserializeIfNeeded9(
       signatureRequestEditEmbeddedRequest,
       "SignatureRequestEditEmbeddedRequest"
@@ -35154,10 +35063,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestEditEmbeddedRequest was null or undefined when calling signatureRequestEditEmbedded."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -35256,10 +35161,9 @@ var SignatureRequestApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditEmbeddedWithTemplateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditEmbeddedWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestEditEmbeddedWithTemplate(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestEditEmbeddedWithTemplate(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, options = { headers: {} }) {
     signatureRequestEditEmbeddedWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestEditEmbeddedWithTemplateRequest,
       "SignatureRequestEditEmbeddedWithTemplateRequest"
@@ -35291,10 +35195,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestEditEmbeddedWithTemplateRequest was null or undefined when calling signatureRequestEditEmbeddedWithTemplate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -35393,10 +35293,9 @@ var SignatureRequestApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditWithTemplateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestEditWithTemplate(signatureRequestId, signatureRequestEditWithTemplateRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestEditWithTemplate(signatureRequestId, signatureRequestEditWithTemplateRequest, options = { headers: {} }) {
     signatureRequestEditWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestEditWithTemplateRequest,
       "SignatureRequestEditWithTemplateRequest"
@@ -35428,10 +35327,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestEditWithTemplateRequest was null or undefined when calling signatureRequestEditWithTemplate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -36068,10 +35963,9 @@ var SignatureRequestApi = class {
    * @summary Release On-Hold Signature Request
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestReleaseHoldExample.ts
    * @param signatureRequestId The id of the SignatureRequest to release.
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestReleaseHold(signatureRequestId, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestReleaseHold(signatureRequestId, options = { headers: {} }) {
     const localVarPath = this.basePath + "/signature_request/release_hold/{signature_request_id}".replace(
       "{signature_request_id}",
       encodeURIComponent(String(signatureRequestId))
@@ -36094,10 +35988,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestId was null or undefined when calling signatureRequestReleaseHold."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     let localVarRequestOptions = {
@@ -36176,10 +36066,9 @@ var SignatureRequestApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestRemindExample.ts
    * @param signatureRequestId The id of the SignatureRequest to send a reminder for.
    * @param signatureRequestRemindRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestRemind(signatureRequestId, signatureRequestRemindRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestRemind(signatureRequestId, signatureRequestRemindRequest, options = { headers: {} }) {
     signatureRequestRemindRequest = deserializeIfNeeded9(
       signatureRequestRemindRequest,
       "SignatureRequestRemindRequest"
@@ -36211,10 +36100,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestRemindRequest was null or undefined when calling signatureRequestRemind."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -36312,10 +36197,9 @@ var SignatureRequestApi = class {
    * @summary Remove Signature Request Access
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestRemoveExample.ts
    * @param signatureRequestId The id of the SignatureRequest to remove.
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestRemove(signatureRequestId, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestRemove(signatureRequestId, options = { headers: {} }) {
     const localVarPath = this.basePath + "/signature_request/remove/{signature_request_id}".replace(
       "{signature_request_id}",
       encodeURIComponent(String(signatureRequestId))
@@ -36338,10 +36222,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestId was null or undefined when calling signatureRequestRemove."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     let localVarRequestOptions = {
@@ -36399,10 +36279,9 @@ var SignatureRequestApi = class {
    * @summary Send Signature Request
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestSendExample.ts
    * @param signatureRequestSendRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestSend(signatureRequestSendRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestSend(signatureRequestSendRequest, options = { headers: {} }) {
     signatureRequestSendRequest = deserializeIfNeeded9(
       signatureRequestSendRequest,
       "SignatureRequestSendRequest"
@@ -36426,10 +36305,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestSendRequest was null or undefined when calling signatureRequestSend."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -36527,10 +36402,9 @@ var SignatureRequestApi = class {
    * @summary Send with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestSendWithTemplateExample.ts
    * @param signatureRequestSendWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestSendWithTemplate(signatureRequestSendWithTemplateRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestSendWithTemplate(signatureRequestSendWithTemplateRequest, options = { headers: {} }) {
     signatureRequestSendWithTemplateRequest = deserializeIfNeeded9(
       signatureRequestSendWithTemplateRequest,
       "SignatureRequestSendWithTemplateRequest"
@@ -36554,10 +36428,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestSendWithTemplateRequest was null or undefined when calling signatureRequestSendWithTemplate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -36656,10 +36526,9 @@ var SignatureRequestApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestUpdateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to update.
    * @param signatureRequestUpdateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async signatureRequestUpdate(signatureRequestId, signatureRequestUpdateRequest, idempotencyKey, options = { headers: {} }) {
+  async signatureRequestUpdate(signatureRequestId, signatureRequestUpdateRequest, options = { headers: {} }) {
     signatureRequestUpdateRequest = deserializeIfNeeded9(
       signatureRequestUpdateRequest,
       "SignatureRequestUpdateRequest"
@@ -36691,10 +36560,6 @@ var SignatureRequestApi = class {
         "Required parameter signatureRequestUpdateRequest was null or undefined when calling signatureRequestUpdate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -36880,10 +36745,9 @@ var TeamApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamAddMemberExample.ts
    * @param teamAddMemberRequest
    * @param teamId The id of the team.
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async teamAddMember(teamAddMemberRequest, teamId, idempotencyKey, options = { headers: {} }) {
+  async teamAddMember(teamAddMemberRequest, teamId, options = { headers: {} }) {
     teamAddMemberRequest = deserializeIfNeeded10(
       teamAddMemberRequest,
       "TeamAddMemberRequest"
@@ -36913,10 +36777,6 @@ var TeamApi = class {
         "string"
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -37012,10 +36872,9 @@ var TeamApi = class {
    * @summary Create Team
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamCreateExample.ts
    * @param teamCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async teamCreate(teamCreateRequest, idempotencyKey, options = { headers: {} }) {
+  async teamCreate(teamCreateRequest, options = { headers: {} }) {
     teamCreateRequest = deserializeIfNeeded10(
       teamCreateRequest,
       "TeamCreateRequest"
@@ -37039,10 +36898,6 @@ var TeamApi = class {
         "Required parameter teamCreateRequest was null or undefined when calling teamCreate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -37620,10 +37475,9 @@ var TeamApi = class {
    * @summary Remove User from Team
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamRemoveMemberExample.ts
    * @param teamRemoveMemberRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async teamRemoveMember(teamRemoveMemberRequest, idempotencyKey, options = { headers: {} }) {
+  async teamRemoveMember(teamRemoveMemberRequest, options = { headers: {} }) {
     teamRemoveMemberRequest = deserializeIfNeeded10(
       teamRemoveMemberRequest,
       "TeamRemoveMemberRequest"
@@ -37647,10 +37501,6 @@ var TeamApi = class {
         "Required parameter teamRemoveMemberRequest was null or undefined when calling teamRemoveMember."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -37862,10 +37712,9 @@ var TeamApi = class {
    * @summary Update Team
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamUpdateExample.ts
    * @param teamUpdateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async teamUpdate(teamUpdateRequest, idempotencyKey, options = { headers: {} }) {
+  async teamUpdate(teamUpdateRequest, options = { headers: {} }) {
     teamUpdateRequest = deserializeIfNeeded10(
       teamUpdateRequest,
       "TeamUpdateRequest"
@@ -37889,10 +37738,6 @@ var TeamApi = class {
         "Required parameter teamUpdateRequest was null or undefined when calling teamUpdate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -38073,10 +37918,9 @@ var TemplateApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateAddUserExample.ts
    * @param templateId The id of the Template to give the Account access to.
    * @param templateAddUserRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async templateAddUser(templateId, templateAddUserRequest, idempotencyKey, options = { headers: {} }) {
+  async templateAddUser(templateId, templateAddUserRequest, options = { headers: {} }) {
     templateAddUserRequest = deserializeIfNeeded11(
       templateAddUserRequest,
       "TemplateAddUserRequest"
@@ -38108,10 +37952,6 @@ var TemplateApi = class {
         "Required parameter templateAddUserRequest was null or undefined when calling templateAddUser."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -38209,10 +38049,9 @@ var TemplateApi = class {
    * @summary Create Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateCreateExample.ts
    * @param templateCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async templateCreate(templateCreateRequest, idempotencyKey, options = { headers: {} }) {
+  async templateCreate(templateCreateRequest, options = { headers: {} }) {
     templateCreateRequest = deserializeIfNeeded11(
       templateCreateRequest,
       "TemplateCreateRequest"
@@ -38236,10 +38075,6 @@ var TemplateApi = class {
         "Required parameter templateCreateRequest was null or undefined when calling templateCreate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -38337,10 +38172,9 @@ var TemplateApi = class {
    * @summary Create Embedded Template Draft
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateCreateEmbeddedDraftExample.ts
    * @param templateCreateEmbeddedDraftRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest, idempotencyKey, options = { headers: {} }) {
+  async templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest, options = { headers: {} }) {
     templateCreateEmbeddedDraftRequest = deserializeIfNeeded11(
       templateCreateEmbeddedDraftRequest,
       "TemplateCreateEmbeddedDraftRequest"
@@ -38364,10 +38198,6 @@ var TemplateApi = class {
         "Required parameter templateCreateEmbeddedDraftRequest was null or undefined when calling templateCreateEmbeddedDraft."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -38465,10 +38295,9 @@ var TemplateApi = class {
    * @summary Delete Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateDeleteExample.ts
    * @param templateId The id of the Template to delete.
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async templateDelete(templateId, idempotencyKey, options = { headers: {} }) {
+  async templateDelete(templateId, options = { headers: {} }) {
     const localVarPath = this.basePath + "/template/delete/{template_id}".replace(
       "{template_id}",
       encodeURIComponent(String(templateId))
@@ -38491,10 +38320,6 @@ var TemplateApi = class {
         "Required parameter templateId was null or undefined when calling templateDelete."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     let localVarRequestOptions = {
@@ -39097,10 +38922,9 @@ var TemplateApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateRemoveUserExample.ts
    * @param templateId The id of the Template to remove the Account\&#39;s access to.
    * @param templateRemoveUserRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async templateRemoveUser(templateId, templateRemoveUserRequest, idempotencyKey, options = { headers: {} }) {
+  async templateRemoveUser(templateId, templateRemoveUserRequest, options = { headers: {} }) {
     templateRemoveUserRequest = deserializeIfNeeded11(
       templateRemoveUserRequest,
       "TemplateRemoveUserRequest"
@@ -39132,10 +38956,6 @@ var TemplateApi = class {
         "Required parameter templateRemoveUserRequest was null or undefined when calling templateRemoveUser."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -39234,10 +39054,9 @@ var TemplateApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateUpdateFilesExample.ts
    * @param templateId The ID of the template whose files to update.
    * @param templateUpdateFilesRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async templateUpdateFiles(templateId, templateUpdateFilesRequest, idempotencyKey, options = { headers: {} }) {
+  async templateUpdateFiles(templateId, templateUpdateFilesRequest, options = { headers: {} }) {
     templateUpdateFilesRequest = deserializeIfNeeded11(
       templateUpdateFilesRequest,
       "TemplateUpdateFilesRequest"
@@ -39269,10 +39088,6 @@ var TemplateApi = class {
         "Required parameter templateUpdateFilesRequest was null or undefined when calling templateUpdateFiles."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -39457,10 +39272,9 @@ var UnclaimedDraftApi = class {
    * @summary Create Unclaimed Draft
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateExample.ts
    * @param unclaimedDraftCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async unclaimedDraftCreate(unclaimedDraftCreateRequest, idempotencyKey, options = { headers: {} }) {
+  async unclaimedDraftCreate(unclaimedDraftCreateRequest, options = { headers: {} }) {
     unclaimedDraftCreateRequest = deserializeIfNeeded12(
       unclaimedDraftCreateRequest,
       "UnclaimedDraftCreateRequest"
@@ -39484,10 +39298,6 @@ var UnclaimedDraftApi = class {
         "Required parameter unclaimedDraftCreateRequest was null or undefined when calling unclaimedDraftCreate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -39585,10 +39395,9 @@ var UnclaimedDraftApi = class {
    * @summary Create Embedded Unclaimed Draft
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.ts
    * @param unclaimedDraftCreateEmbeddedRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest, idempotencyKey, options = { headers: {} }) {
+  async unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest, options = { headers: {} }) {
     unclaimedDraftCreateEmbeddedRequest = deserializeIfNeeded12(
       unclaimedDraftCreateEmbeddedRequest,
       "UnclaimedDraftCreateEmbeddedRequest"
@@ -39612,10 +39421,6 @@ var UnclaimedDraftApi = class {
         "Required parameter unclaimedDraftCreateEmbeddedRequest was null or undefined when calling unclaimedDraftCreateEmbedded."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -39713,10 +39518,9 @@ var UnclaimedDraftApi = class {
    * @summary Create Embedded Unclaimed Draft with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.ts
    * @param unclaimedDraftCreateEmbeddedWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey, options = { headers: {} }) {
+  async unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
     unclaimedDraftCreateEmbeddedWithTemplateRequest = deserializeIfNeeded12(
       unclaimedDraftCreateEmbeddedWithTemplateRequest,
       "UnclaimedDraftCreateEmbeddedWithTemplateRequest"
@@ -39740,10 +39544,6 @@ var UnclaimedDraftApi = class {
         "Required parameter unclaimedDraftCreateEmbeddedWithTemplateRequest was null or undefined when calling unclaimedDraftCreateEmbeddedWithTemplate."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(
@@ -39842,10 +39642,9 @@ var UnclaimedDraftApi = class {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/UnclaimedDraftEditAndResendExample.ts
    * @param signatureRequestId The ID of the signature request to edit and resend.
    * @param unclaimedDraftEditAndResendRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
-  async unclaimedDraftEditAndResend(signatureRequestId, unclaimedDraftEditAndResendRequest, idempotencyKey, options = { headers: {} }) {
+  async unclaimedDraftEditAndResend(signatureRequestId, unclaimedDraftEditAndResendRequest, options = { headers: {} }) {
     unclaimedDraftEditAndResendRequest = deserializeIfNeeded12(
       unclaimedDraftEditAndResendRequest,
       "UnclaimedDraftEditAndResendRequest"
@@ -39877,10 +39676,6 @@ var UnclaimedDraftApi = class {
         "Required parameter unclaimedDraftEditAndResendRequest was null or undefined when calling unclaimedDraftEditAndResend."
       );
     }
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     Object.assign(localVarHeaderParams, options.headers);
     let localVarUseFormData = false;
     const result = generateFormData(

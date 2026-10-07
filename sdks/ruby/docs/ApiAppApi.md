@@ -13,7 +13,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `api_app_create`
 
-> `<ApiAppGetResponse> api_app_create(api_app_create_request, opts)`
+> `<ApiAppGetResponse> api_app_create(api_app_create_request)`
 
 Create API App
 
@@ -66,12 +66,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<ApiAppGetResponse>, Integer, Hash)> api_app_create_with_http_info(api_app_create_request, opts)`
+> `<Array(<ApiAppGetResponse>, Integer, Hash)> api_app_create_with_http_info(api_app_create_request)`
 
 ```ruby
 begin
   # Create API App
-  data, status_code, headers = api_instance.api_app_create_with_http_info(api_app_create_request, opts)
+  data, status_code, headers = api_instance.api_app_create_with_http_info(api_app_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiAppGetResponse>
@@ -85,7 +85,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `api_app_create_request` | [**ApiAppCreateRequest**](ApiAppCreateRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -312,7 +311,7 @@ end
 
 ## `api_app_update`
 
-> `<ApiAppGetResponse> api_app_update(client_id, api_app_update_request, opts)`
+> `<ApiAppGetResponse> api_app_update(client_id, api_app_update_request)`
 
 Update API App
 
@@ -367,12 +366,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<ApiAppGetResponse>, Integer, Hash)> api_app_update_with_http_info(client_id, api_app_update_request, opts)`
+> `<Array(<ApiAppGetResponse>, Integer, Hash)> api_app_update_with_http_info(client_id, api_app_update_request)`
 
 ```ruby
 begin
   # Update API App
-  data, status_code, headers = api_instance.api_app_update_with_http_info(client_id, api_app_update_request, opts)
+  data, status_code, headers = api_instance.api_app_update_with_http_info(client_id, api_app_update_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiAppGetResponse>
@@ -387,7 +386,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | `client_id` | **String** | The client id of the API App to update. |  |
 | `api_app_update_request` | [**ApiAppUpdateRequest**](ApiAppUpdateRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

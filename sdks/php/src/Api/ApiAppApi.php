@@ -150,15 +150,14 @@ class ApiAppApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppCreateExample.php
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request api_app_create_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\ApiAppGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppCreate(Model\ApiAppCreateRequest $api_app_create_request, ?string $idempotency_key = null)
+    public function apiAppCreate(Model\ApiAppCreateRequest $api_app_create_request)
     {
-        list($response) = $this->apiAppCreateWithHttpInfo($api_app_create_request, $idempotency_key);
+        list($response) = $this->apiAppCreateWithHttpInfo($api_app_create_request);
         return $response;
     }
 
@@ -170,7 +169,6 @@ class ApiAppApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppCreateExample.php
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
      * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -178,9 +176,9 @@ class ApiAppApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
-    public function apiAppCreateWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreateWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
-        $request = $this->apiAppCreateRequest($api_app_create_request, $idempotency_key, $contentType);
+        $request = $this->apiAppCreateRequest($api_app_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -310,16 +308,15 @@ class ApiAppApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppCreateExample.php
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
-    public function apiAppCreateAsync(Model\ApiAppCreateRequest $api_app_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreateAsync(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
-        return $this->apiAppCreateAsyncWithHttpInfo($api_app_create_request, $idempotency_key, $contentType)
+        return $this->apiAppCreateAsyncWithHttpInfo($api_app_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -335,17 +332,16 @@ class ApiAppApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ApiAppCreateExample.php
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
-    public function apiAppCreateAsyncWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreateAsyncWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\ApiAppGetResponse';
-        $request = $this->apiAppCreateRequest($api_app_create_request, $idempotency_key, $contentType);
+        $request = $this->apiAppCreateRequest($api_app_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -387,27 +383,19 @@ class ApiAppApi
      * Create request for operation 'apiAppCreate'
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
-    public function apiAppCreateRequest(Model\ApiAppCreateRequest $api_app_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreateRequest(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
         // verify the required parameter 'api_app_create_request' is set
         if ($api_app_create_request === null || (is_array($api_app_create_request) && count($api_app_create_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $api_app_create_request when calling apiAppCreate'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling ApiAppApi.apiAppCreate, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling ApiAppApi.apiAppCreate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/api_app';
@@ -422,11 +410,6 @@ class ApiAppApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -1442,15 +1425,14 @@ class ApiAppApi
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request api_app_update_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\ApiAppGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppUpdate(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, ?string $idempotency_key = null)
+    public function apiAppUpdate(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request)
     {
-        list($response) = $this->apiAppUpdateWithHttpInfo($client_id, $api_app_update_request, $idempotency_key);
+        list($response) = $this->apiAppUpdateWithHttpInfo($client_id, $api_app_update_request);
         return $response;
     }
 
@@ -1463,7 +1445,6 @@ class ApiAppApi
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
      * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1471,9 +1452,9 @@ class ApiAppApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
-    public function apiAppUpdateWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdateWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
-        $request = $this->apiAppUpdateRequest($client_id, $api_app_update_request, $idempotency_key, $contentType);
+        $request = $this->apiAppUpdateRequest($client_id, $api_app_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1604,16 +1585,15 @@ class ApiAppApi
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
-    public function apiAppUpdateAsync(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdateAsync(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
-        return $this->apiAppUpdateAsyncWithHttpInfo($client_id, $api_app_update_request, $idempotency_key, $contentType)
+        return $this->apiAppUpdateAsyncWithHttpInfo($client_id, $api_app_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1630,17 +1610,16 @@ class ApiAppApi
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
-    public function apiAppUpdateAsyncWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdateAsyncWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\ApiAppGetResponse';
-        $request = $this->apiAppUpdateRequest($client_id, $api_app_update_request, $idempotency_key, $contentType);
+        $request = $this->apiAppUpdateRequest($client_id, $api_app_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1683,14 +1662,13 @@ class ApiAppApi
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
-     * @param string|null               $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
-    public function apiAppUpdateRequest(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdateRequest(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
         // verify the required parameter 'client_id' is set
         if ($client_id === null || (is_array($client_id) && count($client_id) === 0)) {
@@ -1706,13 +1684,6 @@ class ApiAppApi
             );
         }
 
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling ApiAppApi.apiAppUpdate, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling ApiAppApi.apiAppUpdate, must be bigger than or equal to 1.');
-        }
-
         $resourcePath = '/api_app/{client_id}';
         $formParams = [];
         $queryParams = [];
@@ -1725,11 +1696,6 @@ class ApiAppApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         // path params
         if ($client_id !== null) {

@@ -250,7 +250,7 @@ try {
 ## `faxSend()`
 
 ```php
-faxSend($fax_send_request, $idempotency_key): \Dropbox\Sign\Model\FaxGetResponse
+faxSend($fax_send_request): \Dropbox\Sign\Model\FaxGetResponse
 ```
 Send Fax
 
@@ -299,7 +299,6 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fax_send_request** | [**\Dropbox\Sign\Model\FaxSendRequest**](../Model/FaxSendRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

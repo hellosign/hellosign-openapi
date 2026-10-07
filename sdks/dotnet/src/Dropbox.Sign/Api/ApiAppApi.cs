@@ -36,10 +36,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiAppGetResponse</returns>
-        ApiAppGetResponse ApiAppCreate(ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiAppGetResponse ApiAppCreate(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create API App
@@ -50,10 +49,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiAppGetResponse</returns>
-        ApiResponse<ApiAppGetResponse> ApiAppCreateWithHttpInfo(ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<ApiAppGetResponse> ApiAppCreateWithHttpInfo(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0);
         /// <summary>
         /// Delete API App
         /// </summary>
@@ -141,10 +139,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiAppGetResponse</returns>
-        ApiAppGetResponse ApiAppUpdate(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiAppGetResponse ApiAppUpdate(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Update API App
@@ -156,10 +153,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiAppGetResponse</returns>
-        ApiResponse<ApiAppGetResponse> ApiAppUpdateWithHttpInfo(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<ApiAppGetResponse> ApiAppUpdateWithHttpInfo(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -178,11 +174,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppCreateAsync(ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppCreateAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create API App
@@ -193,11 +188,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppCreateWithHttpInfoAsync(ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppCreateWithHttpInfoAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete API App
         /// </summary>
@@ -291,11 +285,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppUpdateAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppUpdateAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update API App
@@ -307,11 +300,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppUpdateWithHttpInfoAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppUpdateWithHttpInfoAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -438,12 +430,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiAppGetResponse</returns>
-        public ApiAppGetResponse ApiAppCreate(ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public ApiAppGetResponse ApiAppCreate(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = ApiAppCreateWithHttpInfo(apiAppCreateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = ApiAppCreateWithHttpInfo(apiAppCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -453,10 +444,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiAppGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> ApiAppCreateWithHttpInfo(ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> ApiAppCreateWithHttpInfo(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'apiAppCreateRequest' is set
             if (apiAppCreateRequest == null)
@@ -495,10 +485,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -536,13 +522,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppCreateAsync(ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppCreateAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = await ApiAppCreateWithHttpInfoAsync(apiAppCreateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = await ApiAppCreateWithHttpInfoAsync(apiAppCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -552,11 +537,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ApiAppCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiAppCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppCreateWithHttpInfoAsync(ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppCreateWithHttpInfoAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'apiAppCreateRequest' is set
             if (apiAppCreateRequest == null)
@@ -596,10 +580,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1159,12 +1139,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiAppGetResponse</returns>
-        public ApiAppGetResponse ApiAppUpdate(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public ApiAppGetResponse ApiAppUpdate(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = ApiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = ApiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest);
             return localVarResponse.Data;
         }
 
@@ -1175,10 +1154,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiAppGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> ApiAppUpdateWithHttpInfo(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> ApiAppUpdateWithHttpInfo(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -1224,10 +1202,6 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("client_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(clientId)); // path parameter
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1266,13 +1240,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppUpdateAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppUpdateAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = await ApiAppUpdateWithHttpInfoAsync(clientId, apiAppUpdateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = await ApiAppUpdateWithHttpInfoAsync(clientId, apiAppUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1283,11 +1256,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client id of the API App to update.</param>
         /// <param name="apiAppUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppUpdateWithHttpInfoAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppUpdateWithHttpInfoAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -1334,10 +1306,6 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("client_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(clientId)); // path parameter
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;

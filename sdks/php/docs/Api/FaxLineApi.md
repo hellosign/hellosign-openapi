@@ -16,7 +16,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `faxLineAddUser()`
 
 ```php
-faxLineAddUser($fax_line_add_user_request, $idempotency_key): \Dropbox\Sign\Model\FaxLineResponse
+faxLineAddUser($fax_line_add_user_request): \Dropbox\Sign\Model\FaxLineResponse
 ```
 Add Fax Line User
 
@@ -58,7 +58,6 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fax_line_add_user_request** | [**\Dropbox\Sign\Model\FaxLineAddUserRequest**](../Model/FaxLineAddUserRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -142,7 +141,7 @@ try {
 ## `faxLineCreate()`
 
 ```php
-faxLineCreate($fax_line_create_request, $idempotency_key): \Dropbox\Sign\Model\FaxLineResponse
+faxLineCreate($fax_line_create_request): \Dropbox\Sign\Model\FaxLineResponse
 ```
 Purchase Fax Line
 
@@ -184,7 +183,6 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fax_line_create_request** | [**\Dropbox\Sign\Model\FaxLineCreateRequest**](../Model/FaxLineCreateRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -389,7 +387,7 @@ try {
 ## `faxLineRemoveUser()`
 
 ```php
-faxLineRemoveUser($fax_line_remove_user_request, $idempotency_key): \Dropbox\Sign\Model\FaxLineResponse
+faxLineRemoveUser($fax_line_remove_user_request): \Dropbox\Sign\Model\FaxLineResponse
 ```
 Remove Fax Line Access
 
@@ -431,7 +429,6 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fax_line_remove_user_request** | [**\Dropbox\Sign\Model\FaxLineRemoveUserRequest**](../Model/FaxLineRemoveUserRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

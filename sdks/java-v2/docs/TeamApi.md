@@ -19,7 +19,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## teamAddMember
 
-> TeamGetResponse teamAddMember(teamAddMemberRequest, teamId, idempotencyKey)
+> TeamGetResponse teamAddMember(teamAddMemberRequest, teamId)
 
 Add User to Team
 
@@ -83,7 +83,6 @@ public class TeamAddMemberExample
 |------------- | ------------- | ------------- | -------------|
  **teamAddMemberRequest** | [**TeamAddMemberRequest**](TeamAddMemberRequest.md)|  |
  **teamId** | **String**| The id of the team. | [optional]
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -101,13 +100,13 @@ public class TeamAddMemberExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## teamCreate
 
-> TeamGetResponse teamCreate(teamCreateRequest, idempotencyKey)
+> TeamGetResponse teamCreate(teamCreateRequest)
 
 Create Team
 
@@ -169,7 +168,6 @@ public class TeamCreateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **teamCreateRequest** | [**TeamCreateRequest**](TeamCreateRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -187,7 +185,7 @@ public class TeamCreateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
@@ -595,7 +593,7 @@ public class TeamMembersExample
 
 ## teamRemoveMember
 
-> TeamGetResponse teamRemoveMember(teamRemoveMemberRequest, idempotencyKey)
+> TeamGetResponse teamRemoveMember(teamRemoveMemberRequest)
 
 Remove User from Team
 
@@ -658,7 +656,6 @@ public class TeamRemoveMemberExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **teamRemoveMemberRequest** | [**TeamRemoveMemberRequest**](TeamRemoveMemberRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -676,7 +673,7 @@ public class TeamRemoveMemberExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
@@ -768,7 +765,7 @@ public class TeamSubTeamsExample
 
 ## teamUpdate
 
-> TeamGetResponse teamUpdate(teamUpdateRequest, idempotencyKey)
+> TeamGetResponse teamUpdate(teamUpdateRequest)
 
 Update Team
 
@@ -830,7 +827,6 @@ public class TeamUpdateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **teamUpdateRequest** | [**TeamUpdateRequest**](TeamUpdateRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -848,6 +844,6 @@ public class TeamUpdateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 

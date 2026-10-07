@@ -13,7 +13,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## unclaimedDraftCreate
 
-> UnclaimedDraftCreateResponse unclaimedDraftCreate(unclaimedDraftCreateRequest, idempotencyKey)
+> UnclaimedDraftCreateResponse unclaimedDraftCreate(unclaimedDraftCreateRequest)
 
 Create Unclaimed Draft
 
@@ -89,7 +89,6 @@ public class UnclaimedDraftCreateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **unclaimedDraftCreateRequest** | [**UnclaimedDraftCreateRequest**](UnclaimedDraftCreateRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -107,13 +106,13 @@ public class UnclaimedDraftCreateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## unclaimedDraftCreateEmbedded
 
-> UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest, idempotencyKey)
+> UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest)
 
 Create Embedded Unclaimed Draft
 
@@ -182,7 +181,6 @@ public class UnclaimedDraftCreateEmbeddedExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **unclaimedDraftCreateEmbeddedRequest** | [**UnclaimedDraftCreateEmbeddedRequest**](UnclaimedDraftCreateEmbeddedRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -200,13 +198,13 @@ public class UnclaimedDraftCreateEmbeddedExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## unclaimedDraftCreateEmbeddedWithTemplate
 
-> UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey)
+> UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest)
 
 Create Embedded Unclaimed Draft with Template
 
@@ -294,7 +292,6 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **unclaimedDraftCreateEmbeddedWithTemplateRequest** | [**UnclaimedDraftCreateEmbeddedWithTemplateRequest**](UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -312,13 +309,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## unclaimedDraftEditAndResend
 
-> UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(signatureRequestId, unclaimedDraftEditAndResendRequest, idempotencyKey)
+> UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(signatureRequestId, unclaimedDraftEditAndResendRequest)
 
 Edit and Resend Unclaimed Draft
 
@@ -385,7 +382,6 @@ public class UnclaimedDraftEditAndResendExample
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The ID of the signature request to edit and resend. |
  **unclaimedDraftEditAndResendRequest** | [**UnclaimedDraftEditAndResendRequest**](UnclaimedDraftEditAndResendRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -403,6 +399,6 @@ public class UnclaimedDraftEditAndResendExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 

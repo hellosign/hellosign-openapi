@@ -18,7 +18,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="templateadduser"></a>
 # **TemplateAddUser**
-> TemplateGetResponse TemplateAddUser (string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = null)
+> TemplateGetResponse TemplateAddUser (string templateId, TemplateAddUserRequest templateAddUserRequest)
 
 Add User to Template
 
@@ -76,7 +76,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Add User to Template
-    ApiResponse<TemplateGetResponse> response = apiInstance.TemplateAddUserWithHttpInfo(templateId, templateAddUserRequest, idempotencyKey);
+    ApiResponse<TemplateGetResponse> response = apiInstance.TemplateAddUserWithHttpInfo(templateId, templateAddUserRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -95,7 +95,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the Template to give the Account access to. |  |
 | **templateAddUserRequest** | [**TemplateAddUserRequest**](TemplateAddUserRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -114,14 +113,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="templatecreate"></a>
 # **TemplateCreate**
-> TemplateCreateResponse TemplateCreate (TemplateCreateRequest templateCreateRequest, string? idempotencyKey = null)
+> TemplateCreateResponse TemplateCreate (TemplateCreateRequest templateCreateRequest)
 
 Create Template
 
@@ -268,7 +267,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Template
-    ApiResponse<TemplateCreateResponse> response = apiInstance.TemplateCreateWithHttpInfo(templateCreateRequest, idempotencyKey);
+    ApiResponse<TemplateCreateResponse> response = apiInstance.TemplateCreateWithHttpInfo(templateCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -286,7 +285,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **templateCreateRequest** | [**TemplateCreateRequest**](TemplateCreateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -305,14 +303,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="templatecreateembeddeddraft"></a>
 # **TemplateCreateEmbeddedDraft**
-> TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft (TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = null)
+> TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft (TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest)
 
 Create Embedded Template Draft
 
@@ -422,7 +420,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Embedded Template Draft
-    ApiResponse<TemplateCreateEmbeddedDraftResponse> response = apiInstance.TemplateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest, idempotencyKey);
+    ApiResponse<TemplateCreateEmbeddedDraftResponse> response = apiInstance.TemplateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -440,7 +438,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **templateCreateEmbeddedDraftRequest** | [**TemplateCreateEmbeddedDraftRequest**](TemplateCreateEmbeddedDraftRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -459,14 +456,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="templatedelete"></a>
 # **TemplateDelete**
-> void TemplateDelete (string templateId, string? idempotencyKey = null)
+> void TemplateDelete (string templateId)
 
 Delete Template
 
@@ -517,7 +514,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete Template
-    apiInstance.TemplateDeleteWithHttpInfo(templateId, idempotencyKey);
+    apiInstance.TemplateDeleteWithHttpInfo(templateId);
 }
 catch (ApiException e)
 {
@@ -532,7 +529,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the Template to delete. |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -551,7 +547,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1047,7 +1043,7 @@ catch (ApiException e)
 
 <a id="templateremoveuser"></a>
 # **TemplateRemoveUser**
-> TemplateGetResponse TemplateRemoveUser (string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = null)
+> TemplateGetResponse TemplateRemoveUser (string templateId, TemplateRemoveUserRequest templateRemoveUserRequest)
 
 Remove User from Template
 
@@ -1105,7 +1101,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Remove User from Template
-    ApiResponse<TemplateGetResponse> response = apiInstance.TemplateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest, idempotencyKey);
+    ApiResponse<TemplateGetResponse> response = apiInstance.TemplateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1124,7 +1120,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the Template to remove the Account&#39;s access to. |  |
 | **templateRemoveUserRequest** | [**TemplateRemoveUserRequest**](TemplateRemoveUserRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -1143,14 +1138,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="templateupdatefiles"></a>
 # **TemplateUpdateFiles**
-> TemplateUpdateFilesResponse TemplateUpdateFiles (string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = null)
+> TemplateUpdateFilesResponse TemplateUpdateFiles (string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest)
 
 Update Template Files
 
@@ -1214,7 +1209,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update Template Files
-    ApiResponse<TemplateUpdateFilesResponse> response = apiInstance.TemplateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest, idempotencyKey);
+    ApiResponse<TemplateUpdateFilesResponse> response = apiInstance.TemplateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1233,7 +1228,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **templateId** | **string** | The ID of the template whose files to update. |  |
 | **templateUpdateFilesRequest** | [**TemplateUpdateFilesRequest**](TemplateUpdateFilesRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -1252,7 +1246,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

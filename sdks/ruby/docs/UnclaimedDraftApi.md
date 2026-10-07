@@ -12,7 +12,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `unclaimed_draft_create`
 
-> `<UnclaimedDraftCreateResponse> unclaimed_draft_create(unclaimed_draft_create_request, opts)`
+> `<UnclaimedDraftCreateResponse> unclaimed_draft_create(unclaimed_draft_create_request)`
 
 Create Unclaimed Draft
 
@@ -62,12 +62,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<UnclaimedDraftCreateResponse>, Integer, Hash)> unclaimed_draft_create_with_http_info(unclaimed_draft_create_request, opts)`
+> `<Array(<UnclaimedDraftCreateResponse>, Integer, Hash)> unclaimed_draft_create_with_http_info(unclaimed_draft_create_request)`
 
 ```ruby
 begin
   # Create Unclaimed Draft
-  data, status_code, headers = api_instance.unclaimed_draft_create_with_http_info(unclaimed_draft_create_request, opts)
+  data, status_code, headers = api_instance.unclaimed_draft_create_with_http_info(unclaimed_draft_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UnclaimedDraftCreateResponse>
@@ -81,7 +81,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `unclaimed_draft_create_request` | [**UnclaimedDraftCreateRequest**](UnclaimedDraftCreateRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -99,7 +98,7 @@ end
 
 ## `unclaimed_draft_create_embedded`
 
-> `<UnclaimedDraftCreateResponse> unclaimed_draft_create_embedded(unclaimed_draft_create_embedded_request, opts)`
+> `<UnclaimedDraftCreateResponse> unclaimed_draft_create_embedded(unclaimed_draft_create_embedded_request)`
 
 Create Embedded Unclaimed Draft
 
@@ -140,12 +139,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<UnclaimedDraftCreateResponse>, Integer, Hash)> unclaimed_draft_create_embedded_with_http_info(unclaimed_draft_create_embedded_request, opts)`
+> `<Array(<UnclaimedDraftCreateResponse>, Integer, Hash)> unclaimed_draft_create_embedded_with_http_info(unclaimed_draft_create_embedded_request)`
 
 ```ruby
 begin
   # Create Embedded Unclaimed Draft
-  data, status_code, headers = api_instance.unclaimed_draft_create_embedded_with_http_info(unclaimed_draft_create_embedded_request, opts)
+  data, status_code, headers = api_instance.unclaimed_draft_create_embedded_with_http_info(unclaimed_draft_create_embedded_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UnclaimedDraftCreateResponse>
@@ -159,7 +158,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `unclaimed_draft_create_embedded_request` | [**UnclaimedDraftCreateEmbeddedRequest**](UnclaimedDraftCreateEmbeddedRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -177,7 +175,7 @@ end
 
 ## `unclaimed_draft_create_embedded_with_template`
 
-> `<UnclaimedDraftCreateResponse> unclaimed_draft_create_embedded_with_template(unclaimed_draft_create_embedded_with_template_request, opts)`
+> `<UnclaimedDraftCreateResponse> unclaimed_draft_create_embedded_with_template(unclaimed_draft_create_embedded_with_template_request)`
 
 Create Embedded Unclaimed Draft with Template
 
@@ -237,12 +235,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<UnclaimedDraftCreateResponse>, Integer, Hash)> unclaimed_draft_create_embedded_with_template_with_http_info(unclaimed_draft_create_embedded_with_template_request, opts)`
+> `<Array(<UnclaimedDraftCreateResponse>, Integer, Hash)> unclaimed_draft_create_embedded_with_template_with_http_info(unclaimed_draft_create_embedded_with_template_request)`
 
 ```ruby
 begin
   # Create Embedded Unclaimed Draft with Template
-  data, status_code, headers = api_instance.unclaimed_draft_create_embedded_with_template_with_http_info(unclaimed_draft_create_embedded_with_template_request, opts)
+  data, status_code, headers = api_instance.unclaimed_draft_create_embedded_with_template_with_http_info(unclaimed_draft_create_embedded_with_template_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UnclaimedDraftCreateResponse>
@@ -256,7 +254,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `unclaimed_draft_create_embedded_with_template_request` | [**UnclaimedDraftCreateEmbeddedWithTemplateRequest**](UnclaimedDraftCreateEmbeddedWithTemplateRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -274,7 +271,7 @@ end
 
 ## `unclaimed_draft_edit_and_resend`
 
-> `<UnclaimedDraftCreateResponse> unclaimed_draft_edit_and_resend(signature_request_id, unclaimed_draft_edit_and_resend_request, opts)`
+> `<UnclaimedDraftCreateResponse> unclaimed_draft_edit_and_resend(signature_request_id, unclaimed_draft_edit_and_resend_request)`
 
 Edit and Resend Unclaimed Draft
 
@@ -312,12 +309,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<UnclaimedDraftCreateResponse>, Integer, Hash)> unclaimed_draft_edit_and_resend_with_http_info(signature_request_id, unclaimed_draft_edit_and_resend_request, opts)`
+> `<Array(<UnclaimedDraftCreateResponse>, Integer, Hash)> unclaimed_draft_edit_and_resend_with_http_info(signature_request_id, unclaimed_draft_edit_and_resend_request)`
 
 ```ruby
 begin
   # Edit and Resend Unclaimed Draft
-  data, status_code, headers = api_instance.unclaimed_draft_edit_and_resend_with_http_info(signature_request_id, unclaimed_draft_edit_and_resend_request, opts)
+  data, status_code, headers = api_instance.unclaimed_draft_edit_and_resend_with_http_info(signature_request_id, unclaimed_draft_edit_and_resend_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UnclaimedDraftCreateResponse>
@@ -332,7 +329,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The ID of the signature request to edit and resend. |  |
 | `unclaimed_draft_edit_and_resend_request` | [**UnclaimedDraftEditAndResendRequest**](UnclaimedDraftEditAndResendRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

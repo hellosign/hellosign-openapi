@@ -24,11 +24,11 @@ export declare class FaxLineApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    faxLineAddUser(faxLineAddUserRequest: FaxLineAddUserRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
+    faxLineAddUser(faxLineAddUserRequest: FaxLineAddUserRequest, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
     faxLineAreaCodeGet(country: "CA" | "US" | "UK", state?: "AK" | "AL" | "AR" | "AZ" | "CA" | "CO" | "CT" | "DC" | "DE" | "FL" | "GA" | "HI" | "IA" | "ID" | "IL" | "IN" | "KS" | "KY" | "LA" | "MA" | "MD" | "ME" | "MI" | "MN" | "MO" | "MS" | "MT" | "NC" | "ND" | "NE" | "NH" | "NJ" | "NM" | "NV" | "NY" | "OH" | "OK" | "OR" | "PA" | "RI" | "SC" | "SD" | "TN" | "TX" | "UT" | "VA" | "VT" | "WA" | "WI" | "WV" | "WY", province?: "AB" | "BC" | "MB" | "NB" | "NL" | "NT" | "NS" | "NU" | "ON" | "PE" | "QC" | "SK" | "YT", city?: string, options?: optionsI): Promise<returnTypeT<FaxLineAreaCodeGetResponse>>;
-    faxLineCreate(faxLineCreateRequest: FaxLineCreateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
+    faxLineCreate(faxLineCreateRequest: FaxLineCreateRequest, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
     faxLineDelete(faxLineDeleteRequest: FaxLineDeleteRequest, options?: optionsI): Promise<returnTypeI>;
     faxLineGet(number: string, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
     faxLineList(accountId?: string, page?: number, pageSize?: number, showTeamLines?: boolean, options?: optionsI): Promise<returnTypeT<FaxLineListResponse>>;
-    faxLineRemoveUser(faxLineRemoveUserRequest: FaxLineRemoveUserRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
+    faxLineRemoveUser(faxLineRemoveUserRequest: FaxLineRemoveUserRequest, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
 }

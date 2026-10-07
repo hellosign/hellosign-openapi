@@ -24,9 +24,9 @@ export declare class ApiAppApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    apiAppCreate(apiAppCreateRequest: ApiAppCreateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<ApiAppGetResponse>>;
+    apiAppCreate(apiAppCreateRequest: ApiAppCreateRequest, options?: optionsI): Promise<returnTypeT<ApiAppGetResponse>>;
     apiAppDelete(clientId: string, options?: optionsI): Promise<returnTypeI>;
     apiAppGet(clientId: string, options?: optionsI): Promise<returnTypeT<ApiAppGetResponse>>;
     apiAppList(page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<ApiAppListResponse>>;
-    apiAppUpdate(clientId: string, apiAppUpdateRequest: ApiAppUpdateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<ApiAppGetResponse>>;
+    apiAppUpdate(clientId: string, apiAppUpdateRequest: ApiAppUpdateRequest, options?: optionsI): Promise<returnTypeT<ApiAppGetResponse>>;
 }

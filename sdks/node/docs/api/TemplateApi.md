@@ -20,7 +20,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `templateAddUser()`
 
 ```typescript
-templateAddUser(templateId: string, templateAddUserRequest: TemplateAddUserRequest, idempotencyKey: string): TemplateGetResponse
+templateAddUser(templateId: string, templateAddUserRequest: TemplateAddUserRequest): TemplateGetResponse
 ```
 
 Add User to Template
@@ -60,7 +60,6 @@ apiCaller.templateAddUser(
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the Template to give the Account access to. | |
 | **templateAddUserRequest** | [**TemplateAddUserRequest**](../model/TemplateAddUserRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -82,7 +81,7 @@ apiCaller.templateAddUser(
 ## `templateCreate()`
 
 ```typescript
-templateCreate(templateCreateRequest: TemplateCreateRequest, idempotencyKey: string): TemplateCreateResponse
+templateCreate(templateCreateRequest: TemplateCreateRequest): TemplateCreateResponse
 ```
 
 Create Template
@@ -203,7 +202,6 @@ apiCaller.templateCreate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **templateCreateRequest** | [**TemplateCreateRequest**](../model/TemplateCreateRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -225,7 +223,7 @@ apiCaller.templateCreate(
 ## `templateCreateEmbeddedDraft()`
 
 ```typescript
-templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest, idempotencyKey: string): TemplateCreateEmbeddedDraftResponse
+templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest): TemplateCreateEmbeddedDraftResponse
 ```
 
 Create Embedded Template Draft
@@ -310,7 +308,6 @@ apiCaller.templateCreateEmbeddedDraft(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **templateCreateEmbeddedDraftRequest** | [**TemplateCreateEmbeddedDraftRequest**](../model/TemplateCreateEmbeddedDraftRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -332,7 +329,7 @@ apiCaller.templateCreateEmbeddedDraft(
 ## `templateDelete()`
 
 ```typescript
-templateDelete(templateId: string, idempotencyKey: string)
+templateDelete(templateId: string)
 ```
 
 Delete Template
@@ -364,7 +361,6 @@ apiCaller.templateDelete(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the Template to delete. | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -671,7 +667,7 @@ apiCaller.templateList(
 ## `templateRemoveUser()`
 
 ```typescript
-templateRemoveUser(templateId: string, templateRemoveUserRequest: TemplateRemoveUserRequest, idempotencyKey: string): TemplateGetResponse
+templateRemoveUser(templateId: string, templateRemoveUserRequest: TemplateRemoveUserRequest): TemplateGetResponse
 ```
 
 Remove User from Template
@@ -711,7 +707,6 @@ apiCaller.templateRemoveUser(
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the Template to remove the Account\&#39;s access to. | |
 | **templateRemoveUserRequest** | [**TemplateRemoveUserRequest**](../model/TemplateRemoveUserRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -733,7 +728,7 @@ apiCaller.templateRemoveUser(
 ## `templateUpdateFiles()`
 
 ```typescript
-templateUpdateFiles(templateId: string, templateUpdateFilesRequest: TemplateUpdateFilesRequest, idempotencyKey: string): TemplateUpdateFilesResponse
+templateUpdateFiles(templateId: string, templateUpdateFilesRequest: TemplateUpdateFilesRequest): TemplateUpdateFilesResponse
 ```
 
 Update Template Files
@@ -775,7 +770,6 @@ apiCaller.templateUpdateFiles(
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The ID of the template whose files to update. | |
 | **templateUpdateFilesRequest** | [**TemplateUpdateFilesRequest**](../model/TemplateUpdateFilesRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

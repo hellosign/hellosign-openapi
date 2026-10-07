@@ -136,15 +136,14 @@ class ReportApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ReportCreateExample.php
      *
      * @param Model\ReportCreateRequest $report_create_request report_create_request (required)
-     * @param string|null               $idempotency_key       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\ReportCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function reportCreate(Model\ReportCreateRequest $report_create_request, ?string $idempotency_key = null)
+    public function reportCreate(Model\ReportCreateRequest $report_create_request)
     {
-        list($response) = $this->reportCreateWithHttpInfo($report_create_request, $idempotency_key);
+        list($response) = $this->reportCreateWithHttpInfo($report_create_request);
         return $response;
     }
 
@@ -156,7 +155,6 @@ class ReportApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ReportCreateExample.php
      *
      * @param Model\ReportCreateRequest $report_create_request (required)
-     * @param string|null               $idempotency_key       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
      * @return array of Model\ReportCreateResponse, HTTP status code, HTTP response headers (array of strings)
@@ -164,9 +162,9 @@ class ReportApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
-    public function reportCreateWithHttpInfo(Model\ReportCreateRequest $report_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreateWithHttpInfo(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
-        $request = $this->reportCreateRequest($report_create_request, $idempotency_key, $contentType);
+        $request = $this->reportCreateRequest($report_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -296,16 +294,15 @@ class ReportApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ReportCreateExample.php
      *
      * @param Model\ReportCreateRequest $report_create_request (required)
-     * @param string|null               $idempotency_key       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
-    public function reportCreateAsync(Model\ReportCreateRequest $report_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreateAsync(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
-        return $this->reportCreateAsyncWithHttpInfo($report_create_request, $idempotency_key, $contentType)
+        return $this->reportCreateAsyncWithHttpInfo($report_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -321,17 +318,16 @@ class ReportApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/ReportCreateExample.php
      *
      * @param Model\ReportCreateRequest $report_create_request (required)
-     * @param string|null               $idempotency_key       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
-    public function reportCreateAsyncWithHttpInfo(Model\ReportCreateRequest $report_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreateAsyncWithHttpInfo(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\ReportCreateResponse';
-        $request = $this->reportCreateRequest($report_create_request, $idempotency_key, $contentType);
+        $request = $this->reportCreateRequest($report_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -373,27 +369,19 @@ class ReportApi
      * Create request for operation 'reportCreate'
      *
      * @param Model\ReportCreateRequest $report_create_request (required)
-     * @param string|null               $idempotency_key       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
-    public function reportCreateRequest(Model\ReportCreateRequest $report_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreateRequest(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
         // verify the required parameter 'report_create_request' is set
         if ($report_create_request === null || (is_array($report_create_request) && count($report_create_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $report_create_request when calling reportCreate'
             );
-        }
-
-        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling ReportApi.reportCreate, must be smaller than or equal to 255.');
-        }
-        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
-            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling ReportApi.reportCreate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/report/create';
@@ -408,11 +396,6 @@ class ReportApi
         );
 
         $multipart = !empty($formParams);
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],

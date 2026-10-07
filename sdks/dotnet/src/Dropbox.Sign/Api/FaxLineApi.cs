@@ -36,10 +36,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        FaxLineResponse FaxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        FaxLineResponse FaxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0);
 
         /// <summary>
         /// Add Fax Line User
@@ -50,10 +49,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        ApiResponse<FaxLineResponse> FaxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<FaxLineResponse> FaxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0);
         /// <summary>
         /// Get Available Fax Line Area Codes
         /// </summary>
@@ -94,10 +92,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        FaxLineResponse FaxLineCreate(FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        FaxLineResponse FaxLineCreate(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Purchase Fax Line
@@ -108,10 +105,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        ApiResponse<FaxLineResponse> FaxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<FaxLineResponse> FaxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0);
         /// <summary>
         /// Delete Fax Line
         /// </summary>
@@ -202,10 +198,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        FaxLineResponse FaxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        FaxLineResponse FaxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0);
 
         /// <summary>
         /// Remove Fax Line Access
@@ -216,10 +211,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        ApiResponse<FaxLineResponse> FaxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<FaxLineResponse> FaxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -238,11 +232,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Fax Line User
@@ -253,11 +246,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Available Fax Line Area Codes
         /// </summary>
@@ -300,11 +292,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Purchase Fax Line
@@ -315,11 +306,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Fax Line
         /// </summary>
@@ -416,11 +406,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove Fax Line Access
@@ -431,11 +420,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -562,12 +550,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        public FaxLineResponse FaxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public FaxLineResponse FaxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineAddUserWithHttpInfo(faxLineAddUserRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineAddUserWithHttpInfo(faxLineAddUserRequest);
             return localVarResponse.Data;
         }
 
@@ -577,10 +564,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxLineAddUserRequest' is set
             if (faxLineAddUserRequest == null)
@@ -619,10 +605,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -654,13 +636,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineAddUserWithHttpInfoAsync(faxLineAddUserRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineAddUserWithHttpInfoAsync(faxLineAddUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -670,11 +651,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineAddUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineAddUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineAddUserRequest' is set
             if (faxLineAddUserRequest == null)
@@ -714,10 +694,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -946,12 +922,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        public FaxLineResponse FaxLineCreate(FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public FaxLineResponse FaxLineCreate(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineCreateWithHttpInfo(faxLineCreateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineCreateWithHttpInfo(faxLineCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -961,10 +936,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxLineCreateRequest' is set
             if (faxLineCreateRequest == null)
@@ -1003,10 +977,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1038,13 +1008,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineCreateWithHttpInfoAsync(faxLineCreateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineCreateWithHttpInfoAsync(faxLineCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1054,11 +1023,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineCreateRequest' is set
             if (faxLineCreateRequest == null)
@@ -1098,10 +1066,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1658,12 +1622,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        public FaxLineResponse FaxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public FaxLineResponse FaxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest);
             return localVarResponse.Data;
         }
 
@@ -1673,10 +1636,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxLineRemoveUserRequest' is set
             if (faxLineRemoveUserRequest == null)
@@ -1715,10 +1677,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1750,13 +1708,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineRemoveUserWithHttpInfoAsync(faxLineRemoveUserRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineRemoveUserWithHttpInfoAsync(faxLineRemoveUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1766,11 +1723,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/FaxLineRemoveUserExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxLineRemoveUserRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineRemoveUserRequest' is set
             if (faxLineRemoveUserRequest == null)
@@ -1810,10 +1766,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;

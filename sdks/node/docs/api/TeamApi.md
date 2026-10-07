@@ -19,7 +19,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `teamAddMember()`
 
 ```typescript
-teamAddMember(teamAddMemberRequest: TeamAddMemberRequest, teamId: string, idempotencyKey: string): TeamGetResponse
+teamAddMember(teamAddMemberRequest: TeamAddMemberRequest, teamId: string): TeamGetResponse
 ```
 
 Add User to Team
@@ -59,7 +59,6 @@ apiCaller.teamAddMember(
 | ------------- | ------------- | ------------- | ------------- |
 | **teamAddMemberRequest** | [**TeamAddMemberRequest**](../model/TeamAddMemberRequest.md)|  | |
 | **teamId** | **string**| The id of the team. | [optional] |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -81,7 +80,7 @@ apiCaller.teamAddMember(
 ## `teamCreate()`
 
 ```typescript
-teamCreate(teamCreateRequest: TeamCreateRequest, idempotencyKey: string): TeamGetResponse
+teamCreate(teamCreateRequest: TeamCreateRequest): TeamGetResponse
 ```
 
 Create Team
@@ -119,7 +118,6 @@ apiCaller.teamCreate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **teamCreateRequest** | [**TeamCreateRequest**](../model/TeamCreateRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -408,7 +406,7 @@ apiCaller.teamMembers(
 ## `teamRemoveMember()`
 
 ```typescript
-teamRemoveMember(teamRemoveMemberRequest: TeamRemoveMemberRequest, idempotencyKey: string): TeamGetResponse
+teamRemoveMember(teamRemoveMemberRequest: TeamRemoveMemberRequest): TeamGetResponse
 ```
 
 Remove User from Team
@@ -447,7 +445,6 @@ apiCaller.teamRemoveMember(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **teamRemoveMemberRequest** | [**TeamRemoveMemberRequest**](../model/TeamRemoveMemberRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -528,7 +525,7 @@ apiCaller.teamSubTeams(
 ## `teamUpdate()`
 
 ```typescript
-teamUpdate(teamUpdateRequest: TeamUpdateRequest, idempotencyKey: string): TeamGetResponse
+teamUpdate(teamUpdateRequest: TeamUpdateRequest): TeamGetResponse
 ```
 
 Update Team
@@ -566,7 +563,6 @@ apiCaller.teamUpdate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **teamUpdateRequest** | [**TeamUpdateRequest**](../model/TeamUpdateRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

@@ -27,7 +27,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="signaturerequestbulkcreateembeddedwithtemplate"></a>
 # **SignatureRequestBulkCreateEmbeddedWithTemplate**
-> BulkSendJobSendResponse SignatureRequestBulkCreateEmbeddedWithTemplate (SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = null)
+> BulkSendJobSendResponse SignatureRequestBulkCreateEmbeddedWithTemplate (SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest)
 
 Embedded Bulk Send with Template
 
@@ -161,7 +161,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Embedded Bulk Send with Template
-    ApiResponse<BulkSendJobSendResponse> response = apiInstance.SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestBulkCreateEmbeddedWithTemplateRequest, idempotencyKey);
+    ApiResponse<BulkSendJobSendResponse> response = apiInstance.SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestBulkCreateEmbeddedWithTemplateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -179,7 +179,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestBulkCreateEmbeddedWithTemplateRequest** | [**SignatureRequestBulkCreateEmbeddedWithTemplateRequest**](SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -198,14 +197,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestbulksendwithtemplate"></a>
 # **SignatureRequestBulkSendWithTemplate**
-> BulkSendJobSendResponse SignatureRequestBulkSendWithTemplate (SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = null)
+> BulkSendJobSendResponse SignatureRequestBulkSendWithTemplate (SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest)
 
 Bulk Send with Template
 
@@ -339,7 +338,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Bulk Send with Template
-    ApiResponse<BulkSendJobSendResponse> response = apiInstance.SignatureRequestBulkSendWithTemplateWithHttpInfo(signatureRequestBulkSendWithTemplateRequest, idempotencyKey);
+    ApiResponse<BulkSendJobSendResponse> response = apiInstance.SignatureRequestBulkSendWithTemplateWithHttpInfo(signatureRequestBulkSendWithTemplateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -357,7 +356,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestBulkSendWithTemplateRequest** | [**SignatureRequestBulkSendWithTemplateRequest**](SignatureRequestBulkSendWithTemplateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -376,14 +374,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestcancel"></a>
 # **SignatureRequestCancel**
-> void SignatureRequestCancel (string signatureRequestId, string? idempotencyKey = null)
+> void SignatureRequestCancel (string signatureRequestId)
 
 Cancel Incomplete Signature Request
 
@@ -434,7 +432,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Cancel Incomplete Signature Request
-    apiInstance.SignatureRequestCancelWithHttpInfo(signatureRequestId, idempotencyKey);
+    apiInstance.SignatureRequestCancelWithHttpInfo(signatureRequestId);
 }
 catch (ApiException e)
 {
@@ -449,7 +447,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the incomplete SignatureRequest to cancel. |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -468,14 +465,14 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestcreateembedded"></a>
 # **SignatureRequestCreateEmbedded**
-> SignatureRequestGetResponse SignatureRequestCreateEmbedded (SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestCreateEmbedded (SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest)
 
 Create Embedded Signature Request
 
@@ -576,7 +573,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Embedded Signature Request
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestCreateEmbeddedWithHttpInfo(signatureRequestCreateEmbeddedRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestCreateEmbeddedWithHttpInfo(signatureRequestCreateEmbeddedRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -594,7 +591,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestCreateEmbeddedRequest** | [**SignatureRequestCreateEmbeddedRequest**](SignatureRequestCreateEmbeddedRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -613,14 +609,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestcreateembeddedwithtemplate"></a>
 # **SignatureRequestCreateEmbeddedWithTemplate**
-> SignatureRequestGetResponse SignatureRequestCreateEmbeddedWithTemplate (SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestCreateEmbeddedWithTemplate (SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest)
 
 Create Embedded Signature Request with Template
 
@@ -705,7 +701,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Embedded Signature Request with Template
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestCreateEmbeddedWithTemplateRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestCreateEmbeddedWithTemplateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -723,7 +719,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestCreateEmbeddedWithTemplateRequest** | [**SignatureRequestCreateEmbeddedWithTemplateRequest**](SignatureRequestCreateEmbeddedWithTemplateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -742,14 +737,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestedit"></a>
 # **SignatureRequestEdit**
-> SignatureRequestGetResponse SignatureRequestEdit (string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestEdit (string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest)
 
 Edit Signature Request
 
@@ -860,7 +855,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Edit Signature Request
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditWithHttpInfo(signatureRequestId, signatureRequestEditRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditWithHttpInfo(signatureRequestId, signatureRequestEditRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -879,7 +874,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to edit. |  |
 | **signatureRequestEditRequest** | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -898,14 +892,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequesteditembedded"></a>
 # **SignatureRequestEditEmbedded**
-> SignatureRequestGetResponse SignatureRequestEditEmbedded (string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestEditEmbedded (string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest)
 
 Edit Embedded Signature Request
 
@@ -1006,7 +1000,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Edit Embedded Signature Request
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditEmbeddedWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditEmbeddedWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1025,7 +1019,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to edit. |  |
 | **signatureRequestEditEmbeddedRequest** | [**SignatureRequestEditEmbeddedRequest**](SignatureRequestEditEmbeddedRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -1044,14 +1037,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequesteditembeddedwithtemplate"></a>
 # **SignatureRequestEditEmbeddedWithTemplate**
-> SignatureRequestGetResponse SignatureRequestEditEmbeddedWithTemplate (string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestEditEmbeddedWithTemplate (string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest)
 
 Edit Embedded Signature Request with Template
 
@@ -1136,7 +1129,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Edit Embedded Signature Request with Template
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1155,7 +1148,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to edit. |  |
 | **signatureRequestEditEmbeddedWithTemplateRequest** | [**SignatureRequestEditEmbeddedWithTemplateRequest**](SignatureRequestEditEmbeddedWithTemplateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -1174,14 +1166,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequesteditwithtemplate"></a>
 # **SignatureRequestEditWithTemplate**
-> SignatureRequestGetResponse SignatureRequestEditWithTemplate (string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestEditWithTemplate (string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest)
 
 Edit Signature Request With Template
 
@@ -1289,7 +1281,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Edit Signature Request With Template
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditWithTemplateRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditWithTemplateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1308,7 +1300,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to edit. |  |
 | **signatureRequestEditWithTemplateRequest** | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -1327,7 +1318,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1824,7 +1815,7 @@ catch (ApiException e)
 
 <a id="signaturerequestreleasehold"></a>
 # **SignatureRequestReleaseHold**
-> SignatureRequestGetResponse SignatureRequestReleaseHold (string signatureRequestId, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestReleaseHold (string signatureRequestId)
 
 Release On-Hold Signature Request
 
@@ -1877,7 +1868,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Release On-Hold Signature Request
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestReleaseHoldWithHttpInfo(signatureRequestId, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestReleaseHoldWithHttpInfo(signatureRequestId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1895,7 +1886,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to release. |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -1914,14 +1904,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestremind"></a>
 # **SignatureRequestRemind**
-> SignatureRequestGetResponse SignatureRequestRemind (string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestRemind (string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest)
 
 Send Request Reminder
 
@@ -1979,7 +1969,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Send Request Reminder
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestRemindWithHttpInfo(signatureRequestId, signatureRequestRemindRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestRemindWithHttpInfo(signatureRequestId, signatureRequestRemindRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1998,7 +1988,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to send a reminder for. |  |
 | **signatureRequestRemindRequest** | [**SignatureRequestRemindRequest**](SignatureRequestRemindRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -2017,14 +2006,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestremove"></a>
 # **SignatureRequestRemove**
-> void SignatureRequestRemove (string signatureRequestId, string? idempotencyKey = null)
+> void SignatureRequestRemove (string signatureRequestId)
 
 Remove Signature Request Access
 
@@ -2074,7 +2063,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Remove Signature Request Access
-    apiInstance.SignatureRequestRemoveWithHttpInfo(signatureRequestId, idempotencyKey);
+    apiInstance.SignatureRequestRemoveWithHttpInfo(signatureRequestId);
 }
 catch (ApiException e)
 {
@@ -2089,7 +2078,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to remove. |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -2108,14 +2096,14 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestsend"></a>
 # **SignatureRequestSend**
-> SignatureRequestGetResponse SignatureRequestSend (SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestSend (SignatureRequestSendRequest signatureRequestSendRequest)
 
 Send Signature Request
 
@@ -2226,7 +2214,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Send Signature Request
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestSendWithHttpInfo(signatureRequestSendRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestSendWithHttpInfo(signatureRequestSendRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2244,7 +2232,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestSendRequest** | [**SignatureRequestSendRequest**](SignatureRequestSendRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -2263,14 +2250,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestsendwithtemplate"></a>
 # **SignatureRequestSendWithTemplate**
-> SignatureRequestGetResponse SignatureRequestSendWithTemplate (SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestSendWithTemplate (SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest)
 
 Send with Template
 
@@ -2378,7 +2365,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Send with Template
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestSendWithTemplateWithHttpInfo(signatureRequestSendWithTemplateRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestSendWithTemplateWithHttpInfo(signatureRequestSendWithTemplateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2396,7 +2383,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestSendWithTemplateRequest** | [**SignatureRequestSendWithTemplateRequest**](SignatureRequestSendWithTemplateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -2415,14 +2401,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="signaturerequestupdate"></a>
 # **SignatureRequestUpdate**
-> SignatureRequestGetResponse SignatureRequestUpdate (string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = null)
+> SignatureRequestGetResponse SignatureRequestUpdate (string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest)
 
 Update Signature Request
 
@@ -2481,7 +2467,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update Signature Request
-    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestUpdateWithHttpInfo(signatureRequestId, signatureRequestUpdateRequest, idempotencyKey);
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestUpdateWithHttpInfo(signatureRequestId, signatureRequestUpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2500,7 +2486,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to update. |  |
 | **signatureRequestUpdateRequest** | [**SignatureRequestUpdateRequest**](SignatureRequestUpdateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -2519,7 +2504,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

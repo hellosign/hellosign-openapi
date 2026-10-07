@@ -36,10 +36,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ReportCreateResponse</returns>
-        ReportCreateResponse ReportCreate(ReportCreateRequest reportCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ReportCreateResponse ReportCreate(ReportCreateRequest reportCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Report
@@ -50,10 +49,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ReportCreateResponse</returns>
-        ApiResponse<ReportCreateResponse> ReportCreateWithHttpInfo(ReportCreateRequest reportCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<ReportCreateResponse> ReportCreateWithHttpInfo(ReportCreateRequest reportCreateRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -72,11 +70,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportCreateResponse</returns>
-        System.Threading.Tasks.Task<ReportCreateResponse> ReportCreateAsync(ReportCreateRequest reportCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ReportCreateResponse> ReportCreateAsync(ReportCreateRequest reportCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Report
@@ -87,11 +84,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReportCreateResponse>> ReportCreateWithHttpInfoAsync(ReportCreateRequest reportCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ReportCreateResponse>> ReportCreateWithHttpInfoAsync(ReportCreateRequest reportCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -218,12 +214,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ReportCreateResponse</returns>
-        public ReportCreateResponse ReportCreate(ReportCreateRequest reportCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public ReportCreateResponse ReportCreate(ReportCreateRequest reportCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> localVarResponse = ReportCreateWithHttpInfo(reportCreateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> localVarResponse = ReportCreateWithHttpInfo(reportCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -233,10 +228,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ReportCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> ReportCreateWithHttpInfo(ReportCreateRequest reportCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> ReportCreateWithHttpInfo(ReportCreateRequest reportCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'reportCreateRequest' is set
             if (reportCreateRequest == null)
@@ -275,10 +269,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "ReportApi.ReportCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -310,13 +300,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportCreateResponse</returns>
-        public async System.Threading.Tasks.Task<ReportCreateResponse> ReportCreateAsync(ReportCreateRequest reportCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReportCreateResponse> ReportCreateAsync(ReportCreateRequest reportCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> localVarResponse = await ReportCreateWithHttpInfoAsync(reportCreateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> localVarResponse = await ReportCreateWithHttpInfoAsync(reportCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -326,11 +315,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/ReportCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ReportCreateResponse>> ReportCreateWithHttpInfoAsync(ReportCreateRequest reportCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ReportCreateResponse>> ReportCreateWithHttpInfoAsync(ReportCreateRequest reportCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'reportCreateRequest' is set
             if (reportCreateRequest == null)
@@ -370,10 +358,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "ReportApi.ReportCreate";
             localVarRequestOptions.OperationIndex = operationIndex;

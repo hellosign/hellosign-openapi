@@ -11,7 +11,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="accountcreate"></a>
 # **AccountCreate**
-> AccountCreateResponse AccountCreate (AccountCreateRequest accountCreateRequest, string? idempotencyKey = null)
+> AccountCreateResponse AccountCreate (AccountCreateRequest accountCreateRequest)
 
 Create Account
 
@@ -68,7 +68,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Account
-    ApiResponse<AccountCreateResponse> response = apiInstance.AccountCreateWithHttpInfo(accountCreateRequest, idempotencyKey);
+    ApiResponse<AccountCreateResponse> response = apiInstance.AccountCreateWithHttpInfo(accountCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **accountCreateRequest** | [**AccountCreateRequest**](AccountCreateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -105,7 +104,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -207,7 +206,7 @@ catch (ApiException e)
 
 <a id="accountupdate"></a>
 # **AccountUpdate**
-> AccountGetResponse AccountUpdate (AccountUpdateRequest accountUpdateRequest, string? idempotencyKey = null)
+> AccountGetResponse AccountUpdate (AccountUpdateRequest accountUpdateRequest)
 
 Update Account
 
@@ -265,7 +264,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update Account
-    ApiResponse<AccountGetResponse> response = apiInstance.AccountUpdateWithHttpInfo(accountUpdateRequest, idempotencyKey);
+    ApiResponse<AccountGetResponse> response = apiInstance.AccountUpdateWithHttpInfo(accountUpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -283,7 +282,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **accountUpdateRequest** | [**AccountUpdateRequest**](AccountUpdateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -302,14 +300,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="accountverify"></a>
 # **AccountVerify**
-> AccountVerifyResponse AccountVerify (AccountVerifyRequest accountVerifyRequest, string? idempotencyKey = null)
+> AccountVerifyResponse AccountVerify (AccountVerifyRequest accountVerifyRequest)
 
 Verify Account
 
@@ -366,7 +364,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Verify Account
-    ApiResponse<AccountVerifyResponse> response = apiInstance.AccountVerifyWithHttpInfo(accountVerifyRequest, idempotencyKey);
+    ApiResponse<AccountVerifyResponse> response = apiInstance.AccountVerifyWithHttpInfo(accountVerifyRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -384,7 +382,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **accountVerifyRequest** | [**AccountVerifyRequest**](AccountVerifyRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -403,7 +400,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

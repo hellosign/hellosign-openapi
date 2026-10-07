@@ -17,9 +17,6 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field
-from typing import Optional
-from typing_extensions import Annotated
 from dropbox_sign.models.document_field_detection_request import (
     DocumentFieldDetectionRequest,
 )
@@ -49,12 +46,6 @@ class DocumentApi:
     def document_detect_fields(
         self,
         document_field_detection_request: DocumentFieldDetectionRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -75,8 +66,6 @@ class DocumentApi:
 
         :param document_field_detection_request: (required)
         :type document_field_detection_request: DocumentFieldDetectionRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -101,7 +90,6 @@ class DocumentApi:
 
         _param = self._document_detect_fields_serialize(
             document_field_detection_request=document_field_detection_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -126,12 +114,6 @@ class DocumentApi:
     def document_detect_fields_with_http_info(
         self,
         document_field_detection_request: DocumentFieldDetectionRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -152,8 +134,6 @@ class DocumentApi:
 
         :param document_field_detection_request: (required)
         :type document_field_detection_request: DocumentFieldDetectionRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -178,7 +158,6 @@ class DocumentApi:
 
         _param = self._document_detect_fields_serialize(
             document_field_detection_request=document_field_detection_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -203,12 +182,6 @@ class DocumentApi:
     def document_detect_fields_without_preload_content(
         self,
         document_field_detection_request: DocumentFieldDetectionRequest,
-        idempotency_key: Annotated[
-            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
-            Field(
-                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
-            ),
-        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -229,8 +202,6 @@ class DocumentApi:
 
         :param document_field_detection_request: (required)
         :type document_field_detection_request: DocumentFieldDetectionRequest
-        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
-        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -255,7 +226,6 @@ class DocumentApi:
 
         _param = self._document_detect_fields_serialize(
             document_field_detection_request=document_field_detection_request,
-            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -275,7 +245,6 @@ class DocumentApi:
     def _document_detect_fields_serialize(
         self,
         document_field_detection_request,
-        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -320,8 +289,6 @@ class DocumentApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if idempotency_key is not None:
-            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if document_field_detection_request is not None and has_files is False:

@@ -27,7 +27,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/UnclaimedDraftCreateExample.rb
     # @param unclaimed_draft_create_request [UnclaimedDraftCreateRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [UnclaimedDraftCreateResponse]
     def unclaimed_draft_create(unclaimed_draft_create_request, opts = {})
       data, _status_code, _headers = unclaimed_draft_create_with_http_info(unclaimed_draft_create_request, opts)
@@ -39,7 +38,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/UnclaimedDraftCreateExample.rb
     # @param unclaimed_draft_create_request [UnclaimedDraftCreateRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(UnclaimedDraftCreateResponse, Integer, Hash)>] UnclaimedDraftCreateResponse data, response status code and response headers
     def unclaimed_draft_create_with_http_info(unclaimed_draft_create_request, opts = {})
       if @api_client.config.debugging
@@ -49,14 +47,6 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && unclaimed_draft_create_request.nil?
         fail ArgumentError, "Missing the required parameter 'unclaimed_draft_create_request' when calling UnclaimedDraftApi.unclaimed_draft_create"
       end
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling UnclaimedDraftApi.unclaimed_draft_create, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling UnclaimedDraftApi.unclaimed_draft_create, the character length must be great than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/unclaimed_draft/create'
 
@@ -72,7 +62,6 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -150,7 +139,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.rb
     # @param unclaimed_draft_create_embedded_request [UnclaimedDraftCreateEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [UnclaimedDraftCreateResponse]
     def unclaimed_draft_create_embedded(unclaimed_draft_create_embedded_request, opts = {})
       data, _status_code, _headers = unclaimed_draft_create_embedded_with_http_info(unclaimed_draft_create_embedded_request, opts)
@@ -162,7 +150,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.rb
     # @param unclaimed_draft_create_embedded_request [UnclaimedDraftCreateEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(UnclaimedDraftCreateResponse, Integer, Hash)>] UnclaimedDraftCreateResponse data, response status code and response headers
     def unclaimed_draft_create_embedded_with_http_info(unclaimed_draft_create_embedded_request, opts = {})
       if @api_client.config.debugging
@@ -172,14 +159,6 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && unclaimed_draft_create_embedded_request.nil?
         fail ArgumentError, "Missing the required parameter 'unclaimed_draft_create_embedded_request' when calling UnclaimedDraftApi.unclaimed_draft_create_embedded"
       end
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling UnclaimedDraftApi.unclaimed_draft_create_embedded, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling UnclaimedDraftApi.unclaimed_draft_create_embedded, the character length must be great than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/unclaimed_draft/create_embedded'
 
@@ -195,7 +174,6 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -273,7 +251,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.rb
     # @param unclaimed_draft_create_embedded_with_template_request [UnclaimedDraftCreateEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [UnclaimedDraftCreateResponse]
     def unclaimed_draft_create_embedded_with_template(unclaimed_draft_create_embedded_with_template_request, opts = {})
       data, _status_code, _headers = unclaimed_draft_create_embedded_with_template_with_http_info(unclaimed_draft_create_embedded_with_template_request, opts)
@@ -285,7 +262,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.rb
     # @param unclaimed_draft_create_embedded_with_template_request [UnclaimedDraftCreateEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(UnclaimedDraftCreateResponse, Integer, Hash)>] UnclaimedDraftCreateResponse data, response status code and response headers
     def unclaimed_draft_create_embedded_with_template_with_http_info(unclaimed_draft_create_embedded_with_template_request, opts = {})
       if @api_client.config.debugging
@@ -295,14 +271,6 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && unclaimed_draft_create_embedded_with_template_request.nil?
         fail ArgumentError, "Missing the required parameter 'unclaimed_draft_create_embedded_with_template_request' when calling UnclaimedDraftApi.unclaimed_draft_create_embedded_with_template"
       end
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling UnclaimedDraftApi.unclaimed_draft_create_embedded_with_template, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling UnclaimedDraftApi.unclaimed_draft_create_embedded_with_template, the character length must be great than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/unclaimed_draft/create_embedded_with_template'
 
@@ -318,7 +286,6 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -397,7 +364,6 @@ module Dropbox::Sign
     # @param signature_request_id [String] The ID of the signature request to edit and resend.
     # @param unclaimed_draft_edit_and_resend_request [UnclaimedDraftEditAndResendRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [UnclaimedDraftCreateResponse]
     def unclaimed_draft_edit_and_resend(signature_request_id, unclaimed_draft_edit_and_resend_request, opts = {})
       data, _status_code, _headers = unclaimed_draft_edit_and_resend_with_http_info(signature_request_id, unclaimed_draft_edit_and_resend_request, opts)
@@ -410,7 +376,6 @@ module Dropbox::Sign
     # @param signature_request_id [String] The ID of the signature request to edit and resend.
     # @param unclaimed_draft_edit_and_resend_request [UnclaimedDraftEditAndResendRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(UnclaimedDraftCreateResponse, Integer, Hash)>] UnclaimedDraftCreateResponse data, response status code and response headers
     def unclaimed_draft_edit_and_resend_with_http_info(signature_request_id, unclaimed_draft_edit_and_resend_request, opts = {})
       if @api_client.config.debugging
@@ -424,14 +389,6 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && unclaimed_draft_edit_and_resend_request.nil?
         fail ArgumentError, "Missing the required parameter 'unclaimed_draft_edit_and_resend_request' when calling UnclaimedDraftApi.unclaimed_draft_edit_and_resend"
       end
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling UnclaimedDraftApi.unclaimed_draft_edit_and_resend, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling UnclaimedDraftApi.unclaimed_draft_edit_and_resend, the character length must be great than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/unclaimed_draft/edit_and_resend/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -447,7 +404,6 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

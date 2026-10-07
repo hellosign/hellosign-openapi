@@ -24,6 +24,6 @@ export declare class EmbeddedApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    embeddedEditUrl(templateId: string, embeddedEditUrlRequest: EmbeddedEditUrlRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<EmbeddedEditUrlResponse>>;
+    embeddedEditUrl(templateId: string, embeddedEditUrlRequest: EmbeddedEditUrlRequest, options?: optionsI): Promise<returnTypeT<EmbeddedEditUrlResponse>>;
     embeddedSignUrl(signatureId: string, options?: optionsI): Promise<returnTypeT<EmbeddedSignUrlResponse>>;
 }

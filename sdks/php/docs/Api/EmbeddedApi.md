@@ -11,7 +11,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `embeddedEditUrl()`
 
 ```php
-embeddedEditUrl($template_id, $embedded_edit_url_request, $idempotency_key): \Dropbox\Sign\Model\EmbeddedEditUrlResponse
+embeddedEditUrl($template_id, $embedded_edit_url_request): \Dropbox\Sign\Model\EmbeddedEditUrlResponse
 ```
 Get Embedded Template Edit URL
 
@@ -61,7 +61,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the template to edit. | |
 | **embedded_edit_url_request** | [**\Dropbox\Sign\Model\EmbeddedEditUrlRequest**](../Model/EmbeddedEditUrlRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

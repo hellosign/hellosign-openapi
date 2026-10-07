@@ -123,13 +123,11 @@ export class EmbeddedApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/EmbeddedEditUrlExample.ts
    * @param templateId The id of the template to edit.
    * @param embeddedEditUrlRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async embeddedEditUrl(
     templateId: string,
     embeddedEditUrlRequest: EmbeddedEditUrlRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<EmbeddedEditUrlResponse>> {
     embeddedEditUrlRequest = deserializeIfNeeded(
@@ -174,10 +172,6 @@ export class EmbeddedApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

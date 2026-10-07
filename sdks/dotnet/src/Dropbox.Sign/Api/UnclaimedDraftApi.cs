@@ -36,10 +36,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        UnclaimedDraftCreateResponse UnclaimedDraftCreate(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        UnclaimedDraftCreateResponse UnclaimedDraftCreate(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Unclaimed Draft
@@ -50,10 +49,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0);
         /// <summary>
         /// Create Embedded Unclaimed Draft
         /// </summary>
@@ -63,10 +61,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Embedded Unclaimed Draft
@@ -77,10 +74,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0);
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
         /// </summary>
@@ -90,10 +86,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
@@ -104,10 +99,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0);
         /// <summary>
         /// Edit and Resend Unclaimed Draft
         /// </summary>
@@ -118,10 +112,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The ID of the signature request to edit and resend.</param>
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0);
 
         /// <summary>
         /// Edit and Resend Unclaimed Draft
@@ -133,10 +126,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The ID of the signature request to edit and resend.</param>
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendWithHttpInfo(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendWithHttpInfo(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -155,11 +147,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Unclaimed Draft
@@ -170,11 +161,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Unclaimed Draft
         /// </summary>
@@ -184,11 +174,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Unclaimed Draft
@@ -199,11 +188,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
         /// </summary>
@@ -213,11 +201,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
@@ -228,11 +215,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Edit and Resend Unclaimed Draft
         /// </summary>
@@ -243,11 +229,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The ID of the signature request to edit and resend.</param>
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Edit and Resend Unclaimed Draft
@@ -259,11 +244,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The ID of the signature request to edit and resend.</param>
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -390,12 +374,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        public UnclaimedDraftCreateResponse UnclaimedDraftCreate(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public UnclaimedDraftCreateResponse UnclaimedDraftCreate(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -405,10 +388,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'unclaimedDraftCreateRequest' is set
             if (unclaimedDraftCreateRequest == null)
@@ -447,10 +429,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -488,13 +466,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateWithHttpInfoAsync(unclaimedDraftCreateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateWithHttpInfoAsync(unclaimedDraftCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -504,11 +481,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'unclaimedDraftCreateRequest' is set
             if (unclaimedDraftCreateRequest == null)
@@ -548,10 +524,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -590,12 +562,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        public UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest);
             return localVarResponse.Data;
         }
 
@@ -605,10 +576,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0)
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedRequest' is set
             if (unclaimedDraftCreateEmbeddedRequest == null)
@@ -647,10 +617,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -688,13 +654,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(unclaimedDraftCreateEmbeddedRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(unclaimedDraftCreateEmbeddedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -704,11 +669,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedRequest' is set
             if (unclaimedDraftCreateEmbeddedRequest == null)
@@ -748,10 +712,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -790,12 +750,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        public UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest);
             return localVarResponse.Data;
         }
 
@@ -805,10 +764,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' is set
             if (unclaimedDraftCreateEmbeddedWithTemplateRequest == null)
@@ -847,10 +805,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -888,13 +842,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(unclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(unclaimedDraftCreateEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -904,11 +857,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' is set
             if (unclaimedDraftCreateEmbeddedWithTemplateRequest == null)
@@ -948,10 +900,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -991,12 +939,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The ID of the signature request to edit and resend.</param>
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        public UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest);
             return localVarResponse.Data;
         }
 
@@ -1007,10 +954,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The ID of the signature request to edit and resend.</param>
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendWithHttpInfo(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendWithHttpInfo(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -1056,10 +1002,6 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftEditAndResend";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1098,13 +1040,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The ID of the signature request to edit and resend.</param>
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftEditAndResendWithHttpInfoAsync(signatureRequestId, unclaimedDraftEditAndResendRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftEditAndResendWithHttpInfoAsync(signatureRequestId, unclaimedDraftEditAndResendRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1115,11 +1056,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The ID of the signature request to edit and resend.</param>
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -1166,10 +1106,6 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftEditAndResend";
             localVarRequestOptions.OperationIndex = operationIndex;

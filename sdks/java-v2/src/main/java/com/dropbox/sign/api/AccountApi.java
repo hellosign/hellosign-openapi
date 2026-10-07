@@ -57,38 +57,18 @@ public class AccountApi {
    * Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountCreateExample.java
    * @param accountCreateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return AccountCreateResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountCreateResponse accountCreate(AccountCreateRequest accountCreateRequest, String idempotencyKey) throws ApiException {
-    return accountCreateWithHttpInfo(accountCreateRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see AccountApi#accountCreate(AccountCreateRequest, String)
-   */
   public AccountCreateResponse accountCreate(AccountCreateRequest accountCreateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return accountCreateWithHttpInfo(accountCreateRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see AccountApi#accountCreateWithHttpInfo(AccountCreateRequest, String)
-   */
-  public ApiResponse<AccountCreateResponse> accountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return accountCreateWithHttpInfo(accountCreateRequest, idempotencyKey);
+    return accountCreateWithHttpInfo(accountCreateRequest).getData();
   }
 
 
@@ -97,28 +77,21 @@ public class AccountApi {
    * Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountCreateExample.java
    * @param accountCreateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;AccountCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountCreateResponse> accountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<AccountCreateResponse> accountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest) throws ApiException {
     
     // Check required parameters
     if (accountCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'accountCreateRequest' when calling accountCreate");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -134,7 +107,7 @@ public class AccountApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : accountCreateRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -256,38 +229,18 @@ public class AccountApi {
    * Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountUpdateExample.java
    * @param accountUpdateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return AccountGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountGetResponse accountUpdate(AccountUpdateRequest accountUpdateRequest, String idempotencyKey) throws ApiException {
-    return accountUpdateWithHttpInfo(accountUpdateRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see AccountApi#accountUpdate(AccountUpdateRequest, String)
-   */
   public AccountGetResponse accountUpdate(AccountUpdateRequest accountUpdateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return accountUpdateWithHttpInfo(accountUpdateRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see AccountApi#accountUpdateWithHttpInfo(AccountUpdateRequest, String)
-   */
-  public ApiResponse<AccountGetResponse> accountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return accountUpdateWithHttpInfo(accountUpdateRequest, idempotencyKey);
+    return accountUpdateWithHttpInfo(accountUpdateRequest).getData();
   }
 
 
@@ -296,28 +249,21 @@ public class AccountApi {
    * Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountUpdateExample.java
    * @param accountUpdateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;AccountGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountGetResponse> accountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<AccountGetResponse> accountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest) throws ApiException {
     
     // Check required parameters
     if (accountUpdateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'accountUpdateRequest' when calling accountUpdate");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -333,7 +279,7 @@ public class AccountApi {
         "PUT",
         new ArrayList<>(),
         isFileTypeFound ? null : accountUpdateRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -348,38 +294,18 @@ public class AccountApi {
    * Verifies whether an Dropbox Sign Account exists for the given email address.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountVerifyExample.java
    * @param accountVerifyRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return AccountVerifyResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountVerifyResponse accountVerify(AccountVerifyRequest accountVerifyRequest, String idempotencyKey) throws ApiException {
-    return accountVerifyWithHttpInfo(accountVerifyRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see AccountApi#accountVerify(AccountVerifyRequest, String)
-   */
   public AccountVerifyResponse accountVerify(AccountVerifyRequest accountVerifyRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return accountVerifyWithHttpInfo(accountVerifyRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see AccountApi#accountVerifyWithHttpInfo(AccountVerifyRequest, String)
-   */
-  public ApiResponse<AccountVerifyResponse> accountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return accountVerifyWithHttpInfo(accountVerifyRequest, idempotencyKey);
+    return accountVerifyWithHttpInfo(accountVerifyRequest).getData();
   }
 
 
@@ -388,28 +314,21 @@ public class AccountApi {
    * Verifies whether an Dropbox Sign Account exists for the given email address.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountVerifyExample.java
    * @param accountVerifyRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;AccountVerifyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountVerifyResponse> accountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<AccountVerifyResponse> accountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest) throws ApiException {
     
     // Check required parameters
     if (accountVerifyRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'accountVerifyRequest' when calling accountVerify");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -425,7 +344,7 @@ public class AccountApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : accountVerifyRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,

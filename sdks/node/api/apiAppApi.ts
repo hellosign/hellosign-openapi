@@ -124,12 +124,10 @@ export class ApiAppApi {
    * @summary Create API App
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppCreateExample.ts
    * @param apiAppCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async apiAppCreate(
     apiAppCreateRequest: ApiAppCreateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<ApiAppGetResponse>> {
     apiAppCreateRequest = deserializeIfNeeded(
@@ -159,10 +157,6 @@ export class ApiAppApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -632,13 +626,11 @@ export class ApiAppApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ApiAppUpdateExample.ts
    * @param clientId The client id of the API App to update.
    * @param apiAppUpdateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async apiAppUpdate(
     clientId: string,
     apiAppUpdateRequest: ApiAppUpdateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<ApiAppGetResponse>> {
     apiAppUpdateRequest = deserializeIfNeeded(
@@ -680,10 +672,6 @@ export class ApiAppApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

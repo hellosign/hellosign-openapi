@@ -24,5 +24,5 @@ export declare class DocumentApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    documentDetectFields(documentFieldDetectionRequest: DocumentFieldDetectionRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<DocumentFieldDetectionResponse>>;
+    documentDetectFields(documentFieldDetectionRequest: DocumentFieldDetectionRequest, options?: optionsI): Promise<returnTypeT<DocumentFieldDetectionResponse>>;
 }

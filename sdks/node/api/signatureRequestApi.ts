@@ -137,12 +137,10 @@ export class SignatureRequestApi {
    * @summary Embedded Bulk Send with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.ts
    * @param signatureRequestBulkCreateEmbeddedWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestBulkCreateEmbeddedWithTemplate(
     signatureRequestBulkCreateEmbeddedWithTemplateRequest: SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<BulkSendJobSendResponse>> {
     signatureRequestBulkCreateEmbeddedWithTemplateRequest = deserializeIfNeeded(
@@ -176,10 +174,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -288,12 +282,10 @@ export class SignatureRequestApi {
    * @summary Bulk Send with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.ts
    * @param signatureRequestBulkSendWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestBulkSendWithTemplate(
     signatureRequestBulkSendWithTemplateRequest: SignatureRequestBulkSendWithTemplateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<BulkSendJobSendResponse>> {
     signatureRequestBulkSendWithTemplateRequest = deserializeIfNeeded(
@@ -327,10 +319,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -444,12 +432,10 @@ export class SignatureRequestApi {
    * @summary Cancel Incomplete Signature Request
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCancelExample.ts
    * @param signatureRequestId The id of the incomplete SignatureRequest to cancel.
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestCancel(
     signatureRequestId: string,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeI> {
     const localVarPath =
@@ -480,10 +466,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -557,12 +539,10 @@ export class SignatureRequestApi {
    * @summary Create Embedded Signature Request
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCreateEmbeddedExample.ts
    * @param signatureRequestCreateEmbeddedRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestCreateEmbedded(
     signatureRequestCreateEmbeddedRequest: SignatureRequestCreateEmbeddedRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestCreateEmbeddedRequest = deserializeIfNeeded(
@@ -595,10 +575,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -712,12 +688,10 @@ export class SignatureRequestApi {
    * @summary Create Embedded Signature Request with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.ts
    * @param signatureRequestCreateEmbeddedWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestCreateEmbeddedWithTemplate(
     signatureRequestCreateEmbeddedWithTemplateRequest: SignatureRequestCreateEmbeddedWithTemplateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestCreateEmbeddedWithTemplateRequest = deserializeIfNeeded(
@@ -751,10 +725,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -869,13 +839,11 @@ export class SignatureRequestApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestEdit(
     signatureRequestId: string,
     signatureRequestEditRequest: SignatureRequestEditRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestEditRequest = deserializeIfNeeded(
@@ -920,10 +888,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -1038,13 +1002,11 @@ export class SignatureRequestApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditEmbeddedExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditEmbeddedRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestEditEmbedded(
     signatureRequestId: string,
     signatureRequestEditEmbeddedRequest: SignatureRequestEditEmbeddedRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestEditEmbeddedRequest = deserializeIfNeeded(
@@ -1089,10 +1051,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -1207,13 +1165,11 @@ export class SignatureRequestApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditEmbeddedWithTemplateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditEmbeddedWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestEditEmbeddedWithTemplate(
     signatureRequestId: string,
     signatureRequestEditEmbeddedWithTemplateRequest: SignatureRequestEditEmbeddedWithTemplateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestEditEmbeddedWithTemplateRequest = deserializeIfNeeded(
@@ -1258,10 +1214,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -1376,13 +1328,11 @@ export class SignatureRequestApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestEditWithTemplateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestEditWithTemplate(
     signatureRequestId: string,
     signatureRequestEditWithTemplateRequest: SignatureRequestEditWithTemplateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestEditWithTemplateRequest = deserializeIfNeeded(
@@ -1427,10 +1377,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -2205,12 +2151,10 @@ export class SignatureRequestApi {
    * @summary Release On-Hold Signature Request
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestReleaseHoldExample.ts
    * @param signatureRequestId The id of the SignatureRequest to release.
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestReleaseHold(
     signatureRequestId: string,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     const localVarPath =
@@ -2241,10 +2185,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -2337,13 +2277,11 @@ export class SignatureRequestApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestRemindExample.ts
    * @param signatureRequestId The id of the SignatureRequest to send a reminder for.
    * @param signatureRequestRemindRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestRemind(
     signatureRequestId: string,
     signatureRequestRemindRequest: SignatureRequestRemindRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestRemindRequest = deserializeIfNeeded(
@@ -2388,10 +2326,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -2505,12 +2439,10 @@ export class SignatureRequestApi {
    * @summary Remove Signature Request Access
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestRemoveExample.ts
    * @param signatureRequestId The id of the SignatureRequest to remove.
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestRemove(
     signatureRequestId: string,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeI> {
     const localVarPath =
@@ -2541,10 +2473,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -2613,12 +2541,10 @@ export class SignatureRequestApi {
    * @summary Send Signature Request
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestSendExample.ts
    * @param signatureRequestSendRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestSend(
     signatureRequestSendRequest: SignatureRequestSendRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestSendRequest = deserializeIfNeeded(
@@ -2651,10 +2577,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -2768,12 +2690,10 @@ export class SignatureRequestApi {
    * @summary Send with Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestSendWithTemplateExample.ts
    * @param signatureRequestSendWithTemplateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestSendWithTemplate(
     signatureRequestSendWithTemplateRequest: SignatureRequestSendWithTemplateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestSendWithTemplateRequest = deserializeIfNeeded(
@@ -2807,10 +2727,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -2925,13 +2841,11 @@ export class SignatureRequestApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/SignatureRequestUpdateExample.ts
    * @param signatureRequestId The id of the SignatureRequest to update.
    * @param signatureRequestUpdateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async signatureRequestUpdate(
     signatureRequestId: string,
     signatureRequestUpdateRequest: SignatureRequestUpdateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
     signatureRequestUpdateRequest = deserializeIfNeeded(
@@ -2976,10 +2890,6 @@ export class SignatureRequestApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

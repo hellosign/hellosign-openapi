@@ -14,7 +14,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `apiAppCreate()`
 
 ```typescript
-apiAppCreate(apiAppCreateRequest: ApiAppCreateRequest, idempotencyKey: string): ApiAppGetResponse
+apiAppCreate(apiAppCreateRequest: ApiAppCreateRequest): ApiAppGetResponse
 ```
 
 Create API App
@@ -71,7 +71,6 @@ apiCaller.apiAppCreate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **apiAppCreateRequest** | [**ApiAppCreateRequest**](../model/ApiAppCreateRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -258,7 +257,7 @@ apiCaller.apiAppList(
 ## `apiAppUpdate()`
 
 ```typescript
-apiAppUpdate(clientId: string, apiAppUpdateRequest: ApiAppUpdateRequest, idempotencyKey: string): ApiAppGetResponse
+apiAppUpdate(clientId: string, apiAppUpdateRequest: ApiAppUpdateRequest): ApiAppGetResponse
 ```
 
 Update API App
@@ -318,7 +317,6 @@ apiCaller.apiAppUpdate(
 | ------------- | ------------- | ------------- | ------------- |
 | **clientId** | **string**| The client id of the API App to update. | |
 | **apiAppUpdateRequest** | [**ApiAppUpdateRequest**](../model/ApiAppUpdateRequest.md)|  | |
-| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

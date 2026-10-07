@@ -15,7 +15,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `fax_line_add_user`
 
-> `<FaxLineResponse> fax_line_add_user(fax_line_add_user_request, opts)`
+> `<FaxLineResponse> fax_line_add_user(fax_line_add_user_request)`
 
 Add Fax Line User
 
@@ -51,12 +51,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<FaxLineResponse>, Integer, Hash)> fax_line_add_user_with_http_info(fax_line_add_user_request, opts)`
+> `<Array(<FaxLineResponse>, Integer, Hash)> fax_line_add_user_with_http_info(fax_line_add_user_request)`
 
 ```ruby
 begin
   # Add Fax Line User
-  data, status_code, headers = api_instance.fax_line_add_user_with_http_info(fax_line_add_user_request, opts)
+  data, status_code, headers = api_instance.fax_line_add_user_with_http_info(fax_line_add_user_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FaxLineResponse>
@@ -70,7 +70,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `fax_line_add_user_request` | [**FaxLineAddUserRequest**](FaxLineAddUserRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -159,7 +158,7 @@ end
 
 ## `fax_line_create`
 
-> `<FaxLineResponse> fax_line_create(fax_line_create_request, opts)`
+> `<FaxLineResponse> fax_line_create(fax_line_create_request)`
 
 Purchase Fax Line
 
@@ -195,12 +194,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<FaxLineResponse>, Integer, Hash)> fax_line_create_with_http_info(fax_line_create_request, opts)`
+> `<Array(<FaxLineResponse>, Integer, Hash)> fax_line_create_with_http_info(fax_line_create_request)`
 
 ```ruby
 begin
   # Purchase Fax Line
-  data, status_code, headers = api_instance.fax_line_create_with_http_info(fax_line_create_request, opts)
+  data, status_code, headers = api_instance.fax_line_create_with_http_info(fax_line_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FaxLineResponse>
@@ -214,7 +213,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `fax_line_create_request` | [**FaxLineCreateRequest**](FaxLineCreateRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -445,7 +443,7 @@ end
 
 ## `fax_line_remove_user`
 
-> `<FaxLineResponse> fax_line_remove_user(fax_line_remove_user_request, opts)`
+> `<FaxLineResponse> fax_line_remove_user(fax_line_remove_user_request)`
 
 Remove Fax Line Access
 
@@ -481,12 +479,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<FaxLineResponse>, Integer, Hash)> fax_line_remove_user_with_http_info(fax_line_remove_user_request, opts)`
+> `<Array(<FaxLineResponse>, Integer, Hash)> fax_line_remove_user_with_http_info(fax_line_remove_user_request)`
 
 ```ruby
 begin
   # Remove Fax Line Access
-  data, status_code, headers = api_instance.fax_line_remove_user_with_http_info(fax_line_remove_user_request, opts)
+  data, status_code, headers = api_instance.fax_line_remove_user_with_http_info(fax_line_remove_user_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FaxLineResponse>
@@ -500,7 +498,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `fax_line_remove_user_request` | [**FaxLineRemoveUserRequest**](FaxLineRemoveUserRequest.md) |  |  |
-| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

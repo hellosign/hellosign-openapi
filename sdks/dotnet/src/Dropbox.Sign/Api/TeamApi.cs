@@ -37,10 +37,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
-        TeamGetResponse TeamAddMember(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), string? idempotencyKey = default(string?), int operationIndex = 0);
+        TeamGetResponse TeamAddMember(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Add User to Team
@@ -52,10 +51,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
-        ApiResponse<TeamGetResponse> TeamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<TeamGetResponse> TeamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Team
         /// </summary>
@@ -65,10 +63,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
-        TeamGetResponse TeamCreate(TeamCreateRequest teamCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        TeamGetResponse TeamCreate(TeamCreateRequest teamCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Team
@@ -79,10 +76,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
-        ApiResponse<TeamGetResponse> TeamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<TeamGetResponse> TeamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest, int operationIndex = 0);
         /// <summary>
         /// Delete Team
         /// </summary>
@@ -217,10 +213,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
-        TeamGetResponse TeamRemoveMember(TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        TeamGetResponse TeamRemoveMember(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0);
 
         /// <summary>
         /// Remove User from Team
@@ -231,10 +226,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
-        ApiResponse<TeamGetResponse> TeamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<TeamGetResponse> TeamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0);
         /// <summary>
         /// List Sub Teams
         /// </summary>
@@ -273,10 +267,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
-        TeamGetResponse TeamUpdate(TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        TeamGetResponse TeamUpdate(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Update Team
@@ -287,10 +280,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
-        ApiResponse<TeamGetResponse> TeamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<TeamGetResponse> TeamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -310,11 +302,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamAddMemberAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamAddMemberAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add User to Team
@@ -326,11 +317,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamAddMemberWithHttpInfoAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamAddMemberWithHttpInfoAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Team
         /// </summary>
@@ -340,11 +330,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamCreateAsync(TeamCreateRequest teamCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamCreateAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Team
@@ -355,11 +344,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamCreateWithHttpInfoAsync(TeamCreateRequest teamCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamCreateWithHttpInfoAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Team
         /// </summary>
@@ -504,11 +492,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamRemoveMemberAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamRemoveMemberAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove User from Team
@@ -519,11 +506,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Sub Teams
         /// </summary>
@@ -564,11 +550,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamUpdateAsync(TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamUpdateAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Team
@@ -579,11 +564,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamUpdateWithHttpInfoAsync(TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamUpdateWithHttpInfoAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -711,12 +695,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
-        public TeamGetResponse TeamAddMember(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), string? idempotencyKey = default(string?), int operationIndex = 0)
+        public TeamGetResponse TeamAddMember(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = TeamAddMemberWithHttpInfo(teamAddMemberRequest, teamId, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = TeamAddMemberWithHttpInfo(teamAddMemberRequest, teamId);
             return localVarResponse.Data;
         }
 
@@ -727,10 +710,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TeamGetResponse> TeamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TeamGetResponse> TeamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'teamAddMemberRequest' is set
             if (teamAddMemberRequest == null)
@@ -772,10 +754,6 @@ namespace Dropbox.Sign.Api
             if (teamId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
-            }
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             localVarRequestOptions.Operation = "TeamApi.TeamAddMember";
@@ -815,13 +793,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamAddMemberAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamAddMemberAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamAddMemberWithHttpInfoAsync(teamAddMemberRequest, teamId, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamAddMemberWithHttpInfoAsync(teamAddMemberRequest, teamId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -832,11 +809,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamAddMemberRequest"></param>
         /// <param name="teamId">The id of the team. (optional)</param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamAddMemberWithHttpInfoAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamAddMemberWithHttpInfoAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamAddMemberRequest' is set
             if (teamAddMemberRequest == null)
@@ -880,10 +856,6 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "TeamApi.TeamAddMember";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -922,12 +894,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
-        public TeamGetResponse TeamCreate(TeamCreateRequest teamCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public TeamGetResponse TeamCreate(TeamCreateRequest teamCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = TeamCreateWithHttpInfo(teamCreateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = TeamCreateWithHttpInfo(teamCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -937,10 +908,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TeamGetResponse> TeamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TeamGetResponse> TeamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'teamCreateRequest' is set
             if (teamCreateRequest == null)
@@ -979,10 +949,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "TeamApi.TeamCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1020,13 +986,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamCreateAsync(TeamCreateRequest teamCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamCreateAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamCreateWithHttpInfoAsync(teamCreateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamCreateWithHttpInfoAsync(teamCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1036,11 +1001,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamCreateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamCreateWithHttpInfoAsync(TeamCreateRequest teamCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamCreateWithHttpInfoAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamCreateRequest' is set
             if (teamCreateRequest == null)
@@ -1080,10 +1044,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "TeamApi.TeamCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1956,12 +1916,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
-        public TeamGetResponse TeamRemoveMember(TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public TeamGetResponse TeamRemoveMember(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = TeamRemoveMemberWithHttpInfo(teamRemoveMemberRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = TeamRemoveMemberWithHttpInfo(teamRemoveMemberRequest);
             return localVarResponse.Data;
         }
 
@@ -1971,10 +1930,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TeamGetResponse> TeamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TeamGetResponse> TeamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0)
         {
             // verify the required parameter 'teamRemoveMemberRequest' is set
             if (teamRemoveMemberRequest == null)
@@ -2013,10 +1971,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "TeamApi.TeamRemoveMember";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2054,13 +2008,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamRemoveMemberAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamRemoveMemberAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamRemoveMemberWithHttpInfoAsync(teamRemoveMemberRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamRemoveMemberWithHttpInfoAsync(teamRemoveMemberRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2070,11 +2023,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamRemoveMemberExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamRemoveMemberRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamRemoveMemberRequest' is set
             if (teamRemoveMemberRequest == null)
@@ -2114,10 +2066,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "TeamApi.TeamRemoveMember";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2352,12 +2300,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TeamGetResponse</returns>
-        public TeamGetResponse TeamUpdate(TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public TeamGetResponse TeamUpdate(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = TeamUpdateWithHttpInfo(teamUpdateRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = TeamUpdateWithHttpInfo(teamUpdateRequest);
             return localVarResponse.Data;
         }
 
@@ -2367,10 +2314,9 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TeamGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TeamGetResponse> TeamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TeamGetResponse> TeamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'teamUpdateRequest' is set
             if (teamUpdateRequest == null)
@@ -2409,10 +2355,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "TeamApi.TeamUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2450,13 +2392,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamUpdateAsync(TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamUpdateAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamUpdateWithHttpInfoAsync(teamUpdateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamUpdateWithHttpInfoAsync(teamUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2466,11 +2407,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamUpdateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="teamUpdateRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamUpdateWithHttpInfoAsync(TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamUpdateWithHttpInfoAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamUpdateRequest' is set
             if (teamUpdateRequest == null)
@@ -2510,10 +2450,6 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "TeamApi.TeamUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;

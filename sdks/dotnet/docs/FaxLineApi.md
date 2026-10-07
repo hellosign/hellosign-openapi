@@ -14,7 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="faxlineadduser"></a>
 # **FaxLineAddUser**
-> FaxLineResponse FaxLineAddUser (FaxLineAddUserRequest faxLineAddUserRequest, string? idempotencyKey = null)
+> FaxLineResponse FaxLineAddUser (FaxLineAddUserRequest faxLineAddUserRequest)
 
 Add Fax Line User
 
@@ -71,7 +71,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Add Fax Line User
-    ApiResponse<FaxLineResponse> response = apiInstance.FaxLineAddUserWithHttpInfo(faxLineAddUserRequest, idempotencyKey);
+    ApiResponse<FaxLineResponse> response = apiInstance.FaxLineAddUserWithHttpInfo(faxLineAddUserRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -89,7 +89,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **faxLineAddUserRequest** | [**FaxLineAddUserRequest**](FaxLineAddUserRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -108,7 +107,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -213,7 +212,7 @@ catch (ApiException e)
 
 <a id="faxlinecreate"></a>
 # **FaxLineCreate**
-> FaxLineResponse FaxLineCreate (FaxLineCreateRequest faxLineCreateRequest, string? idempotencyKey = null)
+> FaxLineResponse FaxLineCreate (FaxLineCreateRequest faxLineCreateRequest)
 
 Purchase Fax Line
 
@@ -270,7 +269,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Purchase Fax Line
-    ApiResponse<FaxLineResponse> response = apiInstance.FaxLineCreateWithHttpInfo(faxLineCreateRequest, idempotencyKey);
+    ApiResponse<FaxLineResponse> response = apiInstance.FaxLineCreateWithHttpInfo(faxLineCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -288,7 +287,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **faxLineCreateRequest** | [**FaxLineCreateRequest**](FaxLineCreateRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -307,7 +305,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -603,7 +601,7 @@ catch (ApiException e)
 
 <a id="faxlineremoveuser"></a>
 # **FaxLineRemoveUser**
-> FaxLineResponse FaxLineRemoveUser (FaxLineRemoveUserRequest faxLineRemoveUserRequest, string? idempotencyKey = null)
+> FaxLineResponse FaxLineRemoveUser (FaxLineRemoveUserRequest faxLineRemoveUserRequest)
 
 Remove Fax Line Access
 
@@ -660,7 +658,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Remove Fax Line Access
-    ApiResponse<FaxLineResponse> response = apiInstance.FaxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest, idempotencyKey);
+    ApiResponse<FaxLineResponse> response = apiInstance.FaxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -678,7 +676,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **faxLineRemoveUserRequest** | [**FaxLineRemoveUserRequest**](FaxLineRemoveUserRequest.md) |  |  |
-| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -697,7 +694,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

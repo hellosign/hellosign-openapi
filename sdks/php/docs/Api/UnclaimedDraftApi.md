@@ -13,7 +13,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `unclaimedDraftCreate()`
 
 ```php
-unclaimedDraftCreate($unclaimed_draft_create_request, $idempotency_key): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
+unclaimedDraftCreate($unclaimed_draft_create_request): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
 ```
 Create Unclaimed Draft
 
@@ -68,7 +68,6 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **unclaimed_draft_create_request** | [**\Dropbox\Sign\Model\UnclaimedDraftCreateRequest**](../Model/UnclaimedDraftCreateRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -90,7 +89,7 @@ try {
 ## `unclaimedDraftCreateEmbedded()`
 
 ```php
-unclaimedDraftCreateEmbedded($unclaimed_draft_create_embedded_request, $idempotency_key): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
+unclaimedDraftCreateEmbedded($unclaimed_draft_create_embedded_request): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
 ```
 Create Embedded Unclaimed Draft
 
@@ -136,7 +135,6 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **unclaimed_draft_create_embedded_request** | [**\Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedRequest**](../Model/UnclaimedDraftCreateEmbeddedRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -158,7 +156,7 @@ try {
 ## `unclaimedDraftCreateEmbeddedWithTemplate()`
 
 ```php
-unclaimedDraftCreateEmbeddedWithTemplate($unclaimed_draft_create_embedded_with_template_request, $idempotency_key): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
+unclaimedDraftCreateEmbeddedWithTemplate($unclaimed_draft_create_embedded_with_template_request): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
 ```
 Create Embedded Unclaimed Draft with Template
 
@@ -224,7 +222,6 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **unclaimed_draft_create_embedded_with_template_request** | [**\Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest**](../Model/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -246,7 +243,7 @@ try {
 ## `unclaimedDraftEditAndResend()`
 
 ```php
-unclaimedDraftEditAndResend($signature_request_id, $unclaimed_draft_edit_and_resend_request, $idempotency_key): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
+unclaimedDraftEditAndResend($signature_request_id, $unclaimed_draft_edit_and_resend_request): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
 ```
 Edit and Resend Unclaimed Draft
 
@@ -291,7 +288,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The ID of the signature request to edit and resend. | |
 | **unclaimed_draft_edit_and_resend_request** | [**\Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest**](../Model/UnclaimedDraftEditAndResendRequest.md)|  | |
-| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

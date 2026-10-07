@@ -27,7 +27,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/DocumentDetectFieldsExample.rb
     # @param document_field_detection_request [DocumentFieldDetectionRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [DocumentFieldDetectionResponse]
     def document_detect_fields(document_field_detection_request, opts = {})
       data, _status_code, _headers = document_detect_fields_with_http_info(document_field_detection_request, opts)
@@ -39,7 +38,6 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/DocumentDetectFieldsExample.rb
     # @param document_field_detection_request [DocumentFieldDetectionRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(DocumentFieldDetectionResponse, Integer, Hash)>] DocumentFieldDetectionResponse data, response status code and response headers
     def document_detect_fields_with_http_info(document_field_detection_request, opts = {})
       if @api_client.config.debugging
@@ -49,14 +47,6 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && document_field_detection_request.nil?
         fail ArgumentError, "Missing the required parameter 'document_field_detection_request' when calling DocumentApi.document_detect_fields"
       end
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling DocumentApi.document_detect_fields, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling DocumentApi.document_detect_fields, the character length must be great than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/document/detect_fields'
 
@@ -72,7 +62,6 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

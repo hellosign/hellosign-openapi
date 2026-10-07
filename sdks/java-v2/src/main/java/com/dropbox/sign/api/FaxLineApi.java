@@ -58,38 +58,18 @@ public class FaxLineApi {
    * Grants a user access to the specified Fax Line.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/FaxLineAddUserExample.java
    * @param faxLineAddUserRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return FaxLineResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineResponse faxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest, String idempotencyKey) throws ApiException {
-    return faxLineAddUserWithHttpInfo(faxLineAddUserRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see FaxLineApi#faxLineAddUser(FaxLineAddUserRequest, String)
-   */
   public FaxLineResponse faxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return faxLineAddUserWithHttpInfo(faxLineAddUserRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see FaxLineApi#faxLineAddUserWithHttpInfo(FaxLineAddUserRequest, String)
-   */
-  public ApiResponse<FaxLineResponse> faxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return faxLineAddUserWithHttpInfo(faxLineAddUserRequest, idempotencyKey);
+    return faxLineAddUserWithHttpInfo(faxLineAddUserRequest).getData();
   }
 
 
@@ -98,28 +78,21 @@ public class FaxLineApi {
    * Grants a user access to the specified Fax Line.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/FaxLineAddUserExample.java
    * @param faxLineAddUserRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;FaxLineResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineResponse> faxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<FaxLineResponse> faxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest) throws ApiException {
     
     // Check required parameters
     if (faxLineAddUserRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxLineAddUserRequest' when calling faxLineAddUser");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -135,7 +108,7 @@ public class FaxLineApi {
         "PUT",
         new ArrayList<>(),
         isFileTypeFound ? null : faxLineAddUserRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -290,38 +263,18 @@ public class FaxLineApi {
    * Purchases a new Fax Line
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/FaxLineCreateExample.java
    * @param faxLineCreateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return FaxLineResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineResponse faxLineCreate(FaxLineCreateRequest faxLineCreateRequest, String idempotencyKey) throws ApiException {
-    return faxLineCreateWithHttpInfo(faxLineCreateRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see FaxLineApi#faxLineCreate(FaxLineCreateRequest, String)
-   */
   public FaxLineResponse faxLineCreate(FaxLineCreateRequest faxLineCreateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return faxLineCreateWithHttpInfo(faxLineCreateRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see FaxLineApi#faxLineCreateWithHttpInfo(FaxLineCreateRequest, String)
-   */
-  public ApiResponse<FaxLineResponse> faxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return faxLineCreateWithHttpInfo(faxLineCreateRequest, idempotencyKey);
+    return faxLineCreateWithHttpInfo(faxLineCreateRequest).getData();
   }
 
 
@@ -330,28 +283,21 @@ public class FaxLineApi {
    * Purchases a new Fax Line
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/FaxLineCreateExample.java
    * @param faxLineCreateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;FaxLineResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineResponse> faxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<FaxLineResponse> faxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest) throws ApiException {
     
     // Check required parameters
     if (faxLineCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxLineCreateRequest' when calling faxLineCreate");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -367,7 +313,7 @@ public class FaxLineApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : faxLineCreateRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -680,38 +626,18 @@ public class FaxLineApi {
    * Removes a user&#39;s access to the specified Fax Line
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/FaxLineRemoveUserExample.java
    * @param faxLineRemoveUserRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return FaxLineResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineResponse faxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest, String idempotencyKey) throws ApiException {
-    return faxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see FaxLineApi#faxLineRemoveUser(FaxLineRemoveUserRequest, String)
-   */
   public FaxLineResponse faxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return faxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see FaxLineApi#faxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest, String)
-   */
-  public ApiResponse<FaxLineResponse> faxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return faxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest, idempotencyKey);
+    return faxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest).getData();
   }
 
 
@@ -720,28 +646,21 @@ public class FaxLineApi {
    * Removes a user&#39;s access to the specified Fax Line
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/FaxLineRemoveUserExample.java
    * @param faxLineRemoveUserRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;FaxLineResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineResponse> faxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<FaxLineResponse> faxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest) throws ApiException {
     
     // Check required parameters
     if (faxLineRemoveUserRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxLineRemoveUserRequest' when calling faxLineRemoveUser");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -757,7 +676,7 @@ public class FaxLineApi {
         "PUT",
         new ArrayList<>(),
         isFileTypeFound ? null : faxLineRemoveUserRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,

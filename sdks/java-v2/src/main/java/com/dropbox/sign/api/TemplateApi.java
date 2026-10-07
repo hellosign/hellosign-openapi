@@ -65,38 +65,18 @@ public class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateAddUserExample.java
    * @param templateId The id of the Template to give the Account access to. (required)
    * @param templateAddUserRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TemplateGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateGetResponse templateAddUser(String templateId, TemplateAddUserRequest templateAddUserRequest, String idempotencyKey) throws ApiException {
-    return templateAddUserWithHttpInfo(templateId, templateAddUserRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see TemplateApi#templateAddUser(String, TemplateAddUserRequest, String)
-   */
   public TemplateGetResponse templateAddUser(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateAddUserWithHttpInfo(templateId, templateAddUserRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TemplateApi#templateAddUserWithHttpInfo(String, TemplateAddUserRequest, String)
-   */
-  public ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateAddUserWithHttpInfo(templateId, templateAddUserRequest, idempotencyKey);
+    return templateAddUserWithHttpInfo(templateId, templateAddUserRequest).getData();
   }
 
 
@@ -106,18 +86,17 @@ public class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateAddUserExample.java
    * @param templateId The id of the Template to give the Account access to. (required)
    * @param templateAddUserRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TemplateGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(String templateId, TemplateAddUserRequest templateAddUserRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -130,12 +109,6 @@ public class TemplateApi {
     // Path parameters
     String localVarPath = "/template/add_user/{template_id}"
             .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
-    }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -150,7 +123,7 @@ public class TemplateApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : templateAddUserRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -165,38 +138,18 @@ public class TemplateApi {
    * Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateCreateExample.java
    * @param templateCreateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TemplateCreateResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateCreateResponse templateCreate(TemplateCreateRequest templateCreateRequest, String idempotencyKey) throws ApiException {
-    return templateCreateWithHttpInfo(templateCreateRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see TemplateApi#templateCreate(TemplateCreateRequest, String)
-   */
   public TemplateCreateResponse templateCreate(TemplateCreateRequest templateCreateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateCreateWithHttpInfo(templateCreateRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TemplateApi#templateCreateWithHttpInfo(TemplateCreateRequest, String)
-   */
-  public ApiResponse<TemplateCreateResponse> templateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateCreateWithHttpInfo(templateCreateRequest, idempotencyKey);
+    return templateCreateWithHttpInfo(templateCreateRequest).getData();
   }
 
 
@@ -205,28 +158,21 @@ public class TemplateApi {
    * Creates a template that can be used in future signature requests.  If &#x60;client_id&#x60; is provided, the template will be created as an embedded template. Embedded templates can be used for embedded signature requests and can be edited later by generating a new &#x60;edit_url&#x60; with [/embedded/edit_url/{template_id}](/api/reference/operation/embeddedEditUrl/).  Template creation may complete asynchronously after the initial request is accepted. It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event indicates the template is ready to use, while a &#x60;template_error&#x60; event indicates there was a problem while creating the template. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateCreateExample.java
    * @param templateCreateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TemplateCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateCreateResponse> templateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<TemplateCreateResponse> templateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest) throws ApiException {
     
     // Check required parameters
     if (templateCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'templateCreateRequest' when calling templateCreate");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -242,7 +188,7 @@ public class TemplateApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : templateCreateRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -257,38 +203,18 @@ public class TemplateApi {
    * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateCreateEmbeddedDraftExample.java
    * @param templateCreateEmbeddedDraftRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TemplateCreateEmbeddedDraftResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, String idempotencyKey) throws ApiException {
-    return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see TemplateApi#templateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest, String)
-   */
   public TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TemplateApi#templateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest, String)
-   */
-  public ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest, idempotencyKey);
+    return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest).getData();
   }
 
 
@@ -297,28 +223,21 @@ public class TemplateApi {
    * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateCreateEmbeddedDraftExample.java
    * @param templateCreateEmbeddedDraftRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TemplateCreateEmbeddedDraftResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
     
     // Check required parameters
     if (templateCreateEmbeddedDraftRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'templateCreateEmbeddedDraftRequest' when calling templateCreateEmbeddedDraft");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -334,7 +253,7 @@ public class TemplateApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : templateCreateEmbeddedDraftRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -349,37 +268,17 @@ public class TemplateApi {
    * Completely deletes the template specified from the account.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateDeleteExample.java
    * @param templateId The id of the Template to delete. (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public void templateDelete(String templateId, String idempotencyKey) throws ApiException {
-    templateDeleteWithHttpInfo(templateId, idempotencyKey);
-  }
-
-
-  /**
-   * @see TemplateApi#templateDelete(String, String)
-   */
   public void templateDelete(String templateId) throws ApiException {
-    String idempotencyKey = null;
-
-    templateDeleteWithHttpInfo(templateId, idempotencyKey);
-  }
-
-  /**
-   * @see TemplateApi#templateDeleteWithHttpInfo(String, String)
-   */
-  public ApiResponse<Void> templateDeleteWithHttpInfo(String templateId) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateDeleteWithHttpInfo(templateId, idempotencyKey);
+    templateDeleteWithHttpInfo(templateId);
   }
 
 
@@ -388,18 +287,17 @@ public class TemplateApi {
    * Completely deletes the template specified from the account.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateDeleteExample.java
    * @param templateId The id of the Template to delete. (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> templateDeleteWithHttpInfo(String templateId, String idempotencyKey) throws ApiException {
+  public ApiResponse<Void> templateDeleteWithHttpInfo(String templateId) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -409,12 +307,6 @@ public class TemplateApi {
     // Path parameters
     String localVarPath = "/template/delete/{template_id}"
             .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
-    }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -428,7 +320,7 @@ public class TemplateApi {
         "POST",
         new ArrayList<>(),
         null,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -940,38 +832,18 @@ public class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateRemoveUserExample.java
    * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
    * @param templateRemoveUserRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TemplateGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateGetResponse templateRemoveUser(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest, String idempotencyKey) throws ApiException {
-    return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see TemplateApi#templateRemoveUser(String, TemplateRemoveUserRequest, String)
-   */
   public TemplateGetResponse templateRemoveUser(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TemplateApi#templateRemoveUserWithHttpInfo(String, TemplateRemoveUserRequest, String)
-   */
-  public ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest, idempotencyKey);
+    return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest).getData();
   }
 
 
@@ -981,18 +853,17 @@ public class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateRemoveUserExample.java
    * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
    * @param templateRemoveUserRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TemplateGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -1005,12 +876,6 @@ public class TemplateApi {
     // Path parameters
     String localVarPath = "/template/remove_user/{template_id}"
             .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
-    }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -1025,7 +890,7 @@ public class TemplateApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : templateRemoveUserRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -1041,38 +906,18 @@ public class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateUpdateFilesExample.java
    * @param templateId The ID of the template whose files to update. (required)
    * @param templateUpdateFilesRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TemplateUpdateFilesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateUpdateFilesResponse templateUpdateFiles(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, String idempotencyKey) throws ApiException {
-    return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see TemplateApi#templateUpdateFiles(String, TemplateUpdateFilesRequest, String)
-   */
   public TemplateUpdateFilesResponse templateUpdateFiles(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TemplateApi#templateUpdateFilesWithHttpInfo(String, TemplateUpdateFilesRequest, String)
-   */
-  public ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest, idempotencyKey);
+    return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest).getData();
   }
 
 
@@ -1082,18 +927,17 @@ public class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TemplateUpdateFilesExample.java
    * @param templateId The ID of the template whose files to update. (required)
    * @param templateUpdateFilesRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TemplateUpdateFilesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -1106,12 +950,6 @@ public class TemplateApi {
     // Path parameters
     String localVarPath = "/template/update_files/{template_id}"
             .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
-    }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -1126,7 +964,7 @@ public class TemplateApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : templateUpdateFilesRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,

@@ -52,61 +52,37 @@ public class ApiAppApi {
      * Create API App Creates a new API App.
      *
      * @param apiAppCreateRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return ApiAppGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiAppGetResponse apiAppCreate(
-            ApiAppCreateRequest apiAppCreateRequest, String idempotencyKey) throws ApiException {
-        return apiAppCreateWithHttpInfo(apiAppCreateRequest, idempotencyKey).getData();
-    }
-
-    /**
-     * @see ApiAppApi#apiAppCreate(ApiAppCreateRequest, String)
-     */
     public ApiAppGetResponse apiAppCreate(ApiAppCreateRequest apiAppCreateRequest)
             throws ApiException {
-        String idempotencyKey = null;
-
-        return apiAppCreateWithHttpInfo(apiAppCreateRequest, idempotencyKey).getData();
-    }
-
-    /**
-     * @see ApiAppApi#apiAppCreateWithHttpInfo(ApiAppCreateRequest, String)
-     */
-    public ApiResponse<ApiAppGetResponse> apiAppCreateWithHttpInfo(
-            ApiAppCreateRequest apiAppCreateRequest) throws ApiException {
-        String idempotencyKey = null;
-
-        return apiAppCreateWithHttpInfo(apiAppCreateRequest, idempotencyKey);
+        return apiAppCreateWithHttpInfo(apiAppCreateRequest).getData();
     }
 
     /**
      * Create API App Creates a new API App.
      *
      * @param apiAppCreateRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return ApiResponse&lt;ApiAppGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<ApiAppGetResponse> apiAppCreateWithHttpInfo(
-            ApiAppCreateRequest apiAppCreateRequest, String idempotencyKey) throws ApiException {
+            ApiAppCreateRequest apiAppCreateRequest) throws ApiException {
 
         // Check required parameters
         if (apiAppCreateRequest == null) {
@@ -114,13 +90,6 @@ public class ApiAppApi {
                     400,
                     "Missing the required parameter 'apiAppCreateRequest' when calling"
                             + " apiAppCreate");
-        }
-
-        // Header parameters
-        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-        if (idempotencyKey != null) {
-            localVarHeaderParams.put(
-                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -140,7 +109,7 @@ public class ApiAppApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : apiAppCreateRequest,
-                localVarHeaderParams,
+                new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,
@@ -412,42 +381,19 @@ public class ApiAppApi {
      *
      * @param clientId The client id of the API App to update. (required)
      * @param apiAppUpdateRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return ApiAppGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiAppGetResponse apiAppUpdate(
-            String clientId, ApiAppUpdateRequest apiAppUpdateRequest, String idempotencyKey)
-            throws ApiException {
-        return apiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest, idempotencyKey).getData();
-    }
-
-    /**
-     * @see ApiAppApi#apiAppUpdate(String, ApiAppUpdateRequest, String)
-     */
     public ApiAppGetResponse apiAppUpdate(String clientId, ApiAppUpdateRequest apiAppUpdateRequest)
             throws ApiException {
-        String idempotencyKey = null;
-
-        return apiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest, idempotencyKey).getData();
-    }
-
-    /**
-     * @see ApiAppApi#apiAppUpdateWithHttpInfo(String, ApiAppUpdateRequest, String)
-     */
-    public ApiResponse<ApiAppGetResponse> apiAppUpdateWithHttpInfo(
-            String clientId, ApiAppUpdateRequest apiAppUpdateRequest) throws ApiException {
-        String idempotencyKey = null;
-
-        return apiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest, idempotencyKey);
+        return apiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest).getData();
     }
 
     /**
@@ -457,21 +403,18 @@ public class ApiAppApi {
      *
      * @param clientId The client id of the API App to update. (required)
      * @param apiAppUpdateRequest (required)
-     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
-     *     characters. (optional)
      * @return ApiResponse&lt;ApiAppGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<ApiAppGetResponse> apiAppUpdateWithHttpInfo(
-            String clientId, ApiAppUpdateRequest apiAppUpdateRequest, String idempotencyKey)
-            throws ApiException {
+            String clientId, ApiAppUpdateRequest apiAppUpdateRequest) throws ApiException {
 
         // Check required parameters
         if (clientId == null) {
@@ -490,13 +433,6 @@ public class ApiAppApi {
                 "/api_app/{client_id}"
                         .replaceAll("\\{client_id}", apiClient.escapeString(clientId.toString()));
 
-        // Header parameters
-        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-        if (idempotencyKey != null) {
-            localVarHeaderParams.put(
-                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
-        }
-
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
         Map<String, Object> localVarFormParams = new LinkedHashMap<>();
         localVarFormParams = apiAppUpdateRequest.createFormData();
@@ -514,7 +450,7 @@ public class ApiAppApi {
                 "PUT",
                 new ArrayList<>(),
                 isFileTypeFound ? null : apiAppUpdateRequest,
-                localVarHeaderParams,
+                new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,

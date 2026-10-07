@@ -16,7 +16,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## faxLineAddUser
 
-> FaxLineResponse faxLineAddUser(faxLineAddUserRequest, idempotencyKey)
+> FaxLineResponse faxLineAddUser(faxLineAddUserRequest)
 
 Add Fax Line User
 
@@ -78,7 +78,6 @@ public class FaxLineAddUserExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **faxLineAddUserRequest** | [**FaxLineAddUserRequest**](FaxLineAddUserRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -96,7 +95,7 @@ public class FaxLineAddUserExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
@@ -189,7 +188,7 @@ public class FaxLineAreaCodeGetExample
 
 ## faxLineCreate
 
-> FaxLineResponse faxLineCreate(faxLineCreateRequest, idempotencyKey)
+> FaxLineResponse faxLineCreate(faxLineCreateRequest)
 
 Purchase Fax Line
 
@@ -251,7 +250,6 @@ public class FaxLineCreateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **faxLineCreateRequest** | [**FaxLineCreateRequest**](FaxLineCreateRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -269,7 +267,7 @@ public class FaxLineCreateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
@@ -525,7 +523,7 @@ public class FaxLineListExample
 
 ## faxLineRemoveUser
 
-> FaxLineResponse faxLineRemoveUser(faxLineRemoveUserRequest, idempotencyKey)
+> FaxLineResponse faxLineRemoveUser(faxLineRemoveUserRequest)
 
 Remove Fax Line Access
 
@@ -587,7 +585,6 @@ public class FaxLineRemoveUserExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **faxLineRemoveUserRequest** | [**FaxLineRemoveUserRequest**](FaxLineRemoveUserRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -605,6 +602,6 @@ public class FaxLineRemoveUserExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 

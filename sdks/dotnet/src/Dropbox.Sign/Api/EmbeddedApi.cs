@@ -37,10 +37,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmbeddedEditUrlResponse</returns>
-        EmbeddedEditUrlResponse EmbeddedEditUrl(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        EmbeddedEditUrlResponse EmbeddedEditUrl(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0);
 
         /// <summary>
         /// Get Embedded Template Edit URL
@@ -52,10 +51,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmbeddedEditUrlResponse</returns>
-        ApiResponse<EmbeddedEditUrlResponse> EmbeddedEditUrlWithHttpInfo(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
+        ApiResponse<EmbeddedEditUrlResponse> EmbeddedEditUrlWithHttpInfo(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0);
         /// <summary>
         /// Get Embedded Sign URL
         /// </summary>
@@ -100,11 +98,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedEditUrlResponse</returns>
-        System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Embedded Template Edit URL
@@ -116,11 +113,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedEditUrlResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Embedded Sign URL
         /// </summary>
@@ -275,12 +271,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmbeddedEditUrlResponse</returns>
-        public EmbeddedEditUrlResponse EmbeddedEditUrl(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public EmbeddedEditUrlResponse EmbeddedEditUrl(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse = EmbeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest, idempotencyKey);
+            Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse = EmbeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest);
             return localVarResponse.Data;
         }
 
@@ -291,10 +286,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmbeddedEditUrlResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> EmbeddedEditUrlWithHttpInfo(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> EmbeddedEditUrlWithHttpInfo(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -340,10 +334,6 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedEditUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -382,13 +372,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedEditUrlResponse</returns>
-        public async System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse = await EmbeddedEditUrlWithHttpInfoAsync(templateId, embeddedEditUrlRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse = await EmbeddedEditUrlWithHttpInfoAsync(templateId, embeddedEditUrlRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -399,11 +388,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
         /// <param name="embeddedEditUrlRequest"></param>
-        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedEditUrlResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -450,10 +438,6 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
-            if (idempotencyKey != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
-            }
 
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedEditUrl";
             localVarRequestOptions.OperationIndex = operationIndex;

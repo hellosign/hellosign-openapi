@@ -127,12 +127,10 @@ export class FaxLineApi {
    * @summary Add Fax Line User
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineAddUserExample.ts
    * @param faxLineAddUserRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async faxLineAddUser(
     faxLineAddUserRequest: FaxLineAddUserRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FaxLineResponse>> {
     faxLineAddUserRequest = deserializeIfNeeded(
@@ -162,10 +160,6 @@ export class FaxLineApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -485,12 +479,10 @@ export class FaxLineApi {
    * @summary Purchase Fax Line
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineCreateExample.ts
    * @param faxLineCreateRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async faxLineCreate(
     faxLineCreateRequest: FaxLineCreateRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FaxLineResponse>> {
     faxLineCreateRequest = deserializeIfNeeded(
@@ -520,10 +512,6 @@ export class FaxLineApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -1015,12 +1003,10 @@ export class FaxLineApi {
    * @summary Remove Fax Line Access
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxLineRemoveUserExample.ts
    * @param faxLineRemoveUserRequest
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async faxLineRemoveUser(
     faxLineRemoveUserRequest: FaxLineRemoveUserRequest,
-    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FaxLineResponse>> {
     faxLineRemoveUserRequest = deserializeIfNeeded(
@@ -1053,10 +1039,6 @@ export class FaxLineApi {
       );
     }
 
-    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
-      idempotencyKey,
-      "string"
-    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

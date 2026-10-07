@@ -61,58 +61,37 @@ public class TeamApi {
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TeamAddMemberExample.java
    * @param teamAddMemberRequest  (required)
    * @param teamId The id of the team. (optional)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TeamGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TeamGetResponse teamAddMember(TeamAddMemberRequest teamAddMemberRequest, String teamId, String idempotencyKey) throws ApiException {
-    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId, idempotencyKey).getData();
+  public TeamGetResponse teamAddMember(TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
+    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId).getData();
   }
 
 
   /**
-   * @see TeamApi#teamAddMember(TeamAddMemberRequest, String, String)
+   * @see TeamApi#teamAddMember(TeamAddMemberRequest, String)
    */
   public TeamGetResponse teamAddMember(TeamAddMemberRequest teamAddMemberRequest) throws ApiException {
     String teamId = null;
-    String idempotencyKey = null;
 
-    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId, idempotencyKey).getData();
+    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId).getData();
   }
 
   /**
-   * @see TeamApi#teamAddMemberWithHttpInfo(TeamAddMemberRequest, String, String)
+   * @see TeamApi#teamAddMemberWithHttpInfo(TeamAddMemberRequest, String)
    */
   public ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest) throws ApiException {
     String teamId = null;
-    String idempotencyKey = null;
 
-    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId, idempotencyKey);
-  }
-
-  /**
-   * @see TeamApi#teamAddMember(TeamAddMemberRequest, String, String)
-   */
-  public TeamGetResponse teamAddMember(TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
-    String idempotencyKey = null;
-
-    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TeamApi#teamAddMemberWithHttpInfo(TeamAddMemberRequest, String, String)
-   */
-  public ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
-    String idempotencyKey = null;
-
-    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId, idempotencyKey);
+    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId);
   }
 
 
@@ -122,18 +101,17 @@ public class TeamApi {
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TeamAddMemberExample.java
    * @param teamAddMemberRequest  (required)
    * @param teamId The id of the team. (optional)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TeamGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, String teamId, String idempotencyKey) throws ApiException {
+  public ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
     
     // Check required parameters
     if (teamAddMemberRequest == null) {
@@ -144,12 +122,6 @@ public class TeamApi {
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "team_id", teamId)
     );
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
-    }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -164,7 +136,7 @@ public class TeamApi {
         "PUT",
         localVarQueryParams,
         isFileTypeFound ? null : teamAddMemberRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -179,38 +151,18 @@ public class TeamApi {
    * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TeamCreateExample.java
    * @param teamCreateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TeamGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TeamGetResponse teamCreate(TeamCreateRequest teamCreateRequest, String idempotencyKey) throws ApiException {
-    return teamCreateWithHttpInfo(teamCreateRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see TeamApi#teamCreate(TeamCreateRequest, String)
-   */
   public TeamGetResponse teamCreate(TeamCreateRequest teamCreateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return teamCreateWithHttpInfo(teamCreateRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TeamApi#teamCreateWithHttpInfo(TeamCreateRequest, String)
-   */
-  public ApiResponse<TeamGetResponse> teamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return teamCreateWithHttpInfo(teamCreateRequest, idempotencyKey);
+    return teamCreateWithHttpInfo(teamCreateRequest).getData();
   }
 
 
@@ -219,28 +171,21 @@ public class TeamApi {
    * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TeamCreateExample.java
    * @param teamCreateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TeamGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TeamGetResponse> teamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<TeamGetResponse> teamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest) throws ApiException {
     
     // Check required parameters
     if (teamCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'teamCreateRequest' when calling teamCreate");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -256,7 +201,7 @@ public class TeamApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : teamCreateRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -677,38 +622,18 @@ public class TeamApi {
    * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TeamRemoveMemberExample.java
    * @param teamRemoveMemberRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TeamGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TeamGetResponse teamRemoveMember(TeamRemoveMemberRequest teamRemoveMemberRequest, String idempotencyKey) throws ApiException {
-    return teamRemoveMemberWithHttpInfo(teamRemoveMemberRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see TeamApi#teamRemoveMember(TeamRemoveMemberRequest, String)
-   */
   public TeamGetResponse teamRemoveMember(TeamRemoveMemberRequest teamRemoveMemberRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return teamRemoveMemberWithHttpInfo(teamRemoveMemberRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TeamApi#teamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest, String)
-   */
-  public ApiResponse<TeamGetResponse> teamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return teamRemoveMemberWithHttpInfo(teamRemoveMemberRequest, idempotencyKey);
+    return teamRemoveMemberWithHttpInfo(teamRemoveMemberRequest).getData();
   }
 
 
@@ -717,28 +642,21 @@ public class TeamApi {
    * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TeamRemoveMemberExample.java
    * @param teamRemoveMemberRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TeamGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 201 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TeamGetResponse> teamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<TeamGetResponse> teamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest) throws ApiException {
     
     // Check required parameters
     if (teamRemoveMemberRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'teamRemoveMemberRequest' when calling teamRemoveMember");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -754,7 +672,7 @@ public class TeamApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : teamRemoveMemberRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,
@@ -893,38 +811,18 @@ public class TeamApi {
    * Updates the name of your Team.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TeamUpdateExample.java
    * @param teamUpdateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return TeamGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TeamGetResponse teamUpdate(TeamUpdateRequest teamUpdateRequest, String idempotencyKey) throws ApiException {
-    return teamUpdateWithHttpInfo(teamUpdateRequest, idempotencyKey).getData();
-  }
-
-
-  /**
-   * @see TeamApi#teamUpdate(TeamUpdateRequest, String)
-   */
   public TeamGetResponse teamUpdate(TeamUpdateRequest teamUpdateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return teamUpdateWithHttpInfo(teamUpdateRequest, idempotencyKey).getData();
-  }
-
-  /**
-   * @see TeamApi#teamUpdateWithHttpInfo(TeamUpdateRequest, String)
-   */
-  public ApiResponse<TeamGetResponse> teamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest) throws ApiException {
-    String idempotencyKey = null;
-
-    return teamUpdateWithHttpInfo(teamUpdateRequest, idempotencyKey);
+    return teamUpdateWithHttpInfo(teamUpdateRequest).getData();
   }
 
 
@@ -933,28 +831,21 @@ public class TeamApi {
    * Updates the name of your Team.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/TeamUpdateExample.java
    * @param teamUpdateRequest  (required)
-   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;TeamGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TeamGetResponse> teamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest, String idempotencyKey) throws ApiException {
+  public ApiResponse<TeamGetResponse> teamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest) throws ApiException {
     
     // Check required parameters
     if (teamUpdateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'teamUpdateRequest' when calling teamUpdate");
-    }
-
-    // Header parameters
-    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
-    if (idempotencyKey != null) {
-      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -970,7 +861,7 @@ public class TeamApi {
         "PUT",
         new ArrayList<>(),
         isFileTypeFound ? null : teamUpdateRequest,
-        localVarHeaderParams,
+        new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,

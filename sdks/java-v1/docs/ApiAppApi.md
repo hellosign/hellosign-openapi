@@ -14,7 +14,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## apiAppCreate
 
-> ApiAppGetResponse apiAppCreate(apiAppCreateRequest, idempotencyKey)
+> ApiAppGetResponse apiAppCreate(apiAppCreateRequest)
 
 Create API App
 
@@ -93,7 +93,6 @@ public class ApiAppCreateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **apiAppCreateRequest** | [**ApiAppCreateRequest**](ApiAppCreateRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -111,7 +110,7 @@ public class ApiAppCreateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
@@ -363,7 +362,7 @@ public class ApiAppListExample
 
 ## apiAppUpdate
 
-> ApiAppGetResponse apiAppUpdate(clientId, apiAppUpdateRequest, idempotencyKey)
+> ApiAppGetResponse apiAppUpdate(clientId, apiAppUpdateRequest)
 
 Update API App
 
@@ -445,7 +444,6 @@ public class ApiAppUpdateExample
 |------------- | ------------- | ------------- | -------------|
  **clientId** | **String**| The client id of the API App to update. |
  **apiAppUpdateRequest** | [**ApiAppUpdateRequest**](ApiAppUpdateRequest.md)|  |
- **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -463,6 +461,6 @@ public class ApiAppUpdateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
