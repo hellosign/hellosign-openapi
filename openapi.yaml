@@ -15811,8 +15811,8 @@ x-error-codes:
   conflict:
     http_status: 409
     summary: 'The request was well-formed but conflicts with the current state.'
-    cause: 'The target resource is in a state incompatible with the request (e.g. a signature request is still being set up).'
-    remediation: 'Wait briefly and retry, or listen for a callback event confirming the resource is ready.'
+    cause: 'The target resource is in a state incompatible with the request (e.g. a signature request is still being set up). A POST or PUT can also return this status when an Idempotency-Key header is reused with different parameters, or while the original request is still in progress.'
+    remediation: 'Wait briefly and retry, or listen for a callback event confirming the resource is ready. To make a POST or PUT safe to retry, send the same Idempotency-Key header (1 to 255 characters) with the other headers for that request. The same key and request within 24 hours returns the original response, with Idempotent-Replayed: true. Use a new key for a different request.'
     retryable: conditional
   exceeded_rate:
     http_status: 429
