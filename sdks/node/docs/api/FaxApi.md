@@ -230,7 +230,7 @@ apiCaller.faxList(
 ## `faxSend()`
 
 ```typescript
-faxSend(faxSendRequest: FaxSendRequest): FaxGetResponse
+faxSend(faxSendRequest: FaxSendRequest, idempotencyKey: string): FaxGetResponse
 ```
 
 Send Fax
@@ -276,6 +276,7 @@ apiCaller.faxSend(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **faxSendRequest** | [**FaxSendRequest**](../model/FaxSendRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

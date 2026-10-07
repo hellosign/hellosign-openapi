@@ -19,7 +19,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `teamAddMember()`
 
 ```php
-teamAddMember($team_add_member_request, $team_id): \Dropbox\Sign\Model\TeamGetResponse
+teamAddMember($team_add_member_request, $team_id, $idempotency_key): \Dropbox\Sign\Model\TeamGetResponse
 ```
 Add User to Team
 
@@ -63,6 +63,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **team_add_member_request** | [**\Dropbox\Sign\Model\TeamAddMemberRequest**](../Model/TeamAddMemberRequest.md)|  | |
 | **team_id** | **string**| The id of the team. | [optional] |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -84,7 +85,7 @@ try {
 ## `teamCreate()`
 
 ```php
-teamCreate($team_create_request): \Dropbox\Sign\Model\TeamGetResponse
+teamCreate($team_create_request, $idempotency_key): \Dropbox\Sign\Model\TeamGetResponse
 ```
 Create Team
 
@@ -126,6 +127,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **team_create_request** | [**\Dropbox\Sign\Model\TeamCreateRequest**](../Model/TeamCreateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -439,7 +441,7 @@ try {
 ## `teamRemoveMember()`
 
 ```php
-teamRemoveMember($team_remove_member_request): \Dropbox\Sign\Model\TeamGetResponse
+teamRemoveMember($team_remove_member_request, $idempotency_key): \Dropbox\Sign\Model\TeamGetResponse
 ```
 Remove User from Team
 
@@ -482,6 +484,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **team_remove_member_request** | [**\Dropbox\Sign\Model\TeamRemoveMemberRequest**](../Model/TeamRemoveMemberRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -567,7 +570,7 @@ try {
 ## `teamUpdate()`
 
 ```php
-teamUpdate($team_update_request): \Dropbox\Sign\Model\TeamGetResponse
+teamUpdate($team_update_request, $idempotency_key): \Dropbox\Sign\Model\TeamGetResponse
 ```
 Update Team
 
@@ -609,6 +612,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **team_update_request** | [**\Dropbox\Sign\Model\TeamUpdateRequest**](../Model/TeamUpdateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

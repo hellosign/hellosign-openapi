@@ -12,7 +12,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `account_create`
 
-> `<AccountCreateResponse> account_create(account_create_request)`
+> `<AccountCreateResponse> account_create(account_create_request, opts)`
 
 Create Account
 
@@ -48,12 +48,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<AccountCreateResponse>, Integer, Hash)> account_create_with_http_info(account_create_request)`
+> `<Array(<AccountCreateResponse>, Integer, Hash)> account_create_with_http_info(account_create_request, opts)`
 
 ```ruby
 begin
   # Create Account
-  data, status_code, headers = api_instance.account_create_with_http_info(account_create_request)
+  data, status_code, headers = api_instance.account_create_with_http_info(account_create_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountCreateResponse>
@@ -67,6 +67,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_create_request` | [**AccountCreateRequest**](AccountCreateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -152,7 +153,7 @@ end
 
 ## `account_update`
 
-> `<AccountGetResponse> account_update(account_update_request)`
+> `<AccountGetResponse> account_update(account_update_request, opts)`
 
 Update Account
 
@@ -189,12 +190,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<AccountGetResponse>, Integer, Hash)> account_update_with_http_info(account_update_request)`
+> `<Array(<AccountGetResponse>, Integer, Hash)> account_update_with_http_info(account_update_request, opts)`
 
 ```ruby
 begin
   # Update Account
-  data, status_code, headers = api_instance.account_update_with_http_info(account_update_request)
+  data, status_code, headers = api_instance.account_update_with_http_info(account_update_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountGetResponse>
@@ -208,6 +209,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_update_request` | [**AccountUpdateRequest**](AccountUpdateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -225,7 +227,7 @@ end
 
 ## `account_verify`
 
-> `<AccountVerifyResponse> account_verify(account_verify_request)`
+> `<AccountVerifyResponse> account_verify(account_verify_request, opts)`
 
 Verify Account
 
@@ -261,12 +263,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<AccountVerifyResponse>, Integer, Hash)> account_verify_with_http_info(account_verify_request)`
+> `<Array(<AccountVerifyResponse>, Integer, Hash)> account_verify_with_http_info(account_verify_request, opts)`
 
 ```ruby
 begin
   # Verify Account
-  data, status_code, headers = api_instance.account_verify_with_http_info(account_verify_request)
+  data, status_code, headers = api_instance.account_verify_with_http_info(account_verify_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountVerifyResponse>
@@ -280,6 +282,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_verify_request` | [**AccountVerifyRequest**](AccountVerifyRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

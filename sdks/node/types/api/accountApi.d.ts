@@ -24,8 +24,8 @@ export declare class AccountApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    accountCreate(accountCreateRequest: AccountCreateRequest, options?: optionsI): Promise<returnTypeT<AccountCreateResponse>>;
+    accountCreate(accountCreateRequest: AccountCreateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<AccountCreateResponse>>;
     accountGet(accountId?: string, emailAddress?: string, options?: optionsI): Promise<returnTypeT<AccountGetResponse>>;
-    accountUpdate(accountUpdateRequest: AccountUpdateRequest, options?: optionsI): Promise<returnTypeT<AccountGetResponse>>;
-    accountVerify(accountVerifyRequest: AccountVerifyRequest, options?: optionsI): Promise<returnTypeT<AccountVerifyResponse>>;
+    accountUpdate(accountUpdateRequest: AccountUpdateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<AccountGetResponse>>;
+    accountVerify(accountVerifyRequest: AccountVerifyRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<AccountVerifyResponse>>;
 }

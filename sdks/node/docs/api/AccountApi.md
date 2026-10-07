@@ -13,7 +13,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `accountCreate()`
 
 ```typescript
-accountCreate(accountCreateRequest: AccountCreateRequest): AccountCreateResponse
+accountCreate(accountCreateRequest: AccountCreateRequest, idempotencyKey: string): AccountCreateResponse
 ```
 
 Create Account
@@ -51,6 +51,7 @@ apiCaller.accountCreate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accountCreateRequest** | [**AccountCreateRequest**](../model/AccountCreateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -126,7 +127,7 @@ apiCaller.accountGet().then(response => {
 ## `accountUpdate()`
 
 ```typescript
-accountUpdate(accountUpdateRequest: AccountUpdateRequest): AccountGetResponse
+accountUpdate(accountUpdateRequest: AccountUpdateRequest, idempotencyKey: string): AccountGetResponse
 ```
 
 Update Account
@@ -165,6 +166,7 @@ apiCaller.accountUpdate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accountUpdateRequest** | [**AccountUpdateRequest**](../model/AccountUpdateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -186,7 +188,7 @@ apiCaller.accountUpdate(
 ## `accountVerify()`
 
 ```typescript
-accountVerify(accountVerifyRequest: AccountVerifyRequest): AccountVerifyResponse
+accountVerify(accountVerifyRequest: AccountVerifyRequest, idempotencyKey: string): AccountVerifyResponse
 ```
 
 Verify Account
@@ -224,6 +226,7 @@ apiCaller.accountVerify(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accountVerifyRequest** | [**AccountVerifyRequest**](../model/AccountVerifyRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

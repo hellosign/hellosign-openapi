@@ -20,7 +20,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## templateAddUser
 
-> TemplateGetResponse templateAddUser(templateId, templateAddUserRequest)
+> TemplateGetResponse templateAddUser(templateId, templateAddUserRequest, idempotencyKey)
 
 Add User to Template
 
@@ -84,6 +84,7 @@ public class TemplateAddUserExample
 |------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the Template to give the Account access to. |
  **templateAddUserRequest** | [**TemplateAddUserRequest**](TemplateAddUserRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -101,13 +102,13 @@ public class TemplateAddUserExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## templateCreate
 
-> TemplateCreateResponse templateCreate(templateCreateRequest)
+> TemplateCreateResponse templateCreate(templateCreateRequest, idempotencyKey)
 
 Create Template
 
@@ -249,6 +250,7 @@ public class TemplateCreateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **templateCreateRequest** | [**TemplateCreateRequest**](TemplateCreateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -266,13 +268,13 @@ public class TemplateCreateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## templateCreateEmbeddedDraft
 
-> TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest)
+> TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest, idempotencyKey)
 
 Create Embedded Template Draft
 
@@ -376,6 +378,7 @@ public class TemplateCreateEmbeddedDraftExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **templateCreateEmbeddedDraftRequest** | [**TemplateCreateEmbeddedDraftRequest**](TemplateCreateEmbeddedDraftRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -393,13 +396,13 @@ public class TemplateCreateEmbeddedDraftExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## templateDelete
 
-> templateDelete(templateId)
+> templateDelete(templateId, idempotencyKey)
 
 Delete Template
 
@@ -456,6 +459,7 @@ public class TemplateDeleteExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the Template to delete. |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -473,7 +477,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
@@ -906,7 +910,7 @@ public class TemplateListExample
 
 ## templateRemoveUser
 
-> TemplateGetResponse templateRemoveUser(templateId, templateRemoveUserRequest)
+> TemplateGetResponse templateRemoveUser(templateId, templateRemoveUserRequest, idempotencyKey)
 
 Remove User from Template
 
@@ -970,6 +974,7 @@ public class TemplateRemoveUserExample
 |------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the Template to remove the Account&#39;s access to. |
  **templateRemoveUserRequest** | [**TemplateRemoveUserRequest**](TemplateRemoveUserRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -987,13 +992,13 @@ public class TemplateRemoveUserExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## templateUpdateFiles
 
-> TemplateUpdateFilesResponse templateUpdateFiles(templateId, templateUpdateFilesRequest)
+> TemplateUpdateFilesResponse templateUpdateFiles(templateId, templateUpdateFilesRequest, idempotencyKey)
 
 Update Template Files
 
@@ -1070,6 +1075,7 @@ public class TemplateUpdateFilesExample
 |------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The ID of the template whose files to update. |
  **templateUpdateFilesRequest** | [**TemplateUpdateFilesRequest**](TemplateUpdateFilesRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -1087,6 +1093,6 @@ public class TemplateUpdateFilesExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 

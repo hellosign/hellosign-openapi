@@ -10,7 +10,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `reportCreate()`
 
 ```typescript
-reportCreate(reportCreateRequest: ReportCreateRequest): ReportCreateResponse
+reportCreate(reportCreateRequest: ReportCreateRequest, idempotencyKey: string): ReportCreateResponse
 ```
 
 Create Report
@@ -52,6 +52,7 @@ apiCaller.reportCreate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **reportCreateRequest** | [**ReportCreateRequest**](../model/ReportCreateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

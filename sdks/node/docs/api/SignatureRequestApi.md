@@ -29,7 +29,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `signatureRequestBulkCreateEmbeddedWithTemplate()`
 
 ```typescript
-signatureRequestBulkCreateEmbeddedWithTemplate(signatureRequestBulkCreateEmbeddedWithTemplateRequest: SignatureRequestBulkCreateEmbeddedWithTemplateRequest): BulkSendJobSendResponse
+signatureRequestBulkCreateEmbeddedWithTemplate(signatureRequestBulkCreateEmbeddedWithTemplateRequest: SignatureRequestBulkCreateEmbeddedWithTemplateRequest, idempotencyKey: string): BulkSendJobSendResponse
 ```
 
 Embedded Bulk Send with Template
@@ -138,6 +138,7 @@ apiCaller.signatureRequestBulkCreateEmbeddedWithTemplate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestBulkCreateEmbeddedWithTemplateRequest** | [**SignatureRequestBulkCreateEmbeddedWithTemplateRequest**](../model/SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -159,7 +160,7 @@ apiCaller.signatureRequestBulkCreateEmbeddedWithTemplate(
 ## `signatureRequestBulkSendWithTemplate()`
 
 ```typescript
-signatureRequestBulkSendWithTemplate(signatureRequestBulkSendWithTemplateRequest: SignatureRequestBulkSendWithTemplateRequest): BulkSendJobSendResponse
+signatureRequestBulkSendWithTemplate(signatureRequestBulkSendWithTemplateRequest: SignatureRequestBulkSendWithTemplateRequest, idempotencyKey: string): BulkSendJobSendResponse
 ```
 
 Bulk Send with Template
@@ -268,6 +269,7 @@ apiCaller.signatureRequestBulkSendWithTemplate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestBulkSendWithTemplateRequest** | [**SignatureRequestBulkSendWithTemplateRequest**](../model/SignatureRequestBulkSendWithTemplateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -289,7 +291,7 @@ apiCaller.signatureRequestBulkSendWithTemplate(
 ## `signatureRequestCancel()`
 
 ```typescript
-signatureRequestCancel(signatureRequestId: string)
+signatureRequestCancel(signatureRequestId: string, idempotencyKey: string)
 ```
 
 Cancel Incomplete Signature Request
@@ -321,6 +323,7 @@ apiCaller.signatureRequestCancel(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the incomplete SignatureRequest to cancel. | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -342,7 +345,7 @@ void (empty response body)
 ## `signatureRequestCreateEmbedded()`
 
 ```typescript
-signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest: SignatureRequestCreateEmbeddedRequest): SignatureRequestGetResponse
+signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest: SignatureRequestCreateEmbeddedRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Create Embedded Signature Request
@@ -419,6 +422,7 @@ apiCaller.signatureRequestCreateEmbedded(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestCreateEmbeddedRequest** | [**SignatureRequestCreateEmbeddedRequest**](../model/SignatureRequestCreateEmbeddedRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -440,7 +444,7 @@ apiCaller.signatureRequestCreateEmbedded(
 ## `signatureRequestCreateEmbeddedWithTemplate()`
 
 ```typescript
-signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest: SignatureRequestCreateEmbeddedWithTemplateRequest): SignatureRequestGetResponse
+signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest: SignatureRequestCreateEmbeddedWithTemplateRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Create Embedded Signature Request with Template
@@ -505,6 +509,7 @@ apiCaller.signatureRequestCreateEmbeddedWithTemplate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestCreateEmbeddedWithTemplateRequest** | [**SignatureRequestCreateEmbeddedWithTemplateRequest**](../model/SignatureRequestCreateEmbeddedWithTemplateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -526,7 +531,7 @@ apiCaller.signatureRequestCreateEmbeddedWithTemplate(
 ## `signatureRequestEdit()`
 
 ```typescript
-signatureRequestEdit(signatureRequestId: string, signatureRequestEditRequest: SignatureRequestEditRequest): SignatureRequestGetResponse
+signatureRequestEdit(signatureRequestId: string, signatureRequestEditRequest: SignatureRequestEditRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Edit Signature Request
@@ -612,6 +617,7 @@ apiCaller.signatureRequestEdit(
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to edit. | |
 | **signatureRequestEditRequest** | [**SignatureRequestEditRequest**](../model/SignatureRequestEditRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -633,7 +639,7 @@ apiCaller.signatureRequestEdit(
 ## `signatureRequestEditEmbedded()`
 
 ```typescript
-signatureRequestEditEmbedded(signatureRequestId: string, signatureRequestEditEmbeddedRequest: SignatureRequestEditEmbeddedRequest): SignatureRequestGetResponse
+signatureRequestEditEmbedded(signatureRequestId: string, signatureRequestEditEmbeddedRequest: SignatureRequestEditEmbeddedRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Edit Embedded Signature Request
@@ -711,6 +717,7 @@ apiCaller.signatureRequestEditEmbedded(
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to edit. | |
 | **signatureRequestEditEmbeddedRequest** | [**SignatureRequestEditEmbeddedRequest**](../model/SignatureRequestEditEmbeddedRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -732,7 +739,7 @@ apiCaller.signatureRequestEditEmbedded(
 ## `signatureRequestEditEmbeddedWithTemplate()`
 
 ```typescript
-signatureRequestEditEmbeddedWithTemplate(signatureRequestId: string, signatureRequestEditEmbeddedWithTemplateRequest: SignatureRequestEditEmbeddedWithTemplateRequest): SignatureRequestGetResponse
+signatureRequestEditEmbeddedWithTemplate(signatureRequestId: string, signatureRequestEditEmbeddedWithTemplateRequest: SignatureRequestEditEmbeddedWithTemplateRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Edit Embedded Signature Request with Template
@@ -798,6 +805,7 @@ apiCaller.signatureRequestEditEmbeddedWithTemplate(
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to edit. | |
 | **signatureRequestEditEmbeddedWithTemplateRequest** | [**SignatureRequestEditEmbeddedWithTemplateRequest**](../model/SignatureRequestEditEmbeddedWithTemplateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -819,7 +827,7 @@ apiCaller.signatureRequestEditEmbeddedWithTemplate(
 ## `signatureRequestEditWithTemplate()`
 
 ```typescript
-signatureRequestEditWithTemplate(signatureRequestId: string, signatureRequestEditWithTemplateRequest: SignatureRequestEditWithTemplateRequest): SignatureRequestGetResponse
+signatureRequestEditWithTemplate(signatureRequestId: string, signatureRequestEditWithTemplateRequest: SignatureRequestEditWithTemplateRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Edit Signature Request With Template
@@ -906,6 +914,7 @@ apiCaller.signatureRequestEditWithTemplate(
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to edit. | |
 | **signatureRequestEditWithTemplateRequest** | [**SignatureRequestEditWithTemplateRequest**](../model/SignatureRequestEditWithTemplateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1212,7 +1221,7 @@ apiCaller.signatureRequestList(
 ## `signatureRequestReleaseHold()`
 
 ```typescript
-signatureRequestReleaseHold(signatureRequestId: string): SignatureRequestGetResponse
+signatureRequestReleaseHold(signatureRequestId: string, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Release On-Hold Signature Request
@@ -1246,6 +1255,7 @@ apiCaller.signatureRequestReleaseHold(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to release. | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1267,7 +1277,7 @@ apiCaller.signatureRequestReleaseHold(
 ## `signatureRequestRemind()`
 
 ```typescript
-signatureRequestRemind(signatureRequestId: string, signatureRequestRemindRequest: SignatureRequestRemindRequest): SignatureRequestGetResponse
+signatureRequestRemind(signatureRequestId: string, signatureRequestRemindRequest: SignatureRequestRemindRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Send Request Reminder
@@ -1307,6 +1317,7 @@ apiCaller.signatureRequestRemind(
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to send a reminder for. | |
 | **signatureRequestRemindRequest** | [**SignatureRequestRemindRequest**](../model/SignatureRequestRemindRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1328,7 +1339,7 @@ apiCaller.signatureRequestRemind(
 ## `signatureRequestRemove()`
 
 ```typescript
-signatureRequestRemove(signatureRequestId: string)
+signatureRequestRemove(signatureRequestId: string, idempotencyKey: string)
 ```
 
 Remove Signature Request Access
@@ -1359,6 +1370,7 @@ apiCaller.signatureRequestRemove(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to remove. | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1380,7 +1392,7 @@ void (empty response body)
 ## `signatureRequestSend()`
 
 ```typescript
-signatureRequestSend(signatureRequestSendRequest: SignatureRequestSendRequest): SignatureRequestGetResponse
+signatureRequestSend(signatureRequestSendRequest: SignatureRequestSendRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Send Signature Request
@@ -1465,6 +1477,7 @@ apiCaller.signatureRequestSend(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestSendRequest** | [**SignatureRequestSendRequest**](../model/SignatureRequestSendRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1486,7 +1499,7 @@ apiCaller.signatureRequestSend(
 ## `signatureRequestSendWithTemplate()`
 
 ```typescript
-signatureRequestSendWithTemplate(signatureRequestSendWithTemplateRequest: SignatureRequestSendWithTemplateRequest): SignatureRequestGetResponse
+signatureRequestSendWithTemplate(signatureRequestSendWithTemplateRequest: SignatureRequestSendWithTemplateRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Send with Template
@@ -1572,6 +1585,7 @@ apiCaller.signatureRequestSendWithTemplate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestSendWithTemplateRequest** | [**SignatureRequestSendWithTemplateRequest**](../model/SignatureRequestSendWithTemplateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1593,7 +1607,7 @@ apiCaller.signatureRequestSendWithTemplate(
 ## `signatureRequestUpdate()`
 
 ```typescript
-signatureRequestUpdate(signatureRequestId: string, signatureRequestUpdateRequest: SignatureRequestUpdateRequest): SignatureRequestGetResponse
+signatureRequestUpdate(signatureRequestId: string, signatureRequestUpdateRequest: SignatureRequestUpdateRequest, idempotencyKey: string): SignatureRequestGetResponse
 ```
 
 Update Signature Request
@@ -1634,6 +1648,7 @@ apiCaller.signatureRequestUpdate(
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to update. | |
 | **signatureRequestUpdateRequest** | [**SignatureRequestUpdateRequest**](../model/SignatureRequestUpdateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

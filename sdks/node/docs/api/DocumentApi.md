@@ -10,7 +10,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `documentDetectFields()`
 
 ```typescript
-documentDetectFields(documentFieldDetectionRequest: DocumentFieldDetectionRequest): DocumentFieldDetectionResponse
+documentDetectFields(documentFieldDetectionRequest: DocumentFieldDetectionRequest, idempotencyKey: string): DocumentFieldDetectionResponse
 ```
 
 Detect Document Fields
@@ -50,6 +50,7 @@ apiCaller.documentDetectFields(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **documentFieldDetectionRequest** | [**DocumentFieldDetectionRequest**](../model/DocumentFieldDetectionRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

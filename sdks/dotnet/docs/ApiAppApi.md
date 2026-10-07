@@ -12,7 +12,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="apiappcreate"></a>
 # **ApiAppCreate**
-> ApiAppGetResponse ApiAppCreate (ApiAppCreateRequest apiAppCreateRequest)
+> ApiAppGetResponse ApiAppCreate (ApiAppCreateRequest apiAppCreateRequest, string? idempotencyKey = null)
 
 Create API App
 
@@ -91,7 +91,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create API App
-    ApiResponse<ApiAppGetResponse> response = apiInstance.ApiAppCreateWithHttpInfo(apiAppCreateRequest);
+    ApiResponse<ApiAppGetResponse> response = apiInstance.ApiAppCreateWithHttpInfo(apiAppCreateRequest, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -109,6 +109,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **apiAppCreateRequest** | [**ApiAppCreateRequest**](ApiAppCreateRequest.md) |  |  |
+| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -127,7 +128,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -419,7 +420,7 @@ catch (ApiException e)
 
 <a id="apiappupdate"></a>
 # **ApiAppUpdate**
-> ApiAppGetResponse ApiAppUpdate (string clientId, ApiAppUpdateRequest apiAppUpdateRequest)
+> ApiAppGetResponse ApiAppUpdate (string clientId, ApiAppUpdateRequest apiAppUpdateRequest, string? idempotencyKey = null)
 
 Update API App
 
@@ -500,7 +501,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update API App
-    ApiResponse<ApiAppGetResponse> response = apiInstance.ApiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest);
+    ApiResponse<ApiAppGetResponse> response = apiInstance.ApiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -519,6 +520,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **clientId** | **string** | The client id of the API App to update. |  |
 | **apiAppUpdateRequest** | [**ApiAppUpdateRequest**](ApiAppUpdateRequest.md) |  |  |
+| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -537,7 +539,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

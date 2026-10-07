@@ -9,7 +9,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `report_create`
 
-> `<ReportCreateResponse> report_create(report_create_request)`
+> `<ReportCreateResponse> report_create(report_create_request, opts)`
 
 Create Report
 
@@ -49,12 +49,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<ReportCreateResponse>, Integer, Hash)> report_create_with_http_info(report_create_request)`
+> `<Array(<ReportCreateResponse>, Integer, Hash)> report_create_with_http_info(report_create_request, opts)`
 
 ```ruby
 begin
   # Create Report
-  data, status_code, headers = api_instance.report_create_with_http_info(report_create_request)
+  data, status_code, headers = api_instance.report_create_with_http_info(report_create_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ReportCreateResponse>
@@ -68,6 +68,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `report_create_request` | [**ReportCreateRequest**](ReportCreateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

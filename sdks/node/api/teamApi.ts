@@ -130,11 +130,13 @@ export class TeamApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamAddMemberExample.ts
    * @param teamAddMemberRequest
    * @param teamId The id of the team.
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async teamAddMember(
     teamAddMemberRequest: TeamAddMemberRequest,
     teamId?: string,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
     teamAddMemberRequest = deserializeIfNeeded(
@@ -171,6 +173,10 @@ export class TeamApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -282,10 +288,12 @@ export class TeamApi {
    * @summary Create Team
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamCreateExample.ts
    * @param teamCreateRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async teamCreate(
     teamCreateRequest: TeamCreateRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
     teamCreateRequest = deserializeIfNeeded(
@@ -315,6 +323,10 @@ export class TeamApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -1008,10 +1020,12 @@ export class TeamApi {
    * @summary Remove User from Team
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamRemoveMemberExample.ts
    * @param teamRemoveMemberRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async teamRemoveMember(
     teamRemoveMemberRequest: TeamRemoveMemberRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
     teamRemoveMemberRequest = deserializeIfNeeded(
@@ -1044,6 +1058,10 @@ export class TeamApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -1298,10 +1316,12 @@ export class TeamApi {
    * @summary Update Team
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamUpdateExample.ts
    * @param teamUpdateRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async teamUpdate(
     teamUpdateRequest: TeamUpdateRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
     teamUpdateRequest = deserializeIfNeeded(
@@ -1331,6 +1351,10 @@ export class TeamApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

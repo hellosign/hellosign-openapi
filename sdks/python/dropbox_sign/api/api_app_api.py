@@ -47,6 +47,12 @@ class ApiAppApi:
     def api_app_create(
         self,
         api_app_create_request: ApiAppCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -67,6 +73,8 @@ class ApiAppApi:
 
         :param api_app_create_request: (required)
         :type api_app_create_request: ApiAppCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -91,6 +99,7 @@ class ApiAppApi:
 
         _param = self._api_app_create_serialize(
             api_app_create_request=api_app_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -115,6 +124,12 @@ class ApiAppApi:
     def api_app_create_with_http_info(
         self,
         api_app_create_request: ApiAppCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,6 +150,8 @@ class ApiAppApi:
 
         :param api_app_create_request: (required)
         :type api_app_create_request: ApiAppCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -159,6 +176,7 @@ class ApiAppApi:
 
         _param = self._api_app_create_serialize(
             api_app_create_request=api_app_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -183,6 +201,12 @@ class ApiAppApi:
     def api_app_create_without_preload_content(
         self,
         api_app_create_request: ApiAppCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -203,6 +227,8 @@ class ApiAppApi:
 
         :param api_app_create_request: (required)
         :type api_app_create_request: ApiAppCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -227,6 +253,7 @@ class ApiAppApi:
 
         _param = self._api_app_create_serialize(
             api_app_create_request=api_app_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -246,6 +273,7 @@ class ApiAppApi:
     def _api_app_create_serialize(
         self,
         api_app_create_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -290,6 +318,8 @@ class ApiAppApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if api_app_create_request is not None and has_files is False:
@@ -1159,6 +1189,12 @@ class ApiAppApi:
             StrictStr, Field(description="The client id of the API App to update.")
         ],
         api_app_update_request: ApiAppUpdateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1181,6 +1217,8 @@ class ApiAppApi:
         :type client_id: str
         :param api_app_update_request: (required)
         :type api_app_update_request: ApiAppUpdateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1206,6 +1244,7 @@ class ApiAppApi:
         _param = self._api_app_update_serialize(
             client_id=client_id,
             api_app_update_request=api_app_update_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1233,6 +1272,12 @@ class ApiAppApi:
             StrictStr, Field(description="The client id of the API App to update.")
         ],
         api_app_update_request: ApiAppUpdateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1255,6 +1300,8 @@ class ApiAppApi:
         :type client_id: str
         :param api_app_update_request: (required)
         :type api_app_update_request: ApiAppUpdateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1280,6 +1327,7 @@ class ApiAppApi:
         _param = self._api_app_update_serialize(
             client_id=client_id,
             api_app_update_request=api_app_update_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1307,6 +1355,12 @@ class ApiAppApi:
             StrictStr, Field(description="The client id of the API App to update.")
         ],
         api_app_update_request: ApiAppUpdateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1329,6 +1383,8 @@ class ApiAppApi:
         :type client_id: str
         :param api_app_update_request: (required)
         :type api_app_update_request: ApiAppUpdateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1354,6 +1410,7 @@ class ApiAppApi:
         _param = self._api_app_update_serialize(
             client_id=client_id,
             api_app_update_request=api_app_update_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1374,6 +1431,7 @@ class ApiAppApi:
         self,
         client_id,
         api_app_update_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -1420,6 +1478,8 @@ class ApiAppApi:
             _path_params["client_id"] = client_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if api_app_update_request is not None and has_files is False:

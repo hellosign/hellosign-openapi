@@ -164,14 +164,15 @@ class TeamApi
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
+     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamAddMember(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null)
+    public function teamAddMember(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, ?string $idempotency_key = null)
     {
-        list($response) = $this->teamAddMemberWithHttpInfo($team_add_member_request, $team_id);
+        list($response) = $this->teamAddMemberWithHttpInfo($team_add_member_request, $team_id, $idempotency_key);
         return $response;
     }
 
@@ -184,6 +185,7 @@ class TeamApi
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
+     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -191,9 +193,9 @@ class TeamApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
-    public function teamAddMemberWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMemberWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
-        $request = $this->teamAddMemberRequest($team_add_member_request, $team_id, $contentType);
+        $request = $this->teamAddMemberRequest($team_add_member_request, $team_id, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -324,15 +326,16 @@ class TeamApi
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
+     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
-    public function teamAddMemberAsync(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMemberAsync(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
-        return $this->teamAddMemberAsyncWithHttpInfo($team_add_member_request, $team_id, $contentType)
+        return $this->teamAddMemberAsyncWithHttpInfo($team_add_member_request, $team_id, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -349,16 +352,17 @@ class TeamApi
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
+     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
-    public function teamAddMemberAsyncWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMemberAsyncWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
-        $request = $this->teamAddMemberRequest($team_add_member_request, $team_id, $contentType);
+        $request = $this->teamAddMemberRequest($team_add_member_request, $team_id, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -401,19 +405,27 @@ class TeamApi
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request (required)
      * @param string|null                $team_id                 The id of the team. (optional)
+     * @param string|null                $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
-    public function teamAddMemberRequest(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMemberRequest(Model\TeamAddMemberRequest $team_add_member_request, ?string $team_id = null, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
         // verify the required parameter 'team_add_member_request' is set
         if ($team_add_member_request === null || (is_array($team_add_member_request) && count($team_add_member_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $team_add_member_request when calling teamAddMember'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TeamApi.teamAddMember, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TeamApi.teamAddMember, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/team/add_member';
@@ -437,6 +449,11 @@ class TeamApi
             true, // explode
             false // required
         ) ?? []);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -524,14 +541,15 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamCreateExample.php
      *
      * @param Model\TeamCreateRequest $team_create_request team_create_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamCreate(Model\TeamCreateRequest $team_create_request)
+    public function teamCreate(Model\TeamCreateRequest $team_create_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->teamCreateWithHttpInfo($team_create_request);
+        list($response) = $this->teamCreateWithHttpInfo($team_create_request, $idempotency_key);
         return $response;
     }
 
@@ -543,6 +561,7 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamCreateExample.php
      *
      * @param Model\TeamCreateRequest $team_create_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -550,9 +569,9 @@ class TeamApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
-    public function teamCreateWithHttpInfo(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreateWithHttpInfo(Model\TeamCreateRequest $team_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamCreate'][0])
     {
-        $request = $this->teamCreateRequest($team_create_request, $contentType);
+        $request = $this->teamCreateRequest($team_create_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -682,15 +701,16 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamCreateExample.php
      *
      * @param Model\TeamCreateRequest $team_create_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
-    public function teamCreateAsync(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreateAsync(Model\TeamCreateRequest $team_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamCreate'][0])
     {
-        return $this->teamCreateAsyncWithHttpInfo($team_create_request, $contentType)
+        return $this->teamCreateAsyncWithHttpInfo($team_create_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -706,16 +726,17 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamCreateExample.php
      *
      * @param Model\TeamCreateRequest $team_create_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
-    public function teamCreateAsyncWithHttpInfo(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreateAsyncWithHttpInfo(Model\TeamCreateRequest $team_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
-        $request = $this->teamCreateRequest($team_create_request, $contentType);
+        $request = $this->teamCreateRequest($team_create_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -757,19 +778,27 @@ class TeamApi
      * Create request for operation 'teamCreate'
      *
      * @param Model\TeamCreateRequest $team_create_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
-    public function teamCreateRequest(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreateRequest(Model\TeamCreateRequest $team_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamCreate'][0])
     {
         // verify the required parameter 'team_create_request' is set
         if ($team_create_request === null || (is_array($team_create_request) && count($team_create_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $team_create_request when calling teamCreate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TeamApi.teamCreate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TeamApi.teamCreate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/team/create';
@@ -784,6 +813,11 @@ class TeamApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -2450,14 +2484,15 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamRemoveMemberExample.php
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request team_remove_member_request (required)
+     * @param string|null                   $idempotency_key            Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamRemoveMember(Model\TeamRemoveMemberRequest $team_remove_member_request)
+    public function teamRemoveMember(Model\TeamRemoveMemberRequest $team_remove_member_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->teamRemoveMemberWithHttpInfo($team_remove_member_request);
+        list($response) = $this->teamRemoveMemberWithHttpInfo($team_remove_member_request, $idempotency_key);
         return $response;
     }
 
@@ -2469,6 +2504,7 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamRemoveMemberExample.php
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
+     * @param string|null                   $idempotency_key            Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -2476,9 +2512,9 @@ class TeamApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
-    public function teamRemoveMemberWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMemberWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
-        $request = $this->teamRemoveMemberRequest($team_remove_member_request, $contentType);
+        $request = $this->teamRemoveMemberRequest($team_remove_member_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2608,15 +2644,16 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamRemoveMemberExample.php
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
+     * @param string|null                   $idempotency_key            Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
-    public function teamRemoveMemberAsync(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMemberAsync(Model\TeamRemoveMemberRequest $team_remove_member_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
-        return $this->teamRemoveMemberAsyncWithHttpInfo($team_remove_member_request, $contentType)
+        return $this->teamRemoveMemberAsyncWithHttpInfo($team_remove_member_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2632,16 +2669,17 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamRemoveMemberExample.php
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
+     * @param string|null                   $idempotency_key            Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
-    public function teamRemoveMemberAsyncWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMemberAsyncWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
-        $request = $this->teamRemoveMemberRequest($team_remove_member_request, $contentType);
+        $request = $this->teamRemoveMemberRequest($team_remove_member_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2683,19 +2721,27 @@ class TeamApi
      * Create request for operation 'teamRemoveMember'
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
+     * @param string|null                   $idempotency_key            Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
-    public function teamRemoveMemberRequest(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMemberRequest(Model\TeamRemoveMemberRequest $team_remove_member_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
         // verify the required parameter 'team_remove_member_request' is set
         if ($team_remove_member_request === null || (is_array($team_remove_member_request) && count($team_remove_member_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $team_remove_member_request when calling teamRemoveMember'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TeamApi.teamRemoveMember, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TeamApi.teamRemoveMember, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/team/remove_member';
@@ -2710,6 +2756,11 @@ class TeamApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -3173,14 +3224,15 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamUpdateExample.php
      *
      * @param Model\TeamUpdateRequest $team_update_request team_update_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamUpdate(Model\TeamUpdateRequest $team_update_request)
+    public function teamUpdate(Model\TeamUpdateRequest $team_update_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->teamUpdateWithHttpInfo($team_update_request);
+        list($response) = $this->teamUpdateWithHttpInfo($team_update_request, $idempotency_key);
         return $response;
     }
 
@@ -3192,6 +3244,7 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamUpdateExample.php
      *
      * @param Model\TeamUpdateRequest $team_update_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -3199,9 +3252,9 @@ class TeamApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
-    public function teamUpdateWithHttpInfo(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdateWithHttpInfo(Model\TeamUpdateRequest $team_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamUpdate'][0])
     {
-        $request = $this->teamUpdateRequest($team_update_request, $contentType);
+        $request = $this->teamUpdateRequest($team_update_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3331,15 +3384,16 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamUpdateExample.php
      *
      * @param Model\TeamUpdateRequest $team_update_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
-    public function teamUpdateAsync(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdateAsync(Model\TeamUpdateRequest $team_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamUpdate'][0])
     {
-        return $this->teamUpdateAsyncWithHttpInfo($team_update_request, $contentType)
+        return $this->teamUpdateAsyncWithHttpInfo($team_update_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3355,16 +3409,17 @@ class TeamApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TeamUpdateExample.php
      *
      * @param Model\TeamUpdateRequest $team_update_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
-    public function teamUpdateAsyncWithHttpInfo(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdateAsyncWithHttpInfo(Model\TeamUpdateRequest $team_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamUpdate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
-        $request = $this->teamUpdateRequest($team_update_request, $contentType);
+        $request = $this->teamUpdateRequest($team_update_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3406,19 +3461,27 @@ class TeamApi
      * Create request for operation 'teamUpdate'
      *
      * @param Model\TeamUpdateRequest $team_update_request (required)
+     * @param string|null             $idempotency_key     Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
-    public function teamUpdateRequest(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdateRequest(Model\TeamUpdateRequest $team_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['teamUpdate'][0])
     {
         // verify the required parameter 'team_update_request' is set
         if ($team_update_request === null || (is_array($team_update_request) && count($team_update_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $team_update_request when calling teamUpdate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TeamApi.teamUpdate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TeamApi.teamUpdate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/team';
@@ -3433,6 +3496,11 @@ class TeamApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],

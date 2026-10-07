@@ -37,9 +37,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        TemplateGetResponse TemplateAddUser(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0);
+        TemplateGetResponse TemplateAddUser(string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Add User to Template
@@ -51,9 +52,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0);
+        ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Template
         /// </summary>
@@ -63,9 +65,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateCreateResponse</returns>
-        TemplateCreateResponse TemplateCreate(TemplateCreateRequest templateCreateRequest, int operationIndex = 0);
+        TemplateCreateResponse TemplateCreate(TemplateCreateRequest templateCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Template
@@ -76,9 +79,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateCreateResponse</returns>
-        ApiResponse<TemplateCreateResponse> TemplateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest, int operationIndex = 0);
+        ApiResponse<TemplateCreateResponse> TemplateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Embedded Template Draft
         /// </summary>
@@ -88,9 +92,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateCreateEmbeddedDraftResponse</returns>
-        TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0);
+        TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Embedded Template Draft
@@ -101,9 +106,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateCreateEmbeddedDraftResponse</returns>
-        ApiResponse<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0);
+        ApiResponse<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Delete Template
         /// </summary>
@@ -113,9 +119,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void TemplateDelete(string templateId, int operationIndex = 0);
+        void TemplateDelete(string templateId, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Delete Template
@@ -126,9 +133,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> TemplateDeleteWithHttpInfo(string templateId, int operationIndex = 0);
+        ApiResponse<Object> TemplateDeleteWithHttpInfo(string templateId, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get Template Files
         /// </summary>
@@ -274,9 +282,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        TemplateGetResponse TemplateRemoveUser(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0);
+        TemplateGetResponse TemplateRemoveUser(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Remove User from Template
@@ -288,9 +297,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0);
+        ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Update Template Files
         /// </summary>
@@ -301,9 +311,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateUpdateFilesResponse</returns>
-        TemplateUpdateFilesResponse TemplateUpdateFiles(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0);
+        TemplateUpdateFilesResponse TemplateUpdateFiles(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Update Template Files
@@ -315,9 +326,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateUpdateFilesResponse</returns>
-        ApiResponse<TemplateUpdateFilesResponse> TemplateUpdateFilesWithHttpInfo(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0);
+        ApiResponse<TemplateUpdateFilesResponse> TemplateUpdateFilesWithHttpInfo(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -337,10 +349,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add User to Template
@@ -352,10 +365,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Template
         /// </summary>
@@ -365,10 +379,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateResponse</returns>
-        System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Template
@@ -379,10 +394,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Template Draft
         /// </summary>
@@ -392,10 +408,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateEmbeddedDraftResponse</returns>
-        System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Template Draft
@@ -406,10 +423,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateEmbeddedDraftResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Template
         /// </summary>
@@ -419,10 +437,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Template
@@ -433,10 +452,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files
         /// </summary>
@@ -592,10 +612,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove User from Template
@@ -607,10 +628,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Template Files
         /// </summary>
@@ -621,10 +643,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateUpdateFilesResponse</returns>
-        System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Template Files
@@ -636,10 +659,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateUpdateFilesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -767,11 +791,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        public TemplateGetResponse TemplateAddUser(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0)
+        public TemplateGetResponse TemplateAddUser(string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateAddUserWithHttpInfo(templateId, templateAddUserRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateAddUserWithHttpInfo(templateId, templateAddUserRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -782,9 +807,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -830,6 +856,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -868,12 +898,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateAddUserWithHttpInfoAsync(templateId, templateAddUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateAddUserWithHttpInfoAsync(templateId, templateAddUserRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -884,10 +915,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to give the Account access to.</param>
         /// <param name="templateAddUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -934,6 +966,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -972,11 +1008,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateCreateResponse</returns>
-        public TemplateCreateResponse TemplateCreate(TemplateCreateRequest templateCreateRequest, int operationIndex = 0)
+        public TemplateCreateResponse TemplateCreate(TemplateCreateRequest templateCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse = TemplateCreateWithHttpInfo(templateCreateRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse = TemplateCreateWithHttpInfo(templateCreateRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -986,9 +1023,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> TemplateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> TemplateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'templateCreateRequest' is set
             if (templateCreateRequest == null)
@@ -1027,6 +1065,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1064,12 +1106,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse = await TemplateCreateWithHttpInfoAsync(templateCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse = await TemplateCreateWithHttpInfoAsync(templateCreateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1079,10 +1122,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateCreateRequest' is set
             if (templateCreateRequest == null)
@@ -1122,6 +1166,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1160,11 +1208,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateCreateEmbeddedDraftResponse</returns>
-        public TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0)
+        public TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse = TemplateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse = TemplateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -1174,9 +1223,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateCreateEmbeddedDraftResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'templateCreateEmbeddedDraftRequest' is set
             if (templateCreateEmbeddedDraftRequest == null)
@@ -1215,6 +1265,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbeddedDraft";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1252,12 +1306,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateEmbeddedDraftResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse = await TemplateCreateEmbeddedDraftWithHttpInfoAsync(templateCreateEmbeddedDraftRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse = await TemplateCreateEmbeddedDraftWithHttpInfoAsync(templateCreateEmbeddedDraftRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1267,10 +1322,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateCreateEmbeddedDraftExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateEmbeddedDraftResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateCreateEmbeddedDraftRequest' is set
             if (templateCreateEmbeddedDraftRequest == null)
@@ -1310,6 +1366,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbeddedDraft";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1348,11 +1408,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void TemplateDelete(string templateId, int operationIndex = 0)
+        public void TemplateDelete(string templateId, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            TemplateDeleteWithHttpInfo(templateId);
+            TemplateDeleteWithHttpInfo(templateId, idempotencyKey);
         }
 
         /// <summary>
@@ -1361,9 +1422,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Dropbox.Sign.Client.ApiResponse<Object> TemplateDeleteWithHttpInfo(string templateId, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<Object> TemplateDeleteWithHttpInfo(string templateId, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1394,6 +1456,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1431,12 +1497,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await TemplateDeleteWithHttpInfoAsync(templateId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await TemplateDeleteWithHttpInfoAsync(templateId, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1445,10 +1512,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TemplateDeleteExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to delete.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1480,6 +1548,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2437,11 +2509,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        public TemplateGetResponse TemplateRemoveUser(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0)
+        public TemplateGetResponse TemplateRemoveUser(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -2452,9 +2525,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2500,6 +2574,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2538,12 +2616,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateRemoveUserWithHttpInfoAsync(templateId, templateRemoveUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateRemoveUserWithHttpInfoAsync(templateId, templateRemoveUserRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2554,10 +2633,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the Template to remove the Account&#39;s access to.</param>
         /// <param name="templateRemoveUserRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2604,6 +2684,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2643,11 +2727,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateUpdateFilesResponse</returns>
-        public TemplateUpdateFilesResponse TemplateUpdateFiles(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0)
+        public TemplateUpdateFilesResponse TemplateUpdateFiles(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse = TemplateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse = TemplateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -2658,9 +2743,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateUpdateFilesResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> TemplateUpdateFilesWithHttpInfo(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> TemplateUpdateFilesWithHttpInfo(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2706,6 +2792,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateUpdateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2744,12 +2834,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateUpdateFilesResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse = await TemplateUpdateFilesWithHttpInfoAsync(templateId, templateUpdateFilesRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse = await TemplateUpdateFilesWithHttpInfoAsync(templateId, templateUpdateFilesRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2760,10 +2851,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The ID of the template whose files to update.</param>
         /// <param name="templateUpdateFilesRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateUpdateFilesResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2810,6 +2902,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateUpdateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;

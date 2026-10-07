@@ -17,7 +17,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="teamaddmember"></a>
 # **TeamAddMember**
-> TeamGetResponse TeamAddMember (TeamAddMemberRequest teamAddMemberRequest, string? teamId = null)
+> TeamGetResponse TeamAddMember (TeamAddMemberRequest teamAddMemberRequest, string? teamId = null, string? idempotencyKey = null)
 
 Add User to Team
 
@@ -75,7 +75,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Add User to Team
-    ApiResponse<TeamGetResponse> response = apiInstance.TeamAddMemberWithHttpInfo(teamAddMemberRequest, teamId);
+    ApiResponse<TeamGetResponse> response = apiInstance.TeamAddMemberWithHttpInfo(teamAddMemberRequest, teamId, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -94,6 +94,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **teamAddMemberRequest** | [**TeamAddMemberRequest**](TeamAddMemberRequest.md) |  |  |
 | **teamId** | **string?** | The id of the team. | [optional]  |
+| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -112,14 +113,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="teamcreate"></a>
 # **TeamCreate**
-> TeamGetResponse TeamCreate (TeamCreateRequest teamCreateRequest)
+> TeamGetResponse TeamCreate (TeamCreateRequest teamCreateRequest, string? idempotencyKey = null)
 
 Create Team
 
@@ -176,7 +177,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Team
-    ApiResponse<TeamGetResponse> response = apiInstance.TeamCreateWithHttpInfo(teamCreateRequest);
+    ApiResponse<TeamGetResponse> response = apiInstance.TeamCreateWithHttpInfo(teamCreateRequest, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -194,6 +195,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **teamCreateRequest** | [**TeamCreateRequest**](TeamCreateRequest.md) |  |  |
+| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -212,7 +214,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -684,7 +686,7 @@ catch (ApiException e)
 
 <a id="teamremovemember"></a>
 # **TeamRemoveMember**
-> TeamGetResponse TeamRemoveMember (TeamRemoveMemberRequest teamRemoveMemberRequest)
+> TeamGetResponse TeamRemoveMember (TeamRemoveMemberRequest teamRemoveMemberRequest, string? idempotencyKey = null)
 
 Remove User from Team
 
@@ -742,7 +744,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Remove User from Team
-    ApiResponse<TeamGetResponse> response = apiInstance.TeamRemoveMemberWithHttpInfo(teamRemoveMemberRequest);
+    ApiResponse<TeamGetResponse> response = apiInstance.TeamRemoveMemberWithHttpInfo(teamRemoveMemberRequest, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -760,6 +762,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **teamRemoveMemberRequest** | [**TeamRemoveMemberRequest**](TeamRemoveMemberRequest.md) |  |  |
+| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -778,7 +781,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -885,7 +888,7 @@ catch (ApiException e)
 
 <a id="teamupdate"></a>
 # **TeamUpdate**
-> TeamGetResponse TeamUpdate (TeamUpdateRequest teamUpdateRequest)
+> TeamGetResponse TeamUpdate (TeamUpdateRequest teamUpdateRequest, string? idempotencyKey = null)
 
 Update Team
 
@@ -942,7 +945,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update Team
-    ApiResponse<TeamGetResponse> response = apiInstance.TeamUpdateWithHttpInfo(teamUpdateRequest);
+    ApiResponse<TeamGetResponse> response = apiInstance.TeamUpdateWithHttpInfo(teamUpdateRequest, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -960,6 +963,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **teamUpdateRequest** | [**TeamUpdateRequest**](TeamUpdateRequest.md) |  |  |
+| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -978,7 +982,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -36,9 +36,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BulkSendJobSendResponse</returns>
-        BulkSendJobSendResponse SignatureRequestBulkCreateEmbeddedWithTemplate(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0);
+        BulkSendJobSendResponse SignatureRequestBulkCreateEmbeddedWithTemplate(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Embedded Bulk Send with Template
@@ -49,9 +50,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BulkSendJobSendResponse</returns>
-        ApiResponse<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0);
+        ApiResponse<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Bulk Send with Template
         /// </summary>
@@ -61,9 +63,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BulkSendJobSendResponse</returns>
-        BulkSendJobSendResponse SignatureRequestBulkSendWithTemplate(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0);
+        BulkSendJobSendResponse SignatureRequestBulkSendWithTemplate(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Bulk Send with Template
@@ -74,9 +77,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BulkSendJobSendResponse</returns>
-        ApiResponse<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateWithHttpInfo(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0);
+        ApiResponse<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateWithHttpInfo(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Cancel Incomplete Signature Request
         /// </summary>
@@ -86,9 +90,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCancelExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the incomplete SignatureRequest to cancel.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SignatureRequestCancel(string signatureRequestId, int operationIndex = 0);
+        void SignatureRequestCancel(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Cancel Incomplete Signature Request
@@ -99,9 +104,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCancelExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the incomplete SignatureRequest to cancel.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SignatureRequestCancelWithHttpInfo(string signatureRequestId, int operationIndex = 0);
+        ApiResponse<Object> SignatureRequestCancelWithHttpInfo(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Embedded Signature Request
         /// </summary>
@@ -111,9 +117,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestCreateEmbedded(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestCreateEmbedded(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Embedded Signature Request
@@ -124,9 +131,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithHttpInfo(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithHttpInfo(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Embedded Signature Request with Template
         /// </summary>
@@ -136,9 +144,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestCreateEmbeddedWithTemplate(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestCreateEmbeddedWithTemplate(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Embedded Signature Request with Template
@@ -149,9 +158,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Edit Signature Request
         /// </summary>
@@ -162,9 +172,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestEdit(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestEdit(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Edit Signature Request
@@ -176,9 +187,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithHttpInfo(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithHttpInfo(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Edit Embedded Signature Request
         /// </summary>
@@ -189,9 +201,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestEditEmbedded(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestEditEmbedded(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Edit Embedded Signature Request
@@ -203,9 +216,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Edit Embedded Signature Request with Template
         /// </summary>
@@ -216,9 +230,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestEditEmbeddedWithTemplate(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestEditEmbeddedWithTemplate(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Edit Embedded Signature Request with Template
@@ -230,9 +245,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Edit Signature Request With Template
         /// </summary>
@@ -243,9 +259,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestEditWithTemplate(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestEditWithTemplate(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Edit Signature Request With Template
@@ -257,9 +274,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Download Files
         /// </summary>
@@ -404,9 +422,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestReleaseHoldExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to release.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestReleaseHold(string signatureRequestId, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestReleaseHold(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Release On-Hold Signature Request
@@ -417,9 +436,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestReleaseHoldExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to release.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestReleaseHoldWithHttpInfo(string signatureRequestId, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestReleaseHoldWithHttpInfo(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Send Request Reminder
         /// </summary>
@@ -430,9 +450,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to send a reminder for.</param>
         /// <param name="signatureRequestRemindRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestRemind(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestRemind(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Send Request Reminder
@@ -444,9 +465,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to send a reminder for.</param>
         /// <param name="signatureRequestRemindRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestRemindWithHttpInfo(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestRemindWithHttpInfo(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Remove Signature Request Access
         /// </summary>
@@ -456,9 +478,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestRemoveExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to remove.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void SignatureRequestRemove(string signatureRequestId, int operationIndex = 0);
+        void SignatureRequestRemove(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Remove Signature Request Access
@@ -469,9 +492,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestRemoveExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to remove.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SignatureRequestRemoveWithHttpInfo(string signatureRequestId, int operationIndex = 0);
+        ApiResponse<Object> SignatureRequestRemoveWithHttpInfo(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Send Signature Request
         /// </summary>
@@ -481,9 +505,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestSend(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestSend(SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Send Signature Request
@@ -494,9 +519,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestSendWithHttpInfo(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestSendWithHttpInfo(SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Send with Template
         /// </summary>
@@ -506,9 +532,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestSendWithTemplate(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestSendWithTemplate(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Send with Template
@@ -519,9 +546,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestSendWithTemplateWithHttpInfo(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestSendWithTemplateWithHttpInfo(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         /// <summary>
         /// Update Signature Request
         /// </summary>
@@ -532,9 +560,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
         /// <param name="signatureRequestUpdateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        SignatureRequestGetResponse SignatureRequestUpdate(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0);
+        SignatureRequestGetResponse SignatureRequestUpdate(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Update Signature Request
@@ -546,9 +575,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
         /// <param name="signatureRequestUpdateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        ApiResponse<SignatureRequestGetResponse> SignatureRequestUpdateWithHttpInfo(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0);
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestUpdateWithHttpInfo(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -567,10 +597,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobSendResponse</returns>
-        System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Embedded Bulk Send with Template
@@ -581,10 +612,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobSendResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Bulk Send with Template
         /// </summary>
@@ -594,10 +626,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobSendResponse</returns>
-        System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Bulk Send with Template
@@ -608,10 +641,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobSendResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Cancel Incomplete Signature Request
         /// </summary>
@@ -621,10 +655,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCancelExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the incomplete SignatureRequest to cancel.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SignatureRequestCancelAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SignatureRequestCancelAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Cancel Incomplete Signature Request
@@ -635,10 +670,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCancelExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the incomplete SignatureRequest to cancel.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SignatureRequestCancelWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SignatureRequestCancelWithHttpInfoAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Signature Request
         /// </summary>
@@ -648,10 +684,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Signature Request
@@ -662,10 +699,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithHttpInfoAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithHttpInfoAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Signature Request with Template
         /// </summary>
@@ -675,10 +713,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Signature Request with Template
@@ -689,10 +728,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Edit Signature Request
         /// </summary>
@@ -703,10 +743,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Edit Signature Request
@@ -718,10 +759,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Edit Embedded Signature Request
         /// </summary>
@@ -732,10 +774,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Edit Embedded Signature Request
@@ -747,10 +790,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Edit Embedded Signature Request with Template
         /// </summary>
@@ -761,10 +805,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Edit Embedded Signature Request with Template
@@ -776,10 +821,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Edit Signature Request With Template
         /// </summary>
@@ -790,10 +836,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditWithTemplateAsync(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditWithTemplateAsync(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Edit Signature Request With Template
@@ -805,10 +852,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Download Files
         /// </summary>
@@ -963,10 +1011,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestReleaseHoldExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to release.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestReleaseHoldAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestReleaseHoldAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Release On-Hold Signature Request
@@ -977,10 +1026,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestReleaseHoldExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to release.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestReleaseHoldWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestReleaseHoldWithHttpInfoAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Request Reminder
         /// </summary>
@@ -991,10 +1041,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to send a reminder for.</param>
         /// <param name="signatureRequestRemindRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestRemindAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestRemindAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Request Reminder
@@ -1006,10 +1057,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to send a reminder for.</param>
         /// <param name="signatureRequestRemindRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestRemindWithHttpInfoAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestRemindWithHttpInfoAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Remove Signature Request Access
         /// </summary>
@@ -1019,10 +1071,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestRemoveExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to remove.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SignatureRequestRemoveAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SignatureRequestRemoveAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove Signature Request Access
@@ -1033,10 +1086,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestRemoveExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to remove.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SignatureRequestRemoveWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SignatureRequestRemoveWithHttpInfoAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Signature Request
         /// </summary>
@@ -1046,10 +1100,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendAsync(SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Signature Request
@@ -1060,10 +1115,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithHttpInfoAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithHttpInfoAsync(SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send with Template
         /// </summary>
@@ -1073,10 +1129,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendWithTemplateAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendWithTemplateAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send with Template
@@ -1087,10 +1144,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithTemplateWithHttpInfoAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithTemplateWithHttpInfoAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Signature Request
         /// </summary>
@@ -1101,10 +1159,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
         /// <param name="signatureRequestUpdateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestUpdateAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestUpdateAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Signature Request
@@ -1116,10 +1175,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
         /// <param name="signatureRequestUpdateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestUpdateWithHttpInfoAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestUpdateWithHttpInfoAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1246,11 +1306,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BulkSendJobSendResponse</returns>
-        public BulkSendJobSendResponse SignatureRequestBulkCreateEmbeddedWithTemplate(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0)
+        public BulkSendJobSendResponse SignatureRequestBulkCreateEmbeddedWithTemplate(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestBulkCreateEmbeddedWithTemplateRequest);
+            Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestBulkCreateEmbeddedWithTemplateRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -1260,9 +1321,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BulkSendJobSendResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestBulkCreateEmbeddedWithTemplateRequest' is set
             if (signatureRequestBulkCreateEmbeddedWithTemplateRequest == null)
@@ -1301,6 +1363,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestBulkCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1332,12 +1398,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobSendResponse</returns>
-        public async System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = await SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestBulkCreateEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = await SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestBulkCreateEmbeddedWithTemplateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1347,10 +1414,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobSendResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestBulkCreateEmbeddedWithTemplateRequest' is set
             if (signatureRequestBulkCreateEmbeddedWithTemplateRequest == null)
@@ -1390,6 +1458,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestBulkCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1422,11 +1494,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BulkSendJobSendResponse</returns>
-        public BulkSendJobSendResponse SignatureRequestBulkSendWithTemplate(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0)
+        public BulkSendJobSendResponse SignatureRequestBulkSendWithTemplate(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = SignatureRequestBulkSendWithTemplateWithHttpInfo(signatureRequestBulkSendWithTemplateRequest);
+            Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = SignatureRequestBulkSendWithTemplateWithHttpInfo(signatureRequestBulkSendWithTemplateRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -1436,9 +1509,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BulkSendJobSendResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateWithHttpInfo(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateWithHttpInfo(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestBulkSendWithTemplateRequest' is set
             if (signatureRequestBulkSendWithTemplateRequest == null)
@@ -1477,6 +1551,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestBulkSendWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1514,12 +1592,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobSendResponse</returns>
-        public async System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = await SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(signatureRequestBulkSendWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = await SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(signatureRequestBulkSendWithTemplateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1529,10 +1608,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestBulkSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobSendResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestBulkSendWithTemplateRequest' is set
             if (signatureRequestBulkSendWithTemplateRequest == null)
@@ -1572,6 +1652,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestBulkSendWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1610,11 +1694,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCancelExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the incomplete SignatureRequest to cancel.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SignatureRequestCancel(string signatureRequestId, int operationIndex = 0)
+        public void SignatureRequestCancel(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            SignatureRequestCancelWithHttpInfo(signatureRequestId);
+            SignatureRequestCancelWithHttpInfo(signatureRequestId, idempotencyKey);
         }
 
         /// <summary>
@@ -1623,9 +1708,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCancelExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the incomplete SignatureRequest to cancel.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Dropbox.Sign.Client.ApiResponse<Object> SignatureRequestCancelWithHttpInfo(string signatureRequestId, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<Object> SignatureRequestCancelWithHttpInfo(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -1656,6 +1742,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestCancel";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1693,12 +1783,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCancelExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the incomplete SignatureRequest to cancel.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SignatureRequestCancelAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SignatureRequestCancelAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await SignatureRequestCancelWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await SignatureRequestCancelWithHttpInfoAsync(signatureRequestId, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1707,10 +1798,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCancelExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the incomplete SignatureRequest to cancel.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> SignatureRequestCancelWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> SignatureRequestCancelWithHttpInfoAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -1742,6 +1834,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestCancel";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1780,11 +1876,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestCreateEmbedded(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestCreateEmbedded(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestCreateEmbeddedWithHttpInfo(signatureRequestCreateEmbeddedRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestCreateEmbeddedWithHttpInfo(signatureRequestCreateEmbeddedRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -1794,9 +1891,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithHttpInfo(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithHttpInfo(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestCreateEmbeddedRequest' is set
             if (signatureRequestCreateEmbeddedRequest == null)
@@ -1835,6 +1933,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestCreateEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1872,12 +1974,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestCreateEmbeddedWithHttpInfoAsync(signatureRequestCreateEmbeddedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestCreateEmbeddedWithHttpInfoAsync(signatureRequestCreateEmbeddedRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1887,10 +1990,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithHttpInfoAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithHttpInfoAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestCreateEmbeddedRequest' is set
             if (signatureRequestCreateEmbeddedRequest == null)
@@ -1930,6 +2034,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestCreateEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1968,11 +2076,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestCreateEmbeddedWithTemplate(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestCreateEmbeddedWithTemplate(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestCreateEmbeddedWithTemplateRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestCreateEmbeddedWithTemplateRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -1982,9 +2091,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestCreateEmbeddedWithTemplateRequest' is set
             if (signatureRequestCreateEmbeddedWithTemplateRequest == null)
@@ -2023,6 +2133,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2060,12 +2174,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestCreateEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestCreateEmbeddedWithTemplateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2075,10 +2190,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestCreateEmbeddedWithTemplateRequest' is set
             if (signatureRequestCreateEmbeddedWithTemplateRequest == null)
@@ -2118,6 +2234,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2157,11 +2277,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestEdit(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestEdit(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditWithHttpInfo(signatureRequestId, signatureRequestEditRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditWithHttpInfo(signatureRequestId, signatureRequestEditRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -2172,9 +2293,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithHttpInfo(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithHttpInfo(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2220,6 +2342,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEdit";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2258,12 +2384,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditWithHttpInfoAsync(signatureRequestId, signatureRequestEditRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditWithHttpInfoAsync(signatureRequestId, signatureRequestEditRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2274,10 +2401,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2324,6 +2452,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEdit";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2363,11 +2495,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestEditEmbedded(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestEditEmbedded(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditEmbeddedWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditEmbeddedWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -2378,9 +2511,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2426,6 +2560,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2464,12 +2602,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditEmbeddedWithHttpInfoAsync(signatureRequestId, signatureRequestEditEmbeddedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditEmbeddedWithHttpInfoAsync(signatureRequestId, signatureRequestEditEmbeddedRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2480,10 +2619,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2530,6 +2670,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2569,11 +2713,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestEditEmbeddedWithTemplate(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestEditEmbeddedWithTemplate(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -2584,9 +2729,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2632,6 +2778,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2670,12 +2820,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2686,10 +2837,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2736,6 +2888,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2775,11 +2931,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestEditWithTemplate(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestEditWithTemplate(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditWithTemplateRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditWithTemplateRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -2790,9 +2947,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2838,6 +2996,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2876,12 +3038,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditWithTemplateAsync(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditWithTemplateAsync(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditWithTemplateWithHttpInfoAsync(signatureRequestId, signatureRequestEditWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditWithTemplateWithHttpInfoAsync(signatureRequestId, signatureRequestEditWithTemplateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2892,10 +3055,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
         /// <param name="signatureRequestEditWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2942,6 +3106,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3898,11 +4066,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestReleaseHoldExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to release.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestReleaseHold(string signatureRequestId, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestReleaseHold(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestReleaseHoldWithHttpInfo(signatureRequestId);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestReleaseHoldWithHttpInfo(signatureRequestId, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -3912,9 +4081,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestReleaseHoldExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to release.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestReleaseHoldWithHttpInfo(string signatureRequestId, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestReleaseHoldWithHttpInfo(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -3945,6 +4115,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestReleaseHold";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3982,12 +4156,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestReleaseHoldExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to release.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestReleaseHoldAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestReleaseHoldAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestReleaseHoldWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestReleaseHoldWithHttpInfoAsync(signatureRequestId, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3997,10 +4172,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestReleaseHoldExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to release.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestReleaseHoldWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestReleaseHoldWithHttpInfoAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -4032,6 +4208,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestReleaseHold";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4071,11 +4251,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to send a reminder for.</param>
         /// <param name="signatureRequestRemindRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestRemind(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestRemind(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestRemindWithHttpInfo(signatureRequestId, signatureRequestRemindRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestRemindWithHttpInfo(signatureRequestId, signatureRequestRemindRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -4086,9 +4267,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to send a reminder for.</param>
         /// <param name="signatureRequestRemindRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestRemindWithHttpInfo(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestRemindWithHttpInfo(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -4134,6 +4316,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestRemind";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4172,12 +4358,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to send a reminder for.</param>
         /// <param name="signatureRequestRemindRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestRemindAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestRemindAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestRemindWithHttpInfoAsync(signatureRequestId, signatureRequestRemindRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestRemindWithHttpInfoAsync(signatureRequestId, signatureRequestRemindRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4188,10 +4375,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to send a reminder for.</param>
         /// <param name="signatureRequestRemindRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestRemindWithHttpInfoAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestRemindWithHttpInfoAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -4238,6 +4426,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestRemind";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4276,11 +4468,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestRemoveExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to remove.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void SignatureRequestRemove(string signatureRequestId, int operationIndex = 0)
+        public void SignatureRequestRemove(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            SignatureRequestRemoveWithHttpInfo(signatureRequestId);
+            SignatureRequestRemoveWithHttpInfo(signatureRequestId, idempotencyKey);
         }
 
         /// <summary>
@@ -4289,9 +4482,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestRemoveExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to remove.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Dropbox.Sign.Client.ApiResponse<Object> SignatureRequestRemoveWithHttpInfo(string signatureRequestId, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<Object> SignatureRequestRemoveWithHttpInfo(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -4322,6 +4516,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestRemove";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4353,12 +4551,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestRemoveExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to remove.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SignatureRequestRemoveAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SignatureRequestRemoveAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await SignatureRequestRemoveWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await SignatureRequestRemoveWithHttpInfoAsync(signatureRequestId, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -4367,10 +4566,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestRemoveExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to remove.</param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> SignatureRequestRemoveWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> SignatureRequestRemoveWithHttpInfoAsync(string signatureRequestId, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -4402,6 +4602,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestRemove";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4434,11 +4638,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestSend(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestSend(SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestSendWithHttpInfo(signatureRequestSendRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestSendWithHttpInfo(signatureRequestSendRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -4448,9 +4653,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestSendWithHttpInfo(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestSendWithHttpInfo(SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestSendRequest' is set
             if (signatureRequestSendRequest == null)
@@ -4489,6 +4695,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestSend";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4526,12 +4736,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendAsync(SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestSendWithHttpInfoAsync(signatureRequestSendRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestSendWithHttpInfoAsync(signatureRequestSendRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4541,10 +4752,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithHttpInfoAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithHttpInfoAsync(SignatureRequestSendRequest signatureRequestSendRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestSendRequest' is set
             if (signatureRequestSendRequest == null)
@@ -4584,6 +4796,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestSend";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4622,11 +4838,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestSendWithTemplate(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestSendWithTemplate(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestSendWithTemplateWithHttpInfo(signatureRequestSendWithTemplateRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestSendWithTemplateWithHttpInfo(signatureRequestSendWithTemplateRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -4636,9 +4853,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestSendWithTemplateWithHttpInfo(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestSendWithTemplateWithHttpInfo(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestSendWithTemplateRequest' is set
             if (signatureRequestSendWithTemplateRequest == null)
@@ -4677,6 +4895,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestSendWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4714,12 +4936,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendWithTemplateAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendWithTemplateAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestSendWithTemplateWithHttpInfoAsync(signatureRequestSendWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestSendWithTemplateWithHttpInfoAsync(signatureRequestSendWithTemplateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4729,10 +4952,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/SignatureRequestSendWithTemplateExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestSendWithTemplateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithTemplateWithHttpInfoAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithTemplateWithHttpInfoAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestSendWithTemplateRequest' is set
             if (signatureRequestSendWithTemplateRequest == null)
@@ -4772,6 +4996,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestSendWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4811,11 +5039,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
         /// <param name="signatureRequestUpdateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SignatureRequestGetResponse</returns>
-        public SignatureRequestGetResponse SignatureRequestUpdate(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0)
+        public SignatureRequestGetResponse SignatureRequestUpdate(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestUpdateWithHttpInfo(signatureRequestId, signatureRequestUpdateRequest);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestUpdateWithHttpInfo(signatureRequestId, signatureRequestUpdateRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -4826,9 +5055,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
         /// <param name="signatureRequestUpdateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestUpdateWithHttpInfo(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestUpdateWithHttpInfo(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -4874,6 +5104,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4912,12 +5146,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
         /// <param name="signatureRequestUpdateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestUpdateAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestUpdateAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestUpdateWithHttpInfoAsync(signatureRequestId, signatureRequestUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestUpdateWithHttpInfoAsync(signatureRequestId, signatureRequestUpdateRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4928,10 +5163,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
         /// <param name="signatureRequestUpdateRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestUpdateWithHttpInfoAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestUpdateWithHttpInfoAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -4978,6 +5214,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;

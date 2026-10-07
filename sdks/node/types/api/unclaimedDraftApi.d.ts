@@ -24,8 +24,8 @@ export declare class UnclaimedDraftApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    unclaimedDraftCreate(unclaimedDraftCreateRequest: UnclaimedDraftCreateRequest, options?: optionsI): Promise<returnTypeT<UnclaimedDraftCreateResponse>>;
-    unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest, options?: optionsI): Promise<returnTypeT<UnclaimedDraftCreateResponse>>;
-    unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest: UnclaimedDraftCreateEmbeddedWithTemplateRequest, options?: optionsI): Promise<returnTypeT<UnclaimedDraftCreateResponse>>;
-    unclaimedDraftEditAndResend(signatureRequestId: string, unclaimedDraftEditAndResendRequest: UnclaimedDraftEditAndResendRequest, options?: optionsI): Promise<returnTypeT<UnclaimedDraftCreateResponse>>;
+    unclaimedDraftCreate(unclaimedDraftCreateRequest: UnclaimedDraftCreateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<UnclaimedDraftCreateResponse>>;
+    unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<UnclaimedDraftCreateResponse>>;
+    unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest: UnclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<UnclaimedDraftCreateResponse>>;
+    unclaimedDraftEditAndResend(signatureRequestId: string, unclaimedDraftEditAndResendRequest: UnclaimedDraftEditAndResendRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<UnclaimedDraftCreateResponse>>;
 }

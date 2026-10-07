@@ -52,19 +52,44 @@ public class EmbeddedApi {
      *
      * @param templateId The id of the template to edit. (required)
      * @param embeddedEditUrlRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return EmbeddedEditUrlResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public EmbeddedEditUrlResponse embeddedEditUrl(
+            String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, String idempotencyKey)
+            throws ApiException {
+        return embeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest, idempotencyKey)
+                .getData();
+    }
+
+    /**
+     * @see EmbeddedApi#embeddedEditUrl(String, EmbeddedEditUrlRequest, String)
+     */
+    public EmbeddedEditUrlResponse embeddedEditUrl(
             String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
-        return embeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest).getData();
+        String idempotencyKey = null;
+
+        return embeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest, idempotencyKey)
+                .getData();
+    }
+
+    /**
+     * @see EmbeddedApi#embeddedEditUrlWithHttpInfo(String, EmbeddedEditUrlRequest, String)
+     */
+    public ApiResponse<EmbeddedEditUrlResponse> embeddedEditUrlWithHttpInfo(
+            String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
+        String idempotencyKey = null;
+
+        return embeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest, idempotencyKey);
     }
 
     /**
@@ -74,18 +99,21 @@ public class EmbeddedApi {
      *
      * @param templateId The id of the template to edit. (required)
      * @param embeddedEditUrlRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return ApiResponse&lt;EmbeddedEditUrlResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<EmbeddedEditUrlResponse> embeddedEditUrlWithHttpInfo(
-            String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
+            String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, String idempotencyKey)
+            throws ApiException {
 
         // Check required parameters
         if (templateId == null) {
@@ -106,6 +134,13 @@ public class EmbeddedApi {
                         .replaceAll(
                                 "\\{template_id}", apiClient.escapeString(templateId.toString()));
 
+        // Header parameters
+        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put(
+                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
+        }
+
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
         Map<String, Object> localVarFormParams = new LinkedHashMap<>();
         localVarFormParams = embeddedEditUrlRequest.createFormData();
@@ -123,7 +158,7 @@ public class EmbeddedApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : embeddedEditUrlRequest,
-                new LinkedHashMap<>(),
+                localVarHeaderParams,
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,

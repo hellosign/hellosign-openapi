@@ -27,6 +27,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountCreateExample.rb
     # @param account_create_request [AccountCreateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [AccountCreateResponse]
     def account_create(account_create_request, opts = {})
       data, _status_code, _headers = account_create_with_http_info(account_create_request, opts)
@@ -38,6 +39,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountCreateExample.rb
     # @param account_create_request [AccountCreateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(AccountCreateResponse, Integer, Hash)>] AccountCreateResponse data, response status code and response headers
     def account_create_with_http_info(account_create_request, opts = {})
       if @api_client.config.debugging
@@ -47,6 +49,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && account_create_request.nil?
         fail ArgumentError, "Missing the required parameter 'account_create_request' when calling AccountApi.account_create"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling AccountApi.account_create, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling AccountApi.account_create, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/account/create'
 
@@ -62,6 +72,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -236,6 +247,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountUpdateExample.rb
     # @param account_update_request [AccountUpdateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [AccountGetResponse]
     def account_update(account_update_request, opts = {})
       data, _status_code, _headers = account_update_with_http_info(account_update_request, opts)
@@ -247,6 +259,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountUpdateExample.rb
     # @param account_update_request [AccountUpdateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(AccountGetResponse, Integer, Hash)>] AccountGetResponse data, response status code and response headers
     def account_update_with_http_info(account_update_request, opts = {})
       if @api_client.config.debugging
@@ -256,6 +269,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && account_update_request.nil?
         fail ArgumentError, "Missing the required parameter 'account_update_request' when calling AccountApi.account_update"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling AccountApi.account_update, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling AccountApi.account_update, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/account'
 
@@ -271,6 +292,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -348,6 +370,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountVerifyExample.rb
     # @param account_verify_request [AccountVerifyRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [AccountVerifyResponse]
     def account_verify(account_verify_request, opts = {})
       data, _status_code, _headers = account_verify_with_http_info(account_verify_request, opts)
@@ -359,6 +382,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountVerifyExample.rb
     # @param account_verify_request [AccountVerifyRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(AccountVerifyResponse, Integer, Hash)>] AccountVerifyResponse data, response status code and response headers
     def account_verify_with_http_info(account_verify_request, opts = {})
       if @api_client.config.debugging
@@ -368,6 +392,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && account_verify_request.nil?
         fail ArgumentError, "Missing the required parameter 'account_verify_request' when calling AccountApi.account_verify"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling AccountApi.account_verify, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling AccountApi.account_verify, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/account/verify'
 
@@ -383,6 +415,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

@@ -171,14 +171,15 @@ class TemplateApi
      *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request template_add_user_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateAddUser(string $template_id, Model\TemplateAddUserRequest $template_add_user_request)
+    public function templateAddUser(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->templateAddUserWithHttpInfo($template_id, $template_add_user_request);
+        list($response) = $this->templateAddUserWithHttpInfo($template_id, $template_add_user_request, $idempotency_key);
         return $response;
     }
 
@@ -191,6 +192,7 @@ class TemplateApi
      *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
      * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -198,9 +200,9 @@ class TemplateApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
-    public function templateAddUserWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
+    public function templateAddUserWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateAddUser'][0])
     {
-        $request = $this->templateAddUserRequest($template_id, $template_add_user_request, $contentType);
+        $request = $this->templateAddUserRequest($template_id, $template_add_user_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -331,15 +333,16 @@ class TemplateApi
      *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
-    public function templateAddUserAsync(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
+    public function templateAddUserAsync(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateAddUser'][0])
     {
-        return $this->templateAddUserAsyncWithHttpInfo($template_id, $template_add_user_request, $contentType)
+        return $this->templateAddUserAsyncWithHttpInfo($template_id, $template_add_user_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -356,16 +359,17 @@ class TemplateApi
      *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
-    public function templateAddUserAsyncWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
+    public function templateAddUserAsyncWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateAddUser'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
-        $request = $this->templateAddUserRequest($template_id, $template_add_user_request, $contentType);
+        $request = $this->templateAddUserRequest($template_id, $template_add_user_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -408,13 +412,14 @@ class TemplateApi
      *
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
-    public function templateAddUserRequest(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
+    public function templateAddUserRequest(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateAddUser'][0])
     {
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
@@ -430,6 +435,13 @@ class TemplateApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateAddUser, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateAddUser, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/template/add_user/{template_id}';
         $formParams = [];
         $queryParams = [];
@@ -442,6 +454,11 @@ class TemplateApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($template_id !== null) {
@@ -538,14 +555,15 @@ class TemplateApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateExample.php
      *
      * @param Model\TemplateCreateRequest $template_create_request template_create_request (required)
+     * @param string|null                 $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TemplateCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateCreate(Model\TemplateCreateRequest $template_create_request)
+    public function templateCreate(Model\TemplateCreateRequest $template_create_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->templateCreateWithHttpInfo($template_create_request);
+        list($response) = $this->templateCreateWithHttpInfo($template_create_request, $idempotency_key);
         return $response;
     }
 
@@ -557,6 +575,7 @@ class TemplateApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateExample.php
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
+     * @param string|null                 $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
      * @return array of Model\TemplateCreateResponse, HTTP status code, HTTP response headers (array of strings)
@@ -564,9 +583,9 @@ class TemplateApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
-    public function templateCreateWithHttpInfo(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
+    public function templateCreateWithHttpInfo(Model\TemplateCreateRequest $template_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateCreate'][0])
     {
-        $request = $this->templateCreateRequest($template_create_request, $contentType);
+        $request = $this->templateCreateRequest($template_create_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -696,15 +715,16 @@ class TemplateApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateExample.php
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
+     * @param string|null                 $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
-    public function templateCreateAsync(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
+    public function templateCreateAsync(Model\TemplateCreateRequest $template_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateCreate'][0])
     {
-        return $this->templateCreateAsyncWithHttpInfo($template_create_request, $contentType)
+        return $this->templateCreateAsyncWithHttpInfo($template_create_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -720,16 +740,17 @@ class TemplateApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateExample.php
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
+     * @param string|null                 $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
-    public function templateCreateAsyncWithHttpInfo(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
+    public function templateCreateAsyncWithHttpInfo(Model\TemplateCreateRequest $template_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateCreateResponse';
-        $request = $this->templateCreateRequest($template_create_request, $contentType);
+        $request = $this->templateCreateRequest($template_create_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -771,19 +792,27 @@ class TemplateApi
      * Create request for operation 'templateCreate'
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
+     * @param string|null                 $idempotency_key         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
-    public function templateCreateRequest(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
+    public function templateCreateRequest(Model\TemplateCreateRequest $template_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateCreate'][0])
     {
         // verify the required parameter 'template_create_request' is set
         if ($template_create_request === null || (is_array($template_create_request) && count($template_create_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $template_create_request when calling templateCreate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateCreate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateCreate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/template/create';
@@ -798,6 +827,11 @@ class TemplateApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -885,14 +919,15 @@ class TemplateApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateEmbeddedDraftExample.php
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request template_create_embedded_draft_request (required)
+     * @param string|null                              $idempotency_key                        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TemplateCreateEmbeddedDraftResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateCreateEmbeddedDraft(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request)
+    public function templateCreateEmbeddedDraft(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->templateCreateEmbeddedDraftWithHttpInfo($template_create_embedded_draft_request);
+        list($response) = $this->templateCreateEmbeddedDraftWithHttpInfo($template_create_embedded_draft_request, $idempotency_key);
         return $response;
     }
 
@@ -904,6 +939,7 @@ class TemplateApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateEmbeddedDraftExample.php
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
+     * @param string|null                              $idempotency_key                        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
      * @return array of Model\TemplateCreateEmbeddedDraftResponse, HTTP status code, HTTP response headers (array of strings)
@@ -911,9 +947,9 @@ class TemplateApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
-    public function templateCreateEmbeddedDraftWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
+    public function templateCreateEmbeddedDraftWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
-        $request = $this->templateCreateEmbeddedDraftRequest($template_create_embedded_draft_request, $contentType);
+        $request = $this->templateCreateEmbeddedDraftRequest($template_create_embedded_draft_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1043,15 +1079,16 @@ class TemplateApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateEmbeddedDraftExample.php
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
+     * @param string|null                              $idempotency_key                        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
-    public function templateCreateEmbeddedDraftAsync(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
+    public function templateCreateEmbeddedDraftAsync(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
-        return $this->templateCreateEmbeddedDraftAsyncWithHttpInfo($template_create_embedded_draft_request, $contentType)
+        return $this->templateCreateEmbeddedDraftAsyncWithHttpInfo($template_create_embedded_draft_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1067,16 +1104,17 @@ class TemplateApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateCreateEmbeddedDraftExample.php
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
+     * @param string|null                              $idempotency_key                        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
-    public function templateCreateEmbeddedDraftAsyncWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
+    public function templateCreateEmbeddedDraftAsyncWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse';
-        $request = $this->templateCreateEmbeddedDraftRequest($template_create_embedded_draft_request, $contentType);
+        $request = $this->templateCreateEmbeddedDraftRequest($template_create_embedded_draft_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1118,19 +1156,27 @@ class TemplateApi
      * Create request for operation 'templateCreateEmbeddedDraft'
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
+     * @param string|null                              $idempotency_key                        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
-    public function templateCreateEmbeddedDraftRequest(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
+    public function templateCreateEmbeddedDraftRequest(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
         // verify the required parameter 'template_create_embedded_draft_request' is set
         if ($template_create_embedded_draft_request === null || (is_array($template_create_embedded_draft_request) && count($template_create_embedded_draft_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $template_create_embedded_draft_request when calling templateCreateEmbeddedDraft'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateCreateEmbeddedDraft, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateCreateEmbeddedDraft, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/template/create_embedded_draft';
@@ -1145,6 +1191,11 @@ class TemplateApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -1231,14 +1282,15 @@ class TemplateApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateDeleteExample.php
      *
-     * @param string $template_id The id of the Template to delete. (required)
+     * @param string      $template_id     The id of the Template to delete. (required)
+     * @param string|null $idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateDelete(string $template_id)
+    public function templateDelete(string $template_id, ?string $idempotency_key = null)
     {
-        $this->templateDeleteWithHttpInfo($template_id);
+        $this->templateDeleteWithHttpInfo($template_id, $idempotency_key);
     }
 
     /**
@@ -1248,17 +1300,18 @@ class TemplateApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateDeleteExample.php
      *
-     * @param string $template_id The id of the Template to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
+     * @param string      $template_id     The id of the Template to delete. (required)
+     * @param string|null $idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType     The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
-    public function templateDeleteWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
+    public function templateDeleteWithHttpInfo(string $template_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateDelete'][0])
     {
-        $request = $this->templateDeleteRequest($template_id, $contentType);
+        $request = $this->templateDeleteRequest($template_id, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1301,16 +1354,17 @@ class TemplateApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateDeleteExample.php
      *
-     * @param string $template_id The id of the Template to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
+     * @param string      $template_id     The id of the Template to delete. (required)
+     * @param string|null $idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType     The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
-    public function templateDeleteAsync(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
+    public function templateDeleteAsync(string $template_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateDelete'][0])
     {
-        return $this->templateDeleteAsyncWithHttpInfo($template_id, $contentType)
+        return $this->templateDeleteAsyncWithHttpInfo($template_id, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1325,17 +1379,18 @@ class TemplateApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/TemplateDeleteExample.php
      *
-     * @param string $template_id The id of the Template to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
+     * @param string      $template_id     The id of the Template to delete. (required)
+     * @param string|null $idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType     The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
-    public function templateDeleteAsyncWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
+    public function templateDeleteAsyncWithHttpInfo(string $template_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateDelete'][0])
     {
         $returnType = '';
-        $request = $this->templateDeleteRequest($template_id, $contentType);
+        $request = $this->templateDeleteRequest($template_id, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1363,14 +1418,15 @@ class TemplateApi
     /**
      * Create request for operation 'templateDelete'
      *
-     * @param string $template_id The id of the Template to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
+     * @param string      $template_id     The id of the Template to delete. (required)
+     * @param string|null $idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType     The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
-    public function templateDeleteRequest(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
+    public function templateDeleteRequest(string $template_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateDelete'][0])
     {
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
@@ -1379,12 +1435,24 @@ class TemplateApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateDelete, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateDelete, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/template/delete/{template_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($template_id !== null) {
@@ -3245,14 +3313,15 @@ class TemplateApi
      *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request template_remove_user_request (required)
+     * @param string|null                     $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateRemoveUser(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request)
+    public function templateRemoveUser(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->templateRemoveUserWithHttpInfo($template_id, $template_remove_user_request);
+        list($response) = $this->templateRemoveUserWithHttpInfo($template_id, $template_remove_user_request, $idempotency_key);
         return $response;
     }
 
@@ -3265,6 +3334,7 @@ class TemplateApi
      *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
+     * @param string|null                     $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
      * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -3272,9 +3342,9 @@ class TemplateApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
-    public function templateRemoveUserWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
+    public function templateRemoveUserWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
-        $request = $this->templateRemoveUserRequest($template_id, $template_remove_user_request, $contentType);
+        $request = $this->templateRemoveUserRequest($template_id, $template_remove_user_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3405,15 +3475,16 @@ class TemplateApi
      *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
+     * @param string|null                     $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
-    public function templateRemoveUserAsync(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
+    public function templateRemoveUserAsync(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
-        return $this->templateRemoveUserAsyncWithHttpInfo($template_id, $template_remove_user_request, $contentType)
+        return $this->templateRemoveUserAsyncWithHttpInfo($template_id, $template_remove_user_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3430,16 +3501,17 @@ class TemplateApi
      *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
+     * @param string|null                     $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
-    public function templateRemoveUserAsyncWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
+    public function templateRemoveUserAsyncWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
-        $request = $this->templateRemoveUserRequest($template_id, $template_remove_user_request, $contentType);
+        $request = $this->templateRemoveUserRequest($template_id, $template_remove_user_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3482,13 +3554,14 @@ class TemplateApi
      *
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
+     * @param string|null                     $idempotency_key              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
-    public function templateRemoveUserRequest(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
+    public function templateRemoveUserRequest(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
@@ -3504,6 +3577,13 @@ class TemplateApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateRemoveUser, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateRemoveUser, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/template/remove_user/{template_id}';
         $formParams = [];
         $queryParams = [];
@@ -3516,6 +3596,11 @@ class TemplateApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($template_id !== null) {
@@ -3613,14 +3698,15 @@ class TemplateApi
      *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request template_update_files_request (required)
+     * @param string|null                      $idempotency_key               Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\TemplateUpdateFilesResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function templateUpdateFiles(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request)
+    public function templateUpdateFiles(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->templateUpdateFilesWithHttpInfo($template_id, $template_update_files_request);
+        list($response) = $this->templateUpdateFilesWithHttpInfo($template_id, $template_update_files_request, $idempotency_key);
         return $response;
     }
 
@@ -3633,6 +3719,7 @@ class TemplateApi
      *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
+     * @param string|null                      $idempotency_key               Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
      * @return array of Model\TemplateUpdateFilesResponse, HTTP status code, HTTP response headers (array of strings)
@@ -3640,9 +3727,9 @@ class TemplateApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
-    public function templateUpdateFilesWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
+    public function templateUpdateFilesWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
-        $request = $this->templateUpdateFilesRequest($template_id, $template_update_files_request, $contentType);
+        $request = $this->templateUpdateFilesRequest($template_id, $template_update_files_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3773,15 +3860,16 @@ class TemplateApi
      *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
+     * @param string|null                      $idempotency_key               Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
-    public function templateUpdateFilesAsync(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
+    public function templateUpdateFilesAsync(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
-        return $this->templateUpdateFilesAsyncWithHttpInfo($template_id, $template_update_files_request, $contentType)
+        return $this->templateUpdateFilesAsyncWithHttpInfo($template_id, $template_update_files_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3798,16 +3886,17 @@ class TemplateApi
      *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
+     * @param string|null                      $idempotency_key               Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
-    public function templateUpdateFilesAsyncWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
+    public function templateUpdateFilesAsyncWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateUpdateFilesResponse';
-        $request = $this->templateUpdateFilesRequest($template_id, $template_update_files_request, $contentType);
+        $request = $this->templateUpdateFilesRequest($template_id, $template_update_files_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3850,13 +3939,14 @@ class TemplateApi
      *
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
+     * @param string|null                      $idempotency_key               Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
-    public function templateUpdateFilesRequest(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
+    public function templateUpdateFilesRequest(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
@@ -3872,6 +3962,13 @@ class TemplateApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateUpdateFiles, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling TemplateApi.templateUpdateFiles, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/template/update_files/{template_id}';
         $formParams = [];
         $queryParams = [];
@@ -3884,6 +3981,11 @@ class TemplateApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($template_id !== null) {

@@ -52,6 +52,12 @@ class FaxLineApi:
     def fax_line_add_user(
         self,
         fax_line_add_user_request: FaxLineAddUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -72,6 +78,8 @@ class FaxLineApi:
 
         :param fax_line_add_user_request: (required)
         :type fax_line_add_user_request: FaxLineAddUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -96,6 +104,7 @@ class FaxLineApi:
 
         _param = self._fax_line_add_user_serialize(
             fax_line_add_user_request=fax_line_add_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -120,6 +129,12 @@ class FaxLineApi:
     def fax_line_add_user_with_http_info(
         self,
         fax_line_add_user_request: FaxLineAddUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -140,6 +155,8 @@ class FaxLineApi:
 
         :param fax_line_add_user_request: (required)
         :type fax_line_add_user_request: FaxLineAddUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -164,6 +181,7 @@ class FaxLineApi:
 
         _param = self._fax_line_add_user_serialize(
             fax_line_add_user_request=fax_line_add_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -188,6 +206,12 @@ class FaxLineApi:
     def fax_line_add_user_without_preload_content(
         self,
         fax_line_add_user_request: FaxLineAddUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -208,6 +232,8 @@ class FaxLineApi:
 
         :param fax_line_add_user_request: (required)
         :type fax_line_add_user_request: FaxLineAddUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -232,6 +258,7 @@ class FaxLineApi:
 
         _param = self._fax_line_add_user_serialize(
             fax_line_add_user_request=fax_line_add_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -251,6 +278,7 @@ class FaxLineApi:
     def _fax_line_add_user_serialize(
         self,
         fax_line_add_user_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -295,6 +323,8 @@ class FaxLineApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if fax_line_add_user_request is not None and has_files is False:
@@ -669,6 +699,12 @@ class FaxLineApi:
     def fax_line_create(
         self,
         fax_line_create_request: FaxLineCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -689,6 +725,8 @@ class FaxLineApi:
 
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -713,6 +751,7 @@ class FaxLineApi:
 
         _param = self._fax_line_create_serialize(
             fax_line_create_request=fax_line_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -737,6 +776,12 @@ class FaxLineApi:
     def fax_line_create_with_http_info(
         self,
         fax_line_create_request: FaxLineCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -757,6 +802,8 @@ class FaxLineApi:
 
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -781,6 +828,7 @@ class FaxLineApi:
 
         _param = self._fax_line_create_serialize(
             fax_line_create_request=fax_line_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -805,6 +853,12 @@ class FaxLineApi:
     def fax_line_create_without_preload_content(
         self,
         fax_line_create_request: FaxLineCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -825,6 +879,8 @@ class FaxLineApi:
 
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -849,6 +905,7 @@ class FaxLineApi:
 
         _param = self._fax_line_create_serialize(
             fax_line_create_request=fax_line_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -868,6 +925,7 @@ class FaxLineApi:
     def _fax_line_create_serialize(
         self,
         fax_line_create_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -912,6 +970,8 @@ class FaxLineApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if fax_line_create_request is not None and has_files is False:
@@ -1855,6 +1915,12 @@ class FaxLineApi:
     def fax_line_remove_user(
         self,
         fax_line_remove_user_request: FaxLineRemoveUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1875,6 +1941,8 @@ class FaxLineApi:
 
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1899,6 +1967,7 @@ class FaxLineApi:
 
         _param = self._fax_line_remove_user_serialize(
             fax_line_remove_user_request=fax_line_remove_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1923,6 +1992,12 @@ class FaxLineApi:
     def fax_line_remove_user_with_http_info(
         self,
         fax_line_remove_user_request: FaxLineRemoveUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1943,6 +2018,8 @@ class FaxLineApi:
 
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1967,6 +2044,7 @@ class FaxLineApi:
 
         _param = self._fax_line_remove_user_serialize(
             fax_line_remove_user_request=fax_line_remove_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1991,6 +2069,12 @@ class FaxLineApi:
     def fax_line_remove_user_without_preload_content(
         self,
         fax_line_remove_user_request: FaxLineRemoveUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2011,6 +2095,8 @@ class FaxLineApi:
 
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2035,6 +2121,7 @@ class FaxLineApi:
 
         _param = self._fax_line_remove_user_serialize(
             fax_line_remove_user_request=fax_line_remove_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2054,6 +2141,7 @@ class FaxLineApi:
     def _fax_line_remove_user_serialize(
         self,
         fax_line_remove_user_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -2098,6 +2186,8 @@ class FaxLineApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if fax_line_remove_user_request is not None and has_files is False:

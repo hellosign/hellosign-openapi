@@ -28,6 +28,7 @@ module Dropbox::Sign
     # @param template_id [String] The id of the Template to give the Account access to.
     # @param template_add_user_request [TemplateAddUserRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TemplateGetResponse]
     def template_add_user(template_id, template_add_user_request, opts = {})
       data, _status_code, _headers = template_add_user_with_http_info(template_id, template_add_user_request, opts)
@@ -40,6 +41,7 @@ module Dropbox::Sign
     # @param template_id [String] The id of the Template to give the Account access to.
     # @param template_add_user_request [TemplateAddUserRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TemplateGetResponse, Integer, Hash)>] TemplateGetResponse data, response status code and response headers
     def template_add_user_with_http_info(template_id, template_add_user_request, opts = {})
       if @api_client.config.debugging
@@ -53,6 +55,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && template_add_user_request.nil?
         fail ArgumentError, "Missing the required parameter 'template_add_user_request' when calling TemplateApi.template_add_user"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_add_user, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_add_user, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/template/add_user/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
 
@@ -68,6 +78,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -145,6 +156,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TemplateCreateExample.rb
     # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TemplateCreateResponse]
     def template_create(template_create_request, opts = {})
       data, _status_code, _headers = template_create_with_http_info(template_create_request, opts)
@@ -156,6 +168,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TemplateCreateExample.rb
     # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TemplateCreateResponse, Integer, Hash)>] TemplateCreateResponse data, response status code and response headers
     def template_create_with_http_info(template_create_request, opts = {})
       if @api_client.config.debugging
@@ -165,6 +178,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && template_create_request.nil?
         fail ArgumentError, "Missing the required parameter 'template_create_request' when calling TemplateApi.template_create"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_create, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_create, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/template/create'
 
@@ -180,6 +201,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -257,6 +279,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TemplateCreateEmbeddedDraftExample.rb
     # @param template_create_embedded_draft_request [TemplateCreateEmbeddedDraftRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TemplateCreateEmbeddedDraftResponse]
     def template_create_embedded_draft(template_create_embedded_draft_request, opts = {})
       data, _status_code, _headers = template_create_embedded_draft_with_http_info(template_create_embedded_draft_request, opts)
@@ -268,6 +291,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TemplateCreateEmbeddedDraftExample.rb
     # @param template_create_embedded_draft_request [TemplateCreateEmbeddedDraftRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TemplateCreateEmbeddedDraftResponse, Integer, Hash)>] TemplateCreateEmbeddedDraftResponse data, response status code and response headers
     def template_create_embedded_draft_with_http_info(template_create_embedded_draft_request, opts = {})
       if @api_client.config.debugging
@@ -277,6 +301,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && template_create_embedded_draft_request.nil?
         fail ArgumentError, "Missing the required parameter 'template_create_embedded_draft_request' when calling TemplateApi.template_create_embedded_draft"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_create_embedded_draft, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_create_embedded_draft, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/template/create_embedded_draft'
 
@@ -292,6 +324,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -369,6 +402,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TemplateDeleteExample.rb
     # @param template_id [String] The id of the Template to delete.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [nil]
     def template_delete(template_id, opts = {})
       template_delete_with_http_info(template_id, opts)
@@ -380,6 +414,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TemplateDeleteExample.rb
     # @param template_id [String] The id of the Template to delete.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def template_delete_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
@@ -389,6 +424,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && template_id.nil?
         fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplateApi.template_delete"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_delete, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_delete, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/template/delete/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
 
@@ -399,6 +442,7 @@ module Dropbox::Sign
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -949,6 +993,7 @@ module Dropbox::Sign
     # @param template_id [String] The id of the Template to remove the Account&#39;s access to.
     # @param template_remove_user_request [TemplateRemoveUserRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TemplateGetResponse]
     def template_remove_user(template_id, template_remove_user_request, opts = {})
       data, _status_code, _headers = template_remove_user_with_http_info(template_id, template_remove_user_request, opts)
@@ -961,6 +1006,7 @@ module Dropbox::Sign
     # @param template_id [String] The id of the Template to remove the Account&#39;s access to.
     # @param template_remove_user_request [TemplateRemoveUserRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TemplateGetResponse, Integer, Hash)>] TemplateGetResponse data, response status code and response headers
     def template_remove_user_with_http_info(template_id, template_remove_user_request, opts = {})
       if @api_client.config.debugging
@@ -974,6 +1020,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && template_remove_user_request.nil?
         fail ArgumentError, "Missing the required parameter 'template_remove_user_request' when calling TemplateApi.template_remove_user"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_remove_user, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_remove_user, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/template/remove_user/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
 
@@ -989,6 +1043,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -1067,6 +1122,7 @@ module Dropbox::Sign
     # @param template_id [String] The ID of the template whose files to update.
     # @param template_update_files_request [TemplateUpdateFilesRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TemplateUpdateFilesResponse]
     def template_update_files(template_id, template_update_files_request, opts = {})
       data, _status_code, _headers = template_update_files_with_http_info(template_id, template_update_files_request, opts)
@@ -1079,6 +1135,7 @@ module Dropbox::Sign
     # @param template_id [String] The ID of the template whose files to update.
     # @param template_update_files_request [TemplateUpdateFilesRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TemplateUpdateFilesResponse, Integer, Hash)>] TemplateUpdateFilesResponse data, response status code and response headers
     def template_update_files_with_http_info(template_id, template_update_files_request, opts = {})
       if @api_client.config.debugging
@@ -1092,6 +1149,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && template_update_files_request.nil?
         fail ArgumentError, "Missing the required parameter 'template_update_files_request' when calling TemplateApi.template_update_files"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_update_files, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TemplateApi.template_update_files, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/template/update_files/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
 
@@ -1107,6 +1172,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

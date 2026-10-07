@@ -20,7 +20,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `templateAddUser()`
 
 ```php
-templateAddUser($template_id, $template_add_user_request): \Dropbox\Sign\Model\TemplateGetResponse
+templateAddUser($template_id, $template_add_user_request, $idempotency_key): \Dropbox\Sign\Model\TemplateGetResponse
 ```
 Add User to Template
 
@@ -64,6 +64,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the Template to give the Account access to. | |
 | **template_add_user_request** | [**\Dropbox\Sign\Model\TemplateAddUserRequest**](../Model/TemplateAddUserRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -85,7 +86,7 @@ try {
 ## `templateCreate()`
 
 ```php
-templateCreate($template_create_request): \Dropbox\Sign\Model\TemplateCreateResponse
+templateCreate($template_create_request, $idempotency_key): \Dropbox\Sign\Model\TemplateCreateResponse
 ```
 Create Template
 
@@ -202,6 +203,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_create_request** | [**\Dropbox\Sign\Model\TemplateCreateRequest**](../Model/TemplateCreateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -223,7 +225,7 @@ try {
 ## `templateCreateEmbeddedDraft()`
 
 ```php
-templateCreateEmbeddedDraft($template_create_embedded_draft_request): \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse
+templateCreateEmbeddedDraft($template_create_embedded_draft_request, $idempotency_key): \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse
 ```
 Create Embedded Template Draft
 
@@ -306,6 +308,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_create_embedded_draft_request** | [**\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest**](../Model/TemplateCreateEmbeddedDraftRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -327,7 +330,7 @@ try {
 ## `templateDelete()`
 
 ```php
-templateDelete($template_id)
+templateDelete($template_id, $idempotency_key)
 ```
 Delete Template
 
@@ -364,6 +367,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the Template to delete. | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -692,7 +696,7 @@ try {
 ## `templateRemoveUser()`
 
 ```php
-templateRemoveUser($template_id, $template_remove_user_request): \Dropbox\Sign\Model\TemplateGetResponse
+templateRemoveUser($template_id, $template_remove_user_request, $idempotency_key): \Dropbox\Sign\Model\TemplateGetResponse
 ```
 Remove User from Template
 
@@ -736,6 +740,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the Template to remove the Account&#39;s access to. | |
 | **template_remove_user_request** | [**\Dropbox\Sign\Model\TemplateRemoveUserRequest**](../Model/TemplateRemoveUserRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -757,7 +762,7 @@ try {
 ## `templateUpdateFiles()`
 
 ```php
-templateUpdateFiles($template_id, $template_update_files_request): \Dropbox\Sign\Model\TemplateUpdateFilesResponse
+templateUpdateFiles($template_id, $template_update_files_request, $idempotency_key): \Dropbox\Sign\Model\TemplateUpdateFilesResponse
 ```
 Update Template Files
 
@@ -802,6 +807,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The ID of the template whose files to update. | |
 | **template_update_files_request** | [**\Dropbox\Sign\Model\TemplateUpdateFilesRequest**](../Model/TemplateUpdateFilesRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

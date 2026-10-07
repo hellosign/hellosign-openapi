@@ -178,20 +178,28 @@ class GenerateOverloadMethods
         $typeList = implode(', ', $typeList);
         $setters = implode("\n    ", $setters);
 
+        // OpenAPI Generator emits an empty returnType for void operations.
+        $isVoid = $returnType === '' || $returnType === 'void';
+        $methodReturnType = $isVoid ? 'void' : $returnType;
+        $httpReturnType = $isVoid ? 'Void' : $returnType;
+        $methodCall = $isVoid
+            ? "{$method}WithHttpInfo({$paramList});"
+            : "return {$method}WithHttpInfo({$paramList}).getData();";
+
         return <<<EOT
           /**
            * @see {$class}#{$method}({$typeList})
            */
-          public {$returnType} {$method}({$methodSignature}) throws ApiException {
+          public {$methodReturnType} {$method}({$methodSignature}) throws ApiException {
             {$setters}
 
-            return {$method}WithHttpInfo({$paramList}).getData();
+            {$methodCall}
           }
 
           /**
            * @see {$class}#{$method}WithHttpInfo({$typeList})
            */
-          public ApiResponse<{$returnType}> {$method}WithHttpInfo({$methodSignature}) throws ApiException {
+          public ApiResponse<{$httpReturnType}> {$method}WithHttpInfo({$methodSignature}) throws ApiException {
             {$setters}
 
             return {$method}WithHttpInfo({$paramList});

@@ -140,14 +140,15 @@ class EmbeddedApi
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request embedded_edit_url_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\EmbeddedEditUrlResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function embeddedEditUrl(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request)
+    public function embeddedEditUrl(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->embeddedEditUrlWithHttpInfo($template_id, $embedded_edit_url_request);
+        list($response) = $this->embeddedEditUrlWithHttpInfo($template_id, $embedded_edit_url_request, $idempotency_key);
         return $response;
     }
 
@@ -160,6 +161,7 @@ class EmbeddedApi
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
      * @return array of Model\EmbeddedEditUrlResponse, HTTP status code, HTTP response headers (array of strings)
@@ -167,9 +169,9 @@ class EmbeddedApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
-    public function embeddedEditUrlWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrlWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
-        $request = $this->embeddedEditUrlRequest($template_id, $embedded_edit_url_request, $contentType);
+        $request = $this->embeddedEditUrlRequest($template_id, $embedded_edit_url_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -300,15 +302,16 @@ class EmbeddedApi
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
-    public function embeddedEditUrlAsync(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrlAsync(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
-        return $this->embeddedEditUrlAsyncWithHttpInfo($template_id, $embedded_edit_url_request, $contentType)
+        return $this->embeddedEditUrlAsyncWithHttpInfo($template_id, $embedded_edit_url_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -325,16 +328,17 @@ class EmbeddedApi
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
-    public function embeddedEditUrlAsyncWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrlAsyncWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
         $returnType = '\Dropbox\Sign\Model\EmbeddedEditUrlResponse';
-        $request = $this->embeddedEditUrlRequest($template_id, $embedded_edit_url_request, $contentType);
+        $request = $this->embeddedEditUrlRequest($template_id, $embedded_edit_url_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -377,13 +381,14 @@ class EmbeddedApi
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
+     * @param string|null                  $idempotency_key           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
-    public function embeddedEditUrlRequest(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrlRequest(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
@@ -399,6 +404,13 @@ class EmbeddedApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling EmbeddedApi.embeddedEditUrl, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling EmbeddedApi.embeddedEditUrl, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/embedded/edit_url/{template_id}';
         $formParams = [];
         $queryParams = [];
@@ -411,6 +423,11 @@ class EmbeddedApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($template_id !== null) {

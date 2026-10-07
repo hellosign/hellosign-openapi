@@ -24,5 +24,5 @@ export declare class ReportApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    reportCreate(reportCreateRequest: ReportCreateRequest, options?: optionsI): Promise<returnTypeT<ReportCreateResponse>>;
+    reportCreate(reportCreateRequest: ReportCreateRequest, idempotencyKey?: string, options?: optionsI): Promise<returnTypeT<ReportCreateResponse>>;
 }

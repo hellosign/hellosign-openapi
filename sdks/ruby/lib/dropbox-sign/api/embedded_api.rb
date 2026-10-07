@@ -28,6 +28,7 @@ module Dropbox::Sign
     # @param template_id [String] The id of the template to edit.
     # @param embedded_edit_url_request [EmbeddedEditUrlRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [EmbeddedEditUrlResponse]
     def embedded_edit_url(template_id, embedded_edit_url_request, opts = {})
       data, _status_code, _headers = embedded_edit_url_with_http_info(template_id, embedded_edit_url_request, opts)
@@ -40,6 +41,7 @@ module Dropbox::Sign
     # @param template_id [String] The id of the template to edit.
     # @param embedded_edit_url_request [EmbeddedEditUrlRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(EmbeddedEditUrlResponse, Integer, Hash)>] EmbeddedEditUrlResponse data, response status code and response headers
     def embedded_edit_url_with_http_info(template_id, embedded_edit_url_request, opts = {})
       if @api_client.config.debugging
@@ -53,6 +55,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && embedded_edit_url_request.nil?
         fail ArgumentError, "Missing the required parameter 'embedded_edit_url_request' when calling EmbeddedApi.embedded_edit_url"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling EmbeddedApi.embedded_edit_url, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling EmbeddedApi.embedded_edit_url, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/embedded/edit_url/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
 
@@ -68,6 +78,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

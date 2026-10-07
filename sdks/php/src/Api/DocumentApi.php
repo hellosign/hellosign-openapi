@@ -137,14 +137,15 @@ class DocumentApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/DocumentDetectFieldsExample.php
      *
      * @param Model\DocumentFieldDetectionRequest $document_field_detection_request document_field_detection_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\DocumentFieldDetectionResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function documentDetectFields(Model\DocumentFieldDetectionRequest $document_field_detection_request)
+    public function documentDetectFields(Model\DocumentFieldDetectionRequest $document_field_detection_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->documentDetectFieldsWithHttpInfo($document_field_detection_request);
+        list($response) = $this->documentDetectFieldsWithHttpInfo($document_field_detection_request, $idempotency_key);
         return $response;
     }
 
@@ -156,6 +157,7 @@ class DocumentApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/DocumentDetectFieldsExample.php
      *
      * @param Model\DocumentFieldDetectionRequest $document_field_detection_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
      *
      * @return array of Model\DocumentFieldDetectionResponse, HTTP status code, HTTP response headers (array of strings)
@@ -163,9 +165,9 @@ class DocumentApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::documentDetectFields. This method will eventually become unavailable
      */
-    public function documentDetectFieldsWithHttpInfo(Model\DocumentFieldDetectionRequest $document_field_detection_request, string $contentType = self::contentTypes['documentDetectFields'][0])
+    public function documentDetectFieldsWithHttpInfo(Model\DocumentFieldDetectionRequest $document_field_detection_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['documentDetectFields'][0])
     {
-        $request = $this->documentDetectFieldsRequest($document_field_detection_request, $contentType);
+        $request = $this->documentDetectFieldsRequest($document_field_detection_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -295,15 +297,16 @@ class DocumentApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/DocumentDetectFieldsExample.php
      *
      * @param Model\DocumentFieldDetectionRequest $document_field_detection_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::documentDetectFields. This method will eventually become unavailable
      */
-    public function documentDetectFieldsAsync(Model\DocumentFieldDetectionRequest $document_field_detection_request, string $contentType = self::contentTypes['documentDetectFields'][0])
+    public function documentDetectFieldsAsync(Model\DocumentFieldDetectionRequest $document_field_detection_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['documentDetectFields'][0])
     {
-        return $this->documentDetectFieldsAsyncWithHttpInfo($document_field_detection_request, $contentType)
+        return $this->documentDetectFieldsAsyncWithHttpInfo($document_field_detection_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -319,16 +322,17 @@ class DocumentApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/DocumentDetectFieldsExample.php
      *
      * @param Model\DocumentFieldDetectionRequest $document_field_detection_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::documentDetectFields. This method will eventually become unavailable
      */
-    public function documentDetectFieldsAsyncWithHttpInfo(Model\DocumentFieldDetectionRequest $document_field_detection_request, string $contentType = self::contentTypes['documentDetectFields'][0])
+    public function documentDetectFieldsAsyncWithHttpInfo(Model\DocumentFieldDetectionRequest $document_field_detection_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['documentDetectFields'][0])
     {
         $returnType = '\Dropbox\Sign\Model\DocumentFieldDetectionResponse';
-        $request = $this->documentDetectFieldsRequest($document_field_detection_request, $contentType);
+        $request = $this->documentDetectFieldsRequest($document_field_detection_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -370,19 +374,27 @@ class DocumentApi
      * Create request for operation 'documentDetectFields'
      *
      * @param Model\DocumentFieldDetectionRequest $document_field_detection_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['documentDetectFields'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::documentDetectFields. This method will eventually become unavailable
      */
-    public function documentDetectFieldsRequest(Model\DocumentFieldDetectionRequest $document_field_detection_request, string $contentType = self::contentTypes['documentDetectFields'][0])
+    public function documentDetectFieldsRequest(Model\DocumentFieldDetectionRequest $document_field_detection_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['documentDetectFields'][0])
     {
         // verify the required parameter 'document_field_detection_request' is set
         if ($document_field_detection_request === null || (is_array($document_field_detection_request) && count($document_field_detection_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $document_field_detection_request when calling documentDetectFields'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling DocumentApi.documentDetectFields, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling DocumentApi.documentDetectFields, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/document/detect_fields';
@@ -397,6 +409,11 @@ class DocumentApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],

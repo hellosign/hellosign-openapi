@@ -27,6 +27,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.rb
     # @param signature_request_bulk_create_embedded_with_template_request [SignatureRequestBulkCreateEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [BulkSendJobSendResponse]
     def signature_request_bulk_create_embedded_with_template(signature_request_bulk_create_embedded_with_template_request, opts = {})
       data, _status_code, _headers = signature_request_bulk_create_embedded_with_template_with_http_info(signature_request_bulk_create_embedded_with_template_request, opts)
@@ -38,6 +39,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.rb
     # @param signature_request_bulk_create_embedded_with_template_request [SignatureRequestBulkCreateEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(BulkSendJobSendResponse, Integer, Hash)>] BulkSendJobSendResponse data, response status code and response headers
     def signature_request_bulk_create_embedded_with_template_with_http_info(signature_request_bulk_create_embedded_with_template_request, opts = {})
       if @api_client.config.debugging
@@ -47,6 +49,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_bulk_create_embedded_with_template_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_bulk_create_embedded_with_template_request' when calling SignatureRequestApi.signature_request_bulk_create_embedded_with_template"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_bulk_create_embedded_with_template, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_bulk_create_embedded_with_template, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/bulk_create_embedded_with_template'
 
@@ -62,6 +72,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -139,6 +150,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.rb
     # @param signature_request_bulk_send_with_template_request [SignatureRequestBulkSendWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [BulkSendJobSendResponse]
     def signature_request_bulk_send_with_template(signature_request_bulk_send_with_template_request, opts = {})
       data, _status_code, _headers = signature_request_bulk_send_with_template_with_http_info(signature_request_bulk_send_with_template_request, opts)
@@ -150,6 +162,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.rb
     # @param signature_request_bulk_send_with_template_request [SignatureRequestBulkSendWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(BulkSendJobSendResponse, Integer, Hash)>] BulkSendJobSendResponse data, response status code and response headers
     def signature_request_bulk_send_with_template_with_http_info(signature_request_bulk_send_with_template_request, opts = {})
       if @api_client.config.debugging
@@ -159,6 +172,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_bulk_send_with_template_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_bulk_send_with_template_request' when calling SignatureRequestApi.signature_request_bulk_send_with_template"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_bulk_send_with_template, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_bulk_send_with_template, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/bulk_send_with_template'
 
@@ -174,6 +195,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -251,6 +273,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestCancelExample.rb
     # @param signature_request_id [String] The id of the incomplete SignatureRequest to cancel.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [nil]
     def signature_request_cancel(signature_request_id, opts = {})
       signature_request_cancel_with_http_info(signature_request_id, opts)
@@ -262,6 +285,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestCancelExample.rb
     # @param signature_request_id [String] The id of the incomplete SignatureRequest to cancel.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def signature_request_cancel_with_http_info(signature_request_id, opts = {})
       if @api_client.config.debugging
@@ -271,6 +295,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_id.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_id' when calling SignatureRequestApi.signature_request_cancel"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_cancel, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_cancel, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/cancel/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -281,6 +313,7 @@ module Dropbox::Sign
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -321,6 +354,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestCreateEmbeddedExample.rb
     # @param signature_request_create_embedded_request [SignatureRequestCreateEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_create_embedded(signature_request_create_embedded_request, opts = {})
       data, _status_code, _headers = signature_request_create_embedded_with_http_info(signature_request_create_embedded_request, opts)
@@ -332,6 +366,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestCreateEmbeddedExample.rb
     # @param signature_request_create_embedded_request [SignatureRequestCreateEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_create_embedded_with_http_info(signature_request_create_embedded_request, opts = {})
       if @api_client.config.debugging
@@ -341,6 +376,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_create_embedded_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_create_embedded_request' when calling SignatureRequestApi.signature_request_create_embedded"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_create_embedded, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_create_embedded, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/create_embedded'
 
@@ -356,6 +399,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -433,6 +477,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.rb
     # @param signature_request_create_embedded_with_template_request [SignatureRequestCreateEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_create_embedded_with_template(signature_request_create_embedded_with_template_request, opts = {})
       data, _status_code, _headers = signature_request_create_embedded_with_template_with_http_info(signature_request_create_embedded_with_template_request, opts)
@@ -444,6 +489,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.rb
     # @param signature_request_create_embedded_with_template_request [SignatureRequestCreateEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_create_embedded_with_template_with_http_info(signature_request_create_embedded_with_template_request, opts = {})
       if @api_client.config.debugging
@@ -453,6 +499,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_create_embedded_with_template_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_create_embedded_with_template_request' when calling SignatureRequestApi.signature_request_create_embedded_with_template"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_create_embedded_with_template, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_create_embedded_with_template, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/create_embedded_with_template'
 
@@ -468,6 +522,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -546,6 +601,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_request [SignatureRequestEditRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_edit(signature_request_id, signature_request_edit_request, opts = {})
       data, _status_code, _headers = signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request, opts)
@@ -558,6 +614,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_request [SignatureRequestEditRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request, opts = {})
       if @api_client.config.debugging
@@ -571,6 +628,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_edit_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_edit_request' when calling SignatureRequestApi.signature_request_edit"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_edit, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_edit, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/edit/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -586,6 +651,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -664,6 +730,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_embedded_request [SignatureRequestEditEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_edit_embedded(signature_request_id, signature_request_edit_embedded_request, opts = {})
       data, _status_code, _headers = signature_request_edit_embedded_with_http_info(signature_request_id, signature_request_edit_embedded_request, opts)
@@ -676,6 +743,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_embedded_request [SignatureRequestEditEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_edit_embedded_with_http_info(signature_request_id, signature_request_edit_embedded_request, opts = {})
       if @api_client.config.debugging
@@ -689,6 +757,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_edit_embedded_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_edit_embedded_request' when calling SignatureRequestApi.signature_request_edit_embedded"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_edit_embedded, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_edit_embedded, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/edit_embedded/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -704,6 +780,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -782,6 +859,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_embedded_with_template_request [SignatureRequestEditEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_edit_embedded_with_template(signature_request_id, signature_request_edit_embedded_with_template_request, opts = {})
       data, _status_code, _headers = signature_request_edit_embedded_with_template_with_http_info(signature_request_id, signature_request_edit_embedded_with_template_request, opts)
@@ -794,6 +872,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_embedded_with_template_request [SignatureRequestEditEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_edit_embedded_with_template_with_http_info(signature_request_id, signature_request_edit_embedded_with_template_request, opts = {})
       if @api_client.config.debugging
@@ -807,6 +886,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_edit_embedded_with_template_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_edit_embedded_with_template_request' when calling SignatureRequestApi.signature_request_edit_embedded_with_template"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_edit_embedded_with_template, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_edit_embedded_with_template, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/edit_embedded_with_template/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -822,6 +909,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -900,6 +988,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_with_template_request [SignatureRequestEditWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_edit_with_template(signature_request_id, signature_request_edit_with_template_request, opts = {})
       data, _status_code, _headers = signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request, opts)
@@ -912,6 +1001,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_with_template_request [SignatureRequestEditWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request, opts = {})
       if @api_client.config.debugging
@@ -925,6 +1015,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_edit_with_template_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_edit_with_template_request' when calling SignatureRequestApi.signature_request_edit_with_template"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_edit_with_template, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_edit_with_template, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/edit_with_template/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -940,6 +1038,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -1518,6 +1617,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestReleaseHoldExample.rb
     # @param signature_request_id [String] The id of the SignatureRequest to release.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_release_hold(signature_request_id, opts = {})
       data, _status_code, _headers = signature_request_release_hold_with_http_info(signature_request_id, opts)
@@ -1529,6 +1629,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestReleaseHoldExample.rb
     # @param signature_request_id [String] The id of the SignatureRequest to release.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_release_hold_with_http_info(signature_request_id, opts = {})
       if @api_client.config.debugging
@@ -1538,6 +1639,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_id.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_id' when calling SignatureRequestApi.signature_request_release_hold"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_release_hold, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_release_hold, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/release_hold/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -1548,6 +1657,7 @@ module Dropbox::Sign
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -1616,6 +1726,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to send a reminder for.
     # @param signature_request_remind_request [SignatureRequestRemindRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_remind(signature_request_id, signature_request_remind_request, opts = {})
       data, _status_code, _headers = signature_request_remind_with_http_info(signature_request_id, signature_request_remind_request, opts)
@@ -1628,6 +1739,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to send a reminder for.
     # @param signature_request_remind_request [SignatureRequestRemindRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_remind_with_http_info(signature_request_id, signature_request_remind_request, opts = {})
       if @api_client.config.debugging
@@ -1641,6 +1753,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_remind_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_remind_request' when calling SignatureRequestApi.signature_request_remind"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_remind, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_remind, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/remind/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -1656,6 +1776,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -1733,6 +1854,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestRemoveExample.rb
     # @param signature_request_id [String] The id of the SignatureRequest to remove.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [nil]
     def signature_request_remove(signature_request_id, opts = {})
       signature_request_remove_with_http_info(signature_request_id, opts)
@@ -1744,6 +1866,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestRemoveExample.rb
     # @param signature_request_id [String] The id of the SignatureRequest to remove.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def signature_request_remove_with_http_info(signature_request_id, opts = {})
       if @api_client.config.debugging
@@ -1753,6 +1876,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_id.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_id' when calling SignatureRequestApi.signature_request_remove"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_remove, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_remove, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/remove/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -1763,6 +1894,7 @@ module Dropbox::Sign
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -1803,6 +1935,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestSendExample.rb
     # @param signature_request_send_request [SignatureRequestSendRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_send(signature_request_send_request, opts = {})
       data, _status_code, _headers = signature_request_send_with_http_info(signature_request_send_request, opts)
@@ -1814,6 +1947,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestSendExample.rb
     # @param signature_request_send_request [SignatureRequestSendRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_send_with_http_info(signature_request_send_request, opts = {})
       if @api_client.config.debugging
@@ -1823,6 +1957,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_send_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_send_request' when calling SignatureRequestApi.signature_request_send"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_send, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_send, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/send'
 
@@ -1838,6 +1980,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -1915,6 +2058,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestSendWithTemplateExample.rb
     # @param signature_request_send_with_template_request [SignatureRequestSendWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_send_with_template(signature_request_send_with_template_request, opts = {})
       data, _status_code, _headers = signature_request_send_with_template_with_http_info(signature_request_send_with_template_request, opts)
@@ -1926,6 +2070,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/SignatureRequestSendWithTemplateExample.rb
     # @param signature_request_send_with_template_request [SignatureRequestSendWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_send_with_template_with_http_info(signature_request_send_with_template_request, opts = {})
       if @api_client.config.debugging
@@ -1935,6 +2080,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_send_with_template_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_send_with_template_request' when calling SignatureRequestApi.signature_request_send_with_template"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_send_with_template, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_send_with_template, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/send_with_template'
 
@@ -1950,6 +2103,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -2028,6 +2182,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to update.
     # @param signature_request_update_request [SignatureRequestUpdateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [SignatureRequestGetResponse]
     def signature_request_update(signature_request_id, signature_request_update_request, opts = {})
       data, _status_code, _headers = signature_request_update_with_http_info(signature_request_id, signature_request_update_request, opts)
@@ -2040,6 +2195,7 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to update.
     # @param signature_request_update_request [SignatureRequestUpdateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
     def signature_request_update_with_http_info(signature_request_id, signature_request_update_request, opts = {})
       if @api_client.config.debugging
@@ -2053,6 +2209,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && signature_request_update_request.nil?
         fail ArgumentError, "Missing the required parameter 'signature_request_update_request' when calling SignatureRequestApi.signature_request_update"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_update, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling SignatureRequestApi.signature_request_update, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/signature_request/update/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
 
@@ -2068,6 +2232,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

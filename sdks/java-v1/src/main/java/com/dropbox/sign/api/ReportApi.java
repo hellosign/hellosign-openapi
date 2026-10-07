@@ -50,19 +50,41 @@ public class ReportApi {
      * duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
      *
      * @param reportCreateRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return ReportCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
+    public ReportCreateResponse reportCreate(
+            ReportCreateRequest reportCreateRequest, String idempotencyKey) throws ApiException {
+        return reportCreateWithHttpInfo(reportCreateRequest, idempotencyKey).getData();
+    }
+
+    /**
+     * @see ReportApi#reportCreate(ReportCreateRequest, String)
+     */
     public ReportCreateResponse reportCreate(ReportCreateRequest reportCreateRequest)
             throws ApiException {
-        return reportCreateWithHttpInfo(reportCreateRequest).getData();
+        String idempotencyKey = null;
+
+        return reportCreateWithHttpInfo(reportCreateRequest, idempotencyKey).getData();
+    }
+
+    /**
+     * @see ReportApi#reportCreateWithHttpInfo(ReportCreateRequest, String)
+     */
+    public ApiResponse<ReportCreateResponse> reportCreateWithHttpInfo(
+            ReportCreateRequest reportCreateRequest) throws ApiException {
+        String idempotencyKey = null;
+
+        return reportCreateWithHttpInfo(reportCreateRequest, idempotencyKey);
     }
 
     /**
@@ -72,18 +94,20 @@ public class ReportApi {
      * duration, and &#x60;start_date&#x60; must not be more than 10 years in the past.
      *
      * @param reportCreateRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return ApiResponse&lt;ReportCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<ReportCreateResponse> reportCreateWithHttpInfo(
-            ReportCreateRequest reportCreateRequest) throws ApiException {
+            ReportCreateRequest reportCreateRequest, String idempotencyKey) throws ApiException {
 
         // Check required parameters
         if (reportCreateRequest == null) {
@@ -91,6 +115,13 @@ public class ReportApi {
                     400,
                     "Missing the required parameter 'reportCreateRequest' when calling"
                             + " reportCreate");
+        }
+
+        // Header parameters
+        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put(
+                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -110,7 +141,7 @@ public class ReportApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : reportCreateRequest,
-                new LinkedHashMap<>(),
+                localVarHeaderParams,
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,

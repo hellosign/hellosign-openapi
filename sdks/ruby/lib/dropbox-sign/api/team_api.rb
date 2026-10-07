@@ -28,6 +28,7 @@ module Dropbox::Sign
     # @param team_add_member_request [TeamAddMemberRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :team_id The id of the team.
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TeamGetResponse]
     def team_add_member(team_add_member_request, opts = {})
       data, _status_code, _headers = team_add_member_with_http_info(team_add_member_request, opts)
@@ -40,6 +41,7 @@ module Dropbox::Sign
     # @param team_add_member_request [TeamAddMemberRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :team_id The id of the team.
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TeamGetResponse, Integer, Hash)>] TeamGetResponse data, response status code and response headers
     def team_add_member_with_http_info(team_add_member_request, opts = {})
       if @api_client.config.debugging
@@ -49,6 +51,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && team_add_member_request.nil?
         fail ArgumentError, "Missing the required parameter 'team_add_member_request' when calling TeamApi.team_add_member"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TeamApi.team_add_member, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TeamApi.team_add_member, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/team/add_member'
 
@@ -65,6 +75,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -142,6 +153,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamCreateExample.rb
     # @param team_create_request [TeamCreateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TeamGetResponse]
     def team_create(team_create_request, opts = {})
       data, _status_code, _headers = team_create_with_http_info(team_create_request, opts)
@@ -153,6 +165,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamCreateExample.rb
     # @param team_create_request [TeamCreateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TeamGetResponse, Integer, Hash)>] TeamGetResponse data, response status code and response headers
     def team_create_with_http_info(team_create_request, opts = {})
       if @api_client.config.debugging
@@ -162,6 +175,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && team_create_request.nil?
         fail ArgumentError, "Missing the required parameter 'team_create_request' when calling TeamApi.team_create"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TeamApi.team_create, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TeamApi.team_create, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/team/create'
 
@@ -177,6 +198,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -708,6 +730,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamRemoveMemberExample.rb
     # @param team_remove_member_request [TeamRemoveMemberRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TeamGetResponse]
     def team_remove_member(team_remove_member_request, opts = {})
       data, _status_code, _headers = team_remove_member_with_http_info(team_remove_member_request, opts)
@@ -719,6 +742,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamRemoveMemberExample.rb
     # @param team_remove_member_request [TeamRemoveMemberRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TeamGetResponse, Integer, Hash)>] TeamGetResponse data, response status code and response headers
     def team_remove_member_with_http_info(team_remove_member_request, opts = {})
       if @api_client.config.debugging
@@ -728,6 +752,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && team_remove_member_request.nil?
         fail ArgumentError, "Missing the required parameter 'team_remove_member_request' when calling TeamApi.team_remove_member"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TeamApi.team_remove_member, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TeamApi.team_remove_member, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/team/remove_member'
 
@@ -743,6 +775,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}
@@ -931,6 +964,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamUpdateExample.rb
     # @param team_update_request [TeamUpdateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [TeamGetResponse]
     def team_update(team_update_request, opts = {})
       data, _status_code, _headers = team_update_with_http_info(team_update_request, opts)
@@ -942,6 +976,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamUpdateExample.rb
     # @param team_update_request [TeamUpdateRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(TeamGetResponse, Integer, Hash)>] TeamGetResponse data, response status code and response headers
     def team_update_with_http_info(team_update_request, opts = {})
       if @api_client.config.debugging
@@ -951,6 +986,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && team_update_request.nil?
         fail ArgumentError, "Missing the required parameter 'team_update_request' when calling TeamApi.team_update"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TeamApi.team_update, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling TeamApi.team_update, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/team'
 
@@ -966,6 +1009,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

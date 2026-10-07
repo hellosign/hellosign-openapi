@@ -16,7 +16,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `faxLineAddUser()`
 
 ```typescript
-faxLineAddUser(faxLineAddUserRequest: FaxLineAddUserRequest): FaxLineResponse
+faxLineAddUser(faxLineAddUserRequest: FaxLineAddUserRequest, idempotencyKey: string): FaxLineResponse
 ```
 
 Add Fax Line User
@@ -54,6 +54,7 @@ apiCaller.faxLineAddUser(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **faxLineAddUserRequest** | [**FaxLineAddUserRequest**](../model/FaxLineAddUserRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -135,7 +136,7 @@ apiCaller.faxLineAreaCodeGet(
 ## `faxLineCreate()`
 
 ```typescript
-faxLineCreate(faxLineCreateRequest: FaxLineCreateRequest): FaxLineResponse
+faxLineCreate(faxLineCreateRequest: FaxLineCreateRequest, idempotencyKey: string): FaxLineResponse
 ```
 
 Purchase Fax Line
@@ -173,6 +174,7 @@ apiCaller.faxLineCreate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **faxLineCreateRequest** | [**FaxLineCreateRequest**](../model/FaxLineCreateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -364,7 +366,7 @@ apiCaller.faxLineList(
 ## `faxLineRemoveUser()`
 
 ```typescript
-faxLineRemoveUser(faxLineRemoveUserRequest: FaxLineRemoveUserRequest): FaxLineResponse
+faxLineRemoveUser(faxLineRemoveUserRequest: FaxLineRemoveUserRequest, idempotencyKey: string): FaxLineResponse
 ```
 
 Remove Fax Line Access
@@ -402,6 +404,7 @@ apiCaller.faxLineRemoveUser(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **faxLineRemoveUserRequest** | [**FaxLineRemoveUserRequest**](../model/FaxLineRemoveUserRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

@@ -53,18 +53,38 @@ public class DocumentApi {
    * Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/DocumentDetectFieldsExample.java
    * @param documentFieldDetectionRequest  (required)
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return DocumentFieldDetectionResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
+  public DocumentFieldDetectionResponse documentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest, String idempotencyKey) throws ApiException {
+    return documentDetectFieldsWithHttpInfo(documentFieldDetectionRequest, idempotencyKey).getData();
+  }
+
+
+  /**
+   * @see DocumentApi#documentDetectFields(DocumentFieldDetectionRequest, String)
+   */
   public DocumentFieldDetectionResponse documentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
-    return documentDetectFieldsWithHttpInfo(documentFieldDetectionRequest).getData();
+    String idempotencyKey = null;
+
+    return documentDetectFieldsWithHttpInfo(documentFieldDetectionRequest, idempotencyKey).getData();
+  }
+
+  /**
+   * @see DocumentApi#documentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest, String)
+   */
+  public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
+    String idempotencyKey = null;
+
+    return documentDetectFieldsWithHttpInfo(documentFieldDetectionRequest, idempotencyKey);
   }
 
 
@@ -73,21 +93,28 @@ public class DocumentApi {
    * Detects form fields in a PDF document using either PDF form annotations or Dropbox Sign text tags.
    * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/DocumentDetectFieldsExample.java
    * @param documentFieldDetectionRequest  (required)
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
    * @return ApiResponse&lt;DocumentFieldDetectionResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
+  public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest, String idempotencyKey) throws ApiException {
     
     // Check required parameters
     if (documentFieldDetectionRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'documentFieldDetectionRequest' when calling documentDetectFields");
+    }
+
+    // Header parameters
+    Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
+    if (idempotencyKey != null) {
+      localVarHeaderParams.put("Idempotency-Key", apiClient.parameterToString(idempotencyKey));
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -103,7 +130,7 @@ public class DocumentApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : documentFieldDetectionRequest,
-        new LinkedHashMap<>(),
+        localVarHeaderParams,
         new LinkedHashMap<>(),
         localVarFormParams,
         localVarAccept,

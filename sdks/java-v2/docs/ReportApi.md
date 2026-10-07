@@ -10,7 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## reportCreate
 
-> ReportCreateResponse reportCreate(reportCreateRequest)
+> ReportCreateResponse reportCreate(reportCreateRequest, idempotencyKey)
 
 Create Report
 
@@ -78,6 +78,7 @@ public class ReportCreateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **reportCreateRequest** | [**ReportCreateRequest**](ReportCreateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -95,6 +96,6 @@ public class ReportCreateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 

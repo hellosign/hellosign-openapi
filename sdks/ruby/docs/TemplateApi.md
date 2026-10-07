@@ -19,7 +19,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `template_add_user`
 
-> `<TemplateGetResponse> template_add_user(template_id, template_add_user_request)`
+> `<TemplateGetResponse> template_add_user(template_id, template_add_user_request, opts)`
 
 Add User to Template
 
@@ -56,12 +56,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TemplateGetResponse>, Integer, Hash)> template_add_user_with_http_info(template_id, template_add_user_request)`
+> `<Array(<TemplateGetResponse>, Integer, Hash)> template_add_user_with_http_info(template_id, template_add_user_request, opts)`
 
 ```ruby
 begin
   # Add User to Template
-  data, status_code, headers = api_instance.template_add_user_with_http_info(template_id, template_add_user_request)
+  data, status_code, headers = api_instance.template_add_user_with_http_info(template_id, template_add_user_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateGetResponse>
@@ -76,6 +76,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **String** | The id of the Template to give the Account access to. |  |
 | `template_add_user_request` | [**TemplateAddUserRequest**](TemplateAddUserRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -93,7 +94,7 @@ end
 
 ## `template_create`
 
-> `<TemplateCreateResponse> template_create(template_create_request)`
+> `<TemplateCreateResponse> template_create(template_create_request, opts)`
 
 Create Template
 
@@ -205,12 +206,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TemplateCreateResponse>, Integer, Hash)> template_create_with_http_info(template_create_request)`
+> `<Array(<TemplateCreateResponse>, Integer, Hash)> template_create_with_http_info(template_create_request, opts)`
 
 ```ruby
 begin
   # Create Template
-  data, status_code, headers = api_instance.template_create_with_http_info(template_create_request)
+  data, status_code, headers = api_instance.template_create_with_http_info(template_create_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateCreateResponse>
@@ -224,6 +225,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_create_request` | [**TemplateCreateRequest**](TemplateCreateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -241,7 +243,7 @@ end
 
 ## `template_create_embedded_draft`
 
-> `<TemplateCreateEmbeddedDraftResponse> template_create_embedded_draft(template_create_embedded_draft_request)`
+> `<TemplateCreateEmbeddedDraftResponse> template_create_embedded_draft(template_create_embedded_draft_request, opts)`
 
 Create Embedded Template Draft
 
@@ -319,12 +321,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TemplateCreateEmbeddedDraftResponse>, Integer, Hash)> template_create_embedded_draft_with_http_info(template_create_embedded_draft_request)`
+> `<Array(<TemplateCreateEmbeddedDraftResponse>, Integer, Hash)> template_create_embedded_draft_with_http_info(template_create_embedded_draft_request, opts)`
 
 ```ruby
 begin
   # Create Embedded Template Draft
-  data, status_code, headers = api_instance.template_create_embedded_draft_with_http_info(template_create_embedded_draft_request)
+  data, status_code, headers = api_instance.template_create_embedded_draft_with_http_info(template_create_embedded_draft_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateCreateEmbeddedDraftResponse>
@@ -338,6 +340,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_create_embedded_draft_request` | [**TemplateCreateEmbeddedDraftRequest**](TemplateCreateEmbeddedDraftRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -355,7 +358,7 @@ end
 
 ## `template_delete`
 
-> `template_delete(template_id)`
+> `template_delete(template_id, opts)`
 
 Delete Template
 
@@ -386,12 +389,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> `<Array(nil, Integer, Hash)> template_delete_with_http_info(template_id)`
+> `<Array(nil, Integer, Hash)> template_delete_with_http_info(template_id, opts)`
 
 ```ruby
 begin
   # Delete Template
-  data, status_code, headers = api_instance.template_delete_with_http_info(template_id)
+  data, status_code, headers = api_instance.template_delete_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -405,6 +408,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **String** | The id of the Template to delete. |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -780,7 +784,7 @@ end
 
 ## `template_remove_user`
 
-> `<TemplateGetResponse> template_remove_user(template_id, template_remove_user_request)`
+> `<TemplateGetResponse> template_remove_user(template_id, template_remove_user_request, opts)`
 
 Remove User from Template
 
@@ -817,12 +821,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TemplateGetResponse>, Integer, Hash)> template_remove_user_with_http_info(template_id, template_remove_user_request)`
+> `<Array(<TemplateGetResponse>, Integer, Hash)> template_remove_user_with_http_info(template_id, template_remove_user_request, opts)`
 
 ```ruby
 begin
   # Remove User from Template
-  data, status_code, headers = api_instance.template_remove_user_with_http_info(template_id, template_remove_user_request)
+  data, status_code, headers = api_instance.template_remove_user_with_http_info(template_id, template_remove_user_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateGetResponse>
@@ -837,6 +841,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **String** | The id of the Template to remove the Account&#39;s access to. |  |
 | `template_remove_user_request` | [**TemplateRemoveUserRequest**](TemplateRemoveUserRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -854,7 +859,7 @@ end
 
 ## `template_update_files`
 
-> `<TemplateUpdateFilesResponse> template_update_files(template_id, template_update_files_request)`
+> `<TemplateUpdateFilesResponse> template_update_files(template_id, template_update_files_request, opts)`
 
 Update Template Files
 
@@ -893,12 +898,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TemplateUpdateFilesResponse>, Integer, Hash)> template_update_files_with_http_info(template_id, template_update_files_request)`
+> `<Array(<TemplateUpdateFilesResponse>, Integer, Hash)> template_update_files_with_http_info(template_id, template_update_files_request, opts)`
 
 ```ruby
 begin
   # Update Template Files
-  data, status_code, headers = api_instance.template_update_files_with_http_info(template_id, template_update_files_request)
+  data, status_code, headers = api_instance.template_update_files_with_http_info(template_id, template_update_files_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateUpdateFilesResponse>
@@ -913,6 +918,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **String** | The ID of the template whose files to update. |  |
 | `template_update_files_request` | [**TemplateUpdateFilesRequest**](TemplateUpdateFilesRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

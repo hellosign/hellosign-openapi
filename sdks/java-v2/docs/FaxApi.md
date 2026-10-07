@@ -337,7 +337,7 @@ public class FaxListExample
 
 ## faxSend
 
-> FaxGetResponse faxSend(faxSendRequest)
+> FaxGetResponse faxSend(faxSendRequest, idempotencyKey)
 
 Send Fax
 
@@ -407,6 +407,7 @@ public class FaxSendExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **faxSendRequest** | [**FaxSendRequest**](FaxSendRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -424,6 +425,6 @@ public class FaxSendExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 

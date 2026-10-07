@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from dropbox_sign.models.unclaimed_draft_create_embedded_request import (
     UnclaimedDraftCreateEmbeddedRequest,
@@ -57,6 +58,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create(
         self,
         unclaimed_draft_create_request: UnclaimedDraftCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -77,6 +84,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_request: (required)
         :type unclaimed_draft_create_request: UnclaimedDraftCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -101,6 +110,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_serialize(
             unclaimed_draft_create_request=unclaimed_draft_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -125,6 +135,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create_with_http_info(
         self,
         unclaimed_draft_create_request: UnclaimedDraftCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -145,6 +161,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_request: (required)
         :type unclaimed_draft_create_request: UnclaimedDraftCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -169,6 +187,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_serialize(
             unclaimed_draft_create_request=unclaimed_draft_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -193,6 +212,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create_without_preload_content(
         self,
         unclaimed_draft_create_request: UnclaimedDraftCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -213,6 +238,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_request: (required)
         :type unclaimed_draft_create_request: UnclaimedDraftCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -237,6 +264,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_serialize(
             unclaimed_draft_create_request=unclaimed_draft_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -256,6 +284,7 @@ class UnclaimedDraftApi:
     def _unclaimed_draft_create_serialize(
         self,
         unclaimed_draft_create_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -300,6 +329,8 @@ class UnclaimedDraftApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if unclaimed_draft_create_request is not None and has_files is False:
@@ -343,6 +374,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create_embedded(
         self,
         unclaimed_draft_create_embedded_request: UnclaimedDraftCreateEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -363,6 +400,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_embedded_request: (required)
         :type unclaimed_draft_create_embedded_request: UnclaimedDraftCreateEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -387,6 +426,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_embedded_serialize(
             unclaimed_draft_create_embedded_request=unclaimed_draft_create_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -411,6 +451,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create_embedded_with_http_info(
         self,
         unclaimed_draft_create_embedded_request: UnclaimedDraftCreateEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -431,6 +477,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_embedded_request: (required)
         :type unclaimed_draft_create_embedded_request: UnclaimedDraftCreateEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -455,6 +503,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_embedded_serialize(
             unclaimed_draft_create_embedded_request=unclaimed_draft_create_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -479,6 +528,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create_embedded_without_preload_content(
         self,
         unclaimed_draft_create_embedded_request: UnclaimedDraftCreateEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -499,6 +554,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_embedded_request: (required)
         :type unclaimed_draft_create_embedded_request: UnclaimedDraftCreateEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -523,6 +580,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_embedded_serialize(
             unclaimed_draft_create_embedded_request=unclaimed_draft_create_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -542,6 +600,7 @@ class UnclaimedDraftApi:
     def _unclaimed_draft_create_embedded_serialize(
         self,
         unclaimed_draft_create_embedded_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -586,6 +645,8 @@ class UnclaimedDraftApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if unclaimed_draft_create_embedded_request is not None and has_files is False:
@@ -629,6 +690,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create_embedded_with_template(
         self,
         unclaimed_draft_create_embedded_with_template_request: UnclaimedDraftCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -649,6 +716,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_embedded_with_template_request: (required)
         :type unclaimed_draft_create_embedded_with_template_request: UnclaimedDraftCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -673,6 +742,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_embedded_with_template_serialize(
             unclaimed_draft_create_embedded_with_template_request=unclaimed_draft_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -697,6 +767,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create_embedded_with_template_with_http_info(
         self,
         unclaimed_draft_create_embedded_with_template_request: UnclaimedDraftCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -717,6 +793,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_embedded_with_template_request: (required)
         :type unclaimed_draft_create_embedded_with_template_request: UnclaimedDraftCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -741,6 +819,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_embedded_with_template_serialize(
             unclaimed_draft_create_embedded_with_template_request=unclaimed_draft_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -765,6 +844,12 @@ class UnclaimedDraftApi:
     def unclaimed_draft_create_embedded_with_template_without_preload_content(
         self,
         unclaimed_draft_create_embedded_with_template_request: UnclaimedDraftCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -785,6 +870,8 @@ class UnclaimedDraftApi:
 
         :param unclaimed_draft_create_embedded_with_template_request: (required)
         :type unclaimed_draft_create_embedded_with_template_request: UnclaimedDraftCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -809,6 +896,7 @@ class UnclaimedDraftApi:
 
         _param = self._unclaimed_draft_create_embedded_with_template_serialize(
             unclaimed_draft_create_embedded_with_template_request=unclaimed_draft_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -828,6 +916,7 @@ class UnclaimedDraftApi:
     def _unclaimed_draft_create_embedded_with_template_serialize(
         self,
         unclaimed_draft_create_embedded_with_template_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -872,6 +961,8 @@ class UnclaimedDraftApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if (
@@ -922,6 +1013,12 @@ class UnclaimedDraftApi:
             Field(description="The ID of the signature request to edit and resend."),
         ],
         unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -944,6 +1041,8 @@ class UnclaimedDraftApi:
         :type signature_request_id: str
         :param unclaimed_draft_edit_and_resend_request: (required)
         :type unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -969,6 +1068,7 @@ class UnclaimedDraftApi:
         _param = self._unclaimed_draft_edit_and_resend_serialize(
             signature_request_id=signature_request_id,
             unclaimed_draft_edit_and_resend_request=unclaimed_draft_edit_and_resend_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -997,6 +1097,12 @@ class UnclaimedDraftApi:
             Field(description="The ID of the signature request to edit and resend."),
         ],
         unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1019,6 +1125,8 @@ class UnclaimedDraftApi:
         :type signature_request_id: str
         :param unclaimed_draft_edit_and_resend_request: (required)
         :type unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1044,6 +1152,7 @@ class UnclaimedDraftApi:
         _param = self._unclaimed_draft_edit_and_resend_serialize(
             signature_request_id=signature_request_id,
             unclaimed_draft_edit_and_resend_request=unclaimed_draft_edit_and_resend_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1072,6 +1181,12 @@ class UnclaimedDraftApi:
             Field(description="The ID of the signature request to edit and resend."),
         ],
         unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1094,6 +1209,8 @@ class UnclaimedDraftApi:
         :type signature_request_id: str
         :param unclaimed_draft_edit_and_resend_request: (required)
         :type unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1119,6 +1236,7 @@ class UnclaimedDraftApi:
         _param = self._unclaimed_draft_edit_and_resend_serialize(
             signature_request_id=signature_request_id,
             unclaimed_draft_edit_and_resend_request=unclaimed_draft_edit_and_resend_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1139,6 +1257,7 @@ class UnclaimedDraftApi:
         self,
         signature_request_id,
         unclaimed_draft_edit_and_resend_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -1185,6 +1304,8 @@ class UnclaimedDraftApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if unclaimed_draft_edit_and_resend_request is not None and has_files is False:

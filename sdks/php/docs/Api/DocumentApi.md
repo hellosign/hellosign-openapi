@@ -10,7 +10,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `documentDetectFields()`
 
 ```php
-documentDetectFields($document_field_detection_request): \Dropbox\Sign\Model\DocumentFieldDetectionResponse
+documentDetectFields($document_field_detection_request, $idempotency_key): \Dropbox\Sign\Model\DocumentFieldDetectionResponse
 ```
 Detect Document Fields
 
@@ -54,6 +54,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **document_field_detection_request** | [**\Dropbox\Sign\Model\DocumentFieldDetectionRequest**](../Model/DocumentFieldDetectionRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

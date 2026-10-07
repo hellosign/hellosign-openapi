@@ -583,10 +583,12 @@ export class FaxApi {
    * @summary Send Fax
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/FaxSendExample.ts
    * @param faxSendRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async faxSend(
     faxSendRequest: FaxSendRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FaxGetResponse>> {
     faxSendRequest = deserializeIfNeeded(faxSendRequest, "FaxSendRequest");
@@ -613,6 +615,10 @@ export class FaxApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

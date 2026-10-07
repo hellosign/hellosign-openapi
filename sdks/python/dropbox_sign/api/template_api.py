@@ -65,6 +65,12 @@ class TemplateApi:
             Field(description="The id of the Template to give the Account access to."),
         ],
         template_add_user_request: TemplateAddUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -87,6 +93,8 @@ class TemplateApi:
         :type template_id: str
         :param template_add_user_request: (required)
         :type template_add_user_request: TemplateAddUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -112,6 +120,7 @@ class TemplateApi:
         _param = self._template_add_user_serialize(
             template_id=template_id,
             template_add_user_request=template_add_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -140,6 +149,12 @@ class TemplateApi:
             Field(description="The id of the Template to give the Account access to."),
         ],
         template_add_user_request: TemplateAddUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -162,6 +177,8 @@ class TemplateApi:
         :type template_id: str
         :param template_add_user_request: (required)
         :type template_add_user_request: TemplateAddUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -187,6 +204,7 @@ class TemplateApi:
         _param = self._template_add_user_serialize(
             template_id=template_id,
             template_add_user_request=template_add_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -215,6 +233,12 @@ class TemplateApi:
             Field(description="The id of the Template to give the Account access to."),
         ],
         template_add_user_request: TemplateAddUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -237,6 +261,8 @@ class TemplateApi:
         :type template_id: str
         :param template_add_user_request: (required)
         :type template_add_user_request: TemplateAddUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -262,6 +288,7 @@ class TemplateApi:
         _param = self._template_add_user_serialize(
             template_id=template_id,
             template_add_user_request=template_add_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -282,6 +309,7 @@ class TemplateApi:
         self,
         template_id,
         template_add_user_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -328,6 +356,8 @@ class TemplateApi:
             _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if template_add_user_request is not None and has_files is False:
@@ -371,6 +401,12 @@ class TemplateApi:
     def template_create(
         self,
         template_create_request: TemplateCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -391,6 +427,8 @@ class TemplateApi:
 
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -415,6 +453,7 @@ class TemplateApi:
 
         _param = self._template_create_serialize(
             template_create_request=template_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -439,6 +478,12 @@ class TemplateApi:
     def template_create_with_http_info(
         self,
         template_create_request: TemplateCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -459,6 +504,8 @@ class TemplateApi:
 
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -483,6 +530,7 @@ class TemplateApi:
 
         _param = self._template_create_serialize(
             template_create_request=template_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -507,6 +555,12 @@ class TemplateApi:
     def template_create_without_preload_content(
         self,
         template_create_request: TemplateCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -527,6 +581,8 @@ class TemplateApi:
 
         :param template_create_request: (required)
         :type template_create_request: TemplateCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -551,6 +607,7 @@ class TemplateApi:
 
         _param = self._template_create_serialize(
             template_create_request=template_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -570,6 +627,7 @@ class TemplateApi:
     def _template_create_serialize(
         self,
         template_create_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -614,6 +672,8 @@ class TemplateApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if template_create_request is not None and has_files is False:
@@ -657,6 +717,12 @@ class TemplateApi:
     def template_create_embedded_draft(
         self,
         template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -677,6 +743,8 @@ class TemplateApi:
 
         :param template_create_embedded_draft_request: (required)
         :type template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -701,6 +769,7 @@ class TemplateApi:
 
         _param = self._template_create_embedded_draft_serialize(
             template_create_embedded_draft_request=template_create_embedded_draft_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -725,6 +794,12 @@ class TemplateApi:
     def template_create_embedded_draft_with_http_info(
         self,
         template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -745,6 +820,8 @@ class TemplateApi:
 
         :param template_create_embedded_draft_request: (required)
         :type template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -769,6 +846,7 @@ class TemplateApi:
 
         _param = self._template_create_embedded_draft_serialize(
             template_create_embedded_draft_request=template_create_embedded_draft_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -793,6 +871,12 @@ class TemplateApi:
     def template_create_embedded_draft_without_preload_content(
         self,
         template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -813,6 +897,8 @@ class TemplateApi:
 
         :param template_create_embedded_draft_request: (required)
         :type template_create_embedded_draft_request: TemplateCreateEmbeddedDraftRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -837,6 +923,7 @@ class TemplateApi:
 
         _param = self._template_create_embedded_draft_serialize(
             template_create_embedded_draft_request=template_create_embedded_draft_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -856,6 +943,7 @@ class TemplateApi:
     def _template_create_embedded_draft_serialize(
         self,
         template_create_embedded_draft_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -900,6 +988,8 @@ class TemplateApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if template_create_embedded_draft_request is not None and has_files is False:
@@ -945,6 +1035,12 @@ class TemplateApi:
         template_id: Annotated[
             StrictStr, Field(description="The id of the Template to delete.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -965,6 +1061,8 @@ class TemplateApi:
 
         :param template_id: The id of the Template to delete. (required)
         :type template_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -989,6 +1087,7 @@ class TemplateApi:
 
         _param = self._template_delete_serialize(
             template_id=template_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1015,6 +1114,12 @@ class TemplateApi:
         template_id: Annotated[
             StrictStr, Field(description="The id of the Template to delete.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1035,6 +1140,8 @@ class TemplateApi:
 
         :param template_id: The id of the Template to delete. (required)
         :type template_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1059,6 +1166,7 @@ class TemplateApi:
 
         _param = self._template_delete_serialize(
             template_id=template_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1085,6 +1193,12 @@ class TemplateApi:
         template_id: Annotated[
             StrictStr, Field(description="The id of the Template to delete.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1105,6 +1219,8 @@ class TemplateApi:
 
         :param template_id: The id of the Template to delete. (required)
         :type template_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1129,6 +1245,7 @@ class TemplateApi:
 
         _param = self._template_delete_serialize(
             template_id=template_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1148,6 +1265,7 @@ class TemplateApi:
     def _template_delete_serialize(
         self,
         template_id,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -1172,6 +1290,8 @@ class TemplateApi:
             _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
 
@@ -2680,6 +2800,12 @@ class TemplateApi:
             ),
         ],
         template_remove_user_request: TemplateRemoveUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2702,6 +2828,8 @@ class TemplateApi:
         :type template_id: str
         :param template_remove_user_request: (required)
         :type template_remove_user_request: TemplateRemoveUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2727,6 +2855,7 @@ class TemplateApi:
         _param = self._template_remove_user_serialize(
             template_id=template_id,
             template_remove_user_request=template_remove_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2757,6 +2886,12 @@ class TemplateApi:
             ),
         ],
         template_remove_user_request: TemplateRemoveUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2779,6 +2914,8 @@ class TemplateApi:
         :type template_id: str
         :param template_remove_user_request: (required)
         :type template_remove_user_request: TemplateRemoveUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2804,6 +2941,7 @@ class TemplateApi:
         _param = self._template_remove_user_serialize(
             template_id=template_id,
             template_remove_user_request=template_remove_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2834,6 +2972,12 @@ class TemplateApi:
             ),
         ],
         template_remove_user_request: TemplateRemoveUserRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2856,6 +3000,8 @@ class TemplateApi:
         :type template_id: str
         :param template_remove_user_request: (required)
         :type template_remove_user_request: TemplateRemoveUserRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2881,6 +3027,7 @@ class TemplateApi:
         _param = self._template_remove_user_serialize(
             template_id=template_id,
             template_remove_user_request=template_remove_user_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2901,6 +3048,7 @@ class TemplateApi:
         self,
         template_id,
         template_remove_user_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -2947,6 +3095,8 @@ class TemplateApi:
             _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if template_remove_user_request is not None and has_files is False:
@@ -2994,6 +3144,12 @@ class TemplateApi:
             Field(description="The ID of the template whose files to update."),
         ],
         template_update_files_request: TemplateUpdateFilesRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3016,6 +3172,8 @@ class TemplateApi:
         :type template_id: str
         :param template_update_files_request: (required)
         :type template_update_files_request: TemplateUpdateFilesRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3041,6 +3199,7 @@ class TemplateApi:
         _param = self._template_update_files_serialize(
             template_id=template_id,
             template_update_files_request=template_update_files_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3069,6 +3228,12 @@ class TemplateApi:
             Field(description="The ID of the template whose files to update."),
         ],
         template_update_files_request: TemplateUpdateFilesRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3091,6 +3256,8 @@ class TemplateApi:
         :type template_id: str
         :param template_update_files_request: (required)
         :type template_update_files_request: TemplateUpdateFilesRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3116,6 +3283,7 @@ class TemplateApi:
         _param = self._template_update_files_serialize(
             template_id=template_id,
             template_update_files_request=template_update_files_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3144,6 +3312,12 @@ class TemplateApi:
             Field(description="The ID of the template whose files to update."),
         ],
         template_update_files_request: TemplateUpdateFilesRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3166,6 +3340,8 @@ class TemplateApi:
         :type template_id: str
         :param template_update_files_request: (required)
         :type template_update_files_request: TemplateUpdateFilesRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3191,6 +3367,7 @@ class TemplateApi:
         _param = self._template_update_files_serialize(
             template_id=template_id,
             template_update_files_request=template_update_files_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3211,6 +3388,7 @@ class TemplateApi:
         self,
         template_id,
         template_update_files_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -3257,6 +3435,8 @@ class TemplateApi:
             _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if template_update_files_request is not None and has_files is False:

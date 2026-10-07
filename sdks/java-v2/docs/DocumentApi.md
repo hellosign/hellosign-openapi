@@ -10,7 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## documentDetectFields
 
-> DocumentFieldDetectionResponse documentDetectFields(documentFieldDetectionRequest)
+> DocumentFieldDetectionResponse documentDetectFields(documentFieldDetectionRequest, idempotencyKey)
 
 Detect Document Fields
 
@@ -74,6 +74,7 @@ public class DocumentDetectFieldsExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **documentFieldDetectionRequest** | [**DocumentFieldDetectionRequest**](DocumentFieldDetectionRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -91,6 +92,6 @@ public class DocumentDetectFieldsExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 

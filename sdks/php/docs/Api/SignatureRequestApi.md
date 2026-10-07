@@ -29,7 +29,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `signatureRequestBulkCreateEmbeddedWithTemplate()`
 
 ```php
-signatureRequestBulkCreateEmbeddedWithTemplate($signature_request_bulk_create_embedded_with_template_request): \Dropbox\Sign\Model\BulkSendJobSendResponse
+signatureRequestBulkCreateEmbeddedWithTemplate($signature_request_bulk_create_embedded_with_template_request, $idempotency_key): \Dropbox\Sign\Model\BulkSendJobSendResponse
 ```
 Embedded Bulk Send with Template
 
@@ -135,6 +135,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_bulk_create_embedded_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest**](../Model/SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -156,7 +157,7 @@ try {
 ## `signatureRequestBulkSendWithTemplate()`
 
 ```php
-signatureRequestBulkSendWithTemplate($signature_request_bulk_send_with_template_request): \Dropbox\Sign\Model\BulkSendJobSendResponse
+signatureRequestBulkSendWithTemplate($signature_request_bulk_send_with_template_request, $idempotency_key): \Dropbox\Sign\Model\BulkSendJobSendResponse
 ```
 Bulk Send with Template
 
@@ -262,6 +263,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_bulk_send_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest**](../Model/SignatureRequestBulkSendWithTemplateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ try {
 ## `signatureRequestCancel()`
 
 ```php
-signatureRequestCancel($signature_request_id)
+signatureRequestCancel($signature_request_id, $idempotency_key)
 ```
 Cancel Incomplete Signature Request
 
@@ -320,6 +322,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the incomplete SignatureRequest to cancel. | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -341,7 +344,7 @@ void (empty response body)
 ## `signatureRequestCreateEmbedded()`
 
 ```php
-signatureRequestCreateEmbedded($signature_request_create_embedded_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestCreateEmbedded($signature_request_create_embedded_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Create Embedded Signature Request
 
@@ -418,6 +421,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_create_embedded_request** | [**\Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest**](../Model/SignatureRequestCreateEmbeddedRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -439,7 +443,7 @@ try {
 ## `signatureRequestCreateEmbeddedWithTemplate()`
 
 ```php
-signatureRequestCreateEmbeddedWithTemplate($signature_request_create_embedded_with_template_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestCreateEmbeddedWithTemplate($signature_request_create_embedded_with_template_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Create Embedded Signature Request with Template
 
@@ -506,6 +510,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_create_embedded_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest**](../Model/SignatureRequestCreateEmbeddedWithTemplateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -527,7 +532,7 @@ try {
 ## `signatureRequestEdit()`
 
 ```php
-signatureRequestEdit($signature_request_id, $signature_request_edit_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestEdit($signature_request_id, $signature_request_edit_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Edit Signature Request
 
@@ -614,6 +619,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
 | **signature_request_edit_request** | [**\Dropbox\Sign\Model\SignatureRequestEditRequest**](../Model/SignatureRequestEditRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -635,7 +641,7 @@ try {
 ## `signatureRequestEditEmbedded()`
 
 ```php
-signatureRequestEditEmbedded($signature_request_id, $signature_request_edit_embedded_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestEditEmbedded($signature_request_id, $signature_request_edit_embedded_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Edit Embedded Signature Request
 
@@ -713,6 +719,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
 | **signature_request_edit_embedded_request** | [**\Dropbox\Sign\Model\SignatureRequestEditEmbeddedRequest**](../Model/SignatureRequestEditEmbeddedRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -734,7 +741,7 @@ try {
 ## `signatureRequestEditEmbeddedWithTemplate()`
 
 ```php
-signatureRequestEditEmbeddedWithTemplate($signature_request_id, $signature_request_edit_embedded_with_template_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestEditEmbeddedWithTemplate($signature_request_id, $signature_request_edit_embedded_with_template_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Edit Embedded Signature Request with Template
 
@@ -802,6 +809,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
 | **signature_request_edit_embedded_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestEditEmbeddedWithTemplateRequest**](../Model/SignatureRequestEditEmbeddedWithTemplateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -823,7 +831,7 @@ try {
 ## `signatureRequestEditWithTemplate()`
 
 ```php
-signatureRequestEditWithTemplate($signature_request_id, $signature_request_edit_with_template_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestEditWithTemplate($signature_request_id, $signature_request_edit_with_template_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Edit Signature Request With Template
 
@@ -910,6 +918,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
 | **signature_request_edit_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestEditWithTemplateRequest**](../Model/SignatureRequestEditWithTemplateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1239,7 +1248,7 @@ try {
 ## `signatureRequestReleaseHold()`
 
 ```php
-signatureRequestReleaseHold($signature_request_id): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestReleaseHold($signature_request_id, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Release On-Hold Signature Request
 
@@ -1278,6 +1287,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to release. | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1299,7 +1309,7 @@ try {
 ## `signatureRequestRemind()`
 
 ```php
-signatureRequestRemind($signature_request_id, $signature_request_remind_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestRemind($signature_request_id, $signature_request_remind_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Send Request Reminder
 
@@ -1343,6 +1353,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to send a reminder for. | |
 | **signature_request_remind_request** | [**\Dropbox\Sign\Model\SignatureRequestRemindRequest**](../Model/SignatureRequestRemindRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1364,7 +1375,7 @@ try {
 ## `signatureRequestRemove()`
 
 ```php
-signatureRequestRemove($signature_request_id)
+signatureRequestRemove($signature_request_id, $idempotency_key)
 ```
 Remove Signature Request Access
 
@@ -1400,6 +1411,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to remove. | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1421,7 +1433,7 @@ void (empty response body)
 ## `signatureRequestSend()`
 
 ```php
-signatureRequestSend($signature_request_send_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestSend($signature_request_send_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Send Signature Request
 
@@ -1507,6 +1519,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_send_request** | [**\Dropbox\Sign\Model\SignatureRequestSendRequest**](../Model/SignatureRequestSendRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1528,7 +1541,7 @@ try {
 ## `signatureRequestSendWithTemplate()`
 
 ```php
-signatureRequestSendWithTemplate($signature_request_send_with_template_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestSendWithTemplate($signature_request_send_with_template_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Send with Template
 
@@ -1614,6 +1627,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_send_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest**](../Model/SignatureRequestSendWithTemplateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1635,7 +1649,7 @@ try {
 ## `signatureRequestUpdate()`
 
 ```php
-signatureRequestUpdate($signature_request_id, $signature_request_update_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+signatureRequestUpdate($signature_request_id, $signature_request_update_request, $idempotency_key): \Dropbox\Sign\Model\SignatureRequestGetResponse
 ```
 Update Signature Request
 
@@ -1680,6 +1694,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to update. | |
 | **signature_request_update_request** | [**\Dropbox\Sign\Model\SignatureRequestUpdateRequest**](../Model/SignatureRequestUpdateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

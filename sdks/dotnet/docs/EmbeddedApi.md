@@ -9,7 +9,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="embeddedediturl"></a>
 # **EmbeddedEditUrl**
-> EmbeddedEditUrlResponse EmbeddedEditUrl (string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest)
+> EmbeddedEditUrlResponse EmbeddedEditUrl (string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, string? idempotencyKey = null)
 
 Get Embedded Template Edit URL
 
@@ -72,7 +72,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Embedded Template Edit URL
-    ApiResponse<EmbeddedEditUrlResponse> response = apiInstance.EmbeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest);
+    ApiResponse<EmbeddedEditUrlResponse> response = apiInstance.EmbeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -91,6 +91,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the template to edit. |  |
 | **embeddedEditUrlRequest** | [**EmbeddedEditUrlRequest**](EmbeddedEditUrlRequest.md) |  |  |
+| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -109,7 +110,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

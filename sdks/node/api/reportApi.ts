@@ -121,10 +121,12 @@ export class ReportApi {
    * @summary Create Report
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/ReportCreateExample.ts
    * @param reportCreateRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async reportCreate(
     reportCreateRequest: ReportCreateRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<ReportCreateResponse>> {
     reportCreateRequest = deserializeIfNeeded(
@@ -154,6 +156,10 @@ export class ReportApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

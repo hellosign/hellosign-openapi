@@ -77,6 +77,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `team_add_member_request` | [**TeamAddMemberRequest**](TeamAddMemberRequest.md) |  |  |
 | `team_id` | **String** | The id of the team. | [optional] |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -94,7 +95,7 @@ end
 
 ## `team_create`
 
-> `<TeamGetResponse> team_create(team_create_request)`
+> `<TeamGetResponse> team_create(team_create_request, opts)`
 
 Create Team
 
@@ -130,12 +131,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TeamGetResponse>, Integer, Hash)> team_create_with_http_info(team_create_request)`
+> `<Array(<TeamGetResponse>, Integer, Hash)> team_create_with_http_info(team_create_request, opts)`
 
 ```ruby
 begin
   # Create Team
-  data, status_code, headers = api_instance.team_create_with_http_info(team_create_request)
+  data, status_code, headers = api_instance.team_create_with_http_info(team_create_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetResponse>
@@ -149,6 +150,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_create_request` | [**TeamCreateRequest**](TeamCreateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -507,7 +509,7 @@ end
 
 ## `team_remove_member`
 
-> `<TeamGetResponse> team_remove_member(team_remove_member_request)`
+> `<TeamGetResponse> team_remove_member(team_remove_member_request, opts)`
 
 Remove User from Team
 
@@ -544,12 +546,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TeamGetResponse>, Integer, Hash)> team_remove_member_with_http_info(team_remove_member_request)`
+> `<Array(<TeamGetResponse>, Integer, Hash)> team_remove_member_with_http_info(team_remove_member_request, opts)`
 
 ```ruby
 begin
   # Remove User from Team
-  data, status_code, headers = api_instance.team_remove_member_with_http_info(team_remove_member_request)
+  data, status_code, headers = api_instance.team_remove_member_with_http_info(team_remove_member_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetResponse>
@@ -563,6 +565,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_remove_member_request` | [**TeamRemoveMemberRequest**](TeamRemoveMemberRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -655,7 +658,7 @@ end
 
 ## `team_update`
 
-> `<TeamGetResponse> team_update(team_update_request)`
+> `<TeamGetResponse> team_update(team_update_request, opts)`
 
 Update Team
 
@@ -691,12 +694,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TeamGetResponse>, Integer, Hash)> team_update_with_http_info(team_update_request)`
+> `<Array(<TeamGetResponse>, Integer, Hash)> team_update_with_http_info(team_update_request, opts)`
 
 ```ruby
 begin
   # Update Team
-  data, status_code, headers = api_instance.team_update_with_http_info(team_update_request)
+  data, status_code, headers = api_instance.team_update_with_http_info(team_update_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetResponse>
@@ -710,6 +713,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_update_request` | [**TeamUpdateRequest**](TeamUpdateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

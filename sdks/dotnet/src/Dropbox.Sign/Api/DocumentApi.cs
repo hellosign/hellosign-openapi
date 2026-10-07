@@ -36,9 +36,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentFieldDetectionRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DocumentFieldDetectionResponse</returns>
-        DocumentFieldDetectionResponse DocumentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0);
+        DocumentFieldDetectionResponse DocumentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Detect Document Fields
@@ -49,9 +50,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentFieldDetectionRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DocumentFieldDetectionResponse</returns>
-        ApiResponse<DocumentFieldDetectionResponse> DocumentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0);
+        ApiResponse<DocumentFieldDetectionResponse> DocumentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -70,10 +72,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentFieldDetectionRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentFieldDetectionResponse</returns>
-        System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Detect Document Fields
@@ -84,10 +87,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentFieldDetectionRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentFieldDetectionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -214,11 +218,12 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentFieldDetectionRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DocumentFieldDetectionResponse</returns>
-        public DocumentFieldDetectionResponse DocumentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0)
+        public DocumentFieldDetectionResponse DocumentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = DocumentDetectFieldsWithHttpInfo(documentFieldDetectionRequest);
+            Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = DocumentDetectFieldsWithHttpInfo(documentFieldDetectionRequest, idempotencyKey);
             return localVarResponse.Data;
         }
 
@@ -228,9 +233,10 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentFieldDetectionRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DocumentFieldDetectionResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> DocumentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> DocumentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'documentFieldDetectionRequest' is set
             if (documentFieldDetectionRequest == null)
@@ -269,6 +275,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "DocumentApi.DocumentDetectFields";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -306,12 +316,13 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentFieldDetectionRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentFieldDetectionResponse</returns>
-        public async System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = await DocumentDetectFieldsWithHttpInfoAsync(documentFieldDetectionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = await DocumentDetectFieldsWithHttpInfoAsync(documentFieldDetectionRequest, idempotencyKey, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -321,10 +332,11 @@ namespace Dropbox.Sign.Api
         /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/DocumentDetectFieldsExample.cs</example>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentFieldDetectionRequest"></param>
+        /// <param name="idempotencyKey">Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentFieldDetectionResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'documentFieldDetectionRequest' is set
             if (documentFieldDetectionRequest == null)
@@ -364,6 +376,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", Dropbox.Sign.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             localVarRequestOptions.Operation = "DocumentApi.DocumentDetectFields";
             localVarRequestOptions.OperationIndex = operationIndex;

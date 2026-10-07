@@ -133,11 +133,13 @@ export class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateAddUserExample.ts
    * @param templateId The id of the Template to give the Account access to.
    * @param templateAddUserRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async templateAddUser(
     templateId: string,
     templateAddUserRequest: TemplateAddUserRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateGetResponse>> {
     templateAddUserRequest = deserializeIfNeeded(
@@ -182,6 +184,10 @@ export class TemplateApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -295,10 +301,12 @@ export class TemplateApi {
    * @summary Create Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateCreateExample.ts
    * @param templateCreateRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async templateCreate(
     templateCreateRequest: TemplateCreateRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateCreateResponse>> {
     templateCreateRequest = deserializeIfNeeded(
@@ -328,6 +336,10 @@ export class TemplateApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -441,10 +453,12 @@ export class TemplateApi {
    * @summary Create Embedded Template Draft
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateCreateEmbeddedDraftExample.ts
    * @param templateCreateEmbeddedDraftRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async templateCreateEmbeddedDraft(
     templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateCreateEmbeddedDraftResponse>> {
     templateCreateEmbeddedDraftRequest = deserializeIfNeeded(
@@ -477,6 +491,10 @@ export class TemplateApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -590,10 +608,12 @@ export class TemplateApi {
    * @summary Delete Template
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateDeleteExample.ts
    * @param templateId The id of the Template to delete.
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async templateDelete(
     templateId: string,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeI> {
     const localVarPath =
@@ -624,6 +644,10 @@ export class TemplateApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -1359,11 +1383,13 @@ export class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateRemoveUserExample.ts
    * @param templateId The id of the Template to remove the Account\&#39;s access to.
    * @param templateRemoveUserRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async templateRemoveUser(
     templateId: string,
     templateRemoveUserRequest: TemplateRemoveUserRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateGetResponse>> {
     templateRemoveUserRequest = deserializeIfNeeded(
@@ -1408,6 +1434,10 @@ export class TemplateApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;
@@ -1522,11 +1552,13 @@ export class TemplateApi {
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TemplateUpdateFilesExample.ts
    * @param templateId The ID of the template whose files to update.
    * @param templateUpdateFilesRequest
+   * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255 characters.
    * @param options
    */
   public async templateUpdateFiles(
     templateId: string,
     templateUpdateFilesRequest: TemplateUpdateFilesRequest,
+    idempotencyKey?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateUpdateFilesResponse>> {
     templateUpdateFilesRequest = deserializeIfNeeded(
@@ -1571,6 +1603,10 @@ export class TemplateApi {
       );
     }
 
+    localVarHeaderParams["Idempotency-Key"] = ObjectSerializer.serialize(
+      idempotencyKey,
+      "string"
+    );
     (<any>Object).assign(localVarHeaderParams, options.headers);
 
     let localVarUseFormData = false;

@@ -13,7 +13,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `unclaimedDraftCreate()`
 
 ```typescript
-unclaimedDraftCreate(unclaimedDraftCreateRequest: UnclaimedDraftCreateRequest): UnclaimedDraftCreateResponse
+unclaimedDraftCreate(unclaimedDraftCreateRequest: UnclaimedDraftCreateRequest, idempotencyKey: string): UnclaimedDraftCreateResponse
 ```
 
 Create Unclaimed Draft
@@ -66,6 +66,7 @@ apiCaller.unclaimedDraftCreate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **unclaimedDraftCreateRequest** | [**UnclaimedDraftCreateRequest**](../model/UnclaimedDraftCreateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -87,7 +88,7 @@ apiCaller.unclaimedDraftCreate(
 ## `unclaimedDraftCreateEmbedded()`
 
 ```typescript
-unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest): UnclaimedDraftCreateResponse
+unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest, idempotencyKey: string): UnclaimedDraftCreateResponse
 ```
 
 Create Embedded Unclaimed Draft
@@ -130,6 +131,7 @@ apiCaller.unclaimedDraftCreateEmbedded(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **unclaimedDraftCreateEmbeddedRequest** | [**UnclaimedDraftCreateEmbeddedRequest**](../model/UnclaimedDraftCreateEmbeddedRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -151,7 +153,7 @@ apiCaller.unclaimedDraftCreateEmbedded(
 ## `unclaimedDraftCreateEmbeddedWithTemplate()`
 
 ```typescript
-unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest: UnclaimedDraftCreateEmbeddedWithTemplateRequest): UnclaimedDraftCreateResponse
+unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest: UnclaimedDraftCreateEmbeddedWithTemplateRequest, idempotencyKey: string): UnclaimedDraftCreateResponse
 ```
 
 Create Embedded Unclaimed Draft with Template
@@ -215,6 +217,7 @@ apiCaller.unclaimedDraftCreateEmbeddedWithTemplate(
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **unclaimedDraftCreateEmbeddedWithTemplateRequest** | [**UnclaimedDraftCreateEmbeddedWithTemplateRequest**](../model/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -236,7 +239,7 @@ apiCaller.unclaimedDraftCreateEmbeddedWithTemplate(
 ## `unclaimedDraftEditAndResend()`
 
 ```typescript
-unclaimedDraftEditAndResend(signatureRequestId: string, unclaimedDraftEditAndResendRequest: UnclaimedDraftEditAndResendRequest): UnclaimedDraftCreateResponse
+unclaimedDraftEditAndResend(signatureRequestId: string, unclaimedDraftEditAndResendRequest: UnclaimedDraftEditAndResendRequest, idempotencyKey: string): UnclaimedDraftCreateResponse
 ```
 
 Edit and Resend Unclaimed Draft
@@ -277,6 +280,7 @@ apiCaller.unclaimedDraftEditAndResend(
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The ID of the signature request to edit and resend. | |
 | **unclaimedDraftEditAndResendRequest** | [**UnclaimedDraftEditAndResendRequest**](../model/UnclaimedDraftEditAndResendRequest.md)|  | |
+| **idempotencyKey** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

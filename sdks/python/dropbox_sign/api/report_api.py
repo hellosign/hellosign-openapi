@@ -17,6 +17,9 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
+from pydantic import Field
+from typing import Optional
+from typing_extensions import Annotated
 from dropbox_sign.models.report_create_request import ReportCreateRequest
 from dropbox_sign.models.report_create_response import ReportCreateResponse
 
@@ -42,6 +45,12 @@ class ReportApi:
     def report_create(
         self,
         report_create_request: ReportCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -62,6 +71,8 @@ class ReportApi:
 
         :param report_create_request: (required)
         :type report_create_request: ReportCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -86,6 +97,7 @@ class ReportApi:
 
         _param = self._report_create_serialize(
             report_create_request=report_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -110,6 +122,12 @@ class ReportApi:
     def report_create_with_http_info(
         self,
         report_create_request: ReportCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -130,6 +148,8 @@ class ReportApi:
 
         :param report_create_request: (required)
         :type report_create_request: ReportCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -154,6 +174,7 @@ class ReportApi:
 
         _param = self._report_create_serialize(
             report_create_request=report_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -178,6 +199,12 @@ class ReportApi:
     def report_create_without_preload_content(
         self,
         report_create_request: ReportCreateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -198,6 +225,8 @@ class ReportApi:
 
         :param report_create_request: (required)
         :type report_create_request: ReportCreateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -222,6 +251,7 @@ class ReportApi:
 
         _param = self._report_create_serialize(
             report_create_request=report_create_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -241,6 +271,7 @@ class ReportApi:
     def _report_create_serialize(
         self,
         report_create_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -285,6 +316,8 @@ class ReportApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if report_create_request is not None and has_files is False:

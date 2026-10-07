@@ -29,7 +29,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## signatureRequestBulkCreateEmbeddedWithTemplate
 
-> BulkSendJobSendResponse signatureRequestBulkCreateEmbeddedWithTemplate(signatureRequestBulkCreateEmbeddedWithTemplateRequest)
+> BulkSendJobSendResponse signatureRequestBulkCreateEmbeddedWithTemplate(signatureRequestBulkCreateEmbeddedWithTemplateRequest, idempotencyKey)
 
 Embedded Bulk Send with Template
 
@@ -157,6 +157,7 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestBulkCreateEmbeddedWithTemplateRequest** | [**SignatureRequestBulkCreateEmbeddedWithTemplateRequest**](SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -174,13 +175,13 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestBulkSendWithTemplate
 
-> BulkSendJobSendResponse signatureRequestBulkSendWithTemplate(signatureRequestBulkSendWithTemplateRequest)
+> BulkSendJobSendResponse signatureRequestBulkSendWithTemplate(signatureRequestBulkSendWithTemplateRequest, idempotencyKey)
 
 Bulk Send with Template
 
@@ -308,6 +309,7 @@ public class SignatureRequestBulkSendWithTemplateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestBulkSendWithTemplateRequest** | [**SignatureRequestBulkSendWithTemplateRequest**](SignatureRequestBulkSendWithTemplateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -325,13 +327,13 @@ public class SignatureRequestBulkSendWithTemplateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestCancel
 
-> signatureRequestCancel(signatureRequestId)
+> signatureRequestCancel(signatureRequestId, idempotencyKey)
 
 Cancel Incomplete Signature Request
 
@@ -396,6 +398,7 @@ public class SignatureRequestCancelExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the incomplete SignatureRequest to cancel. |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -413,13 +416,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestCreateEmbedded
 
-> SignatureRequestGetResponse signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest)
+> SignatureRequestGetResponse signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest, idempotencyKey)
 
 Create Embedded Signature Request
 
@@ -517,6 +520,7 @@ public class SignatureRequestCreateEmbeddedExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestCreateEmbeddedRequest** | [**SignatureRequestCreateEmbeddedRequest**](SignatureRequestCreateEmbeddedRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -534,13 +538,13 @@ public class SignatureRequestCreateEmbeddedExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestCreateEmbeddedWithTemplate
 
-> SignatureRequestGetResponse signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest)
+> SignatureRequestGetResponse signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest, idempotencyKey)
 
 Create Embedded Signature Request with Template
 
@@ -627,6 +631,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestCreateEmbeddedWithTemplateRequest** | [**SignatureRequestCreateEmbeddedWithTemplateRequest**](SignatureRequestCreateEmbeddedWithTemplateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -644,13 +649,13 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestEdit
 
-> SignatureRequestGetResponse signatureRequestEdit(signatureRequestId, signatureRequestEditRequest)
+> SignatureRequestGetResponse signatureRequestEdit(signatureRequestId, signatureRequestEditRequest, idempotencyKey)
 
 Edit Signature Request
 
@@ -760,6 +765,7 @@ public class SignatureRequestEditExample
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
  **signatureRequestEditRequest** | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -777,13 +783,13 @@ public class SignatureRequestEditExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestEditEmbedded
 
-> SignatureRequestGetResponse signatureRequestEditEmbedded(signatureRequestId, signatureRequestEditEmbeddedRequest)
+> SignatureRequestGetResponse signatureRequestEditEmbedded(signatureRequestId, signatureRequestEditEmbeddedRequest, idempotencyKey)
 
 Edit Embedded Signature Request
 
@@ -884,6 +890,7 @@ public class SignatureRequestEditEmbeddedExample
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
  **signatureRequestEditEmbeddedRequest** | [**SignatureRequestEditEmbeddedRequest**](SignatureRequestEditEmbeddedRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -901,13 +908,13 @@ public class SignatureRequestEditEmbeddedExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestEditEmbeddedWithTemplate
 
-> SignatureRequestGetResponse signatureRequestEditEmbeddedWithTemplate(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest)
+> SignatureRequestGetResponse signatureRequestEditEmbeddedWithTemplate(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, idempotencyKey)
 
 Edit Embedded Signature Request with Template
 
@@ -997,6 +1004,7 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
  **signatureRequestEditEmbeddedWithTemplateRequest** | [**SignatureRequestEditEmbeddedWithTemplateRequest**](SignatureRequestEditEmbeddedWithTemplateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -1014,13 +1022,13 @@ public class SignatureRequestEditEmbeddedWithTemplateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestEditWithTemplate
 
-> SignatureRequestGetResponse signatureRequestEditWithTemplate(signatureRequestId, signatureRequestEditWithTemplateRequest)
+> SignatureRequestGetResponse signatureRequestEditWithTemplate(signatureRequestId, signatureRequestEditWithTemplateRequest, idempotencyKey)
 
 Edit Signature Request With Template
 
@@ -1129,6 +1137,7 @@ public class SignatureRequestEditWithTemplateExample
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
  **signatureRequestEditWithTemplateRequest** | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -1146,7 +1155,7 @@ public class SignatureRequestEditWithTemplateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
@@ -1579,7 +1588,7 @@ public class SignatureRequestListExample
 
 ## signatureRequestReleaseHold
 
-> SignatureRequestGetResponse signatureRequestReleaseHold(signatureRequestId)
+> SignatureRequestGetResponse signatureRequestReleaseHold(signatureRequestId, idempotencyKey)
 
 Release On-Hold Signature Request
 
@@ -1638,6 +1647,7 @@ public class SignatureRequestReleaseHoldExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the SignatureRequest to release. |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -1655,13 +1665,13 @@ public class SignatureRequestReleaseHoldExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestRemind
 
-> SignatureRequestGetResponse signatureRequestRemind(signatureRequestId, signatureRequestRemindRequest)
+> SignatureRequestGetResponse signatureRequestRemind(signatureRequestId, signatureRequestRemindRequest, idempotencyKey)
 
 Send Request Reminder
 
@@ -1727,6 +1737,7 @@ public class SignatureRequestRemindExample
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the SignatureRequest to send a reminder for. |
  **signatureRequestRemindRequest** | [**SignatureRequestRemindRequest**](SignatureRequestRemindRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -1744,13 +1755,13 @@ public class SignatureRequestRemindExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestRemove
 
-> signatureRequestRemove(signatureRequestId)
+> signatureRequestRemove(signatureRequestId, idempotencyKey)
 
 Remove Signature Request Access
 
@@ -1810,6 +1821,7 @@ public class SignatureRequestRemoveExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the SignatureRequest to remove. |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -1827,13 +1839,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestSend
 
-> SignatureRequestGetResponse signatureRequestSend(signatureRequestSendRequest)
+> SignatureRequestGetResponse signatureRequestSend(signatureRequestSendRequest, idempotencyKey)
 
 Send Signature Request
 
@@ -1940,6 +1952,7 @@ public class SignatureRequestSendExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestSendRequest** | [**SignatureRequestSendRequest**](SignatureRequestSendRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -1957,13 +1970,13 @@ public class SignatureRequestSendExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestSendWithTemplate
 
-> SignatureRequestGetResponse signatureRequestSendWithTemplate(signatureRequestSendWithTemplateRequest)
+> SignatureRequestGetResponse signatureRequestSendWithTemplate(signatureRequestSendWithTemplateRequest, idempotencyKey)
 
 Send with Template
 
@@ -2069,6 +2082,7 @@ public class SignatureRequestSendWithTemplateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestSendWithTemplateRequest** | [**SignatureRequestSendWithTemplateRequest**](SignatureRequestSendWithTemplateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -2086,13 +2100,13 @@ public class SignatureRequestSendWithTemplateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## signatureRequestUpdate
 
-> SignatureRequestGetResponse signatureRequestUpdate(signatureRequestId, signatureRequestUpdateRequest)
+> SignatureRequestGetResponse signatureRequestUpdate(signatureRequestId, signatureRequestUpdateRequest, idempotencyKey)
 
 Update Signature Request
 
@@ -2161,6 +2175,7 @@ public class SignatureRequestUpdateExample
 |------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The id of the SignatureRequest to update. |
  **signatureRequestUpdateRequest** | [**SignatureRequestUpdateRequest**](SignatureRequestUpdateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -2178,6 +2193,6 @@ public class SignatureRequestUpdateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 

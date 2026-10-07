@@ -145,14 +145,15 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountCreateExample.php
      *
      * @param Model\AccountCreateRequest $account_create_request account_create_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\AccountCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function accountCreate(Model\AccountCreateRequest $account_create_request)
+    public function accountCreate(Model\AccountCreateRequest $account_create_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->accountCreateWithHttpInfo($account_create_request);
+        list($response) = $this->accountCreateWithHttpInfo($account_create_request, $idempotency_key);
         return $response;
     }
 
@@ -164,6 +165,7 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountCreateExample.php
      *
      * @param Model\AccountCreateRequest $account_create_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
      * @return array of Model\AccountCreateResponse, HTTP status code, HTTP response headers (array of strings)
@@ -171,9 +173,9 @@ class AccountApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
-    public function accountCreateWithHttpInfo(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreateWithHttpInfo(Model\AccountCreateRequest $account_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountCreate'][0])
     {
-        $request = $this->accountCreateRequest($account_create_request, $contentType);
+        $request = $this->accountCreateRequest($account_create_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -303,15 +305,16 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountCreateExample.php
      *
      * @param Model\AccountCreateRequest $account_create_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
-    public function accountCreateAsync(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreateAsync(Model\AccountCreateRequest $account_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountCreate'][0])
     {
-        return $this->accountCreateAsyncWithHttpInfo($account_create_request, $contentType)
+        return $this->accountCreateAsyncWithHttpInfo($account_create_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -327,16 +330,17 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountCreateExample.php
      *
      * @param Model\AccountCreateRequest $account_create_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
-    public function accountCreateAsyncWithHttpInfo(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreateAsyncWithHttpInfo(Model\AccountCreateRequest $account_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\AccountCreateResponse';
-        $request = $this->accountCreateRequest($account_create_request, $contentType);
+        $request = $this->accountCreateRequest($account_create_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -378,19 +382,27 @@ class AccountApi
      * Create request for operation 'accountCreate'
      *
      * @param Model\AccountCreateRequest $account_create_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
-    public function accountCreateRequest(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreateRequest(Model\AccountCreateRequest $account_create_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountCreate'][0])
     {
         // verify the required parameter 'account_create_request' is set
         if ($account_create_request === null || (is_array($account_create_request) && count($account_create_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $account_create_request when calling accountCreate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling AccountApi.accountCreate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling AccountApi.accountCreate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/account/create';
@@ -405,6 +417,11 @@ class AccountApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -840,14 +857,15 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountUpdateExample.php
      *
      * @param Model\AccountUpdateRequest $account_update_request account_update_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\AccountGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function accountUpdate(Model\AccountUpdateRequest $account_update_request)
+    public function accountUpdate(Model\AccountUpdateRequest $account_update_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->accountUpdateWithHttpInfo($account_update_request);
+        list($response) = $this->accountUpdateWithHttpInfo($account_update_request, $idempotency_key);
         return $response;
     }
 
@@ -859,6 +877,7 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountUpdateExample.php
      *
      * @param Model\AccountUpdateRequest $account_update_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
      * @return array of Model\AccountGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -866,9 +885,9 @@ class AccountApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
-    public function accountUpdateWithHttpInfo(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdateWithHttpInfo(Model\AccountUpdateRequest $account_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountUpdate'][0])
     {
-        $request = $this->accountUpdateRequest($account_update_request, $contentType);
+        $request = $this->accountUpdateRequest($account_update_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -998,15 +1017,16 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountUpdateExample.php
      *
      * @param Model\AccountUpdateRequest $account_update_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
-    public function accountUpdateAsync(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdateAsync(Model\AccountUpdateRequest $account_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountUpdate'][0])
     {
-        return $this->accountUpdateAsyncWithHttpInfo($account_update_request, $contentType)
+        return $this->accountUpdateAsyncWithHttpInfo($account_update_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1022,16 +1042,17 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountUpdateExample.php
      *
      * @param Model\AccountUpdateRequest $account_update_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
-    public function accountUpdateAsyncWithHttpInfo(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdateAsyncWithHttpInfo(Model\AccountUpdateRequest $account_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountUpdate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
-        $request = $this->accountUpdateRequest($account_update_request, $contentType);
+        $request = $this->accountUpdateRequest($account_update_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1073,19 +1094,27 @@ class AccountApi
      * Create request for operation 'accountUpdate'
      *
      * @param Model\AccountUpdateRequest $account_update_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
-    public function accountUpdateRequest(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdateRequest(Model\AccountUpdateRequest $account_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountUpdate'][0])
     {
         // verify the required parameter 'account_update_request' is set
         if ($account_update_request === null || (is_array($account_update_request) && count($account_update_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $account_update_request when calling accountUpdate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling AccountApi.accountUpdate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling AccountApi.accountUpdate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/account';
@@ -1100,6 +1129,11 @@ class AccountApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -1187,14 +1221,15 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountVerifyExample.php
      *
      * @param Model\AccountVerifyRequest $account_verify_request account_verify_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\AccountVerifyResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function accountVerify(Model\AccountVerifyRequest $account_verify_request)
+    public function accountVerify(Model\AccountVerifyRequest $account_verify_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->accountVerifyWithHttpInfo($account_verify_request);
+        list($response) = $this->accountVerifyWithHttpInfo($account_verify_request, $idempotency_key);
         return $response;
     }
 
@@ -1206,6 +1241,7 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountVerifyExample.php
      *
      * @param Model\AccountVerifyRequest $account_verify_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
      * @return array of Model\AccountVerifyResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1213,9 +1249,9 @@ class AccountApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
-    public function accountVerifyWithHttpInfo(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerifyWithHttpInfo(Model\AccountVerifyRequest $account_verify_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountVerify'][0])
     {
-        $request = $this->accountVerifyRequest($account_verify_request, $contentType);
+        $request = $this->accountVerifyRequest($account_verify_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1345,15 +1381,16 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountVerifyExample.php
      *
      * @param Model\AccountVerifyRequest $account_verify_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
-    public function accountVerifyAsync(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerifyAsync(Model\AccountVerifyRequest $account_verify_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountVerify'][0])
     {
-        return $this->accountVerifyAsyncWithHttpInfo($account_verify_request, $contentType)
+        return $this->accountVerifyAsyncWithHttpInfo($account_verify_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1369,16 +1406,17 @@ class AccountApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountVerifyExample.php
      *
      * @param Model\AccountVerifyRequest $account_verify_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
-    public function accountVerifyAsyncWithHttpInfo(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerifyAsyncWithHttpInfo(Model\AccountVerifyRequest $account_verify_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountVerify'][0])
     {
         $returnType = '\Dropbox\Sign\Model\AccountVerifyResponse';
-        $request = $this->accountVerifyRequest($account_verify_request, $contentType);
+        $request = $this->accountVerifyRequest($account_verify_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1420,19 +1458,27 @@ class AccountApi
      * Create request for operation 'accountVerify'
      *
      * @param Model\AccountVerifyRequest $account_verify_request (required)
+     * @param string|null                $idempotency_key        Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
-    public function accountVerifyRequest(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerifyRequest(Model\AccountVerifyRequest $account_verify_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['accountVerify'][0])
     {
         // verify the required parameter 'account_verify_request' is set
         if ($account_verify_request === null || (is_array($account_verify_request) && count($account_verify_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $account_verify_request when calling accountVerify'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling AccountApi.accountVerify, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling AccountApi.accountVerify, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/account/verify';
@@ -1447,6 +1493,11 @@ class AccountApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],

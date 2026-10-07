@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from dropbox_sign.models.embedded_edit_url_request import EmbeddedEditUrlRequest
 from dropbox_sign.models.embedded_edit_url_response import EmbeddedEditUrlResponse
@@ -48,6 +49,12 @@ class EmbeddedApi:
             StrictStr, Field(description="The id of the template to edit.")
         ],
         embedded_edit_url_request: EmbeddedEditUrlRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -70,6 +77,8 @@ class EmbeddedApi:
         :type template_id: str
         :param embedded_edit_url_request: (required)
         :type embedded_edit_url_request: EmbeddedEditUrlRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -95,6 +104,7 @@ class EmbeddedApi:
         _param = self._embedded_edit_url_serialize(
             template_id=template_id,
             embedded_edit_url_request=embedded_edit_url_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -122,6 +132,12 @@ class EmbeddedApi:
             StrictStr, Field(description="The id of the template to edit.")
         ],
         embedded_edit_url_request: EmbeddedEditUrlRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -144,6 +160,8 @@ class EmbeddedApi:
         :type template_id: str
         :param embedded_edit_url_request: (required)
         :type embedded_edit_url_request: EmbeddedEditUrlRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -169,6 +187,7 @@ class EmbeddedApi:
         _param = self._embedded_edit_url_serialize(
             template_id=template_id,
             embedded_edit_url_request=embedded_edit_url_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -196,6 +215,12 @@ class EmbeddedApi:
             StrictStr, Field(description="The id of the template to edit.")
         ],
         embedded_edit_url_request: EmbeddedEditUrlRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -218,6 +243,8 @@ class EmbeddedApi:
         :type template_id: str
         :param embedded_edit_url_request: (required)
         :type embedded_edit_url_request: EmbeddedEditUrlRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -243,6 +270,7 @@ class EmbeddedApi:
         _param = self._embedded_edit_url_serialize(
             template_id=template_id,
             embedded_edit_url_request=embedded_edit_url_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -263,6 +291,7 @@ class EmbeddedApi:
         self,
         template_id,
         embedded_edit_url_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -309,6 +338,8 @@ class EmbeddedApi:
             _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if embedded_edit_url_request is not None and has_files is False:

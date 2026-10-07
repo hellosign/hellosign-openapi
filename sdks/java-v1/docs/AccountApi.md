@@ -13,7 +13,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## accountCreate
 
-> AccountCreateResponse accountCreate(accountCreateRequest)
+> AccountCreateResponse accountCreate(accountCreateRequest, idempotencyKey)
 
 Create Account
 
@@ -75,6 +75,7 @@ public class AccountCreateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **accountCreateRequest** | [**AccountCreateRequest**](AccountCreateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -92,7 +93,7 @@ public class AccountCreateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
@@ -182,7 +183,7 @@ public class AccountGetExample
 
 ## accountUpdate
 
-> AccountGetResponse accountUpdate(accountUpdateRequest)
+> AccountGetResponse accountUpdate(accountUpdateRequest, idempotencyKey)
 
 Update Account
 
@@ -245,6 +246,7 @@ public class AccountUpdateExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **accountUpdateRequest** | [**AccountUpdateRequest**](AccountUpdateRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -262,13 +264,13 @@ public class AccountUpdateExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
 ## accountVerify
 
-> AccountVerifyResponse accountVerify(accountVerifyRequest)
+> AccountVerifyResponse accountVerify(accountVerifyRequest, idempotencyKey)
 
 Verify Account
 
@@ -330,6 +332,7 @@ public class AccountVerifyExample
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **accountVerifyRequest** | [**AccountVerifyRequest**](AccountVerifyRequest.md)|  |
+ **idempotencyKey** | **String**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]
 
 ### Return type
 
@@ -347,6 +350,6 @@ public class AccountVerifyExample
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 

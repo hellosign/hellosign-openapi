@@ -1387,6 +1387,8 @@
 "Common::RateLimiting::LIMIT": The maximum number of requests per hour that you can make.
 "Common::RateLimiting::REMAINING": The number of requests remaining in the current rate limit window.
 "Common::RateLimiting::RESET": The Unix time at which the rate limit will reset to its maximum.
+"Common::Idempotency::KEY": Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+"Common::Idempotency::REPLAYED": Present and true when replaying a stored response.
 
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
 "EmbeddedSignUrlResponseExample::SUMMARY": Embedded Sign URL

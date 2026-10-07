@@ -13,7 +13,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `accountCreate()`
 
 ```php
-accountCreate($account_create_request): \Dropbox\Sign\Model\AccountCreateResponse
+accountCreate($account_create_request, $idempotency_key): \Dropbox\Sign\Model\AccountCreateResponse
 ```
 Create Account
 
@@ -55,6 +55,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account_create_request** | [**\Dropbox\Sign\Model\AccountCreateRequest**](../Model/AccountCreateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -135,7 +136,7 @@ try {
 ## `accountUpdate()`
 
 ```php
-accountUpdate($account_update_request): \Dropbox\Sign\Model\AccountGetResponse
+accountUpdate($account_update_request, $idempotency_key): \Dropbox\Sign\Model\AccountGetResponse
 ```
 Update Account
 
@@ -178,6 +179,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account_update_request** | [**\Dropbox\Sign\Model\AccountUpdateRequest**](../Model/AccountUpdateRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -199,7 +201,7 @@ try {
 ## `accountVerify()`
 
 ```php
-accountVerify($account_verify_request): \Dropbox\Sign\Model\AccountVerifyResponse
+accountVerify($account_verify_request, $idempotency_key): \Dropbox\Sign\Model\AccountVerifyResponse
 ```
 Verify Account
 
@@ -241,6 +243,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account_verify_request** | [**\Dropbox\Sign\Model\AccountVerifyRequest**](../Model/AccountVerifyRequest.md)|  | |
+| **idempotency_key** | **string**| Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

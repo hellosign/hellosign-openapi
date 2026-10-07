@@ -10,7 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `embedded_edit_url`
 
-> `<EmbeddedEditUrlResponse> embedded_edit_url(template_id, embedded_edit_url_request)`
+> `<EmbeddedEditUrlResponse> embedded_edit_url(template_id, embedded_edit_url_request, opts)`
 
 Get Embedded Template Edit URL
 
@@ -53,12 +53,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<EmbeddedEditUrlResponse>, Integer, Hash)> embedded_edit_url_with_http_info(template_id, embedded_edit_url_request)`
+> `<Array(<EmbeddedEditUrlResponse>, Integer, Hash)> embedded_edit_url_with_http_info(template_id, embedded_edit_url_request, opts)`
 
 ```ruby
 begin
   # Get Embedded Template Edit URL
-  data, status_code, headers = api_instance.embedded_edit_url_with_http_info(template_id, embedded_edit_url_request)
+  data, status_code, headers = api_instance.embedded_edit_url_with_http_info(template_id, embedded_edit_url_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmbeddedEditUrlResponse>
@@ -73,6 +73,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **String** | The id of the template to edit. |  |
 | `embedded_edit_url_request` | [**EmbeddedEditUrlRequest**](EmbeddedEditUrlRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 

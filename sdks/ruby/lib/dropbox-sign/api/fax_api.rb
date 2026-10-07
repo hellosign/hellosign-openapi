@@ -400,6 +400,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxSendExample.rb
     # @param fax_send_request [FaxSendRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [FaxGetResponse]
     def fax_send(fax_send_request, opts = {})
       data, _status_code, _headers = fax_send_with_http_info(fax_send_request, opts)
@@ -411,6 +412,7 @@ module Dropbox::Sign
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/FaxSendExample.rb
     # @param fax_send_request [FaxSendRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Reuse the same key when retrying the same request. Must be 1 to 255 characters.
     # @return [Array<(FaxGetResponse, Integer, Hash)>] FaxGetResponse data, response status code and response headers
     def fax_send_with_http_info(fax_send_request, opts = {})
       if @api_client.config.debugging
@@ -420,6 +422,14 @@ module Dropbox::Sign
       if @api_client.config.client_side_validation && fax_send_request.nil?
         fail ArgumentError, "Missing the required parameter 'fax_send_request' when calling FaxApi.fax_send"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling FaxApi.fax_send, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling FaxApi.fax_send, the character length must be great than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/fax/send'
 
@@ -435,6 +445,7 @@ module Dropbox::Sign
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       post_body = {}
       form_params = opts[:form_params] || {}

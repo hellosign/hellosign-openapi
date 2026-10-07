@@ -88,6 +88,12 @@ class SignatureRequestApi:
     def signature_request_bulk_create_embedded_with_template(
         self,
         signature_request_bulk_create_embedded_with_template_request: SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -108,6 +114,8 @@ class SignatureRequestApi:
 
         :param signature_request_bulk_create_embedded_with_template_request: (required)
         :type signature_request_bulk_create_embedded_with_template_request: SignatureRequestBulkCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -132,6 +140,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_bulk_create_embedded_with_template_serialize(
             signature_request_bulk_create_embedded_with_template_request=signature_request_bulk_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -156,6 +165,12 @@ class SignatureRequestApi:
     def signature_request_bulk_create_embedded_with_template_with_http_info(
         self,
         signature_request_bulk_create_embedded_with_template_request: SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -176,6 +191,8 @@ class SignatureRequestApi:
 
         :param signature_request_bulk_create_embedded_with_template_request: (required)
         :type signature_request_bulk_create_embedded_with_template_request: SignatureRequestBulkCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -200,6 +217,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_bulk_create_embedded_with_template_serialize(
             signature_request_bulk_create_embedded_with_template_request=signature_request_bulk_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -224,6 +242,12 @@ class SignatureRequestApi:
     def signature_request_bulk_create_embedded_with_template_without_preload_content(
         self,
         signature_request_bulk_create_embedded_with_template_request: SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -244,6 +268,8 @@ class SignatureRequestApi:
 
         :param signature_request_bulk_create_embedded_with_template_request: (required)
         :type signature_request_bulk_create_embedded_with_template_request: SignatureRequestBulkCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -268,6 +294,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_bulk_create_embedded_with_template_serialize(
             signature_request_bulk_create_embedded_with_template_request=signature_request_bulk_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -287,6 +314,7 @@ class SignatureRequestApi:
     def _signature_request_bulk_create_embedded_with_template_serialize(
         self,
         signature_request_bulk_create_embedded_with_template_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -331,6 +359,8 @@ class SignatureRequestApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if (
@@ -377,6 +407,12 @@ class SignatureRequestApi:
     def signature_request_bulk_send_with_template(
         self,
         signature_request_bulk_send_with_template_request: SignatureRequestBulkSendWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -397,6 +433,8 @@ class SignatureRequestApi:
 
         :param signature_request_bulk_send_with_template_request: (required)
         :type signature_request_bulk_send_with_template_request: SignatureRequestBulkSendWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -421,6 +459,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_bulk_send_with_template_serialize(
             signature_request_bulk_send_with_template_request=signature_request_bulk_send_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -445,6 +484,12 @@ class SignatureRequestApi:
     def signature_request_bulk_send_with_template_with_http_info(
         self,
         signature_request_bulk_send_with_template_request: SignatureRequestBulkSendWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -465,6 +510,8 @@ class SignatureRequestApi:
 
         :param signature_request_bulk_send_with_template_request: (required)
         :type signature_request_bulk_send_with_template_request: SignatureRequestBulkSendWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -489,6 +536,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_bulk_send_with_template_serialize(
             signature_request_bulk_send_with_template_request=signature_request_bulk_send_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -513,6 +561,12 @@ class SignatureRequestApi:
     def signature_request_bulk_send_with_template_without_preload_content(
         self,
         signature_request_bulk_send_with_template_request: SignatureRequestBulkSendWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -533,6 +587,8 @@ class SignatureRequestApi:
 
         :param signature_request_bulk_send_with_template_request: (required)
         :type signature_request_bulk_send_with_template_request: SignatureRequestBulkSendWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -557,6 +613,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_bulk_send_with_template_serialize(
             signature_request_bulk_send_with_template_request=signature_request_bulk_send_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -576,6 +633,7 @@ class SignatureRequestApi:
     def _signature_request_bulk_send_with_template_serialize(
         self,
         signature_request_bulk_send_with_template_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -620,6 +678,8 @@ class SignatureRequestApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if (
@@ -669,6 +729,12 @@ class SignatureRequestApi:
             StrictStr,
             Field(description="The id of the incomplete SignatureRequest to cancel."),
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -689,6 +755,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the incomplete SignatureRequest to cancel. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -713,6 +781,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_cancel_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -740,6 +809,12 @@ class SignatureRequestApi:
             StrictStr,
             Field(description="The id of the incomplete SignatureRequest to cancel."),
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -760,6 +835,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the incomplete SignatureRequest to cancel. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -784,6 +861,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_cancel_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -811,6 +889,12 @@ class SignatureRequestApi:
             StrictStr,
             Field(description="The id of the incomplete SignatureRequest to cancel."),
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -831,6 +915,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the incomplete SignatureRequest to cancel. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -855,6 +941,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_cancel_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -874,6 +961,7 @@ class SignatureRequestApi:
     def _signature_request_cancel_serialize(
         self,
         signature_request_id,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -898,6 +986,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
 
@@ -929,6 +1019,12 @@ class SignatureRequestApi:
     def signature_request_create_embedded(
         self,
         signature_request_create_embedded_request: SignatureRequestCreateEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -949,6 +1045,8 @@ class SignatureRequestApi:
 
         :param signature_request_create_embedded_request: (required)
         :type signature_request_create_embedded_request: SignatureRequestCreateEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -973,6 +1071,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_create_embedded_serialize(
             signature_request_create_embedded_request=signature_request_create_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -997,6 +1096,12 @@ class SignatureRequestApi:
     def signature_request_create_embedded_with_http_info(
         self,
         signature_request_create_embedded_request: SignatureRequestCreateEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1017,6 +1122,8 @@ class SignatureRequestApi:
 
         :param signature_request_create_embedded_request: (required)
         :type signature_request_create_embedded_request: SignatureRequestCreateEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1041,6 +1148,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_create_embedded_serialize(
             signature_request_create_embedded_request=signature_request_create_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1065,6 +1173,12 @@ class SignatureRequestApi:
     def signature_request_create_embedded_without_preload_content(
         self,
         signature_request_create_embedded_request: SignatureRequestCreateEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1085,6 +1199,8 @@ class SignatureRequestApi:
 
         :param signature_request_create_embedded_request: (required)
         :type signature_request_create_embedded_request: SignatureRequestCreateEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1109,6 +1225,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_create_embedded_serialize(
             signature_request_create_embedded_request=signature_request_create_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1128,6 +1245,7 @@ class SignatureRequestApi:
     def _signature_request_create_embedded_serialize(
         self,
         signature_request_create_embedded_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -1172,6 +1290,8 @@ class SignatureRequestApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if signature_request_create_embedded_request is not None and has_files is False:
@@ -1215,6 +1335,12 @@ class SignatureRequestApi:
     def signature_request_create_embedded_with_template(
         self,
         signature_request_create_embedded_with_template_request: SignatureRequestCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1235,6 +1361,8 @@ class SignatureRequestApi:
 
         :param signature_request_create_embedded_with_template_request: (required)
         :type signature_request_create_embedded_with_template_request: SignatureRequestCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1259,6 +1387,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_create_embedded_with_template_serialize(
             signature_request_create_embedded_with_template_request=signature_request_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1283,6 +1412,12 @@ class SignatureRequestApi:
     def signature_request_create_embedded_with_template_with_http_info(
         self,
         signature_request_create_embedded_with_template_request: SignatureRequestCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1303,6 +1438,8 @@ class SignatureRequestApi:
 
         :param signature_request_create_embedded_with_template_request: (required)
         :type signature_request_create_embedded_with_template_request: SignatureRequestCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1327,6 +1464,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_create_embedded_with_template_serialize(
             signature_request_create_embedded_with_template_request=signature_request_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1351,6 +1489,12 @@ class SignatureRequestApi:
     def signature_request_create_embedded_with_template_without_preload_content(
         self,
         signature_request_create_embedded_with_template_request: SignatureRequestCreateEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1371,6 +1515,8 @@ class SignatureRequestApi:
 
         :param signature_request_create_embedded_with_template_request: (required)
         :type signature_request_create_embedded_with_template_request: SignatureRequestCreateEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1395,6 +1541,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_create_embedded_with_template_serialize(
             signature_request_create_embedded_with_template_request=signature_request_create_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1414,6 +1561,7 @@ class SignatureRequestApi:
     def _signature_request_create_embedded_with_template_serialize(
         self,
         signature_request_create_embedded_with_template_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -1458,6 +1606,8 @@ class SignatureRequestApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if (
@@ -1507,6 +1657,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_request: SignatureRequestEditRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1529,6 +1685,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_request: (required)
         :type signature_request_edit_request: SignatureRequestEditRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1554,6 +1712,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_request=signature_request_edit_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1581,6 +1740,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_request: SignatureRequestEditRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1603,6 +1768,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_request: (required)
         :type signature_request_edit_request: SignatureRequestEditRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1628,6 +1795,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_request=signature_request_edit_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1655,6 +1823,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_request: SignatureRequestEditRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1677,6 +1851,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_request: (required)
         :type signature_request_edit_request: SignatureRequestEditRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1702,6 +1878,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_request=signature_request_edit_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1722,6 +1899,7 @@ class SignatureRequestApi:
         self,
         signature_request_id,
         signature_request_edit_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -1768,6 +1946,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if signature_request_edit_request is not None and has_files is False:
@@ -1814,6 +1994,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_embedded_request: SignatureRequestEditEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1836,6 +2022,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_embedded_request: (required)
         :type signature_request_edit_embedded_request: SignatureRequestEditEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1861,6 +2049,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_embedded_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_embedded_request=signature_request_edit_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1888,6 +2077,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_embedded_request: SignatureRequestEditEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1910,6 +2105,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_embedded_request: (required)
         :type signature_request_edit_embedded_request: SignatureRequestEditEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1935,6 +2132,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_embedded_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_embedded_request=signature_request_edit_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1962,6 +2160,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_embedded_request: SignatureRequestEditEmbeddedRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1984,6 +2188,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_embedded_request: (required)
         :type signature_request_edit_embedded_request: SignatureRequestEditEmbeddedRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2009,6 +2215,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_embedded_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_embedded_request=signature_request_edit_embedded_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2029,6 +2236,7 @@ class SignatureRequestApi:
         self,
         signature_request_id,
         signature_request_edit_embedded_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -2075,6 +2283,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if signature_request_edit_embedded_request is not None and has_files is False:
@@ -2121,6 +2331,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_embedded_with_template_request: SignatureRequestEditEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2143,6 +2359,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_embedded_with_template_request: (required)
         :type signature_request_edit_embedded_with_template_request: SignatureRequestEditEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2168,6 +2386,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_embedded_with_template_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_embedded_with_template_request=signature_request_edit_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2195,6 +2414,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_embedded_with_template_request: SignatureRequestEditEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2217,6 +2442,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_embedded_with_template_request: (required)
         :type signature_request_edit_embedded_with_template_request: SignatureRequestEditEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2242,6 +2469,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_embedded_with_template_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_embedded_with_template_request=signature_request_edit_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2269,6 +2497,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_embedded_with_template_request: SignatureRequestEditEmbeddedWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2291,6 +2525,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_embedded_with_template_request: (required)
         :type signature_request_edit_embedded_with_template_request: SignatureRequestEditEmbeddedWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2316,6 +2552,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_embedded_with_template_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_embedded_with_template_request=signature_request_edit_embedded_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2336,6 +2573,7 @@ class SignatureRequestApi:
         self,
         signature_request_id,
         signature_request_edit_embedded_with_template_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -2382,6 +2620,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if (
@@ -2431,6 +2671,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_with_template_request: SignatureRequestEditWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2453,6 +2699,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_with_template_request: (required)
         :type signature_request_edit_with_template_request: SignatureRequestEditWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2478,6 +2726,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_with_template_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_with_template_request=signature_request_edit_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2505,6 +2754,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_with_template_request: SignatureRequestEditWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2527,6 +2782,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_with_template_request: (required)
         :type signature_request_edit_with_template_request: SignatureRequestEditWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2552,6 +2809,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_with_template_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_with_template_request=signature_request_edit_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2579,6 +2837,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to edit.")
         ],
         signature_request_edit_with_template_request: SignatureRequestEditWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2601,6 +2865,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_edit_with_template_request: (required)
         :type signature_request_edit_with_template_request: SignatureRequestEditWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2626,6 +2892,7 @@ class SignatureRequestApi:
         _param = self._signature_request_edit_with_template_serialize(
             signature_request_id=signature_request_id,
             signature_request_edit_with_template_request=signature_request_edit_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2646,6 +2913,7 @@ class SignatureRequestApi:
         self,
         signature_request_id,
         signature_request_edit_with_template_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -2692,6 +2960,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if (
@@ -4211,6 +4481,12 @@ class SignatureRequestApi:
         signature_request_id: Annotated[
             StrictStr, Field(description="The id of the SignatureRequest to release.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4231,6 +4507,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the SignatureRequest to release. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4255,6 +4533,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_release_hold_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4281,6 +4560,12 @@ class SignatureRequestApi:
         signature_request_id: Annotated[
             StrictStr, Field(description="The id of the SignatureRequest to release.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4301,6 +4586,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the SignatureRequest to release. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4325,6 +4612,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_release_hold_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4351,6 +4639,12 @@ class SignatureRequestApi:
         signature_request_id: Annotated[
             StrictStr, Field(description="The id of the SignatureRequest to release.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4371,6 +4665,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the SignatureRequest to release. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4395,6 +4691,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_release_hold_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4414,6 +4711,7 @@ class SignatureRequestApi:
     def _signature_request_release_hold_serialize(
         self,
         signature_request_id,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -4438,6 +4736,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
 
@@ -4473,6 +4773,12 @@ class SignatureRequestApi:
             Field(description="The id of the SignatureRequest to send a reminder for."),
         ],
         signature_request_remind_request: SignatureRequestRemindRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4495,6 +4801,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_remind_request: (required)
         :type signature_request_remind_request: SignatureRequestRemindRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4520,6 +4828,7 @@ class SignatureRequestApi:
         _param = self._signature_request_remind_serialize(
             signature_request_id=signature_request_id,
             signature_request_remind_request=signature_request_remind_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4548,6 +4857,12 @@ class SignatureRequestApi:
             Field(description="The id of the SignatureRequest to send a reminder for."),
         ],
         signature_request_remind_request: SignatureRequestRemindRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4570,6 +4885,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_remind_request: (required)
         :type signature_request_remind_request: SignatureRequestRemindRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4595,6 +4912,7 @@ class SignatureRequestApi:
         _param = self._signature_request_remind_serialize(
             signature_request_id=signature_request_id,
             signature_request_remind_request=signature_request_remind_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4623,6 +4941,12 @@ class SignatureRequestApi:
             Field(description="The id of the SignatureRequest to send a reminder for."),
         ],
         signature_request_remind_request: SignatureRequestRemindRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4645,6 +4969,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_remind_request: (required)
         :type signature_request_remind_request: SignatureRequestRemindRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4670,6 +4996,7 @@ class SignatureRequestApi:
         _param = self._signature_request_remind_serialize(
             signature_request_id=signature_request_id,
             signature_request_remind_request=signature_request_remind_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4690,6 +5017,7 @@ class SignatureRequestApi:
         self,
         signature_request_id,
         signature_request_remind_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -4736,6 +5064,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if signature_request_remind_request is not None and has_files is False:
@@ -4781,6 +5111,12 @@ class SignatureRequestApi:
         signature_request_id: Annotated[
             StrictStr, Field(description="The id of the SignatureRequest to remove.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4801,6 +5137,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the SignatureRequest to remove. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4825,6 +5163,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_remove_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4851,6 +5190,12 @@ class SignatureRequestApi:
         signature_request_id: Annotated[
             StrictStr, Field(description="The id of the SignatureRequest to remove.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4871,6 +5216,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the SignatureRequest to remove. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4895,6 +5242,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_remove_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4921,6 +5269,12 @@ class SignatureRequestApi:
         signature_request_id: Annotated[
             StrictStr, Field(description="The id of the SignatureRequest to remove.")
         ],
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4941,6 +5295,8 @@ class SignatureRequestApi:
 
         :param signature_request_id: The id of the SignatureRequest to remove. (required)
         :type signature_request_id: str
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4965,6 +5321,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_remove_serialize(
             signature_request_id=signature_request_id,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4984,6 +5341,7 @@ class SignatureRequestApi:
     def _signature_request_remove_serialize(
         self,
         signature_request_id,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -5008,6 +5366,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
 
@@ -5039,6 +5399,12 @@ class SignatureRequestApi:
     def signature_request_send(
         self,
         signature_request_send_request: SignatureRequestSendRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5059,6 +5425,8 @@ class SignatureRequestApi:
 
         :param signature_request_send_request: (required)
         :type signature_request_send_request: SignatureRequestSendRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5083,6 +5451,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_send_serialize(
             signature_request_send_request=signature_request_send_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5107,6 +5476,12 @@ class SignatureRequestApi:
     def signature_request_send_with_http_info(
         self,
         signature_request_send_request: SignatureRequestSendRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5127,6 +5502,8 @@ class SignatureRequestApi:
 
         :param signature_request_send_request: (required)
         :type signature_request_send_request: SignatureRequestSendRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5151,6 +5528,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_send_serialize(
             signature_request_send_request=signature_request_send_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5175,6 +5553,12 @@ class SignatureRequestApi:
     def signature_request_send_without_preload_content(
         self,
         signature_request_send_request: SignatureRequestSendRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5195,6 +5579,8 @@ class SignatureRequestApi:
 
         :param signature_request_send_request: (required)
         :type signature_request_send_request: SignatureRequestSendRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5219,6 +5605,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_send_serialize(
             signature_request_send_request=signature_request_send_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5238,6 +5625,7 @@ class SignatureRequestApi:
     def _signature_request_send_serialize(
         self,
         signature_request_send_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -5282,6 +5670,8 @@ class SignatureRequestApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if signature_request_send_request is not None and has_files is False:
@@ -5325,6 +5715,12 @@ class SignatureRequestApi:
     def signature_request_send_with_template(
         self,
         signature_request_send_with_template_request: SignatureRequestSendWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5345,6 +5741,8 @@ class SignatureRequestApi:
 
         :param signature_request_send_with_template_request: (required)
         :type signature_request_send_with_template_request: SignatureRequestSendWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5369,6 +5767,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_send_with_template_serialize(
             signature_request_send_with_template_request=signature_request_send_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5393,6 +5792,12 @@ class SignatureRequestApi:
     def signature_request_send_with_template_with_http_info(
         self,
         signature_request_send_with_template_request: SignatureRequestSendWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5413,6 +5818,8 @@ class SignatureRequestApi:
 
         :param signature_request_send_with_template_request: (required)
         :type signature_request_send_with_template_request: SignatureRequestSendWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5437,6 +5844,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_send_with_template_serialize(
             signature_request_send_with_template_request=signature_request_send_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5461,6 +5869,12 @@ class SignatureRequestApi:
     def signature_request_send_with_template_without_preload_content(
         self,
         signature_request_send_with_template_request: SignatureRequestSendWithTemplateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5481,6 +5895,8 @@ class SignatureRequestApi:
 
         :param signature_request_send_with_template_request: (required)
         :type signature_request_send_with_template_request: SignatureRequestSendWithTemplateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5505,6 +5921,7 @@ class SignatureRequestApi:
 
         _param = self._signature_request_send_with_template_serialize(
             signature_request_send_with_template_request=signature_request_send_with_template_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5524,6 +5941,7 @@ class SignatureRequestApi:
     def _signature_request_send_with_template_serialize(
         self,
         signature_request_send_with_template_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -5568,6 +5986,8 @@ class SignatureRequestApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if (
@@ -5617,6 +6037,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to update.")
         ],
         signature_request_update_request: SignatureRequestUpdateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5639,6 +6065,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_update_request: (required)
         :type signature_request_update_request: SignatureRequestUpdateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5664,6 +6092,7 @@ class SignatureRequestApi:
         _param = self._signature_request_update_serialize(
             signature_request_id=signature_request_id,
             signature_request_update_request=signature_request_update_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5691,6 +6120,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to update.")
         ],
         signature_request_update_request: SignatureRequestUpdateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5713,6 +6148,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_update_request: (required)
         :type signature_request_update_request: SignatureRequestUpdateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5738,6 +6175,7 @@ class SignatureRequestApi:
         _param = self._signature_request_update_serialize(
             signature_request_id=signature_request_id,
             signature_request_update_request=signature_request_update_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5765,6 +6203,12 @@ class SignatureRequestApi:
             StrictStr, Field(description="The id of the SignatureRequest to update.")
         ],
         signature_request_update_request: SignatureRequestUpdateRequest,
+        idempotency_key: Annotated[
+            Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]],
+            Field(
+                description="Reuse the same key when retrying the same request. Must be 1 to 255 characters."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5787,6 +6231,8 @@ class SignatureRequestApi:
         :type signature_request_id: str
         :param signature_request_update_request: (required)
         :type signature_request_update_request: SignatureRequestUpdateRequest
+        :param idempotency_key: Reuse the same key when retrying the same request. Must be 1 to 255 characters.
+        :type idempotency_key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5812,6 +6258,7 @@ class SignatureRequestApi:
         _param = self._signature_request_update_serialize(
             signature_request_id=signature_request_id,
             signature_request_update_request=signature_request_update_request,
+            idempotency_key=idempotency_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5832,6 +6279,7 @@ class SignatureRequestApi:
         self,
         signature_request_id,
         signature_request_update_request,
+        idempotency_key,
         _request_auth,
         _content_type,
         _headers,
@@ -5878,6 +6326,8 @@ class SignatureRequestApi:
             _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
+        if idempotency_key is not None:
+            _header_params["Idempotency-Key"] = idempotency_key
         # process the form parameters
         # process the body parameter
         if signature_request_update_request is not None and has_files is False:

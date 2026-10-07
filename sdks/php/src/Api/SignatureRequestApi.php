@@ -204,14 +204,15 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string|null                                                 $idempotency_key                                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\BulkSendJobSendResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplate(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request)
+    public function signatureRequestBulkCreateEmbeddedWithTemplate(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo($signature_request_bulk_create_embedded_with_template_request);
+        list($response) = $this->signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo($signature_request_bulk_create_embedded_with_template_request, $idempotency_key);
         return $response;
     }
 
@@ -223,6 +224,7 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string|null                                                 $idempotency_key                                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return array of Model\BulkSendJobSendResponse, HTTP status code, HTTP response headers (array of strings)
@@ -230,9 +232,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
-        $request = $this->signatureRequestBulkCreateEmbeddedWithTemplateRequest($signature_request_bulk_create_embedded_with_template_request, $contentType);
+        $request = $this->signatureRequestBulkCreateEmbeddedWithTemplateRequest($signature_request_bulk_create_embedded_with_template_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -362,15 +364,16 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string|null                                                 $idempotency_key                                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplateAsync(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestBulkCreateEmbeddedWithTemplateAsync(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
-        return $this->signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_bulk_create_embedded_with_template_request, $contentType)
+        return $this->signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_bulk_create_embedded_with_template_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -386,16 +389,17 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string|null                                                 $idempotency_key                                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
-        $request = $this->signatureRequestBulkCreateEmbeddedWithTemplateRequest($signature_request_bulk_create_embedded_with_template_request, $contentType);
+        $request = $this->signatureRequestBulkCreateEmbeddedWithTemplateRequest($signature_request_bulk_create_embedded_with_template_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -437,19 +441,27 @@ class SignatureRequestApi
      * Create request for operation 'signatureRequestBulkCreateEmbeddedWithTemplate'
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string|null                                                 $idempotency_key                                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplateRequest(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestBulkCreateEmbeddedWithTemplateRequest(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
         // verify the required parameter 'signature_request_bulk_create_embedded_with_template_request' is set
         if ($signature_request_bulk_create_embedded_with_template_request === null || (is_array($signature_request_bulk_create_embedded_with_template_request) && count($signature_request_bulk_create_embedded_with_template_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_bulk_create_embedded_with_template_request when calling signatureRequestBulkCreateEmbeddedWithTemplate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/signature_request/bulk_create_embedded_with_template';
@@ -464,6 +476,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -547,14 +564,15 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request signature_request_bulk_send_with_template_request (required)
+     * @param string|null                                       $idempotency_key                                   Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\BulkSendJobSendResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestBulkSendWithTemplate(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request)
+    public function signatureRequestBulkSendWithTemplate(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestBulkSendWithTemplateWithHttpInfo($signature_request_bulk_send_with_template_request);
+        list($response) = $this->signatureRequestBulkSendWithTemplateWithHttpInfo($signature_request_bulk_send_with_template_request, $idempotency_key);
         return $response;
     }
 
@@ -566,6 +584,7 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
+     * @param string|null                                       $idempotency_key                                   Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
      * @return array of Model\BulkSendJobSendResponse, HTTP status code, HTTP response headers (array of strings)
@@ -573,9 +592,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkSendWithTemplateWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
+    public function signatureRequestBulkSendWithTemplateWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
-        $request = $this->signatureRequestBulkSendWithTemplateRequest($signature_request_bulk_send_with_template_request, $contentType);
+        $request = $this->signatureRequestBulkSendWithTemplateRequest($signature_request_bulk_send_with_template_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -705,15 +724,16 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
+     * @param string|null                                       $idempotency_key                                   Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkSendWithTemplateAsync(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
+    public function signatureRequestBulkSendWithTemplateAsync(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
-        return $this->signatureRequestBulkSendWithTemplateAsyncWithHttpInfo($signature_request_bulk_send_with_template_request, $contentType)
+        return $this->signatureRequestBulkSendWithTemplateAsyncWithHttpInfo($signature_request_bulk_send_with_template_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -729,16 +749,17 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestBulkSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
+     * @param string|null                                       $idempotency_key                                   Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
+    public function signatureRequestBulkSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
-        $request = $this->signatureRequestBulkSendWithTemplateRequest($signature_request_bulk_send_with_template_request, $contentType);
+        $request = $this->signatureRequestBulkSendWithTemplateRequest($signature_request_bulk_send_with_template_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -780,19 +801,27 @@ class SignatureRequestApi
      * Create request for operation 'signatureRequestBulkSendWithTemplate'
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
+     * @param string|null                                       $idempotency_key                                   Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkSendWithTemplateRequest(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
+    public function signatureRequestBulkSendWithTemplateRequest(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
         // verify the required parameter 'signature_request_bulk_send_with_template_request' is set
         if ($signature_request_bulk_send_with_template_request === null || (is_array($signature_request_bulk_send_with_template_request) && count($signature_request_bulk_send_with_template_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_bulk_send_with_template_request when calling signatureRequestBulkSendWithTemplate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestBulkSendWithTemplate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestBulkSendWithTemplate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/signature_request/bulk_send_with_template';
@@ -807,6 +836,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -893,14 +927,15 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCancelExample.php
      *
-     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string      $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestCancel(string $signature_request_id)
+    public function signatureRequestCancel(string $signature_request_id, ?string $idempotency_key = null)
     {
-        $this->signatureRequestCancelWithHttpInfo($signature_request_id);
+        $this->signatureRequestCancelWithHttpInfo($signature_request_id, $idempotency_key);
     }
 
     /**
@@ -910,17 +945,18 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCancelExample.php
      *
-     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
-    public function signatureRequestCancelWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
+    public function signatureRequestCancelWithHttpInfo(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
-        $request = $this->signatureRequestCancelRequest($signature_request_id, $contentType);
+        $request = $this->signatureRequestCancelRequest($signature_request_id, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -963,16 +999,17 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCancelExample.php
      *
-     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
-    public function signatureRequestCancelAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
+    public function signatureRequestCancelAsync(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
-        return $this->signatureRequestCancelAsyncWithHttpInfo($signature_request_id, $contentType)
+        return $this->signatureRequestCancelAsyncWithHttpInfo($signature_request_id, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -987,17 +1024,18 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCancelExample.php
      *
-     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
-    public function signatureRequestCancelAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
+    public function signatureRequestCancelAsyncWithHttpInfo(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
         $returnType = '';
-        $request = $this->signatureRequestCancelRequest($signature_request_id, $contentType);
+        $request = $this->signatureRequestCancelRequest($signature_request_id, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1025,14 +1063,15 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestCancel'
      *
-     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
-    public function signatureRequestCancelRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
+    public function signatureRequestCancelRequest(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -1041,12 +1080,24 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestCancel, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestCancel, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/cancel/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {
@@ -1133,14 +1184,15 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request signature_request_create_embedded_request (required)
+     * @param string|null                                 $idempotency_key                           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestCreateEmbedded(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request)
+    public function signatureRequestCreateEmbedded(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestCreateEmbeddedWithHttpInfo($signature_request_create_embedded_request);
+        list($response) = $this->signatureRequestCreateEmbeddedWithHttpInfo($signature_request_create_embedded_request, $idempotency_key);
         return $response;
     }
 
@@ -1152,6 +1204,7 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
+     * @param string|null                                 $idempotency_key                           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1159,9 +1212,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
+    public function signatureRequestCreateEmbeddedWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
-        $request = $this->signatureRequestCreateEmbeddedRequest($signature_request_create_embedded_request, $contentType);
+        $request = $this->signatureRequestCreateEmbeddedRequest($signature_request_create_embedded_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1291,15 +1344,16 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
+     * @param string|null                                 $idempotency_key                           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedAsync(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
+    public function signatureRequestCreateEmbeddedAsync(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
-        return $this->signatureRequestCreateEmbeddedAsyncWithHttpInfo($signature_request_create_embedded_request, $contentType)
+        return $this->signatureRequestCreateEmbeddedAsyncWithHttpInfo($signature_request_create_embedded_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1315,16 +1369,17 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
+     * @param string|null                                 $idempotency_key                           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
+    public function signatureRequestCreateEmbeddedAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestCreateEmbeddedRequest($signature_request_create_embedded_request, $contentType);
+        $request = $this->signatureRequestCreateEmbeddedRequest($signature_request_create_embedded_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1366,19 +1421,27 @@ class SignatureRequestApi
      * Create request for operation 'signatureRequestCreateEmbedded'
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
+     * @param string|null                                 $idempotency_key                           Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedRequest(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
+    public function signatureRequestCreateEmbeddedRequest(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
         // verify the required parameter 'signature_request_create_embedded_request' is set
         if ($signature_request_create_embedded_request === null || (is_array($signature_request_create_embedded_request) && count($signature_request_create_embedded_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_create_embedded_request when calling signatureRequestCreateEmbedded'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestCreateEmbedded, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestCreateEmbedded, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/signature_request/create_embedded';
@@ -1393,6 +1456,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -1480,14 +1548,15 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request signature_request_create_embedded_with_template_request (required)
+     * @param string|null                                             $idempotency_key                                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestCreateEmbeddedWithTemplate(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request)
+    public function signatureRequestCreateEmbeddedWithTemplate(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestCreateEmbeddedWithTemplateWithHttpInfo($signature_request_create_embedded_with_template_request);
+        list($response) = $this->signatureRequestCreateEmbeddedWithTemplateWithHttpInfo($signature_request_create_embedded_with_template_request, $idempotency_key);
         return $response;
     }
 
@@ -1499,6 +1568,7 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
+     * @param string|null                                             $idempotency_key                                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1506,9 +1576,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithTemplateWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestCreateEmbeddedWithTemplateWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
-        $request = $this->signatureRequestCreateEmbeddedWithTemplateRequest($signature_request_create_embedded_with_template_request, $contentType);
+        $request = $this->signatureRequestCreateEmbeddedWithTemplateRequest($signature_request_create_embedded_with_template_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1638,15 +1708,16 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
+     * @param string|null                                             $idempotency_key                                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithTemplateAsync(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestCreateEmbeddedWithTemplateAsync(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
-        return $this->signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_create_embedded_with_template_request, $contentType)
+        return $this->signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_create_embedded_with_template_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1662,16 +1733,17 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
+     * @param string|null                                             $idempotency_key                                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestCreateEmbeddedWithTemplateRequest($signature_request_create_embedded_with_template_request, $contentType);
+        $request = $this->signatureRequestCreateEmbeddedWithTemplateRequest($signature_request_create_embedded_with_template_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1713,19 +1785,27 @@ class SignatureRequestApi
      * Create request for operation 'signatureRequestCreateEmbeddedWithTemplate'
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
+     * @param string|null                                             $idempotency_key                                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithTemplateRequest(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestCreateEmbeddedWithTemplateRequest(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
         // verify the required parameter 'signature_request_create_embedded_with_template_request' is set
         if ($signature_request_create_embedded_with_template_request === null || (is_array($signature_request_create_embedded_with_template_request) && count($signature_request_create_embedded_with_template_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_create_embedded_with_template_request when calling signatureRequestCreateEmbeddedWithTemplate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestCreateEmbeddedWithTemplate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestCreateEmbeddedWithTemplate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/signature_request/create_embedded_with_template';
@@ -1740,6 +1820,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -1828,14 +1913,15 @@ class SignatureRequestApi
      *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request signature_request_edit_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestEdit(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request)
+    public function signatureRequestEdit(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestEditWithHttpInfo($signature_request_id, $signature_request_edit_request);
+        list($response) = $this->signatureRequestEditWithHttpInfo($signature_request_id, $signature_request_edit_request, $idempotency_key);
         return $response;
     }
 
@@ -1848,6 +1934,7 @@ class SignatureRequestApi
      *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1855,9 +1942,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
      */
-    public function signatureRequestEditWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
+    public function signatureRequestEditWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
-        $request = $this->signatureRequestEditRequest($signature_request_id, $signature_request_edit_request, $contentType);
+        $request = $this->signatureRequestEditRequest($signature_request_id, $signature_request_edit_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1988,15 +2075,16 @@ class SignatureRequestApi
      *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
      */
-    public function signatureRequestEditAsync(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
+    public function signatureRequestEditAsync(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
-        return $this->signatureRequestEditAsyncWithHttpInfo($signature_request_id, $signature_request_edit_request, $contentType)
+        return $this->signatureRequestEditAsyncWithHttpInfo($signature_request_id, $signature_request_edit_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2013,16 +2101,17 @@ class SignatureRequestApi
      *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
      */
-    public function signatureRequestEditAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
+    public function signatureRequestEditAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestEditRequest($signature_request_id, $signature_request_edit_request, $contentType);
+        $request = $this->signatureRequestEditRequest($signature_request_id, $signature_request_edit_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2065,13 +2154,14 @@ class SignatureRequestApi
      *
      * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
      */
-    public function signatureRequestEditRequest(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
+    public function signatureRequestEditRequest(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEdit'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -2087,6 +2177,13 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestEdit, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestEdit, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/edit/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
@@ -2099,6 +2196,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {
@@ -2196,14 +2298,15 @@ class SignatureRequestApi
      *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request signature_request_edit_embedded_request (required)
+     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestEditEmbedded(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request)
+    public function signatureRequestEditEmbedded(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestEditEmbeddedWithHttpInfo($signature_request_id, $signature_request_edit_embedded_request);
+        list($response) = $this->signatureRequestEditEmbeddedWithHttpInfo($signature_request_id, $signature_request_edit_embedded_request, $idempotency_key);
         return $response;
     }
 
@@ -2216,6 +2319,7 @@ class SignatureRequestApi
      *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
+     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -2223,9 +2327,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestEditEmbeddedWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
+    public function signatureRequestEditEmbeddedWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
-        $request = $this->signatureRequestEditEmbeddedRequest($signature_request_id, $signature_request_edit_embedded_request, $contentType);
+        $request = $this->signatureRequestEditEmbeddedRequest($signature_request_id, $signature_request_edit_embedded_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2356,15 +2460,16 @@ class SignatureRequestApi
      *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
+     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestEditEmbeddedAsync(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
+    public function signatureRequestEditEmbeddedAsync(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
-        return $this->signatureRequestEditEmbeddedAsyncWithHttpInfo($signature_request_id, $signature_request_edit_embedded_request, $contentType)
+        return $this->signatureRequestEditEmbeddedAsyncWithHttpInfo($signature_request_id, $signature_request_edit_embedded_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2381,16 +2486,17 @@ class SignatureRequestApi
      *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
+     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestEditEmbeddedAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
+    public function signatureRequestEditEmbeddedAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestEditEmbeddedRequest($signature_request_id, $signature_request_edit_embedded_request, $contentType);
+        $request = $this->signatureRequestEditEmbeddedRequest($signature_request_id, $signature_request_edit_embedded_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2433,13 +2539,14 @@ class SignatureRequestApi
      *
      * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
+     * @param string|null                               $idempotency_key                         Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestEditEmbeddedRequest(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
+    public function signatureRequestEditEmbeddedRequest(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -2455,6 +2562,13 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestEditEmbedded, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestEditEmbedded, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/edit_embedded/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
@@ -2467,6 +2581,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {
@@ -2564,14 +2683,15 @@ class SignatureRequestApi
      *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request signature_request_edit_embedded_with_template_request (required)
+     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestEditEmbeddedWithTemplate(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request)
+    public function signatureRequestEditEmbeddedWithTemplate(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestEditEmbeddedWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_embedded_with_template_request);
+        list($response) = $this->signatureRequestEditEmbeddedWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_embedded_with_template_request, $idempotency_key);
         return $response;
     }
 
@@ -2584,6 +2704,7 @@ class SignatureRequestApi
      *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
+     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -2591,9 +2712,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestEditEmbeddedWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
+    public function signatureRequestEditEmbeddedWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
-        $request = $this->signatureRequestEditEmbeddedWithTemplateRequest($signature_request_id, $signature_request_edit_embedded_with_template_request, $contentType);
+        $request = $this->signatureRequestEditEmbeddedWithTemplateRequest($signature_request_id, $signature_request_edit_embedded_with_template_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2724,15 +2845,16 @@ class SignatureRequestApi
      *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
+     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestEditEmbeddedWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
+    public function signatureRequestEditEmbeddedWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
-        return $this->signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_id, $signature_request_edit_embedded_with_template_request, $contentType)
+        return $this->signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_id, $signature_request_edit_embedded_with_template_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2749,16 +2871,17 @@ class SignatureRequestApi
      *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
+     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
+    public function signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestEditEmbeddedWithTemplateRequest($signature_request_id, $signature_request_edit_embedded_with_template_request, $contentType);
+        $request = $this->signatureRequestEditEmbeddedWithTemplateRequest($signature_request_id, $signature_request_edit_embedded_with_template_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2801,13 +2924,14 @@ class SignatureRequestApi
      *
      * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
+     * @param string|null                                           $idempotency_key                                       Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestEditEmbeddedWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
+    public function signatureRequestEditEmbeddedWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -2823,6 +2947,13 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestEditEmbeddedWithTemplate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestEditEmbeddedWithTemplate, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/edit_embedded_with_template/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
@@ -2835,6 +2966,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {
@@ -2932,14 +3068,15 @@ class SignatureRequestApi
      *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request signature_request_edit_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestEditWithTemplate(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request)
+    public function signatureRequestEditWithTemplate(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestEditWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request);
+        list($response) = $this->signatureRequestEditWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request, $idempotency_key);
         return $response;
     }
 
@@ -2952,6 +3089,7 @@ class SignatureRequestApi
      *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -2959,9 +3097,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestEditWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
+    public function signatureRequestEditWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
-        $request = $this->signatureRequestEditWithTemplateRequest($signature_request_id, $signature_request_edit_with_template_request, $contentType);
+        $request = $this->signatureRequestEditWithTemplateRequest($signature_request_id, $signature_request_edit_with_template_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3092,15 +3230,16 @@ class SignatureRequestApi
      *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestEditWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
+    public function signatureRequestEditWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
-        return $this->signatureRequestEditWithTemplateAsyncWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request, $contentType)
+        return $this->signatureRequestEditWithTemplateAsyncWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3117,16 +3256,17 @@ class SignatureRequestApi
      *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestEditWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
+    public function signatureRequestEditWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestEditWithTemplateRequest($signature_request_id, $signature_request_edit_with_template_request, $contentType);
+        $request = $this->signatureRequestEditWithTemplateRequest($signature_request_id, $signature_request_edit_with_template_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3169,13 +3309,14 @@ class SignatureRequestApi
      *
      * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
      * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestEditWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
+    public function signatureRequestEditWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -3191,6 +3332,13 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestEditWithTemplate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestEditWithTemplate, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/edit_with_template/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
@@ -3203,6 +3351,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {
@@ -5064,15 +5217,16 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestReleaseHoldExample.php
      *
-     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string      $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestReleaseHold(string $signature_request_id)
+    public function signatureRequestReleaseHold(string $signature_request_id, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestReleaseHoldWithHttpInfo($signature_request_id);
+        list($response) = $this->signatureRequestReleaseHoldWithHttpInfo($signature_request_id, $idempotency_key);
         return $response;
     }
 
@@ -5083,17 +5237,18 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestReleaseHoldExample.php
      *
-     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
-    public function signatureRequestReleaseHoldWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
+    public function signatureRequestReleaseHoldWithHttpInfo(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
-        $request = $this->signatureRequestReleaseHoldRequest($signature_request_id, $contentType);
+        $request = $this->signatureRequestReleaseHoldRequest($signature_request_id, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5222,16 +5377,17 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestReleaseHoldExample.php
      *
-     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
-    public function signatureRequestReleaseHoldAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
+    public function signatureRequestReleaseHoldAsync(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
-        return $this->signatureRequestReleaseHoldAsyncWithHttpInfo($signature_request_id, $contentType)
+        return $this->signatureRequestReleaseHoldAsyncWithHttpInfo($signature_request_id, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5246,17 +5402,18 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestReleaseHoldExample.php
      *
-     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
-    public function signatureRequestReleaseHoldAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
+    public function signatureRequestReleaseHoldAsyncWithHttpInfo(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestReleaseHoldRequest($signature_request_id, $contentType);
+        $request = $this->signatureRequestReleaseHoldRequest($signature_request_id, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5297,14 +5454,15 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestReleaseHold'
      *
-     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
-    public function signatureRequestReleaseHoldRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
+    public function signatureRequestReleaseHoldRequest(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -5313,12 +5471,24 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestReleaseHold, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestReleaseHold, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/release_hold/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {
@@ -5406,14 +5576,15 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request signature_request_remind_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestRemind(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request)
+    public function signatureRequestRemind(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestRemindWithHttpInfo($signature_request_id, $signature_request_remind_request);
+        list($response) = $this->signatureRequestRemindWithHttpInfo($signature_request_id, $signature_request_remind_request, $idempotency_key);
         return $response;
     }
 
@@ -5426,6 +5597,7 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -5433,9 +5605,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
-    public function signatureRequestRemindWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
+    public function signatureRequestRemindWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
-        $request = $this->signatureRequestRemindRequest($signature_request_id, $signature_request_remind_request, $contentType);
+        $request = $this->signatureRequestRemindRequest($signature_request_id, $signature_request_remind_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5566,15 +5738,16 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
-    public function signatureRequestRemindAsync(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
+    public function signatureRequestRemindAsync(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
-        return $this->signatureRequestRemindAsyncWithHttpInfo($signature_request_id, $signature_request_remind_request, $contentType)
+        return $this->signatureRequestRemindAsyncWithHttpInfo($signature_request_id, $signature_request_remind_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5591,16 +5764,17 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
-    public function signatureRequestRemindAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
+    public function signatureRequestRemindAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestRemindRequest($signature_request_id, $signature_request_remind_request, $contentType);
+        $request = $this->signatureRequestRemindRequest($signature_request_id, $signature_request_remind_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5643,13 +5817,14 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
-    public function signatureRequestRemindRequest(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
+    public function signatureRequestRemindRequest(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -5665,6 +5840,13 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestRemind, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestRemind, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/remind/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
@@ -5677,6 +5859,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {
@@ -5772,14 +5959,15 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemoveExample.php
      *
-     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string      $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestRemove(string $signature_request_id)
+    public function signatureRequestRemove(string $signature_request_id, ?string $idempotency_key = null)
     {
-        $this->signatureRequestRemoveWithHttpInfo($signature_request_id);
+        $this->signatureRequestRemoveWithHttpInfo($signature_request_id, $idempotency_key);
     }
 
     /**
@@ -5789,17 +5977,18 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemoveExample.php
      *
-     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
-    public function signatureRequestRemoveWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
+    public function signatureRequestRemoveWithHttpInfo(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
-        $request = $this->signatureRequestRemoveRequest($signature_request_id, $contentType);
+        $request = $this->signatureRequestRemoveRequest($signature_request_id, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5842,16 +6031,17 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemoveExample.php
      *
-     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
-    public function signatureRequestRemoveAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
+    public function signatureRequestRemoveAsync(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
-        return $this->signatureRequestRemoveAsyncWithHttpInfo($signature_request_id, $contentType)
+        return $this->signatureRequestRemoveAsyncWithHttpInfo($signature_request_id, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5866,17 +6056,18 @@ class SignatureRequestApi
      *
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestRemoveExample.php
      *
-     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
-    public function signatureRequestRemoveAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
+    public function signatureRequestRemoveAsyncWithHttpInfo(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
         $returnType = '';
-        $request = $this->signatureRequestRemoveRequest($signature_request_id, $contentType);
+        $request = $this->signatureRequestRemoveRequest($signature_request_id, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5904,14 +6095,15 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestRemove'
      *
-     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
-     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
+     * @param string      $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string|null $idempotency_key      Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
+     * @param string      $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
-    public function signatureRequestRemoveRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
+    public function signatureRequestRemoveRequest(string $signature_request_id, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -5920,12 +6112,24 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestRemove, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestRemove, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/remove/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {
@@ -6008,14 +6212,15 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendExample.php
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request signature_request_send_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestSend(Model\SignatureRequestSendRequest $signature_request_send_request)
+    public function signatureRequestSend(Model\SignatureRequestSendRequest $signature_request_send_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestSendWithHttpInfo($signature_request_send_request);
+        list($response) = $this->signatureRequestSendWithHttpInfo($signature_request_send_request, $idempotency_key);
         return $response;
     }
 
@@ -6027,6 +6232,7 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendExample.php
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -6034,9 +6240,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
+    public function signatureRequestSendWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
-        $request = $this->signatureRequestSendRequest($signature_request_send_request, $contentType);
+        $request = $this->signatureRequestSendRequest($signature_request_send_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6166,15 +6372,16 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendExample.php
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
-    public function signatureRequestSendAsync(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
+    public function signatureRequestSendAsync(Model\SignatureRequestSendRequest $signature_request_send_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
-        return $this->signatureRequestSendAsyncWithHttpInfo($signature_request_send_request, $contentType)
+        return $this->signatureRequestSendAsyncWithHttpInfo($signature_request_send_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6190,16 +6397,17 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendExample.php
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
-    public function signatureRequestSendAsyncWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
+    public function signatureRequestSendAsyncWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestSendRequest($signature_request_send_request, $contentType);
+        $request = $this->signatureRequestSendRequest($signature_request_send_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6241,19 +6449,27 @@ class SignatureRequestApi
      * Create request for operation 'signatureRequestSend'
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
+     * @param string|null                       $idempotency_key                Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
-    public function signatureRequestSendRequest(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
+    public function signatureRequestSendRequest(Model\SignatureRequestSendRequest $signature_request_send_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
         // verify the required parameter 'signature_request_send_request' is set
         if ($signature_request_send_request === null || (is_array($signature_request_send_request) && count($signature_request_send_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_send_request when calling signatureRequestSend'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestSend, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestSend, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/signature_request/send';
@@ -6268,6 +6484,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -6355,14 +6576,15 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request signature_request_send_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestSendWithTemplate(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request)
+    public function signatureRequestSendWithTemplate(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestSendWithTemplateWithHttpInfo($signature_request_send_with_template_request);
+        list($response) = $this->signatureRequestSendWithTemplateWithHttpInfo($signature_request_send_with_template_request, $idempotency_key);
         return $response;
     }
 
@@ -6374,6 +6596,7 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -6381,9 +6604,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithTemplateWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
+    public function signatureRequestSendWithTemplateWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
-        $request = $this->signatureRequestSendWithTemplateRequest($signature_request_send_with_template_request, $contentType);
+        $request = $this->signatureRequestSendWithTemplateRequest($signature_request_send_with_template_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6513,15 +6736,16 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithTemplateAsync(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
+    public function signatureRequestSendWithTemplateAsync(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
-        return $this->signatureRequestSendWithTemplateAsyncWithHttpInfo($signature_request_send_with_template_request, $contentType)
+        return $this->signatureRequestSendWithTemplateAsyncWithHttpInfo($signature_request_send_with_template_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6537,16 +6761,17 @@ class SignatureRequestApi
      * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/SignatureRequestSendWithTemplateExample.php
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
+    public function signatureRequestSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestSendWithTemplateRequest($signature_request_send_with_template_request, $contentType);
+        $request = $this->signatureRequestSendWithTemplateRequest($signature_request_send_with_template_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6588,19 +6813,27 @@ class SignatureRequestApi
      * Create request for operation 'signatureRequestSendWithTemplate'
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
+     * @param string|null                                   $idempotency_key                              Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithTemplateRequest(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
+    public function signatureRequestSendWithTemplateRequest(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
         // verify the required parameter 'signature_request_send_with_template_request' is set
         if ($signature_request_send_with_template_request === null || (is_array($signature_request_send_with_template_request) && count($signature_request_send_with_template_request) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_send_with_template_request when calling signatureRequestSendWithTemplate'
             );
+        }
+
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestSendWithTemplate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestSendWithTemplate, must be bigger than or equal to 1.');
         }
 
         $resourcePath = '/signature_request/send_with_template';
@@ -6615,6 +6848,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             $multipart ? ['multipart/form-data'] : ['application/json'],
@@ -6703,14 +6941,15 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request signature_request_update_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      *
      * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function signatureRequestUpdate(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request)
+    public function signatureRequestUpdate(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, ?string $idempotency_key = null)
     {
-        list($response) = $this->signatureRequestUpdateWithHttpInfo($signature_request_id, $signature_request_update_request);
+        list($response) = $this->signatureRequestUpdateWithHttpInfo($signature_request_id, $signature_request_update_request, $idempotency_key);
         return $response;
     }
 
@@ -6723,6 +6962,7 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
      * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -6730,9 +6970,9 @@ class SignatureRequestApi
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
-    public function signatureRequestUpdateWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
+    public function signatureRequestUpdateWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
-        $request = $this->signatureRequestUpdateRequest($signature_request_id, $signature_request_update_request, $contentType);
+        $request = $this->signatureRequestUpdateRequest($signature_request_id, $signature_request_update_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6863,15 +7103,16 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
-    public function signatureRequestUpdateAsync(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
+    public function signatureRequestUpdateAsync(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
-        return $this->signatureRequestUpdateAsyncWithHttpInfo($signature_request_id, $signature_request_update_request, $contentType)
+        return $this->signatureRequestUpdateAsyncWithHttpInfo($signature_request_id, $signature_request_update_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6888,16 +7129,17 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
-    public function signatureRequestUpdateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
+    public function signatureRequestUpdateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
-        $request = $this->signatureRequestUpdateRequest($signature_request_id, $signature_request_update_request, $contentType);
+        $request = $this->signatureRequestUpdateRequest($signature_request_id, $signature_request_update_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6940,13 +7182,14 @@ class SignatureRequestApi
      *
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
+     * @param string|null                         $idempotency_key                  Reuse the same key when retrying the same request. Must be 1 to 255 characters. (optional)
      * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
      * @return Request
      * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
-    public function signatureRequestUpdateRequest(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
+    public function signatureRequestUpdateRequest(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, ?string $idempotency_key = null, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -6962,6 +7205,13 @@ class SignatureRequestApi
             );
         }
 
+        if ($idempotency_key !== null && strlen($idempotency_key) > 255) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestUpdate, must be smaller than or equal to 255.');
+        }
+        if ($idempotency_key !== null && strlen($idempotency_key) < 1) {
+            throw new InvalidArgumentException('invalid length for "$idempotency_key" when calling SignatureRequestApi.signatureRequestUpdate, must be bigger than or equal to 1.');
+        }
+
         $resourcePath = '/signature_request/update/{signature_request_id}';
         $formParams = [];
         $queryParams = [];
@@ -6974,6 +7224,11 @@ class SignatureRequestApi
         );
 
         $multipart = !empty($formParams);
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
 
         // path params
         if ($signature_request_id !== null) {

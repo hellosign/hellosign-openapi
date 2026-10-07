@@ -8,7 +8,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a id="documentdetectfields"></a>
 # **DocumentDetectFields**
-> DocumentFieldDetectionResponse DocumentDetectFields (DocumentFieldDetectionRequest documentFieldDetectionRequest)
+> DocumentFieldDetectionResponse DocumentDetectFields (DocumentFieldDetectionRequest documentFieldDetectionRequest, string? idempotencyKey = null)
 
 Detect Document Fields
 
@@ -70,7 +70,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Detect Document Fields
-    ApiResponse<DocumentFieldDetectionResponse> response = apiInstance.DocumentDetectFieldsWithHttpInfo(documentFieldDetectionRequest);
+    ApiResponse<DocumentFieldDetectionResponse> response = apiInstance.DocumentDetectFieldsWithHttpInfo(documentFieldDetectionRequest, idempotencyKey);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -88,6 +88,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **documentFieldDetectionRequest** | [**DocumentFieldDetectionRequest**](DocumentFieldDetectionRequest.md) |  |  |
+| **idempotencyKey** | **string?** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional]  |
 
 ### Return type
 
@@ -106,7 +107,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

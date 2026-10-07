@@ -55,19 +55,41 @@ public class AccountApi {
      * &#x60;email_address&#x60;.
      *
      * @param accountCreateRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return AccountCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
+    public AccountCreateResponse accountCreate(
+            AccountCreateRequest accountCreateRequest, String idempotencyKey) throws ApiException {
+        return accountCreateWithHttpInfo(accountCreateRequest, idempotencyKey).getData();
+    }
+
+    /**
+     * @see AccountApi#accountCreate(AccountCreateRequest, String)
+     */
     public AccountCreateResponse accountCreate(AccountCreateRequest accountCreateRequest)
             throws ApiException {
-        return accountCreateWithHttpInfo(accountCreateRequest).getData();
+        String idempotencyKey = null;
+
+        return accountCreateWithHttpInfo(accountCreateRequest, idempotencyKey).getData();
+    }
+
+    /**
+     * @see AccountApi#accountCreateWithHttpInfo(AccountCreateRequest, String)
+     */
+    public ApiResponse<AccountCreateResponse> accountCreateWithHttpInfo(
+            AccountCreateRequest accountCreateRequest) throws ApiException {
+        String idempotencyKey = null;
+
+        return accountCreateWithHttpInfo(accountCreateRequest, idempotencyKey);
     }
 
     /**
@@ -75,18 +97,20 @@ public class AccountApi {
      * &#x60;email_address&#x60;.
      *
      * @param accountCreateRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return ApiResponse&lt;AccountCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<AccountCreateResponse> accountCreateWithHttpInfo(
-            AccountCreateRequest accountCreateRequest) throws ApiException {
+            AccountCreateRequest accountCreateRequest, String idempotencyKey) throws ApiException {
 
         // Check required parameters
         if (accountCreateRequest == null) {
@@ -94,6 +118,13 @@ public class AccountApi {
                     400,
                     "Missing the required parameter 'accountCreateRequest' when calling"
                             + " accountCreate");
+        }
+
+        // Header parameters
+        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put(
+                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -113,7 +144,7 @@ public class AccountApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : accountCreateRequest,
-                new LinkedHashMap<>(),
+                localVarHeaderParams,
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,
@@ -239,19 +270,41 @@ public class AccountApi {
      * updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
      *
      * @param accountUpdateRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return AccountGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
+    public AccountGetResponse accountUpdate(
+            AccountUpdateRequest accountUpdateRequest, String idempotencyKey) throws ApiException {
+        return accountUpdateWithHttpInfo(accountUpdateRequest, idempotencyKey).getData();
+    }
+
+    /**
+     * @see AccountApi#accountUpdate(AccountUpdateRequest, String)
+     */
     public AccountGetResponse accountUpdate(AccountUpdateRequest accountUpdateRequest)
             throws ApiException {
-        return accountUpdateWithHttpInfo(accountUpdateRequest).getData();
+        String idempotencyKey = null;
+
+        return accountUpdateWithHttpInfo(accountUpdateRequest, idempotencyKey).getData();
+    }
+
+    /**
+     * @see AccountApi#accountUpdateWithHttpInfo(AccountUpdateRequest, String)
+     */
+    public ApiResponse<AccountGetResponse> accountUpdateWithHttpInfo(
+            AccountUpdateRequest accountUpdateRequest) throws ApiException {
+        String idempotencyKey = null;
+
+        return accountUpdateWithHttpInfo(accountUpdateRequest, idempotencyKey);
     }
 
     /**
@@ -259,18 +312,20 @@ public class AccountApi {
      * updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
      *
      * @param accountUpdateRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return ApiResponse&lt;AccountGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<AccountGetResponse> accountUpdateWithHttpInfo(
-            AccountUpdateRequest accountUpdateRequest) throws ApiException {
+            AccountUpdateRequest accountUpdateRequest, String idempotencyKey) throws ApiException {
 
         // Check required parameters
         if (accountUpdateRequest == null) {
@@ -278,6 +333,13 @@ public class AccountApi {
                     400,
                     "Missing the required parameter 'accountUpdateRequest' when calling"
                             + " accountUpdate");
+        }
+
+        // Header parameters
+        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put(
+                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -297,7 +359,7 @@ public class AccountApi {
                 "PUT",
                 new ArrayList<>(),
                 isFileTypeFound ? null : accountUpdateRequest,
-                new LinkedHashMap<>(),
+                localVarHeaderParams,
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,
@@ -311,37 +373,61 @@ public class AccountApi {
      * Verify Account Verifies whether an Dropbox Sign Account exists for the given email address.
      *
      * @param accountVerifyRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return AccountVerifyResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
+    public AccountVerifyResponse accountVerify(
+            AccountVerifyRequest accountVerifyRequest, String idempotencyKey) throws ApiException {
+        return accountVerifyWithHttpInfo(accountVerifyRequest, idempotencyKey).getData();
+    }
+
+    /**
+     * @see AccountApi#accountVerify(AccountVerifyRequest, String)
+     */
     public AccountVerifyResponse accountVerify(AccountVerifyRequest accountVerifyRequest)
             throws ApiException {
-        return accountVerifyWithHttpInfo(accountVerifyRequest).getData();
+        String idempotencyKey = null;
+
+        return accountVerifyWithHttpInfo(accountVerifyRequest, idempotencyKey).getData();
+    }
+
+    /**
+     * @see AccountApi#accountVerifyWithHttpInfo(AccountVerifyRequest, String)
+     */
+    public ApiResponse<AccountVerifyResponse> accountVerifyWithHttpInfo(
+            AccountVerifyRequest accountVerifyRequest) throws ApiException {
+        String idempotencyKey = null;
+
+        return accountVerifyWithHttpInfo(accountVerifyRequest, idempotencyKey);
     }
 
     /**
      * Verify Account Verifies whether an Dropbox Sign Account exists for the given email address.
      *
      * @param accountVerifyRequest (required)
+     * @param idempotencyKey Reuse the same key when retrying the same request. Must be 1 to 255
+     *     characters. (optional)
      * @return ApiResponse&lt;AccountVerifyResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  * Idempotent-Replayed -  <br>  </td></tr>
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<AccountVerifyResponse> accountVerifyWithHttpInfo(
-            AccountVerifyRequest accountVerifyRequest) throws ApiException {
+            AccountVerifyRequest accountVerifyRequest, String idempotencyKey) throws ApiException {
 
         // Check required parameters
         if (accountVerifyRequest == null) {
@@ -349,6 +435,13 @@ public class AccountApi {
                     400,
                     "Missing the required parameter 'accountVerifyRequest' when calling"
                             + " accountVerify");
+        }
+
+        // Header parameters
+        Map<String, String> localVarHeaderParams = new LinkedHashMap<>();
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put(
+                    "Idempotency-Key", apiClient.parameterToString(idempotencyKey));
         }
 
         String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -368,7 +461,7 @@ public class AccountApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : accountVerifyRequest,
-                new LinkedHashMap<>(),
+                localVarHeaderParams,
                 new LinkedHashMap<>(),
                 localVarFormParams,
                 localVarAccept,

@@ -28,7 +28,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `signature_request_bulk_create_embedded_with_template`
 
-> `<BulkSendJobSendResponse> signature_request_bulk_create_embedded_with_template(signature_request_bulk_create_embedded_with_template_request)`
+> `<BulkSendJobSendResponse> signature_request_bulk_create_embedded_with_template(signature_request_bulk_create_embedded_with_template_request, opts)`
 
 Embedded Bulk Send with Template
 
@@ -128,12 +128,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<BulkSendJobSendResponse>, Integer, Hash)> signature_request_bulk_create_embedded_with_template_with_http_info(signature_request_bulk_create_embedded_with_template_request)`
+> `<Array(<BulkSendJobSendResponse>, Integer, Hash)> signature_request_bulk_create_embedded_with_template_with_http_info(signature_request_bulk_create_embedded_with_template_request, opts)`
 
 ```ruby
 begin
   # Embedded Bulk Send with Template
-  data, status_code, headers = api_instance.signature_request_bulk_create_embedded_with_template_with_http_info(signature_request_bulk_create_embedded_with_template_request)
+  data, status_code, headers = api_instance.signature_request_bulk_create_embedded_with_template_with_http_info(signature_request_bulk_create_embedded_with_template_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BulkSendJobSendResponse>
@@ -147,6 +147,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_bulk_create_embedded_with_template_request` | [**SignatureRequestBulkCreateEmbeddedWithTemplateRequest**](SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -164,7 +165,7 @@ end
 
 ## `signature_request_bulk_send_with_template`
 
-> `<BulkSendJobSendResponse> signature_request_bulk_send_with_template(signature_request_bulk_send_with_template_request)`
+> `<BulkSendJobSendResponse> signature_request_bulk_send_with_template(signature_request_bulk_send_with_template_request, opts)`
 
 Bulk Send with Template
 
@@ -264,12 +265,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<BulkSendJobSendResponse>, Integer, Hash)> signature_request_bulk_send_with_template_with_http_info(signature_request_bulk_send_with_template_request)`
+> `<Array(<BulkSendJobSendResponse>, Integer, Hash)> signature_request_bulk_send_with_template_with_http_info(signature_request_bulk_send_with_template_request, opts)`
 
 ```ruby
 begin
   # Bulk Send with Template
-  data, status_code, headers = api_instance.signature_request_bulk_send_with_template_with_http_info(signature_request_bulk_send_with_template_request)
+  data, status_code, headers = api_instance.signature_request_bulk_send_with_template_with_http_info(signature_request_bulk_send_with_template_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BulkSendJobSendResponse>
@@ -283,6 +284,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_bulk_send_with_template_request` | [**SignatureRequestBulkSendWithTemplateRequest**](SignatureRequestBulkSendWithTemplateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -300,7 +302,7 @@ end
 
 ## `signature_request_cancel`
 
-> `signature_request_cancel(signature_request_id)`
+> `signature_request_cancel(signature_request_id, opts)`
 
 Cancel Incomplete Signature Request
 
@@ -331,12 +333,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> `<Array(nil, Integer, Hash)> signature_request_cancel_with_http_info(signature_request_id)`
+> `<Array(nil, Integer, Hash)> signature_request_cancel_with_http_info(signature_request_id, opts)`
 
 ```ruby
 begin
   # Cancel Incomplete Signature Request
-  data, status_code, headers = api_instance.signature_request_cancel_with_http_info(signature_request_id)
+  data, status_code, headers = api_instance.signature_request_cancel_with_http_info(signature_request_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -350,6 +352,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the incomplete SignatureRequest to cancel. |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -367,7 +370,7 @@ nil (empty response body)
 
 ## `signature_request_create_embedded`
 
-> `<SignatureRequestGetResponse> signature_request_create_embedded(signature_request_create_embedded_request)`
+> `<SignatureRequestGetResponse> signature_request_create_embedded(signature_request_create_embedded_request, opts)`
 
 Create Embedded Signature Request
 
@@ -439,12 +442,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_create_embedded_with_http_info(signature_request_create_embedded_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_create_embedded_with_http_info(signature_request_create_embedded_request, opts)`
 
 ```ruby
 begin
   # Create Embedded Signature Request
-  data, status_code, headers = api_instance.signature_request_create_embedded_with_http_info(signature_request_create_embedded_request)
+  data, status_code, headers = api_instance.signature_request_create_embedded_with_http_info(signature_request_create_embedded_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -458,6 +461,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_create_embedded_request` | [**SignatureRequestCreateEmbeddedRequest**](SignatureRequestCreateEmbeddedRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -475,7 +479,7 @@ end
 
 ## `signature_request_create_embedded_with_template`
 
-> `<SignatureRequestGetResponse> signature_request_create_embedded_with_template(signature_request_create_embedded_with_template_request)`
+> `<SignatureRequestGetResponse> signature_request_create_embedded_with_template(signature_request_create_embedded_with_template_request, opts)`
 
 Create Embedded Signature Request with Template
 
@@ -536,12 +540,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_create_embedded_with_template_with_http_info(signature_request_create_embedded_with_template_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_create_embedded_with_template_with_http_info(signature_request_create_embedded_with_template_request, opts)`
 
 ```ruby
 begin
   # Create Embedded Signature Request with Template
-  data, status_code, headers = api_instance.signature_request_create_embedded_with_template_with_http_info(signature_request_create_embedded_with_template_request)
+  data, status_code, headers = api_instance.signature_request_create_embedded_with_template_with_http_info(signature_request_create_embedded_with_template_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -555,6 +559,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_create_embedded_with_template_request` | [**SignatureRequestCreateEmbeddedWithTemplateRequest**](SignatureRequestCreateEmbeddedWithTemplateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -572,7 +577,7 @@ end
 
 ## `signature_request_edit`
 
-> `<SignatureRequestGetResponse> signature_request_edit(signature_request_id, signature_request_edit_request)`
+> `<SignatureRequestGetResponse> signature_request_edit(signature_request_id, signature_request_edit_request, opts)`
 
 Edit Signature Request
 
@@ -654,12 +659,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request, opts)`
 
 ```ruby
 begin
   # Edit Signature Request
-  data, status_code, headers = api_instance.signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request)
+  data, status_code, headers = api_instance.signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -674,6 +679,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
 | `signature_request_edit_request` | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -691,7 +697,7 @@ end
 
 ## `signature_request_edit_embedded`
 
-> `<SignatureRequestGetResponse> signature_request_edit_embedded(signature_request_id, signature_request_edit_embedded_request)`
+> `<SignatureRequestGetResponse> signature_request_edit_embedded(signature_request_id, signature_request_edit_embedded_request, opts)`
 
 Edit Embedded Signature Request
 
@@ -763,12 +769,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_embedded_with_http_info(signature_request_id, signature_request_edit_embedded_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_embedded_with_http_info(signature_request_id, signature_request_edit_embedded_request, opts)`
 
 ```ruby
 begin
   # Edit Embedded Signature Request
-  data, status_code, headers = api_instance.signature_request_edit_embedded_with_http_info(signature_request_id, signature_request_edit_embedded_request)
+  data, status_code, headers = api_instance.signature_request_edit_embedded_with_http_info(signature_request_id, signature_request_edit_embedded_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -783,6 +789,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
 | `signature_request_edit_embedded_request` | [**SignatureRequestEditEmbeddedRequest**](SignatureRequestEditEmbeddedRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -800,7 +807,7 @@ end
 
 ## `signature_request_edit_embedded_with_template`
 
-> `<SignatureRequestGetResponse> signature_request_edit_embedded_with_template(signature_request_id, signature_request_edit_embedded_with_template_request)`
+> `<SignatureRequestGetResponse> signature_request_edit_embedded_with_template(signature_request_id, signature_request_edit_embedded_with_template_request, opts)`
 
 Edit Embedded Signature Request with Template
 
@@ -861,12 +868,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_embedded_with_template_with_http_info(signature_request_id, signature_request_edit_embedded_with_template_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_embedded_with_template_with_http_info(signature_request_id, signature_request_edit_embedded_with_template_request, opts)`
 
 ```ruby
 begin
   # Edit Embedded Signature Request with Template
-  data, status_code, headers = api_instance.signature_request_edit_embedded_with_template_with_http_info(signature_request_id, signature_request_edit_embedded_with_template_request)
+  data, status_code, headers = api_instance.signature_request_edit_embedded_with_template_with_http_info(signature_request_id, signature_request_edit_embedded_with_template_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -881,6 +888,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
 | `signature_request_edit_embedded_with_template_request` | [**SignatureRequestEditEmbeddedWithTemplateRequest**](SignatureRequestEditEmbeddedWithTemplateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -898,7 +906,7 @@ end
 
 ## `signature_request_edit_with_template`
 
-> `<SignatureRequestGetResponse> signature_request_edit_with_template(signature_request_id, signature_request_edit_with_template_request)`
+> `<SignatureRequestGetResponse> signature_request_edit_with_template(signature_request_id, signature_request_edit_with_template_request, opts)`
 
 Edit Signature Request With Template
 
@@ -978,12 +986,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request, opts)`
 
 ```ruby
 begin
   # Edit Signature Request With Template
-  data, status_code, headers = api_instance.signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request)
+  data, status_code, headers = api_instance.signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -998,6 +1006,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
 | `signature_request_edit_with_template_request` | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1376,7 +1385,7 @@ end
 
 ## `signature_request_release_hold`
 
-> `<SignatureRequestGetResponse> signature_request_release_hold(signature_request_id)`
+> `<SignatureRequestGetResponse> signature_request_release_hold(signature_request_id, opts)`
 
 Release On-Hold Signature Request
 
@@ -1409,12 +1418,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_release_hold_with_http_info(signature_request_id)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_release_hold_with_http_info(signature_request_id, opts)`
 
 ```ruby
 begin
   # Release On-Hold Signature Request
-  data, status_code, headers = api_instance.signature_request_release_hold_with_http_info(signature_request_id)
+  data, status_code, headers = api_instance.signature_request_release_hold_with_http_info(signature_request_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -1428,6 +1437,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to release. |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1445,7 +1455,7 @@ end
 
 ## `signature_request_remind`
 
-> `<SignatureRequestGetResponse> signature_request_remind(signature_request_id, signature_request_remind_request)`
+> `<SignatureRequestGetResponse> signature_request_remind(signature_request_id, signature_request_remind_request, opts)`
 
 Send Request Reminder
 
@@ -1482,12 +1492,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_remind_with_http_info(signature_request_id, signature_request_remind_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_remind_with_http_info(signature_request_id, signature_request_remind_request, opts)`
 
 ```ruby
 begin
   # Send Request Reminder
-  data, status_code, headers = api_instance.signature_request_remind_with_http_info(signature_request_id, signature_request_remind_request)
+  data, status_code, headers = api_instance.signature_request_remind_with_http_info(signature_request_id, signature_request_remind_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -1502,6 +1512,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to send a reminder for. |  |
 | `signature_request_remind_request` | [**SignatureRequestRemindRequest**](SignatureRequestRemindRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1519,7 +1530,7 @@ end
 
 ## `signature_request_remove`
 
-> `signature_request_remove(signature_request_id)`
+> `signature_request_remove(signature_request_id, opts)`
 
 Remove Signature Request Access
 
@@ -1549,12 +1560,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> `<Array(nil, Integer, Hash)> signature_request_remove_with_http_info(signature_request_id)`
+> `<Array(nil, Integer, Hash)> signature_request_remove_with_http_info(signature_request_id, opts)`
 
 ```ruby
 begin
   # Remove Signature Request Access
-  data, status_code, headers = api_instance.signature_request_remove_with_http_info(signature_request_id)
+  data, status_code, headers = api_instance.signature_request_remove_with_http_info(signature_request_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -1568,6 +1579,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to remove. |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1585,7 +1597,7 @@ nil (empty response body)
 
 ## `signature_request_send`
 
-> `<SignatureRequestGetResponse> signature_request_send(signature_request_send_request)`
+> `<SignatureRequestGetResponse> signature_request_send(signature_request_send_request, opts)`
 
 Send Signature Request
 
@@ -1667,12 +1679,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_send_with_http_info(signature_request_send_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_send_with_http_info(signature_request_send_request, opts)`
 
 ```ruby
 begin
   # Send Signature Request
-  data, status_code, headers = api_instance.signature_request_send_with_http_info(signature_request_send_request)
+  data, status_code, headers = api_instance.signature_request_send_with_http_info(signature_request_send_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -1686,6 +1698,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_send_request` | [**SignatureRequestSendRequest**](SignatureRequestSendRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1703,7 +1716,7 @@ end
 
 ## `signature_request_send_with_template`
 
-> `<SignatureRequestGetResponse> signature_request_send_with_template(signature_request_send_with_template_request)`
+> `<SignatureRequestGetResponse> signature_request_send_with_template(signature_request_send_with_template_request, opts)`
 
 Send with Template
 
@@ -1783,12 +1796,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_send_with_template_with_http_info(signature_request_send_with_template_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_send_with_template_with_http_info(signature_request_send_with_template_request, opts)`
 
 ```ruby
 begin
   # Send with Template
-  data, status_code, headers = api_instance.signature_request_send_with_template_with_http_info(signature_request_send_with_template_request)
+  data, status_code, headers = api_instance.signature_request_send_with_template_with_http_info(signature_request_send_with_template_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -1802,6 +1815,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_send_with_template_request` | [**SignatureRequestSendWithTemplateRequest**](SignatureRequestSendWithTemplateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
@@ -1819,7 +1833,7 @@ end
 
 ## `signature_request_update`
 
-> `<SignatureRequestGetResponse> signature_request_update(signature_request_id, signature_request_update_request)`
+> `<SignatureRequestGetResponse> signature_request_update(signature_request_id, signature_request_update_request, opts)`
 
 Update Signature Request
 
@@ -1857,12 +1871,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_update_with_http_info(signature_request_id, signature_request_update_request)`
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_update_with_http_info(signature_request_id, signature_request_update_request, opts)`
 
 ```ruby
 begin
   # Update Signature Request
-  data, status_code, headers = api_instance.signature_request_update_with_http_info(signature_request_id, signature_request_update_request)
+  data, status_code, headers = api_instance.signature_request_update_with_http_info(signature_request_id, signature_request_update_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
@@ -1877,6 +1891,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to update. |  |
 | `signature_request_update_request` | [**SignatureRequestUpdateRequest**](SignatureRequestUpdateRequest.md) |  |  |
+| `idempotency_key` | **String** | Reuse the same key when retrying the same request. Must be 1 to 255 characters. | [optional] |
 
 ### Return type
 
