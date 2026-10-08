@@ -1388,7 +1388,7 @@
 "Common::RateLimiting::REMAINING": The number of requests remaining in the current rate limit window.
 "Common::RateLimiting::RESET": The Unix time at which the rate limit will reset to its maximum.
 "Common::Idempotency::KEY": Optional header on an authenticated POST or PUT. Reuse the same key when retrying the same request. See [Idempotency](/api/manual-reference-pages/idempotency) for details.
-"Common::Idempotency::REPLAYED": Present and true when replaying a stored response to an authenticated POST or PUT. See [Idempotency](/api/manual-reference-pages/idempotency) for details.
+"Common::Idempotency::REPLAYED": Sent when the request included an Idempotency-Key. True when replaying a stored response, false otherwise. See [Idempotency](/api/manual-reference-pages/idempotency) for details.
 
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
 "EmbeddedSignUrlResponseExample::SUMMARY": Embedded Sign URL

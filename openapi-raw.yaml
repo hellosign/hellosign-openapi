@@ -15008,8 +15008,6 @@ components:
       required: false
       schema:
         type: boolean
-        enum:
-          - true
       x-hideOn: sdk
   securitySchemes:
     api_key:

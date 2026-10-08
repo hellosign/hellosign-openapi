@@ -15537,12 +15537,10 @@ components:
         format: int64
         example: 1430170900
     Idempotent-Replayed:
-      description: 'Present and true when replaying a stored response to an authenticated POST or PUT. See [Idempotency](/api/manual-reference-pages/idempotency) for details.'
+      description: 'Sent when the request included an Idempotency-Key. True when replaying a stored response, false otherwise. See [Idempotency](/api/manual-reference-pages/idempotency) for details.'
       required: false
       schema:
         type: boolean
-        enum:
-          - true
   securitySchemes:
     api_key:
       type: http
