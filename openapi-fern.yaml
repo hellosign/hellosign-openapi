@@ -95,9 +95,6 @@ paths:
                 $ref: '#/components/examples/AccountCreateRequest'
               oauth_example:
                 $ref: '#/components/examples/AccountCreateRequestOAuth'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -108,8 +105,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -595,9 +590,6 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/AccountUpdateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -608,8 +600,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -866,9 +856,6 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/AccountVerifyRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -879,8 +866,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -1133,9 +1118,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/ApiAppCreateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '201':
           description: successful operation
@@ -1146,8 +1128,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -1748,8 +1728,6 @@ paths:
           schema:
             type: string
           example: 0dd3b823a682527788c4e40cb7b6f7e9
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -1772,8 +1750,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -3121,9 +3097,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/DocumentFieldDetectionRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -3134,8 +3107,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -3399,8 +3370,6 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -3420,8 +3389,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -4616,9 +4583,6 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/FaxLineAddUserRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -4629,8 +4593,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -5198,9 +5160,6 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/FaxLineCreateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -5211,8 +5170,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -6183,9 +6140,6 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/FaxLineRemoveUserRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -6196,8 +6150,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -6693,9 +6645,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/FaxSendRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -6706,8 +6655,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -7539,9 +7486,6 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/ReportCreateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -7552,8 +7496,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -7832,9 +7774,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -7845,8 +7784,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -8531,9 +8468,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestBulkSendWithTemplateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -8544,8 +8478,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -9232,8 +9164,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -9244,8 +9174,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json: {}
         4XX:
@@ -9466,9 +9394,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestCreateEmbeddedRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -9479,8 +9404,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -9981,9 +9904,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestCreateEmbeddedWithTemplateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -9994,8 +9914,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -10417,8 +10335,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -10443,8 +10359,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -11004,8 +10918,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -11030,8 +10942,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -11532,8 +11442,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -11556,8 +11464,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -11980,8 +11886,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -12004,8 +11908,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -13830,8 +13732,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -13842,8 +13742,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -14073,8 +13971,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -14094,8 +13990,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -14360,8 +14254,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -14372,8 +14264,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json: {}
         4XX:
@@ -14585,9 +14475,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -14598,8 +14485,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -15159,9 +15044,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendWithTemplateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -15172,8 +15054,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -15724,8 +15604,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -15745,8 +15623,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -16010,8 +15886,6 @@ paths:
           schema:
             type: string
           example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -16033,8 +15907,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -16292,9 +16164,6 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/TeamCreateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -16305,8 +16174,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -16964,9 +16831,6 @@ paths:
             examples:
               example:
                 $ref: '#/components/examples/TeamUpdateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -16977,8 +16841,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -17954,9 +17816,6 @@ paths:
                 $ref: '#/components/examples/TeamRemoveMemberRequest'
               account_id_example:
                 $ref: '#/components/examples/TeamRemoveMemberRequestAccountId'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '201':
           description: successful operation
@@ -17967,8 +17826,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -18488,8 +18345,6 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -18509,8 +18364,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -18780,9 +18633,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/TemplateCreateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -18793,8 +18643,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -19553,9 +19401,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/TemplateCreateEmbeddedDraftRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -19566,8 +19411,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -20105,8 +19948,6 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -20117,8 +19958,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json: {}
         4XX:
@@ -21593,8 +21432,6 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -21614,8 +21451,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -21882,8 +21717,6 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -21906,8 +21739,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -22189,9 +22020,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -22202,8 +22030,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -22574,9 +22400,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -22587,8 +22410,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -22883,9 +22704,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedWithTemplateRequest'
-      parameters:
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       responses:
         '200':
           description: successful operation
@@ -22896,8 +22714,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -23311,8 +23127,6 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
-        -
-          $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -23332,8 +23146,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-            Idempotent-Replayed:
-              $ref: '#/components/headers/Idempotent-Replayed'
           content:
             application/json:
               schema:
@@ -30393,7 +30205,7 @@ components:
     IdempotencyKey:
       name: Idempotency-Key
       in: header
-      description: Reuse the same key when retrying the same request. See [Idempotency](/api/manual-reference-pages/idempotency) for details.
+      description: Optional header on an authenticated POST or PUT. Reuse the same key when retrying the same request. See [Idempotency](/api/manual-reference-pages/idempotency) for details.
       required: false
       schema:
         type: string
@@ -35315,7 +35127,7 @@ components:
         format: int64
         example: 1430170900
     Idempotent-Replayed:
-      description: Present and true when replaying a stored response.
+      description: Present and true when replaying a stored response to an authenticated POST or PUT. See [Idempotency](/api/manual-reference-pages/idempotency) for details.
       required: false
       schema:
         type: boolean
