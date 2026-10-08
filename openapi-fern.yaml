@@ -3091,9 +3091,6 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DocumentFieldDetectionRequest'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/DocumentFieldDetectionRequest'
@@ -23533,6 +23530,11 @@ components:
           pattern: ^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$
           example: '0-2,5,7-9'
       type: object
+      oneOf:
+        - required:
+            - file
+        - required:
+            - file_url
     EmbeddedEditUrlRequest:
       properties:
         allow_edit_ccs:
