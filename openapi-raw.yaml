@@ -435,14 +435,14 @@ paths:
     get:
       tags:
         - Account
-      summary: 'Get account settings'
-      description: 'account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.'
+      summary: '_t__AccountSettingsGet::SUMMARY'
+      description: '_t__AccountSettingsGet::DESCRIPTION'
       operationId: accountSettingsGet
       parameters:
         -
           name: account_id
           in: query
-          description: 'Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.'
+          description: '_t__AccountSettingsGet::ACCOUNT_ID'
           required: false
           schema:
             type: string
@@ -531,14 +531,14 @@ paths:
     post:
       tags:
         - Account
-      summary: 'Modify account settings'
-      description: 'account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.'
+      summary: '_t__AccountSettingsUpdate::SUMMARY'
+      description: '_t__AccountSettingsUpdate::DESCRIPTION'
       operationId: accountSettingsUpdate
       parameters:
         -
           name: account_id
           in: query
-          description: 'Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.'
+          description: '_t__AccountSettingsUpdate::ACCOUNT_ID'
           required: false
           schema:
             type: string
@@ -6427,14 +6427,14 @@ paths:
     get:
       tags:
         - Team
-      summary: 'Get team settings'
-      description: "team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam."
+      summary: '_t__TeamSettingsGet::SUMMARY'
+      description: '_t__TeamSettingsGet::DESCRIPTION'
       operationId: teamSettingsGet
       parameters:
         -
           name: team_id
           in: query
-          description: "Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam."
+          description: '_t__TeamSettingsGet::TEAM_ID'
           required: false
           schema:
             type: string
@@ -6523,14 +6523,14 @@ paths:
     post:
       tags:
         - Team
-      summary: 'Modify team settings'
-      description: "team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam."
+      summary: '_t__TeamSettingsUpdate::SUMMARY'
+      description: '_t__TeamSettingsUpdate::DESCRIPTION'
       operationId: teamSettingsUpdate
       parameters:
         -
           name: team_id
           in: query
-          description: "Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam."
+          description: '_t__TeamSettingsUpdate::TEAM_ID'
           required: false
           schema:
             type: string
@@ -8543,87 +8543,87 @@ components:
       minProperties: 1
       properties:
         company:
-          description: 'Company name associated with this account or team.'
+          description: '_t__Settings::COMPANY'
           type: string
         custom_signing_redirect_enabled:
-          description: 'Whether signers are redirected to a custom URL after completing a signature request.'
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
           type: boolean
         custom_signing_redirect_url:
-          description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
           type: string
         custom_tagline:
-          description: 'Custom tagline displayed with the account or team branding.'
+          description: '_t__Settings::CUSTOM_TAGLINE'
           type: string
         date_format:
           $ref: '#/components/schemas/DateFormat'
         is_signature_reminders_enabled:
-          description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
+          description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
           type: boolean
         request_email_from:
-          description: 'Sender name shown on signature request emails.'
+          description: '_t__Settings::REQUEST_EMAIL_FROM'
           type: string
         request_email_signature:
-          description: 'Signature appended to signature request emails.'
+          description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
           type: string
         required_signature_types:
-          description: 'Signature creation methods signers may use.'
+          description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
           type: array
           items:
             $ref: '#/components/schemas/RequiredSignatureType'
           uniqueItems: true
         should_enable_tamper_proof:
-          description: 'Whether completed documents include a digital tamper-proof seal.'
+          description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
           type: boolean
         should_include_distinct_pdfs:
-          description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
+          description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
           type: boolean
         should_offer_signer_access_code:
-          description: 'Whether senders can require an access code to verify a signer.'
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
           type: boolean
         should_offer_signer_sms_authentication:
-          description: 'Whether senders can require SMS authentication to verify a signer.'
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
           type: boolean
         should_remove_document_id:
-          description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
+          description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
           type: boolean
         is_notify_on_sign_enabled:
-          description: 'Whether to notify the account when someone signs a document it sent.'
+          description: '_t__AccountSettings::IS_NOTIFY_ON_SIGN_ENABLED'
           type: boolean
         is_notify_on_view_enabled:
-          description: 'Whether to notify the account when someone opens a document it sent.'
+          description: '_t__AccountSettings::IS_NOTIFY_ON_VIEW_ENABLED'
           type: boolean
         should_autocomplete:
-          description: 'Whether values entered in text fields are saved and suggested for future signature requests.'
+          description: '_t__AccountSettings::SHOULD_AUTOCOMPLETE'
           type: boolean
         should_include_requested_pdfs:
-          description: 'Whether completed signature requests include PDF copies in emails sent to the account.'
+          description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS'
           type: boolean
         should_include_requested_pdfs_for_others:
-          description: 'Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.'
+          description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS'
           type: boolean
         should_include_sent_doc_pdfs:
-          description: 'Whether emails sent to the account include PDF copies of documents it sends.'
+          description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS'
           type: boolean
         should_include_sent_doc_pdfs_for_others:
-          description: 'Whether emails sent to recipients include PDF copies of documents the account sends.'
+          description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS'
           type: boolean
         should_send_daily_summary:
-          description: 'Whether to send the account a daily email summarizing outstanding signature requests.'
+          description: '_t__AccountSettings::SHOULD_SEND_DAILY_SUMMARY'
           type: boolean
         should_send_embedded_signature_conf_emails:
-          description: 'Whether to notify the account when it signs a document on a third-party site.'
+          description: '_t__AccountSettings::SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS'
           type: boolean
         should_send_ordered_sr_email:
-          description: 'Whether to notify all parties when an ordered signature request starts.'
+          description: '_t__AccountSettings::SHOULD_SEND_ORDERED_SR_EMAIL'
           type: boolean
         should_send_outbound_conf_emails:
-          description: 'Whether to notify the account when it signs and sends a document.'
+          description: '_t__AccountSettings::SHOULD_SEND_OUTBOUND_CONF_EMAILS'
           type: boolean
         template_link_signature_emails_enabled:
-          description: 'Whether to notify the account when someone signs a document sent by its team through a template link.'
+          description: '_t__AccountSettings::TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED'
           type: boolean
         unset:
-          description: 'Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.'
+          description: '_t__SettingsUpdateRequest::UNSET'
           type: array
           items:
             type: string
@@ -10078,10 +10078,10 @@ components:
           type: integer
       type: object
     BooleanSettingUpdate:
-      description: 'Updates a boolean team setting. Provide `value`, `lock_mode`, or both.'
+      description: '_t__BooleanSettingUpdate::DESCRIPTION'
       properties:
         value:
-          description: 'Boolean value to store.'
+          description: '_t__BooleanSettingUpdate::VALUE'
           type: boolean
         lock_mode:
           $ref: '#/components/schemas/TeamSettingLock'
@@ -10150,7 +10150,7 @@ components:
           type: string
       type: object
     DataResidency:
-      description: 'Storage region for team documents.'
+      description: '_t__DataResidency::DESCRIPTION'
       type: string
       enum:
         - us
@@ -10160,7 +10160,7 @@ components:
         - uk
         - ca
     DataResidencySettingUpdate:
-      description: 'Updates the data residency team setting. Provide `value`, `lock_mode`, or both.'
+      description: '_t__DataResidencySettingUpdate::DESCRIPTION'
       properties:
         value:
           $ref: '#/components/schemas/DataResidency'
@@ -10169,14 +10169,14 @@ components:
       type: object
       additionalProperties: false
     DateFormat:
-      description: 'Date format used to display dates.'
+      description: '_t__DateFormat::DESCRIPTION'
       type: string
       enum:
         - MM/DD/YYYY
         - DD/MM/YYYY
         - YYYY/MM/DD
     DateFormatSettingUpdate:
-      description: 'Updates a date format team setting. Provide `value`, `lock_mode`, or both.'
+      description: '_t__DateFormatSettingUpdate::DESCRIPTION'
       properties:
         value:
           $ref: '#/components/schemas/DateFormat'
@@ -10811,7 +10811,7 @@ components:
           default: false
       type: object
     RequiredSignatureType:
-      description: 'A signature creation method a signer may use.'
+      description: '_t__RequiredSignatureType::DESCRIPTION'
       type: string
       enum:
         - draw
@@ -10819,10 +10819,10 @@ components:
         - type
         - upload
     RequiredSignatureTypesSettingUpdate:
-      description: 'Updates the required signature types team setting. Provide `value`, `lock_mode`, or both.'
+      description: '_t__RequiredSignatureTypesSettingUpdate::DESCRIPTION'
       properties:
         value:
-          description: 'Signature creation methods signers may use.'
+          description: '_t__RequiredSignatureTypesSettingUpdate::VALUE'
           type: array
           items:
             $ref: '#/components/schemas/RequiredSignatureType'
@@ -10990,17 +10990,17 @@ components:
           default: false
       type: object
     StringSettingUpdate:
-      description: 'Updates a string team setting. Provide `value`, `lock_mode`, or both.'
+      description: '_t__StringSettingUpdate::DESCRIPTION'
       properties:
         value:
-          description: 'String value to store.'
+          description: '_t__StringSettingUpdate::VALUE'
           type: string
         lock_mode:
           $ref: '#/components/schemas/TeamSettingLock'
       type: object
       additionalProperties: false
     TeamSettingLock:
-      description: 'Who can change a team setting. `organization_admins` limits changes to organization admins, and subteams use that value. `team_admins` lets admins of a team and its subteams set their own value. `members` lets each member set their own value.'
+      description: '_t__TeamSettingLock::DESCRIPTION'
       type: string
       enum:
         - organization_admins
@@ -11116,132 +11116,132 @@ components:
       minProperties: 1
       properties:
         company:
-          description: 'Company name associated with this account or team.'
+          description: '_t__Settings::COMPANY'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         custom_signing_redirect_enabled:
-          description: 'Whether signers are redirected to a custom URL after completing a signature request.'
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         custom_signing_redirect_url:
-          description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         custom_tagline:
-          description: 'Custom tagline displayed with the account or team branding.'
+          description: '_t__Settings::CUSTOM_TAGLINE'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         date_format:
-          description: 'Date format used to display dates. List the setting in `unset` to inherit the default.'
+          description: '_t__Settings::DATE_FORMAT'
           allOf:
             -
               $ref: '#/components/schemas/DateFormatSettingUpdate'
         is_signature_reminders_enabled:
-          description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
+          description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         request_email_from:
-          description: 'Sender name shown on signature request emails.'
+          description: '_t__Settings::REQUEST_EMAIL_FROM'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         request_email_signature:
-          description: 'Signature appended to signature request emails.'
+          description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         required_signature_types:
-          description: 'Signature creation methods signers may use.'
+          description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
           allOf:
             -
               $ref: '#/components/schemas/RequiredSignatureTypesSettingUpdate'
         should_enable_tamper_proof:
-          description: 'Whether completed documents include a digital tamper-proof seal.'
+          description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         should_include_distinct_pdfs:
-          description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
+          description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         should_offer_signer_access_code:
-          description: 'Whether senders can require an access code to verify a signer.'
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         should_offer_signer_sms_authentication:
-          description: 'Whether senders can require SMS authentication to verify a signer.'
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         should_remove_document_id:
-          description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
+          description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         data_residency:
-          description: 'Storage region for team documents.'
+          description: '_t__TeamSettings::DATA_RESIDENCY'
           allOf:
             -
               $ref: '#/components/schemas/DataResidencySettingUpdate'
         allow_team_delete_document_for_everyone:
-          description: 'Whether team members can delete a document for all participants.'
+          description: '_t__TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         allow_team_download_csv:
-          description: 'Whether team members can download CSV files.'
+          description: '_t__TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         lock_team_template_creation:
-          description: 'Whether team members are prevented from creating templates.'
+          description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_CREATION'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         lock_team_template_gallery:
-          description: 'Whether team members are prevented from using the template gallery.'
+          description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         self_sign_message:
-          description: 'Default message enforced for team members when they create self-signed documents.'
+          description: '_t__TeamSettings::SELF_SIGN_MESSAGE'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         self_sign_title:
-          description: 'Default title enforced for team members when they create self-signed documents.'
+          description: '_t__TeamSettings::SELF_SIGN_TITLE'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         signature_request_message:
-          description: 'Default message enforced for team members when they create signature requests.'
+          description: '_t__TeamSettings::SIGNATURE_REQUEST_MESSAGE'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         signature_request_title:
-          description: 'Default title enforced for team members when they create signature requests.'
+          description: '_t__TeamSettings::SIGNATURE_REQUEST_TITLE'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
         multifactor_auth_app:
-          description: 'Whether authenticator-app multifactor authentication is enabled for the team.'
+          description: '_t__TeamSettings::MULTIFACTOR_AUTH_APP'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         multifactor_auth_sms:
-          description: 'Whether SMS multifactor authentication is enabled for the team.'
+          description: '_t__TeamSettings::MULTIFACTOR_AUTH_SMS'
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
         unset:
-          description: 'Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.'
+          description: '_t__SettingsUpdateRequest::UNSET'
           type: array
           items:
             type: string
@@ -12530,157 +12530,157 @@ components:
         - template_link_signature_emails_enabled
       properties:
         company:
-          description: 'Company name associated with this account or team.'
+          description: '_t__Settings::COMPANY'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         custom_signing_redirect_enabled:
-          description: 'Whether signers are redirected to a custom URL after completing a signature request.'
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         custom_signing_redirect_url:
-          description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         custom_tagline:
-          description: 'Custom tagline displayed with the account or team branding.'
+          description: '_t__Settings::CUSTOM_TAGLINE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         date_format:
-          description: 'Date format used to display dates. List the setting in `unset` to inherit the default.'
+          description: '_t__Settings::DATE_FORMAT'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         is_signature_reminders_enabled:
-          description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
+          description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         request_email_from:
-          description: 'Sender name shown on signature request emails.'
+          description: '_t__Settings::REQUEST_EMAIL_FROM'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         request_email_signature:
-          description: 'Signature appended to signature request emails.'
+          description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         required_signature_types:
-          description: 'Signature creation methods signers may use.'
+          description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_enable_tamper_proof:
-          description: 'Whether completed documents include a digital tamper-proof seal.'
+          description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_include_distinct_pdfs:
-          description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
+          description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_offer_signer_access_code:
-          description: 'Whether senders can require an access code to verify a signer.'
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_offer_signer_sms_authentication:
-          description: 'Whether senders can require SMS authentication to verify a signer.'
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_remove_document_id:
-          description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
+          description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         is_notify_on_sign_enabled:
-          description: 'Whether to notify the account when someone signs a document it sent.'
+          description: '_t__AccountSettings::IS_NOTIFY_ON_SIGN_ENABLED'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         is_notify_on_view_enabled:
-          description: 'Whether to notify the account when someone opens a document it sent.'
+          description: '_t__AccountSettings::IS_NOTIFY_ON_VIEW_ENABLED'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_autocomplete:
-          description: 'Whether values entered in text fields are saved and suggested for future signature requests.'
+          description: '_t__AccountSettings::SHOULD_AUTOCOMPLETE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_include_requested_pdfs:
-          description: 'Whether completed signature requests include PDF copies in emails sent to the account.'
+          description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_include_requested_pdfs_for_others:
-          description: 'Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.'
+          description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_include_sent_doc_pdfs:
-          description: 'Whether emails sent to the account include PDF copies of documents it sends.'
+          description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_include_sent_doc_pdfs_for_others:
-          description: 'Whether emails sent to recipients include PDF copies of documents the account sends.'
+          description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_send_daily_summary:
-          description: 'Whether to send the account a daily email summarizing outstanding signature requests.'
+          description: '_t__AccountSettings::SHOULD_SEND_DAILY_SUMMARY'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_send_embedded_signature_conf_emails:
-          description: 'Whether to notify the account when it signs a document on a third-party site.'
+          description: '_t__AccountSettings::SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_send_ordered_sr_email:
-          description: 'Whether to notify all parties when an ordered signature request starts.'
+          description: '_t__AccountSettings::SHOULD_SEND_ORDERED_SR_EMAIL'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_send_outbound_conf_emails:
-          description: 'Whether to notify the account when it signs and sends a document.'
+          description: '_t__AccountSettings::SHOULD_SEND_OUTBOUND_CONF_EMAILS'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         template_link_signature_emails_enabled:
-          description: 'Whether to notify the account when someone signs a document sent by its team through a template link.'
+          description: '_t__AccountSettings::TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED'
           type: object
           allOf:
             -
@@ -13753,151 +13753,151 @@ components:
         - multifactor_auth_sms
       properties:
         company:
-          description: 'Company name associated with this account or team.'
+          description: '_t__Settings::COMPANY'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         custom_signing_redirect_enabled:
-          description: 'Whether signers are redirected to a custom URL after completing a signature request.'
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         custom_signing_redirect_url:
-          description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         custom_tagline:
-          description: 'Custom tagline displayed with the account or team branding.'
+          description: '_t__Settings::CUSTOM_TAGLINE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         date_format:
-          description: 'Date format used to display dates. List the setting in `unset` to inherit the default.'
+          description: '_t__Settings::DATE_FORMAT'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         is_signature_reminders_enabled:
-          description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
+          description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         request_email_from:
-          description: 'Sender name shown on signature request emails.'
+          description: '_t__Settings::REQUEST_EMAIL_FROM'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         request_email_signature:
-          description: 'Signature appended to signature request emails.'
+          description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         required_signature_types:
-          description: 'Signature creation methods signers may use.'
+          description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_enable_tamper_proof:
-          description: 'Whether completed documents include a digital tamper-proof seal.'
+          description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_include_distinct_pdfs:
-          description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
+          description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_offer_signer_access_code:
-          description: 'Whether senders can require an access code to verify a signer.'
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_offer_signer_sms_authentication:
-          description: 'Whether senders can require SMS authentication to verify a signer.'
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         should_remove_document_id:
-          description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
+          description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         data_residency:
-          description: 'Storage region for team documents.'
+          description: '_t__TeamSettings::DATA_RESIDENCY'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         allow_team_delete_document_for_everyone:
-          description: 'Whether team members can delete a document for all participants.'
+          description: '_t__TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         allow_team_download_csv:
-          description: 'Whether team members can download CSV files.'
+          description: '_t__TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         lock_team_template_creation:
-          description: 'Whether team members are prevented from creating templates.'
+          description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_CREATION'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         lock_team_template_gallery:
-          description: 'Whether team members are prevented from using the template gallery.'
+          description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         self_sign_message:
-          description: 'Default message enforced for team members when they create self-signed documents.'
+          description: '_t__TeamSettings::SELF_SIGN_MESSAGE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         self_sign_title:
-          description: 'Default title enforced for team members when they create self-signed documents.'
+          description: '_t__TeamSettings::SELF_SIGN_TITLE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         signature_request_message:
-          description: 'Default message enforced for team members when they create signature requests.'
+          description: '_t__TeamSettings::SIGNATURE_REQUEST_MESSAGE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         signature_request_title:
-          description: 'Default title enforced for team members when they create signature requests.'
+          description: '_t__TeamSettings::SIGNATURE_REQUEST_TITLE'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         multifactor_auth_app:
-          description: 'Whether authenticator-app multifactor authentication is enabled for the team.'
+          description: '_t__TeamSettings::MULTIFACTOR_AUTH_APP'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
         multifactor_auth_sms:
-          description: 'Whether SMS multifactor authentication is enabled for the team.'
+          description: '_t__TeamSettings::MULTIFACTOR_AUTH_SMS'
           type: object
           allOf:
             -

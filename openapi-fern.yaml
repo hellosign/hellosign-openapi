@@ -1143,7 +1143,7 @@ paths:
       x-meta:
         seo:
           title: Get Account Settings | API Documentation | Dropbox Sign for Developers
-          description: 'Return the settings for the authenticated account, or for another account in the organization when an organization admin supplies an account ID.'
+          description: account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
     post:
       tags:
         - Account
@@ -1435,7 +1435,7 @@ paths:
       x-meta:
         seo:
           title: Update Account Settings | API Documentation | Dropbox Sign for Developers
-          description: 'Update settings for the authenticated account, or for another account in the organization when an organization admin supplies an account ID.'
+          description: account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
   /account/verify:
     post:
       tags:
@@ -19034,7 +19034,7 @@ paths:
       x-meta:
         seo:
           title: Get Team Settings | API Documentation | Dropbox Sign for Developers
-          description: 'Return the settings for the authenticated account''s team, or for a subteam when an organization admin supplies a team ID.'
+          description: team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
     post:
       tags:
         - Team
@@ -19319,7 +19319,7 @@ paths:
       x-meta:
         seo:
           title: Update Team Settings | API Documentation | Dropbox Sign for Developers
-          description: 'Update settings for the authenticated account''s team, or for a subteam when an organization admin supplies a team ID. Lock modes name who can change each setting.'
+          description: team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
   /team/sub_teams/{team_id}:
     get:
       tags:
