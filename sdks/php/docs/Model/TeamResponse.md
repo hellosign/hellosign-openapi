@@ -6,6 +6,8 @@ Contains information about your team and its members
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+| `team_id` | ```string``` |  The id of a team  |  |
+| `parent_team_id` | ```string``` |  _t__Team::PARENT_TEAM_ID  |  |
 | `name` | ```string``` |  The name of your Team  |  |
 | `accounts` | [```\Dropbox\Sign\Model\AccountResponse[]```](AccountResponse.md) |    |  |
 | `invited_accounts` | [```\Dropbox\Sign\Model\AccountResponse[]```](AccountResponse.md) |  A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.  |  |

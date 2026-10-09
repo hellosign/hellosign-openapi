@@ -105,6 +105,8 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 |```AccountApi``` | [```account_create```](docs/AccountApi.md#account_create) | ```POST /account/create``` | Create Account|
 ```AccountApi``` | [```account_get```](docs/AccountApi.md#account_get) | ```GET /account``` | Get Account|
+```AccountApi``` | [```account_settings_get```](docs/AccountApi.md#account_settings_get) | ```GET /account/settings``` | Get account settings|
+```AccountApi``` | [```account_settings_update```](docs/AccountApi.md#account_settings_update) | ```POST /account/settings``` | Modify account settings|
 ```AccountApi``` | [```account_update```](docs/AccountApi.md#account_update) | ```PUT /account``` | Update Account|
 ```AccountApi``` | [```account_verify```](docs/AccountApi.md#account_verify) | ```POST /account/verify``` | Verify Account|
 |```ApiAppApi``` | [```api_app_create```](docs/ApiAppApi.md#api_app_create) | ```POST /api_app``` | Create API App|
@@ -160,6 +162,8 @@ Class | Method | HTTP request | Description
 ```TeamApi``` | [```team_invites```](docs/TeamApi.md#team_invites) | ```GET /team/invites``` | List Team Invites|
 ```TeamApi``` | [```team_members```](docs/TeamApi.md#team_members) | ```GET /team/members/{team_id}``` | List Team Members|
 ```TeamApi``` | [```team_remove_member```](docs/TeamApi.md#team_remove_member) | ```POST /team/remove_member``` | Remove User from Team|
+```TeamApi``` | [```team_settings_get```](docs/TeamApi.md#team_settings_get) | ```GET /team/settings``` | Get team settings|
+```TeamApi``` | [```team_settings_update```](docs/TeamApi.md#team_settings_update) | ```POST /team/settings``` | Modify team settings|
 ```TeamApi``` | [```team_sub_teams```](docs/TeamApi.md#team_sub_teams) | ```GET /team/sub_teams/{team_id}``` | List Sub Teams|
 ```TeamApi``` | [```team_update```](docs/TeamApi.md#team_update) | ```PUT /team``` | Update Team|
 |```TemplateApi``` | [```template_add_user```](docs/TemplateApi.md#template_add_user) | ```POST /template/add_user/{template_id}``` | Add User to Template|
@@ -188,6 +192,9 @@ Class | Method | HTTP request | Description
  - [AccountResponseQuotas](docs/AccountResponseQuotas.md)
  - [AccountResponseSettings](docs/AccountResponseSettings.md)
  - [AccountResponseUsage](docs/AccountResponseUsage.md)
+ - [AccountSettingsResponse](docs/AccountSettingsResponse.md)
+ - [AccountSettingsResponseSettings](docs/AccountSettingsResponseSettings.md)
+ - [AccountSettingsUpdateRequest](docs/AccountSettingsUpdateRequest.md)
  - [AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [AccountVerifyRequest](docs/AccountVerifyRequest.md)
  - [AccountVerifyResponse](docs/AccountVerifyResponse.md)
@@ -201,11 +208,16 @@ Class | Method | HTTP request | Description
  - [ApiAppResponseOwnerAccount](docs/ApiAppResponseOwnerAccount.md)
  - [ApiAppResponseWhiteLabelingOptions](docs/ApiAppResponseWhiteLabelingOptions.md)
  - [ApiAppUpdateRequest](docs/ApiAppUpdateRequest.md)
+ - [BooleanSettingUpdate](docs/BooleanSettingUpdate.md)
  - [BulkSendJobGetResponse](docs/BulkSendJobGetResponse.md)
  - [BulkSendJobGetResponseSignatureRequests](docs/BulkSendJobGetResponseSignatureRequests.md)
  - [BulkSendJobListResponse](docs/BulkSendJobListResponse.md)
  - [BulkSendJobResponse](docs/BulkSendJobResponse.md)
  - [BulkSendJobSendResponse](docs/BulkSendJobSendResponse.md)
+ - [DataResidency](docs/DataResidency.md)
+ - [DataResidencySettingUpdate](docs/DataResidencySettingUpdate.md)
+ - [DateFormat](docs/DateFormat.md)
+ - [DateFormatSettingUpdate](docs/DateFormatSettingUpdate.md)
  - [DocumentFieldDetectionRequest](docs/DocumentFieldDetectionRequest.md)
  - [DocumentFieldDetectionResponse](docs/DocumentFieldDetectionResponse.md)
  - [DocumentFieldDetectionResponseDetectionResult](docs/DocumentFieldDetectionResponseDetectionResult.md)
@@ -244,6 +256,10 @@ Class | Method | HTTP request | Description
  - [ReportCreateRequest](docs/ReportCreateRequest.md)
  - [ReportCreateResponse](docs/ReportCreateResponse.md)
  - [ReportResponse](docs/ReportResponse.md)
+ - [RequiredSignatureType](docs/RequiredSignatureType.md)
+ - [RequiredSignatureTypesSettingUpdate](docs/RequiredSignatureTypesSettingUpdate.md)
+ - [SettingLockResponse](docs/SettingLockResponse.md)
+ - [SettingResponse](docs/SettingResponse.md)
  - [SignatureRequestBulkCreateEmbeddedWithTemplateRequest](docs/SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md)
  - [SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
@@ -276,6 +292,7 @@ Class | Method | HTTP request | Description
  - [SignatureRequestSendRequest](docs/SignatureRequestSendRequest.md)
  - [SignatureRequestSendWithTemplateRequest](docs/SignatureRequestSendWithTemplateRequest.md)
  - [SignatureRequestUpdateRequest](docs/SignatureRequestUpdateRequest.md)
+ - [StringSettingUpdate](docs/StringSettingUpdate.md)
  - [SubAttachment](docs/SubAttachment.md)
  - [SubBulkSignerList](docs/SubBulkSignerList.md)
  - [SubBulkSignerListCustomField](docs/SubBulkSignerListCustomField.md)
@@ -324,6 +341,10 @@ Class | Method | HTTP request | Description
  - [TeamParentResponse](docs/TeamParentResponse.md)
  - [TeamRemoveMemberRequest](docs/TeamRemoveMemberRequest.md)
  - [TeamResponse](docs/TeamResponse.md)
+ - [TeamSettingLock](docs/TeamSettingLock.md)
+ - [TeamSettingsResponse](docs/TeamSettingsResponse.md)
+ - [TeamSettingsResponseSettings](docs/TeamSettingsResponseSettings.md)
+ - [TeamSettingsUpdateRequest](docs/TeamSettingsUpdateRequest.md)
  - [TeamSubTeamsResponse](docs/TeamSubTeamsResponse.md)
  - [TeamUpdateRequest](docs/TeamUpdateRequest.md)
  - [TemplateAddUserRequest](docs/TemplateAddUserRequest.md)

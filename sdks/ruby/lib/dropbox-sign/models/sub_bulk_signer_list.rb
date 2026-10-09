@@ -26,11 +26,16 @@ module Dropbox::Sign
     # @return [Array<SubSignatureRequestTemplateSigner>]
     attr_accessor :signers
 
+    # _t__Sub::BulkSigner::METADATA
+    # @return [Hash<String, Object>]
+    attr_accessor :metadata
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'custom_fields' => :'custom_fields',
-        :'signers' => :'signers'
+        :'signers' => :'signers',
+        :'metadata' => :'metadata'
       }
     end
 
@@ -48,7 +53,8 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'custom_fields' => :'Array<SubBulkSignerListCustomField>',
-        :'signers' => :'Array<SubSignatureRequestTemplateSigner>'
+        :'signers' => :'Array<SubSignatureRequestTemplateSigner>',
+        :'metadata' => :'Hash<String, Object>'
       }
     end
 
@@ -110,19 +116,40 @@ module Dropbox::Sign
           self.signers = value
         end
       end
+
+      if attributes.key?(:'metadata')
+        if (value = attributes[:'metadata']).is_a?(Hash)
+          self.metadata = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@metadata.nil? && @metadata.length > 10
+        invalid_properties.push('invalid value for "metadata", number of items must be less than or equal to 10.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@metadata.nil? && @metadata.length > 10
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] metadata Value to be assigned
+    def metadata=(metadata)
+      if metadata.length > 10
+        fail ArgumentError, 'invalid value for "metadata", number of items must be less than or equal to 10.'
+      end
+
+      @metadata = metadata
     end
 
     # Checks equality by comparing each attribute.
@@ -131,7 +158,8 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           custom_fields == o.custom_fields &&
-          signers == o.signers
+          signers == o.signers &&
+          metadata == o.metadata
     end
 
     # @see the `==` method
@@ -143,7 +171,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_fields, signers].hash
+      [custom_fields, signers, metadata].hash
     end
 
     # Builds the object from hash

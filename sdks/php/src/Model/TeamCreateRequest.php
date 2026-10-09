@@ -58,6 +58,7 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $openAPITypes = [
         'name' => 'string',
+        'parent_team_id' => 'string',
     ];
 
     /**
@@ -69,6 +70,7 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $openAPIFormats = [
         'name' => null,
+        'parent_team_id' => null,
     ];
 
     /**
@@ -78,6 +80,7 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPINullables = [
         'name' => false,
+        'parent_team_id' => false,
     ];
 
     /**
@@ -159,6 +162,7 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'parent_team_id' => 'parent_team_id',
     ];
 
     /**
@@ -168,6 +172,7 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $setters = [
         'name' => 'setName',
+        'parent_team_id' => 'setParentTeamId',
     ];
 
     /**
@@ -177,6 +182,7 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $getters = [
         'name' => 'getName',
+        'parent_team_id' => 'getParentTeamId',
     ];
 
     /**
@@ -236,6 +242,7 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('name', $data ?? [], 'Untitled Team');
+        $this->setIfExists('parent_team_id', $data ?? [], null);
     }
 
     /**
@@ -318,6 +325,33 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_team_id
+     *
+     * @return string|null
+     */
+    public function getParentTeamId()
+    {
+        return $this->container['parent_team_id'];
+    }
+
+    /**
+     * Sets parent_team_id
+     *
+     * @param string|null $parent_team_id _t__TeamCreate::PARENT_TEAM_ID
+     *
+     * @return self
+     */
+    public function setParentTeamId(?string $parent_team_id)
+    {
+        if (is_null($parent_team_id)) {
+            throw new InvalidArgumentException('non-nullable parent_team_id cannot be null');
+        }
+        $this->container['parent_team_id'] = $parent_team_id;
 
         return $this;
     }

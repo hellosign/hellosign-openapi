@@ -12,6 +12,8 @@ Method | HTTP request | Description
 |[```team_invites```](TeamApi.md#team_invites) | ```GET /team/invites``` | List Team Invites|
 |[```team_members```](TeamApi.md#team_members) | ```GET /team/members/{team_id}``` | List Team Members|
 |[```team_remove_member```](TeamApi.md#team_remove_member) | ```POST /team/remove_member``` | Remove User from Team|
+|[```team_settings_get```](TeamApi.md#team_settings_get) | ```GET /team/settings``` | Get team settings|
+|[```team_settings_update```](TeamApi.md#team_settings_update) | ```POST /team/settings``` | Modify team settings|
 |[```team_sub_teams```](TeamApi.md#team_sub_teams) | ```GET /team/sub_teams/{team_id}``` | List Sub Teams|
 |[```team_update```](TeamApi.md#team_update) | ```PUT /team``` | Update Team|
 
@@ -531,6 +533,169 @@ with ApiClient(configuration) as api_client:
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```team_settings_get```
+> ```TeamSettingsResponse team_settings_get()```
+
+Get team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Example
+
+* Basic Authentication (api_key):
+* Bearer (JWT) Authentication (oauth2):
+
+```python
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, api
+
+configuration = Configuration(
+    username="YOUR_API_KEY",
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    try:
+        response = api.TeamApi(api_client).team_settings_get()
+        company = response.settings.company
+        data_residency = response.settings.data_residency
+
+        pprint(response)
+        pprint(
+            {
+                "team_id": response.team_id,
+                "company": {
+                    "value": company.value,
+                    "is_inherited": company.is_inherited,
+                    "source": company.source,
+                    "type": company.type,
+                    "writable": company.writable,
+                    "lock": {
+                        "mode": company.lock.mode,
+                        "source": company.lock.source,
+                    },
+                },
+                "data_residency": {
+                    "value": data_residency.value,
+                    "is_inherited": data_residency.is_inherited,
+                    "source": data_residency.source,
+                    "type": data_residency.type,
+                    "writable": data_residency.writable,
+                    "lock": {
+                        "mode": data_residency.lock.mode,
+                        "source": data_residency.lock.source,
+                    },
+                },
+                "warnings": response.warnings,
+            }
+        )
+    except ApiException as e:
+        print("Exception when calling TeamApi#team_settings_get: %s\n" % e)
+
+```
+```
+
+### Parameters
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `team_id` | **str** | Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional] |
+
+### Return type
+
+[**TeamSettingsResponse**](TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```team_settings_update```
+> ```TeamSettingsResponse team_settings_update(team_settings_update_request)```
+
+Modify team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Example
+
+* Basic Authentication (api_key):
+* Bearer (JWT) Authentication (oauth2):
+
+```python
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
+
+configuration = Configuration(
+    username="YOUR_API_KEY",
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    team_settings_update_request = models.TeamSettingsUpdateRequest(
+        data_residency=models.DataResidencySettingUpdate(
+            value=models.DataResidency.EU,
+        ),
+        company=models.StringSettingUpdate(
+            value="Northwind",
+            lock_mode=models.TeamSettingLock.ORGANIZATION_ADMINS,
+        ),
+    )
+
+    try:
+        response = api.TeamApi(api_client).team_settings_update(
+            team_settings_update_request=team_settings_update_request,
+        )
+
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling TeamApi#team_settings_update: %s\n" % e)
+
+```
+```
+
+### Parameters
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `team_settings_update_request` | [**TeamSettingsUpdateRequest**](TeamSettingsUpdateRequest.md) |  |  |
+| `team_id` | **str** | Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional] |
+
+### Return type
+
+[**TeamSettingsResponse**](TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

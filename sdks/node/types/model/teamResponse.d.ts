@@ -1,6 +1,8 @@
 import { AttributeTypeMap } from "./";
 import { AccountResponse } from "./accountResponse";
 export declare class TeamResponse {
+    "teamId"?: string;
+    "parentTeamId"?: string;
     "name"?: string;
     "accounts"?: Array<AccountResponse>;
     "invitedAccounts"?: Array<AccountResponse>;

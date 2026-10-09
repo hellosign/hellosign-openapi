@@ -4,6 +4,9 @@ import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplate
 export declare class SubBulkSignerList {
     "customFields"?: Array<SubBulkSignerListCustomField>;
     "signers"?: Array<SubSignatureRequestTemplateSigner>;
+    "metadata"?: {
+        [key: string]: any;
+    };
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

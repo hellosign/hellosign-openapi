@@ -6,6 +6,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |--------|--------------|-------------|
 | [**AccountCreate**](AccountApi.md#accountcreate) | **POST** /account/create | Create Account |
 | [**AccountGet**](AccountApi.md#accountget) | **GET** /account | Get Account |
+| [**AccountSettingsGet**](AccountApi.md#accountsettingsget) | **GET** /account/settings | Get account settings |
+| [**AccountSettingsUpdate**](AccountApi.md#accountsettingsupdate) | **POST** /account/settings | Modify account settings |
 | [**AccountUpdate**](AccountApi.md#accountupdate) | **PUT** /account | Update Account |
 | [**AccountVerify**](AccountApi.md#accountverify) | **POST** /account/verify | Verify Account |
 
@@ -193,6 +195,212 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="accountsettingsget"></a>
+# **AccountSettingsGet**
+> AccountSettingsResponse AccountSettingsGet (string? accountId = null)
+
+Get account settings
+
+account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+
+### Example
+```csharp
+using System;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+
+namespace Dropbox.SignSandbox;
+
+public class AccountSettingsGetExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+        try
+        {
+            var response = new AccountApi(config).AccountSettingsGet();
+            var company = response.Settings.Company;
+
+            Console.WriteLine(response);
+            Console.WriteLine(response.AccountId);
+            Console.WriteLine(company.Value);
+            Console.WriteLine(company.IsInherited);
+            Console.WriteLine(company.Source);
+            Console.WriteLine(company.Type);
+            Console.WriteLine(company.Writable);
+            Console.WriteLine(company.Lock.Mode);
+            Console.WriteLine(company.Lock.Source);
+            Console.WriteLine(response.Warnings);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling AccountApi#AccountSettingsGet: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the AccountSettingsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get account settings
+    ApiResponse<AccountSettingsResponse> response = apiInstance.AccountSettingsGetWithHttpInfo(accountId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AccountApi.AccountSettingsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountId** | **string?** | Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. | [optional]  |
+
+### Return type
+
+[**AccountSettingsResponse**](AccountSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="accountsettingsupdate"></a>
+# **AccountSettingsUpdate**
+> AccountSettingsResponse AccountSettingsUpdate (AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = null)
+
+Modify account settings
+
+account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+namespace Dropbox.SignSandbox;
+
+public class AccountSettingsUpdateExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+        var accountSettingsUpdateRequest = new AccountSettingsUpdateRequest(
+            dateFormat: DateFormat.MMDDYYYY,
+            requiredSignatureTypes: new List<RequiredSignatureType>()
+            {
+                RequiredSignatureType.Draw,
+                RequiredSignatureType.Type,
+            },
+            shouldEnableTamperProof: false,
+            unset: new List<string>() { "company" }
+        );
+
+        try
+        {
+            var response = new AccountApi(config).AccountSettingsUpdate(
+                accountSettingsUpdateRequest: accountSettingsUpdateRequest
+            );
+
+            Console.WriteLine(response);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling AccountApi#AccountSettingsUpdate: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the AccountSettingsUpdateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Modify account settings
+    ApiResponse<AccountSettingsResponse> response = apiInstance.AccountSettingsUpdateWithHttpInfo(accountSettingsUpdateRequest, accountId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AccountApi.AccountSettingsUpdateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountSettingsUpdateRequest** | [**AccountSettingsUpdateRequest**](AccountSettingsUpdateRequest.md) |  |  |
+| **accountId** | **string?** | Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. | [optional]  |
+
+### Return type
+
+[**AccountSettingsResponse**](AccountSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

@@ -431,17 +431,17 @@ paths:
         seo:
           title: '_t__AccountUpdate::SEO::TITLE'
           description: '_t__AccountUpdate::SEO::DESCRIPTION'
-  '/account/settings/{account_id}':
+  /account/settings:
     get:
       tags:
         - Account
       summary: 'Get account settings'
-      description: 'The account ID is optional and defaults to the authenticated account. A team admin can specify another account on a team they administer.'
+      description: 'account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.'
       operationId: accountSettingsGet
       parameters:
         -
           name: account_id
-          in: path
+          in: query
           description: 'Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.'
           required: false
           schema:
@@ -532,12 +532,12 @@ paths:
       tags:
         - Account
       summary: 'Modify account settings'
-      description: 'The account ID is optional and defaults to the authenticated account. A team admin can specify another account on a team they administer.'
+      description: 'account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.'
       operationId: accountSettingsUpdate
       parameters:
         -
           name: account_id
-          in: path
+          in: query
           description: 'Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.'
           required: false
           schema:
@@ -6423,17 +6423,17 @@ paths:
         seo:
           title: '_t__TeamRemoveMember::SEO::TITLE'
           description: '_t__TeamRemoveMember::SEO::DESCRIPTION'
-  '/team/settings/{team_id}':
+  /team/settings:
     get:
       tags:
         - Team
       summary: 'Get team settings'
-      description: "The team ID is optional and defaults to the authenticated account's team. An organization admin can specify a subteam."
+      description: "team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam."
       operationId: teamSettingsGet
       parameters:
         -
           name: team_id
-          in: path
+          in: query
           description: "Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam."
           required: false
           schema:
@@ -6524,12 +6524,12 @@ paths:
       tags:
         - Team
       summary: 'Modify team settings'
-      description: "The team ID is optional and defaults to the authenticated account's team. An organization admin can specify a subteam."
+      description: "team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam."
       operationId: teamSettingsUpdate
       parameters:
         -
           name: team_id
-          in: path
+          in: query
           description: "Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam."
           required: false
           schema:
@@ -11210,22 +11210,22 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/BooleanSettingUpdate'
-        locked_self_sign_message:
+        self_sign_message:
           description: 'Default message enforced for team members when they create self-signed documents.'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
-        locked_self_sign_title:
+        self_sign_title:
           description: 'Default title enforced for team members when they create self-signed documents.'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
-        locked_signature_request_message:
+        signature_request_message:
           description: 'Default message enforced for team members when they create signature requests.'
           allOf:
             -
               $ref: '#/components/schemas/StringSettingUpdate'
-        locked_signature_request_title:
+        signature_request_title:
           description: 'Default title enforced for team members when they create signature requests.'
           allOf:
             -
@@ -11265,10 +11265,10 @@ components:
               - allow_team_download_csv
               - lock_team_template_creation
               - lock_team_template_gallery
-              - locked_self_sign_message
-              - locked_self_sign_title
-              - locked_signature_request_message
-              - locked_signature_request_title
+              - self_sign_message
+              - self_sign_title
+              - signature_request_message
+              - signature_request_title
               - multifactor_auth_app
               - multifactor_auth_sms
           uniqueItems: true
@@ -13745,10 +13745,10 @@ components:
         - allow_team_download_csv
         - lock_team_template_creation
         - lock_team_template_gallery
-        - locked_self_sign_message
-        - locked_self_sign_title
-        - locked_signature_request_message
-        - locked_signature_request_title
+        - self_sign_message
+        - self_sign_title
+        - signature_request_message
+        - signature_request_title
         - multifactor_auth_app
         - multifactor_auth_sms
       properties:
@@ -13866,25 +13866,25 @@ components:
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
-        locked_self_sign_message:
+        self_sign_message:
           description: 'Default message enforced for team members when they create self-signed documents.'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
-        locked_self_sign_title:
+        self_sign_title:
           description: 'Default title enforced for team members when they create self-signed documents.'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
-        locked_signature_request_message:
+        signature_request_message:
           description: 'Default message enforced for team members when they create signature requests.'
           type: object
           allOf:
             -
               $ref: '#/components/schemas/SettingResponse'
-        locked_signature_request_title:
+        signature_request_title:
           description: 'Default title enforced for team members when they create signature requests.'
           type: object
           allOf:

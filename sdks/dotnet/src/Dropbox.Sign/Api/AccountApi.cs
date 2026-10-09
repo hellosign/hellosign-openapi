@@ -80,6 +80,58 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of AccountGetResponse</returns>
         ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0);
         /// <summary>
+        /// Get account settings
+        /// </summary>
+        /// <remarks>
+        /// account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>AccountSettingsResponse</returns>
+        AccountSettingsResponse AccountSettingsGet(string? accountId = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Get account settings
+        /// </summary>
+        /// <remarks>
+        /// account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of AccountSettingsResponse</returns>
+        ApiResponse<AccountSettingsResponse> AccountSettingsGetWithHttpInfo(string? accountId = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// Modify account settings
+        /// </summary>
+        /// <remarks>
+        /// account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountSettingsUpdateRequest"></param>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>AccountSettingsResponse</returns>
+        AccountSettingsResponse AccountSettingsUpdate(AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Modify account settings
+        /// </summary>
+        /// <remarks>
+        /// account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountSettingsUpdateRequest"></param>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of AccountSettingsResponse</returns>
+        ApiResponse<AccountSettingsResponse> AccountSettingsUpdateWithHttpInfo(AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = default(string?), int operationIndex = 0);
+        /// <summary>
         /// Update Account
         /// </summary>
         /// <remarks>
@@ -194,6 +246,62 @@ namespace Dropbox.Sign.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get account settings
+        /// </summary>
+        /// <remarks>
+        /// account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AccountSettingsResponse</returns>
+        System.Threading.Tasks.Task<AccountSettingsResponse> AccountSettingsGetAsync(string? accountId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get account settings
+        /// </summary>
+        /// <remarks>
+        /// account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AccountSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AccountSettingsResponse>> AccountSettingsGetWithHttpInfoAsync(string? accountId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Modify account settings
+        /// </summary>
+        /// <remarks>
+        /// account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountSettingsUpdateRequest"></param>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AccountSettingsResponse</returns>
+        System.Threading.Tasks.Task<AccountSettingsResponse> AccountSettingsUpdateAsync(AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Modify account settings
+        /// </summary>
+        /// <remarks>
+        /// account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountSettingsUpdateRequest"></param>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AccountSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AccountSettingsResponse>> AccountSettingsUpdateWithHttpInfoAsync(AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Account
         /// </summary>
@@ -725,6 +833,372 @@ namespace Dropbox.Sign.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AccountGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get account settings account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>AccountSettingsResponse</returns>
+        public AccountSettingsResponse AccountSettingsGet(string? accountId = default(string?), int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<AccountSettingsResponse> localVarResponse = AccountSettingsGetWithHttpInfo(accountId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get account settings account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of AccountSettingsResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<AccountSettingsResponse> AccountSettingsGetWithHttpInfo(string? accountId = default(string?), int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (accountId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
+            }
+
+            localVarRequestOptions.Operation = "AccountApi.AccountSettingsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<AccountSettingsResponse>("/account/settings", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AccountSettingsGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get account settings account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AccountSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<AccountSettingsResponse> AccountSettingsGetAsync(string? accountId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<AccountSettingsResponse> localVarResponse = await AccountSettingsGetWithHttpInfoAsync(accountId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get account settings account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AccountSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountSettingsResponse>> AccountSettingsGetWithHttpInfoAsync(string? accountId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (accountId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
+            }
+
+            localVarRequestOptions.Operation = "AccountApi.AccountSettingsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AccountSettingsResponse>("/account/settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AccountSettingsGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Modify account settings account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountSettingsUpdateRequest"></param>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>AccountSettingsResponse</returns>
+        public AccountSettingsResponse AccountSettingsUpdate(AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = default(string?), int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<AccountSettingsResponse> localVarResponse = AccountSettingsUpdateWithHttpInfo(accountSettingsUpdateRequest, accountId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Modify account settings account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountSettingsUpdateRequest"></param>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of AccountSettingsResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<AccountSettingsResponse> AccountSettingsUpdateWithHttpInfo(AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'accountSettingsUpdateRequest' is set
+            if (accountSettingsUpdateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'accountSettingsUpdateRequest' when calling AccountApi->AccountSettingsUpdate");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = accountSettingsUpdateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = accountSettingsUpdateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (accountId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
+            }
+
+            localVarRequestOptions.Operation = "AccountApi.AccountSettingsUpdate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AccountSettingsResponse>("/account/settings", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AccountSettingsUpdate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Modify account settings account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountSettingsUpdateRequest"></param>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AccountSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<AccountSettingsResponse> AccountSettingsUpdateAsync(AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<AccountSettingsResponse> localVarResponse = await AccountSettingsUpdateWithHttpInfoAsync(accountSettingsUpdateRequest, accountId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Modify account settings account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/AccountSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountSettingsUpdateRequest"></param>
+        /// <param name="accountId">Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AccountSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountSettingsResponse>> AccountSettingsUpdateWithHttpInfoAsync(AccountSettingsUpdateRequest accountSettingsUpdateRequest, string? accountId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'accountSettingsUpdateRequest' is set
+            if (accountSettingsUpdateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'accountSettingsUpdateRequest' when calling AccountApi->AccountSettingsUpdate");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = accountSettingsUpdateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = accountSettingsUpdateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (accountId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
+            }
+
+            localVarRequestOptions.Operation = "AccountApi.AccountSettingsUpdate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AccountSettingsResponse>("/account/settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AccountSettingsUpdate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

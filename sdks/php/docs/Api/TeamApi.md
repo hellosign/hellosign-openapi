@@ -12,6 +12,8 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**teamInvites()**](TeamApi.md#teamInvites) | **GET** /team/invites | List Team Invites |
 | [**teamMembers()**](TeamApi.md#teamMembers) | **GET** /team/members/{team_id} | List Team Members |
 | [**teamRemoveMember()**](TeamApi.md#teamRemoveMember) | **POST** /team/remove_member | Remove User from Team |
+| [**teamSettingsGet()**](TeamApi.md#teamSettingsGet) | **GET** /team/settings | Get team settings |
+| [**teamSettingsUpdate()**](TeamApi.md#teamSettingsUpdate) | **POST** /team/settings | Modify team settings |
 | [**teamSubTeams()**](TeamApi.md#teamSubTeams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | [**teamUpdate()**](TeamApi.md#teamUpdate) | **PUT** /team | Update Team |
 
@@ -486,6 +488,158 @@ try {
 ### Return type
 
 [**\Dropbox\Sign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `teamSettingsGet()`
+
+```php
+teamSettingsGet($team_id): \Dropbox\Sign\Model\TeamSettingsResponse
+```
+Get team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Example
+
+```php
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername('YOUR_API_KEY');
+// $config->setAccessToken('YOUR_ACCESS_TOKEN');
+
+try {
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamSettingsGet();
+    $company = $response->getSettings()->getCompany();
+    $data_residency = $response->getSettings()->getDataResidency();
+
+    print_r($response);
+    print_r([
+        'team_id' => $response->getTeamId(),
+        'company' => [
+            'value' => $company->getValue(),
+            'is_inherited' => $company->getIsInherited(),
+            'source' => $company->getSource(),
+            'type' => $company->getType(),
+            'writable' => $company->getWritable(),
+            'lock' => [
+                'mode' => $company->getLock()->getMode(),
+                'source' => $company->getLock()->getSource(),
+            ],
+        ],
+        'data_residency' => [
+            'value' => $data_residency->getValue(),
+            'is_inherited' => $data_residency->getIsInherited(),
+            'source' => $data_residency->getSource(),
+            'type' => $data_residency->getType(),
+            'writable' => $data_residency->getWritable(),
+            'lock' => [
+                'mode' => $data_residency->getLock()->getMode(),
+                'source' => $data_residency->getLock()->getSource(),
+            ],
+        ],
+        'warnings' => $response->getWarnings(),
+    ]);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling TeamApi#teamSettingsGet: {$e->getMessage()}";
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **team_id** | **string**| Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional] |
+
+### Return type
+
+[**\Dropbox\Sign\Model\TeamSettingsResponse**](../Model/TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `teamSettingsUpdate()`
+
+```php
+teamSettingsUpdate($team_settings_update_request, $team_id): \Dropbox\Sign\Model\TeamSettingsResponse
+```
+Modify team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Example
+
+```php
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername('YOUR_API_KEY');
+// $config->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$team_settings_update_request = (new Dropbox\Sign\Model\TeamSettingsUpdateRequest())
+    ->setDataResidency((new Dropbox\Sign\Model\DataResidencySettingUpdate())
+        ->setValue(Dropbox\Sign\Model\DataResidency::EU))
+    ->setCompany((new Dropbox\Sign\Model\StringSettingUpdate())
+        ->setValue('Northwind')
+        ->setLockMode(Dropbox\Sign\Model\TeamSettingLock::ORGANIZATION_ADMINS));
+
+try {
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamSettingsUpdate(
+        team_settings_update_request: $team_settings_update_request,
+    );
+
+    print_r($response);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling TeamApi#teamSettingsUpdate: {$e->getMessage()}";
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **team_settings_update_request** | [**\Dropbox\Sign\Model\TeamSettingsUpdateRequest**](../Model/TeamSettingsUpdateRequest.md)|  | |
+| **team_id** | **string**| Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional] |
+
+### Return type
+
+[**\Dropbox\Sign\Model\TeamSettingsResponse**](../Model/TeamSettingsResponse.md)
 
 ### Authorization
 

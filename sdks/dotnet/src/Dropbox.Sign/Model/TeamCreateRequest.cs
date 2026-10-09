@@ -42,11 +42,13 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TeamCreateRequest" /> class.
         /// </summary>
         /// <param name="name">The name of your Team. (default to &quot;Untitled Team&quot;).</param>
-        public TeamCreateRequest(string name = @"Untitled Team")
+        /// <param name="parentTeamId">_t__TeamCreate::PARENT_TEAM_ID.</param>
+        public TeamCreateRequest(string name = @"Untitled Team", string parentTeamId = default(string))
         {
 
             // use default value if no "name" provided
             this.Name = name ?? "Untitled Team";
+            this.ParentTeamId = parentTeamId;
         }
 
         /// <summary>
@@ -73,6 +75,14 @@ namespace Dropbox.Sign.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// _t__TeamCreate::PARENT_TEAM_ID
+        /// </summary>
+        /// <value>_t__TeamCreate::PARENT_TEAM_ID</value>
+        /// <example>4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c</example>
+        [DataMember(Name = "parent_team_id", EmitDefaultValue = true)]
+        public string ParentTeamId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +91,7 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TeamCreateRequest {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  ParentTeamId: ").Append(ParentTeamId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,6 +131,11 @@ namespace Dropbox.Sign.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) &&
+                (
+                    this.ParentTeamId == input.ParentTeamId ||
+                    (this.ParentTeamId != null &&
+                    this.ParentTeamId.Equals(input.ParentTeamId))
                 );
         }
 
@@ -135,6 +151,10 @@ namespace Dropbox.Sign.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.ParentTeamId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentTeamId.GetHashCode();
                 }
                 return hashCode;
             }
@@ -158,6 +178,13 @@ namespace Dropbox.Sign.Model
                 Property = "Name",
                 Type = "string",
                 Value = Name,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "parent_team_id",
+                Property = "ParentTeamId",
+                Type = "string",
+                Value = ParentTeamId,
             });
 
             return types;

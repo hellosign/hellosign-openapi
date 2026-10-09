@@ -28,6 +28,8 @@ import {
   AccountCreateRequest,
   AccountCreateResponse,
   AccountGetResponse,
+  AccountSettingsResponse,
+  AccountSettingsUpdateRequest,
   AccountUpdateRequest,
   AccountVerifyRequest,
   AccountVerifyResponse,
@@ -391,6 +393,284 @@ export class AccountApi {
           }
         );
       });
+    });
+  }
+  /**
+   * account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * @summary Get account settings
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountSettingsGetExample.ts
+   * @param accountId Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * @param options
+   */
+  public async accountSettingsGet(
+    accountId?: string,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<AccountSettingsResponse>> {
+    const localVarPath = this.basePath + "/account/settings";
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    if (accountId !== undefined) {
+      localVarQueryParameters["account_id"] = ObjectSerializer.serialize(
+        accountId,
+        "string"
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "GET",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<AccountSettingsResponse>>(
+        (resolve, reject) => {
+          axios.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse<AccountSettingsResponse>(
+                resolve,
+                reject,
+                response,
+                "AccountSettingsResponse"
+              );
+            },
+            (error: AxiosError) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
+                  "AccountSettingsResponse"
+                )
+              ) {
+                return;
+              }
+
+              if (
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )
+              ) {
+                return;
+              }
+
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
+   * account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * @summary Modify account settings
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountSettingsUpdateExample.ts
+   * @param accountSettingsUpdateRequest
+   * @param accountId Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * @param options
+   */
+  public async accountSettingsUpdate(
+    accountSettingsUpdateRequest: AccountSettingsUpdateRequest,
+    accountId?: string,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<AccountSettingsResponse>> {
+    accountSettingsUpdateRequest = deserializeIfNeeded(
+      accountSettingsUpdateRequest,
+      "AccountSettingsUpdateRequest"
+    );
+    const localVarPath = this.basePath + "/account/settings";
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    // verify required parameter 'accountSettingsUpdateRequest' is not null or undefined
+    if (
+      accountSettingsUpdateRequest === null ||
+      accountSettingsUpdateRequest === undefined
+    ) {
+      throw new Error(
+        "Required parameter accountSettingsUpdateRequest was null or undefined when calling accountSettingsUpdate."
+      );
+    }
+
+    if (accountId !== undefined) {
+      localVarQueryParameters["account_id"] = ObjectSerializer.serialize(
+        accountId,
+        "string"
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    const result = generateFormData(
+      accountSettingsUpdateRequest,
+      AccountSettingsUpdateRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+
+    let data = {};
+    if (localVarUseFormData) {
+      const formData = toFormData(result.data);
+      data = formData;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData.getHeaders(),
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        accountSettingsUpdateRequest,
+        "AccountSettingsUpdateRequest"
+      );
+    }
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data,
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<AccountSettingsResponse>>(
+        (resolve, reject) => {
+          axios.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse<AccountSettingsResponse>(
+                resolve,
+                reject,
+                response,
+                "AccountSettingsResponse"
+              );
+            },
+            (error: AxiosError) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
+                  "AccountSettingsResponse"
+                )
+              ) {
+                return;
+              }
+
+              if (
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )
+              ) {
+                return;
+              }
+
+              reject(error);
+            }
+          );
+        }
+      );
     });
   }
   /**

@@ -382,6 +382,10 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
             $invalidProperties[] = "invalid value for 'message', the character length must be smaller than or equal to 5000.";
         }
 
+        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 10)) {
+            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 10.";
+        }
+
         if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) > 255)) {
             $invalidProperties[] = "invalid value for 'subject', the character length must be smaller than or equal to 255.";
         }
@@ -637,7 +641,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+     * @param array<string,mixed>|null $metadata _t__SignatureRequestBulkSendWithTemplate::METADATA
      *
      * @return self
      */
@@ -647,6 +651,9 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
             throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
 
+        if (count($metadata) > 10) {
+            throw new InvalidArgumentException('invalid value for $metadata when calling SignatureRequestBulkSendWithTemplateRequest., number of items must be less than or equal to 10.');
+        }
         $this->container['metadata'] = $metadata;
 
         return $this;
