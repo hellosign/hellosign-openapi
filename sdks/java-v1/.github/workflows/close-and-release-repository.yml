@@ -8,7 +8,13 @@ on:
 
 jobs:
   closeAndReleaseRepository:
+    if: >-
+      github.repository == 'hellosign/dropbox-sign-java'
+      && github.ref == 'refs/heads/v1'
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,10 +25,26 @@ jobs:
           distribution: 'zulu'
           java-version: 11
 
+      - name: Configure AWS credentials for Maven secrets (OIDC)
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::521590706193:role/oidc-github-hellosign-dropbox-sign-java-branch-v1
+          aws-region: us-west-2
+
+      - name: Get Maven Central secrets from AWS Secrets Manager
+        uses: aws-actions/aws-secretsmanager-get-secrets@v3
+        with:
+          secret-ids: |
+            SONATYPE_USERNAME,sdk-release-maven-central-token-username
+            SONATYPE_PASSWORD,sdk-release-maven-central-token-password
+            SIGNING_KEY,sdk-release-signing-key
+            SIGNING_PASSWORD,sdk-release-signing-password
+          parse-json-secrets: false
+
       - name: Publish Release to Maven Central
         run: ./gradlew publishAndReleaseToMavenCentral --no-daemon --no-parallel --no-configuration-cache --stacktrace
         env:
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ env.SONATYPE_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ env.SONATYPE_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ env.SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ env.SIGNING_PASSWORD }}

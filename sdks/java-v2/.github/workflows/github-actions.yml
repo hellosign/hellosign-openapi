@@ -1,6 +1,5 @@
 # This workflow will build the project, run integration tests, and release.
-# Because secrets are not available on external forks, this job is expected to fail
-# on external pull requests.
+# Secret-backed jobs fetch credentials from AWS Secrets Manager using GitHub OIDC.
 
 name: Build, Check, Publish
 
@@ -15,15 +14,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Configure AWS credentials for Docker Hub secrets (OIDC)
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::301904545275:role/oidc-github-hellosign-dropbox-sign-java-branch-main
+          aws-region: us-west-2
+
+      - name: Get Docker Hub secrets from AWS Secrets Manager
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/aws-secretsmanager-get-secrets@v3
+        with:
+          secret-ids: |
+            DOCKER_USERNAME,github-actions/hellosign/shared/docker-username
+            DOCKER_TOKEN,github-actions/hellosign/shared/docker-token
+          parse-json-secrets: false
+
       - name: Build SDK
         run: ./run-build
-        env:
-          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
@@ -37,6 +52,9 @@ jobs:
       && github.ref == 'refs/heads/main'
       && github.event_name != 'pull_request'
     needs: [ build ]
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -50,23 +68,39 @@ jobs:
       - name: Retrieve version
         run: echo "PACKAGE_VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
+      - name: Configure AWS credentials for Maven secrets (OIDC)
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::521590706193:role/oidc-github-hellosign-dropbox-sign-java-branch-main
+          aws-region: us-west-2
+
+      - name: Get Maven Central secrets from AWS Secrets Manager
+        uses: aws-actions/aws-secretsmanager-get-secrets@v3
+        with:
+          secret-ids: |
+            SONATYPE_USERNAME,sdk-release-maven-central-token-username
+            SONATYPE_PASSWORD,sdk-release-maven-central-token-password
+            SIGNING_KEY,sdk-release-signing-key
+            SIGNING_PASSWORD,sdk-release-signing-password
+          parse-json-secrets: false
+
       - name: Publish to Maven Central
         run: ./gradlew publishAndReleaseToMavenCentral --no-daemon --no-parallel --no-configuration-cache --stacktrace
         if: "!endsWith(env.PACKAGE_VERSION, '-SNAPSHOT')"
         env:
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ env.SONATYPE_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ env.SONATYPE_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ env.SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ env.SIGNING_PASSWORD }}
 
       - name: Publish Snapshot
         run: ./gradlew publishToMavenCentral --no-daemon --no-parallel --no-configuration-cache --stacktrace
         if: "endsWith(env.PACKAGE_VERSION, '-SNAPSHOT')"
         env:
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ env.SONATYPE_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ env.SONATYPE_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ env.SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ env.SIGNING_PASSWORD }}
 
   # This job runs on merging to "main" branch
   # Creates a new tag using the value in the VERSION file

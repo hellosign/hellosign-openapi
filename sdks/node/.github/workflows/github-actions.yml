@@ -1,6 +1,5 @@
 # This workflow will build the project, run integration tests, and release.
-# Because secrets are not available on external forks, this job is expected to fail
-# on external pull requests.
+# Secret-backed jobs fetch credentials from AWS Secrets Manager using GitHub OIDC.
 
 name: Build, Check, Publish
 
@@ -13,15 +12,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Configure AWS credentials for Docker Hub secrets (OIDC)
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::301904545275:role/oidc-github-hellosign-dropbox-sign-node-branch-main
+          aws-region: us-west-2
+
+      - name: Get Docker Hub secrets from AWS Secrets Manager
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/aws-secretsmanager-get-secrets@v3
+        with:
+          secret-ids: |
+            DOCKER_USERNAME,github-actions/hellosign/shared/docker-username
+            DOCKER_TOKEN,github-actions/hellosign/shared/docker-token
+          parse-json-secrets: false
+
       - name: Build SDK
         run: ./run-build
-        env:
-          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
@@ -47,13 +62,14 @@ jobs:
       - run: npm ci
 
       - run: npm publish --access=public --dry-run
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY }}
 
   # This job runs on merging to "main" branch
   # Builds and publishes gem
   publish-prod:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     if: >-
       github.repository == 'hellosign/dropbox-sign-node'
       && github.ref == 'refs/heads/main'
@@ -63,16 +79,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - name: Use Node.js 24 for trusted publishing
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '24.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
 
-      - run: npm publish --access=public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY }}
+      - name: Use npm with trusted publishing support
+        run: npm install --global npm@11.19.1
+
+      - name: Publish package with trusted publishing
+        run: npm publish --access=public
 
   # This job runs on merging to "main" branch
   # Creates a new tag using the value in the VERSION file
