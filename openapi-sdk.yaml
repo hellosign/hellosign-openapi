@@ -325,6 +325,207 @@ paths:
         seo:
           title: 'Update Account | API Documentation | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how update the properties and settings of your Account, click here.'
+  '/account/settings/{account_id}':
+    get:
+      tags:
+        - Account
+      summary: 'Get account settings.'
+      description: 'Omit `{account_id}` to read the authenticated account. An organization admin can append an account GUID to read another account in the organization.'
+      operationId: accountSettingsGet
+      parameters:
+        -
+          name: account_id
+          in: path
+          description: 'Account to read. Omit this path segment to use the authenticated account.'
+          required: false
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountSettingsResponse'
+        '4XX':
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - account_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/AccountSettingsGetExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/AccountSettingsGetExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/AccountSettingsGetExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/AccountSettingsGetExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/AccountSettingsGetExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountSettingsGetExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountSettingsGetExample.sh
+      x-meta:
+        seo:
+          title: 'Get Account Settings | API Documentation | Dropbox Sign for Developers'
+          description: 'Return the settings for the authenticated account, or for another account in the organization when an organization admin supplies an account ID.'
+    post:
+      tags:
+        - Account
+      summary: 'Modify account settings.'
+      description: 'Omit `{account_id}` to update the authenticated account. An organization admin can append an account GUID to update another account in the organization.'
+      operationId: accountSettingsUpdate
+      parameters:
+        -
+          name: account_id
+          in: path
+          description: 'Account to update. Omit this path segment to use the authenticated account.'
+          required: false
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountSettingsUpdateRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountSettingsResponse'
+        '4XX':
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - account_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/AccountSettingsUpdateExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/AccountSettingsUpdateExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/AccountSettingsUpdateExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/AccountSettingsUpdateExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/AccountSettingsUpdateExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountSettingsUpdateExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountSettingsUpdateExample.sh
+      x-meta:
+        seo:
+          title: 'Update Account Settings | API Documentation | Dropbox Sign for Developers'
+          description: 'Update settings for the authenticated account, or for another account in the organization when an organization admin supplies an account ID.'
   /account/verify:
     post:
       tags:
@@ -6130,6 +6331,207 @@ paths:
         seo:
           title: 'Remove User from Team | REST API | Dropbox Sign for Developers'
           description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to remove a user Account from your Team, click here.'
+  '/team/settings/{team_id}':
+    get:
+      tags:
+        - Team
+      summary: 'Get team settings.'
+      description: 'Omit `{team_id}` to read the authenticated account''s team. An organization admin can append a team GUID to read a subteam.'
+      operationId: teamSettingsGet
+      parameters:
+        -
+          name: team_id
+          in: path
+          description: 'Team to read. Omit this path segment to use the authenticated account''s team.'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSettingsResponse'
+        '4XX':
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamSettingsGetExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamSettingsGetExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamSettingsGetExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamSettingsGetExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamSettingsGetExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamSettingsGetExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamSettingsGetExample.sh
+      x-meta:
+        seo:
+          title: 'Get Team Settings | API Documentation | Dropbox Sign for Developers'
+          description: 'Return the settings for the authenticated account''s team, or for a subteam when an organization admin supplies a team ID.'
+    post:
+      tags:
+        - Team
+      summary: 'Modify team settings.'
+      description: 'Omit `{team_id}` to update the authenticated account''s team. An organization admin can append a team GUID to update a subteam.'
+      operationId: teamSettingsUpdate
+      parameters:
+        -
+          name: team_id
+          in: path
+          description: 'Team to update. Omit this path segment to use the authenticated account''s team.'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamSettingsUpdateRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSettingsResponse'
+        '4XX':
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamSettingsUpdateExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamSettingsUpdateExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamSettingsUpdateExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamSettingsUpdateExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamSettingsUpdateExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamSettingsUpdateExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamSettingsUpdateExample.sh
+      x-meta:
+        seo:
+          title: 'Update Team Settings | API Documentation | Dropbox Sign for Developers'
+          description: 'Update settings for the authenticated account''s team, or for a subteam when an organization admin supplies a team ID. Lock modes name who can change each setting.'
   '/team/sub_teams/{team_id}':
     get:
       tags:
@@ -7949,6 +8351,124 @@ components:
           description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
       type: object
+    AccountSettingsUpdateRequest:
+      minProperties: 1
+      properties:
+        company:
+          description: 'Company name associated with this account or team.'
+          type: string
+        custom_signing_redirect_enabled:
+          description: 'Whether signers are redirected to a custom URL after completing a signature request.'
+          type: boolean
+        custom_signing_redirect_url:
+          description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
+          type: string
+        custom_tagline:
+          description: 'Custom tagline displayed with the account or team branding.'
+          type: string
+        date_format:
+          $ref: '#/components/schemas/DateFormat'
+        is_signature_reminders_enabled:
+          description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
+          type: boolean
+        request_email_from:
+          description: 'Sender name shown on signature request emails.'
+          type: string
+        request_email_signature:
+          description: 'Signature appended to signature request emails.'
+          type: string
+        required_signature_types:
+          description: 'Signature creation methods signers may use.'
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredSignatureType'
+          uniqueItems: true
+        should_enable_tamper_proof:
+          description: 'Whether completed documents include a digital tamper-proof seal.'
+          type: boolean
+        should_include_distinct_pdfs:
+          description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
+          type: boolean
+        should_offer_signer_access_code:
+          description: 'Whether senders can require an access code to verify a signer.'
+          type: boolean
+        should_offer_signer_sms_authentication:
+          description: 'Whether senders can require SMS authentication to verify a signer.'
+          type: boolean
+        should_remove_document_id:
+          description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
+          type: boolean
+        is_notify_on_sign_enabled:
+          description: 'Whether to notify the account when someone signs a document it sent.'
+          type: boolean
+        is_notify_on_view_enabled:
+          description: 'Whether to notify the account when someone opens a document it sent.'
+          type: boolean
+        should_autocomplete:
+          description: 'Whether values entered in text fields are saved and suggested for future signature requests.'
+          type: boolean
+        should_include_requested_pdfs:
+          description: 'Whether completed signature requests include PDF copies in emails sent to the account.'
+          type: boolean
+        should_include_requested_pdfs_for_others:
+          description: 'Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.'
+          type: boolean
+        should_include_sent_doc_pdfs:
+          description: 'Whether emails sent to the account include PDF copies of documents it sends.'
+          type: boolean
+        should_include_sent_doc_pdfs_for_others:
+          description: 'Whether emails sent to recipients include PDF copies of documents the account sends.'
+          type: boolean
+        should_send_daily_summary:
+          description: 'Whether to send the account a daily email summarizing outstanding signature requests.'
+          type: boolean
+        should_send_embedded_signature_conf_emails:
+          description: 'Whether to notify the account when it signs a document on a third-party site.'
+          type: boolean
+        should_send_ordered_sr_email:
+          description: 'Whether to notify all parties when an ordered signature request starts.'
+          type: boolean
+        should_send_outbound_conf_emails:
+          description: 'Whether to notify the account when it signs and sends a document.'
+          type: boolean
+        template_link_signature_emails_enabled:
+          description: 'Whether to notify the account when someone signs a document sent by its team through a template link.'
+          type: boolean
+        unset:
+          description: 'Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.'
+          type: array
+          items:
+            type: string
+            enum:
+              - company
+              - custom_signing_redirect_enabled
+              - custom_signing_redirect_url
+              - custom_tagline
+              - date_format
+              - is_signature_reminders_enabled
+              - request_email_from
+              - request_email_signature
+              - required_signature_types
+              - should_enable_tamper_proof
+              - should_include_distinct_pdfs
+              - should_offer_signer_access_code
+              - should_offer_signer_sms_authentication
+              - should_remove_document_id
+              - is_notify_on_sign_enabled
+              - is_notify_on_view_enabled
+              - should_autocomplete
+              - should_include_requested_pdfs
+              - should_include_requested_pdfs_for_others
+              - should_include_sent_doc_pdfs
+              - should_include_sent_doc_pdfs_for_others
+              - should_send_daily_summary
+              - should_send_embedded_signature_conf_emails
+              - should_send_ordered_sr_email
+              - should_send_outbound_conf_emails
+              - template_link_signature_emails_enabled
+          uniqueItems: true
+      type: object
+      additionalProperties: false
     AccountUpdateRequest:
       properties:
         account_id:
@@ -8437,12 +8957,9 @@ components:
           type: string
           maxLength: 5000
         metadata:
-          description: |-
-            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
-
-            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          description: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::METADATA'
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {}
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
@@ -8530,12 +9047,9 @@ components:
           type: string
           maxLength: 5000
         metadata:
-          description: |-
-            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
-
-            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          description: '_t__SignatureRequestBulkSendWithTemplate::METADATA'
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {}
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
@@ -9633,6 +10147,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+        metadata:
+          description: '_t__Sub::BulkSigner::METADATA'
+          maxProperties: 10
+          type: object
+          additionalProperties: {}
       type: object
     SubBulkSignerListCustomField:
       required:
@@ -9686,6 +10205,23 @@ components:
           description: 'The string that resolves (aka "pre-fills") to the merge field on the final document(s) used for signing.'
           type: string
       type: object
+    DataResidency:
+      description: 'Storage region for team documents.'
+      type: string
+      enum:
+        - us
+        - eu
+        - au
+        - jp
+        - uk
+        - ca
+    DateFormat:
+      description: 'Date format used to display dates.'
+      type: string
+      enum:
+        - MM/DD/YYYY
+        - DD/MM/YYYY
+        - YYYY/MM/DD
     SubEditorOptions:
       description: 'This allows the requester to specify editor options when a preparing a document'
       properties:
@@ -10396,6 +10932,14 @@ components:
           type: boolean
           default: false
       type: object
+    RequiredSignatureType:
+      description: 'A signature creation method a signer may use.'
+      type: string
+      enum:
+        - draw
+        - phone
+        - type
+        - upload
     SubSignatureRequestSigner:
       required:
         - name
@@ -10561,6 +11105,13 @@ components:
           type: boolean
           default: false
       type: object
+    TeamSettingLock:
+      description: 'Who can change a team setting. `organization_admins` limits changes to organization admins, and subteams use that value. `team_admins` lets admins of a team and its subteams set their own value. `members` lets each member set their own value.'
+      type: string
+      enum:
+        - organization_admins
+        - team_admins
+        - members
     SubWhiteLabelingOptions:
       description: |-
         An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)
@@ -10687,6 +11238,169 @@ components:
             - 'Team Manager'
             - Admin
       type: object
+    TeamSettingsUpdateRequest:
+      minProperties: 1
+      properties:
+        company:
+          description: 'Company name associated with this account or team.'
+          type: string
+        company_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        custom_signing_redirect_enabled:
+          description: 'Whether signers are redirected to a custom URL after completing a signature request.'
+          type: boolean
+        custom_signing_redirect_enabled_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        custom_signing_redirect_url:
+          description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
+          type: string
+        custom_signing_redirect_url_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        custom_tagline:
+          description: 'Custom tagline displayed with the account or team branding.'
+          type: string
+        custom_tagline_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        date_format:
+          $ref: '#/components/schemas/DateFormat'
+        date_format_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        is_signature_reminders_enabled:
+          description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
+          type: boolean
+        is_signature_reminders_enabled_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        request_email_from:
+          description: 'Sender name shown on signature request emails.'
+          type: string
+        request_email_from_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        request_email_signature:
+          description: 'Signature appended to signature request emails.'
+          type: string
+        request_email_signature_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        required_signature_types:
+          description: 'Signature creation methods signers may use.'
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredSignatureType'
+          uniqueItems: true
+        required_signature_types_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        should_enable_tamper_proof:
+          description: 'Whether completed documents include a digital tamper-proof seal.'
+          type: boolean
+        should_enable_tamper_proof_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        should_include_distinct_pdfs:
+          description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
+          type: boolean
+        should_include_distinct_pdfs_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        should_offer_signer_access_code:
+          description: 'Whether senders can require an access code to verify a signer.'
+          type: boolean
+        should_offer_signer_access_code_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        should_offer_signer_sms_authentication:
+          description: 'Whether senders can require SMS authentication to verify a signer.'
+          type: boolean
+        should_offer_signer_sms_authentication_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        should_remove_document_id:
+          description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
+          type: boolean
+        should_remove_document_id_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        data_residency:
+          $ref: '#/components/schemas/DataResidency'
+        data_residency_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        allow_team_delete_document_for_everyone:
+          description: 'Whether team members can delete a document for all participants.'
+          type: boolean
+        allow_team_delete_document_for_everyone_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        allow_team_download_csv:
+          description: 'Whether team members can download CSV files.'
+          type: boolean
+        allow_team_download_csv_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        lock_team_template_creation:
+          description: 'Whether team members are prevented from creating templates.'
+          type: boolean
+        lock_team_template_creation_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        lock_team_template_gallery:
+          description: 'Whether team members are prevented from using the template gallery.'
+          type: boolean
+        lock_team_template_gallery_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        locked_self_sign_message:
+          description: 'Default message enforced for team members when they create self-signed documents.'
+          type: string
+        locked_self_sign_message_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        locked_self_sign_title:
+          description: 'Default title enforced for team members when they create self-signed documents.'
+          type: string
+        locked_self_sign_title_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        locked_signature_request_message:
+          description: 'Default message enforced for team members when they create signature requests.'
+          type: string
+        locked_signature_request_message_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        locked_signature_request_title:
+          description: 'Default title enforced for team members when they create signature requests.'
+          type: string
+        locked_signature_request_title_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        multifactor_auth_app:
+          description: 'Whether authenticator-app multifactor authentication is enabled for the team.'
+          type: boolean
+        multifactor_auth_app_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        multifactor_auth_sms:
+          description: 'Whether SMS multifactor authentication is enabled for the team.'
+          type: boolean
+        multifactor_auth_sms_lock:
+          $ref: '#/components/schemas/TeamSettingLock'
+        unset:
+          description: 'Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.'
+          type: array
+          items:
+            type: string
+            enum:
+              - company
+              - custom_signing_redirect_enabled
+              - custom_signing_redirect_url
+              - custom_tagline
+              - date_format
+              - is_signature_reminders_enabled
+              - request_email_from
+              - request_email_signature
+              - required_signature_types
+              - should_enable_tamper_proof
+              - should_include_distinct_pdfs
+              - should_offer_signer_access_code
+              - should_offer_signer_sms_authentication
+              - should_remove_document_id
+              - data_residency
+              - allow_team_delete_document_for_everyone
+              - allow_team_download_csv
+              - lock_team_template_creation
+              - lock_team_template_gallery
+              - locked_self_sign_message
+              - locked_self_sign_title
+              - locked_signature_request_message
+              - locked_signature_request_title
+              - multifactor_auth_app
+              - multifactor_auth_sms
+          uniqueItems: true
+      type: object
+      additionalProperties: false
     TeamUpdateRequest:
       properties:
         name:
@@ -11575,6 +12289,22 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal-class: true
+    AccountSettingsResponse:
+      required:
+        - account_id
+        - settings
+      properties:
+        account_id:
+          type: string
+        settings:
+          $ref: '#/components/schemas/AccountSettingsResponseSettings'
+        warnings:
+          description: 'A list of warnings.'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     AccountVerifyResponse:
       properties:
         account:
@@ -11945,6 +12675,194 @@ components:
           description: 'Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).'
           type: boolean
       type: object
+      x-internal-class: true
+    AccountSettingsResponseSettings:
+      required:
+        - company
+        - custom_signing_redirect_enabled
+        - custom_signing_redirect_url
+        - custom_tagline
+        - date_format
+        - is_signature_reminders_enabled
+        - request_email_from
+        - request_email_signature
+        - required_signature_types
+        - should_enable_tamper_proof
+        - should_include_distinct_pdfs
+        - should_offer_signer_access_code
+        - should_offer_signer_sms_authentication
+        - should_remove_document_id
+        - is_notify_on_sign_enabled
+        - is_notify_on_view_enabled
+        - should_autocomplete
+        - should_include_requested_pdfs
+        - should_include_requested_pdfs_for_others
+        - should_include_sent_doc_pdfs
+        - should_include_sent_doc_pdfs_for_others
+        - should_send_daily_summary
+        - should_send_embedded_signature_conf_emails
+        - should_send_ordered_sr_email
+        - should_send_outbound_conf_emails
+        - template_link_signature_emails_enabled
+      properties:
+        company:
+          description: 'Company name associated with this account or team.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_enabled:
+          description: 'Whether signers are redirected to a custom URL after completing a signature request.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_url:
+          description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_tagline:
+          description: 'Custom tagline displayed with the account or team branding.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        date_format:
+          description: 'Date format used to display dates. List the setting in `unset` to inherit the default.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_signature_reminders_enabled:
+          description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_from:
+          description: 'Sender name shown on signature request emails.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_signature:
+          description: 'Signature appended to signature request emails.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        required_signature_types:
+          description: 'Signature creation methods signers may use.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_enable_tamper_proof:
+          description: 'Whether completed documents include a digital tamper-proof seal.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_distinct_pdfs:
+          description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_access_code:
+          description: 'Whether senders can require an access code to verify a signer.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_sms_authentication:
+          description: 'Whether senders can require SMS authentication to verify a signer.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_remove_document_id:
+          description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_notify_on_sign_enabled:
+          description: 'Whether to notify the account when someone signs a document it sent.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_notify_on_view_enabled:
+          description: 'Whether to notify the account when someone opens a document it sent.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_autocomplete:
+          description: 'Whether values entered in text fields are saved and suggested for future signature requests.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_requested_pdfs:
+          description: 'Whether completed signature requests include PDF copies in emails sent to the account.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_requested_pdfs_for_others:
+          description: 'Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_sent_doc_pdfs:
+          description: 'Whether emails sent to the account include PDF copies of documents it sends.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_sent_doc_pdfs_for_others:
+          description: 'Whether emails sent to recipients include PDF copies of documents the account sends.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_daily_summary:
+          description: 'Whether to send the account a daily email summarizing outstanding signature requests.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_embedded_signature_conf_emails:
+          description: 'Whether to notify the account when it signs a document on a third-party site.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_ordered_sr_email:
+          description: 'Whether to notify all parties when an ordered signature request starts.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_outbound_conf_emails:
+          description: 'Whether to notify the account when it signs and sends a document.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        template_link_signature_emails_enabled:
+          description: 'Whether to notify the account when someone signs a document sent by its team through a template link.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+      type: object
+      additionalProperties: false
       x-internal-class: true
     AccountResponseUsage:
       description: 'Details concerning monthly usage'
@@ -12364,6 +13282,55 @@ components:
               - document_status
               - sms_activity
               - fax_usage
+      type: object
+      x-internal-class: true
+    SettingResponse:
+      required:
+        - value
+        - is_inherited
+        - source
+        - type
+        - writable
+        - lock
+      properties:
+        value:
+          description: 'Current value of the setting. Null when the setting has no value.'
+          nullable: true
+        is_inherited:
+          type: boolean
+        source:
+          type: string
+          enum:
+            - account
+            - team
+            - parent_team
+            - default
+        type:
+          type: string
+          enum:
+            - boolean
+            - integer
+            - string
+            - array
+        writable:
+          type: boolean
+        lock:
+          $ref: '#/components/schemas/SettingLockResponse'
+      type: object
+      x-internal-class: true
+    SettingLockResponse:
+      required:
+        - mode
+        - source
+      properties:
+        mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+        source:
+          type: string
+          enum:
+            - team
+            - parent_team
+            - default
       type: object
       x-internal-class: true
     SignatureRequestResponse:
@@ -12921,6 +13888,187 @@ components:
           type: string
       type: object
       nullable: true
+      x-internal-class: true
+    TeamSettingsResponseSettings:
+      required:
+        - company
+        - custom_signing_redirect_enabled
+        - custom_signing_redirect_url
+        - custom_tagline
+        - date_format
+        - is_signature_reminders_enabled
+        - request_email_from
+        - request_email_signature
+        - required_signature_types
+        - should_enable_tamper_proof
+        - should_include_distinct_pdfs
+        - should_offer_signer_access_code
+        - should_offer_signer_sms_authentication
+        - should_remove_document_id
+        - data_residency
+        - allow_team_delete_document_for_everyone
+        - allow_team_download_csv
+        - lock_team_template_creation
+        - lock_team_template_gallery
+        - locked_self_sign_message
+        - locked_self_sign_title
+        - locked_signature_request_message
+        - locked_signature_request_title
+        - multifactor_auth_app
+        - multifactor_auth_sms
+      properties:
+        company:
+          description: 'Company name associated with this account or team.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_enabled:
+          description: 'Whether signers are redirected to a custom URL after completing a signature request.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_url:
+          description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_tagline:
+          description: 'Custom tagline displayed with the account or team branding.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        date_format:
+          description: 'Date format used to display dates. List the setting in `unset` to inherit the default.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_signature_reminders_enabled:
+          description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_from:
+          description: 'Sender name shown on signature request emails.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_signature:
+          description: 'Signature appended to signature request emails.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        required_signature_types:
+          description: 'Signature creation methods signers may use.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_enable_tamper_proof:
+          description: 'Whether completed documents include a digital tamper-proof seal.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_distinct_pdfs:
+          description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_access_code:
+          description: 'Whether senders can require an access code to verify a signer.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_sms_authentication:
+          description: 'Whether senders can require SMS authentication to verify a signer.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_remove_document_id:
+          description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        data_residency:
+          description: 'Storage region for team documents.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        allow_team_delete_document_for_everyone:
+          description: 'Whether team members can delete a document for all participants.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        allow_team_download_csv:
+          description: 'Whether team members can download CSV files.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        lock_team_template_creation:
+          description: 'Whether team members are prevented from creating templates.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        lock_team_template_gallery:
+          description: 'Whether team members are prevented from using the template gallery.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        locked_self_sign_message:
+          description: 'Default message enforced for team members when they create self-signed documents.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        locked_self_sign_title:
+          description: 'Default title enforced for team members when they create self-signed documents.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        locked_signature_request_message:
+          description: 'Default message enforced for team members when they create signature requests.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        locked_signature_request_title:
+          description: 'Default title enforced for team members when they create signature requests.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        multifactor_auth_app:
+          description: 'Whether authenticator-app multifactor authentication is enabled for the team.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        multifactor_auth_sms:
+          description: 'Whether SMS multifactor authentication is enabled for the team.'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+      type: object
+      additionalProperties: false
       x-internal-class: true
     SubTeamResponse:
       properties:
@@ -13919,6 +15067,22 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
+    TeamSettingsResponse:
+      required:
+        - team_id
+        - settings
+      properties:
+        team_id:
+          type: string
+        settings:
+          $ref: '#/components/schemas/TeamSettingsResponseSettings'
+        warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
