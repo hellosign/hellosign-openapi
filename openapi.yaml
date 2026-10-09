@@ -1163,9 +1163,6 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DocumentFieldDetectionRequest'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/DocumentFieldDetectionRequest'
@@ -8061,6 +8058,13 @@ components:
           pattern: '^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$'
           example: '0-2,5,7-9'
       type: object
+      oneOf:
+        -
+          required:
+            - file
+        -
+          required:
+            - file_url
     EmbeddedEditUrlRequest:
       properties:
         allow_edit_ccs:
@@ -14771,6 +14775,16 @@ components:
             default: 'Hello API Event Received'
       x-fern-audiences:
         - events
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      description: 'Optional header on an authenticated POST or PUT. Reuse the same key when retrying the same request. See [Idempotency](/api/manual-reference-pages/idempotency) for details.'
+      required: false
+      schema:
+        type: string
+        maxLength: 255
+        minLength: 1
   examples:
     AccountCreateRequest:
       summary: 'Default Example'
@@ -15526,6 +15540,11 @@ components:
         type: integer
         format: int64
         example: 1430170900
+    Idempotent-Replayed:
+      description: 'Sent when the request included an Idempotency-Key. True when replaying a stored response, false otherwise. See [Idempotency](/api/manual-reference-pages/idempotency) for details.'
+      required: false
+      schema:
+        type: boolean
   securitySchemes:
     api_key:
       type: http
@@ -15811,8 +15830,8 @@ x-error-codes:
   conflict:
     http_status: 409
     summary: 'The request was well-formed but conflicts with the current state.'
-    cause: 'The target resource is in a state incompatible with the request (e.g. a signature request is still being set up).'
-    remediation: 'Wait briefly and retry, or listen for a callback event confirming the resource is ready.'
+    cause: 'The target resource is in a state incompatible with the request (e.g. a signature request is still being set up). A POST or PUT can also return this status when an Idempotency-Key header is reused with different parameters, or while the original request is still in progress.'
+    remediation: 'Wait briefly and retry, or listen for a callback event confirming the resource is ready. To make a POST or PUT safe to retry, send the same Idempotency-Key header (1 to 255 characters) with the other headers for that request. The same key and request within 24 hours returns the original response, with Idempotent-Replayed: true. Use a new key for a different request.'
     retryable: conditional
   exceeded_rate:
     http_status: 429

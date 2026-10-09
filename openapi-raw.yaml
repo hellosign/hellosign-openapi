@@ -1198,9 +1198,6 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DocumentFieldDetectionRequest'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/DocumentFieldDetectionRequest'
@@ -8119,6 +8116,13 @@ components:
           pattern: '^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$'
           example: '0-2,5,7-9'
       type: object
+      oneOf:
+        -
+          required:
+            - file
+        -
+          required:
+            - file_url
     EmbeddedEditUrlRequest:
       properties:
         allow_edit_ccs:
@@ -14234,6 +14238,17 @@ components:
             default: 'Hello API Event Received'
       x-fern-audiences:
         - events
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      description: '_t__Common::Idempotency::KEY'
+      required: false
+      schema:
+        type: string
+        maxLength: 255
+        minLength: 1
+      x-hideOn: sdk
   examples:
     AccountCreateRequest:
       summary: 'Default Example'
@@ -14992,6 +15007,12 @@ components:
         type: integer
         format: int64
         example: 1430170900
+    Idempotent-Replayed:
+      description: '_t__Common::Idempotency::REPLAYED'
+      required: false
+      schema:
+        type: boolean
+      x-hideOn: sdk
   securitySchemes:
     api_key:
       type: http
