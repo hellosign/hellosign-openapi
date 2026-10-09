@@ -329,14 +329,14 @@ paths:
     get:
       tags:
         - Account
-      summary: 'Get account settings.'
-      description: 'Omit `{account_id}` to read the authenticated account. An organization admin can append an account GUID to read another account in the organization.'
+      summary: 'Get account settings'
+      description: 'The account ID is optional and defaults to the authenticated account. A team admin can specify another account on a team they administer.'
       operationId: accountSettingsGet
       parameters:
         -
           name: account_id
           in: path
-          description: 'Account to read. Omit this path segment to use the authenticated account.'
+          description: 'Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.'
           required: false
           schema:
             type: string
@@ -425,14 +425,14 @@ paths:
     post:
       tags:
         - Account
-      summary: 'Modify account settings.'
-      description: 'Omit `{account_id}` to update the authenticated account. An organization admin can append an account GUID to update another account in the organization.'
+      summary: 'Modify account settings'
+      description: 'The account ID is optional and defaults to the authenticated account. A team admin can specify another account on a team they administer.'
       operationId: accountSettingsUpdate
       parameters:
         -
           name: account_id
           in: path
-          description: 'Account to update. Omit this path segment to use the authenticated account.'
+          description: 'Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.'
           required: false
           schema:
             type: string
@@ -6335,14 +6335,14 @@ paths:
     get:
       tags:
         - Team
-      summary: 'Get team settings.'
-      description: 'Omit `{team_id}` to read the authenticated account''s team. An organization admin can append a team GUID to read a subteam.'
+      summary: 'Get team settings'
+      description: 'The team ID is optional and defaults to the authenticated account''s team. An organization admin can specify a subteam.'
       operationId: teamSettingsGet
       parameters:
         -
           name: team_id
           in: path
-          description: 'Team to read. Omit this path segment to use the authenticated account''s team.'
+          description: 'Optional team ID. Defaults to the authenticated account''s team. An organization admin can specify a subteam.'
           required: false
           schema:
             type: string
@@ -6431,14 +6431,14 @@ paths:
     post:
       tags:
         - Team
-      summary: 'Modify team settings.'
-      description: 'Omit `{team_id}` to update the authenticated account''s team. An organization admin can append a team GUID to update a subteam.'
+      summary: 'Modify team settings'
+      description: 'The team ID is optional and defaults to the authenticated account''s team. An organization admin can specify a subteam.'
       operationId: teamSettingsUpdate
       parameters:
         -
           name: team_id
           in: path
-          description: 'Team to update. Omit this path segment to use the authenticated account''s team.'
+          description: 'Optional team ID. Defaults to the authenticated account''s team. An organization admin can specify a subteam.'
           required: false
           schema:
             type: string
@@ -10112,6 +10112,16 @@ components:
             **NOTE:** Only one signer can be assigned per attachment.
           type: integer
       type: object
+    BooleanSettingUpdate:
+      description: 'Updates a boolean team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          description: 'Boolean value to store.'
+          type: boolean
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubBulkSignerList:
       properties:
         custom_fields:
@@ -10195,6 +10205,15 @@ components:
         - jp
         - uk
         - ca
+    DataResidencySettingUpdate:
+      description: 'Updates the data residency team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          $ref: '#/components/schemas/DataResidency'
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     DateFormat:
       description: 'Date format used to display dates.'
       type: string
@@ -10202,6 +10221,15 @@ components:
         - MM/DD/YYYY
         - DD/MM/YYYY
         - YYYY/MM/DD
+    DateFormatSettingUpdate:
+      description: 'Updates a date format team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          $ref: '#/components/schemas/DateFormat'
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubEditorOptions:
       description: 'This allows the requester to specify editor options when a preparing a document'
       properties:
@@ -10920,6 +10948,19 @@ components:
         - phone
         - type
         - upload
+    RequiredSignatureTypesSettingUpdate:
+      description: 'Updates the required signature types team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          description: 'Signature creation methods signers may use.'
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredSignatureType'
+          uniqueItems: true
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubSignatureRequestSigner:
       required:
         - name
@@ -11085,6 +11126,16 @@ components:
           type: boolean
           default: false
       type: object
+    StringSettingUpdate:
+      description: 'Updates a string team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          description: 'String value to store.'
+          type: string
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     TeamSettingLock:
       description: 'Who can change a team setting. `organization_admins` limits changes to organization admins, and subteams use that value. `team_admins` lets admins of a team and its subteams set their own value. `members` lets each member set their own value.'
       type: string
@@ -11180,6 +11231,10 @@ components:
           description: 'The name of your Team.'
           type: string
           default: 'Untitled Team'
+        parent_team_id:
+          description: '_t__TeamCreate::PARENT_TEAM_ID'
+          type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
       type: object
     TeamRemoveMemberRequest:
       properties:
@@ -11223,130 +11278,129 @@ components:
       properties:
         company:
           description: 'Company name associated with this account or team.'
-          type: string
-        company_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         custom_signing_redirect_enabled:
           description: 'Whether signers are redirected to a custom URL after completing a signature request.'
-          type: boolean
-        custom_signing_redirect_enabled_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         custom_signing_redirect_url:
           description: 'URL where signers are redirected after completing a signature request when custom redirects are enabled.'
-          type: string
-        custom_signing_redirect_url_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         custom_tagline:
           description: 'Custom tagline displayed with the account or team branding.'
-          type: string
-        custom_tagline_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         date_format:
-          $ref: '#/components/schemas/DateFormat'
-        date_format_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          description: 'Date format used to display dates. List the setting in `unset` to inherit the default.'
+          allOf:
+            -
+              $ref: '#/components/schemas/DateFormatSettingUpdate'
         is_signature_reminders_enabled:
           description: 'Whether automatic reminder emails are enabled for incomplete signature requests.'
-          type: boolean
-        is_signature_reminders_enabled_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         request_email_from:
           description: 'Sender name shown on signature request emails.'
-          type: string
-        request_email_from_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         request_email_signature:
           description: 'Signature appended to signature request emails.'
-          type: string
-        request_email_signature_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         required_signature_types:
           description: 'Signature creation methods signers may use.'
-          type: array
-          items:
-            $ref: '#/components/schemas/RequiredSignatureType'
-          uniqueItems: true
-        required_signature_types_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/RequiredSignatureTypesSettingUpdate'
         should_enable_tamper_proof:
           description: 'Whether completed documents include a digital tamper-proof seal.'
-          type: boolean
-        should_enable_tamper_proof_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         should_include_distinct_pdfs:
           description: 'Whether completed documents remain as separate PDF files instead of being merged into one PDF.'
-          type: boolean
-        should_include_distinct_pdfs_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         should_offer_signer_access_code:
           description: 'Whether senders can require an access code to verify a signer.'
-          type: boolean
-        should_offer_signer_access_code_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         should_offer_signer_sms_authentication:
           description: 'Whether senders can require SMS authentication to verify a signer.'
-          type: boolean
-        should_offer_signer_sms_authentication_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         should_remove_document_id:
           description: 'Whether the Dropbox Sign document ID is hidden on sent documents.'
-          type: boolean
-        should_remove_document_id_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         data_residency:
-          $ref: '#/components/schemas/DataResidency'
-        data_residency_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          description: 'Storage region for team documents.'
+          allOf:
+            -
+              $ref: '#/components/schemas/DataResidencySettingUpdate'
         allow_team_delete_document_for_everyone:
           description: 'Whether team members can delete a document for all participants.'
-          type: boolean
-        allow_team_delete_document_for_everyone_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         allow_team_download_csv:
           description: 'Whether team members can download CSV files.'
-          type: boolean
-        allow_team_download_csv_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         lock_team_template_creation:
           description: 'Whether team members are prevented from creating templates.'
-          type: boolean
-        lock_team_template_creation_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         lock_team_template_gallery:
           description: 'Whether team members are prevented from using the template gallery.'
-          type: boolean
-        lock_team_template_gallery_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         locked_self_sign_message:
           description: 'Default message enforced for team members when they create self-signed documents.'
-          type: string
-        locked_self_sign_message_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         locked_self_sign_title:
           description: 'Default title enforced for team members when they create self-signed documents.'
-          type: string
-        locked_self_sign_title_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         locked_signature_request_message:
           description: 'Default message enforced for team members when they create signature requests.'
-          type: string
-        locked_signature_request_message_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         locked_signature_request_title:
           description: 'Default title enforced for team members when they create signature requests.'
-          type: string
-        locked_signature_request_title_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
         multifactor_auth_app:
           description: 'Whether authenticator-app multifactor authentication is enabled for the team.'
-          type: boolean
-        multifactor_auth_app_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         multifactor_auth_sms:
           description: 'Whether SMS multifactor authentication is enabled for the team.'
-          type: boolean
-        multifactor_auth_sms_lock:
-          $ref: '#/components/schemas/TeamSettingLock'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
         unset:
           description: 'Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.'
           type: array
@@ -13791,6 +13845,12 @@ components:
     TeamResponse:
       description: 'Contains information about your team and its members'
       properties:
+        team_id:
+          description: 'The id of a team'
+          type: string
+        parent_team_id:
+          description: '_t__Team::PARENT_TEAM_ID'
+          type: string
         name:
           description: 'The name of your Team'
           type: string
@@ -15935,6 +15995,16 @@ components:
             default: 'Hello API Event Received'
       x-fern-audiences:
         - events
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      description: '_t__Common::Idempotency::KEY'
+      required: false
+      schema:
+        type: string
+        maxLength: 255
+        minLength: 1
   examples:
     AccountCreateRequest:
       summary: 'Default Example'
@@ -16690,6 +16760,11 @@ components:
         type: integer
         format: int64
         example: 1430170900
+    Idempotent-Replayed:
+      description: '_t__Common::Idempotency::REPLAYED'
+      required: false
+      schema:
+        type: boolean
   securitySchemes:
     api_key:
       type: http

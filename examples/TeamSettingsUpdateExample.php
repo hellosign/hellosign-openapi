@@ -11,9 +11,11 @@ $config->setUsername('YOUR_API_KEY');
 // $config->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $team_settings_update_request = (new Dropbox\Sign\Model\TeamSettingsUpdateRequest())
-    ->setDataResidency(Dropbox\Sign\Model\DataResidency::EU)
-    ->setCompany('Northwind')
-    ->setCompanyLock(Dropbox\Sign\Model\TeamSettingLock::ORGANIZATION_ADMINS);
+    ->setDataResidency((new Dropbox\Sign\Model\DataResidencySettingUpdate())
+        ->setValue(Dropbox\Sign\Model\DataResidency::EU))
+    ->setCompany((new Dropbox\Sign\Model\StringSettingUpdate())
+        ->setValue('Northwind')
+        ->setLockMode(Dropbox\Sign\Model\TeamSettingLock::ORGANIZATION_ADMINS));
 
 try {
     $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamSettingsUpdate(

@@ -6,9 +6,13 @@ apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const teamSettingsUpdateRequest: models.TeamSettingsUpdateRequest = {
-  dataResidency: models.DataResidency.Eu,
-  company: "Northwind",
-  companyLock: models.TeamSettingLock.OrganizationAdmins,
+  dataResidency: {
+    value: models.DataResidency.Eu,
+  },
+  company: {
+    value: "Northwind",
+    lockMode: models.TeamSettingLock.OrganizationAdmins,
+  },
 };
 
 apiCaller.teamSettingsUpdate(

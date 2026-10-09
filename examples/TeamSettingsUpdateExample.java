@@ -5,6 +5,8 @@ import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.TeamApi;
 import com.dropbox.sign.auth.HttpBasicAuth;
 import com.dropbox.sign.model.DataResidency;
+import com.dropbox.sign.model.DataResidencySettingUpdate;
+import com.dropbox.sign.model.StringSettingUpdate;
 import com.dropbox.sign.model.TeamSettingLock;
 import com.dropbox.sign.model.TeamSettingsUpdateRequest;
 
@@ -17,9 +19,10 @@ public class TeamSettingsUpdateExample
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
         var teamSettingsUpdateRequest = new TeamSettingsUpdateRequest()
-            .dataResidency(DataResidency.EU)
-            .company("Northwind")
-            .companyLock(TeamSettingLock.ORGANIZATION_ADMINS);
+            .dataResidency(new DataResidencySettingUpdate().value(DataResidency.EU))
+            .company(new StringSettingUpdate()
+                .value("Northwind")
+                .lockMode(TeamSettingLock.ORGANIZATION_ADMINS));
 
         try
         {

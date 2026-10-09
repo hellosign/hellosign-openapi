@@ -9,9 +9,13 @@ configuration = Configuration(
 
 with ApiClient(configuration) as api_client:
     team_settings_update_request = models.TeamSettingsUpdateRequest(
-        data_residency=models.DataResidency.EU,
-        company="Northwind",
-        company_lock=models.TeamSettingLock.ORGANIZATION_ADMINS,
+        data_residency=models.DataResidencySettingUpdate(
+            value=models.DataResidency.EU,
+        ),
+        company=models.StringSettingUpdate(
+            value="Northwind",
+            lock_mode=models.TeamSettingLock.ORGANIZATION_ADMINS,
+        ),
     )
 
     try:

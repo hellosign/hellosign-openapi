@@ -15,9 +15,11 @@ public class TeamSettingsUpdateExample
         // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var teamSettingsUpdateRequest = new TeamSettingsUpdateRequest(
-            dataResidency: DataResidency.Eu,
-            company: "Northwind",
-            companyLock: TeamSettingLock.OrganizationAdmins
+            dataResidency: new DataResidencySettingUpdate(value: DataResidency.Eu),
+            company: new StringSettingUpdate(
+                value: "Northwind",
+                lockMode: TeamSettingLock.OrganizationAdmins
+            )
         );
 
         try
