@@ -13,6 +13,118 @@ servers:
   -
     url: 'https://api.hellosign.com/v3'
 paths:
+  '/account/api_key/{account_id}':
+    post:
+      tags:
+        - Account
+      summary: '_t__AccountApiKeyCreate::SUMMARY'
+      description: '_t__AccountApiKeyCreate::DESCRIPTION'
+      operationId: accountApiKeyCreate
+      parameters:
+        -
+          name: account_id
+          in: path
+          description: '_t__AccountApiKeyCreate::ACCOUNT_ID'
+          required: true
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountApiKeyCreateRequest'
+            examples:
+              example:
+                $ref: '#/components/examples/AccountApiKeyCreateRequest'
+      responses:
+        '201':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountApiKeyCreateResponse'
+              examples:
+                example:
+                  $ref: '#/components/examples/AccountApiKeyCreateResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/AccountApiKeyCreateExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/AccountApiKeyCreateExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/AccountApiKeyCreateExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/AccountApiKeyCreateExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/AccountApiKeyCreateExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountApiKeyCreateExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountApiKeyCreateExample.sh
+      x-meta:
+        seo:
+          title: '_t__AccountApiKeyCreate::SEO::TITLE'
+          description: '_t__AccountApiKeyCreate::SEO::DESCRIPTION'
+      x-hideOn:
+        - sdk
+        - doc
+      x-beta: closed
   /account/create:
     post:
       tags:
@@ -319,6 +431,207 @@ paths:
         seo:
           title: '_t__AccountUpdate::SEO::TITLE'
           description: '_t__AccountUpdate::SEO::DESCRIPTION'
+  /account/settings:
+    get:
+      tags:
+        - Account
+      summary: '_t__AccountSettingsGet::SUMMARY'
+      description: '_t__AccountSettingsGet::DESCRIPTION'
+      operationId: accountSettingsGet
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: '_t__AccountSettingsGet::ACCOUNT_ID'
+          required: false
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountSettingsResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - account_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/AccountSettingsGetExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/AccountSettingsGetExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/AccountSettingsGetExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/AccountSettingsGetExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/AccountSettingsGetExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountSettingsGetExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountSettingsGetExample.sh
+      x-meta:
+        seo:
+          title: '_t__AccountSettingsGet::SEO::TITLE'
+          description: '_t__AccountSettingsGet::SEO::DESCRIPTION'
+    post:
+      tags:
+        - Account
+      summary: '_t__AccountSettingsUpdate::SUMMARY'
+      description: '_t__AccountSettingsUpdate::DESCRIPTION'
+      operationId: accountSettingsUpdate
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: '_t__AccountSettingsUpdate::ACCOUNT_ID'
+          required: false
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountSettingsUpdateRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountSettingsResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - account_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/AccountSettingsUpdateExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/AccountSettingsUpdateExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/AccountSettingsUpdateExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/AccountSettingsUpdateExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/AccountSettingsUpdateExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountSettingsUpdateExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountSettingsUpdateExample.sh
+      x-meta:
+        seo:
+          title: '_t__AccountSettingsUpdate::SEO::TITLE'
+          description: '_t__AccountSettingsUpdate::SEO::DESCRIPTION'
   /account/verify:
     post:
       tags:
@@ -6110,6 +6423,207 @@ paths:
         seo:
           title: '_t__TeamRemoveMember::SEO::TITLE'
           description: '_t__TeamRemoveMember::SEO::DESCRIPTION'
+  /team/settings:
+    get:
+      tags:
+        - Team
+      summary: '_t__TeamSettingsGet::SUMMARY'
+      description: '_t__TeamSettingsGet::DESCRIPTION'
+      operationId: teamSettingsGet
+      parameters:
+        -
+          name: team_id
+          in: query
+          description: '_t__TeamSettingsGet::TEAM_ID'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSettingsResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamSettingsGetExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamSettingsGetExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamSettingsGetExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamSettingsGetExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamSettingsGetExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamSettingsGetExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamSettingsGetExample.sh
+      x-meta:
+        seo:
+          title: '_t__TeamSettingsGet::SEO::TITLE'
+          description: '_t__TeamSettingsGet::SEO::DESCRIPTION'
+    post:
+      tags:
+        - Team
+      summary: '_t__TeamSettingsUpdate::SUMMARY'
+      description: '_t__TeamSettingsUpdate::DESCRIPTION'
+      operationId: teamSettingsUpdate
+      parameters:
+        -
+          name: team_id
+          in: query
+          description: '_t__TeamSettingsUpdate::TEAM_ID'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamSettingsUpdateRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSettingsResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamSettingsUpdateExample.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamSettingsUpdateExample.cs
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamSettingsUpdateExample.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamSettingsUpdateExample.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamSettingsUpdateExample.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamSettingsUpdateExample.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamSettingsUpdateExample.sh
+      x-meta:
+        seo:
+          title: '_t__TeamSettingsUpdate::SEO::TITLE'
+          description: '_t__TeamSettingsUpdate::SEO::DESCRIPTION'
   '/team/sub_teams/{team_id}':
     get:
       tags:
@@ -7985,6 +8499,18 @@ paths:
           description: '_t__UnclaimedDraftEditAndResend::SEO::DESCRIPTION'
 components:
   schemas:
+    AccountApiKeyCreateRequest:
+      required:
+        - name
+      properties:
+        name:
+          description: '_t__AccountApiKeyCreate::NAME'
+          type: string
+          maxLength: 25
+      type: object
+      x-hideOn:
+        - sdk
+        - doc
     AccountCreateRequest:
       required:
         - email_address
@@ -8013,6 +8539,124 @@ components:
           description: '_t__AccountCreate::LOCALE'
           type: string
       type: object
+    AccountSettingsUpdateRequest:
+      minProperties: 1
+      properties:
+        company:
+          description: '_t__Settings::COMPANY'
+          type: string
+        custom_signing_redirect_enabled:
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
+          type: boolean
+        custom_signing_redirect_url:
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
+          type: string
+        custom_tagline:
+          description: '_t__Settings::CUSTOM_TAGLINE'
+          type: string
+        date_format:
+          $ref: '#/components/schemas/DateFormat'
+        is_signature_reminders_enabled:
+          description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
+          type: boolean
+        request_email_from:
+          description: '_t__Settings::REQUEST_EMAIL_FROM'
+          type: string
+        request_email_signature:
+          description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
+          type: string
+        required_signature_types:
+          description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredSignatureType'
+          uniqueItems: true
+        should_enable_tamper_proof:
+          description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
+          type: boolean
+        should_include_distinct_pdfs:
+          description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
+          type: boolean
+        should_offer_signer_access_code:
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
+          type: boolean
+        should_offer_signer_sms_authentication:
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
+          type: boolean
+        should_remove_document_id:
+          description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
+          type: boolean
+        is_notify_on_sign_enabled:
+          description: '_t__AccountSettings::IS_NOTIFY_ON_SIGN_ENABLED'
+          type: boolean
+        is_notify_on_view_enabled:
+          description: '_t__AccountSettings::IS_NOTIFY_ON_VIEW_ENABLED'
+          type: boolean
+        should_autocomplete:
+          description: '_t__AccountSettings::SHOULD_AUTOCOMPLETE'
+          type: boolean
+        should_include_requested_pdfs:
+          description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS'
+          type: boolean
+        should_include_requested_pdfs_for_others:
+          description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS'
+          type: boolean
+        should_include_sent_doc_pdfs:
+          description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS'
+          type: boolean
+        should_include_sent_doc_pdfs_for_others:
+          description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS'
+          type: boolean
+        should_send_daily_summary:
+          description: '_t__AccountSettings::SHOULD_SEND_DAILY_SUMMARY'
+          type: boolean
+        should_send_embedded_signature_conf_emails:
+          description: '_t__AccountSettings::SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS'
+          type: boolean
+        should_send_ordered_sr_email:
+          description: '_t__AccountSettings::SHOULD_SEND_ORDERED_SR_EMAIL'
+          type: boolean
+        should_send_outbound_conf_emails:
+          description: '_t__AccountSettings::SHOULD_SEND_OUTBOUND_CONF_EMAILS'
+          type: boolean
+        template_link_signature_emails_enabled:
+          description: '_t__AccountSettings::TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED'
+          type: boolean
+        unset:
+          description: '_t__SettingsUpdateRequest::UNSET'
+          type: array
+          items:
+            type: string
+            enum:
+              - company
+              - custom_signing_redirect_enabled
+              - custom_signing_redirect_url
+              - custom_tagline
+              - date_format
+              - is_signature_reminders_enabled
+              - request_email_from
+              - request_email_signature
+              - required_signature_types
+              - should_enable_tamper_proof
+              - should_include_distinct_pdfs
+              - should_offer_signer_access_code
+              - should_offer_signer_sms_authentication
+              - should_remove_document_id
+              - is_notify_on_sign_enabled
+              - is_notify_on_view_enabled
+              - should_autocomplete
+              - should_include_requested_pdfs
+              - should_include_requested_pdfs_for_others
+              - should_include_sent_doc_pdfs
+              - should_include_sent_doc_pdfs_for_others
+              - should_send_daily_summary
+              - should_send_embedded_signature_conf_emails
+              - should_send_ordered_sr_email
+              - should_send_outbound_conf_emails
+              - template_link_signature_emails_enabled
+          uniqueItems: true
+      type: object
+      additionalProperties: false
     AccountUpdateRequest:
       properties:
         account_id:
@@ -8463,9 +9107,9 @@ components:
           type: string
           maxLength: 5000
         metadata:
-          description: '_t__Sub::Metadata::DESCRIPTION'
+          description: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::METADATA'
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {  }
         signing_redirect_url:
           description: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::SIGNING_REDIRECT_URL'
@@ -8527,9 +9171,9 @@ components:
           type: string
           maxLength: 5000
         metadata:
-          description: '_t__Sub::Metadata::DESCRIPTION'
+          description: '_t__SignatureRequestBulkSendWithTemplate::METADATA'
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {  }
         signing_redirect_url:
           description: '_t__SignatureRequestBulkSendWithTemplate::SIGNING_REDIRECT_URL'
@@ -9433,6 +10077,16 @@ components:
           description: '_t__Sub::Attachment::SIGNER_INDEX'
           type: integer
       type: object
+    BooleanSettingUpdate:
+      description: '_t__BooleanSettingUpdate::DESCRIPTION'
+      properties:
+        value:
+          description: '_t__BooleanSettingUpdate::VALUE'
+          type: boolean
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubBulkSignerList:
       properties:
         custom_fields:
@@ -9445,6 +10099,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+        metadata:
+          description: '_t__Sub::BulkSigner::METADATA'
+          maxProperties: 10
+          type: object
+          additionalProperties: {  }
       type: object
     SubBulkSignerListCustomField:
       required:
@@ -9490,6 +10149,41 @@ components:
           description: '_t__Sub::CustomField::VALUE'
           type: string
       type: object
+    DataResidency:
+      description: '_t__DataResidency::DESCRIPTION'
+      type: string
+      enum:
+        - us
+        - eu
+        - au
+        - jp
+        - uk
+        - ca
+    DataResidencySettingUpdate:
+      description: '_t__DataResidencySettingUpdate::DESCRIPTION'
+      properties:
+        value:
+          $ref: '#/components/schemas/DataResidency'
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
+    DateFormat:
+      description: '_t__DateFormat::DESCRIPTION'
+      type: string
+      enum:
+        - MM/DD/YYYY
+        - DD/MM/YYYY
+        - YYYY/MM/DD
+    DateFormatSettingUpdate:
+      description: '_t__DateFormatSettingUpdate::DESCRIPTION'
+      properties:
+        value:
+          $ref: '#/components/schemas/DateFormat'
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubEditorOptions:
       description: '_t__Sub::EditorOptions::DESCRIPTION'
       properties:
@@ -10116,6 +10810,27 @@ components:
           type: boolean
           default: false
       type: object
+    RequiredSignatureType:
+      description: '_t__RequiredSignatureType::DESCRIPTION'
+      type: string
+      enum:
+        - draw
+        - phone
+        - type
+        - upload
+    RequiredSignatureTypesSettingUpdate:
+      description: '_t__RequiredSignatureTypesSettingUpdate::DESCRIPTION'
+      properties:
+        value:
+          description: '_t__RequiredSignatureTypesSettingUpdate::VALUE'
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredSignatureType'
+          uniqueItems: true
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubSignatureRequestSigner:
       required:
         - name
@@ -10274,6 +10989,23 @@ components:
           type: boolean
           default: false
       type: object
+    StringSettingUpdate:
+      description: '_t__StringSettingUpdate::DESCRIPTION'
+      properties:
+        value:
+          description: '_t__StringSettingUpdate::VALUE'
+          type: string
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
+    TeamSettingLock:
+      description: '_t__TeamSettingLock::DESCRIPTION'
+      type: string
+      enum:
+        - organization_admins
+        - team_admins
+        - members
     SubWhiteLabelingOptions:
       description: '_t__Sub::WhiteLabelingOptions::DESCRIPTION'
       properties:
@@ -10350,6 +11082,10 @@ components:
           description: '_t__TeamCreate::NAME'
           type: string
           default: 'Untitled Team'
+        parent_team_id:
+          description: '_t__TeamCreate::PARENT_TEAM_ID'
+          type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
       type: object
     TeamRemoveMemberRequest:
       properties:
@@ -10376,6 +11112,168 @@ components:
             - 'Team Manager'
             - Admin
       type: object
+    TeamSettingsUpdateRequest:
+      minProperties: 1
+      properties:
+        company:
+          description: '_t__Settings::COMPANY'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        custom_signing_redirect_enabled:
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        custom_signing_redirect_url:
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        custom_tagline:
+          description: '_t__Settings::CUSTOM_TAGLINE'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        date_format:
+          description: '_t__Settings::DATE_FORMAT'
+          allOf:
+            -
+              $ref: '#/components/schemas/DateFormatSettingUpdate'
+        is_signature_reminders_enabled:
+          description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        request_email_from:
+          description: '_t__Settings::REQUEST_EMAIL_FROM'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        request_email_signature:
+          description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        required_signature_types:
+          description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
+          allOf:
+            -
+              $ref: '#/components/schemas/RequiredSignatureTypesSettingUpdate'
+        should_enable_tamper_proof:
+          description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        should_include_distinct_pdfs:
+          description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        should_offer_signer_access_code:
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        should_offer_signer_sms_authentication:
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        should_remove_document_id:
+          description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        data_residency:
+          description: '_t__TeamSettings::DATA_RESIDENCY'
+          allOf:
+            -
+              $ref: '#/components/schemas/DataResidencySettingUpdate'
+        allow_team_delete_document_for_everyone:
+          description: '_t__TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        allow_team_download_csv:
+          description: '_t__TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        lock_team_template_creation:
+          description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_CREATION'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        lock_team_template_gallery:
+          description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        self_sign_message:
+          description: '_t__TeamSettings::SELF_SIGN_MESSAGE'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        self_sign_title:
+          description: '_t__TeamSettings::SELF_SIGN_TITLE'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        signature_request_message:
+          description: '_t__TeamSettings::SIGNATURE_REQUEST_MESSAGE'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        signature_request_title:
+          description: '_t__TeamSettings::SIGNATURE_REQUEST_TITLE'
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        multifactor_auth_app:
+          description: '_t__TeamSettings::MULTIFACTOR_AUTH_APP'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        multifactor_auth_sms:
+          description: '_t__TeamSettings::MULTIFACTOR_AUTH_SMS'
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        unset:
+          description: '_t__SettingsUpdateRequest::UNSET'
+          type: array
+          items:
+            type: string
+            enum:
+              - company
+              - custom_signing_redirect_enabled
+              - custom_signing_redirect_url
+              - custom_tagline
+              - date_format
+              - is_signature_reminders_enabled
+              - request_email_from
+              - request_email_signature
+              - required_signature_types
+              - should_enable_tamper_proof
+              - should_include_distinct_pdfs
+              - should_offer_signer_access_code
+              - should_offer_signer_sms_authentication
+              - should_remove_document_id
+              - data_residency
+              - allow_team_delete_document_for_everyone
+              - allow_team_download_csv
+              - lock_team_template_creation
+              - lock_team_template_gallery
+              - self_sign_message
+              - self_sign_title
+              - signature_request_message
+              - signature_request_title
+              - multifactor_auth_app
+              - multifactor_auth_sms
+          uniqueItems: true
+      type: object
+      additionalProperties: false
     TeamUpdateRequest:
       properties:
         name:
@@ -11128,6 +12026,22 @@ components:
           type: boolean
           default: false
       type: object
+    AccountApiKeyCreateResponse:
+      required:
+        - api_key
+      properties:
+        api_key:
+          $ref: '#/components/schemas/AccountApiKeyResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
+      x-hideOn:
+        - sdk
+        - doc
     AccountCreateResponse:
       required:
         - account
@@ -11149,6 +12063,22 @@ components:
       properties:
         account:
           $ref: '#/components/schemas/AccountResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
+    AccountSettingsResponse:
+      required:
+        - account_id
+        - settings
+      properties:
+        account_id:
+          type: string
+        settings:
+          $ref: '#/components/schemas/AccountSettingsResponseSettings'
         warnings:
           description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
@@ -11468,6 +12398,49 @@ components:
           $ref: '#/components/schemas/AccountResponseSettings'
       type: object
       x-internal-class: true
+    AccountApiKeyResponse:
+      required:
+        - api_key_id
+        - account_id
+        - name
+        - secret
+        - is_primary
+        - created_at
+        - updated_at
+      properties:
+        api_key_id:
+          description: '_t__AccountApiKey::API_KEY_ID'
+          type: string
+        account_id:
+          description: '_t__AccountApiKey::ACCOUNT_ID'
+          type: string
+        name:
+          description: '_t__AccountApiKey::NAME'
+          type: string
+        secret:
+          description: '_t__AccountApiKeyCreate::SECRET'
+          type: string
+          maxLength: 64
+          minLength: 64
+          readOnly: true
+        is_primary:
+          description: '_t__AccountApiKey::IS_PRIMARY'
+          type: boolean
+        last_used_at:
+          description: '_t__AccountApiKey::LAST_USED_AT'
+          type: integer
+          nullable: true
+        created_at:
+          description: '_t__AccountApiKey::CREATED_AT'
+          type: integer
+        updated_at:
+          description: '_t__AccountApiKey::UPDATED_AT'
+          type: integer
+      type: object
+      x-internal-class: true
+      x-hideOn:
+        - sdk
+        - doc
     OAuthTokenResponse:
       properties:
         access_token:
@@ -11526,6 +12499,194 @@ components:
           description: '_t__AccountSettings::SMS_AUTHENTICATION'
           type: boolean
       type: object
+      x-internal-class: true
+    AccountSettingsResponseSettings:
+      required:
+        - company
+        - custom_signing_redirect_enabled
+        - custom_signing_redirect_url
+        - custom_tagline
+        - date_format
+        - is_signature_reminders_enabled
+        - request_email_from
+        - request_email_signature
+        - required_signature_types
+        - should_enable_tamper_proof
+        - should_include_distinct_pdfs
+        - should_offer_signer_access_code
+        - should_offer_signer_sms_authentication
+        - should_remove_document_id
+        - is_notify_on_sign_enabled
+        - is_notify_on_view_enabled
+        - should_autocomplete
+        - should_include_requested_pdfs
+        - should_include_requested_pdfs_for_others
+        - should_include_sent_doc_pdfs
+        - should_include_sent_doc_pdfs_for_others
+        - should_send_daily_summary
+        - should_send_embedded_signature_conf_emails
+        - should_send_ordered_sr_email
+        - should_send_outbound_conf_emails
+        - template_link_signature_emails_enabled
+      properties:
+        company:
+          description: '_t__Settings::COMPANY'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_enabled:
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_url:
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_tagline:
+          description: '_t__Settings::CUSTOM_TAGLINE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        date_format:
+          description: '_t__Settings::DATE_FORMAT'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_signature_reminders_enabled:
+          description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_from:
+          description: '_t__Settings::REQUEST_EMAIL_FROM'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_signature:
+          description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        required_signature_types:
+          description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_enable_tamper_proof:
+          description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_distinct_pdfs:
+          description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_access_code:
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_sms_authentication:
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_remove_document_id:
+          description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_notify_on_sign_enabled:
+          description: '_t__AccountSettings::IS_NOTIFY_ON_SIGN_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_notify_on_view_enabled:
+          description: '_t__AccountSettings::IS_NOTIFY_ON_VIEW_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_autocomplete:
+          description: '_t__AccountSettings::SHOULD_AUTOCOMPLETE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_requested_pdfs:
+          description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_requested_pdfs_for_others:
+          description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_sent_doc_pdfs:
+          description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_sent_doc_pdfs_for_others:
+          description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_daily_summary:
+          description: '_t__AccountSettings::SHOULD_SEND_DAILY_SUMMARY'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_embedded_signature_conf_emails:
+          description: '_t__AccountSettings::SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_ordered_sr_email:
+          description: '_t__AccountSettings::SHOULD_SEND_ORDERED_SR_EMAIL'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_outbound_conf_emails:
+          description: '_t__AccountSettings::SHOULD_SEND_OUTBOUND_CONF_EMAILS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        template_link_signature_emails_enabled:
+          description: '_t__AccountSettings::TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+      type: object
+      additionalProperties: false
       x-internal-class: true
     AccountResponseUsage:
       description: '_t__Account::USAGE'
@@ -11931,6 +13092,55 @@ components:
               - document_status
               - sms_activity
               - fax_usage
+      type: object
+      x-internal-class: true
+    SettingResponse:
+      required:
+        - value
+        - is_inherited
+        - source
+        - type
+        - writable
+        - lock
+      properties:
+        value:
+          description: '_t__SettingResponse::VALUE'
+          nullable: true
+        is_inherited:
+          type: boolean
+        source:
+          type: string
+          enum:
+            - account
+            - team
+            - parent_team
+            - default
+        type:
+          type: string
+          enum:
+            - boolean
+            - integer
+            - string
+            - array
+        writable:
+          type: boolean
+        lock:
+          $ref: '#/components/schemas/SettingLockResponse'
+      type: object
+      x-internal-class: true
+    SettingLockResponse:
+      required:
+        - mode
+        - source
+      properties:
+        mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+        source:
+          type: string
+          enum:
+            - team
+            - parent_team
+            - default
       type: object
       x-internal-class: true
     SignatureRequestResponse:
@@ -12424,6 +13634,12 @@ components:
     TeamResponse:
       description: '_t__TeamResponse::DESCRIPTION'
       properties:
+        team_id:
+          description: '_t__TeamGeneral::TEAM_ID'
+          type: string
+        parent_team_id:
+          description: '_t__Team::PARENT_TEAM_ID'
+          type: string
         name:
           description: '_t__Team::NAME'
           type: string
@@ -12507,6 +13723,187 @@ components:
           type: string
       type: object
       nullable: true
+      x-internal-class: true
+    TeamSettingsResponseSettings:
+      required:
+        - company
+        - custom_signing_redirect_enabled
+        - custom_signing_redirect_url
+        - custom_tagline
+        - date_format
+        - is_signature_reminders_enabled
+        - request_email_from
+        - request_email_signature
+        - required_signature_types
+        - should_enable_tamper_proof
+        - should_include_distinct_pdfs
+        - should_offer_signer_access_code
+        - should_offer_signer_sms_authentication
+        - should_remove_document_id
+        - data_residency
+        - allow_team_delete_document_for_everyone
+        - allow_team_download_csv
+        - lock_team_template_creation
+        - lock_team_template_gallery
+        - self_sign_message
+        - self_sign_title
+        - signature_request_message
+        - signature_request_title
+        - multifactor_auth_app
+        - multifactor_auth_sms
+      properties:
+        company:
+          description: '_t__Settings::COMPANY'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_enabled:
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_url:
+          description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_tagline:
+          description: '_t__Settings::CUSTOM_TAGLINE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        date_format:
+          description: '_t__Settings::DATE_FORMAT'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_signature_reminders_enabled:
+          description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_from:
+          description: '_t__Settings::REQUEST_EMAIL_FROM'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_signature:
+          description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        required_signature_types:
+          description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_enable_tamper_proof:
+          description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_distinct_pdfs:
+          description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_access_code:
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_sms_authentication:
+          description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_remove_document_id:
+          description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        data_residency:
+          description: '_t__TeamSettings::DATA_RESIDENCY'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        allow_team_delete_document_for_everyone:
+          description: '_t__TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        allow_team_download_csv:
+          description: '_t__TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        lock_team_template_creation:
+          description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_CREATION'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        lock_team_template_gallery:
+          description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        self_sign_message:
+          description: '_t__TeamSettings::SELF_SIGN_MESSAGE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        self_sign_title:
+          description: '_t__TeamSettings::SELF_SIGN_TITLE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        signature_request_message:
+          description: '_t__TeamSettings::SIGNATURE_REQUEST_MESSAGE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        signature_request_title:
+          description: '_t__TeamSettings::SIGNATURE_REQUEST_TITLE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        multifactor_auth_app:
+          description: '_t__TeamSettings::MULTIFACTOR_AUTH_APP'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        multifactor_auth_sms:
+          description: '_t__TeamSettings::MULTIFACTOR_AUTH_SMS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+      type: object
+      additionalProperties: false
       x-internal-class: true
     SubTeamResponse:
       properties:
@@ -13337,6 +14734,22 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
+    TeamSettingsResponse:
+      required:
+        - team_id
+        - settings
+      properties:
+        team_id:
+          type: string
+        settings:
+          $ref: '#/components/schemas/TeamSettingsResponseSettings'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -14234,7 +15647,25 @@ components:
             default: 'Hello API Event Received'
       x-fern-audiences:
         - events
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      description: '_t__Common::Idempotency::KEY'
+      required: false
+      schema:
+        type: string
+        maxLength: 255
+        minLength: 1
+      x-hideOn: sdk
   examples:
+    AccountApiKeyCreateRequest:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/AccountApiKeyCreateRequest.json
+      x-hideOn:
+        - sdk
+        - doc
     AccountCreateRequest:
       summary: 'Default Example'
       value:
@@ -14474,6 +15905,13 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/UnclaimedDraftEditAndResendRequest.json
+    AccountApiKeyCreateResponse:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/AccountApiKeyCreateResponse.json
+      x-hideOn:
+        - sdk
+        - doc
     AccountCreateResponse:
       summary: '_t__AccountCreateResponseExample::SUMMARY'
       value:
@@ -14992,6 +16430,12 @@ components:
         type: integer
         format: int64
         example: 1430170900
+    Idempotent-Replayed:
+      description: '_t__Common::Idempotency::REPLAYED'
+      required: false
+      schema:
+        type: boolean
+      x-hideOn: sdk
   securitySchemes:
     api_key:
       type: http

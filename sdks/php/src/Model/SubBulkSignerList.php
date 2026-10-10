@@ -59,6 +59,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $openAPITypes = [
         'custom_fields' => '\Dropbox\Sign\Model\SubBulkSignerListCustomField[]',
         'signers' => '\Dropbox\Sign\Model\SubSignatureRequestTemplateSigner[]',
+        'metadata' => 'array<string,mixed>',
     ];
 
     /**
@@ -71,6 +72,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $openAPIFormats = [
         'custom_fields' => null,
         'signers' => null,
+        'metadata' => null,
     ];
 
     /**
@@ -81,6 +83,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     protected static array $openAPINullables = [
         'custom_fields' => false,
         'signers' => false,
+        'metadata' => false,
     ];
 
     /**
@@ -163,6 +166,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $attributeMap = [
         'custom_fields' => 'custom_fields',
         'signers' => 'signers',
+        'metadata' => 'metadata',
     ];
 
     /**
@@ -173,6 +177,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $setters = [
         'custom_fields' => 'setCustomFields',
         'signers' => 'setSigners',
+        'metadata' => 'setMetadata',
     ];
 
     /**
@@ -183,6 +188,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $getters = [
         'custom_fields' => 'getCustomFields',
         'signers' => 'getSigners',
+        'metadata' => 'getMetadata',
     ];
 
     /**
@@ -243,6 +249,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $this->setIfExists('custom_fields', $data ?? [], null);
         $this->setIfExists('signers', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -288,7 +295,13 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 10)) {
+            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 10.";
+        }
+
+        return $invalidProperties;
     }
 
     /**
@@ -352,6 +365,37 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable signers cannot be null');
         }
         $this->container['signers'] = $signers;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,mixed>|null $metadata _t__Sub::BulkSigner::METADATA
+     *
+     * @return self
+     */
+    public function setMetadata(?array $metadata)
+    {
+        if (is_null($metadata)) {
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+
+        if (count($metadata) > 10) {
+            throw new InvalidArgumentException('invalid value for $metadata when calling SubBulkSignerList., number of items must be less than or equal to 10.');
+        }
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

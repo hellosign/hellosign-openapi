@@ -29,6 +29,10 @@ export class TeamCreateRequest {
    * The name of your Team.
    */
   "name"?: string = "Untitled Team";
+  /**
+   * _t__TeamCreate::PARENT_TEAM_ID
+   */
+  "parentTeamId"?: string;
 
   static discriminator: string | undefined = undefined;
 
@@ -36,6 +40,11 @@ export class TeamCreateRequest {
     {
       name: "name",
       baseName: "name",
+      type: "string",
+    },
+    {
+      name: "parentTeamId",
+      baseName: "parent_team_id",
       type: "string",
     },
   ];

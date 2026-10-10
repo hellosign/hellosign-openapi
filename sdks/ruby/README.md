@@ -109,6 +109,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |------------ | ------------- | ------------- | -------------|
 |*Dropbox::Sign::AccountApi* | [**account_create**](docs/AccountApi.md#account_create) | **POST** /account/create | Create Account |
 |*Dropbox::Sign::AccountApi* | [**account_get**](docs/AccountApi.md#account_get) | **GET** /account | Get Account |
+|*Dropbox::Sign::AccountApi* | [**account_settings_get**](docs/AccountApi.md#account_settings_get) | **GET** /account/settings | Get account settings |
+|*Dropbox::Sign::AccountApi* | [**account_settings_update**](docs/AccountApi.md#account_settings_update) | **POST** /account/settings | Modify account settings |
 |*Dropbox::Sign::AccountApi* | [**account_update**](docs/AccountApi.md#account_update) | **PUT** /account | Update Account |
 |*Dropbox::Sign::AccountApi* | [**account_verify**](docs/AccountApi.md#account_verify) | **POST** /account/verify | Verify Account |
 |*Dropbox::Sign::ApiAppApi* | [**api_app_create**](docs/ApiAppApi.md#api_app_create) | **POST** /api_app | Create API App |
@@ -164,6 +166,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::TeamApi* | [**team_invites**](docs/TeamApi.md#team_invites) | **GET** /team/invites | List Team Invites |
 |*Dropbox::Sign::TeamApi* | [**team_members**](docs/TeamApi.md#team_members) | **GET** /team/members/{team_id} | List Team Members |
 |*Dropbox::Sign::TeamApi* | [**team_remove_member**](docs/TeamApi.md#team_remove_member) | **POST** /team/remove_member | Remove User from Team |
+|*Dropbox::Sign::TeamApi* | [**team_settings_get**](docs/TeamApi.md#team_settings_get) | **GET** /team/settings | Get team settings |
+|*Dropbox::Sign::TeamApi* | [**team_settings_update**](docs/TeamApi.md#team_settings_update) | **POST** /team/settings | Modify team settings |
 |*Dropbox::Sign::TeamApi* | [**team_sub_teams**](docs/TeamApi.md#team_sub_teams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 |*Dropbox::Sign::TeamApi* | [**team_update**](docs/TeamApi.md#team_update) | **PUT** /team | Update Team |
 |*Dropbox::Sign::TemplateApi* | [**template_add_user**](docs/TemplateApi.md#template_add_user) | **POST** /template/add_user/{template_id} | Add User to Template |
@@ -192,6 +196,9 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::AccountResponseQuotas](docs/AccountResponseQuotas.md)
  - [Dropbox::Sign::AccountResponseSettings](docs/AccountResponseSettings.md)
  - [Dropbox::Sign::AccountResponseUsage](docs/AccountResponseUsage.md)
+ - [Dropbox::Sign::AccountSettingsResponse](docs/AccountSettingsResponse.md)
+ - [Dropbox::Sign::AccountSettingsResponseSettings](docs/AccountSettingsResponseSettings.md)
+ - [Dropbox::Sign::AccountSettingsUpdateRequest](docs/AccountSettingsUpdateRequest.md)
  - [Dropbox::Sign::AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [Dropbox::Sign::AccountVerifyRequest](docs/AccountVerifyRequest.md)
  - [Dropbox::Sign::AccountVerifyResponse](docs/AccountVerifyResponse.md)
@@ -205,11 +212,16 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::ApiAppResponseOwnerAccount](docs/ApiAppResponseOwnerAccount.md)
  - [Dropbox::Sign::ApiAppResponseWhiteLabelingOptions](docs/ApiAppResponseWhiteLabelingOptions.md)
  - [Dropbox::Sign::ApiAppUpdateRequest](docs/ApiAppUpdateRequest.md)
+ - [Dropbox::Sign::BooleanSettingUpdate](docs/BooleanSettingUpdate.md)
  - [Dropbox::Sign::BulkSendJobGetResponse](docs/BulkSendJobGetResponse.md)
  - [Dropbox::Sign::BulkSendJobGetResponseSignatureRequests](docs/BulkSendJobGetResponseSignatureRequests.md)
  - [Dropbox::Sign::BulkSendJobListResponse](docs/BulkSendJobListResponse.md)
  - [Dropbox::Sign::BulkSendJobResponse](docs/BulkSendJobResponse.md)
  - [Dropbox::Sign::BulkSendJobSendResponse](docs/BulkSendJobSendResponse.md)
+ - [Dropbox::Sign::DataResidency](docs/DataResidency.md)
+ - [Dropbox::Sign::DataResidencySettingUpdate](docs/DataResidencySettingUpdate.md)
+ - [Dropbox::Sign::DateFormat](docs/DateFormat.md)
+ - [Dropbox::Sign::DateFormatSettingUpdate](docs/DateFormatSettingUpdate.md)
  - [Dropbox::Sign::DocumentFieldDetectionRequest](docs/DocumentFieldDetectionRequest.md)
  - [Dropbox::Sign::DocumentFieldDetectionResponse](docs/DocumentFieldDetectionResponse.md)
  - [Dropbox::Sign::DocumentFieldDetectionResponseDetectionResult](docs/DocumentFieldDetectionResponseDetectionResult.md)
@@ -248,6 +260,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::ReportCreateRequest](docs/ReportCreateRequest.md)
  - [Dropbox::Sign::ReportCreateResponse](docs/ReportCreateResponse.md)
  - [Dropbox::Sign::ReportResponse](docs/ReportResponse.md)
+ - [Dropbox::Sign::RequiredSignatureType](docs/RequiredSignatureType.md)
+ - [Dropbox::Sign::RequiredSignatureTypesSettingUpdate](docs/RequiredSignatureTypesSettingUpdate.md)
+ - [Dropbox::Sign::SettingLockResponse](docs/SettingLockResponse.md)
+ - [Dropbox::Sign::SettingResponse](docs/SettingResponse.md)
  - [Dropbox::Sign::SignatureRequestBulkCreateEmbeddedWithTemplateRequest](docs/SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md)
  - [Dropbox::Sign::SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [Dropbox::Sign::SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
@@ -280,6 +296,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SignatureRequestSendRequest](docs/SignatureRequestSendRequest.md)
  - [Dropbox::Sign::SignatureRequestSendWithTemplateRequest](docs/SignatureRequestSendWithTemplateRequest.md)
  - [Dropbox::Sign::SignatureRequestUpdateRequest](docs/SignatureRequestUpdateRequest.md)
+ - [Dropbox::Sign::StringSettingUpdate](docs/StringSettingUpdate.md)
  - [Dropbox::Sign::SubAttachment](docs/SubAttachment.md)
  - [Dropbox::Sign::SubBulkSignerList](docs/SubBulkSignerList.md)
  - [Dropbox::Sign::SubBulkSignerListCustomField](docs/SubBulkSignerListCustomField.md)
@@ -328,6 +345,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::TeamParentResponse](docs/TeamParentResponse.md)
  - [Dropbox::Sign::TeamRemoveMemberRequest](docs/TeamRemoveMemberRequest.md)
  - [Dropbox::Sign::TeamResponse](docs/TeamResponse.md)
+ - [Dropbox::Sign::TeamSettingLock](docs/TeamSettingLock.md)
+ - [Dropbox::Sign::TeamSettingsResponse](docs/TeamSettingsResponse.md)
+ - [Dropbox::Sign::TeamSettingsResponseSettings](docs/TeamSettingsResponseSettings.md)
+ - [Dropbox::Sign::TeamSettingsUpdateRequest](docs/TeamSettingsUpdateRequest.md)
  - [Dropbox::Sign::TeamSubTeamsResponse](docs/TeamSubTeamsResponse.md)
  - [Dropbox::Sign::TeamUpdateRequest](docs/TeamUpdateRequest.md)
  - [Dropbox::Sign::TemplateAddUserRequest](docs/TemplateAddUserRequest.md)

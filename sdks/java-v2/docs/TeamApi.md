@@ -12,6 +12,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 [**teamInvites**](TeamApi.md#teamInvites) | **GET** /team/invites | List Team Invites
 [**teamMembers**](TeamApi.md#teamMembers) | **GET** /team/members/{team_id} | List Team Members
 [**teamRemoveMember**](TeamApi.md#teamRemoveMember) | **POST** /team/remove_member | Remove User from Team
+[**teamSettingsGet**](TeamApi.md#teamSettingsGet) | **GET** /team/settings | Get team settings
+[**teamSettingsUpdate**](TeamApi.md#teamSettingsUpdate) | **POST** /team/settings | Modify team settings
 [**teamSubTeams**](TeamApi.md#teamSubTeams) | **GET** /team/sub_teams/{team_id} | List Sub Teams
 [**teamUpdate**](TeamApi.md#teamUpdate) | **PUT** /team | Update Team
 
@@ -674,6 +676,176 @@ public class TeamRemoveMemberExample
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## teamSettingsGet
+
+> TeamSettingsResponse teamSettingsGet(teamId)
+
+Get team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Example
+
+```java
+package com.dropbox.sign_sandbox;
+
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.TeamApi;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.SettingResponse;
+
+public class TeamSettingsGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+        try
+        {
+            var response = new TeamApi(config).teamSettingsGet();
+            SettingResponse company = response.getSettings().getCompany();
+            SettingResponse dataResidency = response.getSettings().getDataResidency();
+
+            System.out.println(response);
+            System.out.println(response.getTeamId());
+            System.out.println(company.getValue());
+            System.out.println(company.getIsInherited());
+            System.out.println(company.getSource());
+            System.out.println(company.getType());
+            System.out.println(company.getWritable());
+            System.out.println(company.getLock().getMode());
+            System.out.println(company.getLock().getSource());
+            System.out.println(dataResidency.getValue());
+            System.out.println(dataResidency.getType());
+            System.out.println(dataResidency.getLock().getMode());
+            System.out.println(dataResidency.getLock().getSource());
+            System.out.println(response.getWarnings());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TeamApi#teamSettingsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **teamId** | **String**| Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional]
+
+### Return type
+
+[**TeamSettingsResponse**](TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## teamSettingsUpdate
+
+> TeamSettingsResponse teamSettingsUpdate(teamSettingsUpdateRequest, teamId)
+
+Modify team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Example
+
+```java
+package com.dropbox.sign_sandbox;
+
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.TeamApi;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.DataResidency;
+import com.dropbox.sign.model.DataResidencySettingUpdate;
+import com.dropbox.sign.model.StringSettingUpdate;
+import com.dropbox.sign.model.TeamSettingLock;
+import com.dropbox.sign.model.TeamSettingsUpdateRequest;
+
+public class TeamSettingsUpdateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+        var teamSettingsUpdateRequest = new TeamSettingsUpdateRequest()
+            .dataResidency(new DataResidencySettingUpdate().value(DataResidency.EU))
+            .company(new StringSettingUpdate()
+                .value("Northwind")
+                .lockMode(TeamSettingLock.ORGANIZATION_ADMINS));
+
+        try
+        {
+            var response = new TeamApi(config).teamSettingsUpdate(
+                teamSettingsUpdateRequest
+            );
+
+            System.out.println(response);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TeamApi#teamSettingsUpdate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **teamSettingsUpdateRequest** | [**TeamSettingsUpdateRequest**](TeamSettingsUpdateRequest.md)|  |
+ **teamId** | **String**| Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional]
+
+### Return type
+
+[**TeamSettingsResponse**](TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 

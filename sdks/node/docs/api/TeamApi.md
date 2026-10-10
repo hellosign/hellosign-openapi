@@ -12,6 +12,8 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**teamInvites()**](TeamApi.md#teamInvites) | **GET** /team/invites | List Team Invites |
 | [**teamMembers()**](TeamApi.md#teamMembers) | **GET** /team/members/{team_id} | List Team Members |
 | [**teamRemoveMember()**](TeamApi.md#teamRemoveMember) | **POST** /team/remove_member | Remove User from Team |
+| [**teamSettingsGet()**](TeamApi.md#teamSettingsGet) | **GET** /team/settings | Get team settings |
+| [**teamSettingsUpdate()**](TeamApi.md#teamSettingsUpdate) | **POST** /team/settings | Modify team settings |
 | [**teamSubTeams()**](TeamApi.md#teamSubTeams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | [**teamUpdate()**](TeamApi.md#teamUpdate) | **PUT** /team | Update Team |
 
@@ -449,6 +451,150 @@ apiCaller.teamRemoveMember(
 ### Return type
 
 [**TeamGetResponse**](../model/TeamGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `teamSettingsGet()`
+
+```typescript
+teamSettingsGet(teamId: string): TeamSettingsResponse
+```
+
+Get team settings
+
+team_id is an optional query parameter and defaults to the authenticated account\'s team. An organization admin can specify a subteam.
+
+### TypeScript Example
+
+```typescript
+import api from "@dropbox/sign"
+
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+apiCaller.teamSettingsGet().then(response => {
+  const company = response.body.settings.company;
+  const dataResidency = response.body.settings.dataResidency;
+  console.log(response.body);
+  console.log({
+    teamId: response.body.teamId,
+    company: {
+      value: company.value,
+      isInherited: company.isInherited,
+      source: company.source,
+      type: company.type,
+      writable: company.writable,
+      lock: {
+        mode: company.lock.mode,
+        source: company.lock.source,
+      },
+    },
+    dataResidency: {
+      value: dataResidency.value,
+      isInherited: dataResidency.isInherited,
+      source: dataResidency.source,
+      type: dataResidency.type,
+      writable: dataResidency.writable,
+      lock: {
+        mode: dataResidency.lock.mode,
+        source: dataResidency.lock.source,
+      },
+    },
+    warnings: response.body.warnings,
+  });
+}).catch(error => {
+  console.log("Exception when calling TeamApi#teamSettingsGet:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **teamId** | **string**| Optional team ID. Defaults to the authenticated account\&#39;s team. An organization admin can specify a subteam. | [optional] |
+
+### Return type
+
+[**TeamSettingsResponse**](../model/TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `teamSettingsUpdate()`
+
+```typescript
+teamSettingsUpdate(teamSettingsUpdateRequest: TeamSettingsUpdateRequest, teamId: string): TeamSettingsResponse
+```
+
+Modify team settings
+
+team_id is an optional query parameter and defaults to the authenticated account\'s team. An organization admin can specify a subteam.
+
+### TypeScript Example
+
+```typescript
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+const teamSettingsUpdateRequest: models.TeamSettingsUpdateRequest = {
+  dataResidency: {
+    value: models.DataResidency.Eu,
+  },
+  company: {
+    value: "Northwind",
+    lockMode: models.TeamSettingLock.OrganizationAdmins,
+  },
+};
+
+apiCaller.teamSettingsUpdate(
+  teamSettingsUpdateRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling TeamApi#teamSettingsUpdate:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **teamSettingsUpdateRequest** | [**TeamSettingsUpdateRequest**](../model/TeamSettingsUpdateRequest.md)|  | |
+| **teamId** | **string**| Optional team ID. Defaults to the authenticated account\&#39;s team. An organization admin can specify a subteam. | [optional] |
+
+### Return type
+
+[**TeamSettingsResponse**](../model/TeamSettingsResponse.md)
 
 ### Authorization
 

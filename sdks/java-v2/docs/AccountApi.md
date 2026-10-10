@@ -6,6 +6,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |------------- | ------------- | -------------|
 [**accountCreate**](AccountApi.md#accountCreate) | **POST** /account/create | Create Account
 [**accountGet**](AccountApi.md#accountGet) | **GET** /account | Get Account
+[**accountSettingsGet**](AccountApi.md#accountSettingsGet) | **GET** /account/settings | Get account settings
+[**accountSettingsUpdate**](AccountApi.md#accountSettingsUpdate) | **POST** /account/settings | Modify account settings
 [**accountUpdate**](AccountApi.md#accountUpdate) | **PUT** /account | Update Account
 [**accountVerify**](AccountApi.md#accountVerify) | **POST** /account/verify | Verify Account
 
@@ -171,6 +173,173 @@ public class AccountGetExample
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## accountSettingsGet
+
+> AccountSettingsResponse accountSettingsGet(accountId)
+
+Get account settings
+
+account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+
+### Example
+
+```java
+package com.dropbox.sign_sandbox;
+
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.AccountApi;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.SettingResponse;
+
+public class AccountSettingsGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+        try
+        {
+            var response = new AccountApi(config).accountSettingsGet();
+            SettingResponse company = response.getSettings().getCompany();
+
+            System.out.println(response);
+            System.out.println(response.getAccountId());
+            System.out.println(company.getValue());
+            System.out.println(company.getIsInherited());
+            System.out.println(company.getSource());
+            System.out.println(company.getType());
+            System.out.println(company.getWritable());
+            System.out.println(company.getLock().getMode());
+            System.out.println(company.getLock().getSource());
+            System.out.println(response.getWarnings());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#accountSettingsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **accountId** | **String**| Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. | [optional]
+
+### Return type
+
+[**AccountSettingsResponse**](AccountSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## accountSettingsUpdate
+
+> AccountSettingsResponse accountSettingsUpdate(accountSettingsUpdateRequest, accountId)
+
+Modify account settings
+
+account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+
+### Example
+
+```java
+package com.dropbox.sign_sandbox;
+
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.AccountApi;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.AccountSettingsUpdateRequest;
+import com.dropbox.sign.model.DateFormat;
+import com.dropbox.sign.model.RequiredSignatureType;
+import java.util.List;
+
+public class AccountSettingsUpdateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+        // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+        var accountSettingsUpdateRequest = new AccountSettingsUpdateRequest()
+            .dateFormat(DateFormat.MM_DD_YYYY)
+            .requiredSignatureTypes(List.of(
+                RequiredSignatureType.DRAW,
+                RequiredSignatureType.TYPE
+            ))
+            .shouldEnableTamperProof(false)
+            .unset(List.of("company"));
+
+        try
+        {
+            var response = new AccountApi(config).accountSettingsUpdate(
+                accountSettingsUpdateRequest
+            );
+
+            System.out.println(response);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#accountSettingsUpdate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **accountSettingsUpdateRequest** | [**AccountSettingsUpdateRequest**](AccountSettingsUpdateRequest.md)|  |
+ **accountId** | **String**| Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. | [optional]
+
+### Return type
+
+[**AccountSettingsResponse**](AccountSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

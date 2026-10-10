@@ -35,6 +35,10 @@ export class SubBulkSignerList {
    * Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.
    */
   "signers"?: Array<SubSignatureRequestTemplateSigner>;
+  /**
+   * _t__Sub::BulkSigner::METADATA
+   */
+  "metadata"?: { [key: string]: any };
 
   static discriminator: string | undefined = undefined;
 
@@ -48,6 +52,11 @@ export class SubBulkSignerList {
       name: "signers",
       baseName: "signers",
       type: "Array<SubSignatureRequestTemplateSigner>",
+    },
+    {
+      name: "metadata",
+      baseName: "metadata",
+      type: "{ [key: string]: any; }",
     },
   ];
 

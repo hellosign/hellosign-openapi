@@ -12,6 +12,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [`team_invites`](TeamApi.md#team_invites) | **GET** `/team/invites` | List Team Invites |
 | [`team_members`](TeamApi.md#team_members) | **GET** `/team/members/{team_id}` | List Team Members |
 | [`team_remove_member`](TeamApi.md#team_remove_member) | **POST** `/team/remove_member` | Remove User from Team |
+| [`team_settings_get`](TeamApi.md#team_settings_get) | **GET** `/team/settings` | Get team settings |
+| [`team_settings_update`](TeamApi.md#team_settings_update) | **POST** `/team/settings` | Modify team settings |
 | [`team_sub_teams`](TeamApi.md#team_sub_teams) | **GET** `/team/sub_teams/{team_id}` | List Sub Teams |
 | [`team_update`](TeamApi.md#team_update) | **PUT** `/team` | Update Team |
 
@@ -567,6 +569,176 @@ end
 ### Return type
 
 [**TeamGetResponse**](TeamGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## `team_settings_get`
+
+> `<TeamSettingsResponse> team_settings_get(opts)`
+
+Get team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Examples
+
+```ruby
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+begin
+  response = Dropbox::Sign::TeamApi.new.team_settings_get
+  company = response.settings.company
+  data_residency = response.settings.data_residency
+
+  p response
+  p({
+      team_id: response.team_id,
+      company: {
+          value: company.value,
+          is_inherited: company.is_inherited,
+          source: company.source,
+          type: company.type,
+          writable: company.writable,
+          lock: {
+              mode: company.lock.mode,
+              source: company.lock.source,
+          },
+      },
+      data_residency: {
+          value: data_residency.value,
+          is_inherited: data_residency.is_inherited,
+          source: data_residency.source,
+          type: data_residency.type,
+          writable: data_residency.writable,
+          lock: {
+              mode: data_residency.lock.mode,
+              source: data_residency.lock.source,
+          },
+      },
+      warnings: response.warnings,
+  })
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling TeamApi#team_settings_get: #{e}"
+end
+
+```
+
+#### Using the `team_settings_get_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<TeamSettingsResponse>, Integer, Hash)> team_settings_get_with_http_info(opts)`
+
+```ruby
+begin
+  # Get team settings
+  data, status_code, headers = api_instance.team_settings_get_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TeamSettingsResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling TeamApi->team_settings_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `team_id` | **String** | Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional] |
+
+### Return type
+
+[**TeamSettingsResponse**](TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## `team_settings_update`
+
+> `<TeamSettingsResponse> team_settings_update(team_settings_update_request, opts)`
+
+Modify team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Examples
+
+```ruby
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  config.username = "YOUR_API_KEY"
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+team_settings_update_request = Dropbox::Sign::TeamSettingsUpdateRequest.new
+team_settings_update_request.data_residency = Dropbox::Sign::DataResidencySettingUpdate.new
+team_settings_update_request.data_residency.value = Dropbox::Sign::DataResidency::EU
+team_settings_update_request.company = Dropbox::Sign::StringSettingUpdate.new
+team_settings_update_request.company.value = "Northwind"
+team_settings_update_request.company.lock_mode = Dropbox::Sign::TeamSettingLock::ORGANIZATION_ADMINS
+
+begin
+  response = Dropbox::Sign::TeamApi.new.team_settings_update(
+    team_settings_update_request,
+  )
+
+  p response
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling TeamApi#team_settings_update: #{e}"
+end
+
+```
+
+#### Using the `team_settings_update_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<TeamSettingsResponse>, Integer, Hash)> team_settings_update_with_http_info(team_settings_update_request, opts)`
+
+```ruby
+begin
+  # Modify team settings
+  data, status_code, headers = api_instance.team_settings_update_with_http_info(team_settings_update_request, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TeamSettingsResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling TeamApi->team_settings_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `team_settings_update_request` | [**TeamSettingsUpdateRequest**](TeamSettingsUpdateRequest.md) |  |  |
+| `team_id` | **String** | Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional] |
+
+### Return type
+
+[**TeamSettingsResponse**](TeamSettingsResponse.md)
 
 ### Authorization
 

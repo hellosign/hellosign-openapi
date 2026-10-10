@@ -81,6 +81,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | ---------- | ------------- | ------------- | ------------- |
 | *AccountApi* | [**accountCreate**](./docs/api/AccountApi.md#accountcreate) | **POST** /account/create | Create Account |
 | *AccountApi* | [**accountGet**](./docs/api/AccountApi.md#accountget) | **GET** /account | Get Account |
+| *AccountApi* | [**accountSettingsGet**](./docs/api/AccountApi.md#accountsettingsget) | **GET** /account/settings | Get account settings |
+| *AccountApi* | [**accountSettingsUpdate**](./docs/api/AccountApi.md#accountsettingsupdate) | **POST** /account/settings | Modify account settings |
 | *AccountApi* | [**accountUpdate**](./docs/api/AccountApi.md#accountupdate) | **PUT** /account | Update Account |
 | *AccountApi* | [**accountVerify**](./docs/api/AccountApi.md#accountverify) | **POST** /account/verify | Verify Account |
 | *ApiAppApi* | [**apiAppCreate**](./docs/api/ApiAppApi.md#apiappcreate) | **POST** /api_app | Create API App |
@@ -136,6 +138,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *TeamApi* | [**teamInvites**](./docs/api/TeamApi.md#teaminvites) | **GET** /team/invites | List Team Invites |
 | *TeamApi* | [**teamMembers**](./docs/api/TeamApi.md#teammembers) | **GET** /team/members/{team_id} | List Team Members |
 | *TeamApi* | [**teamRemoveMember**](./docs/api/TeamApi.md#teamremovemember) | **POST** /team/remove_member | Remove User from Team |
+| *TeamApi* | [**teamSettingsGet**](./docs/api/TeamApi.md#teamsettingsget) | **GET** /team/settings | Get team settings |
+| *TeamApi* | [**teamSettingsUpdate**](./docs/api/TeamApi.md#teamsettingsupdate) | **POST** /team/settings | Modify team settings |
 | *TeamApi* | [**teamSubTeams**](./docs/api/TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | *TeamApi* | [**teamUpdate**](./docs/api/TeamApi.md#teamupdate) | **PUT** /team | Update Team |
 | *TemplateApi* | [**templateAddUser**](./docs/api/TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template |
@@ -163,6 +167,9 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [AccountResponseQuotas](./docs/model/AccountResponseQuotas.md)
 - [AccountResponseSettings](./docs/model/AccountResponseSettings.md)
 - [AccountResponseUsage](./docs/model/AccountResponseUsage.md)
+- [AccountSettingsResponse](./docs/model/AccountSettingsResponse.md)
+- [AccountSettingsResponseSettings](./docs/model/AccountSettingsResponseSettings.md)
+- [AccountSettingsUpdateRequest](./docs/model/AccountSettingsUpdateRequest.md)
 - [AccountUpdateRequest](./docs/model/AccountUpdateRequest.md)
 - [AccountVerifyRequest](./docs/model/AccountVerifyRequest.md)
 - [AccountVerifyResponse](./docs/model/AccountVerifyResponse.md)
@@ -176,11 +183,16 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [ApiAppResponseOwnerAccount](./docs/model/ApiAppResponseOwnerAccount.md)
 - [ApiAppResponseWhiteLabelingOptions](./docs/model/ApiAppResponseWhiteLabelingOptions.md)
 - [ApiAppUpdateRequest](./docs/model/ApiAppUpdateRequest.md)
+- [BooleanSettingUpdate](./docs/model/BooleanSettingUpdate.md)
 - [BulkSendJobGetResponse](./docs/model/BulkSendJobGetResponse.md)
 - [BulkSendJobGetResponseSignatureRequests](./docs/model/BulkSendJobGetResponseSignatureRequests.md)
 - [BulkSendJobListResponse](./docs/model/BulkSendJobListResponse.md)
 - [BulkSendJobResponse](./docs/model/BulkSendJobResponse.md)
 - [BulkSendJobSendResponse](./docs/model/BulkSendJobSendResponse.md)
+- [DataResidency](./docs/model/DataResidency.md)
+- [DataResidencySettingUpdate](./docs/model/DataResidencySettingUpdate.md)
+- [DateFormat](./docs/model/DateFormat.md)
+- [DateFormatSettingUpdate](./docs/model/DateFormatSettingUpdate.md)
 - [DocumentFieldDetectionRequest](./docs/model/DocumentFieldDetectionRequest.md)
 - [DocumentFieldDetectionResponse](./docs/model/DocumentFieldDetectionResponse.md)
 - [DocumentFieldDetectionResponseDetectionResult](./docs/model/DocumentFieldDetectionResponseDetectionResult.md)
@@ -219,6 +231,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [ReportCreateRequest](./docs/model/ReportCreateRequest.md)
 - [ReportCreateResponse](./docs/model/ReportCreateResponse.md)
 - [ReportResponse](./docs/model/ReportResponse.md)
+- [RequiredSignatureType](./docs/model/RequiredSignatureType.md)
+- [RequiredSignatureTypesSettingUpdate](./docs/model/RequiredSignatureTypesSettingUpdate.md)
+- [SettingLockResponse](./docs/model/SettingLockResponse.md)
+- [SettingResponse](./docs/model/SettingResponse.md)
 - [SignatureRequestBulkCreateEmbeddedWithTemplateRequest](./docs/model/SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md)
 - [SignatureRequestBulkSendWithTemplateRequest](./docs/model/SignatureRequestBulkSendWithTemplateRequest.md)
 - [SignatureRequestCreateEmbeddedRequest](./docs/model/SignatureRequestCreateEmbeddedRequest.md)
@@ -251,6 +267,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SignatureRequestSendRequest](./docs/model/SignatureRequestSendRequest.md)
 - [SignatureRequestSendWithTemplateRequest](./docs/model/SignatureRequestSendWithTemplateRequest.md)
 - [SignatureRequestUpdateRequest](./docs/model/SignatureRequestUpdateRequest.md)
+- [StringSettingUpdate](./docs/model/StringSettingUpdate.md)
 - [SubAttachment](./docs/model/SubAttachment.md)
 - [SubBulkSignerList](./docs/model/SubBulkSignerList.md)
 - [SubBulkSignerListCustomField](./docs/model/SubBulkSignerListCustomField.md)
@@ -299,6 +316,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [TeamParentResponse](./docs/model/TeamParentResponse.md)
 - [TeamRemoveMemberRequest](./docs/model/TeamRemoveMemberRequest.md)
 - [TeamResponse](./docs/model/TeamResponse.md)
+- [TeamSettingLock](./docs/model/TeamSettingLock.md)
+- [TeamSettingsResponse](./docs/model/TeamSettingsResponse.md)
+- [TeamSettingsResponseSettings](./docs/model/TeamSettingsResponseSettings.md)
+- [TeamSettingsUpdateRequest](./docs/model/TeamSettingsUpdateRequest.md)
 - [TeamSubTeamsResponse](./docs/model/TeamSubTeamsResponse.md)
 - [TeamUpdateRequest](./docs/model/TeamUpdateRequest.md)
 - [TemplateAddUserRequest](./docs/model/TemplateAddUserRequest.md)

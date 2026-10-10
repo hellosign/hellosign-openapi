@@ -11,6 +11,8 @@ import jakarta.ws.rs.core.GenericType;
 import com.dropbox.sign.model.AccountCreateRequest;
 import com.dropbox.sign.model.AccountCreateResponse;
 import com.dropbox.sign.model.AccountGetResponse;
+import com.dropbox.sign.model.AccountSettingsResponse;
+import com.dropbox.sign.model.AccountSettingsUpdateRequest;
 import com.dropbox.sign.model.AccountUpdateRequest;
 import com.dropbox.sign.model.AccountVerifyRequest;
 import com.dropbox.sign.model.AccountVerifyResponse;
@@ -214,6 +216,181 @@ public class AccountApi {
         "GET",
         localVarQueryParams,
         null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+  }
+  /**
+   * Get account settings
+   * account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountSettingsGetExample.java
+   * @param accountId Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+   * @return AccountSettingsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public AccountSettingsResponse accountSettingsGet(String accountId) throws ApiException {
+    return accountSettingsGetWithHttpInfo(accountId).getData();
+  }
+
+
+  /**
+   * @see AccountApi#accountSettingsGet(String)
+   */
+  public AccountSettingsResponse accountSettingsGet() throws ApiException {
+    String accountId = null;
+
+    return accountSettingsGetWithHttpInfo(accountId).getData();
+  }
+
+  /**
+   * @see AccountApi#accountSettingsGetWithHttpInfo(String)
+   */
+  public ApiResponse<AccountSettingsResponse> accountSettingsGetWithHttpInfo() throws ApiException {
+    String accountId = null;
+
+    return accountSettingsGetWithHttpInfo(accountId);
+  }
+
+
+  /**
+   * Get account settings
+   * account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountSettingsGetExample.java
+   * @param accountId Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+   * @return ApiResponse&lt;AccountSettingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<AccountSettingsResponse> accountSettingsGetWithHttpInfo(String accountId) throws ApiException {
+    
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "account_id", accountId)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = new HashMap<String, Object>();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    GenericType<AccountSettingsResponse> localVarReturnType = new GenericType<AccountSettingsResponse>() {};
+    return apiClient.invokeAPI(
+        "AccountApi.accountSettingsGet",
+        "/account/settings",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+  }
+  /**
+   * Modify account settings
+   * account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountSettingsUpdateExample.java
+   * @param accountSettingsUpdateRequest  (required)
+   * @param accountId Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+   * @return AccountSettingsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public AccountSettingsResponse accountSettingsUpdate(AccountSettingsUpdateRequest accountSettingsUpdateRequest, String accountId) throws ApiException {
+    return accountSettingsUpdateWithHttpInfo(accountSettingsUpdateRequest, accountId).getData();
+  }
+
+
+  /**
+   * @see AccountApi#accountSettingsUpdate(AccountSettingsUpdateRequest, String)
+   */
+  public AccountSettingsResponse accountSettingsUpdate(AccountSettingsUpdateRequest accountSettingsUpdateRequest) throws ApiException {
+    String accountId = null;
+
+    return accountSettingsUpdateWithHttpInfo(accountSettingsUpdateRequest, accountId).getData();
+  }
+
+  /**
+   * @see AccountApi#accountSettingsUpdateWithHttpInfo(AccountSettingsUpdateRequest, String)
+   */
+  public ApiResponse<AccountSettingsResponse> accountSettingsUpdateWithHttpInfo(AccountSettingsUpdateRequest accountSettingsUpdateRequest) throws ApiException {
+    String accountId = null;
+
+    return accountSettingsUpdateWithHttpInfo(accountSettingsUpdateRequest, accountId);
+  }
+
+
+  /**
+   * Modify account settings
+   * account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * Example: https://github.com/hellosign/dropbox-sign-java/blob/main/examples/AccountSettingsUpdateExample.java
+   * @param accountSettingsUpdateRequest  (required)
+   * @param accountId Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+   * @return ApiResponse&lt;AccountSettingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<AccountSettingsResponse> accountSettingsUpdateWithHttpInfo(AccountSettingsUpdateRequest accountSettingsUpdateRequest, String accountId) throws ApiException {
+    
+    // Check required parameters
+    if (accountSettingsUpdateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountSettingsUpdateRequest' when calling accountSettingsUpdate");
+    }
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "account_id", accountId)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = accountSettingsUpdateRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    GenericType<AccountSettingsResponse> localVarReturnType = new GenericType<AccountSettingsResponse>() {};
+    return apiClient.invokeAPI(
+        "AccountApi.accountSettingsUpdate",
+        "/account/settings",
+        "POST",
+        localVarQueryParams,
+        isFileTypeFound ? null : accountSettingsUpdateRequest,
         new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,

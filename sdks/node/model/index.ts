@@ -5,6 +5,9 @@ import { AccountResponse } from "./accountResponse";
 import { AccountResponseQuotas } from "./accountResponseQuotas";
 import { AccountResponseSettings } from "./accountResponseSettings";
 import { AccountResponseUsage } from "./accountResponseUsage";
+import { AccountSettingsResponse } from "./accountSettingsResponse";
+import { AccountSettingsResponseSettings } from "./accountSettingsResponseSettings";
+import { AccountSettingsUpdateRequest } from "./accountSettingsUpdateRequest";
 import { AccountUpdateRequest } from "./accountUpdateRequest";
 import { AccountVerifyRequest } from "./accountVerifyRequest";
 import { AccountVerifyResponse } from "./accountVerifyResponse";
@@ -18,11 +21,16 @@ import { ApiAppResponseOptions } from "./apiAppResponseOptions";
 import { ApiAppResponseOwnerAccount } from "./apiAppResponseOwnerAccount";
 import { ApiAppResponseWhiteLabelingOptions } from "./apiAppResponseWhiteLabelingOptions";
 import { ApiAppUpdateRequest } from "./apiAppUpdateRequest";
+import { BooleanSettingUpdate } from "./booleanSettingUpdate";
 import { BulkSendJobGetResponse } from "./bulkSendJobGetResponse";
 import { BulkSendJobGetResponseSignatureRequests } from "./bulkSendJobGetResponseSignatureRequests";
 import { BulkSendJobListResponse } from "./bulkSendJobListResponse";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { BulkSendJobSendResponse } from "./bulkSendJobSendResponse";
+import { DataResidency } from "./dataResidency";
+import { DataResidencySettingUpdate } from "./dataResidencySettingUpdate";
+import { DateFormat } from "./dateFormat";
+import { DateFormatSettingUpdate } from "./dateFormatSettingUpdate";
 import { DocumentFieldDetectionRequest } from "./documentFieldDetectionRequest";
 import { DocumentFieldDetectionResponse } from "./documentFieldDetectionResponse";
 import { DocumentFieldDetectionResponseDetectionResult } from "./documentFieldDetectionResponseDetectionResult";
@@ -75,6 +83,10 @@ import { OAuthTokenResponse } from "./oAuthTokenResponse";
 import { ReportCreateRequest } from "./reportCreateRequest";
 import { ReportCreateResponse } from "./reportCreateResponse";
 import { ReportResponse } from "./reportResponse";
+import { RequiredSignatureType } from "./requiredSignatureType";
+import { RequiredSignatureTypesSettingUpdate } from "./requiredSignatureTypesSettingUpdate";
+import { SettingLockResponse } from "./settingLockResponse";
+import { SettingResponse } from "./settingResponse";
 import { SignatureRequestBulkCreateEmbeddedWithTemplateRequest } from "./signatureRequestBulkCreateEmbeddedWithTemplateRequest";
 import { SignatureRequestBulkSendWithTemplateRequest } from "./signatureRequestBulkSendWithTemplateRequest";
 import { SignatureRequestCreateEmbeddedRequest } from "./signatureRequestCreateEmbeddedRequest";
@@ -107,6 +119,7 @@ import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSi
 import { SignatureRequestSendRequest } from "./signatureRequestSendRequest";
 import { SignatureRequestSendWithTemplateRequest } from "./signatureRequestSendWithTemplateRequest";
 import { SignatureRequestUpdateRequest } from "./signatureRequestUpdateRequest";
+import { StringSettingUpdate } from "./stringSettingUpdate";
 import { SubAttachment } from "./subAttachment";
 import { SubBulkSignerList } from "./subBulkSignerList";
 import { SubBulkSignerListCustomField } from "./subBulkSignerListCustomField";
@@ -155,6 +168,10 @@ import { TeamMembersResponse } from "./teamMembersResponse";
 import { TeamParentResponse } from "./teamParentResponse";
 import { TeamRemoveMemberRequest } from "./teamRemoveMemberRequest";
 import { TeamResponse } from "./teamResponse";
+import { TeamSettingLock } from "./teamSettingLock";
+import { TeamSettingsResponse } from "./teamSettingsResponse";
+import { TeamSettingsResponseSettings } from "./teamSettingsResponseSettings";
+import { TeamSettingsUpdateRequest } from "./teamSettingsUpdateRequest";
 import { TeamSubTeamsResponse } from "./teamSubTeamsResponse";
 import { TeamUpdateRequest } from "./teamUpdateRequest";
 import { TemplateAddUserRequest } from "./templateAddUserRequest";
@@ -209,6 +226,10 @@ import { UnclaimedDraftResponse } from "./unclaimedDraftResponse";
 import { WarningResponse } from "./warningResponse";
 
 export let enumsMap: { [index: string]: any } = {
+  "AccountSettingsUpdateRequest.UnsetEnum":
+    AccountSettingsUpdateRequest.UnsetEnum,
+  DataResidency: DataResidency,
+  DateFormat: DateFormat,
   "EventCallbackRequestEvent.EventTypeEnum":
     EventCallbackRequestEvent.EventTypeEnum,
   FaxLineAreaCodeGetCountryEnum: FaxLineAreaCodeGetCountryEnum,
@@ -219,6 +240,10 @@ export let enumsMap: { [index: string]: any } = {
     FaxResponseTransmission.StatusCodeEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
+  RequiredSignatureType: RequiredSignatureType,
+  "SettingLockResponse.SourceEnum": SettingLockResponse.SourceEnum,
+  "SettingResponse.SourceEnum": SettingResponse.SourceEnum,
+  "SettingResponse.TypeEnum": SettingResponse.TypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum:
     SignatureRequestResponseCustomFieldTypeEnum,
   SignatureRequestResponseDataTypeEnum: SignatureRequestResponseDataTypeEnum,
@@ -250,6 +275,8 @@ export let enumsMap: { [index: string]: any } = {
     SubWhiteLabelingOptions.LegalVersionEnum,
   "TeamAddMemberRequest.RoleEnum": TeamAddMemberRequest.RoleEnum,
   "TeamRemoveMemberRequest.NewRoleEnum": TeamRemoveMemberRequest.NewRoleEnum,
+  TeamSettingLock: TeamSettingLock,
+  "TeamSettingsUpdateRequest.UnsetEnum": TeamSettingsUpdateRequest.UnsetEnum,
   "TemplateResponseDocumentFormFieldText.ValidationTypeEnum":
     TemplateResponseDocumentFormFieldText.ValidationTypeEnum,
   "UnclaimedDraftCreateEmbeddedRequest.TypeEnum":
@@ -265,6 +292,9 @@ export let typeMap: { [index: string]: any } = {
   AccountResponseQuotas: AccountResponseQuotas,
   AccountResponseSettings: AccountResponseSettings,
   AccountResponseUsage: AccountResponseUsage,
+  AccountSettingsResponse: AccountSettingsResponse,
+  AccountSettingsResponseSettings: AccountSettingsResponseSettings,
+  AccountSettingsUpdateRequest: AccountSettingsUpdateRequest,
   AccountUpdateRequest: AccountUpdateRequest,
   AccountVerifyRequest: AccountVerifyRequest,
   AccountVerifyResponse: AccountVerifyResponse,
@@ -278,12 +308,15 @@ export let typeMap: { [index: string]: any } = {
   ApiAppResponseOwnerAccount: ApiAppResponseOwnerAccount,
   ApiAppResponseWhiteLabelingOptions: ApiAppResponseWhiteLabelingOptions,
   ApiAppUpdateRequest: ApiAppUpdateRequest,
+  BooleanSettingUpdate: BooleanSettingUpdate,
   BulkSendJobGetResponse: BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests:
     BulkSendJobGetResponseSignatureRequests,
   BulkSendJobListResponse: BulkSendJobListResponse,
   BulkSendJobResponse: BulkSendJobResponse,
   BulkSendJobSendResponse: BulkSendJobSendResponse,
+  DataResidencySettingUpdate: DataResidencySettingUpdate,
+  DateFormatSettingUpdate: DateFormatSettingUpdate,
   DocumentFieldDetectionRequest: DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse: DocumentFieldDetectionResponse,
   DocumentFieldDetectionResponseDetectionResult:
@@ -320,6 +353,9 @@ export let typeMap: { [index: string]: any } = {
   ReportCreateRequest: ReportCreateRequest,
   ReportCreateResponse: ReportCreateResponse,
   ReportResponse: ReportResponse,
+  RequiredSignatureTypesSettingUpdate: RequiredSignatureTypesSettingUpdate,
+  SettingLockResponse: SettingLockResponse,
+  SettingResponse: SettingResponse,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest:
     SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest:
@@ -367,6 +403,7 @@ export let typeMap: { [index: string]: any } = {
   SignatureRequestSendWithTemplateRequest:
     SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest: SignatureRequestUpdateRequest,
+  StringSettingUpdate: StringSettingUpdate,
   SubAttachment: SubAttachment,
   SubBulkSignerList: SubBulkSignerList,
   SubBulkSignerListCustomField: SubBulkSignerListCustomField,
@@ -413,6 +450,9 @@ export let typeMap: { [index: string]: any } = {
   TeamParentResponse: TeamParentResponse,
   TeamRemoveMemberRequest: TeamRemoveMemberRequest,
   TeamResponse: TeamResponse,
+  TeamSettingsResponse: TeamSettingsResponse,
+  TeamSettingsResponseSettings: TeamSettingsResponseSettings,
+  TeamSettingsUpdateRequest: TeamSettingsUpdateRequest,
   TeamSubTeamsResponse: TeamSubTeamsResponse,
   TeamUpdateRequest: TeamUpdateRequest,
   TemplateAddUserRequest: TemplateAddUserRequest,
@@ -497,6 +537,9 @@ export {
   AccountResponseQuotas,
   AccountResponseSettings,
   AccountResponseUsage,
+  AccountSettingsResponse,
+  AccountSettingsResponseSettings,
+  AccountSettingsUpdateRequest,
   AccountUpdateRequest,
   AccountVerifyRequest,
   AccountVerifyResponse,
@@ -513,11 +556,16 @@ export {
   ApiKeyAuth,
   AttributeTypeMap,
   Authentication,
+  BooleanSettingUpdate,
   BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests,
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
+  DataResidency,
+  DataResidencySettingUpdate,
+  DateFormat,
+  DateFormatSettingUpdate,
   DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse,
   DocumentFieldDetectionResponseDetectionResult,
@@ -564,6 +612,10 @@ export {
   ReportResponse,
   RequestDetailedFile,
   RequestFile,
+  RequiredSignatureType,
+  RequiredSignatureTypesSettingUpdate,
+  SettingLockResponse,
+  SettingResponse,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest,
@@ -596,6 +648,7 @@ export {
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest,
+  StringSettingUpdate,
   SubAttachment,
   SubBulkSignerList,
   SubBulkSignerListCustomField,
@@ -644,6 +697,10 @@ export {
   TeamParentResponse,
   TeamRemoveMemberRequest,
   TeamResponse,
+  TeamSettingLock,
+  TeamSettingsResponse,
+  TeamSettingsResponseSettings,
+  TeamSettingsUpdateRequest,
   TeamSubTeamsResponse,
   TeamUpdateRequest,
   TemplateAddUserRequest,

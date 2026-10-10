@@ -12,6 +12,8 @@ import com.dropbox.sign.model.TeamGetResponse;
 import com.dropbox.sign.model.TeamInvitesResponse;
 import com.dropbox.sign.model.TeamMembersResponse;
 import com.dropbox.sign.model.TeamRemoveMemberRequest;
+import com.dropbox.sign.model.TeamSettingsResponse;
+import com.dropbox.sign.model.TeamSettingsUpdateRequest;
 import com.dropbox.sign.model.TeamSubTeamsResponse;
 import com.dropbox.sign.model.TeamUpdateRequest;
 import java.util.ArrayList;
@@ -706,6 +708,195 @@ public class TeamApi {
                 "POST",
                 new ArrayList<>(),
                 isFileTypeFound ? null : teamRemoveMemberRequest,
+                new LinkedHashMap<>(),
+                new LinkedHashMap<>(),
+                localVarFormParams,
+                localVarAccept,
+                localVarContentType,
+                localVarAuthNames,
+                localVarReturnType,
+                false);
+    }
+
+    /**
+     * Get team settings team_id is an optional query parameter and defaults to the authenticated
+     * account&#39;s team. An organization admin can specify a subteam.
+     *
+     * @param teamId Optional team ID. Defaults to the authenticated account&#39;s team. An
+     *     organization admin can specify a subteam. (optional)
+     * @return TeamSettingsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     * </table>
+     */
+    public TeamSettingsResponse teamSettingsGet(String teamId) throws ApiException {
+        return teamSettingsGetWithHttpInfo(teamId).getData();
+    }
+
+    /**
+     * @see TeamApi#teamSettingsGet(String)
+     */
+    public TeamSettingsResponse teamSettingsGet() throws ApiException {
+        String teamId = null;
+
+        return teamSettingsGetWithHttpInfo(teamId).getData();
+    }
+
+    /**
+     * @see TeamApi#teamSettingsGetWithHttpInfo(String)
+     */
+    public ApiResponse<TeamSettingsResponse> teamSettingsGetWithHttpInfo() throws ApiException {
+        String teamId = null;
+
+        return teamSettingsGetWithHttpInfo(teamId);
+    }
+
+    /**
+     * Get team settings team_id is an optional query parameter and defaults to the authenticated
+     * account&#39;s team. An organization admin can specify a subteam.
+     *
+     * @param teamId Optional team ID. Defaults to the authenticated account&#39;s team. An
+     *     organization admin can specify a subteam. (optional)
+     * @return ApiResponse&lt;TeamSettingsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<TeamSettingsResponse> teamSettingsGetWithHttpInfo(String teamId)
+            throws ApiException {
+
+        // Query parameters
+        List<Pair> localVarQueryParams =
+                new ArrayList<>(apiClient.parameterToPairs("", "team_id", teamId));
+
+        String localVarAccept = apiClient.selectHeaderAccept("application/json");
+        Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+        localVarFormParams = new HashMap<String, Object>();
+        boolean isFileTypeFound = !localVarFormParams.isEmpty();
+        String localVarContentType =
+                isFileTypeFound ? "multipart/form-data" : apiClient.selectHeaderContentType();
+        String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+        GenericType<TeamSettingsResponse> localVarReturnType =
+                new GenericType<TeamSettingsResponse>() {};
+        return apiClient.invokeAPI(
+                "TeamApi.teamSettingsGet",
+                "/team/settings",
+                "GET",
+                localVarQueryParams,
+                null,
+                new LinkedHashMap<>(),
+                new LinkedHashMap<>(),
+                localVarFormParams,
+                localVarAccept,
+                localVarContentType,
+                localVarAuthNames,
+                localVarReturnType,
+                false);
+    }
+
+    /**
+     * Modify team settings team_id is an optional query parameter and defaults to the authenticated
+     * account&#39;s team. An organization admin can specify a subteam.
+     *
+     * @param teamSettingsUpdateRequest (required)
+     * @param teamId Optional team ID. Defaults to the authenticated account&#39;s team. An
+     *     organization admin can specify a subteam. (optional)
+     * @return TeamSettingsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     * </table>
+     */
+    public TeamSettingsResponse teamSettingsUpdate(
+            TeamSettingsUpdateRequest teamSettingsUpdateRequest, String teamId)
+            throws ApiException {
+        return teamSettingsUpdateWithHttpInfo(teamSettingsUpdateRequest, teamId).getData();
+    }
+
+    /**
+     * @see TeamApi#teamSettingsUpdate(TeamSettingsUpdateRequest, String)
+     */
+    public TeamSettingsResponse teamSettingsUpdate(
+            TeamSettingsUpdateRequest teamSettingsUpdateRequest) throws ApiException {
+        String teamId = null;
+
+        return teamSettingsUpdateWithHttpInfo(teamSettingsUpdateRequest, teamId).getData();
+    }
+
+    /**
+     * @see TeamApi#teamSettingsUpdateWithHttpInfo(TeamSettingsUpdateRequest, String)
+     */
+    public ApiResponse<TeamSettingsResponse> teamSettingsUpdateWithHttpInfo(
+            TeamSettingsUpdateRequest teamSettingsUpdateRequest) throws ApiException {
+        String teamId = null;
+
+        return teamSettingsUpdateWithHttpInfo(teamSettingsUpdateRequest, teamId);
+    }
+
+    /**
+     * Modify team settings team_id is an optional query parameter and defaults to the authenticated
+     * account&#39;s team. An organization admin can specify a subteam.
+     *
+     * @param teamSettingsUpdateRequest (required)
+     * @param teamId Optional team ID. Defaults to the authenticated account&#39;s team. An
+     *     organization admin can specify a subteam. (optional)
+     * @return ApiResponse&lt;TeamSettingsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+     * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<TeamSettingsResponse> teamSettingsUpdateWithHttpInfo(
+            TeamSettingsUpdateRequest teamSettingsUpdateRequest, String teamId)
+            throws ApiException {
+
+        // Check required parameters
+        if (teamSettingsUpdateRequest == null) {
+            throw new ApiException(
+                    400,
+                    "Missing the required parameter 'teamSettingsUpdateRequest' when calling"
+                            + " teamSettingsUpdate");
+        }
+
+        // Query parameters
+        List<Pair> localVarQueryParams =
+                new ArrayList<>(apiClient.parameterToPairs("", "team_id", teamId));
+
+        String localVarAccept = apiClient.selectHeaderAccept("application/json");
+        Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+        localVarFormParams = teamSettingsUpdateRequest.createFormData();
+        boolean isFileTypeFound = !localVarFormParams.isEmpty();
+        String localVarContentType =
+                isFileTypeFound
+                        ? "multipart/form-data"
+                        : apiClient.selectHeaderContentType("application/json");
+        String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+        GenericType<TeamSettingsResponse> localVarReturnType =
+                new GenericType<TeamSettingsResponse>() {};
+        return apiClient.invokeAPI(
+                "TeamApi.teamSettingsUpdate",
+                "/team/settings",
+                "POST",
+                localVarQueryParams,
+                isFileTypeFound ? null : teamSettingsUpdateRequest,
                 new LinkedHashMap<>(),
                 new LinkedHashMap<>(),
                 localVarFormParams,

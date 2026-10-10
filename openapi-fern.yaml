@@ -840,6 +840,602 @@ paths:
         seo:
           title: Update Account | API Documentation | Dropbox Sign for Developers
           description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how update the properties and settings of your Account, click here.'
+  /account/settings:
+    get:
+      tags:
+        - Account
+      summary: Get account settings
+      description: account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+      operationId: accountSettingsGet
+      parameters:
+        - name: account_id
+          in: query
+          description: Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+          required: false
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountSettingsResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        - api_key: []
+        - oauth2:
+            - account_access
+      x-codeSamples:
+        - lang: PHP
+          label: PHP
+          source: |
+            <?php
+
+            namespace Dropbox\SignSandbox;
+
+            require_once __DIR__ . '/../vendor/autoload.php';
+
+            use Dropbox;
+
+            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+            $config->setUsername('YOUR_API_KEY');
+            // $config->setAccessToken('YOUR_ACCESS_TOKEN');
+
+            try {
+                $response = (new Dropbox\Sign\Api\AccountApi(config: $config))->accountSettingsGet();
+                $company = $response->getSettings()->getCompany();
+
+                print_r($response);
+                print_r([
+                    'account_id' => $response->getAccountId(),
+                    'company' => [
+                        'value' => $company->getValue(),
+                        'is_inherited' => $company->getIsInherited(),
+                        'source' => $company->getSource(),
+                        'type' => $company->getType(),
+                        'writable' => $company->getWritable(),
+                        'lock' => [
+                            'mode' => $company->getLock()->getMode(),
+                            'source' => $company->getLock()->getSource(),
+                        ],
+                    ],
+                    'warnings' => $response->getWarnings(),
+                ]);
+            } catch (Dropbox\Sign\ApiException $e) {
+                echo "Exception when calling AccountApi#accountSettingsGet: {$e->getMessage()}";
+            }
+        - lang: csharp
+          label: C#
+          source: |
+            using System;
+
+            using Dropbox.Sign.Api;
+            using Dropbox.Sign.Client;
+
+            namespace Dropbox.SignSandbox;
+
+            public class AccountSettingsGetExample
+            {
+                public static void Run()
+                {
+                    var config = new Configuration();
+                    config.Username = "YOUR_API_KEY";
+                    // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+                    try
+                    {
+                        var response = new AccountApi(config).AccountSettingsGet();
+                        var company = response.Settings.Company;
+
+                        Console.WriteLine(response);
+                        Console.WriteLine(response.AccountId);
+                        Console.WriteLine(company.Value);
+                        Console.WriteLine(company.IsInherited);
+                        Console.WriteLine(company.Source);
+                        Console.WriteLine(company.Type);
+                        Console.WriteLine(company.Writable);
+                        Console.WriteLine(company.Lock.Mode);
+                        Console.WriteLine(company.Lock.Source);
+                        Console.WriteLine(response.Warnings);
+                    }
+                    catch (ApiException e)
+                    {
+                        Console.WriteLine("Exception when calling AccountApi#AccountSettingsGet: " + e.Message);
+                        Console.WriteLine("Status Code: " + e.ErrorCode);
+                        Console.WriteLine(e.StackTrace);
+                    }
+                }
+            }
+        - lang: TypeScript
+          label: TypeScript
+          source: |
+            import api from "@dropbox/sign"
+
+            const apiCaller = new api.AccountApi();
+            apiCaller.username = "YOUR_API_KEY";
+            // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+            apiCaller.accountSettingsGet().then(response => {
+              const company = response.body.settings.company;
+              console.log(response.body);
+              console.log({
+                accountId: response.body.accountId,
+                company: {
+                  value: company.value,
+                  isInherited: company.isInherited,
+                  source: company.source,
+                  type: company.type,
+                  writable: company.writable,
+                  lock: {
+                    mode: company.lock.mode,
+                    source: company.lock.source,
+                  },
+                },
+                warnings: response.body.warnings,
+              });
+            }).catch(error => {
+              console.log("Exception when calling AccountApi#accountSettingsGet:");
+              console.log(error.body);
+            });
+        - lang: Java
+          label: Java
+          source: |
+            package com.dropbox.sign_sandbox;
+
+            import com.dropbox.sign.ApiException;
+            import com.dropbox.sign.Configuration;
+            import com.dropbox.sign.api.AccountApi;
+            import com.dropbox.sign.auth.HttpBasicAuth;
+            import com.dropbox.sign.model.SettingResponse;
+
+            public class AccountSettingsGetExample
+            {
+                public static void main(String[] args)
+                {
+                    var config = Configuration.getDefaultApiClient();
+                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+                    // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+                    try
+                    {
+                        var response = new AccountApi(config).accountSettingsGet();
+                        SettingResponse company = response.getSettings().getCompany();
+
+                        System.out.println(response);
+                        System.out.println(response.getAccountId());
+                        System.out.println(company.getValue());
+                        System.out.println(company.getIsInherited());
+                        System.out.println(company.getSource());
+                        System.out.println(company.getType());
+                        System.out.println(company.getWritable());
+                        System.out.println(company.getLock().getMode());
+                        System.out.println(company.getLock().getSource());
+                        System.out.println(response.getWarnings());
+                    } catch (ApiException e) {
+                        System.err.println("Exception when calling AccountApi#accountSettingsGet");
+                        System.err.println("Status code: " + e.getCode());
+                        System.err.println("Reason: " + e.getResponseBody());
+                        System.err.println("Response headers: " + e.getResponseHeaders());
+                        e.printStackTrace();
+                    }
+                }
+            }
+        - lang: Ruby
+          label: Ruby
+          source: |
+            require "dropbox-sign"
+
+            Dropbox::Sign.configure do |config|
+                config.username = "YOUR_API_KEY"
+                # config.access_token = "YOUR_ACCESS_TOKEN"
+            end
+
+            begin
+                response = Dropbox::Sign::AccountApi.new.account_settings_get
+                company = response.settings.company
+
+                p response
+                p({
+                    account_id: response.account_id,
+                    company: {
+                        value: company.value,
+                        is_inherited: company.is_inherited,
+                        source: company.source,
+                        type: company.type,
+                        writable: company.writable,
+                        lock: {
+                            mode: company.lock.mode,
+                            source: company.lock.source,
+                        },
+                    },
+                    warnings: response.warnings,
+                })
+            rescue Dropbox::Sign::ApiError => e
+                puts "Exception when calling AccountApi#account_settings_get: #{e}"
+            end
+        - lang: Python
+          label: Python
+          source: |
+            from pprint import pprint
+
+            from dropbox_sign import ApiClient, ApiException, Configuration, api
+
+            configuration = Configuration(
+                username="YOUR_API_KEY",
+                # access_token="YOUR_ACCESS_TOKEN",
+            )
+
+            with ApiClient(configuration) as api_client:
+                try:
+                    response = api.AccountApi(api_client).account_settings_get()
+                    company = response.settings.company
+
+                    pprint(response)
+                    pprint({
+                        "account_id": response.account_id,
+                        "company": {
+                            "value": company.value,
+                            "is_inherited": company.is_inherited,
+                            "source": company.source,
+                            "type": company.type,
+                            "writable": company.writable,
+                            "lock": {
+                                "mode": company.lock.mode,
+                                "source": company.lock.source,
+                            },
+                        },
+                        "warnings": response.warnings,
+                    })
+                except ApiException as e:
+                    print("Exception when calling AccountApi#account_settings_get: %s\n" % e)
+        - lang: cURL
+          label: cURL
+          source: |
+            curl -X GET 'https://api.hellosign.com/v3/account/settings' \
+              -u 'YOUR_API_KEY:'
+
+            # {
+            #   "account_id": "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97",
+            #   "settings": {
+            #     "company": {
+            #       "value": "Northwind",
+            #       "is_inherited": false,
+            #       "source": "account",
+            #       "type": "string",
+            #       "writable": true,
+            #       "lock": {
+            #         "mode": "members",
+            #         "source": "default"
+            #       }
+            #     }
+            #   },
+            #   "warnings": []
+            # }
+      x-meta:
+        seo:
+          title: Get Account Settings | API Documentation | Dropbox Sign for Developers
+          description: account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    post:
+      tags:
+        - Account
+      summary: Modify account settings
+      description: account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+      operationId: accountSettingsUpdate
+      parameters:
+        - name: account_id
+          in: query
+          description: Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+          required: false
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountSettingsUpdateRequest'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountSettingsResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        - api_key: []
+        - oauth2:
+            - account_access
+      x-codeSamples:
+        - lang: PHP
+          label: PHP
+          source: |
+            <?php
+
+            namespace Dropbox\SignSandbox;
+
+            require_once __DIR__ . '/../vendor/autoload.php';
+
+            use Dropbox;
+
+            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+            $config->setUsername('YOUR_API_KEY');
+            // $config->setAccessToken('YOUR_ACCESS_TOKEN');
+
+            $account_settings_update_request = (new Dropbox\Sign\Model\AccountSettingsUpdateRequest())
+                ->setDateFormat(Dropbox\Sign\Model\DateFormat::MM_DD_YYYY)
+                ->setRequiredSignatureTypes([
+                    Dropbox\Sign\Model\RequiredSignatureType::DRAW,
+                    Dropbox\Sign\Model\RequiredSignatureType::TYPE,
+                ])
+                ->setShouldEnableTamperProof(false)
+                ->setUnset(['company']);
+
+            try {
+                $response = (new Dropbox\Sign\Api\AccountApi(config: $config))->accountSettingsUpdate(
+                    account_settings_update_request: $account_settings_update_request,
+                );
+
+                print_r($response);
+            } catch (Dropbox\Sign\ApiException $e) {
+                echo "Exception when calling AccountApi#accountSettingsUpdate: {$e->getMessage()}";
+            }
+        - lang: csharp
+          label: C#
+          source: |
+            using System;
+            using System.Collections.Generic;
+
+            using Dropbox.Sign.Api;
+            using Dropbox.Sign.Client;
+            using Dropbox.Sign.Model;
+
+            namespace Dropbox.SignSandbox;
+
+            public class AccountSettingsUpdateExample
+            {
+                public static void Run()
+                {
+                    var config = new Configuration();
+                    config.Username = "YOUR_API_KEY";
+                    // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+                    var accountSettingsUpdateRequest = new AccountSettingsUpdateRequest(
+                        dateFormat: DateFormat.MMDDYYYY,
+                        requiredSignatureTypes: new List<RequiredSignatureType>()
+                        {
+                            RequiredSignatureType.Draw,
+                            RequiredSignatureType.Type,
+                        },
+                        shouldEnableTamperProof: false,
+                        unset: new List<string>() { "company" }
+                    );
+
+                    try
+                    {
+                        var response = new AccountApi(config).AccountSettingsUpdate(
+                            accountSettingsUpdateRequest: accountSettingsUpdateRequest
+                        );
+
+                        Console.WriteLine(response);
+                    }
+                    catch (ApiException e)
+                    {
+                        Console.WriteLine("Exception when calling AccountApi#AccountSettingsUpdate: " + e.Message);
+                        Console.WriteLine("Status Code: " + e.ErrorCode);
+                        Console.WriteLine(e.StackTrace);
+                    }
+                }
+            }
+        - lang: TypeScript
+          label: TypeScript
+          source: |
+            import api from "@dropbox/sign"
+            import models from "@dropbox/sign"
+
+            const apiCaller = new api.AccountApi();
+            apiCaller.username = "YOUR_API_KEY";
+            // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+            const accountSettingsUpdateRequest: models.AccountSettingsUpdateRequest = {
+              dateFormat: models.DateFormat.MmDdYyyy,
+              requiredSignatureTypes: [
+                models.RequiredSignatureType.Draw,
+                models.RequiredSignatureType.Type,
+              ],
+              shouldEnableTamperProof: false,
+              unset: ["company"],
+            };
+
+            apiCaller.accountSettingsUpdate(
+              accountSettingsUpdateRequest,
+            ).then(response => {
+              console.log(response.body);
+            }).catch(error => {
+              console.log("Exception when calling AccountApi#accountSettingsUpdate:");
+              console.log(error.body);
+            });
+        - lang: Java
+          label: Java
+          source: |
+            package com.dropbox.sign_sandbox;
+
+            import com.dropbox.sign.ApiException;
+            import com.dropbox.sign.Configuration;
+            import com.dropbox.sign.api.AccountApi;
+            import com.dropbox.sign.auth.HttpBasicAuth;
+            import com.dropbox.sign.model.AccountSettingsUpdateRequest;
+            import com.dropbox.sign.model.DateFormat;
+            import com.dropbox.sign.model.RequiredSignatureType;
+            import java.util.List;
+
+            public class AccountSettingsUpdateExample
+            {
+                public static void main(String[] args)
+                {
+                    var config = Configuration.getDefaultApiClient();
+                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+                    // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+                    var accountSettingsUpdateRequest = new AccountSettingsUpdateRequest()
+                        .dateFormat(DateFormat.MM_DD_YYYY)
+                        .requiredSignatureTypes(List.of(
+                            RequiredSignatureType.DRAW,
+                            RequiredSignatureType.TYPE
+                        ))
+                        .shouldEnableTamperProof(false)
+                        .unset(List.of("company"));
+
+                    try
+                    {
+                        var response = new AccountApi(config).accountSettingsUpdate(
+                            accountSettingsUpdateRequest
+                        );
+
+                        System.out.println(response);
+                    } catch (ApiException e) {
+                        System.err.println("Exception when calling AccountApi#accountSettingsUpdate");
+                        System.err.println("Status code: " + e.getCode());
+                        System.err.println("Reason: " + e.getResponseBody());
+                        System.err.println("Response headers: " + e.getResponseHeaders());
+                        e.printStackTrace();
+                    }
+                }
+            }
+        - lang: Ruby
+          label: Ruby
+          source: |
+            require "dropbox-sign"
+
+            Dropbox::Sign.configure do |config|
+                config.username = "YOUR_API_KEY"
+                # config.access_token = "YOUR_ACCESS_TOKEN"
+            end
+
+            account_settings_update_request = Dropbox::Sign::AccountSettingsUpdateRequest.new
+            account_settings_update_request.date_format = Dropbox::Sign::DateFormat::MM_DD_YYYY
+            account_settings_update_request.required_signature_types = [
+                Dropbox::Sign::RequiredSignatureType::DRAW,
+                Dropbox::Sign::RequiredSignatureType::TYPE,
+            ]
+            account_settings_update_request.should_enable_tamper_proof = false
+            account_settings_update_request.unset = ["company"]
+
+            begin
+                response = Dropbox::Sign::AccountApi.new.account_settings_update(
+                    account_settings_update_request,
+                )
+
+                p response
+            rescue Dropbox::Sign::ApiError => e
+                puts "Exception when calling AccountApi#account_settings_update: #{e}"
+            end
+        - lang: Python
+          label: Python
+          source: |
+            from pprint import pprint
+
+            from dropbox_sign import ApiClient, ApiException, Configuration, api, models
+
+            configuration = Configuration(
+                username="YOUR_API_KEY",
+                # access_token="YOUR_ACCESS_TOKEN",
+            )
+
+            with ApiClient(configuration) as api_client:
+                account_settings_update_request = models.AccountSettingsUpdateRequest(
+                    date_format=models.DateFormat.MM_SLASH_DD_SLASH_YYYY,
+                    required_signature_types=[
+                        models.RequiredSignatureType.DRAW,
+                        models.RequiredSignatureType.TYPE,
+                    ],
+                    should_enable_tamper_proof=False,
+                    unset=["company"],
+                )
+
+                try:
+                    response = api.AccountApi(api_client).account_settings_update(
+                        account_settings_update_request=account_settings_update_request,
+                    )
+
+                    pprint(response)
+                except ApiException as e:
+                    print("Exception when calling AccountApi#account_settings_update: %s\n" % e)
+        - lang: cURL
+          label: cURL
+          source: |
+            curl -X POST 'https://api.hellosign.com/v3/account/settings' \
+              -u 'YOUR_API_KEY:' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                "date_format": "MM/DD/YYYY",
+                "required_signature_types": ["draw", "type"],
+                "should_enable_tamper_proof": false,
+                "unset": ["company"]
+              }'
+      x-meta:
+        seo:
+          title: Update Account Settings | API Documentation | Dropbox Sign for Developers
+          description: account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
   /account/verify:
     post:
       tags:
@@ -18066,6 +18662,664 @@ paths:
         seo:
           title: Remove User from Team | REST API | Dropbox Sign for Developers
           description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to remove a user Account from your Team, click here.'
+  /team/settings:
+    get:
+      tags:
+        - Team
+      summary: Get team settings
+      description: team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+      operationId: teamSettingsGet
+      parameters:
+        - name: team_id
+          in: query
+          description: Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam.
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSettingsResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        - api_key: []
+        - oauth2:
+            - team_access
+      x-codeSamples:
+        - lang: PHP
+          label: PHP
+          source: |
+            <?php
+
+            namespace Dropbox\SignSandbox;
+
+            require_once __DIR__ . '/../vendor/autoload.php';
+
+            use Dropbox;
+
+            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+            $config->setUsername('YOUR_API_KEY');
+            // $config->setAccessToken('YOUR_ACCESS_TOKEN');
+
+            try {
+                $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamSettingsGet();
+                $company = $response->getSettings()->getCompany();
+                $data_residency = $response->getSettings()->getDataResidency();
+
+                print_r($response);
+                print_r([
+                    'team_id' => $response->getTeamId(),
+                    'company' => [
+                        'value' => $company->getValue(),
+                        'is_inherited' => $company->getIsInherited(),
+                        'source' => $company->getSource(),
+                        'type' => $company->getType(),
+                        'writable' => $company->getWritable(),
+                        'lock' => [
+                            'mode' => $company->getLock()->getMode(),
+                            'source' => $company->getLock()->getSource(),
+                        ],
+                    ],
+                    'data_residency' => [
+                        'value' => $data_residency->getValue(),
+                        'is_inherited' => $data_residency->getIsInherited(),
+                        'source' => $data_residency->getSource(),
+                        'type' => $data_residency->getType(),
+                        'writable' => $data_residency->getWritable(),
+                        'lock' => [
+                            'mode' => $data_residency->getLock()->getMode(),
+                            'source' => $data_residency->getLock()->getSource(),
+                        ],
+                    ],
+                    'warnings' => $response->getWarnings(),
+                ]);
+            } catch (Dropbox\Sign\ApiException $e) {
+                echo "Exception when calling TeamApi#teamSettingsGet: {$e->getMessage()}";
+            }
+        - lang: csharp
+          label: C#
+          source: |
+            using System;
+
+            using Dropbox.Sign.Api;
+            using Dropbox.Sign.Client;
+
+            namespace Dropbox.SignSandbox;
+
+            public class TeamSettingsGetExample
+            {
+                public static void Run()
+                {
+                    var config = new Configuration();
+                    config.Username = "YOUR_API_KEY";
+                    // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+                    try
+                    {
+                        var response = new TeamApi(config).TeamSettingsGet();
+                        var company = response.Settings.Company;
+                        var dataResidency = response.Settings.DataResidency;
+
+                        Console.WriteLine(response);
+                        Console.WriteLine(response.TeamId);
+                        Console.WriteLine(company.Value);
+                        Console.WriteLine(company.IsInherited);
+                        Console.WriteLine(company.Source);
+                        Console.WriteLine(company.Type);
+                        Console.WriteLine(company.Writable);
+                        Console.WriteLine(company.Lock.Mode);
+                        Console.WriteLine(company.Lock.Source);
+                        Console.WriteLine(dataResidency.Value);
+                        Console.WriteLine(dataResidency.Type);
+                        Console.WriteLine(dataResidency.Lock.Mode);
+                        Console.WriteLine(dataResidency.Lock.Source);
+                        Console.WriteLine(response.Warnings);
+                    }
+                    catch (ApiException e)
+                    {
+                        Console.WriteLine("Exception when calling TeamApi#TeamSettingsGet: " + e.Message);
+                        Console.WriteLine("Status Code: " + e.ErrorCode);
+                        Console.WriteLine(e.StackTrace);
+                    }
+                }
+            }
+        - lang: TypeScript
+          label: TypeScript
+          source: |
+            import api from "@dropbox/sign"
+
+            const apiCaller = new api.TeamApi();
+            apiCaller.username = "YOUR_API_KEY";
+            // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+            apiCaller.teamSettingsGet().then(response => {
+              const company = response.body.settings.company;
+              const dataResidency = response.body.settings.dataResidency;
+              console.log(response.body);
+              console.log({
+                teamId: response.body.teamId,
+                company: {
+                  value: company.value,
+                  isInherited: company.isInherited,
+                  source: company.source,
+                  type: company.type,
+                  writable: company.writable,
+                  lock: {
+                    mode: company.lock.mode,
+                    source: company.lock.source,
+                  },
+                },
+                dataResidency: {
+                  value: dataResidency.value,
+                  isInherited: dataResidency.isInherited,
+                  source: dataResidency.source,
+                  type: dataResidency.type,
+                  writable: dataResidency.writable,
+                  lock: {
+                    mode: dataResidency.lock.mode,
+                    source: dataResidency.lock.source,
+                  },
+                },
+                warnings: response.body.warnings,
+              });
+            }).catch(error => {
+              console.log("Exception when calling TeamApi#teamSettingsGet:");
+              console.log(error.body);
+            });
+        - lang: Java
+          label: Java
+          source: |
+            package com.dropbox.sign_sandbox;
+
+            import com.dropbox.sign.ApiException;
+            import com.dropbox.sign.Configuration;
+            import com.dropbox.sign.api.TeamApi;
+            import com.dropbox.sign.auth.HttpBasicAuth;
+            import com.dropbox.sign.model.SettingResponse;
+
+            public class TeamSettingsGetExample
+            {
+                public static void main(String[] args)
+                {
+                    var config = Configuration.getDefaultApiClient();
+                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+                    // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+                    try
+                    {
+                        var response = new TeamApi(config).teamSettingsGet();
+                        SettingResponse company = response.getSettings().getCompany();
+                        SettingResponse dataResidency = response.getSettings().getDataResidency();
+
+                        System.out.println(response);
+                        System.out.println(response.getTeamId());
+                        System.out.println(company.getValue());
+                        System.out.println(company.getIsInherited());
+                        System.out.println(company.getSource());
+                        System.out.println(company.getType());
+                        System.out.println(company.getWritable());
+                        System.out.println(company.getLock().getMode());
+                        System.out.println(company.getLock().getSource());
+                        System.out.println(dataResidency.getValue());
+                        System.out.println(dataResidency.getType());
+                        System.out.println(dataResidency.getLock().getMode());
+                        System.out.println(dataResidency.getLock().getSource());
+                        System.out.println(response.getWarnings());
+                    } catch (ApiException e) {
+                        System.err.println("Exception when calling TeamApi#teamSettingsGet");
+                        System.err.println("Status code: " + e.getCode());
+                        System.err.println("Reason: " + e.getResponseBody());
+                        System.err.println("Response headers: " + e.getResponseHeaders());
+                        e.printStackTrace();
+                    }
+                }
+            }
+        - lang: Ruby
+          label: Ruby
+          source: |
+            require "dropbox-sign"
+
+            Dropbox::Sign.configure do |config|
+                config.username = "YOUR_API_KEY"
+                # config.access_token = "YOUR_ACCESS_TOKEN"
+            end
+
+            begin
+                response = Dropbox::Sign::TeamApi.new.team_settings_get
+                company = response.settings.company
+                data_residency = response.settings.data_residency
+
+                p response
+                p({
+                    team_id: response.team_id,
+                    company: {
+                        value: company.value,
+                        is_inherited: company.is_inherited,
+                        source: company.source,
+                        type: company.type,
+                        writable: company.writable,
+                        lock: {
+                            mode: company.lock.mode,
+                            source: company.lock.source,
+                        },
+                    },
+                    data_residency: {
+                        value: data_residency.value,
+                        is_inherited: data_residency.is_inherited,
+                        source: data_residency.source,
+                        type: data_residency.type,
+                        writable: data_residency.writable,
+                        lock: {
+                            mode: data_residency.lock.mode,
+                            source: data_residency.lock.source,
+                        },
+                    },
+                    warnings: response.warnings,
+                })
+            rescue Dropbox::Sign::ApiError => e
+                puts "Exception when calling TeamApi#team_settings_get: #{e}"
+            end
+        - lang: Python
+          label: Python
+          source: |
+            from pprint import pprint
+
+            from dropbox_sign import ApiClient, ApiException, Configuration, api
+
+            configuration = Configuration(
+                username="YOUR_API_KEY",
+                # access_token="YOUR_ACCESS_TOKEN",
+            )
+
+            with ApiClient(configuration) as api_client:
+                try:
+                    response = api.TeamApi(api_client).team_settings_get()
+                    company = response.settings.company
+                    data_residency = response.settings.data_residency
+
+                    pprint(response)
+                    pprint({
+                        "team_id": response.team_id,
+                        "company": {
+                            "value": company.value,
+                            "is_inherited": company.is_inherited,
+                            "source": company.source,
+                            "type": company.type,
+                            "writable": company.writable,
+                            "lock": {
+                                "mode": company.lock.mode,
+                                "source": company.lock.source,
+                            },
+                        },
+                        "data_residency": {
+                            "value": data_residency.value,
+                            "is_inherited": data_residency.is_inherited,
+                            "source": data_residency.source,
+                            "type": data_residency.type,
+                            "writable": data_residency.writable,
+                            "lock": {
+                                "mode": data_residency.lock.mode,
+                                "source": data_residency.lock.source,
+                            },
+                        },
+                        "warnings": response.warnings,
+                    })
+                except ApiException as e:
+                    print("Exception when calling TeamApi#team_settings_get: %s\n" % e)
+        - lang: cURL
+          label: cURL
+          source: |
+            curl -X GET 'https://api.hellosign.com/v3/team/settings' \
+              -u 'YOUR_API_KEY:'
+
+            # {
+            #   "team_id": "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97",
+            #   "settings": {
+            #     "company": {
+            #       "value": "Northwind",
+            #       "is_inherited": false,
+            #       "source": "team",
+            #       "type": "string",
+            #       "writable": true,
+            #       "lock": {
+            #         "mode": "organization_admins",
+            #         "source": "team"
+            #       }
+            #     },
+            #     "data_residency": {
+            #       "value": "eu",
+            #       "is_inherited": false,
+            #       "source": "team",
+            #       "type": "string",
+            #       "writable": true,
+            #       "lock": {
+            #         "mode": "team_admins",
+            #         "source": "team"
+            #       }
+            #     }
+            #   },
+            #   "warnings": []
+            # }
+      x-meta:
+        seo:
+          title: Get Team Settings | API Documentation | Dropbox Sign for Developers
+          description: team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+    post:
+      tags:
+        - Team
+      summary: Modify team settings
+      description: team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+      operationId: teamSettingsUpdate
+      parameters:
+        - name: team_id
+          in: query
+          description: Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam.
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamSettingsUpdateRequest'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSettingsResponse'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400Response'
+                401_example:
+                  $ref: '#/components/examples/Error401Response'
+                402_example:
+                  $ref: '#/components/examples/Error402Response'
+                403_example:
+                  $ref: '#/components/examples/Error403Response'
+                429_example:
+                  $ref: '#/components/examples/Error429Response'
+                404_example:
+                  $ref: '#/components/examples/Error404Response'
+                409_example:
+                  $ref: '#/components/examples/Error409Response'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponse'
+      security:
+        - api_key: []
+        - oauth2:
+            - team_access
+      x-codeSamples:
+        - lang: PHP
+          label: PHP
+          source: |
+            <?php
+
+            namespace Dropbox\SignSandbox;
+
+            require_once __DIR__ . '/../vendor/autoload.php';
+
+            use Dropbox;
+
+            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+            $config->setUsername('YOUR_API_KEY');
+            // $config->setAccessToken('YOUR_ACCESS_TOKEN');
+
+            $team_settings_update_request = (new Dropbox\Sign\Model\TeamSettingsUpdateRequest())
+                ->setDataResidency((new Dropbox\Sign\Model\DataResidencySettingUpdate())
+                    ->setValue(Dropbox\Sign\Model\DataResidency::EU))
+                ->setCompany((new Dropbox\Sign\Model\StringSettingUpdate())
+                    ->setValue('Northwind')
+                    ->setLockMode(Dropbox\Sign\Model\TeamSettingLock::ORGANIZATION_ADMINS));
+
+            try {
+                $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamSettingsUpdate(
+                    team_settings_update_request: $team_settings_update_request,
+                );
+
+                print_r($response);
+            } catch (Dropbox\Sign\ApiException $e) {
+                echo "Exception when calling TeamApi#teamSettingsUpdate: {$e->getMessage()}";
+            }
+        - lang: csharp
+          label: C#
+          source: |
+            using System;
+
+            using Dropbox.Sign.Api;
+            using Dropbox.Sign.Client;
+            using Dropbox.Sign.Model;
+
+            namespace Dropbox.SignSandbox;
+
+            public class TeamSettingsUpdateExample
+            {
+                public static void Run()
+                {
+                    var config = new Configuration();
+                    config.Username = "YOUR_API_KEY";
+                    // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+                    var teamSettingsUpdateRequest = new TeamSettingsUpdateRequest(
+                        dataResidency: new DataResidencySettingUpdate(value: DataResidency.Eu),
+                        company: new StringSettingUpdate(
+                            value: "Northwind",
+                            lockMode: TeamSettingLock.OrganizationAdmins
+                        )
+                    );
+
+                    try
+                    {
+                        var response = new TeamApi(config).TeamSettingsUpdate(
+                            teamSettingsUpdateRequest: teamSettingsUpdateRequest
+                        );
+
+                        Console.WriteLine(response);
+                    }
+                    catch (ApiException e)
+                    {
+                        Console.WriteLine("Exception when calling TeamApi#TeamSettingsUpdate: " + e.Message);
+                        Console.WriteLine("Status Code: " + e.ErrorCode);
+                        Console.WriteLine(e.StackTrace);
+                    }
+                }
+            }
+        - lang: TypeScript
+          label: TypeScript
+          source: |
+            import api from "@dropbox/sign"
+            import models from "@dropbox/sign"
+
+            const apiCaller = new api.TeamApi();
+            apiCaller.username = "YOUR_API_KEY";
+            // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
+
+            const teamSettingsUpdateRequest: models.TeamSettingsUpdateRequest = {
+              dataResidency: {
+                value: models.DataResidency.Eu,
+              },
+              company: {
+                value: "Northwind",
+                lockMode: models.TeamSettingLock.OrganizationAdmins,
+              },
+            };
+
+            apiCaller.teamSettingsUpdate(
+              teamSettingsUpdateRequest,
+            ).then(response => {
+              console.log(response.body);
+            }).catch(error => {
+              console.log("Exception when calling TeamApi#teamSettingsUpdate:");
+              console.log(error.body);
+            });
+        - lang: Java
+          label: Java
+          source: |
+            package com.dropbox.sign_sandbox;
+
+            import com.dropbox.sign.ApiException;
+            import com.dropbox.sign.Configuration;
+            import com.dropbox.sign.api.TeamApi;
+            import com.dropbox.sign.auth.HttpBasicAuth;
+            import com.dropbox.sign.model.DataResidency;
+            import com.dropbox.sign.model.DataResidencySettingUpdate;
+            import com.dropbox.sign.model.StringSettingUpdate;
+            import com.dropbox.sign.model.TeamSettingLock;
+            import com.dropbox.sign.model.TeamSettingsUpdateRequest;
+
+            public class TeamSettingsUpdateExample
+            {
+                public static void main(String[] args)
+                {
+                    var config = Configuration.getDefaultApiClient();
+                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
+                    // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
+
+                    var teamSettingsUpdateRequest = new TeamSettingsUpdateRequest()
+                        .dataResidency(new DataResidencySettingUpdate().value(DataResidency.EU))
+                        .company(new StringSettingUpdate()
+                            .value("Northwind")
+                            .lockMode(TeamSettingLock.ORGANIZATION_ADMINS));
+
+                    try
+                    {
+                        var response = new TeamApi(config).teamSettingsUpdate(
+                            teamSettingsUpdateRequest
+                        );
+
+                        System.out.println(response);
+                    } catch (ApiException e) {
+                        System.err.println("Exception when calling TeamApi#teamSettingsUpdate");
+                        System.err.println("Status code: " + e.getCode());
+                        System.err.println("Reason: " + e.getResponseBody());
+                        System.err.println("Response headers: " + e.getResponseHeaders());
+                        e.printStackTrace();
+                    }
+                }
+            }
+        - lang: Ruby
+          label: Ruby
+          source: |
+            require "dropbox-sign"
+
+            Dropbox::Sign.configure do |config|
+                config.username = "YOUR_API_KEY"
+                # config.access_token = "YOUR_ACCESS_TOKEN"
+            end
+
+            team_settings_update_request = Dropbox::Sign::TeamSettingsUpdateRequest.new
+            team_settings_update_request.data_residency = Dropbox::Sign::DataResidencySettingUpdate.new
+            team_settings_update_request.data_residency.value = Dropbox::Sign::DataResidency::EU
+            team_settings_update_request.company = Dropbox::Sign::StringSettingUpdate.new
+            team_settings_update_request.company.value = "Northwind"
+            team_settings_update_request.company.lock_mode = Dropbox::Sign::TeamSettingLock::ORGANIZATION_ADMINS
+
+            begin
+                response = Dropbox::Sign::TeamApi.new.team_settings_update(
+                    team_settings_update_request,
+                )
+
+                p response
+            rescue Dropbox::Sign::ApiError => e
+                puts "Exception when calling TeamApi#team_settings_update: #{e}"
+            end
+        - lang: Python
+          label: Python
+          source: |
+            from pprint import pprint
+
+            from dropbox_sign import ApiClient, ApiException, Configuration, api, models
+
+            configuration = Configuration(
+                username="YOUR_API_KEY",
+                # access_token="YOUR_ACCESS_TOKEN",
+            )
+
+            with ApiClient(configuration) as api_client:
+                team_settings_update_request = models.TeamSettingsUpdateRequest(
+                    data_residency=models.DataResidencySettingUpdate(
+                        value=models.DataResidency.EU,
+                    ),
+                    company=models.StringSettingUpdate(
+                        value="Northwind",
+                        lock_mode=models.TeamSettingLock.ORGANIZATION_ADMINS,
+                    ),
+                )
+
+                try:
+                    response = api.TeamApi(api_client).team_settings_update(
+                        team_settings_update_request=team_settings_update_request,
+                    )
+
+                    pprint(response)
+                except ApiException as e:
+                    print("Exception when calling TeamApi#team_settings_update: %s\n" % e)
+        - lang: cURL
+          label: cURL
+          source: |
+            curl -X POST 'https://api.hellosign.com/v3/team/settings' \
+              -u 'YOUR_API_KEY:' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                "data_residency": {
+                  "value": "eu"
+                },
+                "company": {
+                  "value": "Northwind",
+                  "lock_mode": "organization_admins"
+                }
+              }'
+      x-meta:
+        seo:
+          title: Update Team Settings | API Documentation | Dropbox Sign for Developers
+          description: team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
   /team/sub_teams/{team_id}:
     get:
       tags:
@@ -23423,6 +24677,124 @@ components:
           description: The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
           type: string
       type: object
+    AccountSettingsUpdateRequest:
+      minProperties: 1
+      properties:
+        company:
+          description: Company name associated with this account or team.
+          type: string
+        custom_signing_redirect_enabled:
+          description: Whether signers are redirected to a custom URL after completing a signature request.
+          type: boolean
+        custom_signing_redirect_url:
+          description: URL where signers are redirected after completing a signature request when custom redirects are enabled.
+          type: string
+        custom_tagline:
+          description: Custom tagline displayed with the account or team branding.
+          type: string
+        date_format:
+          $ref: '#/components/schemas/DateFormat'
+        is_signature_reminders_enabled:
+          description: Whether automatic reminder emails are enabled for incomplete signature requests.
+          type: boolean
+        request_email_from:
+          description: Sender name shown on signature request emails.
+          type: string
+        request_email_signature:
+          description: Signature appended to signature request emails.
+          type: string
+        required_signature_types:
+          description: Signature creation methods signers may use.
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredSignatureType'
+          uniqueItems: true
+        should_enable_tamper_proof:
+          description: Whether completed documents include a digital tamper-proof seal.
+          type: boolean
+        should_include_distinct_pdfs:
+          description: Whether completed documents remain as separate PDF files instead of being merged into one PDF.
+          type: boolean
+        should_offer_signer_access_code:
+          description: Whether senders can require an access code to verify a signer.
+          type: boolean
+        should_offer_signer_sms_authentication:
+          description: Whether senders can require SMS authentication to verify a signer.
+          type: boolean
+        should_remove_document_id:
+          description: Whether the Dropbox Sign document ID is hidden on sent documents.
+          type: boolean
+        is_notify_on_sign_enabled:
+          description: Whether to notify the account when someone signs a document it sent.
+          type: boolean
+        is_notify_on_view_enabled:
+          description: Whether to notify the account when someone opens a document it sent.
+          type: boolean
+        should_autocomplete:
+          description: Whether values entered in text fields are saved and suggested for future signature requests.
+          type: boolean
+        should_include_requested_pdfs:
+          description: Whether completed signature requests include PDF copies in emails sent to the account.
+          type: boolean
+        should_include_requested_pdfs_for_others:
+          description: Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.
+          type: boolean
+        should_include_sent_doc_pdfs:
+          description: Whether emails sent to the account include PDF copies of documents it sends.
+          type: boolean
+        should_include_sent_doc_pdfs_for_others:
+          description: Whether emails sent to recipients include PDF copies of documents the account sends.
+          type: boolean
+        should_send_daily_summary:
+          description: Whether to send the account a daily email summarizing outstanding signature requests.
+          type: boolean
+        should_send_embedded_signature_conf_emails:
+          description: Whether to notify the account when it signs a document on a third-party site.
+          type: boolean
+        should_send_ordered_sr_email:
+          description: Whether to notify all parties when an ordered signature request starts.
+          type: boolean
+        should_send_outbound_conf_emails:
+          description: Whether to notify the account when it signs and sends a document.
+          type: boolean
+        template_link_signature_emails_enabled:
+          description: Whether to notify the account when someone signs a document sent by its team through a template link.
+          type: boolean
+        unset:
+          description: Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
+          type: array
+          items:
+            type: string
+            enum:
+              - company
+              - custom_signing_redirect_enabled
+              - custom_signing_redirect_url
+              - custom_tagline
+              - date_format
+              - is_signature_reminders_enabled
+              - request_email_from
+              - request_email_signature
+              - required_signature_types
+              - should_enable_tamper_proof
+              - should_include_distinct_pdfs
+              - should_offer_signer_access_code
+              - should_offer_signer_sms_authentication
+              - should_remove_document_id
+              - is_notify_on_sign_enabled
+              - is_notify_on_view_enabled
+              - should_autocomplete
+              - should_include_requested_pdfs
+              - should_include_requested_pdfs_for_others
+              - should_include_sent_doc_pdfs
+              - should_include_sent_doc_pdfs_for_others
+              - should_send_daily_summary
+              - should_send_embedded_signature_conf_emails
+              - should_send_ordered_sr_email
+              - should_send_outbound_conf_emails
+              - template_link_signature_emails_enabled
+          uniqueItems: true
+      type: object
+      additionalProperties: false
     AccountUpdateRequest:
       properties:
         account_id:
@@ -23909,12 +25281,9 @@ components:
           type: string
           maxLength: 5000
         metadata:
-          description: |-
-            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
-
-            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          description: _t__SignatureRequestBulkCreateEmbeddedWithTemplate::METADATA
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {}
         signing_redirect_url:
           description: The URL you want signers redirected to after they successfully sign.
@@ -24002,12 +25371,9 @@ components:
           type: string
           maxLength: 5000
         metadata:
-          description: |-
-            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
-
-            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          description: _t__SignatureRequestBulkSendWithTemplate::METADATA
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {}
         signing_redirect_url:
           description: The URL you want signers redirected to after they successfully sign.
@@ -25070,6 +26436,16 @@ components:
             **NOTE:** Only one signer can be assigned per attachment.
           type: integer
       type: object
+    BooleanSettingUpdate:
+      description: 'Updates a boolean team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          description: Boolean value to store.
+          type: boolean
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubBulkSignerList:
       properties:
         custom_fields:
@@ -25085,6 +26461,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+        metadata:
+          description: _t__Sub::BulkSigner::METADATA
+          maxProperties: 10
+          type: object
+          additionalProperties: {}
       type: object
     SubBulkSignerListCustomField:
       required:
@@ -25138,6 +26519,41 @@ components:
           description: The string that resolves (aka "pre-fills") to the merge field on the final document(s) used for signing.
           type: string
       type: object
+    DataResidency:
+      description: Storage region for team documents.
+      type: string
+      enum:
+        - us
+        - eu
+        - au
+        - jp
+        - uk
+        - ca
+    DataResidencySettingUpdate:
+      description: 'Updates the data residency team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          $ref: '#/components/schemas/DataResidency'
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
+    DateFormat:
+      description: Date format used to display dates.
+      type: string
+      enum:
+        - MM/DD/YYYY
+        - DD/MM/YYYY
+        - YYYY/MM/DD
+    DateFormatSettingUpdate:
+      description: 'Updates a date format team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          $ref: '#/components/schemas/DateFormat'
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubEditorOptions:
       description: This allows the requester to specify editor options when a preparing a document
       properties:
@@ -25838,6 +27254,27 @@ components:
           type: boolean
           default: false
       type: object
+    RequiredSignatureType:
+      description: A signature creation method a signer may use.
+      type: string
+      enum:
+        - draw
+        - phone
+        - type
+        - upload
+    RequiredSignatureTypesSettingUpdate:
+      description: 'Updates the required signature types team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          description: Signature creation methods signers may use.
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredSignatureType'
+          uniqueItems: true
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
     SubSignatureRequestSigner:
       required:
         - name
@@ -26003,6 +27440,23 @@ components:
           type: boolean
           default: false
       type: object
+    StringSettingUpdate:
+      description: 'Updates a string team setting. Provide `value`, `lock_mode`, or both.'
+      properties:
+        value:
+          description: String value to store.
+          type: string
+        lock_mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+      type: object
+      additionalProperties: false
+    TeamSettingLock:
+      description: 'Who can change a team setting. `organization_admins` limits changes to organization admins, and subteams use that value. `team_admins` lets admins of a team and its subteams set their own value. `members` lets each member set their own value.'
+      type: string
+      enum:
+        - organization_admins
+        - team_admins
+        - members
     SubWhiteLabelingOptions:
       description: |-
         An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)
@@ -26091,6 +27545,10 @@ components:
           description: The name of your Team.
           type: string
           default: Untitled Team
+        parent_team_id:
+          description: _t__TeamCreate::PARENT_TEAM_ID
+          type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
       type: object
     TeamRemoveMemberRequest:
       properties:
@@ -26129,6 +27587,168 @@ components:
             - Team Manager
             - Admin
       type: object
+    TeamSettingsUpdateRequest:
+      minProperties: 1
+      properties:
+        company:
+          description: Company name associated with this account or team.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        custom_signing_redirect_enabled:
+          description: Whether signers are redirected to a custom URL after completing a signature request.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        custom_signing_redirect_url:
+          description: URL where signers are redirected after completing a signature request when custom redirects are enabled.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        custom_tagline:
+          description: Custom tagline displayed with the account or team branding.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        date_format:
+          description: Date format used to display dates. List the setting in `unset` to inherit the default.
+          allOf:
+            -
+              $ref: '#/components/schemas/DateFormatSettingUpdate'
+        is_signature_reminders_enabled:
+          description: Whether automatic reminder emails are enabled for incomplete signature requests.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        request_email_from:
+          description: Sender name shown on signature request emails.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        request_email_signature:
+          description: Signature appended to signature request emails.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        required_signature_types:
+          description: Signature creation methods signers may use.
+          allOf:
+            -
+              $ref: '#/components/schemas/RequiredSignatureTypesSettingUpdate'
+        should_enable_tamper_proof:
+          description: Whether completed documents include a digital tamper-proof seal.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        should_include_distinct_pdfs:
+          description: Whether completed documents remain as separate PDF files instead of being merged into one PDF.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        should_offer_signer_access_code:
+          description: Whether senders can require an access code to verify a signer.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        should_offer_signer_sms_authentication:
+          description: Whether senders can require SMS authentication to verify a signer.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        should_remove_document_id:
+          description: Whether the Dropbox Sign document ID is hidden on sent documents.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        data_residency:
+          description: Storage region for team documents.
+          allOf:
+            -
+              $ref: '#/components/schemas/DataResidencySettingUpdate'
+        allow_team_delete_document_for_everyone:
+          description: Whether team members can delete a document for all participants.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        allow_team_download_csv:
+          description: Whether team members can download CSV files.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        lock_team_template_creation:
+          description: Whether team members are prevented from creating templates.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        lock_team_template_gallery:
+          description: Whether team members are prevented from using the template gallery.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        self_sign_message:
+          description: Default message enforced for team members when they create self-signed documents.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        self_sign_title:
+          description: Default title enforced for team members when they create self-signed documents.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        signature_request_message:
+          description: Default message enforced for team members when they create signature requests.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        signature_request_title:
+          description: Default title enforced for team members when they create signature requests.
+          allOf:
+            -
+              $ref: '#/components/schemas/StringSettingUpdate'
+        multifactor_auth_app:
+          description: Whether authenticator-app multifactor authentication is enabled for the team.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        multifactor_auth_sms:
+          description: Whether SMS multifactor authentication is enabled for the team.
+          allOf:
+            -
+              $ref: '#/components/schemas/BooleanSettingUpdate'
+        unset:
+          description: Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
+          type: array
+          items:
+            type: string
+            enum:
+              - company
+              - custom_signing_redirect_enabled
+              - custom_signing_redirect_url
+              - custom_tagline
+              - date_format
+              - is_signature_reminders_enabled
+              - request_email_from
+              - request_email_signature
+              - required_signature_types
+              - should_enable_tamper_proof
+              - should_include_distinct_pdfs
+              - should_offer_signer_access_code
+              - should_offer_signer_sms_authentication
+              - should_remove_document_id
+              - data_residency
+              - allow_team_delete_document_for_everyone
+              - allow_team_download_csv
+              - lock_team_template_creation
+              - lock_team_template_gallery
+              - self_sign_message
+              - self_sign_title
+              - signature_request_message
+              - signature_request_title
+              - multifactor_auth_app
+              - multifactor_auth_sms
+          uniqueItems: true
+      type: object
+      additionalProperties: false
     TeamUpdateRequest:
       properties:
         name:
@@ -27017,6 +28637,22 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal-class: true
+    AccountSettingsResponse:
+      required:
+        - account_id
+        - settings
+      properties:
+        account_id:
+          type: string
+        settings:
+          $ref: '#/components/schemas/AccountSettingsResponseSettings'
+        warnings:
+          description: A list of warnings.
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     AccountVerifyResponse:
       properties:
         account:
@@ -27387,6 +29023,194 @@ components:
           description: Returns `true` if _Signer authentication_ is enabled in Admin Console. [Read more](https://developers.hellosign.com/docs/sms-tools/walkthrough).
           type: boolean
       type: object
+      x-internal-class: true
+    AccountSettingsResponseSettings:
+      required:
+        - company
+        - custom_signing_redirect_enabled
+        - custom_signing_redirect_url
+        - custom_tagline
+        - date_format
+        - is_signature_reminders_enabled
+        - request_email_from
+        - request_email_signature
+        - required_signature_types
+        - should_enable_tamper_proof
+        - should_include_distinct_pdfs
+        - should_offer_signer_access_code
+        - should_offer_signer_sms_authentication
+        - should_remove_document_id
+        - is_notify_on_sign_enabled
+        - is_notify_on_view_enabled
+        - should_autocomplete
+        - should_include_requested_pdfs
+        - should_include_requested_pdfs_for_others
+        - should_include_sent_doc_pdfs
+        - should_include_sent_doc_pdfs_for_others
+        - should_send_daily_summary
+        - should_send_embedded_signature_conf_emails
+        - should_send_ordered_sr_email
+        - should_send_outbound_conf_emails
+        - template_link_signature_emails_enabled
+      properties:
+        company:
+          description: Company name associated with this account or team.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_enabled:
+          description: Whether signers are redirected to a custom URL after completing a signature request.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_url:
+          description: URL where signers are redirected after completing a signature request when custom redirects are enabled.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_tagline:
+          description: Custom tagline displayed with the account or team branding.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        date_format:
+          description: Date format used to display dates. List the setting in `unset` to inherit the default.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_signature_reminders_enabled:
+          description: Whether automatic reminder emails are enabled for incomplete signature requests.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_from:
+          description: Sender name shown on signature request emails.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_signature:
+          description: Signature appended to signature request emails.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        required_signature_types:
+          description: Signature creation methods signers may use.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_enable_tamper_proof:
+          description: Whether completed documents include a digital tamper-proof seal.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_distinct_pdfs:
+          description: Whether completed documents remain as separate PDF files instead of being merged into one PDF.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_access_code:
+          description: Whether senders can require an access code to verify a signer.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_sms_authentication:
+          description: Whether senders can require SMS authentication to verify a signer.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_remove_document_id:
+          description: Whether the Dropbox Sign document ID is hidden on sent documents.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_notify_on_sign_enabled:
+          description: Whether to notify the account when someone signs a document it sent.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_notify_on_view_enabled:
+          description: Whether to notify the account when someone opens a document it sent.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_autocomplete:
+          description: Whether values entered in text fields are saved and suggested for future signature requests.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_requested_pdfs:
+          description: Whether completed signature requests include PDF copies in emails sent to the account.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_requested_pdfs_for_others:
+          description: Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_sent_doc_pdfs:
+          description: Whether emails sent to the account include PDF copies of documents it sends.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_sent_doc_pdfs_for_others:
+          description: Whether emails sent to recipients include PDF copies of documents the account sends.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_daily_summary:
+          description: Whether to send the account a daily email summarizing outstanding signature requests.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_embedded_signature_conf_emails:
+          description: Whether to notify the account when it signs a document on a third-party site.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_ordered_sr_email:
+          description: Whether to notify all parties when an ordered signature request starts.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_send_outbound_conf_emails:
+          description: Whether to notify the account when it signs and sends a document.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        template_link_signature_emails_enabled:
+          description: Whether to notify the account when someone signs a document sent by its team through a template link.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+      type: object
+      additionalProperties: false
       x-internal-class: true
     AccountResponseUsage:
       description: Details concerning monthly usage
@@ -27803,6 +29627,55 @@ components:
               - document_status
               - sms_activity
               - fax_usage
+      type: object
+      x-internal-class: true
+    SettingResponse:
+      required:
+        - value
+        - is_inherited
+        - source
+        - type
+        - writable
+        - lock
+      properties:
+        value:
+          description: Current value of the setting. Null when the setting has no value.
+          nullable: true
+        is_inherited:
+          type: boolean
+        source:
+          type: string
+          enum:
+            - account
+            - team
+            - parent_team
+            - default
+        type:
+          type: string
+          enum:
+            - boolean
+            - integer
+            - string
+            - array
+        writable:
+          type: boolean
+        lock:
+          $ref: '#/components/schemas/SettingLockResponse'
+      type: object
+      x-internal-class: true
+    SettingLockResponse:
+      required:
+        - mode
+        - source
+      properties:
+        mode:
+          $ref: '#/components/schemas/TeamSettingLock'
+        source:
+          type: string
+          enum:
+            - team
+            - parent_team
+            - default
       type: object
       x-internal-class: true
     SignatureRequestResponse:
@@ -28272,6 +30145,12 @@ components:
     TeamResponse:
       description: Contains information about your team and its members
       properties:
+        team_id:
+          description: The id of a team
+          type: string
+        parent_team_id:
+          description: _t__Team::PARENT_TEAM_ID
+          type: string
         name:
           description: The name of your Team
           type: string
@@ -28355,6 +30234,187 @@ components:
           type: string
       type: object
       nullable: true
+      x-internal-class: true
+    TeamSettingsResponseSettings:
+      required:
+        - company
+        - custom_signing_redirect_enabled
+        - custom_signing_redirect_url
+        - custom_tagline
+        - date_format
+        - is_signature_reminders_enabled
+        - request_email_from
+        - request_email_signature
+        - required_signature_types
+        - should_enable_tamper_proof
+        - should_include_distinct_pdfs
+        - should_offer_signer_access_code
+        - should_offer_signer_sms_authentication
+        - should_remove_document_id
+        - data_residency
+        - allow_team_delete_document_for_everyone
+        - allow_team_download_csv
+        - lock_team_template_creation
+        - lock_team_template_gallery
+        - self_sign_message
+        - self_sign_title
+        - signature_request_message
+        - signature_request_title
+        - multifactor_auth_app
+        - multifactor_auth_sms
+      properties:
+        company:
+          description: Company name associated with this account or team.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_enabled:
+          description: Whether signers are redirected to a custom URL after completing a signature request.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_signing_redirect_url:
+          description: URL where signers are redirected after completing a signature request when custom redirects are enabled.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        custom_tagline:
+          description: Custom tagline displayed with the account or team branding.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        date_format:
+          description: Date format used to display dates. List the setting in `unset` to inherit the default.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        is_signature_reminders_enabled:
+          description: Whether automatic reminder emails are enabled for incomplete signature requests.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_from:
+          description: Sender name shown on signature request emails.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        request_email_signature:
+          description: Signature appended to signature request emails.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        required_signature_types:
+          description: Signature creation methods signers may use.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_enable_tamper_proof:
+          description: Whether completed documents include a digital tamper-proof seal.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_include_distinct_pdfs:
+          description: Whether completed documents remain as separate PDF files instead of being merged into one PDF.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_access_code:
+          description: Whether senders can require an access code to verify a signer.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_offer_signer_sms_authentication:
+          description: Whether senders can require SMS authentication to verify a signer.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_remove_document_id:
+          description: Whether the Dropbox Sign document ID is hidden on sent documents.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        data_residency:
+          description: Storage region for team documents.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        allow_team_delete_document_for_everyone:
+          description: Whether team members can delete a document for all participants.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        allow_team_download_csv:
+          description: Whether team members can download CSV files.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        lock_team_template_creation:
+          description: Whether team members are prevented from creating templates.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        lock_team_template_gallery:
+          description: Whether team members are prevented from using the template gallery.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        self_sign_message:
+          description: Default message enforced for team members when they create self-signed documents.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        self_sign_title:
+          description: Default title enforced for team members when they create self-signed documents.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        signature_request_message:
+          description: Default message enforced for team members when they create signature requests.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        signature_request_title:
+          description: Default title enforced for team members when they create signature requests.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        multifactor_auth_app:
+          description: Whether authenticator-app multifactor authentication is enabled for the team.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        multifactor_auth_sms:
+          description: Whether SMS multifactor authentication is enabled for the team.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+      type: object
+      additionalProperties: false
       x-internal-class: true
     SubTeamResponse:
       properties:
@@ -29340,6 +31400,22 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal-class: true
+    TeamSettingsResponse:
+      required:
+        - team_id
+        - settings
+      properties:
+        team_id:
+          type: string
+        settings:
+          $ref: '#/components/schemas/TeamSettingsResponseSettings'
+        warnings:
+          description: A list of warnings.
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     TeamSubTeamsResponse:
       required:
         - sub_teams
@@ -30201,6 +32277,16 @@ components:
             default: Hello API Event Received
       x-fern-audiences:
         - events
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      description: _t__Common::Idempotency::KEY
+      required: false
+      schema:
+        type: string
+        maxLength: 255
+        minLength: 1
   examples:
     AccountCreateRequest:
       summary: Default Example
@@ -35116,6 +37202,11 @@ components:
         type: integer
         format: int64
         example: 1430170900
+    Idempotent-Replayed:
+      description: _t__Common::Idempotency::REPLAYED
+      required: false
+      schema:
+        type: boolean
   securitySchemes:
     api_key:
       type: http

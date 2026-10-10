@@ -1,4 +1,4 @@
-import { Authentication, HttpBasicAuth, HttpBearerAuth, Interceptor, TeamAddMemberRequest, TeamCreateRequest, TeamGetInfoResponse, TeamGetResponse, TeamInvitesResponse, TeamMembersResponse, TeamRemoveMemberRequest, TeamSubTeamsResponse, TeamUpdateRequest } from "../model";
+import { Authentication, HttpBasicAuth, HttpBearerAuth, Interceptor, TeamAddMemberRequest, TeamCreateRequest, TeamGetInfoResponse, TeamGetResponse, TeamInvitesResponse, TeamMembersResponse, TeamRemoveMemberRequest, TeamSettingsResponse, TeamSettingsUpdateRequest, TeamSubTeamsResponse, TeamUpdateRequest } from "../model";
 import { optionsI, returnTypeI, returnTypeT } from "./";
 export declare enum TeamApiApiKeys {
 }
@@ -32,6 +32,8 @@ export declare class TeamApi {
     teamInvites(emailAddress?: string, options?: optionsI): Promise<returnTypeT<TeamInvitesResponse>>;
     teamMembers(teamId: string, page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<TeamMembersResponse>>;
     teamRemoveMember(teamRemoveMemberRequest: TeamRemoveMemberRequest, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
+    teamSettingsGet(teamId?: string, options?: optionsI): Promise<returnTypeT<TeamSettingsResponse>>;
+    teamSettingsUpdate(teamSettingsUpdateRequest: TeamSettingsUpdateRequest, teamId?: string, options?: optionsI): Promise<returnTypeT<TeamSettingsResponse>>;
     teamSubTeams(teamId: string, page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<TeamSubTeamsResponse>>;
     teamUpdate(teamUpdateRequest: TeamUpdateRequest, options?: optionsI): Promise<returnTypeT<TeamGetResponse>>;
 }

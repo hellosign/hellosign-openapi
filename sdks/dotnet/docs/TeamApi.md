@@ -12,6 +12,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TeamInvites**](TeamApi.md#teaminvites) | **GET** /team/invites | List Team Invites |
 | [**TeamMembers**](TeamApi.md#teammembers) | **GET** /team/members/{team_id} | List Team Members |
 | [**TeamRemoveMember**](TeamApi.md#teamremovemember) | **POST** /team/remove_member | Remove User from Team |
+| [**TeamSettingsGet**](TeamApi.md#teamsettingsget) | **GET** /team/settings | Get team settings |
+| [**TeamSettingsUpdate**](TeamApi.md#teamsettingsupdate) | **POST** /team/settings | Modify team settings |
 | [**TeamSubTeams**](TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | [**TeamUpdate**](TeamApi.md#teamupdate) | **PUT** /team | Update Team |
 
@@ -779,6 +781,213 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="teamsettingsget"></a>
+# **TeamSettingsGet**
+> TeamSettingsResponse TeamSettingsGet (string? teamId = null)
+
+Get team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Example
+```csharp
+using System;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+
+namespace Dropbox.SignSandbox;
+
+public class TeamSettingsGetExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+        try
+        {
+            var response = new TeamApi(config).TeamSettingsGet();
+            var company = response.Settings.Company;
+            var dataResidency = response.Settings.DataResidency;
+
+            Console.WriteLine(response);
+            Console.WriteLine(response.TeamId);
+            Console.WriteLine(company.Value);
+            Console.WriteLine(company.IsInherited);
+            Console.WriteLine(company.Source);
+            Console.WriteLine(company.Type);
+            Console.WriteLine(company.Writable);
+            Console.WriteLine(company.Lock.Mode);
+            Console.WriteLine(company.Lock.Source);
+            Console.WriteLine(dataResidency.Value);
+            Console.WriteLine(dataResidency.Type);
+            Console.WriteLine(dataResidency.Lock.Mode);
+            Console.WriteLine(dataResidency.Lock.Source);
+            Console.WriteLine(response.Warnings);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling TeamApi#TeamSettingsGet: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the TeamSettingsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get team settings
+    ApiResponse<TeamSettingsResponse> response = apiInstance.TeamSettingsGetWithHttpInfo(teamId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TeamApi.TeamSettingsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **teamId** | **string?** | Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional]  |
+
+### Return type
+
+[**TeamSettingsResponse**](TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="teamsettingsupdate"></a>
+# **TeamSettingsUpdate**
+> TeamSettingsResponse TeamSettingsUpdate (TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = null)
+
+Modify team settings
+
+team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+### Example
+```csharp
+using System;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+namespace Dropbox.SignSandbox;
+
+public class TeamSettingsUpdateExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+        var teamSettingsUpdateRequest = new TeamSettingsUpdateRequest(
+            dataResidency: new DataResidencySettingUpdate(value: DataResidency.Eu),
+            company: new StringSettingUpdate(
+                value: "Northwind",
+                lockMode: TeamSettingLock.OrganizationAdmins
+            )
+        );
+
+        try
+        {
+            var response = new TeamApi(config).TeamSettingsUpdate(
+                teamSettingsUpdateRequest: teamSettingsUpdateRequest
+            );
+
+            Console.WriteLine(response);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling TeamApi#TeamSettingsUpdate: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the TeamSettingsUpdateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Modify team settings
+    ApiResponse<TeamSettingsResponse> response = apiInstance.TeamSettingsUpdateWithHttpInfo(teamSettingsUpdateRequest, teamId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TeamApi.TeamSettingsUpdateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **teamSettingsUpdateRequest** | [**TeamSettingsUpdateRequest**](TeamSettingsUpdateRequest.md) |  |  |
+| **teamId** | **string?** | Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. | [optional]  |
+
+### Return type
+
+[**TeamSettingsResponse**](TeamSettingsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

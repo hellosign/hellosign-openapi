@@ -30,6 +30,14 @@ import { AccountResponse } from "./accountResponse";
  */
 export class TeamResponse {
   /**
+   * The id of a team
+   */
+  "teamId"?: string;
+  /**
+   * _t__Team::PARENT_TEAM_ID
+   */
+  "parentTeamId"?: string;
+  /**
    * The name of your Team
    */
   "name"?: string;
@@ -46,6 +54,16 @@ export class TeamResponse {
   static discriminator: string | undefined = undefined;
 
   static attributeTypeMap: AttributeTypeMap = [
+    {
+      name: "teamId",
+      baseName: "team_id",
+      type: "string",
+    },
+    {
+      name: "parentTeamId",
+      baseName: "parent_team_id",
+      type: "string",
+    },
     {
       name: "name",
       baseName: "name",
