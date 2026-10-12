@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 
 WORKING_DIR="/app/openapi"
 SDK_DIR="${DIR}/../sdks/ruby"
@@ -10,23 +10,25 @@ TARGET_DIR="${DIR}/../sandbox/ruby"
 ARTIFACTS_DIR="${DIR}/../sandbox/ruby/artifacts"
 
 rm -rf "${ARTIFACTS_DIR}"
-mkdir -p "${ARTIFACTS_DIR}/gems"
+mkdir -p "${ARTIFACTS_DIR}/gems" "${SDK_DIR}/.docker/gem" "${SDK_DIR}/.docker/bundle"
 
-docker run --rm \
-  -e GEM_HOME="/.gem-cache" \
-  -e BUNDLE_PATH="/.bundle-cache" \
+"${DIR}/docker-run" \
+  -e GEM_HOME=/tmp/gem \
+  -e BUNDLE_PATH=/tmp/bundle \
+  -e HOME=/tmp/gem \
   -v "${SDK_DIR}:${WORKING_DIR}" \
   -v "${ARTIFACTS_DIR}:/artifacts" \
-  -v "dropbox-sign-sdk-gem-cache:/.gem-cache" \
-  -v "dropbox-sign-sdk-bundle-cache:/.bundle-cache" \
+  -v "${SDK_DIR}/.docker/gem:/tmp/gem" \
+  -v "${SDK_DIR}/.docker/bundle:/tmp/bundle" \
   -w "${WORKING_DIR}" \
   ruby:3.4 gem build dropbox-sign.gemspec -o /artifacts/gems/dropbox-sign.gem
 
-docker run --rm \
-  -e GEM_HOME="/.gem-cache" \
-  -e BUNDLE_PATH="/.bundle-cache" \
+"${DIR}/docker-run" \
+  -e GEM_HOME=/tmp/gem \
+  -e BUNDLE_PATH=/tmp/bundle \
+  -e HOME=/tmp/gem \
   -v "${ARTIFACTS_DIR}:/artifacts" \
-  -v "dropbox-sign-sdk-gem-cache:/.gem-cache" \
-  -v "dropbox-sign-sdk-bundle-cache:/.bundle-cache" \
+  -v "${SDK_DIR}/.docker/gem:/tmp/gem" \
+  -v "${SDK_DIR}/.docker/bundle:/tmp/bundle" \
   -w "/artifacts" \
   ruby:3.4 gem generate_index

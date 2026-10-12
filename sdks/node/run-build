@@ -19,9 +19,8 @@ rm -f "${DIR}/types/api/"*.ts
 rm -f "${DIR}/types/model/"*.ts
 
 # Generate code
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}/:/local" \
-  --user "$(id -u):$(id -g)" \
   openapitools/openapi-generator-cli:v7.12.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
@@ -36,9 +35,8 @@ docker run --rm \
 rm -rf "${DIR}/docs/api" "${DIR}/tmp_docs"
 mkdir -p "${DIR}/docs/api"
 mkdir -p "${DIR}/tmp_docs"
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}/:/local" \
-  --user "$(id -u):$(id -g)" \
   openapitools/openapi-generator-cli:v7.8.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
@@ -57,9 +55,8 @@ mv "${DIR}/tmp_docs/"*.md "${DIR}/docs/api/"
 rm -rf "${DIR}/docs/model" "${DIR}/tmp_docs"
 mkdir -p "${DIR}/docs/model"
 mkdir -p "${DIR}/tmp_docs"
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}/:/local" \
-  --user "$(id -u):$(id -g)" \
   openapitools/openapi-generator-cli:v7.8.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
@@ -91,13 +88,13 @@ printf "Running prettier ...\n"
 bash "${DIR}/bin/node" npm run prettier
 
 printf "Replacing strings ...\n"
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/replace
 
 printf "Scanning for prohibited keywords ...\n"
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/scan_for
@@ -109,17 +106,15 @@ printf "Running build ...\n"
 bash "${DIR}/bin/node" npm run build
 bash "${DIR}/bin/node" npm run build-types
 
-# avoid docker messing with permissions
-if [[ -z "$GITHUB_ACTIONS" ]]; then
-  chmod 644 "${DIR}/README.md"
-  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
-  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
-  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
-  find "${DIR}/api/" -type f -exec chmod 644 {} \;
-  find "${DIR}/dist/" -type f -exec chmod 644 {} \;
-  find "${DIR}/model/" -type f -exec chmod 644 {} \;
-  find "${DIR}/types/" -type f -exec chmod 644 {} \;
-fi
+"${DIR}/../../bin/normalize-sdk-modes" \
+  "${DIR}/README.md" \
+  "${DIR}/docs" \
+  "${DIR}/examples" \
+  "${DIR}/test_fixtures" \
+  "${DIR}/api" \
+  "${DIR}/dist" \
+  "${DIR}/model" \
+  "${DIR}/types"
 
 printf "Running tests ...\n"
 bash "${DIR}/bin/node" npm run test

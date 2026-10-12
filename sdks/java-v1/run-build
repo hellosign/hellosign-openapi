@@ -16,7 +16,7 @@ fi
 rm -f "${DIR}/src/main/java/com/dropbox/sign/api/"*.java
 rm -f "${DIR}/src/main/java/com/dropbox/sign/model/"*.java
 
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}/:/local" \
   openapitools/openapi-generator-cli:v7.12.0 generate \
     -i "/local/openapi-sdk.yaml" \
@@ -33,7 +33,7 @@ printf "Adding examples to Docs ...\n"
 bash "${DIR}/bin/php" ./bin/generate-examples.php
 
 printf "Replacing strings ...\n"
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/replace
@@ -42,7 +42,7 @@ printf "Generating method overloads ...\n"
 bash "${DIR}/bin/php" ./bin/generate-overload-methods.php
 
 printf "Scanning for prohibited keywords ...\n"
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/scan_for
@@ -50,14 +50,12 @@ docker run --rm \
 printf "Adding old-style constant names ...\n"
 bash "${DIR}/bin/php" ./bin/copy-constants.php
 
-# avoid docker messing with permissions
-if [[ -z "$GITHUB_ACTIONS" ]]; then
-  chmod 644 "${DIR}/README.md"
-  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
-  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
-  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
-  find "${DIR}/src/" -type f -exec chmod 644 {} \;
-fi
+"${DIR}/../../bin/normalize-sdk-modes" \
+  "${DIR}/README.md" \
+  "${DIR}/docs" \
+  "${DIR}/examples" \
+  "${DIR}/test_fixtures" \
+  "${DIR}/src"
 
 # Remove empty directory
 rm -rf "${DIR}/api"

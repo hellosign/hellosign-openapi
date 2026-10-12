@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 
-# Warning: You should run this from rootless Docker (or Podman, or other)
+# The old pip volume replaced /usr/local/lib/python3.10, which hid the
+# interpreter on a fresh mount and was owned by root. A virtualenv under
+# .docker is writable by the host user and leaves the image stdlib alone.
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
 WORKING_DIR="/app/python"
 
-docker run --rm \
+mkdir -p "${ROOT_DIR}/.docker/venv"
+
+exec "${DIR}/../../../bin/docker-run" \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "dropbox-sign-sdk-pip-cache:/usr/local/lib/python3.10" \
+  -v "${ROOT_DIR}/.docker/venv:/opt/venv" \
   -w "${WORKING_DIR}" \
-  python:3.10-buster "$@"
+  python:3.10-buster \
+  bash -c 'if [[ ! -x /opt/venv/bin/python ]]; then python -m venv /opt/venv; fi; export PATH="/opt/venv/bin:${PATH}"; exec "$@"' \
+  bash "$@"

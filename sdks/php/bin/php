@@ -1,25 +1,14 @@
 #!/usr/bin/env bash
 
-# Warning: You should run this from rootless Docker (or Podman, or other)
+set -euo pipefail
 
-set -e
-
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
-WORKING_DIR="/app/php"
 
-if [[ "$PHP_USE_NATIVE" -ne 1 ]]; then
-  docker run --rm \
-    --platform linux/amd64 \
-    -v "${ROOT_DIR}:${WORKING_DIR}" \
-    -v "dropbox-sign-sdk-composer-cache:/.composer" \
-    -w "${WORKING_DIR}" \
-    -u root:root \
-    jtreminio/php-cli:7.4 "$@"
-
-    exit 0
+if [[ "${PHP_USE_NATIVE:-0}" -ne 1 ]]; then
+  export PHP_DOCKER_PLATFORM=linux/amd64
+  exec "${DIR}/../../../bin/php-in-docker" /app/php "${ROOT_DIR}" jtreminio/php-cli:7.4 "$@"
 fi
 
-pushd "${ROOT_DIR}"
+cd "${ROOT_DIR}"
 exec "$@"
-popd

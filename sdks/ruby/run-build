@@ -16,7 +16,7 @@ fi
 rm -f "${DIR}/lib/dropbox-sign/api/"*.rb
 rm -f "${DIR}/lib/dropbox-sign/models/"*.rb
 
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}/:/local" \
   openapitools/openapi-generator-cli:v7.12.0 generate \
     -i "/local/openapi-sdk.yaml" \
@@ -39,25 +39,23 @@ printf "Adding examples to Docs ...\n"
 bash "${DIR}/bin/php" ./bin/generate-examples.php
 
 printf "Replacing strings ...\n"
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/replace
 
 printf "Scanning for prohibited keywords ...\n"
-docker run --rm \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/scan_for
 
-# avoid docker messing with permissions
-if [[ -z "$GITHUB_ACTIONS" ]]; then
-  chmod 644 "${DIR}/README.md"
-  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
-  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
-  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
-  find "${DIR}/lib/" -type f -exec chmod 644 {} \;
-fi
+"${DIR}/../../bin/normalize-sdk-modes" \
+  "${DIR}/README.md" \
+  "${DIR}/docs" \
+  "${DIR}/examples" \
+  "${DIR}/test_fixtures" \
+  "${DIR}/lib"
 
 printf "Running tests ...\n"
 bash "${DIR}/bin/ruby" bundle exec rspec

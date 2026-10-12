@@ -1,24 +1,25 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 
 WORKING_DIR="/app/openapi"
 SDK_DIR="${DIR}/../sdks/java-v2"
 TARGET_DIR="${DIR}/../sandbox/java"
 ARTIFACTS_DIR="${DIR}/../sandbox/java/artifacts"
 
-mkdir -p "${ARTIFACTS_DIR}"
+mkdir -p "${ARTIFACTS_DIR}" "${SDK_DIR}/.docker/gradle"
 rm -f "${ARTIFACTS_DIR}/*.jar"
 rm -f "${TARGET_DIR}/src/main/java/com/dropbox/sign_sandbox/*.java"
 cp "${SDK_DIR}/templates/Main.java" "${TARGET_DIR}/src/main/java/com/dropbox/sign_sandbox/Main.java"
 
-docker run --rm -it \
+"${DIR}/docker-run" -it \
   -v "${SDK_DIR}:${WORKING_DIR}" \
   -v "${ARTIFACTS_DIR}:/artifacts" \
-  -v "dropbox-sign-sdk-gradle-cache:/home/gradle/.gradle" \
-  -v "dropbox-sign-sdk-maven-cache:/root/.m2" \
+  -v "${SDK_DIR}/.docker/gradle:/tmp/gradle-user-home" \
+  -e GRADLE_USER_HOME=/tmp/gradle-user-home \
+  -e HOME=/tmp/gradle-user-home \
   -w "${WORKING_DIR}" \
   -e GEN_DIR=/app \
   gradle:7.6.1-jdk11 ./gradlew clean fatJar
