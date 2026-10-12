@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Prints docker run arguments so a bind-mounted repo is not owned by root.
+# Rootless Docker already maps container root to the host user, so it keeps
+# --user root:root. Rootful Docker does not, and that is what leaves SDK files
+# that a later git checkout cannot replace. Set DOCKER_RUN_AS_ROOT=1 to force
+# the old behavior.
+
+set -euo pipefail
+
+if [[ "${DOCKER_RUN_AS_ROOT:-}" == "1" ]]; then
+  printf '%s\n' --user root:root
+  exit 0
+fi
+
+security="$(docker info --format '{{range .SecurityOptions}}{{println .}}{{end}}' 2>/dev/null || true)"
+if grep -q rootless <<<"${security}"; then
+  printf '%s\n' --user root:root
+  exit 0
+fi
+
+printf '%s\n' --user "$(id -u):$(id -g)"

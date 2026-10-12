@@ -5,5 +5,6 @@ sdks/**/examples
 sdks/**/test_fixtures
 sdks/**/vendor
 vendor
+.composer
 .idea
 .gradle

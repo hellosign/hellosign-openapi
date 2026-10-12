@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Warning: You should run this from rootless Docker (or Podman, or other)
-
 set -e
 
 DIR=$(cd `dirname $0` && pwd)
@@ -13,9 +11,13 @@ if [[ -n "$GITHUB_ACTIONS" && -n "${DOCKER_USERNAME:-}" && -n "${DOCKER_TOKEN:-}
   echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 fi
 
+mapfile -t DOCKER_USER_ARGS < <("${DIR}/docker-user-args")
+mkdir -p "${ROOT_DIR}/.composer"
+
 docker run --rm \
+  "${DOCKER_USER_ARGS[@]}" \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "dropbox-sign-sdk-composer-cache:/.composer" \
+  -v "${ROOT_DIR}/.composer:/tmp/composer" \
+  -e COMPOSER_HOME=/tmp/composer \
   -w "${WORKING_DIR}" \
-  -u root:root \
   jtreminio/php-cli:7.4 "$@"

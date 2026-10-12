@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Warning: You should run this from rootless Docker (or Podman, or other)
-
 set -e
 
 DIR=$(cd `dirname $0` && pwd)
@@ -9,12 +7,16 @@ ROOT_DIR="${DIR}/.."
 WORKING_DIR="/app/php"
 
 if [[ "$PHP_USE_NATIVE" -ne 1 ]]; then
+  mapfile -t DOCKER_USER_ARGS < <("${DIR}/../../../bin/docker-user-args")
+  mkdir -p "${ROOT_DIR}/.composer"
+
   docker run --rm \
     --platform linux/amd64 \
+    "${DOCKER_USER_ARGS[@]}" \
     -v "${ROOT_DIR}:${WORKING_DIR}" \
-    -v "dropbox-sign-sdk-composer-cache:/.composer" \
+    -v "${ROOT_DIR}/.composer:/tmp/composer" \
+    -e COMPOSER_HOME=/tmp/composer \
     -w "${WORKING_DIR}" \
-    -u root:root \
     jtreminio/php-cli:7.4 "$@"
 
     exit 0
