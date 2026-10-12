@@ -1,6 +1,5 @@
 # This workflow will build the project, run integration tests, and release.
-# Because secrets are not available on external forks, this job is expected to fail
-# on external pull requests.
+# Secret-backed jobs fetch credentials from AWS Secrets Manager using GitHub OIDC.
 
 name: Build, Check, Publish
 
@@ -13,15 +12,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Configure AWS credentials for Docker Hub secrets (OIDC)
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::301904545275:role/oidc-github-hellosign-dropbox-sign-ruby-branch-main
+          aws-region: us-west-2
+
+      - name: Get Docker Hub secrets from AWS Secrets Manager
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/aws-secretsmanager-get-secrets@v3
+        with:
+          secret-ids: |
+            DOCKER_USERNAME,github-actions/hellosign/shared/docker-username
+            DOCKER_TOKEN,github-actions/hellosign/shared/docker-token
+          parse-json-secrets: false
+
       - name: Build SDK
         run: ./run-build
-        env:
-          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
@@ -35,14 +50,30 @@ jobs:
       && github.ref == 'refs/heads/main'
       && github.event_name != 'pull_request'
     needs: [ build ]
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Configure AWS credentials for RubyGems secrets (OIDC)
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::301904545275:role/oidc-github-hellosign-dropbox-sign-ruby-branch-main
+          aws-region: us-west-2
+
+      - name: Get RubyGems secrets from AWS Secrets Manager
+        uses: aws-actions/aws-secretsmanager-get-secrets@v3
+        with:
+          secret-ids: |
+            RUBYGEMS_API_KEY,github-actions/hellosign/dropbox-sign-ruby/rubygems-api-key
+          parse-json-secrets: false
+
       - name: Release Gem
         run: ./bin/ruby ./bin/release
         env:
-          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+          RUBYGEMS_API_KEY: ${{ env.RUBYGEMS_API_KEY }}
 
   # This job runs on merging to "main" branch
   # Creates a new tag using the value in the VERSION file

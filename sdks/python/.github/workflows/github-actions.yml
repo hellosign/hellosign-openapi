@@ -1,9 +1,6 @@
 # This workflow will build the project, run integration tests, and release.
-# Because secrets are not available on external forks, this job is expected to fail
-# on external pull requests.
-
-# publishing instructions from
-# https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
+# Secret-backed jobs fetch credentials from AWS Secrets Manager using GitHub OIDC.
+# PyPI uploads use trusted publishing (GitHub OIDC), not API tokens.
 
 name: Build, Check, Publish
 
@@ -16,56 +13,42 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Configure AWS credentials for Docker Hub secrets (OIDC)
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::301904545275:role/oidc-github-hellosign-dropbox-sign-python-branch-main
+          aws-region: us-west-2
+
+      - name: Get Docker Hub secrets from AWS Secrets Manager
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/aws-secretsmanager-get-secrets@v3
+        with:
+          secret-ids: |
+            DOCKER_USERNAME,github-actions/hellosign/shared/docker-username
+            DOCKER_TOKEN,github-actions/hellosign/shared/docker-token
+          parse-json-secrets: false
+
       - name: Build SDK
         run: ./run-build
-        env:
-          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
 
-  # This job runs on pull requests
-  # Publishes to test.pypi.org, useful as a dry run
-  # Step still passes even if package version was already uploaded
-  publish-test:
-    runs-on: ubuntu-latest
-    if: >-
-      github.repository == 'hellosign/dropbox-sign-python'
-      && github.ref != 'refs/heads/main'
-      && github.event_name == 'pull_request'
-    needs: [ build ]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.10"
-
-      - name: Install pypa/build
-        run: python -m pip install build --user
-
-      - name: Build a binary wheel and a source tarball
-        run: python -m build --sdist --wheel --outdir dist/ .
-
-      - name: Publish distribution to Test PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_TEST_API_KEY }}
-          repository_url: https://test.pypi.org/legacy/
-          skip_existing: true
-          verbose: true
-
   # This job runs on merging to "main" branch
-  # Builds and publishes package to pypi.org
+  # Builds and publishes package to pypi.org with trusted publishing
   publish-prod:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     if: >-
       github.repository == 'hellosign/dropbox-sign-python'
       && github.ref == 'refs/heads/main'
@@ -86,10 +69,8 @@ jobs:
       - name: Build a binary wheel and a source tarball
         run: python -m build --sdist --wheel --outdir dist/ .
 
-      - name: Publish distribution to PyPI
+      - name: Publish package with trusted publishing
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_KEY }}
 
   # This job runs on merging to "main" branch
   # Creates a new tag using the value in the VERSION file
