@@ -3091,6 +3091,9 @@ paths:
       requestBody:
         required: true
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentFieldDetectionRequest'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/DocumentFieldDetectionRequest'
@@ -23530,11 +23533,6 @@ components:
           pattern: ^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$
           example: '0-2,5,7-9'
       type: object
-      oneOf:
-        - required:
-            - file
-        - required:
-            - file_url
     EmbeddedEditUrlRequest:
       properties:
         allow_edit_ccs:
@@ -23915,8 +23913,8 @@ components:
             Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
 
             Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {}
         signing_redirect_url:
           description: The URL you want signers redirected to after they successfully sign.
@@ -24008,8 +24006,8 @@ components:
             Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
 
             Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {}
         signing_redirect_url:
           description: The URL you want signers redirected to after they successfully sign.
@@ -25087,6 +25085,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          maxProperties: 10
+          type: object
+          additionalProperties: {}
       type: object
     SubBulkSignerListCustomField:
       required:
@@ -26093,6 +26099,10 @@ components:
           description: The name of your Team.
           type: string
           default: Untitled Team
+        parent_team_id:
+          description: The id of the parent team. Set this to create the new team as a sub-team of that parent.
+          type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
       type: object
     TeamRemoveMemberRequest:
       properties:
@@ -28274,6 +28284,12 @@ components:
     TeamResponse:
       description: Contains information about your team and its members
       properties:
+        team_id:
+          description: The id of a team
+          type: string
+        parent_team_id:
+          description: The id of this team's parent team.
+          type: string
         name:
           description: The name of your Team
           type: string
