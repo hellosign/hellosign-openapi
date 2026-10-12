@@ -45,7 +45,11 @@ class SubBulkSignerList(BaseModel):
         default=None,
         description="Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.",
     )
-    __properties: ClassVar[List[str]] = ["custom_fields", "signers"]
+    metadata: Optional[Dict[str, Any]] = Field(
+        default=None,
+        description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.",
+    )
+    __properties: ClassVar[List[str]] = ["custom_fields", "signers", "metadata"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -140,6 +144,7 @@ class SubBulkSignerList(BaseModel):
                     if obj.get("signers") is not None
                     else None
                 ),
+                "metadata": obj.get("metadata"),
             }
         )
         return _obj
@@ -159,6 +164,7 @@ class SubBulkSignerList(BaseModel):
         return {
             "custom_fields": "(List[SubBulkSignerListCustomField],)",
             "signers": "(List[SubSignatureRequestTemplateSigner],)",
+            "metadata": "(Dict[str, object],)",
         }
 
     @classmethod

@@ -29,6 +29,10 @@ export class TeamCreateRequest {
    * The name of your Team.
    */
   "name"?: string = "Untitled Team";
+  /**
+   * The id of the parent team. Set this to create the new team as a sub-team of that parent.
+   */
+  "parentTeamId"?: string;
 
   static discriminator: string | undefined = undefined;
 
@@ -36,6 +40,11 @@ export class TeamCreateRequest {
     {
       name: "name",
       baseName: "name",
+      type: "string",
+    },
+    {
+      name: "parentTeamId",
+      baseName: "parent_team_id",
       type: "string",
     },
   ];

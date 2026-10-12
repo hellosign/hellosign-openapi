@@ -267,6 +267,10 @@
 "SignatureRequestBulkCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
+"SignatureRequestBulkCreateEmbeddedWithTemplate::METADATA": |-
+  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::SIGNER_FILE": |-
   `signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:
 
@@ -304,6 +308,10 @@
 "SignatureRequestBulkSendWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestBulkSendWithTemplate::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestBulkSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
+"SignatureRequestBulkSendWithTemplate::METADATA": |-
+  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
 "SignatureRequestBulkSendWithTemplate::SIGNER_FILE": |-
   `signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:
 
@@ -610,6 +618,7 @@
 "TeamCreate::SUMMARY": Create Team
 "TeamCreate::DESCRIPTION": Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
 "TeamCreate::NAME": The name of your Team.
+"TeamCreate::PARENT_TEAM_ID": The id of the parent team. Set this to create the new team as a sub-team of that parent.
 
 "TeamDelete::SUMMARY": Delete Team
 "TeamDelete::DESCRIPTION": Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
@@ -1012,6 +1021,10 @@
   Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.
 
   Currently only templates with a single role are supported. All signers must have the same `role` value.
+"Sub::BulkSigner::METADATA": |-
+  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
 
 "Sub::CC::DESCRIPTION": Add CC email recipients. Required when a CC role exists for the Template.
 "Sub::CC::EMAIL_ADDRESS": The email address of the CC recipient.
@@ -1387,6 +1400,8 @@
 "Common::RateLimiting::LIMIT": The maximum number of requests per hour that you can make.
 "Common::RateLimiting::REMAINING": The number of requests remaining in the current rate limit window.
 "Common::RateLimiting::RESET": The Unix time at which the rate limit will reset to its maximum.
+"Common::Idempotency::KEY": Optional header on an authenticated POST or PUT. Reuse the same key when retrying the same request. See [Idempotency](/api/manual-reference-pages/idempotency) for details.
+"Common::Idempotency::REPLAYED": Sent when the request included an Idempotency-Key. True when replaying a stored response, false otherwise. See [Idempotency](/api/manual-reference-pages/idempotency) for details.
 
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
 "EmbeddedSignUrlResponseExample::SUMMARY": Embedded Sign URL
@@ -1688,6 +1703,7 @@
 "TeamUpdateResponseExample::SUMMARY": Team Update
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
 "Team::NAME": The name of your Team
+"Team::PARENT_TEAM_ID": The id of this team's parent team.
 "Team::INVITED_ACCOUNTS": A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
 "Team::INVITED_EMAILS": A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
 "TeamGeneral::TEAM_ID": The id of a team
@@ -2070,8 +2086,8 @@
 "ErrorCatalog::not_found::REMEDIATION": "Verify the id and that the resource belongs to the authenticated account."
 
 "ErrorCatalog::conflict::SUMMARY": "The request was well-formed but conflicts with the current state."
-"ErrorCatalog::conflict::CAUSE": "The target resource is in a state incompatible with the request (e.g. a signature request is still being set up)."
-"ErrorCatalog::conflict::REMEDIATION": "Wait briefly and retry, or listen for a callback event confirming the resource is ready."
+"ErrorCatalog::conflict::CAUSE": "The target resource is in a state incompatible with the request (e.g. a signature request is still being set up). A POST or PUT can also return this status when an Idempotency-Key header is reused with different parameters, or while the original request is still in progress."
+"ErrorCatalog::conflict::REMEDIATION": "Wait briefly and retry, or listen for a callback event confirming the resource is ready. To make a POST or PUT safe to retry, send the same Idempotency-Key header (1 to 255 characters) with the other headers for that request. The same key and request within 24 hours returns the original response, with Idempotent-Replayed: true. Use a new key for a different request."
 
 "ErrorCatalog::exceeded_rate::SUMMARY": "Your account's API request rate limit has been exceeded."
 "ErrorCatalog::exceeded_rate::CAUSE": "Too many requests were sent within the rate-limit window for this request type."

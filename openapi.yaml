@@ -8441,8 +8441,8 @@ components:
             Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
 
             Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {}
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
@@ -8534,8 +8534,8 @@ components:
             Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
 
             Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          maxProperties: 10
           type: object
-          maxItems: 10
           additionalProperties: {}
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
@@ -9613,6 +9613,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          maxProperties: 10
+          type: object
+          additionalProperties: {}
       type: object
     SubBulkSignerListCustomField:
       required:
@@ -10629,6 +10637,10 @@ components:
           description: 'The name of your Team.'
           type: string
           default: 'Untitled Team'
+        parent_team_id:
+          description: 'The id of the parent team. Set this to create the new team as a sub-team of that parent.'
+          type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
       type: object
     TeamRemoveMemberRequest:
       properties:
@@ -12824,6 +12836,12 @@ components:
     TeamResponse:
       description: 'Contains information about your team and its members'
       properties:
+        team_id:
+          description: 'The id of a team'
+          type: string
+        parent_team_id:
+          description: 'The id of this team''s parent team.'
+          type: string
         name:
           description: 'The name of your Team'
           type: string
@@ -14771,6 +14789,16 @@ components:
             default: 'Hello API Event Received'
       x-fern-audiences:
         - events
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      description: 'Optional header on an authenticated POST or PUT. Reuse the same key when retrying the same request. See [Idempotency](/api/manual-reference-pages/idempotency) for details.'
+      required: false
+      schema:
+        type: string
+        maxLength: 255
+        minLength: 1
   examples:
     AccountCreateRequest:
       summary: 'Default Example'
@@ -15526,6 +15554,11 @@ components:
         type: integer
         format: int64
         example: 1430170900
+    Idempotent-Replayed:
+      description: 'Sent when the request included an Idempotency-Key. True when replaying a stored response, false otherwise. See [Idempotency](/api/manual-reference-pages/idempotency) for details.'
+      required: false
+      schema:
+        type: boolean
   securitySchemes:
     api_key:
       type: http
@@ -15811,8 +15844,8 @@ x-error-codes:
   conflict:
     http_status: 409
     summary: 'The request was well-formed but conflicts with the current state.'
-    cause: 'The target resource is in a state incompatible with the request (e.g. a signature request is still being set up).'
-    remediation: 'Wait briefly and retry, or listen for a callback event confirming the resource is ready.'
+    cause: 'The target resource is in a state incompatible with the request (e.g. a signature request is still being set up). A POST or PUT can also return this status when an Idempotency-Key header is reused with different parameters, or while the original request is still in progress.'
+    remediation: 'Wait briefly and retry, or listen for a callback event confirming the resource is ready. To make a POST or PUT safe to retry, send the same Idempotency-Key header (1 to 255 characters) with the other headers for that request. The same key and request within 24 hours returns the original response, with Idempotent-Replayed: true. Use a new key for a different request.'
     retryable: conditional
   exceeded_rate:
     http_status: 429

@@ -259,6 +259,10 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "message", the character length must be smaller than or equal to 5000.')
       end
 
+      if !@metadata.nil? && @metadata.length > 10
+        invalid_properties.push('invalid value for "metadata", number of items must be less than or equal to 10.')
+      end
+
       if !@subject.nil? && @subject.to_s.length > 255
         invalid_properties.push('invalid value for "subject", the character length must be smaller than or equal to 255.')
       end
@@ -276,6 +280,7 @@ module Dropbox::Sign
       return false if @template_ids.nil?
       return false if @client_id.nil?
       return false if !@message.nil? && @message.to_s.length > 5000
+      return false if !@metadata.nil? && @metadata.length > 10
       return false if !@subject.nil? && @subject.to_s.length > 255
       return false if !@title.nil? && @title.to_s.length > 255
       true
@@ -314,6 +319,10 @@ module Dropbox::Sign
     # Custom attribute writer method with validation
     # @param [Object] metadata Value to be assigned
     def metadata=(metadata)
+      if metadata.length > 10
+        fail ArgumentError, 'invalid value for "metadata", number of items must be less than or equal to 10.'
+      end
+
       @metadata = metadata
     end
 

@@ -385,6 +385,10 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
             $invalidProperties[] = "invalid value for 'message', the character length must be smaller than or equal to 5000.";
         }
 
+        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 10)) {
+            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 10.";
+        }
+
         if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) > 255)) {
             $invalidProperties[] = "invalid value for 'subject', the character length must be smaller than or equal to 255.";
         }
@@ -650,6 +654,9 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
             throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
 
+        if (count($metadata) > 10) {
+            throw new InvalidArgumentException('invalid value for $metadata when calling SignatureRequestBulkCreateEmbeddedWithTemplateRequest., number of items must be less than or equal to 10.');
+        }
         $this->container['metadata'] = $metadata;
 
         return $this;

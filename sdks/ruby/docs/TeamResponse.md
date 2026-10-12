@@ -6,6 +6,8 @@ Contains information about your team and its members
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| `team_id` | ```String``` |  The id of a team  |  |
+| `parent_team_id` | ```String``` |  The id of this team&#39;s parent team.  |  |
 | `name` | ```String``` |  The name of your Team  |  |
 | `accounts` | [```Array<AccountResponse>```](AccountResponse.md) |    |  |
 | `invited_accounts` | [```Array<AccountResponse>```](AccountResponse.md) |  A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.  |  |
