@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# SDK builds bind-mount the checkout. The user flag comes from docker-user-args
+# so rootful Docker does not leave root-owned files behind.
+
+set -euo pipefail
+
+DIR=$(cd "$(dirname "$0")" && pwd)
+mapfile -t DOCKER_USER_ARGS < <("${DIR}/docker-user-args")
+
+exec docker run --rm "${DOCKER_USER_ARGS[@]}" "$@"

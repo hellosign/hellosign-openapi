@@ -1,27 +1,14 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
-WORKING_DIR="/app/php"
 
-if [[ "$PHP_USE_NATIVE" -ne 1 ]]; then
-  mapfile -t DOCKER_USER_ARGS < <("${DIR}/../../../bin/docker-user-args")
-  mkdir -p "${ROOT_DIR}/.composer"
-
-  docker run --rm \
-    --platform linux/amd64 \
-    "${DOCKER_USER_ARGS[@]}" \
-    -v "${ROOT_DIR}:${WORKING_DIR}" \
-    -v "${ROOT_DIR}/.composer:/tmp/composer" \
-    -e COMPOSER_HOME=/tmp/composer \
-    -w "${WORKING_DIR}" \
-    jtreminio/php-cli:7.4 "$@"
-
-    exit 0
+if [[ "${PHP_USE_NATIVE:-0}" -ne 1 ]]; then
+  export PHP_DOCKER_PLATFORM=linux/amd64
+  exec "${DIR}/../../../bin/php-in-docker" /app/php "${ROOT_DIR}" jtreminio/php-cli:7.4 "$@"
 fi
 
-pushd "${ROOT_DIR}"
+cd "${ROOT_DIR}"
 exec "$@"
-popd

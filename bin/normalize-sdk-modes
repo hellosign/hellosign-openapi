@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# openapi-generator's umask marks some generated sources executable. The SDK
+# trees keep those files at 644. GitHub Actions owns the workspace already.
+
+set -euo pipefail
+
+if [[ -n "${GITHUB_ACTIONS:-}" ]]; then
+  exit 0
+fi
+
+for path in "$@"; do
+  if [[ -f "${path}" ]]; then
+    chmod 644 "${path}"
+  elif [[ -d "${path}" ]]; then
+    find "${path}" -type f -exec chmod 644 {} \;
+  fi
+done

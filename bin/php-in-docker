@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Composer writes both the SDK tree and its cache. The cache lives on the host
+# so the user selected by docker-run can write it. Set PHP_DOCKER_PLATFORM to
+# pass --platform (the PHP SDK images are amd64).
+
+set -euo pipefail
+
+DIR=$(cd "$(dirname "$0")" && pwd)
+WORKING_DIR="$1"
+ROOT_DIR="$2"
+IMAGE="$3"
+shift 3
+
+mkdir -p "${ROOT_DIR}/.docker/composer"
+
+platform=()
+if [[ -n "${PHP_DOCKER_PLATFORM:-}" ]]; then
+  platform=(--platform "${PHP_DOCKER_PLATFORM}")
+fi
+
+exec "${DIR}/docker-run" \
+  "${platform[@]}" \
+  -v "${ROOT_DIR}:${WORKING_DIR}" \
+  -v "${ROOT_DIR}/.docker/composer:/tmp/composer" \
+  -e COMPOSER_HOME=/tmp/composer \
+  -w "${WORKING_DIR}" \
+  "${IMAGE}" \
+  "$@"

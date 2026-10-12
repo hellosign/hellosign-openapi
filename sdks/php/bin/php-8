@@ -1,21 +1,9 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
-WORKING_DIR="/app/php"
 
-mapfile -t DOCKER_USER_ARGS < <("${DIR}/../../../bin/docker-user-args")
-mkdir -p "${ROOT_DIR}/.composer"
-
-docker run --rm \
-  --platform linux/amd64 \
-  "${DOCKER_USER_ARGS[@]}" \
-  -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "${ROOT_DIR}/.composer:/tmp/composer" \
-  -e COMPOSER_HOME=/tmp/composer \
-  -w "${WORKING_DIR}" \
-  jtreminio/php:8.1 "$@"
-
-  exit 0
+export PHP_DOCKER_PLATFORM=linux/amd64
+exec "${DIR}/../../../bin/php-in-docker" /app/php "${ROOT_DIR}" jtreminio/php:8.1 "$@"

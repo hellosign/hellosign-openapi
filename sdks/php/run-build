@@ -17,10 +17,7 @@ rm -f "${DIR}/composer.lock"
 rm -f "${DIR}/src/Api/"*.php
 rm -f "${DIR}/src/Model/"*.php
 
-mapfile -t DOCKER_USER_ARGS < <("${DIR}/../../bin/docker-user-args")
-
-docker run --rm \
-  "${DOCKER_USER_ARGS[@]}" \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}/:/local" \
   -v "${DIR}/openapi-sdk.yaml:/local/openapi-sdk.yaml" \
   openapitools/openapi-generator-cli:v7.12.0 generate \
@@ -41,15 +38,13 @@ printf "Running php-cs-fixer ...\n"
 bash "${DIR}/bin/php-8" ./vendor/bin/php-cs-fixer fix --verbose
 
 printf "Replacing strings ...\n"
-docker run --rm \
-  "${DOCKER_USER_ARGS[@]}" \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/replace
 
 printf "Scanning for prohibited keywords ...\n"
-docker run --rm \
-  "${DOCKER_USER_ARGS[@]}" \
+"${DIR}/../../bin/docker-run" \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/scan_for
@@ -57,14 +52,12 @@ docker run --rm \
 printf "Adding old-style constant names ...\n"
 bash "${DIR}/bin/php-8" ./bin/copy-constants.php
 
-# avoid docker messing with permissions
-if [[ -z "$GITHUB_ACTIONS" ]]; then
-  chmod 644 "${DIR}/README.md"
-  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
-  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
-  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
-  find "${DIR}/src/" -type f -exec chmod 644 {} \;
-fi
+"${DIR}/../../bin/normalize-sdk-modes" \
+  "${DIR}/README.md" \
+  "${DIR}/docs" \
+  "${DIR}/examples" \
+  "${DIR}/test_fixtures" \
+  "${DIR}/src"
 
 printf "Running unit tests ...\n"
 PHP_USE_NATIVE=0 bash "${DIR}/bin/php" ./vendor/bin/phpunit

@@ -1,23 +1,13 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
-WORKING_DIR="/app/openapi"
 
-if [[ -n "$GITHUB_ACTIONS" && -n "${DOCKER_USERNAME:-}" && -n "${DOCKER_TOKEN:-}" ]]; then
+if [[ -n "${GITHUB_ACTIONS:-}" && -n "${DOCKER_USERNAME:-}" && -n "${DOCKER_TOKEN:-}" ]]; then
   printf "\nLogging in to docker.com ...\n"
   echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 fi
 
-mapfile -t DOCKER_USER_ARGS < <("${DIR}/docker-user-args")
-mkdir -p "${ROOT_DIR}/.composer"
-
-docker run --rm \
-  "${DOCKER_USER_ARGS[@]}" \
-  -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "${ROOT_DIR}/.composer:/tmp/composer" \
-  -e COMPOSER_HOME=/tmp/composer \
-  -w "${WORKING_DIR}" \
-  jtreminio/php-cli:7.4 "$@"
+exec "${DIR}/php-in-docker" /app/openapi "${ROOT_DIR}" jtreminio/php-cli:7.4 "$@"
