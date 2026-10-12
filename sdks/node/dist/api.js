@@ -25000,6 +25000,11 @@ var SubBulkSignerList = class _SubBulkSignerList {
         name: "signers",
         baseName: "signers",
         type: "Array<SubSignatureRequestTemplateSigner>"
+      },
+      {
+        name: "metadata",
+        baseName: "metadata",
+        type: "{ [key: string]: any; }"
       }
     ];
   }
@@ -26722,6 +26727,11 @@ var TeamCreateRequest = class _TeamCreateRequest {
         name: "name",
         baseName: "name",
         type: "string"
+      },
+      {
+        name: "parentTeamId",
+        baseName: "parent_team_id",
+        type: "string"
       }
     ];
   }
@@ -27062,6 +27072,16 @@ var TeamResponse = class _TeamResponse {
   }
   static {
     this.attributeTypeMap = [
+      {
+        name: "teamId",
+        baseName: "team_id",
+        type: "string"
+      },
+      {
+        name: "parentTeamId",
+        baseName: "parent_team_id",
+        type: "string"
+      },
       {
         name: "name",
         baseName: "name",
