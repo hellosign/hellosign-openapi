@@ -131,10 +131,7 @@ export class FaxApi {
   ): Promise<returnTypeI> {
     const localVarPath =
       this.basePath +
-      "/fax/{fax_id}".replace(
-        "{" + "fax_id" + "}",
-        encodeURIComponent(String(faxId))
-      );
+      "/fax/{fax_id}".replace("{fax_id}", encodeURIComponent(String(faxId)));
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
       {},
@@ -234,7 +231,7 @@ export class FaxApi {
     const localVarPath =
       this.basePath +
       "/fax/files/{fax_id}".replace(
-        "{" + "fax_id" + "}",
+        "{fax_id}",
         encodeURIComponent(String(faxId))
       );
     let localVarQueryParameters: any = {};
@@ -351,10 +348,7 @@ export class FaxApi {
   ): Promise<returnTypeT<FaxGetResponse>> {
     const localVarPath =
       this.basePath +
-      "/fax/{fax_id}".replace(
-        "{" + "fax_id" + "}",
-        encodeURIComponent(String(faxId))
-      );
+      "/fax/{fax_id}".replace("{fax_id}", encodeURIComponent(String(faxId)));
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
       {},

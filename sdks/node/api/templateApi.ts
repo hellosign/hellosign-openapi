@@ -147,7 +147,7 @@ export class TemplateApi {
     const localVarPath =
       this.basePath +
       "/template/add_user/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};
@@ -599,7 +599,7 @@ export class TemplateApi {
     const localVarPath =
       this.basePath +
       "/template/delete/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};
@@ -708,7 +708,7 @@ export class TemplateApi {
     const localVarPath =
       this.basePath +
       "/template/files/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};
@@ -838,7 +838,7 @@ export class TemplateApi {
     const localVarPath =
       this.basePath +
       "/template/files_as_data_uri/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};
@@ -965,7 +965,7 @@ export class TemplateApi {
     const localVarPath =
       this.basePath +
       "/template/files_as_file_url/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};
@@ -1095,7 +1095,7 @@ export class TemplateApi {
     const localVarPath =
       this.basePath +
       "/template/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};
@@ -1373,7 +1373,7 @@ export class TemplateApi {
     const localVarPath =
       this.basePath +
       "/template/remove_user/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};
@@ -1536,7 +1536,7 @@ export class TemplateApi {
     const localVarPath =
       this.basePath +
       "/template/update_files/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};

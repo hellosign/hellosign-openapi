@@ -22144,6 +22144,9 @@ var ObjectSerializer = class _ObjectSerializer {
       }
       return transformedData;
     } else if (type === "Date") {
+      if (!(data instanceof Date)) {
+        return data;
+      }
       return data.toISOString();
     } else {
       if (enumsMap[type]) {
@@ -22157,10 +22160,11 @@ var ObjectSerializer = class _ObjectSerializer {
       let instance = {};
       for (let index = 0; index < attributeTypes.length; index++) {
         let attributeType = attributeTypes[index];
-        let value = _ObjectSerializer.serialize(
-          data[attributeType.name],
-          attributeType.type
-        );
+        const rawValue = Object.prototype.hasOwnProperty.call(
+          data,
+          attributeType.name
+        ) ? data[attributeType.name] : Object.prototype.hasOwnProperty.call(data, attributeType.baseName) ? data[attributeType.baseName] : void 0;
+        let value = _ObjectSerializer.serialize(rawValue, attributeType.type);
         if (value !== void 0) {
           instance[attributeType.baseName] = value;
         }
@@ -32369,10 +32373,7 @@ var FaxApi = class {
    * @param options
    */
   async faxDelete(faxId, options = { headers: {} }) {
-    const localVarPath = this.basePath + "/fax/{fax_id}".replace(
-      "{fax_id}",
-      encodeURIComponent(String(faxId))
-    );
+    const localVarPath = this.basePath + "/fax/{fax_id}".replace("{fax_id}", encodeURIComponent(String(faxId)));
     let localVarQueryParameters = {};
     let localVarHeaderParams = Object.assign(
       {},
@@ -32546,10 +32547,7 @@ var FaxApi = class {
    * @param options
    */
   async faxGet(faxId, options = { headers: {} }) {
-    const localVarPath = this.basePath + "/fax/{fax_id}".replace(
-      "{fax_id}",
-      encodeURIComponent(String(faxId))
-    );
+    const localVarPath = this.basePath + "/fax/{fax_id}".replace("{fax_id}", encodeURIComponent(String(faxId)));
     let localVarQueryParameters = {};
     let localVarHeaderParams = Object.assign(
       {},

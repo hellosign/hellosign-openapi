@@ -878,7 +878,7 @@ export class TeamApi {
     const localVarPath =
       this.basePath +
       "/team/members/{team_id}".replace(
-        "{" + "team_id" + "}",
+        "{team_id}",
         encodeURIComponent(String(teamId))
       );
     let localVarQueryParameters: any = {};
@@ -1168,7 +1168,7 @@ export class TeamApi {
     const localVarPath =
       this.basePath +
       "/team/sub_teams/{team_id}".replace(
-        "{" + "team_id" + "}",
+        "{team_id}",
         encodeURIComponent(String(teamId))
       );
     let localVarQueryParameters: any = {};

@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `documentHash`<sup>*_required_</sup> | ```string``` |  The SHA-256 hash of the analyzed document.  |  |
-| `detectionMode`<sup>*_required_</sup> | [```DocumentFieldDetectionResponseDetectionResultDetectionMode```](DocumentFieldDetectionResponseDetectionResultDetectionMode.md) |    |  |
+| `detectionMode`<sup>*_required_</sup> | ```string``` |  The field detection method used to analyze the document: `annotations` or `text_tags`.  |  |
 | `pageCount`<sup>*_required_</sup> | ```number``` |  The total number of pages in the document.  |  |
 | `pagesAnalyzed`<sup>*_required_</sup> | ```string``` |  The zero-based page indexes analyzed, represented by the requested `page_range`, or `all` when every page was analyzed.  |  |
 | `detectedAt`<sup>*_required_</sup> | ```number``` |  The Unix timestamp when the field detection result was generated.  |  |

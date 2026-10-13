@@ -137,7 +137,7 @@ export class EmbeddedApi {
     const localVarPath =
       this.basePath +
       "/embedded/edit_url/{template_id}".replace(
-        "{" + "template_id" + "}",
+        "{template_id}",
         encodeURIComponent(String(templateId))
       );
     let localVarQueryParameters: any = {};
@@ -294,7 +294,7 @@ export class EmbeddedApi {
     const localVarPath =
       this.basePath +
       "/embedded/sign_url/{signature_id}".replace(
-        "{" + "signature_id" + "}",
+        "{signature_id}",
         encodeURIComponent(String(signatureId))
       );
     let localVarQueryParameters: any = {};
