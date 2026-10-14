@@ -8544,6 +8544,142 @@ components:
       properties:
         set:
           description: '_t__SettingsUpdateRequest::SET'
+          properties:
+            company:
+              description: '_t__Settings::COMPANY'
+              type: string
+              x-hideOn:
+                - sdk
+            custom_signing_redirect_enabled:
+              description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
+            custom_signing_redirect_url:
+              description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
+              type: string
+              x-hideOn:
+                - sdk
+            custom_tagline:
+              description: '_t__Settings::CUSTOM_TAGLINE'
+              type: string
+              x-hideOn:
+                - sdk
+            date_format:
+              description: '_t__Settings::DATE_FORMAT'
+              allOf:
+                -
+                  $ref: '#/components/schemas/DateFormat'
+              x-hideOn:
+                - sdk
+            is_signature_reminders_enabled:
+              description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
+            request_email_from:
+              description: '_t__Settings::REQUEST_EMAIL_FROM'
+              type: string
+              x-hideOn:
+                - sdk
+            request_email_signature:
+              description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
+              type: string
+              x-hideOn:
+                - sdk
+            required_signature_types:
+              description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
+              type: array
+              items:
+                $ref: '#/components/schemas/RequiredSignatureType'
+              uniqueItems: true
+              x-hideOn:
+                - sdk
+            should_enable_tamper_proof:
+              description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_include_distinct_pdfs:
+              description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_offer_signer_access_code:
+              description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_offer_signer_sms_authentication:
+              description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_remove_document_id:
+              description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
+              type: boolean
+              x-hideOn:
+                - sdk
+            is_notify_on_sign_enabled:
+              description: '_t__AccountSettings::IS_NOTIFY_ON_SIGN_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
+            is_notify_on_view_enabled:
+              description: '_t__AccountSettings::IS_NOTIFY_ON_VIEW_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_autocomplete:
+              description: '_t__AccountSettings::SHOULD_AUTOCOMPLETE'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_include_requested_pdfs:
+              description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_include_requested_pdfs_for_others:
+              description: '_t__AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_include_sent_doc_pdfs:
+              description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_include_sent_doc_pdfs_for_others:
+              description: '_t__AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_send_daily_summary:
+              description: '_t__AccountSettings::SHOULD_SEND_DAILY_SUMMARY'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_send_embedded_signature_conf_emails:
+              description: '_t__AccountSettings::SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_send_ordered_sr_email:
+              description: '_t__AccountSettings::SHOULD_SEND_ORDERED_SR_EMAIL'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_send_outbound_conf_emails:
+              description: '_t__AccountSettings::SHOULD_SEND_OUTBOUND_CONF_EMAILS'
+              type: boolean
+              x-hideOn:
+                - sdk
+            template_link_signature_emails_enabled:
+              description: '_t__AccountSettings::TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
           type: object
           additionalProperties: {  }
         unset:
@@ -8551,12 +8687,36 @@ components:
           type: array
           items:
             type: string
+            enum:
+              - company
+              - custom_signing_redirect_enabled
+              - custom_signing_redirect_url
+              - custom_tagline
+              - date_format
+              - is_signature_reminders_enabled
+              - request_email_from
+              - request_email_signature
+              - required_signature_types
+              - should_enable_tamper_proof
+              - should_include_distinct_pdfs
+              - should_offer_signer_access_code
+              - should_offer_signer_sms_authentication
+              - should_remove_document_id
+              - is_notify_on_sign_enabled
+              - is_notify_on_view_enabled
+              - should_autocomplete
+              - should_include_requested_pdfs
+              - should_include_requested_pdfs_for_others
+              - should_include_sent_doc_pdfs
+              - should_include_sent_doc_pdfs_for_others
+              - should_send_daily_summary
+              - should_send_embedded_signature_conf_emails
+              - should_send_ordered_sr_email
+              - should_send_outbound_conf_emails
+              - template_link_signature_emails_enabled
+            x-enumHideOn:
+              - sdk
           uniqueItems: true
-        lock:
-          description: '_t__SettingsUpdateRequest::LOCK'
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TeamSettingLock'
       type: object
       additionalProperties: false
     AccountUpdateRequest:
@@ -10968,19 +11128,356 @@ components:
       properties:
         set:
           description: '_t__SettingsUpdateRequest::SET'
+          properties:
+            company:
+              description: '_t__Settings::COMPANY'
+              type: string
+              x-hideOn:
+                - sdk
+            custom_signing_redirect_enabled:
+              description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
+            custom_signing_redirect_url:
+              description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
+              type: string
+              x-hideOn:
+                - sdk
+            custom_tagline:
+              description: '_t__Settings::CUSTOM_TAGLINE'
+              type: string
+              x-hideOn:
+                - sdk
+            date_format:
+              description: '_t__Settings::DATE_FORMAT'
+              allOf:
+                -
+                  $ref: '#/components/schemas/DateFormat'
+              x-hideOn:
+                - sdk
+            is_signature_reminders_enabled:
+              description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
+            request_email_from:
+              description: '_t__Settings::REQUEST_EMAIL_FROM'
+              type: string
+              x-hideOn:
+                - sdk
+            request_email_signature:
+              description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
+              type: string
+              x-hideOn:
+                - sdk
+            required_signature_types:
+              description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
+              type: array
+              items:
+                $ref: '#/components/schemas/RequiredSignatureType'
+              uniqueItems: true
+              x-hideOn:
+                - sdk
+            should_enable_tamper_proof:
+              description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_include_distinct_pdfs:
+              description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_offer_signer_access_code:
+              description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_offer_signer_sms_authentication:
+              description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_remove_document_id:
+              description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
+              type: boolean
+              x-hideOn:
+                - sdk
+            data_residency:
+              description: '_t__TeamSettings::DATA_RESIDENCY'
+              allOf:
+                -
+                  $ref: '#/components/schemas/DataResidency'
+              x-hideOn:
+                - sdk
+            allow_team_delete_document_for_everyone:
+              description: '_t__TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE'
+              type: boolean
+              x-hideOn:
+                - sdk
+            allow_team_download_csv:
+              description: '_t__TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV'
+              type: boolean
+              x-hideOn:
+                - sdk
+            lock_team_template_creation:
+              description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_CREATION'
+              type: boolean
+              x-hideOn:
+                - sdk
+            lock_team_template_gallery:
+              description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY'
+              type: boolean
+              x-hideOn:
+                - sdk
+            self_sign_message:
+              description: '_t__TeamSettings::SELF_SIGN_MESSAGE'
+              type: string
+              x-hideOn:
+                - sdk
+            self_sign_title:
+              description: '_t__TeamSettings::SELF_SIGN_TITLE'
+              type: string
+              x-hideOn:
+                - sdk
+            signature_request_message:
+              description: '_t__TeamSettings::SIGNATURE_REQUEST_MESSAGE'
+              type: string
+              x-hideOn:
+                - sdk
+            signature_request_title:
+              description: '_t__TeamSettings::SIGNATURE_REQUEST_TITLE'
+              type: string
+              x-hideOn:
+                - sdk
+            multifactor_auth_app:
+              description: '_t__TeamSettings::MULTIFACTOR_AUTH_APP'
+              type: boolean
+              x-hideOn:
+                - sdk
+            multifactor_auth_sms:
+              description: '_t__TeamSettings::MULTIFACTOR_AUTH_SMS'
+              type: boolean
+              x-hideOn:
+                - sdk
           type: object
           additionalProperties: {  }
+        lock:
+          description: '_t__SettingsUpdateRequest::LOCK'
+          properties:
+            company:
+              description: '_t__Settings::COMPANY'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            custom_signing_redirect_enabled:
+              description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_ENABLED'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            custom_signing_redirect_url:
+              description: '_t__Settings::CUSTOM_SIGNING_REDIRECT_URL'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            custom_tagline:
+              description: '_t__Settings::CUSTOM_TAGLINE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            date_format:
+              description: '_t__Settings::DATE_FORMAT'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            is_signature_reminders_enabled:
+              description: '_t__Settings::IS_SIGNATURE_REMINDERS_ENABLED'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            request_email_from:
+              description: '_t__Settings::REQUEST_EMAIL_FROM'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            request_email_signature:
+              description: '_t__Settings::REQUEST_EMAIL_SIGNATURE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            required_signature_types:
+              description: '_t__Settings::REQUIRED_SIGNATURE_TYPES'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            should_enable_tamper_proof:
+              description: '_t__Settings::SHOULD_ENABLE_TAMPER_PROOF'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            should_include_distinct_pdfs:
+              description: '_t__Settings::SHOULD_INCLUDE_DISTINCT_PDFS'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            should_offer_signer_access_code:
+              description: '_t__Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            should_offer_signer_sms_authentication:
+              description: '_t__Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            should_remove_document_id:
+              description: '_t__Settings::SHOULD_REMOVE_DOCUMENT_ID'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            data_residency:
+              description: '_t__TeamSettings::DATA_RESIDENCY'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            allow_team_delete_document_for_everyone:
+              description: '_t__TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            allow_team_download_csv:
+              description: '_t__TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            lock_team_template_creation:
+              description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_CREATION'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            lock_team_template_gallery:
+              description: '_t__TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            self_sign_message:
+              description: '_t__TeamSettings::SELF_SIGN_MESSAGE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            self_sign_title:
+              description: '_t__TeamSettings::SELF_SIGN_TITLE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            signature_request_message:
+              description: '_t__TeamSettings::SIGNATURE_REQUEST_MESSAGE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            signature_request_title:
+              description: '_t__TeamSettings::SIGNATURE_REQUEST_TITLE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            multifactor_auth_app:
+              description: '_t__TeamSettings::MULTIFACTOR_AUTH_APP'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            multifactor_auth_sms:
+              description: '_t__TeamSettings::MULTIFACTOR_AUTH_SMS'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TeamSettingLock'
         unset:
           description: '_t__SettingsUpdateRequest::UNSET'
           type: array
           items:
             type: string
+            enum:
+              - company
+              - custom_signing_redirect_enabled
+              - custom_signing_redirect_url
+              - custom_tagline
+              - date_format
+              - is_signature_reminders_enabled
+              - request_email_from
+              - request_email_signature
+              - required_signature_types
+              - should_enable_tamper_proof
+              - should_include_distinct_pdfs
+              - should_offer_signer_access_code
+              - should_offer_signer_sms_authentication
+              - should_remove_document_id
+              - data_residency
+              - allow_team_delete_document_for_everyone
+              - allow_team_download_csv
+              - lock_team_template_creation
+              - lock_team_template_gallery
+              - self_sign_message
+              - self_sign_title
+              - signature_request_message
+              - signature_request_title
+              - multifactor_auth_app
+              - multifactor_auth_sms
+            x-enumHideOn:
+              - sdk
           uniqueItems: true
-        lock:
-          description: '_t__SettingsUpdateRequest::LOCK'
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TeamSettingLock'
       type: object
       additionalProperties: false
     TeamUpdateRequest:

@@ -218,7 +218,30 @@ class RawFile
             }
         }
 
+        $data = $this->stripSdkOnlyEnum($data, $surface_id, $skip_hide_on);
+
         return new TranslationResult($data, $empty_by_hiding);
+    }
+
+    /**
+     * Docs keep the unset value enum. SDK generation drops it so clients stay a string array.
+     *
+     * @param array<mixed> $data
+     * @return array<mixed>
+     */
+    private function stripSdkOnlyEnum(array $data, string $surface_id, bool $skip_hide_on): array
+    {
+        if (!isset($data['x-enumHideOn'])) {
+            return $data;
+        }
+
+        if (!$skip_hide_on && $this->shouldHide($data['x-enumHideOn'], $surface_id)) {
+            unset($data['enum'], $data['x-fern-enum']);
+        }
+
+        unset($data['x-enumHideOn']);
+
+        return $data;
     }
 
     private function shouldHide($hideOn, string $surface_id): bool

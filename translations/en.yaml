@@ -1913,48 +1913,48 @@
 "TeamSettingsUpdate::TEAM_ID": Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam.
 
 "Settings::COMPANY": Company name associated with this account or team.
-"Settings::CUSTOM_SIGNING_REDIRECT_ENABLED": Whether signers are redirected to a custom URL after completing a signature request.
-"Settings::CUSTOM_SIGNING_REDIRECT_URL": URL where signers are redirected after completing a signature request when custom redirects are enabled.
-"Settings::CUSTOM_TAGLINE": Custom tagline displayed with the account or team branding.
-"Settings::DATE_FORMAT": Date format used to display dates. List the setting in `unset` to inherit the default.
-"Settings::IS_SIGNATURE_REMINDERS_ENABLED": Whether automatic reminder emails are enabled for incomplete signature requests.
-"Settings::REQUEST_EMAIL_FROM": Sender name shown on signature request emails.
-"Settings::REQUEST_EMAIL_SIGNATURE": Signature appended to signature request emails.
-"Settings::REQUIRED_SIGNATURE_TYPES": Signature creation methods signers may use.
-"Settings::SHOULD_ENABLE_TAMPER_PROOF": Whether completed documents include a digital tamper-proof seal.
+"Settings::CUSTOM_SIGNING_REDIRECT_ENABLED": Whether signers are redirected to a custom webpage after they sign.
+"Settings::CUSTOM_SIGNING_REDIRECT_URL": Webpage where signers are redirected after they sign, when custom redirects are enabled.
+"Settings::CUSTOM_TAGLINE": Company tagline shown with the account or team branding.
+"Settings::DATE_FORMAT": Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
+"Settings::IS_SIGNATURE_REMINDERS_ENABLED": Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.
+"Settings::REQUEST_EMAIL_FROM": Name shown in the From field of signature request emails. When unset, each user's first and last name is shown.
+"Settings::REQUEST_EMAIL_SIGNATURE": Text appended to the end of signature request emails.
+"Settings::REQUIRED_SIGNATURE_TYPES": Signature creation methods a signer is allowed to use.
+"Settings::SHOULD_ENABLE_TAMPER_PROOF": Whether a tamper-proof seal is applied to sent signature requests.
 "Settings::SHOULD_INCLUDE_DISTINCT_PDFS": Whether completed documents remain as separate PDF files instead of being merged into one PDF.
-"Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE": Whether senders can require an access code to verify a signer.
-"Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION": Whether senders can require SMS authentication to verify a signer.
-"Settings::SHOULD_REMOVE_DOCUMENT_ID": Whether the Dropbox Sign document ID is hidden on sent documents.
+"Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE": Whether senders can require a custom access code before a signer can open a document.
+"Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION": Whether senders can require a text-message verification code before a signer can open a document.
+"Settings::SHOULD_REMOVE_DOCUMENT_ID": Whether the document ID is removed from all pages of sent documents.
 
 "AccountSettings::IS_NOTIFY_ON_SIGN_ENABLED": Whether to notify the account when someone signs a document it sent.
 "AccountSettings::IS_NOTIFY_ON_VIEW_ENABLED": Whether to notify the account when someone opens a document it sent.
 "AccountSettings::SHOULD_AUTOCOMPLETE": Whether values entered in text fields are saved and suggested for future signature requests.
-"AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS": Whether completed signature requests include PDF copies in emails sent to the account.
-"AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS": Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.
-"AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS": Whether emails sent to the account include PDF copies of documents it sends.
-"AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS": Whether emails sent to recipients include PDF copies of documents the account sends.
+"AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS": Whether to email the account a PDF copy when a signature request it sent is completed.
+"AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS": Whether to email a PDF copy to the other signers and CC recipients when a signature request is completed.
+"AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS": Whether to email the account a PDF copy when it sends a document.
+"AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS": Whether to email recipients a PDF copy, instead of only a link, when the account sends a document.
 "AccountSettings::SHOULD_SEND_DAILY_SUMMARY": Whether to send the account a daily email summarizing outstanding signature requests.
 "AccountSettings::SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS": Whether to notify the account when it signs a document on a third-party site.
 "AccountSettings::SHOULD_SEND_ORDERED_SR_EMAIL": Whether to notify all parties when an ordered signature request starts.
 "AccountSettings::SHOULD_SEND_OUTBOUND_CONF_EMAILS": Whether to notify the account when it signs and sends a document.
 "AccountSettings::TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED": Whether to notify the account when someone signs a document sent by its team through a template link.
 
-"TeamSettings::DATA_RESIDENCY": Storage region for team documents.
-"TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE": Whether team members can delete a document for all participants.
-"TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV": Whether team members can download CSV files.
-"TeamSettings::LOCK_TEAM_TEMPLATE_CREATION": Whether team members are prevented from creating templates.
-"TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY": Whether team members are prevented from using the template gallery.
-"TeamSettings::SELF_SIGN_MESSAGE": Default message enforced for team members when they create self-signed documents.
-"TeamSettings::SELF_SIGN_TITLE": Default title enforced for team members when they create self-signed documents.
-"TeamSettings::SIGNATURE_REQUEST_MESSAGE": Default message enforced for team members when they create signature requests.
-"TeamSettings::SIGNATURE_REQUEST_TITLE": Default title enforced for team members when they create signature requests.
-"TeamSettings::MULTIFACTOR_AUTH_APP": Whether authenticator-app multifactor authentication is enabled for the team.
-"TeamSettings::MULTIFACTOR_AUTH_SMS": Whether SMS multifactor authentication is enabled for the team.
+"TeamSettings::DATA_RESIDENCY": Region where the team's documents are stored at rest.
+"TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE": Whether the sender, in addition to admins, can permanently delete a document from Dropbox Sign and from every participant account.
+"TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV": Whether the sender, in addition to admins, can download document data as a CSV.
+"TeamSettings::LOCK_TEAM_TEMPLATE_CREATION": When enabled, only admins can create and edit templates and template links.
+"TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY": When enabled, only admins can access and use the template gallery.
+"TeamSettings::SELF_SIGN_MESSAGE": Default message for self-signed documents created by team members. Lock this setting to prevent members from changing it.
+"TeamSettings::SELF_SIGN_TITLE": Default document title for self-signed documents created by team members. Lock this setting to prevent members from changing it.
+"TeamSettings::SIGNATURE_REQUEST_MESSAGE": Default email message for signature requests created by team members. Lock this setting to prevent members from changing it.
+"TeamSettings::SIGNATURE_REQUEST_TITLE": Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.
+"TeamSettings::MULTIFACTOR_AUTH_APP": Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.
+"TeamSettings::MULTIFACTOR_AUTH_SMS": Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
 
 "SettingsUpdateRequest::SET": Values to store, keyed by setting name. A name in `set` cannot also appear in `unset`.
-"SettingsUpdateRequest::UNSET": Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
-"SettingsUpdateRequest::LOCK": Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.
+"SettingsUpdateRequest::UNSET": Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.
+"SettingsUpdateRequest::LOCK": Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. `organization_admins` is set by an organization admin and keeps subteams and accounts on that value. `team_admins` lets admins of a team and its subteams set their own value. `members` lets each account set its own value. A name in `lock` cannot also appear in `unset`.
 "AccountSettingsResponse::SETTINGS": Account settings keyed by setting name.
 "TeamSettingsResponse::SETTINGS": Team settings keyed by setting name.
 "BooleanSettingUpdate::DESCRIPTION": Updates a boolean team setting. Provide `value`, `lock_mode`, or both.
@@ -1965,9 +1965,9 @@
 "DataResidencySettingUpdate::DESCRIPTION": Updates the data residency team setting. Provide `value`, `lock_mode`, or both.
 "RequiredSignatureTypesSettingUpdate::DESCRIPTION": Updates the required signature types team setting. Provide `value`, `lock_mode`, or both.
 "RequiredSignatureTypesSettingUpdate::VALUE": Signature creation methods signers may use.
-"TeamSettingLock::DESCRIPTION": Who can change a team setting. `organization_admins` limits changes to organization admins, and subteams use that value. `team_admins` lets admins of a team and its subteams set their own value. `members` lets each member set their own value.
-"DateFormat::DESCRIPTION": Date format used to display dates.
-"DataResidency::DESCRIPTION": Storage region for team documents.
+"TeamSettingLock::DESCRIPTION": Who can change a locked team setting. Every property in `lock` accepts these values. `organization_admins` is set by an organization admin and prevents subteams and accounts from overriding the value. `team_admins` is set by a team admin and lets admins of that team and its subteams set their own value. `members` lets each account set its own value.
+"DateFormat::DESCRIPTION": Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
+"DataResidency::DESCRIPTION": Region where the team's documents are stored at rest.
 "RequiredSignatureType::DESCRIPTION": A signature creation method a signer may use.
 
 #########################
