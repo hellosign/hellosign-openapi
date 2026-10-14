@@ -8474,7 +8474,6 @@ components:
               - should_send_ordered_sr_email
               - should_send_outbound_conf_emails
               - template_link_signature_emails_enabled
-          uniqueItems: true
       type: object
       additionalProperties: false
     AccountUpdateRequest:
@@ -11482,7 +11481,6 @@ components:
               - signature_request_title
               - multifactor_auth_app
               - multifactor_auth_sms
-          uniqueItems: true
       type: object
       additionalProperties: false
     TeamUpdateRequest:

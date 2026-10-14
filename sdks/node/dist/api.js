@@ -20176,12 +20176,7 @@ var AccountSettingsUpdateRequest = class _AccountSettingsUpdateRequest {
       {
         name: "unset",
         baseName: "unset",
-        type: "Set<string>"
-      },
-      {
-        name: "lock",
-        baseName: "lock",
-        type: "{ [key: string]: TeamSettingLock; }"
+        type: "Array<string>"
       }
     ];
   }
@@ -27671,14 +27666,14 @@ var TeamSettingsUpdateRequest = class _TeamSettingsUpdateRequest {
         type: "{ [key: string]: any; }"
       },
       {
-        name: "unset",
-        baseName: "unset",
-        type: "Set<string>"
-      },
-      {
         name: "lock",
         baseName: "lock",
         type: "{ [key: string]: TeamSettingLock; }"
+      },
+      {
+        name: "unset",
+        baseName: "unset",
+        type: "Array<string>"
       }
     ];
   }

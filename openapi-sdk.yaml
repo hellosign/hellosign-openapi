@@ -8363,7 +8363,6 @@ components:
           type: array
           items:
             type: string
-          uniqueItems: true
       type: object
       additionalProperties: false
     AccountUpdateRequest:
@@ -11156,7 +11155,6 @@ components:
           type: array
           items:
             type: string
-          uniqueItems: true
       type: object
       additionalProperties: false
     TeamUpdateRequest:

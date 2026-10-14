@@ -217,7 +217,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether signers are redirected to a custom URL after completing a signature request.
+   * Whether signers are redirected to a custom webpage after they sign.
    * @return customSigningRedirectEnabled
    */
   @jakarta.annotation.Nonnull
@@ -242,7 +242,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * URL where signers are redirected after completing a signature request when custom redirects are enabled.
+   * Webpage where signers are redirected after they sign, when custom redirects are enabled.
    * @return customSigningRedirectUrl
    */
   @jakarta.annotation.Nonnull
@@ -267,7 +267,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Custom tagline displayed with the account or team branding.
+   * Company tagline shown with the account or team branding.
    * @return customTagline
    */
   @jakarta.annotation.Nonnull
@@ -292,7 +292,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Date format used to display dates. List the setting in &#x60;unset&#x60; to inherit the default.
+   * Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
    * @return dateFormat
    */
   @jakarta.annotation.Nonnull
@@ -317,7 +317,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether automatic reminder emails are enabled for incomplete signature requests.
+   * Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.
    * @return isSignatureRemindersEnabled
    */
   @jakarta.annotation.Nonnull
@@ -342,7 +342,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Sender name shown on signature request emails.
+   * Name shown in the From field of signature request emails. When unset, each user&#39;s first and last name is shown.
    * @return requestEmailFrom
    */
   @jakarta.annotation.Nonnull
@@ -367,7 +367,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Signature appended to signature request emails.
+   * Text appended to the end of signature request emails.
    * @return requestEmailSignature
    */
   @jakarta.annotation.Nonnull
@@ -392,7 +392,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Signature creation methods signers may use.
+   * Signature creation methods a signer is allowed to use.
    * @return requiredSignatureTypes
    */
   @jakarta.annotation.Nonnull
@@ -417,7 +417,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether completed documents include a digital tamper-proof seal.
+   * Whether a tamper-proof seal is applied to sent signature requests.
    * @return shouldEnableTamperProof
    */
   @jakarta.annotation.Nonnull
@@ -467,7 +467,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether senders can require an access code to verify a signer.
+   * Whether senders can require a custom access code before a signer can open a document.
    * @return shouldOfferSignerAccessCode
    */
   @jakarta.annotation.Nonnull
@@ -492,7 +492,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether senders can require SMS authentication to verify a signer.
+   * Whether senders can require a text-message verification code before a signer can open a document.
    * @return shouldOfferSignerSmsAuthentication
    */
   @jakarta.annotation.Nonnull
@@ -517,7 +517,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether the Dropbox Sign document ID is hidden on sent documents.
+   * Whether the document ID is removed from all pages of sent documents.
    * @return shouldRemoveDocumentId
    */
   @jakarta.annotation.Nonnull
@@ -617,7 +617,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether completed signature requests include PDF copies in emails sent to the account.
+   * Whether to email the account a PDF copy when a signature request it sent is completed.
    * @return shouldIncludeRequestedPdfs
    */
   @jakarta.annotation.Nonnull
@@ -642,7 +642,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.
+   * Whether to email a PDF copy to the other signers and CC recipients when a signature request is completed.
    * @return shouldIncludeRequestedPdfsForOthers
    */
   @jakarta.annotation.Nonnull
@@ -667,7 +667,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether emails sent to the account include PDF copies of documents it sends.
+   * Whether to email the account a PDF copy when it sends a document.
    * @return shouldIncludeSentDocPdfs
    */
   @jakarta.annotation.Nonnull
@@ -692,7 +692,7 @@ public class AccountSettingsResponseSettings {
   }
 
   /**
-   * Whether emails sent to recipients include PDF copies of documents the account sends.
+   * Whether to email recipients a PDF copy, instead of only a link, when the account sends a document.
    * @return shouldIncludeSentDocPdfsForOthers
    */
   @jakarta.annotation.Nonnull

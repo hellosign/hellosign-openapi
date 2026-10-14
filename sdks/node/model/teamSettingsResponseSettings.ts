@@ -31,39 +31,39 @@ export class TeamSettingsResponseSettings {
    */
   "company": SettingResponse;
   /**
-   * Whether signers are redirected to a custom URL after completing a signature request.
+   * Whether signers are redirected to a custom webpage after they sign.
    */
   "customSigningRedirectEnabled": SettingResponse;
   /**
-   * URL where signers are redirected after completing a signature request when custom redirects are enabled.
+   * Webpage where signers are redirected after they sign, when custom redirects are enabled.
    */
   "customSigningRedirectUrl": SettingResponse;
   /**
-   * Custom tagline displayed with the account or team branding.
+   * Company tagline shown with the account or team branding.
    */
   "customTagline": SettingResponse;
   /**
-   * Date format used to display dates. List the setting in `unset` to inherit the default.
+   * Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
    */
   "dateFormat": SettingResponse;
   /**
-   * Whether automatic reminder emails are enabled for incomplete signature requests.
+   * Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.
    */
   "isSignatureRemindersEnabled": SettingResponse;
   /**
-   * Sender name shown on signature request emails.
+   * Name shown in the From field of signature request emails. When unset, each user\'s first and last name is shown.
    */
   "requestEmailFrom": SettingResponse;
   /**
-   * Signature appended to signature request emails.
+   * Text appended to the end of signature request emails.
    */
   "requestEmailSignature": SettingResponse;
   /**
-   * Signature creation methods signers may use.
+   * Signature creation methods a signer is allowed to use.
    */
   "requiredSignatureTypes": SettingResponse;
   /**
-   * Whether completed documents include a digital tamper-proof seal.
+   * Whether a tamper-proof seal is applied to sent signature requests.
    */
   "shouldEnableTamperProof": SettingResponse;
   /**
@@ -71,59 +71,59 @@ export class TeamSettingsResponseSettings {
    */
   "shouldIncludeDistinctPdfs": SettingResponse;
   /**
-   * Whether senders can require an access code to verify a signer.
+   * Whether senders can require a custom access code before a signer can open a document.
    */
   "shouldOfferSignerAccessCode": SettingResponse;
   /**
-   * Whether senders can require SMS authentication to verify a signer.
+   * Whether senders can require a text-message verification code before a signer can open a document.
    */
   "shouldOfferSignerSmsAuthentication": SettingResponse;
   /**
-   * Whether the Dropbox Sign document ID is hidden on sent documents.
+   * Whether the document ID is removed from all pages of sent documents.
    */
   "shouldRemoveDocumentId": SettingResponse;
   /**
-   * Storage region for team documents.
+   * Region where the team\'s documents are stored at rest.
    */
   "dataResidency": SettingResponse;
   /**
-   * Whether team members can delete a document for all participants.
+   * Whether the sender, in addition to admins, can permanently delete a document from Dropbox Sign and from every participant account.
    */
   "allowTeamDeleteDocumentForEveryone": SettingResponse;
   /**
-   * Whether team members can download CSV files.
+   * Whether the sender, in addition to admins, can download document data as a CSV.
    */
   "allowTeamDownloadCsv": SettingResponse;
   /**
-   * Whether team members are prevented from creating templates.
+   * When enabled, only admins can create and edit templates and template links.
    */
   "lockTeamTemplateCreation": SettingResponse;
   /**
-   * Whether team members are prevented from using the template gallery.
+   * When enabled, only admins can access and use the template gallery.
    */
   "lockTeamTemplateGallery": SettingResponse;
   /**
-   * Default message enforced for team members when they create self-signed documents.
+   * Default message for self-signed documents created by team members. Lock this setting to prevent members from changing it.
    */
   "selfSignMessage": SettingResponse;
   /**
-   * Default title enforced for team members when they create self-signed documents.
+   * Default document title for self-signed documents created by team members. Lock this setting to prevent members from changing it.
    */
   "selfSignTitle": SettingResponse;
   /**
-   * Default message enforced for team members when they create signature requests.
+   * Default email message for signature requests created by team members. Lock this setting to prevent members from changing it.
    */
   "signatureRequestMessage": SettingResponse;
   /**
-   * Default title enforced for team members when they create signature requests.
+   * Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.
    */
   "signatureRequestTitle": SettingResponse;
   /**
-   * Whether authenticator-app multifactor authentication is enabled for the team.
+   * Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.
    */
   "multifactorAuthApp": SettingResponse;
   /**
-   * Whether SMS multifactor authentication is enabled for the team.
+   * Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
    */
   "multifactorAuthSms": SettingResponse;
 

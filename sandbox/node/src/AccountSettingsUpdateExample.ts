@@ -14,7 +14,7 @@ const accountSettingsUpdateRequest: models.AccountSettingsUpdateRequest = {
     ],
     should_enable_tamper_proof: false,
   },
-  unset: new Set(["company"]),
+  unset: ["company"],
 };
 
 apiCaller.accountSettingsUpdate(

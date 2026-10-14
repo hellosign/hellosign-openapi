@@ -23,7 +23,6 @@
  */
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
-import { TeamSettingLock } from "./teamSettingLock";
 
 export class AccountSettingsUpdateRequest {
   /**
@@ -31,13 +30,9 @@ export class AccountSettingsUpdateRequest {
    */
   "set"?: { [key: string]: any };
   /**
-   * Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
+   * Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.
    */
-  "unset"?: Set<string>;
-  /**
-   * Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.
-   */
-  "lock"?: { [key: string]: TeamSettingLock };
+  "unset"?: Array<string>;
 
   static discriminator: string | undefined = undefined;
 
@@ -50,12 +45,7 @@ export class AccountSettingsUpdateRequest {
     {
       name: "unset",
       baseName: "unset",
-      type: "Set<string>",
-    },
-    {
-      name: "lock",
-      baseName: "lock",
-      type: "{ [key: string]: TeamSettingLock; }",
+      type: "Array<string>",
     },
   ];
 

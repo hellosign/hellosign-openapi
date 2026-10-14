@@ -15,7 +15,7 @@ package com.dropbox.sign.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Storage region for team documents. */
+/** Region where the team&#39;s documents are stored at rest. */
 public enum DataResidency {
     US("us"),
 

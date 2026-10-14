@@ -16,18 +16,16 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.TeamSettingLock;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -40,8 +38,7 @@ import com.dropbox.sign.ApiException;
  */
 @JsonPropertyOrder({
   AccountSettingsUpdateRequest.JSON_PROPERTY_SET,
-  AccountSettingsUpdateRequest.JSON_PROPERTY_UNSET,
-  AccountSettingsUpdateRequest.JSON_PROPERTY_LOCK
+  AccountSettingsUpdateRequest.JSON_PROPERTY_UNSET
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -52,11 +49,7 @@ public class AccountSettingsUpdateRequest {
 
   public static final String JSON_PROPERTY_UNSET = "unset";
   @jakarta.annotation.Nullable
-  private Set<String> unset = null;
-
-  public static final String JSON_PROPERTY_LOCK = "lock";
-  @jakarta.annotation.Nullable
-  private Map<String, TeamSettingLock> lock = null;
+  private List<String> unset = null;
 
   public AccountSettingsUpdateRequest() { 
   }
@@ -109,70 +102,36 @@ public class AccountSettingsUpdateRequest {
   }
 
 
-  public AccountSettingsUpdateRequest unset(@jakarta.annotation.Nullable Set<String> unset) {
+  public AccountSettingsUpdateRequest unset(@jakarta.annotation.Nullable List<String> unset) {
     this.unset = unset;
     return this;
   }
 
   public AccountSettingsUpdateRequest addUnsetItem(String unsetItem) {
     if (this.unset == null) {
-      this.unset = new LinkedHashSet<>();
+      this.unset = new ArrayList<>();
     }
     this.unset.add(unsetItem);
     return this;
   }
 
   /**
-   * Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
+   * Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.
    * @return unset
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<String> getUnset() {
+  public List<String> getUnset() {
     return unset;
   }
 
 
-  @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_UNSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnset(@jakarta.annotation.Nullable Set<String> unset) {
+  public void setUnset(@jakarta.annotation.Nullable List<String> unset) {
     this.unset = unset;
-  }
-
-
-  public AccountSettingsUpdateRequest lock(@jakarta.annotation.Nullable Map<String, TeamSettingLock> lock) {
-    this.lock = lock;
-    return this;
-  }
-
-  public AccountSettingsUpdateRequest putLockItem(String key, TeamSettingLock lockItem) {
-    if (this.lock == null) {
-      this.lock = new HashMap<>();
-    }
-    this.lock.put(key, lockItem);
-    return this;
-  }
-
-  /**
-   * Lock modes keyed by setting name. Only team settings support locks. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.
-   * @return lock
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, TeamSettingLock> getLock() {
-    return lock;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LOCK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLock(@jakarta.annotation.Nullable Map<String, TeamSettingLock> lock) {
-    this.lock = lock;
   }
 
 
@@ -189,13 +148,12 @@ public class AccountSettingsUpdateRequest {
     }
     AccountSettingsUpdateRequest accountSettingsUpdateRequest = (AccountSettingsUpdateRequest) o;
     return Objects.equals(this.set, accountSettingsUpdateRequest.set) &&
-        Objects.equals(this.unset, accountSettingsUpdateRequest.unset) &&
-        Objects.equals(this.lock, accountSettingsUpdateRequest.lock);
+        Objects.equals(this.unset, accountSettingsUpdateRequest.unset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(set, unset, lock);
+    return Objects.hash(set, unset);
   }
 
   @Override
@@ -204,7 +162,6 @@ public class AccountSettingsUpdateRequest {
     sb.append("class AccountSettingsUpdateRequest {\n");
     sb.append("    set: ").append(toIndentedString(set)).append("\n");
     sb.append("    unset: ").append(toIndentedString(unset)).append("\n");
-    sb.append("    lock: ").append(toIndentedString(lock)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -249,25 +206,6 @@ public class AccountSettingsUpdateRequest {
         }
         else {
             map.put("unset", JSON.getDefault().getMapper().writeValueAsString(unset));
-        }
-    }
-    if (lock != null) {
-        if (isFileTypeOrListOfFiles(lock)) {
-            fileTypeFound = true;
-        }
-
-        if (lock.getClass().equals(java.io.File.class) ||
-            lock.getClass().equals(Integer.class) ||
-            lock.getClass().equals(String.class) ||
-            lock.getClass().isEnum()) {
-            map.put("lock", lock);
-        } else if (isListOfFile(lock)) {
-            for(int i = 0; i< getListSize(lock); i++) {
-                map.put("lock[" + i + "]", getFromList(lock, i));
-            }
-        }
-        else {
-            map.put("lock", JSON.getDefault().getMapper().writeValueAsString(lock));
         }
     }
     } catch (Exception e) {

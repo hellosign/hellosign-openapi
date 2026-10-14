@@ -8716,7 +8716,6 @@ components:
               - template_link_signature_emails_enabled
             x-enumHideOn:
               - sdk
-          uniqueItems: true
       type: object
       additionalProperties: false
     AccountUpdateRequest:
@@ -11477,7 +11476,6 @@ components:
               - multifactor_auth_sms
             x-enumHideOn:
               - sdk
-          uniqueItems: true
       type: object
       additionalProperties: false
     TeamUpdateRequest:

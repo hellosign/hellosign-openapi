@@ -10,7 +10,6 @@ import com.dropbox.sign.model.RequiredSignatureType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class AccountSettingsUpdateExample
 {
@@ -30,7 +29,7 @@ public class AccountSettingsUpdateExample
 
         var accountSettingsUpdateRequest = new AccountSettingsUpdateRequest()
             .set(set)
-            .unset(Set.of("company"));
+            .unset(List.of("company"));
 
         try
         {

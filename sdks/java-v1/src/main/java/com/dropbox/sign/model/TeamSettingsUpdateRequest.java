@@ -19,18 +19,17 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 
 /** TeamSettingsUpdateRequest */
 @JsonPropertyOrder({
     TeamSettingsUpdateRequest.JSON_PROPERTY_SET,
-    TeamSettingsUpdateRequest.JSON_PROPERTY_UNSET,
-    TeamSettingsUpdateRequest.JSON_PROPERTY_LOCK
+    TeamSettingsUpdateRequest.JSON_PROPERTY_LOCK,
+    TeamSettingsUpdateRequest.JSON_PROPERTY_UNSET
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -40,11 +39,11 @@ public class TeamSettingsUpdateRequest {
     public static final String JSON_PROPERTY_SET = "set";
     @javax.annotation.Nullable private Map<String, Object> set = null;
 
-    public static final String JSON_PROPERTY_UNSET = "unset";
-    @javax.annotation.Nullable private Set<String> unset = null;
-
     public static final String JSON_PROPERTY_LOCK = "lock";
     @javax.annotation.Nullable private Map<String, TeamSettingLock> lock = null;
+
+    public static final String JSON_PROPERTY_UNSET = "unset";
+    @javax.annotation.Nullable private List<String> unset = null;
 
     public TeamSettingsUpdateRequest() {}
 
@@ -95,38 +94,6 @@ public class TeamSettingsUpdateRequest {
         this.set = set;
     }
 
-    public TeamSettingsUpdateRequest unset(@javax.annotation.Nullable Set<String> unset) {
-        this.unset = unset;
-        return this;
-    }
-
-    public TeamSettingsUpdateRequest addUnsetItem(String unsetItem) {
-        if (this.unset == null) {
-            this.unset = new LinkedHashSet<>();
-        }
-        this.unset.add(unsetItem);
-        return this;
-    }
-
-    /**
-     * Setting names to clear so their values are inherited. A listed name cannot also be set or
-     * locked in the same request.
-     *
-     * @return unset
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_UNSET)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Set<String> getUnset() {
-        return unset;
-    }
-
-    @JsonDeserialize(as = LinkedHashSet.class)
-    @JsonProperty(JSON_PROPERTY_UNSET)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setUnset(@javax.annotation.Nullable Set<String> unset) {
-        this.unset = unset;
-    }
-
     public TeamSettingsUpdateRequest lock(
             @javax.annotation.Nullable Map<String, TeamSettingLock> lock) {
         this.lock = lock;
@@ -142,7 +109,11 @@ public class TeamSettingsUpdateRequest {
     }
 
     /**
-     * Lock modes keyed by setting name. Only team settings support locks. A name in
+     * Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a
+     * lock on their own team. An organization admin can set a lock on the organization or on a
+     * subteam. &#x60;organization_admins&#x60; is set by an organization admin and keeps subteams
+     * and accounts on that value. &#x60;team_admins&#x60; lets admins of a team and its subteams
+     * set their own value. &#x60;members&#x60; lets each account set its own value. A name in
      * &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.
      *
      * @return lock
@@ -159,6 +130,37 @@ public class TeamSettingsUpdateRequest {
         this.lock = lock;
     }
 
+    public TeamSettingsUpdateRequest unset(@javax.annotation.Nullable List<String> unset) {
+        this.unset = unset;
+        return this;
+    }
+
+    public TeamSettingsUpdateRequest addUnsetItem(String unsetItem) {
+        if (this.unset == null) {
+            this.unset = new ArrayList<>();
+        }
+        this.unset.add(unsetItem);
+        return this;
+    }
+
+    /**
+     * Any setting that can be set can also be unset. Unset clears the stored value and its lock so
+     * both are inherited. A listed name cannot also be set or locked in the same request.
+     *
+     * @return unset
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_UNSET)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getUnset() {
+        return unset;
+    }
+
+    @JsonProperty(JSON_PROPERTY_UNSET)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setUnset(@javax.annotation.Nullable List<String> unset) {
+        this.unset = unset;
+    }
+
     /** Return true if this TeamSettingsUpdateRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -170,13 +172,13 @@ public class TeamSettingsUpdateRequest {
         }
         TeamSettingsUpdateRequest teamSettingsUpdateRequest = (TeamSettingsUpdateRequest) o;
         return Objects.equals(this.set, teamSettingsUpdateRequest.set)
-                && Objects.equals(this.unset, teamSettingsUpdateRequest.unset)
-                && Objects.equals(this.lock, teamSettingsUpdateRequest.lock);
+                && Objects.equals(this.lock, teamSettingsUpdateRequest.lock)
+                && Objects.equals(this.unset, teamSettingsUpdateRequest.unset);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(set, unset, lock);
+        return Objects.hash(set, lock, unset);
     }
 
     @Override
@@ -184,8 +186,8 @@ public class TeamSettingsUpdateRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class TeamSettingsUpdateRequest {\n");
         sb.append("    set: ").append(toIndentedString(set)).append("\n");
-        sb.append("    unset: ").append(toIndentedString(unset)).append("\n");
         sb.append("    lock: ").append(toIndentedString(lock)).append("\n");
+        sb.append("    unset: ").append(toIndentedString(unset)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -212,24 +214,6 @@ public class TeamSettingsUpdateRequest {
                     map.put("set", JSON.getDefault().getMapper().writeValueAsString(set));
                 }
             }
-            if (unset != null) {
-                if (isFileTypeOrListOfFiles(unset)) {
-                    fileTypeFound = true;
-                }
-
-                if (unset.getClass().equals(java.io.File.class)
-                        || unset.getClass().equals(Integer.class)
-                        || unset.getClass().equals(String.class)
-                        || unset.getClass().isEnum()) {
-                    map.put("unset", unset);
-                } else if (isListOfFile(unset)) {
-                    for (int i = 0; i < getListSize(unset); i++) {
-                        map.put("unset[" + i + "]", getFromList(unset, i));
-                    }
-                } else {
-                    map.put("unset", JSON.getDefault().getMapper().writeValueAsString(unset));
-                }
-            }
             if (lock != null) {
                 if (isFileTypeOrListOfFiles(lock)) {
                     fileTypeFound = true;
@@ -246,6 +230,24 @@ public class TeamSettingsUpdateRequest {
                     }
                 } else {
                     map.put("lock", JSON.getDefault().getMapper().writeValueAsString(lock));
+                }
+            }
+            if (unset != null) {
+                if (isFileTypeOrListOfFiles(unset)) {
+                    fileTypeFound = true;
+                }
+
+                if (unset.getClass().equals(java.io.File.class)
+                        || unset.getClass().equals(Integer.class)
+                        || unset.getClass().equals(String.class)
+                        || unset.getClass().isEnum()) {
+                    map.put("unset", unset);
+                } else if (isListOfFile(unset)) {
+                    for (int i = 0; i < getListSize(unset); i++) {
+                        map.put("unset[" + i + "]", getFromList(unset, i));
+                    }
+                } else {
+                    map.put("unset", JSON.getDefault().getMapper().writeValueAsString(unset));
                 }
             }
         } catch (Exception e) {

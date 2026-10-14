@@ -15,7 +15,10 @@ package com.dropbox.sign.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Date format used to display dates. */
+/**
+ * Default date format in the editor and in the audit trail. Senders can still choose a different
+ * format for an individual date field.
+ */
 public enum DateFormat {
     MM_DD_YYYY("MM/DD/YYYY"),
 

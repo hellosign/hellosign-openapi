@@ -1,6 +1,6 @@
 # # DateFormat
 
-Date format used to display dates.
+Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
 
 ## Properties
 

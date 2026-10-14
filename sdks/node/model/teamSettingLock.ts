@@ -23,7 +23,7 @@
  */
 
 /**
- * Who can change a team setting. `organization_admins` limits changes to organization admins, and subteams use that value. `team_admins` lets admins of a team and its subteams set their own value. `members` lets each member set their own value.
+ * Who can change a locked team setting. Every property in `lock` accepts these values. `organization_admins` is set by an organization admin and prevents subteams and accounts from overriding the value. `team_admins` is set by a team admin and lets admins of that team and its subteams set their own value. `members` lets each account set its own value.
  */
 export enum TeamSettingLock {
   OrganizationAdmins = "organization_admins",

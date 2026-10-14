@@ -31,39 +31,39 @@ export class AccountSettingsResponseSettings {
    */
   "company": SettingResponse;
   /**
-   * Whether signers are redirected to a custom URL after completing a signature request.
+   * Whether signers are redirected to a custom webpage after they sign.
    */
   "customSigningRedirectEnabled": SettingResponse;
   /**
-   * URL where signers are redirected after completing a signature request when custom redirects are enabled.
+   * Webpage where signers are redirected after they sign, when custom redirects are enabled.
    */
   "customSigningRedirectUrl": SettingResponse;
   /**
-   * Custom tagline displayed with the account or team branding.
+   * Company tagline shown with the account or team branding.
    */
   "customTagline": SettingResponse;
   /**
-   * Date format used to display dates. List the setting in `unset` to inherit the default.
+   * Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
    */
   "dateFormat": SettingResponse;
   /**
-   * Whether automatic reminder emails are enabled for incomplete signature requests.
+   * Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.
    */
   "isSignatureRemindersEnabled": SettingResponse;
   /**
-   * Sender name shown on signature request emails.
+   * Name shown in the From field of signature request emails. When unset, each user\'s first and last name is shown.
    */
   "requestEmailFrom": SettingResponse;
   /**
-   * Signature appended to signature request emails.
+   * Text appended to the end of signature request emails.
    */
   "requestEmailSignature": SettingResponse;
   /**
-   * Signature creation methods signers may use.
+   * Signature creation methods a signer is allowed to use.
    */
   "requiredSignatureTypes": SettingResponse;
   /**
-   * Whether completed documents include a digital tamper-proof seal.
+   * Whether a tamper-proof seal is applied to sent signature requests.
    */
   "shouldEnableTamperProof": SettingResponse;
   /**
@@ -71,15 +71,15 @@ export class AccountSettingsResponseSettings {
    */
   "shouldIncludeDistinctPdfs": SettingResponse;
   /**
-   * Whether senders can require an access code to verify a signer.
+   * Whether senders can require a custom access code before a signer can open a document.
    */
   "shouldOfferSignerAccessCode": SettingResponse;
   /**
-   * Whether senders can require SMS authentication to verify a signer.
+   * Whether senders can require a text-message verification code before a signer can open a document.
    */
   "shouldOfferSignerSmsAuthentication": SettingResponse;
   /**
-   * Whether the Dropbox Sign document ID is hidden on sent documents.
+   * Whether the document ID is removed from all pages of sent documents.
    */
   "shouldRemoveDocumentId": SettingResponse;
   /**
@@ -95,19 +95,19 @@ export class AccountSettingsResponseSettings {
    */
   "shouldAutocomplete": SettingResponse;
   /**
-   * Whether completed signature requests include PDF copies in emails sent to the account.
+   * Whether to email the account a PDF copy when a signature request it sent is completed.
    */
   "shouldIncludeRequestedPdfs": SettingResponse;
   /**
-   * Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.
+   * Whether to email a PDF copy to the other signers and CC recipients when a signature request is completed.
    */
   "shouldIncludeRequestedPdfsForOthers": SettingResponse;
   /**
-   * Whether emails sent to the account include PDF copies of documents it sends.
+   * Whether to email the account a PDF copy when it sends a document.
    */
   "shouldIncludeSentDocPdfs": SettingResponse;
   /**
-   * Whether emails sent to recipients include PDF copies of documents the account sends.
+   * Whether to email recipients a PDF copy, instead of only a link, when the account sends a document.
    */
   "shouldIncludeSentDocPdfsForOthers": SettingResponse;
   /**

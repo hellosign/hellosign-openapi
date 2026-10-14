@@ -23,7 +23,7 @@
  */
 
 /**
- * Storage region for team documents.
+ * Region where the team\'s documents are stored at rest.
  */
 export enum DataResidency {
   Us = "us",

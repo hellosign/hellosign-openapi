@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Who can change a team setting. &#x60;organization_admins&#x60; limits changes to organization admins, and subteams use that value. &#x60;team_admins&#x60; lets admins of a team and its subteams set their own value. &#x60;members&#x60; lets each member set their own value.
+ * Who can change a locked team setting. Every property in &#x60;lock&#x60; accepts these values. &#x60;organization_admins&#x60; is set by an organization admin and prevents subteams and accounts from overriding the value. &#x60;team_admins&#x60; is set by a team admin and lets admins of that team and its subteams set their own value. &#x60;members&#x60; lets each account set its own value.
  */
 public enum TeamSettingLock {
   
