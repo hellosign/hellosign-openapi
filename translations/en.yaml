@@ -1955,7 +1955,7 @@
 "SettingsUpdateRequest::SET": Values to store, keyed by setting name. A name in `set` cannot also appear in `unset`.
 "SettingsUpdateRequest::UNSET": Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.
 "SettingsUpdateRequest::UNSET_TEAM": Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request.
-"SettingsUpdateRequest::LOCK": Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. `organization_admins` is set by an organization admin and keeps subteams and accounts on that value. `team_admins` lets admins of a team and its subteams set their own value. `members` lets each account set its own value. A name in `lock` cannot also appear in `unset`.
+"SettingsUpdateRequest::LOCK": Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. `organization_admins` prevents subteams and accounts from overriding the value. `team_admins` lets admins of that team and its subteams set their own value. `members` lets each account set its own value. A name in `lock` cannot also appear in `unset`.
 "AccountSettingsResponse::SETTINGS": Account settings keyed by setting name.
 "TeamSettingsResponse::SETTINGS": Team settings keyed by setting name.
 "BooleanSettingUpdate::DESCRIPTION": Updates a boolean team setting. Provide `value`, `lock_mode`, or both.
@@ -1966,7 +1966,7 @@
 "DataResidencySettingUpdate::DESCRIPTION": Updates the data residency team setting. Provide `value`, `lock_mode`, or both.
 "RequiredSignatureTypesSettingUpdate::DESCRIPTION": Updates the required signature types team setting. Provide `value`, `lock_mode`, or both.
 "RequiredSignatureTypesSettingUpdate::VALUE": Signature creation methods signers may use.
-"TeamSettingLock::DESCRIPTION": Who can change a locked team setting. Every property in `lock` accepts these values. `organization_admins` is set by an organization admin and prevents subteams and accounts from overriding the value. `team_admins` is set by a team admin and lets admins of that team and its subteams set their own value. `members` lets each account set its own value.
+"TeamSettingLock::DESCRIPTION": Who can change a locked team setting. Every property in `lock` accepts these values. `organization_admins` prevents subteams and accounts from overriding the value. `team_admins` lets admins of that team and its subteams set their own value. `members` lets each account set its own value.
 "DateFormat::DESCRIPTION": Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
 "DataResidency::DESCRIPTION": Region where the team's documents are stored at rest.
 "RequiredSignatureType::DESCRIPTION": A signature creation method a signer may use.

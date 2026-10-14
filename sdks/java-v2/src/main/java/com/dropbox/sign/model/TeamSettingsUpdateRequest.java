@@ -122,7 +122,7 @@ public class TeamSettingsUpdateRequest {
   }
 
   /**
-   * Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. &#x60;organization_admins&#x60; is set by an organization admin and keeps subteams and accounts on that value. &#x60;team_admins&#x60; lets admins of a team and its subteams set their own value. &#x60;members&#x60; lets each account set its own value. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.
+   * Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. &#x60;organization_admins&#x60; prevents subteams and accounts from overriding the value. &#x60;team_admins&#x60; lets admins of that team and its subteams set their own value. &#x60;members&#x60; lets each account set its own value. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.
    * @return lock
    */
   @jakarta.annotation.Nullable
