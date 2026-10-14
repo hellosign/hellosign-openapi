@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentCheckboxMerge
+# SubFormFieldsPerDocumentCheckboxMerge
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

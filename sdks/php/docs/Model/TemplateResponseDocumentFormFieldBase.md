@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentFormFieldBase
+# TemplateResponseDocumentFormFieldBase
 
 An array of Form Field objects containing the name and type of each named field.
 

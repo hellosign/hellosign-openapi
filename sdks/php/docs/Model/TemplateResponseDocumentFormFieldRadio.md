@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentFormFieldRadio
+# TemplateResponseDocumentFormFieldRadio
 
 This class extends `TemplateResponseDocumentFormFieldBase`
 

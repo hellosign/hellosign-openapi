@@ -1,4 +1,4 @@
-# # AccountResponseUsage
+# AccountResponseUsage
 
 Details concerning monthly usage
 

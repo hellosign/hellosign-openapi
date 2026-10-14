@@ -1,4 +1,4 @@
-# # TeamGetResponse
+# TeamGetResponse
 
 
 

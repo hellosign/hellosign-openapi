@@ -1,4 +1,4 @@
-# # TemplateResponseFieldAvgTextLength
+# TemplateResponseFieldAvgTextLength
 
 Average text length in this field.
 

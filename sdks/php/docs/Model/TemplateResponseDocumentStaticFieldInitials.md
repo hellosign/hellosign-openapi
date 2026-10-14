@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentStaticFieldInitials
+# TemplateResponseDocumentStaticFieldInitials
 
 This class extends `TemplateResponseDocumentStaticFieldBase`
 

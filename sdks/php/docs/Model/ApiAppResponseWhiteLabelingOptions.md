@@ -1,4 +1,4 @@
-# # ApiAppResponseWhiteLabelingOptions
+# ApiAppResponseWhiteLabelingOptions
 
 An object with options to customize the app&#39;s signer page
 

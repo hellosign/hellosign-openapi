@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# see https://github.com/OpenAPITools/openapi-generator/tree/v7.8.0/modules/openapi-generator/src/main/resources/php
+# see https://github.com/OpenAPITools/openapi-generator/tree/v7.26.0/modules/openapi-generator/src/main/resources/php
 
 set -e
 
@@ -20,7 +20,7 @@ rm -f "${DIR}/src/Model/"*.php
 docker run --rm \
   -v "${DIR}/:/local" \
   -v "${DIR}/openapi-sdk.yaml:/local/openapi-sdk.yaml" \
-  openapitools/openapi-generator-cli:v7.12.0 generate \
+  openapitools/openapi-generator-cli:v7.26.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
     -t "/local/templates" \

@@ -52,8 +52,7 @@ this command.
 ### Requirements
 
 {{^useCustomTemplateCode}}
-PHP 7.4 and later.
-Should also work with PHP 8.0.
+PHP 8.1 and later.
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
 PHP {{phpVersion}} and later.
@@ -118,6 +117,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
 {{> php_doc_auth_partial}}
+
 $apiInstance = new {{invokerPackage}}\Api\{{classname}}(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.

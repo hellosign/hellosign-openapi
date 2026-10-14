@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentRadio
+# SubFormFieldsPerDocumentRadio
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

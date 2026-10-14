@@ -1,4 +1,4 @@
-# # ApiAppResponseOptions
+# ApiAppResponseOptions
 
 An object with options that override account settings.
 

@@ -197,6 +197,9 @@ export class ObjectSerializer {
             }
             return transformedData;
         } else if (type === "Date") {
+            if (!(data instanceof Date)) {
+                return data;
+            }
             return data.toISOString();
         } else {
             if (enumsMap[type]) {
@@ -215,10 +218,20 @@ export class ObjectSerializer {
             for (let index = 0; index < attributeTypes.length; index++) {
                 let attributeType = attributeTypes[index];
 {{^useCustomTemplateCode}}
-                instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
+                const value = Object.prototype.hasOwnProperty.call(data, attributeType.name)
+                    ? data[attributeType.name]
+                    : Object.prototype.hasOwnProperty.call(data, attributeType.baseName)
+                        ? data[attributeType.baseName]
+                        : undefined;
+                instance[attributeType.baseName] = ObjectSerializer.serialize(value, attributeType.type);
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
-                let value = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
+                const rawValue = Object.prototype.hasOwnProperty.call(data, attributeType.name)
+                    ? data[attributeType.name]
+                    : Object.prototype.hasOwnProperty.call(data, attributeType.baseName)
+                        ? data[attributeType.baseName]
+                        : undefined;
+                let value = ObjectSerializer.serialize(rawValue, attributeType.type);
 
                 // Only add property if not null
                 if (value !== undefined) {

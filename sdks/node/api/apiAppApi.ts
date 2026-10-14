@@ -277,7 +277,7 @@ export class ApiAppApi {
     const localVarPath =
       this.basePath +
       "/api_app/{client_id}".replace(
-        "{" + "client_id" + "}",
+        "{client_id}",
         encodeURIComponent(String(clientId))
       );
     let localVarQueryParameters: any = {};
@@ -384,7 +384,7 @@ export class ApiAppApi {
     const localVarPath =
       this.basePath +
       "/api_app/{client_id}".replace(
-        "{" + "client_id" + "}",
+        "{client_id}",
         encodeURIComponent(String(clientId))
       );
     let localVarQueryParameters: any = {};
@@ -640,7 +640,7 @@ export class ApiAppApi {
     const localVarPath =
       this.basePath +
       "/api_app/{client_id}".replace(
-        "{" + "client_id" + "}",
+        "{client_id}",
         encodeURIComponent(String(clientId))
       );
     let localVarQueryParameters: any = {};
