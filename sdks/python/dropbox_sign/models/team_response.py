@@ -33,6 +33,10 @@ class TeamResponse(BaseModel):
     Contains information about your team and its members
     """  # noqa: E501
 
+    team_id: Optional[StrictStr] = Field(default=None, description="The id of a team")
+    parent_team_id: Optional[StrictStr] = Field(
+        default=None, description="_t__Team::PARENT_TEAM_ID"
+    )
     name: Optional[StrictStr] = Field(default=None, description="The name of your Team")
     accounts: Optional[List[AccountResponse]] = None
     invited_accounts: Optional[List[AccountResponse]] = Field(
@@ -44,6 +48,8 @@ class TeamResponse(BaseModel):
         description="A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.",
     )
     __properties: ClassVar[List[str]] = [
+        "team_id",
+        "parent_team_id",
         "name",
         "accounts",
         "invited_accounts",
@@ -127,6 +133,8 @@ class TeamResponse(BaseModel):
 
         _obj = cls.model_validate(
             {
+                "team_id": obj.get("team_id"),
+                "parent_team_id": obj.get("parent_team_id"),
                 "name": obj.get("name"),
                 "accounts": (
                     [AccountResponse.from_dict(_item) for _item in obj["accounts"]]
@@ -159,6 +167,8 @@ class TeamResponse(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
+            "team_id": "(str,)",
+            "parent_team_id": "(str,)",
             "name": "(str,)",
             "accounts": "(List[AccountResponse],)",
             "invited_accounts": "(List[AccountResponse],)",

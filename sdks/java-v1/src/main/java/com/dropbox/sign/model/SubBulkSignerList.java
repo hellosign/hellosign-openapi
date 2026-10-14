@@ -28,7 +28,8 @@ import java.util.Objects;
 /** SubBulkSignerList */
 @JsonPropertyOrder({
     SubBulkSignerList.JSON_PROPERTY_CUSTOM_FIELDS,
-    SubBulkSignerList.JSON_PROPERTY_SIGNERS
+    SubBulkSignerList.JSON_PROPERTY_SIGNERS,
+    SubBulkSignerList.JSON_PROPERTY_METADATA
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -40,6 +41,9 @@ public class SubBulkSignerList {
 
     public static final String JSON_PROPERTY_SIGNERS = "signers";
     @javax.annotation.Nullable private List<SubSignatureRequestTemplateSigner> signers = null;
+
+    public static final String JSON_PROPERTY_METADATA = "metadata";
+    @javax.annotation.Nullable private Map<String, Object> metadata = null;
 
     public SubBulkSignerList() {}
 
@@ -123,6 +127,36 @@ public class SubBulkSignerList {
         this.signers = signers;
     }
 
+    public SubBulkSignerList metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public SubBulkSignerList putMetadataItem(String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
+        return this;
+    }
+
+    /**
+     * _t__Sub::BulkSigner::METADATA
+     *
+     * @return metadata
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public Map<String, Object> getMetadata() {
+        return metadata;
+    }
+
+    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+        this.metadata = metadata;
+    }
+
     /** Return true if this SubBulkSignerList object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -134,12 +168,13 @@ public class SubBulkSignerList {
         }
         SubBulkSignerList subBulkSignerList = (SubBulkSignerList) o;
         return Objects.equals(this.customFields, subBulkSignerList.customFields)
-                && Objects.equals(this.signers, subBulkSignerList.signers);
+                && Objects.equals(this.signers, subBulkSignerList.signers)
+                && Objects.equals(this.metadata, subBulkSignerList.metadata);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customFields, signers);
+        return Objects.hash(customFields, signers, metadata);
     }
 
     @Override
@@ -148,6 +183,7 @@ public class SubBulkSignerList {
         sb.append("class SubBulkSignerList {\n");
         sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
         sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -192,6 +228,24 @@ public class SubBulkSignerList {
                     }
                 } else {
                     map.put("signers", JSON.getDefault().getMapper().writeValueAsString(signers));
+                }
+            }
+            if (metadata != null) {
+                if (isFileTypeOrListOfFiles(metadata)) {
+                    fileTypeFound = true;
+                }
+
+                if (metadata.getClass().equals(java.io.File.class)
+                        || metadata.getClass().equals(Integer.class)
+                        || metadata.getClass().equals(String.class)
+                        || metadata.getClass().isEnum()) {
+                    map.put("metadata", metadata);
+                } else if (isListOfFile(metadata)) {
+                    for (int i = 0; i < getListSize(metadata); i++) {
+                        map.put("metadata[" + i + "]", getFromList(metadata, i));
+                    }
+                } else {
+                    map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
                 }
             }
         } catch (Exception e) {

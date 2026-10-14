@@ -24,7 +24,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /** TeamCreateRequest */
-@JsonPropertyOrder({TeamCreateRequest.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({
+    TeamCreateRequest.JSON_PROPERTY_NAME,
+    TeamCreateRequest.JSON_PROPERTY_PARENT_TEAM_ID
+})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.12.0")
@@ -32,6 +35,9 @@ import java.util.Objects;
 public class TeamCreateRequest {
     public static final String JSON_PROPERTY_NAME = "name";
     @javax.annotation.Nullable private String name = "Untitled Team";
+
+    public static final String JSON_PROPERTY_PARENT_TEAM_ID = "parent_team_id";
+    @javax.annotation.Nullable private String parentTeamId;
 
     public TeamCreateRequest() {}
 
@@ -71,6 +77,28 @@ public class TeamCreateRequest {
         this.name = name;
     }
 
+    public TeamCreateRequest parentTeamId(@javax.annotation.Nullable String parentTeamId) {
+        this.parentTeamId = parentTeamId;
+        return this;
+    }
+
+    /**
+     * _t__TeamCreate::PARENT_TEAM_ID
+     *
+     * @return parentTeamId
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PARENT_TEAM_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getParentTeamId() {
+        return parentTeamId;
+    }
+
+    @JsonProperty(JSON_PROPERTY_PARENT_TEAM_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setParentTeamId(@javax.annotation.Nullable String parentTeamId) {
+        this.parentTeamId = parentTeamId;
+    }
+
     /** Return true if this TeamCreateRequest object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -81,12 +109,13 @@ public class TeamCreateRequest {
             return false;
         }
         TeamCreateRequest teamCreateRequest = (TeamCreateRequest) o;
-        return Objects.equals(this.name, teamCreateRequest.name);
+        return Objects.equals(this.name, teamCreateRequest.name)
+                && Objects.equals(this.parentTeamId, teamCreateRequest.parentTeamId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, parentTeamId);
     }
 
     @Override
@@ -94,6 +123,7 @@ public class TeamCreateRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class TeamCreateRequest {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    parentTeamId: ").append(toIndentedString(parentTeamId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -118,6 +148,26 @@ public class TeamCreateRequest {
                     }
                 } else {
                     map.put("name", JSON.getDefault().getMapper().writeValueAsString(name));
+                }
+            }
+            if (parentTeamId != null) {
+                if (isFileTypeOrListOfFiles(parentTeamId)) {
+                    fileTypeFound = true;
+                }
+
+                if (parentTeamId.getClass().equals(java.io.File.class)
+                        || parentTeamId.getClass().equals(Integer.class)
+                        || parentTeamId.getClass().equals(String.class)
+                        || parentTeamId.getClass().isEnum()) {
+                    map.put("parent_team_id", parentTeamId);
+                } else if (isListOfFile(parentTeamId)) {
+                    for (int i = 0; i < getListSize(parentTeamId); i++) {
+                        map.put("parent_team_id[" + i + "]", getFromList(parentTeamId, i));
+                    }
+                } else {
+                    map.put(
+                            "parent_team_id",
+                            JSON.getDefault().getMapper().writeValueAsString(parentTeamId));
                 }
             }
         } catch (Exception e) {

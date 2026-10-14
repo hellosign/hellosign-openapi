@@ -43,11 +43,13 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="customFields">An array of custom field values..</param>
         /// <param name="signers">Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value..</param>
-        public SubBulkSignerList(List<SubBulkSignerListCustomField> customFields = default(List<SubBulkSignerListCustomField>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>))
+        /// <param name="metadata">_t__Sub::BulkSigner::METADATA.</param>
+        public SubBulkSignerList(List<SubBulkSignerListCustomField> customFields = default(List<SubBulkSignerListCustomField>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
 
             this.CustomFields = customFields;
             this.Signers = signers;
+            this.Metadata = metadata;
         }
 
         /// <summary>
@@ -81,6 +83,13 @@ namespace Dropbox.Sign.Model
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
 
         /// <summary>
+        /// _t__Sub::BulkSigner::METADATA
+        /// </summary>
+        /// <value>_t__Sub::BulkSigner::METADATA</value>
+        [DataMember(Name = "metadata", EmitDefaultValue = true)]
+        public Dictionary<string, Object> Metadata { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +99,7 @@ namespace Dropbox.Sign.Model
             sb.Append("class SubBulkSignerList {\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("  Signers: ").Append(Signers).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +146,12 @@ namespace Dropbox.Sign.Model
                     this.Signers != null &&
                     input.Signers != null &&
                     this.Signers.SequenceEqual(input.Signers)
+                ) &&
+                (
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 );
         }
 
@@ -155,6 +171,10 @@ namespace Dropbox.Sign.Model
                 if (this.Signers != null)
                 {
                     hashCode = (hashCode * 59) + this.Signers.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
                 }
                 return hashCode;
             }
@@ -185,6 +205,13 @@ namespace Dropbox.Sign.Model
                 Property = "Signers",
                 Type = "List<SubSignatureRequestTemplateSigner>",
                 Value = Signers,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "metadata",
+                Property = "Metadata",
+                Type = "Dictionary<string, Object>",
+                Value = Metadata,
             });
 
             return types;

@@ -58,6 +58,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'team_id' => 'string',
+        'parent_team_id' => 'string',
         'name' => 'string',
         'accounts' => '\Dropbox\Sign\Model\AccountResponse[]',
         'invited_accounts' => '\Dropbox\Sign\Model\AccountResponse[]',
@@ -72,6 +74,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'team_id' => null,
+        'parent_team_id' => null,
         'name' => null,
         'accounts' => null,
         'invited_accounts' => null,
@@ -84,6 +88,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var bool[]
      */
     protected static array $openAPINullables = [
+        'team_id' => false,
+        'parent_team_id' => false,
         'name' => false,
         'accounts' => false,
         'invited_accounts' => false,
@@ -168,6 +174,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'team_id' => 'team_id',
+        'parent_team_id' => 'parent_team_id',
         'name' => 'name',
         'accounts' => 'accounts',
         'invited_accounts' => 'invited_accounts',
@@ -180,6 +188,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'team_id' => 'setTeamId',
+        'parent_team_id' => 'setParentTeamId',
         'name' => 'setName',
         'accounts' => 'setAccounts',
         'invited_accounts' => 'setInvitedAccounts',
@@ -192,6 +202,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'team_id' => 'getTeamId',
+        'parent_team_id' => 'getParentTeamId',
         'name' => 'getName',
         'accounts' => 'getAccounts',
         'invited_accounts' => 'getInvitedAccounts',
@@ -254,6 +266,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('team_id', $data ?? [], null);
+        $this->setIfExists('parent_team_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('accounts', $data ?? [], null);
         $this->setIfExists('invited_accounts', $data ?? [], null);
@@ -315,6 +329,60 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets team_id
+     *
+     * @return string|null
+     */
+    public function getTeamId()
+    {
+        return $this->container['team_id'];
+    }
+
+    /**
+     * Sets team_id
+     *
+     * @param string|null $team_id The id of a team
+     *
+     * @return self
+     */
+    public function setTeamId(?string $team_id)
+    {
+        if (is_null($team_id)) {
+            throw new InvalidArgumentException('non-nullable team_id cannot be null');
+        }
+        $this->container['team_id'] = $team_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_team_id
+     *
+     * @return string|null
+     */
+    public function getParentTeamId()
+    {
+        return $this->container['parent_team_id'];
+    }
+
+    /**
+     * Sets parent_team_id
+     *
+     * @param string|null $parent_team_id _t__Team::PARENT_TEAM_ID
+     *
+     * @return self
+     */
+    public function setParentTeamId(?string $parent_team_id)
+    {
+        if (is_null($parent_team_id)) {
+            throw new InvalidArgumentException('non-nullable parent_team_id cannot be null');
+        }
+        $this->container['parent_team_id'] = $parent_team_id;
+
+        return $this;
     }
 
     /**

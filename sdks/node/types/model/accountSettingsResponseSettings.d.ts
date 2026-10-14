@@ -1,0 +1,34 @@
+import { AttributeTypeMap } from "./";
+import { SettingResponse } from "./settingResponse";
+export declare class AccountSettingsResponseSettings {
+    "company": SettingResponse;
+    "customSigningRedirectEnabled": SettingResponse;
+    "customSigningRedirectUrl": SettingResponse;
+    "customTagline": SettingResponse;
+    "dateFormat": SettingResponse;
+    "isSignatureRemindersEnabled": SettingResponse;
+    "requestEmailFrom": SettingResponse;
+    "requestEmailSignature": SettingResponse;
+    "requiredSignatureTypes": SettingResponse;
+    "shouldEnableTamperProof": SettingResponse;
+    "shouldIncludeDistinctPdfs": SettingResponse;
+    "shouldOfferSignerAccessCode": SettingResponse;
+    "shouldOfferSignerSmsAuthentication": SettingResponse;
+    "shouldRemoveDocumentId": SettingResponse;
+    "isNotifyOnSignEnabled": SettingResponse;
+    "isNotifyOnViewEnabled": SettingResponse;
+    "shouldAutocomplete": SettingResponse;
+    "shouldIncludeRequestedPdfs": SettingResponse;
+    "shouldIncludeRequestedPdfsForOthers": SettingResponse;
+    "shouldIncludeSentDocPdfs": SettingResponse;
+    "shouldIncludeSentDocPdfsForOthers": SettingResponse;
+    "shouldSendDailySummary": SettingResponse;
+    "shouldSendEmbeddedSignatureConfEmails": SettingResponse;
+    "shouldSendOrderedSrEmail": SettingResponse;
+    "shouldSendOutboundConfEmails": SettingResponse;
+    "templateLinkSignatureEmailsEnabled": SettingResponse;
+    static discriminator: string | undefined;
+    static attributeTypeMap: AttributeTypeMap;
+    static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): AccountSettingsResponseSettings;
+}

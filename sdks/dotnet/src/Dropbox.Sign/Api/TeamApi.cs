@@ -230,6 +230,58 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of TeamGetResponse</returns>
         ApiResponse<TeamGetResponse> TeamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0);
         /// <summary>
+        /// Get team settings
+        /// </summary>
+        /// <remarks>
+        /// team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TeamSettingsResponse</returns>
+        TeamSettingsResponse TeamSettingsGet(string? teamId = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Get team settings
+        /// </summary>
+        /// <remarks>
+        /// team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TeamSettingsResponse</returns>
+        ApiResponse<TeamSettingsResponse> TeamSettingsGetWithHttpInfo(string? teamId = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// Modify team settings
+        /// </summary>
+        /// <remarks>
+        /// team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamSettingsUpdateRequest"></param>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TeamSettingsResponse</returns>
+        TeamSettingsResponse TeamSettingsUpdate(TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Modify team settings
+        /// </summary>
+        /// <remarks>
+        /// team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamSettingsUpdateRequest"></param>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TeamSettingsResponse</returns>
+        ApiResponse<TeamSettingsResponse> TeamSettingsUpdateWithHttpInfo(TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = default(string?), int operationIndex = 0);
+        /// <summary>
         /// List Sub Teams
         /// </summary>
         /// <remarks>
@@ -510,6 +562,62 @@ namespace Dropbox.Sign.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get team settings
+        /// </summary>
+        /// <remarks>
+        /// team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TeamSettingsResponse</returns>
+        System.Threading.Tasks.Task<TeamSettingsResponse> TeamSettingsGetAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get team settings
+        /// </summary>
+        /// <remarks>
+        /// team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TeamSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TeamSettingsResponse>> TeamSettingsGetWithHttpInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Modify team settings
+        /// </summary>
+        /// <remarks>
+        /// team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamSettingsUpdateRequest"></param>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TeamSettingsResponse</returns>
+        System.Threading.Tasks.Task<TeamSettingsResponse> TeamSettingsUpdateAsync(TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Modify team settings
+        /// </summary>
+        /// <remarks>
+        /// team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </remarks>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamSettingsUpdateRequest"></param>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TeamSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TeamSettingsResponse>> TeamSettingsUpdateWithHttpInfoAsync(TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Sub Teams
         /// </summary>
@@ -2089,6 +2197,372 @@ namespace Dropbox.Sign.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TeamRemoveMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get team settings team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TeamSettingsResponse</returns>
+        public TeamSettingsResponse TeamSettingsGet(string? teamId = default(string?), int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<TeamSettingsResponse> localVarResponse = TeamSettingsGetWithHttpInfo(teamId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get team settings team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TeamSettingsResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<TeamSettingsResponse> TeamSettingsGetWithHttpInfo(string? teamId = default(string?), int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (teamId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
+            }
+
+            localVarRequestOptions.Operation = "TeamApi.TeamSettingsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<TeamSettingsResponse>("/team/settings", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TeamSettingsGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get team settings team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TeamSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<TeamSettingsResponse> TeamSettingsGetAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<TeamSettingsResponse> localVarResponse = await TeamSettingsGetWithHttpInfoAsync(teamId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get team settings team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsGetExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TeamSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamSettingsResponse>> TeamSettingsGetWithHttpInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (teamId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
+            }
+
+            localVarRequestOptions.Operation = "TeamApi.TeamSettingsGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TeamSettingsResponse>("/team/settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TeamSettingsGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Modify team settings team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamSettingsUpdateRequest"></param>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TeamSettingsResponse</returns>
+        public TeamSettingsResponse TeamSettingsUpdate(TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = default(string?), int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<TeamSettingsResponse> localVarResponse = TeamSettingsUpdateWithHttpInfo(teamSettingsUpdateRequest, teamId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Modify team settings team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamSettingsUpdateRequest"></param>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TeamSettingsResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<TeamSettingsResponse> TeamSettingsUpdateWithHttpInfo(TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'teamSettingsUpdateRequest' is set
+            if (teamSettingsUpdateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'teamSettingsUpdateRequest' when calling TeamApi->TeamSettingsUpdate");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = teamSettingsUpdateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = teamSettingsUpdateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (teamId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
+            }
+
+            localVarRequestOptions.Operation = "TeamApi.TeamSettingsUpdate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TeamSettingsResponse>("/team/settings", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TeamSettingsUpdate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Modify team settings team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamSettingsUpdateRequest"></param>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TeamSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<TeamSettingsResponse> TeamSettingsUpdateAsync(TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<TeamSettingsResponse> localVarResponse = await TeamSettingsUpdateWithHttpInfoAsync(teamSettingsUpdateRequest, teamId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Modify team settings team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+        /// </summary>
+        /// <example>https://github.com/hellosign/dropbox-sign-dotnet/blob/main/examples/TeamSettingsUpdateExample.cs</example>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="teamSettingsUpdateRequest"></param>
+        /// <param name="teamId">Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TeamSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamSettingsResponse>> TeamSettingsUpdateWithHttpInfoAsync(TeamSettingsUpdateRequest teamSettingsUpdateRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'teamSettingsUpdateRequest' is set
+            if (teamSettingsUpdateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'teamSettingsUpdateRequest' when calling TeamApi->TeamSettingsUpdate");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = teamSettingsUpdateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = teamSettingsUpdateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (teamId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
+            }
+
+            localVarRequestOptions.Operation = "TeamApi.TeamSettingsUpdate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TeamSettingsResponse>("/team/settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TeamSettingsUpdate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

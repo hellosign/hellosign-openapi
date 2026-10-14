@@ -1895,6 +1895,82 @@
 "Error::429": Error 429 exceeded_rate
 "Error::4XX": Error 4XX failed_operation
 
+####################
+# Settings endpoints #
+####################
+
+"AccountSettingsGet::SUMMARY": Get account settings
+"AccountSettingsGet::DESCRIPTION": account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+"AccountSettingsGet::ACCOUNT_ID": Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+"AccountSettingsUpdate::SUMMARY": Modify account settings
+"AccountSettingsUpdate::DESCRIPTION": account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+"AccountSettingsUpdate::ACCOUNT_ID": Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+"TeamSettingsGet::SUMMARY": Get team settings
+"TeamSettingsGet::DESCRIPTION": team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+"TeamSettingsGet::TEAM_ID": Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam.
+"TeamSettingsUpdate::SUMMARY": Modify team settings
+"TeamSettingsUpdate::DESCRIPTION": team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+"TeamSettingsUpdate::TEAM_ID": Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam.
+
+"Settings::COMPANY": Company name associated with this account or team.
+"Settings::CUSTOM_SIGNING_REDIRECT_ENABLED": Whether signers are redirected to a custom webpage after they sign.
+"Settings::CUSTOM_SIGNING_REDIRECT_URL": Webpage where signers are redirected after they sign, when custom redirects are enabled.
+"Settings::CUSTOM_TAGLINE": Company tagline shown with the account or team branding.
+"Settings::DATE_FORMAT": Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
+"Settings::IS_SIGNATURE_REMINDERS_ENABLED": Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.
+"Settings::REQUEST_EMAIL_FROM": Name shown in the From field of signature request emails. When unset, each user's first and last name is shown.
+"Settings::REQUEST_EMAIL_SIGNATURE": Text appended to the end of signature request emails.
+"Settings::REQUIRED_SIGNATURE_TYPES": Signature creation methods a signer is allowed to use.
+"Settings::SHOULD_ENABLE_TAMPER_PROOF": Whether a tamper-proof seal is applied to sent signature requests.
+"Settings::SHOULD_INCLUDE_DISTINCT_PDFS": Whether completed documents remain as separate PDF files instead of being merged into one PDF.
+"Settings::SHOULD_OFFER_SIGNER_ACCESS_CODE": Whether senders can require a custom access code before a signer can open a document.
+"Settings::SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION": Whether senders can require a text-message verification code before a signer can open a document.
+"Settings::SHOULD_REMOVE_DOCUMENT_ID": Whether the document ID is removed from all pages of sent documents.
+
+"AccountSettings::IS_NOTIFY_ON_SIGN_ENABLED": Whether to notify the account when someone signs a document it sent.
+"AccountSettings::IS_NOTIFY_ON_VIEW_ENABLED": Whether to notify the account when someone opens a document it sent.
+"AccountSettings::SHOULD_AUTOCOMPLETE": Whether values entered in text fields are saved and suggested for future signature requests.
+"AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS": Whether to email the account a PDF copy when a signature request it sent is completed.
+"AccountSettings::SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS": Whether to email a PDF copy to the other signers and CC recipients when a signature request is completed.
+"AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS": Whether to email the account a PDF copy when it sends a document.
+"AccountSettings::SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS": Whether to email recipients a PDF copy, instead of only a link, when the account sends a document.
+"AccountSettings::SHOULD_SEND_DAILY_SUMMARY": Whether to send the account a daily email summarizing outstanding signature requests.
+"AccountSettings::SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS": Whether to notify the account when it signs a document on a third-party site.
+"AccountSettings::SHOULD_SEND_ORDERED_SR_EMAIL": Whether to notify all parties when an ordered signature request starts.
+"AccountSettings::SHOULD_SEND_OUTBOUND_CONF_EMAILS": Whether to notify the account when it signs and sends a document.
+"AccountSettings::TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED": Whether to notify the account when someone signs a document sent by its team through a template link.
+
+"TeamSettings::DATA_RESIDENCY": Region where the team's documents are stored at rest.
+"TeamSettings::ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE": Whether the sender, in addition to admins, can permanently delete a document from Dropbox Sign and from every participant account.
+"TeamSettings::ALLOW_TEAM_DOWNLOAD_CSV": Whether the sender, in addition to admins, can download document data as a CSV.
+"TeamSettings::LOCK_TEAM_TEMPLATE_CREATION": When enabled, only admins can create and edit templates and template links.
+"TeamSettings::LOCK_TEAM_TEMPLATE_GALLERY": When enabled, only admins can access and use the template gallery.
+"TeamSettings::SELF_SIGN_MESSAGE": Default message for self-signed documents created by team members. Lock this setting to prevent members from changing it.
+"TeamSettings::SELF_SIGN_TITLE": Default document title for self-signed documents created by team members. Lock this setting to prevent members from changing it.
+"TeamSettings::SIGNATURE_REQUEST_MESSAGE": Default email message for signature requests created by team members. Lock this setting to prevent members from changing it.
+"TeamSettings::SIGNATURE_REQUEST_TITLE": Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.
+"TeamSettings::MULTIFACTOR_AUTH_APP": Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.
+"TeamSettings::MULTIFACTOR_AUTH_SMS": Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
+
+"SettingsUpdateRequest::SET": Values to store, keyed by setting name. A name in `set` cannot also appear in `unset`.
+"SettingsUpdateRequest::UNSET": Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.
+"SettingsUpdateRequest::UNSET_TEAM": Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request.
+"SettingsUpdateRequest::LOCK": Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. `organization_admins` prevents subteams and accounts from overriding the value. `team_admins` lets admins of that team and its subteams set their own value. `members` lets each account set its own value. A name in `lock` cannot also appear in `unset`.
+"AccountSettingsResponse::SETTINGS": Account settings keyed by setting name.
+"TeamSettingsResponse::SETTINGS": Team settings keyed by setting name.
+"BooleanSettingUpdate::DESCRIPTION": Updates a boolean team setting. Provide `value`, `lock_mode`, or both.
+"BooleanSettingUpdate::VALUE": Boolean value to store.
+"StringSettingUpdate::DESCRIPTION": Updates a string team setting. Provide `value`, `lock_mode`, or both.
+"StringSettingUpdate::VALUE": String value to store.
+"DateFormatSettingUpdate::DESCRIPTION": Updates a date format team setting. Provide `value`, `lock_mode`, or both.
+"DataResidencySettingUpdate::DESCRIPTION": Updates the data residency team setting. Provide `value`, `lock_mode`, or both.
+"RequiredSignatureTypesSettingUpdate::DESCRIPTION": Updates the required signature types team setting. Provide `value`, `lock_mode`, or both.
+"RequiredSignatureTypesSettingUpdate::VALUE": Signature creation methods signers may use.
+"TeamSettingLock::DESCRIPTION": Who can change a locked team setting. Every property in `lock` accepts these values. `organization_admins` prevents subteams and accounts from overriding the value. `team_admins` lets admins of that team and its subteams set their own value. `members` lets each account set its own value.
+"DateFormat::DESCRIPTION": Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
+"DataResidency::DESCRIPTION": Region where the team's documents are stored at rest.
+"RequiredSignatureType::DESCRIPTION": A signature creation method a signer may use.
+
 #########################
 # SEO for API Reference #
 #########################
@@ -1902,6 +1978,11 @@
 "AccountCreate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a range of tools. Find out how to create a new Dropbox Sign Account using the specified `email_address` here."
 "AccountGet::SEO::TITLE": "Get Account | API Documentation | Dropbox Sign for Developers"
 "AccountGet::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to return the properties and settings of your Account, click here."
+"SettingResponse::VALUE": "Current value of the setting. Null when the setting has no value."
+"AccountSettingsGet::SEO::TITLE": "Get Account Settings | API Documentation | Dropbox Sign for Developers"
+"AccountSettingsGet::SEO::DESCRIPTION": "account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer."
+"AccountSettingsUpdate::SEO::TITLE": "Update Account Settings | API Documentation | Dropbox Sign for Developers"
+"AccountSettingsUpdate::SEO::DESCRIPTION": "account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer."
 "AccountUpdate::SEO::TITLE": "Update Account | API Documentation | Dropbox Sign for Developers"
 "AccountUpdate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how update the properties and settings of your Account, click here."
 "AccountVerify::SEO::TITLE": "Verify Account | API Documentation | Dropbox Sign for Developers"
@@ -1998,6 +2079,10 @@
 "TeamCreate::SEO::DESCRIPTION": "The RESTful Dropbox Sign API allows you to build custom eSign integrations. To find out how to create a new team and make yourself a member, click here."
 "TeamDelete::SEO::TITLE": "Delete Team | REST API Documentation | Dropbox Sign for Developers"
 "TeamDelete::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to delete a team you are a member of, click here."
+"TeamSettingsGet::SEO::TITLE": "Get Team Settings | API Documentation | Dropbox Sign for Developers"
+"TeamSettingsGet::SEO::DESCRIPTION": "team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam."
+"TeamSettingsUpdate::SEO::TITLE": "Update Team Settings | API Documentation | Dropbox Sign for Developers"
+"TeamSettingsUpdate::SEO::DESCRIPTION": "team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam."
 "TeamGet::SEO::TITLE": "Get Team | REST API Documentation | Dropbox Sign for Developers"
 "TeamGet::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to return information about your Team, click here."
 "TeamInfo::SEO::TITLE": "Get Team Info | Dropbox Sign for Developers"

@@ -1,4 +1,4 @@
-import { AccountCreateRequest, AccountCreateResponse, AccountGetResponse, AccountUpdateRequest, AccountVerifyRequest, AccountVerifyResponse, Authentication, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
+import { AccountCreateRequest, AccountCreateResponse, AccountGetResponse, AccountSettingsResponse, AccountSettingsUpdateRequest, AccountUpdateRequest, AccountVerifyRequest, AccountVerifyResponse, Authentication, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
 import { optionsI, returnTypeT } from "./";
 export declare enum AccountApiApiKeys {
 }
@@ -26,6 +26,8 @@ export declare class AccountApi {
     addInterceptor(interceptor: Interceptor): void;
     accountCreate(accountCreateRequest: AccountCreateRequest, options?: optionsI): Promise<returnTypeT<AccountCreateResponse>>;
     accountGet(accountId?: string, emailAddress?: string, options?: optionsI): Promise<returnTypeT<AccountGetResponse>>;
+    accountSettingsGet(accountId?: string, options?: optionsI): Promise<returnTypeT<AccountSettingsResponse>>;
+    accountSettingsUpdate(accountSettingsUpdateRequest: AccountSettingsUpdateRequest, accountId?: string, options?: optionsI): Promise<returnTypeT<AccountSettingsResponse>>;
     accountUpdate(accountUpdateRequest: AccountUpdateRequest, options?: optionsI): Promise<returnTypeT<AccountGetResponse>>;
     accountVerify(accountVerifyRequest: AccountVerifyRequest, options?: optionsI): Promise<returnTypeT<AccountVerifyResponse>>;
 }

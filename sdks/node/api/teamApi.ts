@@ -37,6 +37,8 @@ import {
   TeamInvitesResponse,
   TeamMembersResponse,
   TeamRemoveMemberRequest,
+  TeamSettingsResponse,
+  TeamSettingsUpdateRequest,
   TeamSubTeamsResponse,
   TeamUpdateRequest,
   VoidAuth,
@@ -1148,6 +1150,284 @@ export class TeamApi {
           }
         );
       });
+    });
+  }
+  /**
+   * team_id is an optional query parameter and defaults to the authenticated account\'s team. An organization admin can specify a subteam.
+   * @summary Get team settings
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamSettingsGetExample.ts
+   * @param teamId Optional team ID. Defaults to the authenticated account\&#39;s team. An organization admin can specify a subteam.
+   * @param options
+   */
+  public async teamSettingsGet(
+    teamId?: string,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<TeamSettingsResponse>> {
+    const localVarPath = this.basePath + "/team/settings";
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    if (teamId !== undefined) {
+      localVarQueryParameters["team_id"] = ObjectSerializer.serialize(
+        teamId,
+        "string"
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "GET",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<TeamSettingsResponse>>(
+        (resolve, reject) => {
+          axios.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse<TeamSettingsResponse>(
+                resolve,
+                reject,
+                response,
+                "TeamSettingsResponse"
+              );
+            },
+            (error: AxiosError) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
+                  "TeamSettingsResponse"
+                )
+              ) {
+                return;
+              }
+
+              if (
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )
+              ) {
+                return;
+              }
+
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
+   * team_id is an optional query parameter and defaults to the authenticated account\'s team. An organization admin can specify a subteam.
+   * @summary Modify team settings
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamSettingsUpdateExample.ts
+   * @param teamSettingsUpdateRequest
+   * @param teamId Optional team ID. Defaults to the authenticated account\&#39;s team. An organization admin can specify a subteam.
+   * @param options
+   */
+  public async teamSettingsUpdate(
+    teamSettingsUpdateRequest: TeamSettingsUpdateRequest,
+    teamId?: string,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<TeamSettingsResponse>> {
+    teamSettingsUpdateRequest = deserializeIfNeeded(
+      teamSettingsUpdateRequest,
+      "TeamSettingsUpdateRequest"
+    );
+    const localVarPath = this.basePath + "/team/settings";
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    // verify required parameter 'teamSettingsUpdateRequest' is not null or undefined
+    if (
+      teamSettingsUpdateRequest === null ||
+      teamSettingsUpdateRequest === undefined
+    ) {
+      throw new Error(
+        "Required parameter teamSettingsUpdateRequest was null or undefined when calling teamSettingsUpdate."
+      );
+    }
+
+    if (teamId !== undefined) {
+      localVarQueryParameters["team_id"] = ObjectSerializer.serialize(
+        teamId,
+        "string"
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    const result = generateFormData(
+      teamSettingsUpdateRequest,
+      TeamSettingsUpdateRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+
+    let data = {};
+    if (localVarUseFormData) {
+      const formData = toFormData(result.data);
+      data = formData;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData.getHeaders(),
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        teamSettingsUpdateRequest,
+        "TeamSettingsUpdateRequest"
+      );
+    }
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data,
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<TeamSettingsResponse>>(
+        (resolve, reject) => {
+          axios.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse<TeamSettingsResponse>(
+                resolve,
+                reject,
+                response,
+                "TeamSettingsResponse"
+              );
+            },
+            (error: AxiosError) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
+                  "TeamSettingsResponse"
+                )
+              ) {
+                return;
+              }
+
+              if (
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )
+              ) {
+                return;
+              }
+
+              reject(error);
+            }
+          );
+        }
+      );
     });
   }
   /**

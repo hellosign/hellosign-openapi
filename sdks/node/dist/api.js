@@ -13845,6 +13845,9 @@ __export(api_exports, {
   AccountResponseQuotas: () => AccountResponseQuotas,
   AccountResponseSettings: () => AccountResponseSettings,
   AccountResponseUsage: () => AccountResponseUsage,
+  AccountSettingsResponse: () => AccountSettingsResponse,
+  AccountSettingsResponseSettings: () => AccountSettingsResponseSettings,
+  AccountSettingsUpdateRequest: () => AccountSettingsUpdateRequest,
   AccountUpdateRequest: () => AccountUpdateRequest,
   AccountVerifyRequest: () => AccountVerifyRequest,
   AccountVerifyResponse: () => AccountVerifyResponse,
@@ -13866,6 +13869,8 @@ __export(api_exports, {
   BulkSendJobListResponse: () => BulkSendJobListResponse,
   BulkSendJobResponse: () => BulkSendJobResponse,
   BulkSendJobSendResponse: () => BulkSendJobSendResponse,
+  DataResidency: () => DataResidency,
+  DateFormat: () => DateFormat,
   DocumentApi: () => DocumentApi,
   DocumentFieldDetectionRequest: () => DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse: () => DocumentFieldDetectionResponse,
@@ -13916,6 +13921,9 @@ __export(api_exports, {
   ReportCreateRequest: () => ReportCreateRequest,
   ReportCreateResponse: () => ReportCreateResponse,
   ReportResponse: () => ReportResponse,
+  RequiredSignatureType: () => RequiredSignatureType,
+  SettingLockResponse: () => SettingLockResponse,
+  SettingResponse: () => SettingResponse,
   SignatureRequestApi: () => SignatureRequestApi,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest: () => SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest: () => SignatureRequestBulkSendWithTemplateRequest,
@@ -13998,6 +14006,10 @@ __export(api_exports, {
   TeamParentResponse: () => TeamParentResponse,
   TeamRemoveMemberRequest: () => TeamRemoveMemberRequest,
   TeamResponse: () => TeamResponse,
+  TeamSettingLock: () => TeamSettingLock,
+  TeamSettingsResponse: () => TeamSettingsResponse,
+  TeamSettingsResponseSettings: () => TeamSettingsResponseSettings,
+  TeamSettingsUpdateRequest: () => TeamSettingsUpdateRequest,
   TeamSubTeamsResponse: () => TeamSubTeamsResponse,
   TeamUpdateRequest: () => TeamUpdateRequest,
   TemplateAddUserRequest: () => TemplateAddUserRequest,
@@ -19965,6 +19977,218 @@ var AccountResponseUsage = class _AccountResponseUsage {
   }
 };
 
+// model/accountSettingsResponse.ts
+var AccountSettingsResponse = class _AccountSettingsResponse {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "accountId",
+        baseName: "account_id",
+        type: "string"
+      },
+      {
+        name: "settings",
+        baseName: "settings",
+        type: "AccountSettingsResponseSettings"
+      },
+      {
+        name: "warnings",
+        baseName: "warnings",
+        type: "Array<WarningResponse>"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _AccountSettingsResponse.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "AccountSettingsResponse");
+  }
+};
+
+// model/accountSettingsResponseSettings.ts
+var AccountSettingsResponseSettings = class _AccountSettingsResponseSettings {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "company",
+        baseName: "company",
+        type: "SettingResponse"
+      },
+      {
+        name: "customSigningRedirectEnabled",
+        baseName: "custom_signing_redirect_enabled",
+        type: "SettingResponse"
+      },
+      {
+        name: "customSigningRedirectUrl",
+        baseName: "custom_signing_redirect_url",
+        type: "SettingResponse"
+      },
+      {
+        name: "customTagline",
+        baseName: "custom_tagline",
+        type: "SettingResponse"
+      },
+      {
+        name: "dateFormat",
+        baseName: "date_format",
+        type: "SettingResponse"
+      },
+      {
+        name: "isSignatureRemindersEnabled",
+        baseName: "is_signature_reminders_enabled",
+        type: "SettingResponse"
+      },
+      {
+        name: "requestEmailFrom",
+        baseName: "request_email_from",
+        type: "SettingResponse"
+      },
+      {
+        name: "requestEmailSignature",
+        baseName: "request_email_signature",
+        type: "SettingResponse"
+      },
+      {
+        name: "requiredSignatureTypes",
+        baseName: "required_signature_types",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldEnableTamperProof",
+        baseName: "should_enable_tamper_proof",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldIncludeDistinctPdfs",
+        baseName: "should_include_distinct_pdfs",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldOfferSignerAccessCode",
+        baseName: "should_offer_signer_access_code",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldOfferSignerSmsAuthentication",
+        baseName: "should_offer_signer_sms_authentication",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldRemoveDocumentId",
+        baseName: "should_remove_document_id",
+        type: "SettingResponse"
+      },
+      {
+        name: "isNotifyOnSignEnabled",
+        baseName: "is_notify_on_sign_enabled",
+        type: "SettingResponse"
+      },
+      {
+        name: "isNotifyOnViewEnabled",
+        baseName: "is_notify_on_view_enabled",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldAutocomplete",
+        baseName: "should_autocomplete",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldIncludeRequestedPdfs",
+        baseName: "should_include_requested_pdfs",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldIncludeRequestedPdfsForOthers",
+        baseName: "should_include_requested_pdfs_for_others",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldIncludeSentDocPdfs",
+        baseName: "should_include_sent_doc_pdfs",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldIncludeSentDocPdfsForOthers",
+        baseName: "should_include_sent_doc_pdfs_for_others",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldSendDailySummary",
+        baseName: "should_send_daily_summary",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldSendEmbeddedSignatureConfEmails",
+        baseName: "should_send_embedded_signature_conf_emails",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldSendOrderedSrEmail",
+        baseName: "should_send_ordered_sr_email",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldSendOutboundConfEmails",
+        baseName: "should_send_outbound_conf_emails",
+        type: "SettingResponse"
+      },
+      {
+        name: "templateLinkSignatureEmailsEnabled",
+        baseName: "template_link_signature_emails_enabled",
+        type: "SettingResponse"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _AccountSettingsResponseSettings.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "AccountSettingsResponseSettings"
+    );
+  }
+};
+
+// model/accountSettingsUpdateRequest.ts
+var AccountSettingsUpdateRequest = class _AccountSettingsUpdateRequest {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "set",
+        baseName: "set",
+        type: "{ [key: string]: any; }"
+      },
+      {
+        name: "unset",
+        baseName: "unset",
+        type: "Array<string>"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _AccountSettingsUpdateRequest.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "AccountSettingsUpdateRequest");
+  }
+};
+
 // model/accountUpdateRequest.ts
 var AccountUpdateRequest = class _AccountUpdateRequest {
   static {
@@ -20775,6 +20999,25 @@ var BulkSendJobSendResponse = class _BulkSendJobSendResponse {
     return ObjectSerializer.deserialize(data, "BulkSendJobSendResponse");
   }
 };
+
+// model/dataResidency.ts
+var DataResidency = /* @__PURE__ */ ((DataResidency2) => {
+  DataResidency2["Us"] = "us";
+  DataResidency2["Eu"] = "eu";
+  DataResidency2["Au"] = "au";
+  DataResidency2["Jp"] = "jp";
+  DataResidency2["Uk"] = "uk";
+  DataResidency2["Ca"] = "ca";
+  return DataResidency2;
+})(DataResidency || {});
+
+// model/dateFormat.ts
+var DateFormat = /* @__PURE__ */ ((DateFormat2) => {
+  DateFormat2["MmDdYyyy"] = "MM/DD/YYYY";
+  DateFormat2["DdMmYyyy"] = "DD/MM/YYYY";
+  DateFormat2["YyyyMmDd"] = "YYYY/MM/DD";
+  return DateFormat2;
+})(DateFormat || {});
 
 // model/documentFieldDetectionRequest.ts
 var DocumentFieldDetectionRequest = class _DocumentFieldDetectionRequest {
@@ -22536,6 +22779,115 @@ var ReportResponse = class _ReportResponse {
     ReportTypeEnum2["FaxUsage"] = "fax_usage";
   })(ReportTypeEnum = ReportResponse2.ReportTypeEnum || (ReportResponse2.ReportTypeEnum = {}));
 })(ReportResponse || (ReportResponse = {}));
+
+// model/requiredSignatureType.ts
+var RequiredSignatureType = /* @__PURE__ */ ((RequiredSignatureType2) => {
+  RequiredSignatureType2["Draw"] = "draw";
+  RequiredSignatureType2["Phone"] = "phone";
+  RequiredSignatureType2["Type"] = "type";
+  RequiredSignatureType2["Upload"] = "upload";
+  return RequiredSignatureType2;
+})(RequiredSignatureType || {});
+
+// model/settingLockResponse.ts
+var SettingLockResponse = class _SettingLockResponse {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "mode",
+        baseName: "mode",
+        type: "TeamSettingLock"
+      },
+      {
+        name: "source",
+        baseName: "source",
+        type: "SettingLockResponse.SourceEnum"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _SettingLockResponse.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "SettingLockResponse");
+  }
+};
+((SettingLockResponse2) => {
+  let SourceEnum;
+  ((SourceEnum2) => {
+    SourceEnum2["Team"] = "team";
+    SourceEnum2["ParentTeam"] = "parent_team";
+    SourceEnum2["Default"] = "default";
+  })(SourceEnum = SettingLockResponse2.SourceEnum || (SettingLockResponse2.SourceEnum = {}));
+})(SettingLockResponse || (SettingLockResponse = {}));
+
+// model/settingResponse.ts
+var SettingResponse = class _SettingResponse {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "value",
+        baseName: "value",
+        type: "any"
+      },
+      {
+        name: "isInherited",
+        baseName: "is_inherited",
+        type: "boolean"
+      },
+      {
+        name: "source",
+        baseName: "source",
+        type: "SettingResponse.SourceEnum"
+      },
+      {
+        name: "type",
+        baseName: "type",
+        type: "SettingResponse.TypeEnum"
+      },
+      {
+        name: "writable",
+        baseName: "writable",
+        type: "boolean"
+      },
+      {
+        name: "lock",
+        baseName: "lock",
+        type: "SettingLockResponse"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _SettingResponse.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "SettingResponse");
+  }
+};
+((SettingResponse2) => {
+  let SourceEnum;
+  ((SourceEnum2) => {
+    SourceEnum2["Account"] = "account";
+    SourceEnum2["Team"] = "team";
+    SourceEnum2["ParentTeam"] = "parent_team";
+    SourceEnum2["Default"] = "default";
+  })(SourceEnum = SettingResponse2.SourceEnum || (SettingResponse2.SourceEnum = {}));
+  let TypeEnum;
+  ((TypeEnum2) => {
+    TypeEnum2["Boolean"] = "boolean";
+    TypeEnum2["Integer"] = "integer";
+    TypeEnum2["String"] = "string";
+    TypeEnum2["Array"] = "array";
+  })(TypeEnum = SettingResponse2.TypeEnum || (SettingResponse2.TypeEnum = {}));
+})(SettingResponse || (SettingResponse = {}));
 
 // model/signatureRequestBulkCreateEmbeddedWithTemplateRequest.ts
 var SignatureRequestBulkCreateEmbeddedWithTemplateRequest = class _SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
@@ -25004,6 +25356,11 @@ var SubBulkSignerList = class _SubBulkSignerList {
         name: "signers",
         baseName: "signers",
         type: "Array<SubSignatureRequestTemplateSigner>"
+      },
+      {
+        name: "metadata",
+        baseName: "metadata",
+        type: "{ [key: string]: any; }"
       }
     ];
   }
@@ -26726,6 +27083,11 @@ var TeamCreateRequest = class _TeamCreateRequest {
         name: "name",
         baseName: "name",
         type: "string"
+      },
+      {
+        name: "parentTeamId",
+        baseName: "parent_team_id",
+        type: "string"
       }
     ];
   }
@@ -27067,6 +27429,16 @@ var TeamResponse = class _TeamResponse {
   static {
     this.attributeTypeMap = [
       {
+        name: "teamId",
+        baseName: "team_id",
+        type: "string"
+      },
+      {
+        name: "parentTeamId",
+        baseName: "parent_team_id",
+        type: "string"
+      },
+      {
         name: "name",
         baseName: "name",
         type: "string"
@@ -27094,6 +27466,223 @@ var TeamResponse = class _TeamResponse {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data) {
     return ObjectSerializer.deserialize(data, "TeamResponse");
+  }
+};
+
+// model/teamSettingLock.ts
+var TeamSettingLock = /* @__PURE__ */ ((TeamSettingLock2) => {
+  TeamSettingLock2["OrganizationAdmins"] = "organization_admins";
+  TeamSettingLock2["TeamAdmins"] = "team_admins";
+  TeamSettingLock2["Members"] = "members";
+  return TeamSettingLock2;
+})(TeamSettingLock || {});
+
+// model/teamSettingsResponse.ts
+var TeamSettingsResponse = class _TeamSettingsResponse {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "teamId",
+        baseName: "team_id",
+        type: "string"
+      },
+      {
+        name: "settings",
+        baseName: "settings",
+        type: "TeamSettingsResponseSettings"
+      },
+      {
+        name: "warnings",
+        baseName: "warnings",
+        type: "Array<WarningResponse>"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _TeamSettingsResponse.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "TeamSettingsResponse");
+  }
+};
+
+// model/teamSettingsResponseSettings.ts
+var TeamSettingsResponseSettings = class _TeamSettingsResponseSettings {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "company",
+        baseName: "company",
+        type: "SettingResponse"
+      },
+      {
+        name: "customSigningRedirectEnabled",
+        baseName: "custom_signing_redirect_enabled",
+        type: "SettingResponse"
+      },
+      {
+        name: "customSigningRedirectUrl",
+        baseName: "custom_signing_redirect_url",
+        type: "SettingResponse"
+      },
+      {
+        name: "customTagline",
+        baseName: "custom_tagline",
+        type: "SettingResponse"
+      },
+      {
+        name: "dateFormat",
+        baseName: "date_format",
+        type: "SettingResponse"
+      },
+      {
+        name: "isSignatureRemindersEnabled",
+        baseName: "is_signature_reminders_enabled",
+        type: "SettingResponse"
+      },
+      {
+        name: "requestEmailFrom",
+        baseName: "request_email_from",
+        type: "SettingResponse"
+      },
+      {
+        name: "requestEmailSignature",
+        baseName: "request_email_signature",
+        type: "SettingResponse"
+      },
+      {
+        name: "requiredSignatureTypes",
+        baseName: "required_signature_types",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldEnableTamperProof",
+        baseName: "should_enable_tamper_proof",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldIncludeDistinctPdfs",
+        baseName: "should_include_distinct_pdfs",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldOfferSignerAccessCode",
+        baseName: "should_offer_signer_access_code",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldOfferSignerSmsAuthentication",
+        baseName: "should_offer_signer_sms_authentication",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldRemoveDocumentId",
+        baseName: "should_remove_document_id",
+        type: "SettingResponse"
+      },
+      {
+        name: "dataResidency",
+        baseName: "data_residency",
+        type: "SettingResponse"
+      },
+      {
+        name: "allowTeamDeleteDocumentForEveryone",
+        baseName: "allow_team_delete_document_for_everyone",
+        type: "SettingResponse"
+      },
+      {
+        name: "allowTeamDownloadCsv",
+        baseName: "allow_team_download_csv",
+        type: "SettingResponse"
+      },
+      {
+        name: "lockTeamTemplateCreation",
+        baseName: "lock_team_template_creation",
+        type: "SettingResponse"
+      },
+      {
+        name: "lockTeamTemplateGallery",
+        baseName: "lock_team_template_gallery",
+        type: "SettingResponse"
+      },
+      {
+        name: "selfSignMessage",
+        baseName: "self_sign_message",
+        type: "SettingResponse"
+      },
+      {
+        name: "selfSignTitle",
+        baseName: "self_sign_title",
+        type: "SettingResponse"
+      },
+      {
+        name: "signatureRequestMessage",
+        baseName: "signature_request_message",
+        type: "SettingResponse"
+      },
+      {
+        name: "signatureRequestTitle",
+        baseName: "signature_request_title",
+        type: "SettingResponse"
+      },
+      {
+        name: "multifactorAuthApp",
+        baseName: "multifactor_auth_app",
+        type: "SettingResponse"
+      },
+      {
+        name: "multifactorAuthSms",
+        baseName: "multifactor_auth_sms",
+        type: "SettingResponse"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _TeamSettingsResponseSettings.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "TeamSettingsResponseSettings");
+  }
+};
+
+// model/teamSettingsUpdateRequest.ts
+var TeamSettingsUpdateRequest = class _TeamSettingsUpdateRequest {
+  static {
+    this.discriminator = void 0;
+  }
+  static {
+    this.attributeTypeMap = [
+      {
+        name: "set",
+        baseName: "set",
+        type: "{ [key: string]: any; }"
+      },
+      {
+        name: "lock",
+        baseName: "lock",
+        type: "{ [key: string]: TeamSettingLock; }"
+      },
+      {
+        name: "unset",
+        baseName: "unset",
+        type: "Array<string>"
+      }
+    ];
+  }
+  static getAttributeTypeMap() {
+    return _TeamSettingsUpdateRequest.attributeTypeMap;
+  }
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "TeamSettingsUpdateRequest");
   }
 };
 
@@ -30067,6 +30656,8 @@ var WarningResponse = class _WarningResponse {
 
 // model/index.ts
 var enumsMap = {
+  DataResidency,
+  DateFormat,
   "EventCallbackRequestEvent.EventTypeEnum": EventCallbackRequestEvent.EventTypeEnum,
   FaxLineAreaCodeGetCountryEnum,
   FaxLineAreaCodeGetProvinceEnum,
@@ -30075,6 +30666,10 @@ var enumsMap = {
   "FaxResponseTransmission.StatusCodeEnum": FaxResponseTransmission.StatusCodeEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
+  RequiredSignatureType,
+  "SettingLockResponse.SourceEnum": SettingLockResponse.SourceEnum,
+  "SettingResponse.SourceEnum": SettingResponse.SourceEnum,
+  "SettingResponse.TypeEnum": SettingResponse.TypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
   SignatureRequestResponseDataTypeEnum,
   "SubFieldOptions.DateFormatEnum": SubFieldOptions.DateFormatEnum,
@@ -30096,6 +30691,7 @@ var enumsMap = {
   "SubWhiteLabelingOptions.LegalVersionEnum": SubWhiteLabelingOptions.LegalVersionEnum,
   "TeamAddMemberRequest.RoleEnum": TeamAddMemberRequest.RoleEnum,
   "TeamRemoveMemberRequest.NewRoleEnum": TeamRemoveMemberRequest.NewRoleEnum,
+  TeamSettingLock,
   "TemplateResponseDocumentFormFieldText.ValidationTypeEnum": TemplateResponseDocumentFormFieldText.ValidationTypeEnum,
   "UnclaimedDraftCreateEmbeddedRequest.TypeEnum": UnclaimedDraftCreateEmbeddedRequest.TypeEnum,
   "UnclaimedDraftCreateRequest.TypeEnum": UnclaimedDraftCreateRequest.TypeEnum
@@ -30108,6 +30704,9 @@ var typeMap = {
   AccountResponseQuotas,
   AccountResponseSettings,
   AccountResponseUsage,
+  AccountSettingsResponse,
+  AccountSettingsResponseSettings,
+  AccountSettingsUpdateRequest,
   AccountUpdateRequest,
   AccountVerifyRequest,
   AccountVerifyResponse,
@@ -30161,6 +30760,8 @@ var typeMap = {
   ReportCreateRequest,
   ReportCreateResponse,
   ReportResponse,
+  SettingLockResponse,
+  SettingResponse,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest,
@@ -30237,6 +30838,9 @@ var typeMap = {
   TeamParentResponse,
   TeamRemoveMemberRequest,
   TeamResponse,
+  TeamSettingsResponse,
+  TeamSettingsResponseSettings,
+  TeamSettingsUpdateRequest,
   TeamSubTeamsResponse,
   TeamUpdateRequest,
   TemplateAddUserRequest,
@@ -30567,6 +31171,236 @@ var AccountApi = class {
           }
         );
       });
+    });
+  }
+  /**
+   * account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * @summary Get account settings
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountSettingsGetExample.ts
+   * @param accountId Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * @param options
+   */
+  async accountSettingsGet(accountId, options = { headers: {} }) {
+    const localVarPath = this.basePath + "/account/settings";
+    let localVarQueryParameters = {};
+    let localVarHeaderParams = Object.assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams = {};
+    let localVarBodyParams = void 0;
+    if (accountId !== void 0) {
+      localVarQueryParameters["account_id"] = ObjectSerializer.serialize(
+        accountId,
+        "string"
+      );
+    }
+    Object.assign(localVarHeaderParams, options.headers);
+    let localVarUseFormData = false;
+    let localVarRequestOptions = {
+      method: "GET",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json"
+    };
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(
+      () => this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(
+        () => interceptor(localVarRequestOptions)
+      );
+    }
+    return interceptorPromise.then(() => {
+      return new Promise(
+        (resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse(
+                resolve,
+                reject,
+                response,
+                "AccountSettingsResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
+                "AccountSettingsResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
+   * account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * @summary Modify account settings
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/AccountSettingsUpdateExample.ts
+   * @param accountSettingsUpdateRequest
+   * @param accountId Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+   * @param options
+   */
+  async accountSettingsUpdate(accountSettingsUpdateRequest, accountId, options = { headers: {} }) {
+    accountSettingsUpdateRequest = deserializeIfNeeded(
+      accountSettingsUpdateRequest,
+      "AccountSettingsUpdateRequest"
+    );
+    const localVarPath = this.basePath + "/account/settings";
+    let localVarQueryParameters = {};
+    let localVarHeaderParams = Object.assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams = {};
+    let localVarBodyParams = void 0;
+    if (accountSettingsUpdateRequest === null || accountSettingsUpdateRequest === void 0) {
+      throw new Error(
+        "Required parameter accountSettingsUpdateRequest was null or undefined when calling accountSettingsUpdate."
+      );
+    }
+    if (accountId !== void 0) {
+      localVarQueryParameters["account_id"] = ObjectSerializer.serialize(
+        accountId,
+        "string"
+      );
+    }
+    Object.assign(localVarHeaderParams, options.headers);
+    let localVarUseFormData = false;
+    const result = generateFormData(
+      accountSettingsUpdateRequest,
+      AccountSettingsUpdateRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+    let data = {};
+    if (localVarUseFormData) {
+      const formData2 = toFormData3(result.data);
+      data = formData2;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData2.getHeaders()
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        accountSettingsUpdateRequest,
+        "AccountSettingsUpdateRequest"
+      );
+    }
+    let localVarRequestOptions = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data
+    };
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(
+      () => this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(
+        () => interceptor(localVarRequestOptions)
+      );
+    }
+    return interceptorPromise.then(() => {
+      return new Promise(
+        (resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse(
+                resolve,
+                reject,
+                response,
+                "AccountSettingsResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
+                "AccountSettingsResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        }
+      );
     });
   }
   /**
@@ -37590,6 +38424,236 @@ var TeamApi = class {
     });
   }
   /**
+   * team_id is an optional query parameter and defaults to the authenticated account\'s team. An organization admin can specify a subteam.
+   * @summary Get team settings
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamSettingsGetExample.ts
+   * @param teamId Optional team ID. Defaults to the authenticated account\&#39;s team. An organization admin can specify a subteam.
+   * @param options
+   */
+  async teamSettingsGet(teamId, options = { headers: {} }) {
+    const localVarPath = this.basePath + "/team/settings";
+    let localVarQueryParameters = {};
+    let localVarHeaderParams = Object.assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams = {};
+    let localVarBodyParams = void 0;
+    if (teamId !== void 0) {
+      localVarQueryParameters["team_id"] = ObjectSerializer.serialize(
+        teamId,
+        "string"
+      );
+    }
+    Object.assign(localVarHeaderParams, options.headers);
+    let localVarUseFormData = false;
+    let localVarRequestOptions = {
+      method: "GET",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json"
+    };
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(
+      () => this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(
+        () => interceptor(localVarRequestOptions)
+      );
+    }
+    return interceptorPromise.then(() => {
+      return new Promise(
+        (resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse11(
+                resolve,
+                reject,
+                response,
+                "TeamSettingsResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse11(
+                reject,
+                error.response,
+                200,
+                "TeamSettingsResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse11(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
+   * team_id is an optional query parameter and defaults to the authenticated account\'s team. An organization admin can specify a subteam.
+   * @summary Modify team settings
+   * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamSettingsUpdateExample.ts
+   * @param teamSettingsUpdateRequest
+   * @param teamId Optional team ID. Defaults to the authenticated account\&#39;s team. An organization admin can specify a subteam.
+   * @param options
+   */
+  async teamSettingsUpdate(teamSettingsUpdateRequest, teamId, options = { headers: {} }) {
+    teamSettingsUpdateRequest = deserializeIfNeeded10(
+      teamSettingsUpdateRequest,
+      "TeamSettingsUpdateRequest"
+    );
+    const localVarPath = this.basePath + "/team/settings";
+    let localVarQueryParameters = {};
+    let localVarHeaderParams = Object.assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams = {};
+    let localVarBodyParams = void 0;
+    if (teamSettingsUpdateRequest === null || teamSettingsUpdateRequest === void 0) {
+      throw new Error(
+        "Required parameter teamSettingsUpdateRequest was null or undefined when calling teamSettingsUpdate."
+      );
+    }
+    if (teamId !== void 0) {
+      localVarQueryParameters["team_id"] = ObjectSerializer.serialize(
+        teamId,
+        "string"
+      );
+    }
+    Object.assign(localVarHeaderParams, options.headers);
+    let localVarUseFormData = false;
+    const result = generateFormData(
+      teamSettingsUpdateRequest,
+      TeamSettingsUpdateRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+    let data = {};
+    if (localVarUseFormData) {
+      const formData2 = toFormData3(result.data);
+      data = formData2;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData2.getHeaders()
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        teamSettingsUpdateRequest,
+        "TeamSettingsUpdateRequest"
+      );
+    }
+    let localVarRequestOptions = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data
+    };
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(
+      () => this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(
+        () => interceptor(localVarRequestOptions)
+      );
+    }
+    return interceptorPromise.then(() => {
+      return new Promise(
+        (resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse11(
+                resolve,
+                reject,
+                response,
+                "TeamSettingsResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse11(
+                reject,
+                error.response,
+                200,
+                "TeamSettingsResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse11(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
    * Provides a paginated list of sub teams that belong to a given team.
    * @summary List Sub Teams
    * Example: https://github.com/hellosign/dropbox-sign-node/blob/main/examples/TeamSubTeamsExample.ts
@@ -39902,6 +40966,9 @@ var APIS = [
   AccountResponseQuotas,
   AccountResponseSettings,
   AccountResponseUsage,
+  AccountSettingsResponse,
+  AccountSettingsResponseSettings,
+  AccountSettingsUpdateRequest,
   AccountUpdateRequest,
   AccountVerifyRequest,
   AccountVerifyResponse,
@@ -39923,6 +40990,8 @@ var APIS = [
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
+  DataResidency,
+  DateFormat,
   DocumentApi,
   DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse,
@@ -39973,6 +41042,9 @@ var APIS = [
   ReportCreateRequest,
   ReportCreateResponse,
   ReportResponse,
+  RequiredSignatureType,
+  SettingLockResponse,
+  SettingResponse,
   SignatureRequestApi,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest,
@@ -40055,6 +41127,10 @@ var APIS = [
   TeamParentResponse,
   TeamRemoveMemberRequest,
   TeamResponse,
+  TeamSettingLock,
+  TeamSettingsResponse,
+  TeamSettingsResponseSettings,
+  TeamSettingsUpdateRequest,
   TeamSubTeamsResponse,
   TeamUpdateRequest,
   TemplateAddUserRequest,

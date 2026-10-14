@@ -231,6 +231,215 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
+    # Get account settings
+    # account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountSettingsGetExample.rb
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    # @return [AccountSettingsResponse]
+    def account_settings_get(opts = {})
+      data, _status_code, _headers = account_settings_get_with_http_info(opts)
+      data
+    end
+
+    # Get account settings
+    # account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountSettingsGetExample.rb
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    # @return [Array<(AccountSettingsResponse, Integer, Hash)>] AccountSettingsResponse data, response status code and response headers
+    def account_settings_get_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountApi.account_settings_get ...'
+      end
+      # resource path
+      local_var_path = '/account/settings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'account_id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"AccountApi.account_settings_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::AccountSettingsResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code && e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        raise e
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountApi#account_settings_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Modify account settings
+    # account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountSettingsUpdateExample.rb
+    # @param account_settings_update_request [AccountSettingsUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    # @return [AccountSettingsResponse]
+    def account_settings_update(account_settings_update_request, opts = {})
+      data, _status_code, _headers = account_settings_update_with_http_info(account_settings_update_request, opts)
+      data
+    end
+
+    # Modify account settings
+    # account_id is an optional query parameter and defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountSettingsUpdateExample.rb
+    # @param account_settings_update_request [AccountSettingsUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer.
+    # @return [Array<(AccountSettingsResponse, Integer, Hash)>] AccountSettingsResponse data, response status code and response headers
+    def account_settings_update_with_http_info(account_settings_update_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AccountApi.account_settings_update ...'
+      end
+      # verify the required parameter 'account_settings_update_request' is set
+      if @api_client.config.client_side_validation && account_settings_update_request.nil?
+        fail ArgumentError, "Missing the required parameter 'account_settings_update_request' when calling AccountApi.account_settings_update"
+      end
+      # resource path
+      local_var_path = '/account/settings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'account_id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+      result = @api_client.generate_form_data(
+        account_settings_update_request,
+        Dropbox::Sign::AccountSettingsUpdateRequest.openapi_types
+      )
+
+      # form parameters
+      if result[:has_file]
+        form_params = opts[:form_params] || result[:params]
+        header_params['Content-Type'] = 'multipart/form-data'
+      else
+        # http body (model)
+        post_body = opts[:debug_body] || result[:params]
+      end
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"AccountApi.account_settings_update",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::AccountSettingsResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code && e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        raise e
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AccountApi#account_settings_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update Account
     # Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/AccountUpdateExample.rb

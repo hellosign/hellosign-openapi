@@ -36,6 +36,8 @@ import com.dropbox.sign.ApiException;
  * Contains information about your team and its members
  */
 @JsonPropertyOrder({
+  TeamResponse.JSON_PROPERTY_TEAM_ID,
+  TeamResponse.JSON_PROPERTY_PARENT_TEAM_ID,
   TeamResponse.JSON_PROPERTY_NAME,
   TeamResponse.JSON_PROPERTY_ACCOUNTS,
   TeamResponse.JSON_PROPERTY_INVITED_ACCOUNTS,
@@ -44,6 +46,14 @@ import com.dropbox.sign.ApiException;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamResponse {
+  public static final String JSON_PROPERTY_TEAM_ID = "team_id";
+  @jakarta.annotation.Nullable
+  private String teamId;
+
+  public static final String JSON_PROPERTY_PARENT_TEAM_ID = "parent_team_id";
+  @jakarta.annotation.Nullable
+  private String parentTeamId;
+
   public static final String JSON_PROPERTY_NAME = "name";
   @jakarta.annotation.Nullable
   private String name;
@@ -77,6 +87,56 @@ public class TeamResponse {
       TeamResponse.class
     );
   }
+
+  public TeamResponse teamId(@jakarta.annotation.Nullable String teamId) {
+    this.teamId = teamId;
+    return this;
+  }
+
+  /**
+   * The id of a team
+   * @return teamId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTeamId() {
+    return teamId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTeamId(@jakarta.annotation.Nullable String teamId) {
+    this.teamId = teamId;
+  }
+
+
+  public TeamResponse parentTeamId(@jakarta.annotation.Nullable String parentTeamId) {
+    this.parentTeamId = parentTeamId;
+    return this;
+  }
+
+  /**
+   * _t__Team::PARENT_TEAM_ID
+   * @return parentTeamId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARENT_TEAM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getParentTeamId() {
+    return parentTeamId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PARENT_TEAM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setParentTeamId(@jakarta.annotation.Nullable String parentTeamId) {
+    this.parentTeamId = parentTeamId;
+  }
+
 
   public TeamResponse name(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -214,7 +274,9 @@ public class TeamResponse {
       return false;
     }
     TeamResponse teamResponse = (TeamResponse) o;
-    return Objects.equals(this.name, teamResponse.name) &&
+    return Objects.equals(this.teamId, teamResponse.teamId) &&
+        Objects.equals(this.parentTeamId, teamResponse.parentTeamId) &&
+        Objects.equals(this.name, teamResponse.name) &&
         Objects.equals(this.accounts, teamResponse.accounts) &&
         Objects.equals(this.invitedAccounts, teamResponse.invitedAccounts) &&
         Objects.equals(this.invitedEmails, teamResponse.invitedEmails);
@@ -222,13 +284,15 @@ public class TeamResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, accounts, invitedAccounts, invitedEmails);
+    return Objects.hash(teamId, parentTeamId, name, accounts, invitedAccounts, invitedEmails);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TeamResponse {\n");
+    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+    sb.append("    parentTeamId: ").append(toIndentedString(parentTeamId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
     sb.append("    invitedAccounts: ").append(toIndentedString(invitedAccounts)).append("\n");
@@ -241,6 +305,44 @@ public class TeamResponse {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
     try {
+    if (teamId != null) {
+        if (isFileTypeOrListOfFiles(teamId)) {
+            fileTypeFound = true;
+        }
+
+        if (teamId.getClass().equals(java.io.File.class) ||
+            teamId.getClass().equals(Integer.class) ||
+            teamId.getClass().equals(String.class) ||
+            teamId.getClass().isEnum()) {
+            map.put("team_id", teamId);
+        } else if (isListOfFile(teamId)) {
+            for(int i = 0; i< getListSize(teamId); i++) {
+                map.put("team_id[" + i + "]", getFromList(teamId, i));
+            }
+        }
+        else {
+            map.put("team_id", JSON.getDefault().getMapper().writeValueAsString(teamId));
+        }
+    }
+    if (parentTeamId != null) {
+        if (isFileTypeOrListOfFiles(parentTeamId)) {
+            fileTypeFound = true;
+        }
+
+        if (parentTeamId.getClass().equals(java.io.File.class) ||
+            parentTeamId.getClass().equals(Integer.class) ||
+            parentTeamId.getClass().equals(String.class) ||
+            parentTeamId.getClass().isEnum()) {
+            map.put("parent_team_id", parentTeamId);
+        } else if (isListOfFile(parentTeamId)) {
+            for(int i = 0; i< getListSize(parentTeamId); i++) {
+                map.put("parent_team_id[" + i + "]", getFromList(parentTeamId, i));
+            }
+        }
+        else {
+            map.put("parent_team_id", JSON.getDefault().getMapper().writeValueAsString(parentTeamId));
+        }
+    }
     if (name != null) {
         if (isFileTypeOrListOfFiles(name)) {
             fileTypeFound = true;
