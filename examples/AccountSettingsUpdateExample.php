@@ -11,12 +11,14 @@ $config->setUsername('YOUR_API_KEY');
 // $config->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $account_settings_update_request = (new Dropbox\Sign\Model\AccountSettingsUpdateRequest())
-    ->setDateFormat(Dropbox\Sign\Model\DateFormat::MM_DD_YYYY)
-    ->setRequiredSignatureTypes([
-        Dropbox\Sign\Model\RequiredSignatureType::DRAW,
-        Dropbox\Sign\Model\RequiredSignatureType::TYPE,
+    ->setSet([
+        'date_format' => Dropbox\Sign\Model\DateFormat::MM_DD_YYYY,
+        'required_signature_types' => [
+            Dropbox\Sign\Model\RequiredSignatureType::DRAW,
+            Dropbox\Sign\Model\RequiredSignatureType::TYPE,
+        ],
+        'should_enable_tamper_proof' => false,
     ])
-    ->setShouldEnableTamperProof(false)
     ->setUnset(['company']);
 
 try {

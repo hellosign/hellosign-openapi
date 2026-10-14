@@ -783,10 +783,10 @@ import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.TeamApi;
 import com.dropbox.sign.auth.HttpBasicAuth;
 import com.dropbox.sign.model.DataResidency;
-import com.dropbox.sign.model.DataResidencySettingUpdate;
-import com.dropbox.sign.model.StringSettingUpdate;
 import com.dropbox.sign.model.TeamSettingLock;
 import com.dropbox.sign.model.TeamSettingsUpdateRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TeamSettingsUpdateExample
 {
@@ -796,11 +796,15 @@ public class TeamSettingsUpdateExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+        Map<String, Object> set = new HashMap<>();
+        set.put("data_residency", DataResidency.EU);
+        set.put("company", "Northwind");
+
         var teamSettingsUpdateRequest = new TeamSettingsUpdateRequest()
-            .dataResidency(new DataResidencySettingUpdate().value(DataResidency.EU))
-            .company(new StringSettingUpdate()
-                .value("Northwind")
-                .lockMode(TeamSettingLock.ORGANIZATION_ADMINS));
+            .set(set)
+            .lock(Map.of(
+                "company", TeamSettingLock.ORGANIZATION_ADMINS
+            ));
 
         try
         {

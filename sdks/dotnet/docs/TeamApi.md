@@ -901,6 +901,7 @@ team_id is an optional query parameter and defaults to the authenticated account
 ### Example
 ```csharp
 using System;
+using System.Collections.Generic;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -917,11 +918,15 @@ public class TeamSettingsUpdateExample
         // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var teamSettingsUpdateRequest = new TeamSettingsUpdateRequest(
-            dataResidency: new DataResidencySettingUpdate(value: DataResidency.Eu),
-            company: new StringSettingUpdate(
-                value: "Northwind",
-                lockMode: TeamSettingLock.OrganizationAdmins
-            )
+            set: new Dictionary<string, Object>()
+            {
+                { "data_residency", DataResidency.Eu },
+                { "company", "Northwind" },
+            },
+            lock: new Dictionary<string, TeamSettingLock>()
+            {
+                { "company", TeamSettingLock.OrganizationAdmins },
+            }
         );
 
         try

@@ -1,4 +1,4 @@
-# # DataResidency
+# DataResidency
 
 Storage region for team documents.
 

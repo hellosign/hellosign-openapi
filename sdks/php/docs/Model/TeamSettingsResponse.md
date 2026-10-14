@@ -1,4 +1,4 @@
-# # TeamSettingsResponse
+# TeamSettingsResponse
 
 
 

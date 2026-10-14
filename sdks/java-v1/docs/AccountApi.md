@@ -283,7 +283,9 @@ import com.dropbox.sign.auth.HttpBasicAuth;
 import com.dropbox.sign.model.AccountSettingsUpdateRequest;
 import com.dropbox.sign.model.DateFormat;
 import com.dropbox.sign.model.RequiredSignatureType;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AccountSettingsUpdateExample
 {
@@ -293,13 +295,16 @@ public class AccountSettingsUpdateExample
         ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
         // ((HttpBearerAuth) config.getAuthentication("oauth2")).setBearerToken("YOUR_ACCESS_TOKEN");
 
+        Map<String, Object> set = new HashMap<>();
+        set.put("date_format", DateFormat.MM_DD_YYYY);
+        set.put("required_signature_types", List.of(
+            RequiredSignatureType.DRAW,
+            RequiredSignatureType.TYPE
+        ));
+        set.put("should_enable_tamper_proof", false);
+
         var accountSettingsUpdateRequest = new AccountSettingsUpdateRequest()
-            .dateFormat(DateFormat.MM_DD_YYYY)
-            .requiredSignatureTypes(List.of(
-                RequiredSignatureType.DRAW,
-                RequiredSignatureType.TYPE
-            ))
-            .shouldEnableTamperProof(false)
+            .set(set)
             .unset(List.of("company"));
 
         try

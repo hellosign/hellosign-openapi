@@ -21,16 +21,13 @@ import { ApiAppResponseOptions } from "./apiAppResponseOptions";
 import { ApiAppResponseOwnerAccount } from "./apiAppResponseOwnerAccount";
 import { ApiAppResponseWhiteLabelingOptions } from "./apiAppResponseWhiteLabelingOptions";
 import { ApiAppUpdateRequest } from "./apiAppUpdateRequest";
-import { BooleanSettingUpdate } from "./booleanSettingUpdate";
 import { BulkSendJobGetResponse } from "./bulkSendJobGetResponse";
 import { BulkSendJobGetResponseSignatureRequests } from "./bulkSendJobGetResponseSignatureRequests";
 import { BulkSendJobListResponse } from "./bulkSendJobListResponse";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { BulkSendJobSendResponse } from "./bulkSendJobSendResponse";
 import { DataResidency } from "./dataResidency";
-import { DataResidencySettingUpdate } from "./dataResidencySettingUpdate";
 import { DateFormat } from "./dateFormat";
-import { DateFormatSettingUpdate } from "./dateFormatSettingUpdate";
 import { DocumentFieldDetectionRequest } from "./documentFieldDetectionRequest";
 import { DocumentFieldDetectionResponse } from "./documentFieldDetectionResponse";
 import { DocumentFieldDetectionResponseDetectionResult } from "./documentFieldDetectionResponseDetectionResult";
@@ -84,7 +81,6 @@ import { ReportCreateRequest } from "./reportCreateRequest";
 import { ReportCreateResponse } from "./reportCreateResponse";
 import { ReportResponse } from "./reportResponse";
 import { RequiredSignatureType } from "./requiredSignatureType";
-import { RequiredSignatureTypesSettingUpdate } from "./requiredSignatureTypesSettingUpdate";
 import { SettingLockResponse } from "./settingLockResponse";
 import { SettingResponse } from "./settingResponse";
 import { SignatureRequestBulkCreateEmbeddedWithTemplateRequest } from "./signatureRequestBulkCreateEmbeddedWithTemplateRequest";
@@ -119,7 +115,6 @@ import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSi
 import { SignatureRequestSendRequest } from "./signatureRequestSendRequest";
 import { SignatureRequestSendWithTemplateRequest } from "./signatureRequestSendWithTemplateRequest";
 import { SignatureRequestUpdateRequest } from "./signatureRequestUpdateRequest";
-import { StringSettingUpdate } from "./stringSettingUpdate";
 import { SubAttachment } from "./subAttachment";
 import { SubBulkSignerList } from "./subBulkSignerList";
 import { SubBulkSignerListCustomField } from "./subBulkSignerListCustomField";
@@ -226,8 +221,6 @@ import { UnclaimedDraftResponse } from "./unclaimedDraftResponse";
 import { WarningResponse } from "./warningResponse";
 
 export let enumsMap: { [index: string]: any } = {
-  "AccountSettingsUpdateRequest.UnsetEnum":
-    AccountSettingsUpdateRequest.UnsetEnum,
   DataResidency: DataResidency,
   DateFormat: DateFormat,
   "EventCallbackRequestEvent.EventTypeEnum":
@@ -276,7 +269,6 @@ export let enumsMap: { [index: string]: any } = {
   "TeamAddMemberRequest.RoleEnum": TeamAddMemberRequest.RoleEnum,
   "TeamRemoveMemberRequest.NewRoleEnum": TeamRemoveMemberRequest.NewRoleEnum,
   TeamSettingLock: TeamSettingLock,
-  "TeamSettingsUpdateRequest.UnsetEnum": TeamSettingsUpdateRequest.UnsetEnum,
   "TemplateResponseDocumentFormFieldText.ValidationTypeEnum":
     TemplateResponseDocumentFormFieldText.ValidationTypeEnum,
   "UnclaimedDraftCreateEmbeddedRequest.TypeEnum":
@@ -308,15 +300,12 @@ export let typeMap: { [index: string]: any } = {
   ApiAppResponseOwnerAccount: ApiAppResponseOwnerAccount,
   ApiAppResponseWhiteLabelingOptions: ApiAppResponseWhiteLabelingOptions,
   ApiAppUpdateRequest: ApiAppUpdateRequest,
-  BooleanSettingUpdate: BooleanSettingUpdate,
   BulkSendJobGetResponse: BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests:
     BulkSendJobGetResponseSignatureRequests,
   BulkSendJobListResponse: BulkSendJobListResponse,
   BulkSendJobResponse: BulkSendJobResponse,
   BulkSendJobSendResponse: BulkSendJobSendResponse,
-  DataResidencySettingUpdate: DataResidencySettingUpdate,
-  DateFormatSettingUpdate: DateFormatSettingUpdate,
   DocumentFieldDetectionRequest: DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse: DocumentFieldDetectionResponse,
   DocumentFieldDetectionResponseDetectionResult:
@@ -353,7 +342,6 @@ export let typeMap: { [index: string]: any } = {
   ReportCreateRequest: ReportCreateRequest,
   ReportCreateResponse: ReportCreateResponse,
   ReportResponse: ReportResponse,
-  RequiredSignatureTypesSettingUpdate: RequiredSignatureTypesSettingUpdate,
   SettingLockResponse: SettingLockResponse,
   SettingResponse: SettingResponse,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest:
@@ -403,7 +391,6 @@ export let typeMap: { [index: string]: any } = {
   SignatureRequestSendWithTemplateRequest:
     SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest: SignatureRequestUpdateRequest,
-  StringSettingUpdate: StringSettingUpdate,
   SubAttachment: SubAttachment,
   SubBulkSignerList: SubBulkSignerList,
   SubBulkSignerListCustomField: SubBulkSignerListCustomField,
@@ -556,16 +543,13 @@ export {
   ApiKeyAuth,
   AttributeTypeMap,
   Authentication,
-  BooleanSettingUpdate,
   BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests,
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
   DataResidency,
-  DataResidencySettingUpdate,
   DateFormat,
-  DateFormatSettingUpdate,
   DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse,
   DocumentFieldDetectionResponseDetectionResult,
@@ -613,7 +597,6 @@ export {
   RequestDetailedFile,
   RequestFile,
   RequiredSignatureType,
-  RequiredSignatureTypesSettingUpdate,
   SettingLockResponse,
   SettingResponse,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
@@ -648,7 +631,6 @@ export {
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest,
-  StringSettingUpdate,
   SubAttachment,
   SubBulkSignerList,
   SubBulkSignerListCustomField,

@@ -1952,7 +1952,9 @@
 "TeamSettings::MULTIFACTOR_AUTH_APP": Whether authenticator-app multifactor authentication is enabled for the team.
 "TeamSettings::MULTIFACTOR_AUTH_SMS": Whether SMS multifactor authentication is enabled for the team.
 
+"SettingsUpdateRequest::SET": Values to store, keyed by setting name. A name in `set` cannot also appear in `unset`.
 "SettingsUpdateRequest::UNSET": Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
+"SettingsUpdateRequest::LOCK": Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.
 "AccountSettingsResponse::SETTINGS": Account settings keyed by setting name.
 "TeamSettingsResponse::SETTINGS": Team settings keyed by setting name.
 "BooleanSettingUpdate::DESCRIPTION": Updates a boolean team setting. Provide `value`, `lock_mode`, or both.

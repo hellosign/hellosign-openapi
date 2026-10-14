@@ -1,4 +1,4 @@
-# # DateFormat
+# DateFormat
 
 Date format used to display dates.
 

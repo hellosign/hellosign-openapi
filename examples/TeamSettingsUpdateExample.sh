@@ -2,11 +2,11 @@ curl -X POST 'https://api.hellosign.com/v3/team/settings' \
   -u 'YOUR_API_KEY:' \
   -H 'Content-Type: application/json' \
   -d '{
-    "data_residency": {
-      "value": "eu"
+    "set": {
+      "data_residency": "eu",
+      "company": "Northwind"
     },
-    "company": {
-      "value": "Northwind",
-      "lock_mode": "organization_admins"
+    "lock": {
+      "company": "organization_admins"
     }
   }'

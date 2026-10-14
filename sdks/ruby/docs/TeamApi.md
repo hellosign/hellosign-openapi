@@ -693,11 +693,13 @@ Dropbox::Sign.configure do |config|
 end
 
 team_settings_update_request = Dropbox::Sign::TeamSettingsUpdateRequest.new
-team_settings_update_request.data_residency = Dropbox::Sign::DataResidencySettingUpdate.new
-team_settings_update_request.data_residency.value = Dropbox::Sign::DataResidency::EU
-team_settings_update_request.company = Dropbox::Sign::StringSettingUpdate.new
-team_settings_update_request.company.value = "Northwind"
-team_settings_update_request.company.lock_mode = Dropbox::Sign::TeamSettingLock::ORGANIZATION_ADMINS
+team_settings_update_request.set = {
+    "data_residency" => Dropbox::Sign::DataResidency::EU,
+    "company" => "Northwind",
+}
+team_settings_update_request.lock = {
+    "company" => Dropbox::Sign::TeamSettingLock::ORGANIZATION_ADMINS,
+}
 
 begin
   response = Dropbox::Sign::TeamApi.new.team_settings_update(

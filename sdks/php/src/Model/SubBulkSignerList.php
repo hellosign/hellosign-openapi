@@ -391,7 +391,6 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
         if (is_null($metadata)) {
             throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
-
         if (count($metadata) > 10) {
             throw new InvalidArgumentException('invalid value for $metadata when calling SubBulkSignerList., number of items must be less than or equal to 10.');
         }

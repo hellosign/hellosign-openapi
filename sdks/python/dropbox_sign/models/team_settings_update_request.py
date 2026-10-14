@@ -18,15 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.boolean_setting_update import BooleanSettingUpdate
-from dropbox_sign.models.data_residency_setting_update import DataResidencySettingUpdate
-from dropbox_sign.models.date_format_setting_update import DateFormatSettingUpdate
-from dropbox_sign.models.required_signature_types_setting_update import (
-    RequiredSignatureTypesSettingUpdate,
-)
-from dropbox_sign.models.string_setting_update import StringSettingUpdate
+from dropbox_sign.models.team_setting_lock import TeamSettingLock
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
@@ -39,173 +33,19 @@ class TeamSettingsUpdateRequest(BaseModel):
     TeamSettingsUpdateRequest
     """  # noqa: E501
 
-    company: Optional[StringSettingUpdate] = Field(
-        default=None, description="Company name associated with this account or team."
-    )
-    custom_signing_redirect_enabled: Optional[BooleanSettingUpdate] = Field(
+    set: Optional[Dict[str, Any]] = Field(
         default=None,
-        description="Whether signers are redirected to a custom URL after completing a signature request.",
-    )
-    custom_signing_redirect_url: Optional[StringSettingUpdate] = Field(
-        default=None,
-        description="URL where signers are redirected after completing a signature request when custom redirects are enabled.",
-    )
-    custom_tagline: Optional[StringSettingUpdate] = Field(
-        default=None,
-        description="Custom tagline displayed with the account or team branding.",
-    )
-    date_format: Optional[DateFormatSettingUpdate] = Field(
-        default=None,
-        description="Date format used to display dates. List the setting in `unset` to inherit the default.",
-    )
-    is_signature_reminders_enabled: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether automatic reminder emails are enabled for incomplete signature requests.",
-    )
-    request_email_from: Optional[StringSettingUpdate] = Field(
-        default=None, description="Sender name shown on signature request emails."
-    )
-    request_email_signature: Optional[StringSettingUpdate] = Field(
-        default=None, description="Signature appended to signature request emails."
-    )
-    required_signature_types: Optional[RequiredSignatureTypesSettingUpdate] = Field(
-        default=None, description="Signature creation methods signers may use."
-    )
-    should_enable_tamper_proof: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether completed documents include a digital tamper-proof seal.",
-    )
-    should_include_distinct_pdfs: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether completed documents remain as separate PDF files instead of being merged into one PDF.",
-    )
-    should_offer_signer_access_code: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether senders can require an access code to verify a signer.",
-    )
-    should_offer_signer_sms_authentication: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether senders can require SMS authentication to verify a signer.",
-    )
-    should_remove_document_id: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether the Dropbox Sign document ID is hidden on sent documents.",
-    )
-    data_residency: Optional[DataResidencySettingUpdate] = Field(
-        default=None, description="Storage region for team documents."
-    )
-    allow_team_delete_document_for_everyone: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether team members can delete a document for all participants.",
-    )
-    allow_team_download_csv: Optional[BooleanSettingUpdate] = Field(
-        default=None, description="Whether team members can download CSV files."
-    )
-    lock_team_template_creation: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether team members are prevented from creating templates.",
-    )
-    lock_team_template_gallery: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether team members are prevented from using the template gallery.",
-    )
-    self_sign_message: Optional[StringSettingUpdate] = Field(
-        default=None,
-        description="Default message enforced for team members when they create self-signed documents.",
-    )
-    self_sign_title: Optional[StringSettingUpdate] = Field(
-        default=None,
-        description="Default title enforced for team members when they create self-signed documents.",
-    )
-    signature_request_message: Optional[StringSettingUpdate] = Field(
-        default=None,
-        description="Default message enforced for team members when they create signature requests.",
-    )
-    signature_request_title: Optional[StringSettingUpdate] = Field(
-        default=None,
-        description="Default title enforced for team members when they create signature requests.",
-    )
-    multifactor_auth_app: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether authenticator-app multifactor authentication is enabled for the team.",
-    )
-    multifactor_auth_sms: Optional[BooleanSettingUpdate] = Field(
-        default=None,
-        description="Whether SMS multifactor authentication is enabled for the team.",
+        description="Values to store, keyed by setting name. A name in `set` cannot also appear in `unset`.",
     )
     unset: Optional[List[StrictStr]] = Field(
         default=None,
         description="Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.",
     )
-    __properties: ClassVar[List[str]] = [
-        "company",
-        "custom_signing_redirect_enabled",
-        "custom_signing_redirect_url",
-        "custom_tagline",
-        "date_format",
-        "is_signature_reminders_enabled",
-        "request_email_from",
-        "request_email_signature",
-        "required_signature_types",
-        "should_enable_tamper_proof",
-        "should_include_distinct_pdfs",
-        "should_offer_signer_access_code",
-        "should_offer_signer_sms_authentication",
-        "should_remove_document_id",
-        "data_residency",
-        "allow_team_delete_document_for_everyone",
-        "allow_team_download_csv",
-        "lock_team_template_creation",
-        "lock_team_template_gallery",
-        "self_sign_message",
-        "self_sign_title",
-        "signature_request_message",
-        "signature_request_title",
-        "multifactor_auth_app",
-        "multifactor_auth_sms",
-        "unset",
-    ]
-
-    @field_validator("unset")
-    def unset_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        for i in value:
-            if i not in set(
-                [
-                    "company",
-                    "custom_signing_redirect_enabled",
-                    "custom_signing_redirect_url",
-                    "custom_tagline",
-                    "date_format",
-                    "is_signature_reminders_enabled",
-                    "request_email_from",
-                    "request_email_signature",
-                    "required_signature_types",
-                    "should_enable_tamper_proof",
-                    "should_include_distinct_pdfs",
-                    "should_offer_signer_access_code",
-                    "should_offer_signer_sms_authentication",
-                    "should_remove_document_id",
-                    "data_residency",
-                    "allow_team_delete_document_for_everyone",
-                    "allow_team_download_csv",
-                    "lock_team_template_creation",
-                    "lock_team_template_gallery",
-                    "self_sign_message",
-                    "self_sign_title",
-                    "signature_request_message",
-                    "signature_request_title",
-                    "multifactor_auth_app",
-                    "multifactor_auth_sms",
-                ]
-            ):
-                raise ValueError(
-                    "each list item must be one of ('company', 'custom_signing_redirect_enabled', 'custom_signing_redirect_url', 'custom_tagline', 'date_format', 'is_signature_reminders_enabled', 'request_email_from', 'request_email_signature', 'required_signature_types', 'should_enable_tamper_proof', 'should_include_distinct_pdfs', 'should_offer_signer_access_code', 'should_offer_signer_sms_authentication', 'should_remove_document_id', 'data_residency', 'allow_team_delete_document_for_everyone', 'allow_team_download_csv', 'lock_team_template_creation', 'lock_team_template_gallery', 'self_sign_message', 'self_sign_title', 'signature_request_message', 'signature_request_title', 'multifactor_auth_app', 'multifactor_auth_sms')"
-                )
-        return value
+    lock: Optional[Dict[str, TeamSettingLock]] = Field(
+        default=None,
+        description="Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.",
+    )
+    __properties: ClassVar[List[str]] = ["set", "unset", "lock"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -257,105 +97,6 @@ class TeamSettingsUpdateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of company
-        if self.company:
-            _dict["company"] = self.company.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of custom_signing_redirect_enabled
-        if self.custom_signing_redirect_enabled:
-            _dict["custom_signing_redirect_enabled"] = (
-                self.custom_signing_redirect_enabled.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of custom_signing_redirect_url
-        if self.custom_signing_redirect_url:
-            _dict["custom_signing_redirect_url"] = (
-                self.custom_signing_redirect_url.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of custom_tagline
-        if self.custom_tagline:
-            _dict["custom_tagline"] = self.custom_tagline.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of date_format
-        if self.date_format:
-            _dict["date_format"] = self.date_format.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_signature_reminders_enabled
-        if self.is_signature_reminders_enabled:
-            _dict["is_signature_reminders_enabled"] = (
-                self.is_signature_reminders_enabled.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of request_email_from
-        if self.request_email_from:
-            _dict["request_email_from"] = self.request_email_from.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of request_email_signature
-        if self.request_email_signature:
-            _dict["request_email_signature"] = self.request_email_signature.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of required_signature_types
-        if self.required_signature_types:
-            _dict["required_signature_types"] = self.required_signature_types.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of should_enable_tamper_proof
-        if self.should_enable_tamper_proof:
-            _dict["should_enable_tamper_proof"] = (
-                self.should_enable_tamper_proof.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of should_include_distinct_pdfs
-        if self.should_include_distinct_pdfs:
-            _dict["should_include_distinct_pdfs"] = (
-                self.should_include_distinct_pdfs.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of should_offer_signer_access_code
-        if self.should_offer_signer_access_code:
-            _dict["should_offer_signer_access_code"] = (
-                self.should_offer_signer_access_code.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of should_offer_signer_sms_authentication
-        if self.should_offer_signer_sms_authentication:
-            _dict["should_offer_signer_sms_authentication"] = (
-                self.should_offer_signer_sms_authentication.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of should_remove_document_id
-        if self.should_remove_document_id:
-            _dict["should_remove_document_id"] = (
-                self.should_remove_document_id.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of data_residency
-        if self.data_residency:
-            _dict["data_residency"] = self.data_residency.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of allow_team_delete_document_for_everyone
-        if self.allow_team_delete_document_for_everyone:
-            _dict["allow_team_delete_document_for_everyone"] = (
-                self.allow_team_delete_document_for_everyone.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of allow_team_download_csv
-        if self.allow_team_download_csv:
-            _dict["allow_team_download_csv"] = self.allow_team_download_csv.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of lock_team_template_creation
-        if self.lock_team_template_creation:
-            _dict["lock_team_template_creation"] = (
-                self.lock_team_template_creation.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of lock_team_template_gallery
-        if self.lock_team_template_gallery:
-            _dict["lock_team_template_gallery"] = (
-                self.lock_team_template_gallery.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of self_sign_message
-        if self.self_sign_message:
-            _dict["self_sign_message"] = self.self_sign_message.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of self_sign_title
-        if self.self_sign_title:
-            _dict["self_sign_title"] = self.self_sign_title.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of signature_request_message
-        if self.signature_request_message:
-            _dict["signature_request_message"] = (
-                self.signature_request_message.to_dict()
-            )
-        # override the default output from pydantic by calling `to_dict()` of signature_request_title
-        if self.signature_request_title:
-            _dict["signature_request_title"] = self.signature_request_title.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of multifactor_auth_app
-        if self.multifactor_auth_app:
-            _dict["multifactor_auth_app"] = self.multifactor_auth_app.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of multifactor_auth_sms
-        if self.multifactor_auth_sms:
-            _dict["multifactor_auth_sms"] = self.multifactor_auth_sms.to_dict()
         return _dict
 
     @classmethod
@@ -369,144 +110,13 @@ class TeamSettingsUpdateRequest(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "company": (
-                    StringSettingUpdate.from_dict(obj["company"])
-                    if obj.get("company") is not None
-                    else None
-                ),
-                "custom_signing_redirect_enabled": (
-                    BooleanSettingUpdate.from_dict(
-                        obj["custom_signing_redirect_enabled"]
-                    )
-                    if obj.get("custom_signing_redirect_enabled") is not None
-                    else None
-                ),
-                "custom_signing_redirect_url": (
-                    StringSettingUpdate.from_dict(obj["custom_signing_redirect_url"])
-                    if obj.get("custom_signing_redirect_url") is not None
-                    else None
-                ),
-                "custom_tagline": (
-                    StringSettingUpdate.from_dict(obj["custom_tagline"])
-                    if obj.get("custom_tagline") is not None
-                    else None
-                ),
-                "date_format": (
-                    DateFormatSettingUpdate.from_dict(obj["date_format"])
-                    if obj.get("date_format") is not None
-                    else None
-                ),
-                "is_signature_reminders_enabled": (
-                    BooleanSettingUpdate.from_dict(
-                        obj["is_signature_reminders_enabled"]
-                    )
-                    if obj.get("is_signature_reminders_enabled") is not None
-                    else None
-                ),
-                "request_email_from": (
-                    StringSettingUpdate.from_dict(obj["request_email_from"])
-                    if obj.get("request_email_from") is not None
-                    else None
-                ),
-                "request_email_signature": (
-                    StringSettingUpdate.from_dict(obj["request_email_signature"])
-                    if obj.get("request_email_signature") is not None
-                    else None
-                ),
-                "required_signature_types": (
-                    RequiredSignatureTypesSettingUpdate.from_dict(
-                        obj["required_signature_types"]
-                    )
-                    if obj.get("required_signature_types") is not None
-                    else None
-                ),
-                "should_enable_tamper_proof": (
-                    BooleanSettingUpdate.from_dict(obj["should_enable_tamper_proof"])
-                    if obj.get("should_enable_tamper_proof") is not None
-                    else None
-                ),
-                "should_include_distinct_pdfs": (
-                    BooleanSettingUpdate.from_dict(obj["should_include_distinct_pdfs"])
-                    if obj.get("should_include_distinct_pdfs") is not None
-                    else None
-                ),
-                "should_offer_signer_access_code": (
-                    BooleanSettingUpdate.from_dict(
-                        obj["should_offer_signer_access_code"]
-                    )
-                    if obj.get("should_offer_signer_access_code") is not None
-                    else None
-                ),
-                "should_offer_signer_sms_authentication": (
-                    BooleanSettingUpdate.from_dict(
-                        obj["should_offer_signer_sms_authentication"]
-                    )
-                    if obj.get("should_offer_signer_sms_authentication") is not None
-                    else None
-                ),
-                "should_remove_document_id": (
-                    BooleanSettingUpdate.from_dict(obj["should_remove_document_id"])
-                    if obj.get("should_remove_document_id") is not None
-                    else None
-                ),
-                "data_residency": (
-                    DataResidencySettingUpdate.from_dict(obj["data_residency"])
-                    if obj.get("data_residency") is not None
-                    else None
-                ),
-                "allow_team_delete_document_for_everyone": (
-                    BooleanSettingUpdate.from_dict(
-                        obj["allow_team_delete_document_for_everyone"]
-                    )
-                    if obj.get("allow_team_delete_document_for_everyone") is not None
-                    else None
-                ),
-                "allow_team_download_csv": (
-                    BooleanSettingUpdate.from_dict(obj["allow_team_download_csv"])
-                    if obj.get("allow_team_download_csv") is not None
-                    else None
-                ),
-                "lock_team_template_creation": (
-                    BooleanSettingUpdate.from_dict(obj["lock_team_template_creation"])
-                    if obj.get("lock_team_template_creation") is not None
-                    else None
-                ),
-                "lock_team_template_gallery": (
-                    BooleanSettingUpdate.from_dict(obj["lock_team_template_gallery"])
-                    if obj.get("lock_team_template_gallery") is not None
-                    else None
-                ),
-                "self_sign_message": (
-                    StringSettingUpdate.from_dict(obj["self_sign_message"])
-                    if obj.get("self_sign_message") is not None
-                    else None
-                ),
-                "self_sign_title": (
-                    StringSettingUpdate.from_dict(obj["self_sign_title"])
-                    if obj.get("self_sign_title") is not None
-                    else None
-                ),
-                "signature_request_message": (
-                    StringSettingUpdate.from_dict(obj["signature_request_message"])
-                    if obj.get("signature_request_message") is not None
-                    else None
-                ),
-                "signature_request_title": (
-                    StringSettingUpdate.from_dict(obj["signature_request_title"])
-                    if obj.get("signature_request_title") is not None
-                    else None
-                ),
-                "multifactor_auth_app": (
-                    BooleanSettingUpdate.from_dict(obj["multifactor_auth_app"])
-                    if obj.get("multifactor_auth_app") is not None
-                    else None
-                ),
-                "multifactor_auth_sms": (
-                    BooleanSettingUpdate.from_dict(obj["multifactor_auth_sms"])
-                    if obj.get("multifactor_auth_sms") is not None
-                    else None
-                ),
+                "set": obj.get("set"),
                 "unset": obj.get("unset"),
+                "lock": (
+                    dict((_k, _v) for _k, _v in obj.get("lock").items())
+                    if obj.get("lock") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -524,32 +134,9 @@ class TeamSettingsUpdateRequest(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "company": "(StringSettingUpdate,)",
-            "custom_signing_redirect_enabled": "(BooleanSettingUpdate,)",
-            "custom_signing_redirect_url": "(StringSettingUpdate,)",
-            "custom_tagline": "(StringSettingUpdate,)",
-            "date_format": "(DateFormatSettingUpdate,)",
-            "is_signature_reminders_enabled": "(BooleanSettingUpdate,)",
-            "request_email_from": "(StringSettingUpdate,)",
-            "request_email_signature": "(StringSettingUpdate,)",
-            "required_signature_types": "(RequiredSignatureTypesSettingUpdate,)",
-            "should_enable_tamper_proof": "(BooleanSettingUpdate,)",
-            "should_include_distinct_pdfs": "(BooleanSettingUpdate,)",
-            "should_offer_signer_access_code": "(BooleanSettingUpdate,)",
-            "should_offer_signer_sms_authentication": "(BooleanSettingUpdate,)",
-            "should_remove_document_id": "(BooleanSettingUpdate,)",
-            "data_residency": "(DataResidencySettingUpdate,)",
-            "allow_team_delete_document_for_everyone": "(BooleanSettingUpdate,)",
-            "allow_team_download_csv": "(BooleanSettingUpdate,)",
-            "lock_team_template_creation": "(BooleanSettingUpdate,)",
-            "lock_team_template_gallery": "(BooleanSettingUpdate,)",
-            "self_sign_message": "(StringSettingUpdate,)",
-            "self_sign_title": "(StringSettingUpdate,)",
-            "signature_request_message": "(StringSettingUpdate,)",
-            "signature_request_title": "(StringSettingUpdate,)",
-            "multifactor_auth_app": "(BooleanSettingUpdate,)",
-            "multifactor_auth_sms": "(BooleanSettingUpdate,)",
+            "set": "(Dict[str, object],)",
             "unset": "(List[str],)",
+            "lock": "(Dict[str, TeamSettingLock],)",
         }
 
     @classmethod

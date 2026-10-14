@@ -2755,32 +2755,19 @@ class TeamApi
 
             switch ($statusCode) {
                 case 200:
-                    if ('\Dropbox\Sign\Model\TeamSettingsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
-                    } else {
-                        $content = (string)$response->getBody();
-                        if ('\Dropbox\Sign\Model\TeamSettingsResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
+                    return $this->handleResponseWithDataType(
+                        '\Dropbox\Sign\Model\TeamSettingsResponse',
+                        $request,
+                        $response,
+                    );
+            }
 
-                    return [
-                        ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamSettingsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
+            if ($this->responseWithinRangeCode('4XX', $statusCode)) {
+                return $this->handleResponseWithDataType(
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $request,
+                    $response,
+                );
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -2796,33 +2783,11 @@ class TeamApi
                 );
             }
 
-            $returnType = '\Dropbox\Sign\Model\TeamSettingsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
-            } else {
-                $content = (string)$response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders(),
-            ];
+            return $this->handleResponseWithDataType(
+                '\Dropbox\Sign\Model\TeamSettingsResponse',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
@@ -2835,8 +2800,19 @@ class TeamApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
-                    break;
+                    throw $e;
             }
+
+            if ($this->responseWithinRangeCode('4XX', $e->getCode())) {
+                $data = ObjectSerializer::deserialize(
+                    $e->getResponseBody(),
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $e->getResponseHeaders()
+                );
+                $e->setResponseObject($data);
+                throw $e;
+            }
+
             throw $e;
         }
     }
@@ -2980,7 +2956,11 @@ class TeamApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (JsonException $e) {
+                    throw new InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -3091,32 +3071,19 @@ class TeamApi
 
             switch ($statusCode) {
                 case 200:
-                    if ('\Dropbox\Sign\Model\TeamSettingsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
-                    } else {
-                        $content = (string)$response->getBody();
-                        if ('\Dropbox\Sign\Model\TeamSettingsResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
+                    return $this->handleResponseWithDataType(
+                        '\Dropbox\Sign\Model\TeamSettingsResponse',
+                        $request,
+                        $response,
+                    );
+            }
 
-                    return [
-                        ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamSettingsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
+            if ($this->responseWithinRangeCode('4XX', $statusCode)) {
+                return $this->handleResponseWithDataType(
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $request,
+                    $response,
+                );
             }
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -3132,33 +3099,11 @@ class TeamApi
                 );
             }
 
-            $returnType = '\Dropbox\Sign\Model\TeamSettingsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
-            } else {
-                $content = (string)$response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders(),
-            ];
+            return $this->handleResponseWithDataType(
+                '\Dropbox\Sign\Model\TeamSettingsResponse',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
@@ -3171,8 +3116,19 @@ class TeamApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
-                    break;
+                    throw $e;
             }
+
+            if ($this->responseWithinRangeCode('4XX', $e->getCode())) {
+                $data = ObjectSerializer::deserialize(
+                    $e->getResponseBody(),
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $e->getResponseHeaders()
+                );
+                $e->setResponseObject($data);
+                throw $e;
+            }
+
             throw $e;
         }
     }
@@ -3310,7 +3266,11 @@ class TeamApi
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_settings_update_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($team_settings_update_request), JSON_THROW_ON_ERROR);
+                } catch (JsonException $e) {
+                    throw new InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $team_settings_update_request;
             }
@@ -3341,7 +3301,11 @@ class TeamApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (JsonException $e) {
+                    throw new InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);

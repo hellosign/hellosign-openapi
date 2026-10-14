@@ -245,12 +245,14 @@ configuration = Configuration(
 
 with ApiClient(configuration) as api_client:
     account_settings_update_request = models.AccountSettingsUpdateRequest(
-        date_format=models.DateFormat.MM_SLASH_DD_SLASH_YYYY,
-        required_signature_types=[
-            models.RequiredSignatureType.DRAW,
-            models.RequiredSignatureType.TYPE,
-        ],
-        should_enable_tamper_proof=False,
+        set={
+            "date_format": models.DateFormat.MM_SLASH_DD_SLASH_YYYY,
+            "required_signature_types": [
+                models.RequiredSignatureType.DRAW,
+                models.RequiredSignatureType.TYPE,
+            ],
+            "should_enable_tamper_proof": False,
+        },
         unset=["company"],
     )
 

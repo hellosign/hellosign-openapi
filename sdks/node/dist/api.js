@@ -13863,7 +13863,6 @@ __export(api_exports, {
   ApiAppResponseWhiteLabelingOptions: () => ApiAppResponseWhiteLabelingOptions,
   ApiAppUpdateRequest: () => ApiAppUpdateRequest,
   ApiKeyAuth: () => ApiKeyAuth,
-  BooleanSettingUpdate: () => BooleanSettingUpdate,
   BulkSendJobApi: () => BulkSendJobApi,
   BulkSendJobGetResponse: () => BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests: () => BulkSendJobGetResponseSignatureRequests,
@@ -13871,9 +13870,7 @@ __export(api_exports, {
   BulkSendJobResponse: () => BulkSendJobResponse,
   BulkSendJobSendResponse: () => BulkSendJobSendResponse,
   DataResidency: () => DataResidency,
-  DataResidencySettingUpdate: () => DataResidencySettingUpdate,
   DateFormat: () => DateFormat,
-  DateFormatSettingUpdate: () => DateFormatSettingUpdate,
   DocumentApi: () => DocumentApi,
   DocumentFieldDetectionRequest: () => DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse: () => DocumentFieldDetectionResponse,
@@ -13925,7 +13922,6 @@ __export(api_exports, {
   ReportCreateResponse: () => ReportCreateResponse,
   ReportResponse: () => ReportResponse,
   RequiredSignatureType: () => RequiredSignatureType,
-  RequiredSignatureTypesSettingUpdate: () => RequiredSignatureTypesSettingUpdate,
   SettingLockResponse: () => SettingLockResponse,
   SettingResponse: () => SettingResponse,
   SignatureRequestApi: () => SignatureRequestApi,
@@ -13961,7 +13957,6 @@ __export(api_exports, {
   SignatureRequestSendRequest: () => SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest: () => SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest: () => SignatureRequestUpdateRequest,
-  StringSettingUpdate: () => StringSettingUpdate,
   SubAttachment: () => SubAttachment,
   SubBulkSignerList: () => SubBulkSignerList,
   SubBulkSignerListCustomField: () => SubBulkSignerListCustomField,
@@ -20174,139 +20169,19 @@ var AccountSettingsUpdateRequest = class _AccountSettingsUpdateRequest {
   static {
     this.attributeTypeMap = [
       {
-        name: "company",
-        baseName: "company",
-        type: "string"
-      },
-      {
-        name: "customSigningRedirectEnabled",
-        baseName: "custom_signing_redirect_enabled",
-        type: "boolean"
-      },
-      {
-        name: "customSigningRedirectUrl",
-        baseName: "custom_signing_redirect_url",
-        type: "string"
-      },
-      {
-        name: "customTagline",
-        baseName: "custom_tagline",
-        type: "string"
-      },
-      {
-        name: "dateFormat",
-        baseName: "date_format",
-        type: "DateFormat"
-      },
-      {
-        name: "isSignatureRemindersEnabled",
-        baseName: "is_signature_reminders_enabled",
-        type: "boolean"
-      },
-      {
-        name: "requestEmailFrom",
-        baseName: "request_email_from",
-        type: "string"
-      },
-      {
-        name: "requestEmailSignature",
-        baseName: "request_email_signature",
-        type: "string"
-      },
-      {
-        name: "requiredSignatureTypes",
-        baseName: "required_signature_types",
-        type: "Set<RequiredSignatureType>"
-      },
-      {
-        name: "shouldEnableTamperProof",
-        baseName: "should_enable_tamper_proof",
-        type: "boolean"
-      },
-      {
-        name: "shouldIncludeDistinctPdfs",
-        baseName: "should_include_distinct_pdfs",
-        type: "boolean"
-      },
-      {
-        name: "shouldOfferSignerAccessCode",
-        baseName: "should_offer_signer_access_code",
-        type: "boolean"
-      },
-      {
-        name: "shouldOfferSignerSmsAuthentication",
-        baseName: "should_offer_signer_sms_authentication",
-        type: "boolean"
-      },
-      {
-        name: "shouldRemoveDocumentId",
-        baseName: "should_remove_document_id",
-        type: "boolean"
-      },
-      {
-        name: "isNotifyOnSignEnabled",
-        baseName: "is_notify_on_sign_enabled",
-        type: "boolean"
-      },
-      {
-        name: "isNotifyOnViewEnabled",
-        baseName: "is_notify_on_view_enabled",
-        type: "boolean"
-      },
-      {
-        name: "shouldAutocomplete",
-        baseName: "should_autocomplete",
-        type: "boolean"
-      },
-      {
-        name: "shouldIncludeRequestedPdfs",
-        baseName: "should_include_requested_pdfs",
-        type: "boolean"
-      },
-      {
-        name: "shouldIncludeRequestedPdfsForOthers",
-        baseName: "should_include_requested_pdfs_for_others",
-        type: "boolean"
-      },
-      {
-        name: "shouldIncludeSentDocPdfs",
-        baseName: "should_include_sent_doc_pdfs",
-        type: "boolean"
-      },
-      {
-        name: "shouldIncludeSentDocPdfsForOthers",
-        baseName: "should_include_sent_doc_pdfs_for_others",
-        type: "boolean"
-      },
-      {
-        name: "shouldSendDailySummary",
-        baseName: "should_send_daily_summary",
-        type: "boolean"
-      },
-      {
-        name: "shouldSendEmbeddedSignatureConfEmails",
-        baseName: "should_send_embedded_signature_conf_emails",
-        type: "boolean"
-      },
-      {
-        name: "shouldSendOrderedSrEmail",
-        baseName: "should_send_ordered_sr_email",
-        type: "boolean"
-      },
-      {
-        name: "shouldSendOutboundConfEmails",
-        baseName: "should_send_outbound_conf_emails",
-        type: "boolean"
-      },
-      {
-        name: "templateLinkSignatureEmailsEnabled",
-        baseName: "template_link_signature_emails_enabled",
-        type: "boolean"
+        name: "set",
+        baseName: "set",
+        type: "{ [key: string]: any; }"
       },
       {
         name: "unset",
         baseName: "unset",
-        type: "Set<AccountSettingsUpdateRequest.UnsetEnum>"
+        type: "Set<string>"
+      },
+      {
+        name: "lock",
+        baseName: "lock",
+        type: "{ [key: string]: TeamSettingLock; }"
       }
     ];
   }
@@ -20318,37 +20193,6 @@ var AccountSettingsUpdateRequest = class _AccountSettingsUpdateRequest {
     return ObjectSerializer.deserialize(data, "AccountSettingsUpdateRequest");
   }
 };
-((AccountSettingsUpdateRequest2) => {
-  let UnsetEnum;
-  ((UnsetEnum2) => {
-    UnsetEnum2["Company"] = "company";
-    UnsetEnum2["CustomSigningRedirectEnabled"] = "custom_signing_redirect_enabled";
-    UnsetEnum2["CustomSigningRedirectUrl"] = "custom_signing_redirect_url";
-    UnsetEnum2["CustomTagline"] = "custom_tagline";
-    UnsetEnum2["DateFormat"] = "date_format";
-    UnsetEnum2["IsSignatureRemindersEnabled"] = "is_signature_reminders_enabled";
-    UnsetEnum2["RequestEmailFrom"] = "request_email_from";
-    UnsetEnum2["RequestEmailSignature"] = "request_email_signature";
-    UnsetEnum2["RequiredSignatureTypes"] = "required_signature_types";
-    UnsetEnum2["ShouldEnableTamperProof"] = "should_enable_tamper_proof";
-    UnsetEnum2["ShouldIncludeDistinctPdfs"] = "should_include_distinct_pdfs";
-    UnsetEnum2["ShouldOfferSignerAccessCode"] = "should_offer_signer_access_code";
-    UnsetEnum2["ShouldOfferSignerSmsAuthentication"] = "should_offer_signer_sms_authentication";
-    UnsetEnum2["ShouldRemoveDocumentId"] = "should_remove_document_id";
-    UnsetEnum2["IsNotifyOnSignEnabled"] = "is_notify_on_sign_enabled";
-    UnsetEnum2["IsNotifyOnViewEnabled"] = "is_notify_on_view_enabled";
-    UnsetEnum2["ShouldAutocomplete"] = "should_autocomplete";
-    UnsetEnum2["ShouldIncludeRequestedPdfs"] = "should_include_requested_pdfs";
-    UnsetEnum2["ShouldIncludeRequestedPdfsForOthers"] = "should_include_requested_pdfs_for_others";
-    UnsetEnum2["ShouldIncludeSentDocPdfs"] = "should_include_sent_doc_pdfs";
-    UnsetEnum2["ShouldIncludeSentDocPdfsForOthers"] = "should_include_sent_doc_pdfs_for_others";
-    UnsetEnum2["ShouldSendDailySummary"] = "should_send_daily_summary";
-    UnsetEnum2["ShouldSendEmbeddedSignatureConfEmails"] = "should_send_embedded_signature_conf_emails";
-    UnsetEnum2["ShouldSendOrderedSrEmail"] = "should_send_ordered_sr_email";
-    UnsetEnum2["ShouldSendOutboundConfEmails"] = "should_send_outbound_conf_emails";
-    UnsetEnum2["TemplateLinkSignatureEmailsEnabled"] = "template_link_signature_emails_enabled";
-  })(UnsetEnum = AccountSettingsUpdateRequest2.UnsetEnum || (AccountSettingsUpdateRequest2.UnsetEnum = {}));
-})(AccountSettingsUpdateRequest || (AccountSettingsUpdateRequest = {}));
 
 // model/accountUpdateRequest.ts
 var AccountUpdateRequest = class _AccountUpdateRequest {
@@ -20872,34 +20716,6 @@ var ApiAppUpdateRequest = class _ApiAppUpdateRequest {
   }
 };
 
-// model/booleanSettingUpdate.ts
-var BooleanSettingUpdate = class _BooleanSettingUpdate {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "value",
-        baseName: "value",
-        type: "boolean"
-      },
-      {
-        name: "lockMode",
-        baseName: "lock_mode",
-        type: "TeamSettingLock"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _BooleanSettingUpdate.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "BooleanSettingUpdate");
-  }
-};
-
 // model/bulkSendJobGetResponse.ts
 var BulkSendJobGetResponse = class _BulkSendJobGetResponse {
   static {
@@ -21200,34 +21016,6 @@ var DataResidency = /* @__PURE__ */ ((DataResidency2) => {
   return DataResidency2;
 })(DataResidency || {});
 
-// model/dataResidencySettingUpdate.ts
-var DataResidencySettingUpdate = class _DataResidencySettingUpdate {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "value",
-        baseName: "value",
-        type: "DataResidency"
-      },
-      {
-        name: "lockMode",
-        baseName: "lock_mode",
-        type: "TeamSettingLock"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _DataResidencySettingUpdate.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "DataResidencySettingUpdate");
-  }
-};
-
 // model/dateFormat.ts
 var DateFormat = /* @__PURE__ */ ((DateFormat2) => {
   DateFormat2["MmDdYyyy"] = "MM/DD/YYYY";
@@ -21235,34 +21023,6 @@ var DateFormat = /* @__PURE__ */ ((DateFormat2) => {
   DateFormat2["YyyyMmDd"] = "YYYY/MM/DD";
   return DateFormat2;
 })(DateFormat || {});
-
-// model/dateFormatSettingUpdate.ts
-var DateFormatSettingUpdate = class _DateFormatSettingUpdate {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "value",
-        baseName: "value",
-        type: "DateFormat"
-      },
-      {
-        name: "lockMode",
-        baseName: "lock_mode",
-        type: "TeamSettingLock"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _DateFormatSettingUpdate.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "DateFormatSettingUpdate");
-  }
-};
 
 // model/documentFieldDetectionRequest.ts
 var DocumentFieldDetectionRequest = class _DocumentFieldDetectionRequest {
@@ -23033,37 +22793,6 @@ var RequiredSignatureType = /* @__PURE__ */ ((RequiredSignatureType2) => {
   RequiredSignatureType2["Upload"] = "upload";
   return RequiredSignatureType2;
 })(RequiredSignatureType || {});
-
-// model/requiredSignatureTypesSettingUpdate.ts
-var RequiredSignatureTypesSettingUpdate = class _RequiredSignatureTypesSettingUpdate {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "value",
-        baseName: "value",
-        type: "Set<RequiredSignatureType>"
-      },
-      {
-        name: "lockMode",
-        baseName: "lock_mode",
-        type: "TeamSettingLock"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _RequiredSignatureTypesSettingUpdate.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(
-      data,
-      "RequiredSignatureTypesSettingUpdate"
-    );
-  }
-};
 
 // model/settingLockResponse.ts
 var SettingLockResponse = class _SettingLockResponse {
@@ -25572,34 +25301,6 @@ var SignatureRequestUpdateRequest = class _SignatureRequestUpdateRequest {
   }
 };
 
-// model/stringSettingUpdate.ts
-var StringSettingUpdate = class _StringSettingUpdate {
-  static {
-    this.discriminator = void 0;
-  }
-  static {
-    this.attributeTypeMap = [
-      {
-        name: "value",
-        baseName: "value",
-        type: "string"
-      },
-      {
-        name: "lockMode",
-        baseName: "lock_mode",
-        type: "TeamSettingLock"
-      }
-    ];
-  }
-  static getAttributeTypeMap() {
-    return _StringSettingUpdate.attributeTypeMap;
-  }
-  /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "StringSettingUpdate");
-  }
-};
-
 // model/subAttachment.ts
 var SubAttachment = class _SubAttachment {
   constructor() {
@@ -27965,134 +27666,19 @@ var TeamSettingsUpdateRequest = class _TeamSettingsUpdateRequest {
   static {
     this.attributeTypeMap = [
       {
-        name: "company",
-        baseName: "company",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "customSigningRedirectEnabled",
-        baseName: "custom_signing_redirect_enabled",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "customSigningRedirectUrl",
-        baseName: "custom_signing_redirect_url",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "customTagline",
-        baseName: "custom_tagline",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "dateFormat",
-        baseName: "date_format",
-        type: "DateFormatSettingUpdate"
-      },
-      {
-        name: "isSignatureRemindersEnabled",
-        baseName: "is_signature_reminders_enabled",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "requestEmailFrom",
-        baseName: "request_email_from",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "requestEmailSignature",
-        baseName: "request_email_signature",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "requiredSignatureTypes",
-        baseName: "required_signature_types",
-        type: "RequiredSignatureTypesSettingUpdate"
-      },
-      {
-        name: "shouldEnableTamperProof",
-        baseName: "should_enable_tamper_proof",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "shouldIncludeDistinctPdfs",
-        baseName: "should_include_distinct_pdfs",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "shouldOfferSignerAccessCode",
-        baseName: "should_offer_signer_access_code",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "shouldOfferSignerSmsAuthentication",
-        baseName: "should_offer_signer_sms_authentication",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "shouldRemoveDocumentId",
-        baseName: "should_remove_document_id",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "dataResidency",
-        baseName: "data_residency",
-        type: "DataResidencySettingUpdate"
-      },
-      {
-        name: "allowTeamDeleteDocumentForEveryone",
-        baseName: "allow_team_delete_document_for_everyone",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "allowTeamDownloadCsv",
-        baseName: "allow_team_download_csv",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "lockTeamTemplateCreation",
-        baseName: "lock_team_template_creation",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "lockTeamTemplateGallery",
-        baseName: "lock_team_template_gallery",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "selfSignMessage",
-        baseName: "self_sign_message",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "selfSignTitle",
-        baseName: "self_sign_title",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "signatureRequestMessage",
-        baseName: "signature_request_message",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "signatureRequestTitle",
-        baseName: "signature_request_title",
-        type: "StringSettingUpdate"
-      },
-      {
-        name: "multifactorAuthApp",
-        baseName: "multifactor_auth_app",
-        type: "BooleanSettingUpdate"
-      },
-      {
-        name: "multifactorAuthSms",
-        baseName: "multifactor_auth_sms",
-        type: "BooleanSettingUpdate"
+        name: "set",
+        baseName: "set",
+        type: "{ [key: string]: any; }"
       },
       {
         name: "unset",
         baseName: "unset",
-        type: "Set<TeamSettingsUpdateRequest.UnsetEnum>"
+        type: "Set<string>"
+      },
+      {
+        name: "lock",
+        baseName: "lock",
+        type: "{ [key: string]: TeamSettingLock; }"
       }
     ];
   }
@@ -28104,36 +27690,6 @@ var TeamSettingsUpdateRequest = class _TeamSettingsUpdateRequest {
     return ObjectSerializer.deserialize(data, "TeamSettingsUpdateRequest");
   }
 };
-((TeamSettingsUpdateRequest2) => {
-  let UnsetEnum;
-  ((UnsetEnum2) => {
-    UnsetEnum2["Company"] = "company";
-    UnsetEnum2["CustomSigningRedirectEnabled"] = "custom_signing_redirect_enabled";
-    UnsetEnum2["CustomSigningRedirectUrl"] = "custom_signing_redirect_url";
-    UnsetEnum2["CustomTagline"] = "custom_tagline";
-    UnsetEnum2["DateFormat"] = "date_format";
-    UnsetEnum2["IsSignatureRemindersEnabled"] = "is_signature_reminders_enabled";
-    UnsetEnum2["RequestEmailFrom"] = "request_email_from";
-    UnsetEnum2["RequestEmailSignature"] = "request_email_signature";
-    UnsetEnum2["RequiredSignatureTypes"] = "required_signature_types";
-    UnsetEnum2["ShouldEnableTamperProof"] = "should_enable_tamper_proof";
-    UnsetEnum2["ShouldIncludeDistinctPdfs"] = "should_include_distinct_pdfs";
-    UnsetEnum2["ShouldOfferSignerAccessCode"] = "should_offer_signer_access_code";
-    UnsetEnum2["ShouldOfferSignerSmsAuthentication"] = "should_offer_signer_sms_authentication";
-    UnsetEnum2["ShouldRemoveDocumentId"] = "should_remove_document_id";
-    UnsetEnum2["DataResidency"] = "data_residency";
-    UnsetEnum2["AllowTeamDeleteDocumentForEveryone"] = "allow_team_delete_document_for_everyone";
-    UnsetEnum2["AllowTeamDownloadCsv"] = "allow_team_download_csv";
-    UnsetEnum2["LockTeamTemplateCreation"] = "lock_team_template_creation";
-    UnsetEnum2["LockTeamTemplateGallery"] = "lock_team_template_gallery";
-    UnsetEnum2["SelfSignMessage"] = "self_sign_message";
-    UnsetEnum2["SelfSignTitle"] = "self_sign_title";
-    UnsetEnum2["SignatureRequestMessage"] = "signature_request_message";
-    UnsetEnum2["SignatureRequestTitle"] = "signature_request_title";
-    UnsetEnum2["MultifactorAuthApp"] = "multifactor_auth_app";
-    UnsetEnum2["MultifactorAuthSms"] = "multifactor_auth_sms";
-  })(UnsetEnum = TeamSettingsUpdateRequest2.UnsetEnum || (TeamSettingsUpdateRequest2.UnsetEnum = {}));
-})(TeamSettingsUpdateRequest || (TeamSettingsUpdateRequest = {}));
 
 // model/teamSubTeamsResponse.ts
 var TeamSubTeamsResponse = class _TeamSubTeamsResponse {
@@ -31105,7 +30661,6 @@ var WarningResponse = class _WarningResponse {
 
 // model/index.ts
 var enumsMap = {
-  "AccountSettingsUpdateRequest.UnsetEnum": AccountSettingsUpdateRequest.UnsetEnum,
   DataResidency,
   DateFormat,
   "EventCallbackRequestEvent.EventTypeEnum": EventCallbackRequestEvent.EventTypeEnum,
@@ -31142,7 +30697,6 @@ var enumsMap = {
   "TeamAddMemberRequest.RoleEnum": TeamAddMemberRequest.RoleEnum,
   "TeamRemoveMemberRequest.NewRoleEnum": TeamRemoveMemberRequest.NewRoleEnum,
   TeamSettingLock,
-  "TeamSettingsUpdateRequest.UnsetEnum": TeamSettingsUpdateRequest.UnsetEnum,
   "TemplateResponseDocumentFormFieldText.ValidationTypeEnum": TemplateResponseDocumentFormFieldText.ValidationTypeEnum,
   "UnclaimedDraftCreateEmbeddedRequest.TypeEnum": UnclaimedDraftCreateEmbeddedRequest.TypeEnum,
   "UnclaimedDraftCreateRequest.TypeEnum": UnclaimedDraftCreateRequest.TypeEnum
@@ -31171,14 +30725,11 @@ var typeMap = {
   ApiAppResponseOwnerAccount,
   ApiAppResponseWhiteLabelingOptions,
   ApiAppUpdateRequest,
-  BooleanSettingUpdate,
   BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests,
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
-  DataResidencySettingUpdate,
-  DateFormatSettingUpdate,
   DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse,
   DocumentFieldDetectionResponseDetectionResult,
@@ -31214,7 +30765,6 @@ var typeMap = {
   ReportCreateRequest,
   ReportCreateResponse,
   ReportResponse,
-  RequiredSignatureTypesSettingUpdate,
   SettingLockResponse,
   SettingResponse,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
@@ -31247,7 +30797,6 @@ var typeMap = {
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest,
-  StringSettingUpdate,
   SubAttachment,
   SubBulkSignerList,
   SubBulkSignerListCustomField,
@@ -41440,7 +40989,6 @@ var APIS = [
   ApiAppResponseWhiteLabelingOptions,
   ApiAppUpdateRequest,
   ApiKeyAuth,
-  BooleanSettingUpdate,
   BulkSendJobApi,
   BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests,
@@ -41448,9 +40996,7 @@ var APIS = [
   BulkSendJobResponse,
   BulkSendJobSendResponse,
   DataResidency,
-  DataResidencySettingUpdate,
   DateFormat,
-  DateFormatSettingUpdate,
   DocumentApi,
   DocumentFieldDetectionRequest,
   DocumentFieldDetectionResponse,
@@ -41502,7 +41048,6 @@ var APIS = [
   ReportCreateResponse,
   ReportResponse,
   RequiredSignatureType,
-  RequiredSignatureTypesSettingUpdate,
   SettingLockResponse,
   SettingResponse,
   SignatureRequestApi,
@@ -41538,7 +41083,6 @@ var APIS = [
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest,
-  StringSettingUpdate,
   SubAttachment,
   SubBulkSignerList,
   SubBulkSignerListCustomField,

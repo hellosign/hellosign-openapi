@@ -6,13 +6,15 @@ apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const accountSettingsUpdateRequest: models.AccountSettingsUpdateRequest = {
-  dateFormat: models.DateFormat.MmDdYyyy,
-  requiredSignatureTypes: [
-    models.RequiredSignatureType.Draw,
-    models.RequiredSignatureType.Type,
-  ],
-  shouldEnableTamperProof: false,
-  unset: ["company"],
+  set: {
+    date_format: models.DateFormat.MmDdYyyy,
+    required_signature_types: [
+      models.RequiredSignatureType.Draw,
+      models.RequiredSignatureType.Type,
+    ],
+    should_enable_tamper_proof: false,
+  },
+  unset: new Set(["company"]),
 };
 
 apiCaller.accountSettingsUpdate(

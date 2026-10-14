@@ -650,7 +650,6 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         if (is_null($metadata)) {
             throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
-
         if (count($metadata) > 10) {
             throw new InvalidArgumentException('invalid value for $metadata when calling SignatureRequestBulkSendWithTemplateRequest., number of items must be less than or equal to 10.');
         }

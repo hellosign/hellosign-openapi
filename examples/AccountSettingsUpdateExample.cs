@@ -16,13 +16,19 @@ public class AccountSettingsUpdateExample
         // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var accountSettingsUpdateRequest = new AccountSettingsUpdateRequest(
-            dateFormat: DateFormat.MMDDYYYY,
-            requiredSignatureTypes: new List<RequiredSignatureType>()
+            set: new Dictionary<string, Object>()
             {
-                RequiredSignatureType.Draw,
-                RequiredSignatureType.Type,
+                { "date_format", DateFormat.MMDDYYYY },
+                {
+                    "required_signature_types",
+                    new List<RequiredSignatureType>()
+                    {
+                        RequiredSignatureType.Draw,
+                        RequiredSignatureType.Type,
+                    }
+                },
+                { "should_enable_tamper_proof", false },
             },
-            shouldEnableTamperProof: false,
             unset: new List<string>() { "company" }
         );
 
