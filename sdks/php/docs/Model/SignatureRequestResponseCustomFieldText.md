@@ -1,4 +1,4 @@
-# # SignatureRequestResponseCustomFieldText
+# SignatureRequestResponseCustomFieldText
 
 This class extends `SignatureRequestResponseCustomFieldBase`.
 

@@ -6,7 +6,7 @@ additionalProperties:
   invokerPackage: "Dropbox\\Sign"
   sortModelPropertiesByRequiredFlag: true
   srcBasePath: src
-  phpVersion: 7.4
+  phpVersion: 8.1
   composerPackageName: "dropbox/sign"
   artifactUrl: "https://hellosign.com"
   licenseName: "MIT"
@@ -31,6 +31,8 @@ files:
   dropbox-VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
+enumNameMappings:
+  match: MATCH
 globalProperties:
   apiTests: false
   modelTests: false

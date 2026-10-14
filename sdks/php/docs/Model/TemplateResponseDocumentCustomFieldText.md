@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentCustomFieldText
+# TemplateResponseDocumentCustomFieldText
 
 This class extends `TemplateResponseDocumentCustomFieldBase`
 

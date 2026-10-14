@@ -1,4 +1,4 @@
-# # TemplateUpdateFilesResponseTemplate
+# TemplateUpdateFilesResponseTemplate
 
 Contains template id
 

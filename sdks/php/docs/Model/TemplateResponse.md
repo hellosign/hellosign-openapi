@@ -1,4 +1,4 @@
-# # TemplateResponse
+# TemplateResponse
 
 Contains information about the templates you and your team have created.
 

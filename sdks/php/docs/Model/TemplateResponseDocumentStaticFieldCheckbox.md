@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentStaticFieldCheckbox
+# TemplateResponseDocumentStaticFieldCheckbox
 
 This class extends `TemplateResponseDocumentStaticFieldBase`
 

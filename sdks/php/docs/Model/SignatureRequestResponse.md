@@ -1,4 +1,4 @@
-# # SignatureRequestResponse
+# SignatureRequestResponse
 
 Contains information about a signature request.
 

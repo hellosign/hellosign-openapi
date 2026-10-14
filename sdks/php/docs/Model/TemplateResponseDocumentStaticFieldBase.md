@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentStaticFieldBase
+# TemplateResponseDocumentStaticFieldBase
 
 An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
 

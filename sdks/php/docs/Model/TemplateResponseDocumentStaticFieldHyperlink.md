@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentStaticFieldHyperlink
+# TemplateResponseDocumentStaticFieldHyperlink
 
 This class extends `TemplateResponseDocumentStaticFieldBase`
 

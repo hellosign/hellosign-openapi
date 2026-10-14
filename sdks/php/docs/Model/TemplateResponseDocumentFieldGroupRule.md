@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentFieldGroupRule
+# TemplateResponseDocumentFieldGroupRule
 
 The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
 

@@ -1,4 +1,4 @@
-# # SignatureRequestResponseSignatures
+# SignatureRequestResponseSignatures
 
 An array of signature objects, 1 for each signer.
 

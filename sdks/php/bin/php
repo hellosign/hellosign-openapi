@@ -15,7 +15,7 @@ if [[ "$PHP_USE_NATIVE" -ne 1 ]]; then
     -v "dropbox-sign-sdk-composer-cache:/.composer" \
     -w "${WORKING_DIR}" \
     -u root:root \
-    jtreminio/php-cli:7.4 "$@"
+    jtreminio/php-cli:8.1 "$@"
 
     exit 0
 fi

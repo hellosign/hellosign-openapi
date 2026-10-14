@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentInitials
+# SubFormFieldsPerDocumentInitials
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

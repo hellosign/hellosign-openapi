@@ -1,4 +1,4 @@
-# # EventCallbackRequestEventMetadata
+# EventCallbackRequestEventMetadata
 
 Specific metadata about the event.
 
