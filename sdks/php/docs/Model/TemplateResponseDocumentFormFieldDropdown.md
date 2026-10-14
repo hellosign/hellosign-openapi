@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentFormFieldDropdown
+# TemplateResponseDocumentFormFieldDropdown
 
 This class extends `TemplateResponseDocumentFormFieldBase`
 

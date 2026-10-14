@@ -1,4 +1,4 @@
-# # ApiAppResponseOwnerAccount
+# ApiAppResponseOwnerAccount
 
 An object describing the app&#39;s owner
 

@@ -1,4 +1,4 @@
-# # TeamInfoResponse
+# TeamInfoResponse
 
 
 

@@ -1,4 +1,4 @@
-# # ListInfoResponse
+# ListInfoResponse
 
 Contains pagination information about the data returned.
 

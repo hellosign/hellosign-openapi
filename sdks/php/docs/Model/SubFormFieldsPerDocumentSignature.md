@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentSignature
+# SubFormFieldsPerDocumentSignature
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

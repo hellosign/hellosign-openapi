@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentBase
+# SubFormFieldsPerDocumentBase
 
 The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
