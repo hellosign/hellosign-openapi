@@ -11445,7 +11445,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/TeamSettingLock'
         unset:
-          description: '_t__SettingsUpdateRequest::UNSET'
+          description: '_t__SettingsUpdateRequest::UNSET_TEAM'
           type: array
           items:
             type: string

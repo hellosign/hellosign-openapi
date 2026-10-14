@@ -11452,7 +11452,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/TeamSettingLock'
         unset:
-          description: 'Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.'
+          description: 'Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request.'
           type: array
           items:
             type: string
