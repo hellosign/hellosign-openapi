@@ -43,7 +43,12 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
+{{^useCustomTemplateCode}}
         "guzzlehttp/guzzle": "^7.3",
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+        "guzzlehttp/guzzle": "^7.15.2",
+{{/useCustomTemplateCode}}
         "guzzlehttp/psr7": "^1.7 || ^2.0"
     },
     "require-dev": {
