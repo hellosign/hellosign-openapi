@@ -10,7 +10,7 @@ additionalProperties:
   packageTitle: Dropbox Sign .Net SDK
   sortModelPropertiesByRequiredFlag: true
   optionalEmitDefaultValues: true
-  targetFramework: net8.0
+  targetFramework: net8.0;net10.0
   library: restsharp
   packageGuid: "{F8C8232D-7020-4603-8E04-18D060AE530B}"
   legacyDiscriminatorBehavior: true

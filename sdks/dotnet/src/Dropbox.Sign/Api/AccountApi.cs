@@ -64,7 +64,7 @@ namespace Dropbox.Sign.Api
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountGetResponse</returns>
-        AccountGetResponse AccountGet(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0);
+        AccountGetResponse AccountGet(string? accountId = default, string? emailAddress = default, int operationIndex = 0);
 
         /// <summary>
         /// Get Account
@@ -78,7 +78,7 @@ namespace Dropbox.Sign.Api
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountGetResponse</returns>
-        ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0);
+        ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(string? accountId = default, string? emailAddress = default, int operationIndex = 0);
         /// <summary>
         /// Update Account
         /// </summary>
@@ -150,7 +150,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountCreateResponse</returns>
-        System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Account
@@ -164,7 +164,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Account
         /// </summary>
@@ -178,7 +178,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        System.Threading.Tasks.Task<AccountGetResponse> AccountGetAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountGetResponse> AccountGetAsync(string? accountId = default, string? emailAddress = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Account
@@ -193,7 +193,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(string? accountId = default, string? emailAddress = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Account
         /// </summary>
@@ -206,7 +206,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Account
@@ -220,7 +220,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Verify Account
         /// </summary>
@@ -233,7 +233,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountVerifyResponse</returns>
-        System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Verify Account
@@ -247,7 +247,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountVerifyResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -469,7 +469,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountCreateResponse</returns>
-        public async System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse = await AccountCreateWithHttpInfoAsync(accountCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -484,7 +484,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'accountCreateRequest' is set
             if (accountCreateRequest == null)
@@ -565,7 +565,7 @@ namespace Dropbox.Sign.Api
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountGetResponse</returns>
-        public AccountGetResponse AccountGet(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0)
+        public AccountGetResponse AccountGet(string? accountId = default, string? emailAddress = default, int operationIndex = 0)
         {
             Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = AccountGetWithHttpInfo(accountId, emailAddress);
             return localVarResponse.Data;
@@ -580,7 +580,7 @@ namespace Dropbox.Sign.Api
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(string? accountId = default, string? emailAddress = default, int operationIndex = 0)
         {
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
@@ -653,7 +653,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        public async System.Threading.Tasks.Task<AccountGetResponse> AccountGetAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountGetResponse> AccountGetAsync(string? accountId = default, string? emailAddress = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = await AccountGetWithHttpInfoAsync(accountId, emailAddress, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -669,7 +669,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(string? accountId = default, string? emailAddress = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
@@ -835,7 +835,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        public async System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = await AccountUpdateWithHttpInfoAsync(accountUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -850,7 +850,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'accountUpdateRequest' is set
             if (accountUpdateRequest == null)
@@ -1023,7 +1023,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountVerifyResponse</returns>
-        public async System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse = await AccountVerifyWithHttpInfoAsync(accountVerifyRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1038,7 +1038,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountVerifyResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'accountVerifyRequest' is set
             if (accountVerifyRequest == null)

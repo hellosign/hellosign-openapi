@@ -120,7 +120,7 @@ namespace Dropbox.Sign.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/2.2-dev/csharp");
+            UserAgent = "OpenAPI-Generator/2.2-dev/csharp";
             BasePath = "https://api.hellosign.com/v3";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -529,7 +529,7 @@ namespace Dropbox.Sign.Client
 
                     if (inputVariables.ContainsKey(variable.Key))
                     {
-                        if (((List<string>)serverVariables["enum_values"]).Contains(inputVariables[variable.Key]))
+                        if (!serverVariables.ContainsKey("enum_values") || ((List<string>)serverVariables["enum_values"]).Contains(inputVariables[variable.Key]))
                         {
                             url = url.Replace("{" + variable.Key + "}", inputVariables[variable.Key]);
                         }
