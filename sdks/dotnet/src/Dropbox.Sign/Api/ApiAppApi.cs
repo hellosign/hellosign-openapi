@@ -114,7 +114,7 @@ namespace Dropbox.Sign.Api
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiAppListResponse</returns>
-        ApiAppListResponse ApiAppList(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0);
+        ApiAppListResponse ApiAppList(int? page = default, int? pageSize = default, int operationIndex = 0);
 
         /// <summary>
         /// List API Apps
@@ -128,7 +128,7 @@ namespace Dropbox.Sign.Api
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiAppListResponse</returns>
-        ApiResponse<ApiAppListResponse> ApiAppListWithHttpInfo(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0);
+        ApiResponse<ApiAppListResponse> ApiAppListWithHttpInfo(int? page = default, int? pageSize = default, int operationIndex = 0);
         /// <summary>
         /// Update API App
         /// </summary>
@@ -177,7 +177,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppCreateAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppCreateAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create API App
@@ -191,7 +191,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppCreateWithHttpInfoAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppCreateWithHttpInfoAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete API App
         /// </summary>
@@ -204,7 +204,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ApiAppDeleteAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ApiAppDeleteAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete API App
@@ -218,7 +218,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ApiAppDeleteWithHttpInfoAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ApiAppDeleteWithHttpInfoAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get API App
         /// </summary>
@@ -231,7 +231,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppGetAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppGetAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get API App
@@ -245,7 +245,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppGetWithHttpInfoAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppGetWithHttpInfoAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List API Apps
         /// </summary>
@@ -259,7 +259,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppListResponse</returns>
-        System.Threading.Tasks.Task<ApiAppListResponse> ApiAppListAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiAppListResponse> ApiAppListAsync(int? page = default, int? pageSize = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List API Apps
@@ -274,7 +274,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiAppListResponse>> ApiAppListWithHttpInfoAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiAppListResponse>> ApiAppListWithHttpInfoAsync(int? page = default, int? pageSize = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update API App
         /// </summary>
@@ -288,7 +288,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppUpdateAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppUpdateAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update API App
@@ -303,7 +303,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppUpdateWithHttpInfoAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiAppGetResponse>> ApiAppUpdateWithHttpInfoAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -525,7 +525,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppCreateAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppCreateAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = await ApiAppCreateWithHttpInfoAsync(apiAppCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -540,7 +540,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppCreateWithHttpInfoAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppCreateWithHttpInfoAsync(ApiAppCreateRequest apiAppCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'apiAppCreateRequest' is set
             if (apiAppCreateRequest == null)
@@ -704,7 +704,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ApiAppDeleteAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ApiAppDeleteAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             await ApiAppDeleteWithHttpInfoAsync(clientId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -718,7 +718,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> ApiAppDeleteWithHttpInfoAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> ApiAppDeleteWithHttpInfoAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -875,7 +875,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppGetAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppGetAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = await ApiAppGetWithHttpInfoAsync(clientId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -890,7 +890,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppGetWithHttpInfoAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppGetWithHttpInfoAsync(string clientId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
@@ -963,7 +963,7 @@ namespace Dropbox.Sign.Api
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiAppListResponse</returns>
-        public ApiAppListResponse ApiAppList(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0)
+        public ApiAppListResponse ApiAppList(int? page = default, int? pageSize = default, int operationIndex = 0)
         {
             Dropbox.Sign.Client.ApiResponse<ApiAppListResponse> localVarResponse = ApiAppListWithHttpInfo(page, pageSize);
             return localVarResponse.Data;
@@ -978,7 +978,7 @@ namespace Dropbox.Sign.Api
         /// <param name="pageSize">Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiAppListResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<ApiAppListResponse> ApiAppListWithHttpInfo(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<ApiAppListResponse> ApiAppListWithHttpInfo(int? page = default, int? pageSize = default, int operationIndex = 0)
         {
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
@@ -1051,7 +1051,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppListResponse</returns>
-        public async System.Threading.Tasks.Task<ApiAppListResponse> ApiAppListAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiAppListResponse> ApiAppListAsync(int? page = default, int? pageSize = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<ApiAppListResponse> localVarResponse = await ApiAppListWithHttpInfoAsync(page, pageSize, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1067,7 +1067,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppListResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppListResponse>> ApiAppListWithHttpInfoAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppListResponse>> ApiAppListWithHttpInfoAsync(int? page = default, int? pageSize = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
@@ -1243,7 +1243,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiAppGetResponse</returns>
-        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppUpdateAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiAppGetResponse> ApiAppUpdateAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse> localVarResponse = await ApiAppUpdateWithHttpInfoAsync(clientId, apiAppUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1259,7 +1259,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiAppGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppUpdateWithHttpInfoAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ApiAppGetResponse>> ApiAppUpdateWithHttpInfoAsync(string clientId, ApiAppUpdateRequest apiAppUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)

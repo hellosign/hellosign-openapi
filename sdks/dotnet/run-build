@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# see https://github.com/OpenAPITools/openapi-generator/tree/v7.12.0/modules/openapi-generator/src/main/resources/csharp
+# see https://github.com/OpenAPITools/openapi-generator/tree/v7.26.0/modules/openapi-generator/src/main/resources/csharp
 
 set -e
 
@@ -18,7 +18,7 @@ rm -f "${DIR}/src/Dropbox.Sign/Model/"*.cs
 
 docker run --rm \
   -v "${DIR}/:/local" \
-  openapitools/openapi-generator-cli:v7.12.0 generate \
+  openapitools/openapi-generator-cli:v7.26.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
     -t "/local/templates" \
@@ -58,7 +58,10 @@ if [[ -z "$GITHUB_ACTIONS" ]]; then
   find "${DIR}/src/" -type f -exec chmod 644 {} \;
 fi
 
-printf "Running tests ...\n"
-bash "${DIR}/bin/dotnet" dotnet test src/Dropbox.Sign.Test/
+printf "Running tests (net10.0) ...\n"
+bash "${DIR}/bin/dotnet" dotnet test src/Dropbox.Sign.Test/ -f net10.0
+
+printf "Running tests (net8.0) ...\n"
+DOTNET_IMAGE="mcr.microsoft.com/dotnet/sdk:8.0" bash "${DIR}/bin/dotnet" dotnet test src/Dropbox.Sign.Test/ -p:TargetFrameworks=net8.0
 
 printf "Success!\n"

@@ -19,23 +19,33 @@ namespace {{packageName}}.Client
         /// <summary>
         /// Retry policy
         /// </summary>
+{{^useCustomTemplateCode}}
+        public static ISyncPolicy<RestResponse> RetryPolicy { get; set; }
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         public static Policy<RestResponse> RetryPolicy { get; set; }
+{{/useCustomTemplateCode}}
 
         /// <summary>
         /// Async retry policy
         /// </summary>
+{{^useCustomTemplateCode}}
+        public static IAsyncPolicy<RestResponse> AsyncRetryPolicy { get; set; }
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         public static AsyncPolicy<RestResponse> AsyncRetryPolicy { get; set; }
+{{/useCustomTemplateCode}}
 {{/useRestSharp}}
 {{#useHttpClient}}
         /// <summary>
         /// Retry policy
         /// </summary>
-        public static Policy<HttpResponseMessage> RetryPolicy { get; set; }
+        public static ISyncPolicy<HttpResponseMessage> RetryPolicy { get; set; }
 
         /// <summary>
         /// Async retry policy
         /// </summary>
-        public static AsyncPolicy<HttpResponseMessage> AsyncRetryPolicy { get; set; }
+        public static IAsyncPolicy<HttpResponseMessage> AsyncRetryPolicy { get; set; }
 {{/useHttpClient}}
     }
 }
