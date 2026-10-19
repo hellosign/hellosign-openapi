@@ -1078,7 +1078,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # ```signature_request_files```
-> ```io.IOBase signature_request_files(signature_request_id)```
+> ```bytes signature_request_files(signature_request_id)```
 
 Download Files
 
@@ -1124,11 +1124,11 @@ with ApiClient(configuration) as api_client:
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to retrieve. |  |
-| `file_type` | **str** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional][default to pdf] |
+| `file_type` | **str** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional][default to &#39;pdf&#39;] |
 
 ### Return type
 
-**io.IOBase**
+**bytes**
 
 ### Authorization
 

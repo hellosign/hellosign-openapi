@@ -37,6 +37,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class SignatureRequestBulkSendWithTemplateRequest(BaseModel):
@@ -119,7 +120,8 @@ class SignatureRequestBulkSendWithTemplateRequest(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -131,8 +133,7 @@ class SignatureRequestBulkSendWithTemplateRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -172,22 +173,27 @@ class SignatureRequestBulkSendWithTemplateRequest(BaseModel):
         _items = []
         if self.signer_list:
             for _item_signer_list in self.signer_list:
-                if _item_signer_list:
-                    _items.append(_item_signer_list.to_dict())
+                _items.append(
+                    _item_signer_list.to_dict()
+                    if _item_signer_list is not None
+                    else None
+                )
             _dict["signer_list"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in ccs (list)
         _items = []
         if self.ccs:
             for _item_ccs in self.ccs:
-                if _item_ccs:
-                    _items.append(_item_ccs.to_dict())
+                _items.append(_item_ccs.to_dict() if _item_ccs is not None else None)
             _dict["ccs"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in custom_fields (list)
         _items = []
         if self.custom_fields:
             for _item_custom_fields in self.custom_fields:
-                if _item_custom_fields:
-                    _items.append(_item_custom_fields.to_dict())
+                _items.append(
+                    _item_custom_fields.to_dict()
+                    if _item_custom_fields is not None
+                    else None
+                )
             _dict["custom_fields"] = _items
         return _dict
 

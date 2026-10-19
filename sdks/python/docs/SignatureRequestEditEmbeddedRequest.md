@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `client_id`<sup>*_required_</sup> | ```str``` |  Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.  |  |
-| `files` | ```List[io.IOBase]``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
+| `files` | ```List[bytes]``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `file_urls` | ```List[str]``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `signers` | [```List[SubSignatureRequestSigner]```](SubSignatureRequestSigner.md) |  Add Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
 | `grouped_signers` | [```List[SubSignatureRequestGroupedSigners]```](SubSignatureRequestGroupedSigners.md) |  Add Grouped Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |

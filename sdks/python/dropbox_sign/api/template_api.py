@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -122,7 +120,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -197,7 +194,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -272,7 +268,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -425,7 +420,6 @@ class TemplateApi:
             "200": "TemplateCreateResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -493,7 +487,6 @@ class TemplateApi:
             "200": "TemplateCreateResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -561,7 +554,6 @@ class TemplateApi:
             "200": "TemplateCreateResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -711,7 +703,6 @@ class TemplateApi:
             "200": "TemplateCreateEmbeddedDraftResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -779,7 +770,6 @@ class TemplateApi:
             "200": "TemplateCreateEmbeddedDraftResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -847,7 +837,6 @@ class TemplateApi:
             "200": "TemplateCreateEmbeddedDraftResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -999,7 +988,6 @@ class TemplateApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1069,7 +1057,6 @@ class TemplateApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1139,7 +1126,6 @@ class TemplateApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1268,7 +1254,6 @@ class TemplateApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1347,7 +1332,6 @@ class TemplateApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1426,7 +1410,6 @@ class TemplateApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1551,7 +1534,6 @@ class TemplateApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1621,7 +1603,6 @@ class TemplateApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1691,7 +1672,6 @@ class TemplateApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1820,7 +1800,6 @@ class TemplateApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1899,7 +1878,6 @@ class TemplateApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1978,7 +1956,6 @@ class TemplateApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2103,7 +2080,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2173,7 +2149,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2243,7 +2218,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2393,7 +2367,6 @@ class TemplateApi:
             "200": "TemplateListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2493,7 +2466,6 @@ class TemplateApi:
             "200": "TemplateListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2593,7 +2565,6 @@ class TemplateApi:
             "200": "TemplateListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2737,7 +2708,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2814,7 +2784,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2891,7 +2860,6 @@ class TemplateApi:
             "200": "TemplateGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3051,7 +3019,6 @@ class TemplateApi:
             "200": "TemplateUpdateFilesResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3126,7 +3093,6 @@ class TemplateApi:
             "200": "TemplateUpdateFilesResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3201,7 +3167,6 @@ class TemplateApi:
             "200": "TemplateUpdateFilesResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

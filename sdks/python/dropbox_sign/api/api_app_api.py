@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -101,7 +99,6 @@ class ApiAppApi:
             "201": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -169,7 +166,6 @@ class ApiAppApi:
             "201": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -237,7 +233,6 @@ class ApiAppApi:
             "201": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -389,7 +384,6 @@ class ApiAppApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -459,7 +453,6 @@ class ApiAppApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -529,7 +522,6 @@ class ApiAppApi:
             "204": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -649,7 +641,6 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -719,7 +710,6 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -789,7 +779,6 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -921,7 +910,6 @@ class ApiAppApi:
             "200": "ApiAppListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1003,7 +991,6 @@ class ApiAppApi:
             "200": "ApiAppListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1085,7 +1072,6 @@ class ApiAppApi:
             "200": "ApiAppListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1216,7 +1202,6 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1290,7 +1275,6 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1364,7 +1348,6 @@ class ApiAppApi:
             "200": "ApiAppGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
