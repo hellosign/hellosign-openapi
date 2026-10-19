@@ -26,7 +26,8 @@ NAME = "dropbox-sign"
 VERSION = "1.11-dev"
 PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
-    "urllib3 >= 1.25.3, < 3.0.0",
+    "urllib3 >= 2.8.0, < 3.0.0; python_version >= '3.10'",
+    "urllib3 >= 1.25.3, < 3.0.0; python_version < '3.10'",
     "python-dateutil >= 2.8.2",
     "pydantic >= 2",
     "typing-extensions >= 4.7.1",

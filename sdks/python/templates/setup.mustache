@@ -17,7 +17,13 @@ NAME = "{{{projectName}}}"
 VERSION = "{{packageVersion}}"
 PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
+{{^useCustomTemplateCode}}
     "urllib3 >= 1.25.3, < 3.0.0",
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+    "urllib3 >= 2.8.0, < 3.0.0; python_version >= '3.10'",
+    "urllib3 >= 1.25.3, < 3.0.0; python_version < '3.10'",
+{{/useCustomTemplateCode}}
     "python-dateutil >= 2.8.2",
 {{#asyncio}}
     "aiohttp >= 3.8.4",

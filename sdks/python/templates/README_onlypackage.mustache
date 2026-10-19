@@ -26,7 +26,12 @@ This python library package is generated without supporting files like setup.py 
 
 To be able to use it, you will need these dependencies in your own package that uses this library:
 
+{{^useCustomTemplateCode}}
 * urllib3 >= 1.25.3, < 3.0.0
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+* urllib3 >= 2.8.0, < 3.0.0 (Python 3.10+) or >= 1.25.3, < 3.0.0 (Python 3.8 and 3.9)
+{{/useCustomTemplateCode}}
 * python-dateutil >= 2.8.2
 {{#asyncio}}
 * aiohttp >= 3.8.4
