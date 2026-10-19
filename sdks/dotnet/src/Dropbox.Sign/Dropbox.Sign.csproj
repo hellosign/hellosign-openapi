@@ -2,7 +2,9 @@
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
-    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <!-- net10.0 is built only with the .NET 10 SDK, so the SDK can still be built from source with the .NET 8 SDK -->
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::VersionGreaterThanOrEquals('$(NETCoreSdkVersion)', '10.0'))">net8.0;net10.0</TargetFrameworks>
     <AssemblyName>Dropbox.Sign</AssemblyName>
     <PackageId>Dropbox.Sign</PackageId>
     <OutputType>Library</OutputType>
@@ -32,4 +34,8 @@
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
+  <!-- Published packages must include the net10.0 build -->
+  <Target Name="RequireNet10ForPack" BeforeTargets="GenerateNuspec" Condition="!$(TargetFrameworks.Contains('net10.0'))">
+    <Error Text="Packing Dropbox.Sign requires the .NET 10 SDK so the package includes the net10.0 build." />
+  </Target>
 </Project>
