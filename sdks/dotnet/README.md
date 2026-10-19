@@ -47,6 +47,8 @@ this command.
 ## Frameworks supported
 - .NET 8.0 or later (the package includes `net8.0` and `net10.0` builds)
 
+Building the SDK from source requires the .NET 10 SDK.
+
 <a id="dependencies"></a>
 ## Dependencies
 
