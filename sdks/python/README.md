@@ -1,6 +1,18 @@
 # dropbox-sign
 Dropbox Sign v3 API
 
+## Upgrading to 2.0.0
+
+Version 2.0.0 is generated with OpenAPI Generator 7.26.0. Existing code keeps working, with these changes:
+
+- **Python 3.10 or later is required.** Python 3.8 and 3.9 are no longer supported; pip keeps installing 1.x on those versions.
+- **Dependencies:** `urllib3 >= 2.8.0` and `pydantic >= 2.11`.
+- **Proxy settings are now detected automatically.** When `Configuration.proxy` is not set, the SDK uses the proxy configured in the environment (`HTTPS_PROXY`, `HTTP_PROXY`, `ALL_PROXY`) and, on macOS and Windows, the system proxy settings. Previously, a proxy was only used when set explicitly.
+  - To bypass the proxy for the Dropbox Sign API, set `NO_PROXY=api.hellosign.com` or `configuration.no_proxy = "api.hellosign.com"`.
+  - To ignore all proxy settings, set `configuration.proxy = None` after creating the `Configuration` and before creating the `ApiClient`. Passing `proxy=None` to the constructor does not disable detection.
+  - SOCKS proxies (for example `ALL_PROXY=socks5://...`) require `pip install "urllib3[socks]"`.
+- **Behaviour changes:** `to_json()` now serializes datetimes, `to_dict()` keeps `None` items in lists, boolean query parameters are sent as `true` / `false`, and the `ApiException` message lists the response body and data separately.
+
 ## Migrating from legacy SDK
 
 This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml).
