@@ -26,6 +26,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 from typing import TYPE_CHECKING
 
@@ -60,7 +61,8 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
     __properties: ClassVar[List[str]] = ["type", "name", "required", "api_id", "editor"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -78,7 +80,7 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
     @classmethod
     def get_discriminator_value(cls, obj: Dict[str, Any]) -> Optional[str]:
         """Returns the discriminator value (object type) of the data"""
-        discriminator_value = obj[cls.__discriminator_property_name]
+        discriminator_value = obj.get(cls.__discriminator_property_name)
         if discriminator_value:
             return cls.__discriminator_value_class_map.get(discriminator_value)
         else:
@@ -90,8 +92,7 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None

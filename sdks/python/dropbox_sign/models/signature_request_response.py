@@ -37,6 +37,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class SignatureRequestResponse(BaseModel):
@@ -167,7 +168,8 @@ class SignatureRequestResponse(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -179,8 +181,7 @@ class SignatureRequestResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -220,29 +221,39 @@ class SignatureRequestResponse(BaseModel):
         _items = []
         if self.custom_fields:
             for _item_custom_fields in self.custom_fields:
-                if _item_custom_fields:
-                    _items.append(_item_custom_fields.to_dict())
+                _items.append(
+                    _item_custom_fields.to_dict()
+                    if _item_custom_fields is not None
+                    else None
+                )
             _dict["custom_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
             for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+                _items.append(
+                    _item_attachments.to_dict()
+                    if _item_attachments is not None
+                    else None
+                )
             _dict["attachments"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in response_data (list)
         _items = []
         if self.response_data:
             for _item_response_data in self.response_data:
-                if _item_response_data:
-                    _items.append(_item_response_data.to_dict())
+                _items.append(
+                    _item_response_data.to_dict()
+                    if _item_response_data is not None
+                    else None
+                )
             _dict["response_data"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in signatures (list)
         _items = []
         if self.signatures:
             for _item_signatures in self.signatures:
-                if _item_signatures:
-                    _items.append(_item_signatures.to_dict())
+                _items.append(
+                    _item_signatures.to_dict() if _item_signatures is not None else None
+                )
             _dict["signatures"] = _items
         return _dict
 

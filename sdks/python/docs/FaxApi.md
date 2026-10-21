@@ -72,7 +72,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # ```fax_files```
-> ```io.IOBase fax_files(fax_id)```
+> ```bytes fax_files(fax_id)```
 
 Download Fax Files
 
@@ -113,7 +113,7 @@ with ApiClient(configuration) as api_client:
 
 ### Return type
 
-**io.IOBase**
+**bytes**
 
 ### Authorization
 

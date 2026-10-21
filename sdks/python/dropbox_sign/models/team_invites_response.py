@@ -27,6 +27,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class TeamInvitesResponse(BaseModel):
@@ -41,7 +42,8 @@ class TeamInvitesResponse(BaseModel):
     __properties: ClassVar[List[str]] = ["team_invites", "warnings"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -53,8 +55,7 @@ class TeamInvitesResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -94,15 +95,19 @@ class TeamInvitesResponse(BaseModel):
         _items = []
         if self.team_invites:
             for _item_team_invites in self.team_invites:
-                if _item_team_invites:
-                    _items.append(_item_team_invites.to_dict())
+                _items.append(
+                    _item_team_invites.to_dict()
+                    if _item_team_invites is not None
+                    else None
+                )
             _dict["team_invites"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in warnings (list)
         _items = []
         if self.warnings:
             for _item_warnings in self.warnings:
-                if _item_warnings:
-                    _items.append(_item_warnings.to_dict())
+                _items.append(
+                    _item_warnings.to_dict() if _item_warnings is not None else None
+                )
             _dict["warnings"] = _items
         return _dict
 

@@ -423,7 +423,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # ```template_files```
-> ```io.IOBase template_files(template_id)```
+> ```bytes template_files(template_id)```
 
 Get Template Files
 
@@ -469,7 +469,7 @@ with ApiClient(configuration) as api_client:
 
 ### Return type
 
-**io.IOBase**
+**bytes**
 
 ### Authorization
 

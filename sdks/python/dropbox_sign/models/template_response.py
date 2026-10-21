@@ -38,6 +38,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class TemplateResponse(BaseModel):
@@ -124,7 +125,8 @@ class TemplateResponse(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -136,8 +138,7 @@ class TemplateResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -177,50 +178,65 @@ class TemplateResponse(BaseModel):
         _items = []
         if self.signer_roles:
             for _item_signer_roles in self.signer_roles:
-                if _item_signer_roles:
-                    _items.append(_item_signer_roles.to_dict())
+                _items.append(
+                    _item_signer_roles.to_dict()
+                    if _item_signer_roles is not None
+                    else None
+                )
             _dict["signer_roles"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in cc_roles (list)
         _items = []
         if self.cc_roles:
             for _item_cc_roles in self.cc_roles:
-                if _item_cc_roles:
-                    _items.append(_item_cc_roles.to_dict())
+                _items.append(
+                    _item_cc_roles.to_dict() if _item_cc_roles is not None else None
+                )
             _dict["cc_roles"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in documents (list)
         _items = []
         if self.documents:
             for _item_documents in self.documents:
-                if _item_documents:
-                    _items.append(_item_documents.to_dict())
+                _items.append(
+                    _item_documents.to_dict() if _item_documents is not None else None
+                )
             _dict["documents"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in custom_fields (list)
         _items = []
         if self.custom_fields:
             for _item_custom_fields in self.custom_fields:
-                if _item_custom_fields:
-                    _items.append(_item_custom_fields.to_dict())
+                _items.append(
+                    _item_custom_fields.to_dict()
+                    if _item_custom_fields is not None
+                    else None
+                )
             _dict["custom_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in named_form_fields (list)
         _items = []
         if self.named_form_fields:
             for _item_named_form_fields in self.named_form_fields:
-                if _item_named_form_fields:
-                    _items.append(_item_named_form_fields.to_dict())
+                _items.append(
+                    _item_named_form_fields.to_dict()
+                    if _item_named_form_fields is not None
+                    else None
+                )
             _dict["named_form_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in accounts (list)
         _items = []
         if self.accounts:
             for _item_accounts in self.accounts:
-                if _item_accounts:
-                    _items.append(_item_accounts.to_dict())
+                _items.append(
+                    _item_accounts.to_dict() if _item_accounts is not None else None
+                )
             _dict["accounts"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
             for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+                _items.append(
+                    _item_attachments.to_dict()
+                    if _item_attachments is not None
+                    else None
+                )
             _dict["attachments"] = _items
         return _dict
 

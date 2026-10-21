@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -106,7 +104,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -174,7 +171,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -242,7 +238,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -412,7 +407,6 @@ class FaxLineApi:
             "200": "FaxLineAreaCodeGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -500,7 +494,6 @@ class FaxLineApi:
             "200": "FaxLineAreaCodeGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -588,7 +581,6 @@ class FaxLineApi:
             "200": "FaxLineAreaCodeGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -723,7 +715,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -791,7 +782,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -859,7 +849,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1009,7 +998,6 @@ class FaxLineApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1077,7 +1065,6 @@ class FaxLineApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1145,7 +1132,6 @@ class FaxLineApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1295,7 +1281,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1363,7 +1348,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1431,7 +1415,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1580,7 +1563,6 @@ class FaxLineApi:
             "200": "FaxLineListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1677,7 +1659,6 @@ class FaxLineApi:
             "200": "FaxLineListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1774,7 +1755,6 @@ class FaxLineApi:
             "200": "FaxLineListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1909,7 +1889,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1977,7 +1956,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2045,7 +2023,6 @@ class FaxLineApi:
             "200": "FaxLineResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

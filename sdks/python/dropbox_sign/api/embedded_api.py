@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -105,7 +103,6 @@ class EmbeddedApi:
             "200": "EmbeddedEditUrlResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -179,7 +176,6 @@ class EmbeddedApi:
             "200": "EmbeddedEditUrlResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -253,7 +249,6 @@ class EmbeddedApi:
             "200": "EmbeddedEditUrlResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -409,7 +404,6 @@ class EmbeddedApi:
             "200": "EmbeddedSignUrlResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -480,7 +474,6 @@ class EmbeddedApi:
             "200": "EmbeddedSignUrlResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -551,7 +544,6 @@ class EmbeddedApi:
             "200": "EmbeddedSignUrlResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

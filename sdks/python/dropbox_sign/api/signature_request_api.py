@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -142,7 +140,6 @@ class SignatureRequestApi:
             "200": "BulkSendJobSendResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -210,7 +207,6 @@ class SignatureRequestApi:
             "200": "BulkSendJobSendResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -278,7 +274,6 @@ class SignatureRequestApi:
             "200": "BulkSendJobSendResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -431,7 +426,6 @@ class SignatureRequestApi:
             "200": "BulkSendJobSendResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -499,7 +493,6 @@ class SignatureRequestApi:
             "200": "BulkSendJobSendResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -567,7 +560,6 @@ class SignatureRequestApi:
             "200": "BulkSendJobSendResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -723,7 +715,6 @@ class SignatureRequestApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -794,7 +785,6 @@ class SignatureRequestApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -865,7 +855,6 @@ class SignatureRequestApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -983,7 +972,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1051,7 +1039,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1119,7 +1106,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1269,7 +1255,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1337,7 +1322,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1405,7 +1389,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1564,7 +1547,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1638,7 +1620,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1712,7 +1693,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1871,7 +1851,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1945,7 +1924,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2019,7 +1997,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2178,7 +2155,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2252,7 +2228,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2326,7 +2301,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2488,7 +2462,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2562,7 +2535,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2636,7 +2608,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2803,7 +2774,6 @@ class SignatureRequestApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2882,7 +2852,6 @@ class SignatureRequestApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2961,7 +2930,6 @@ class SignatureRequestApi:
             "200": "io.IOBase",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3086,7 +3054,6 @@ class SignatureRequestApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3156,7 +3123,6 @@ class SignatureRequestApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3226,7 +3192,6 @@ class SignatureRequestApi:
             "200": "FileResponseDataUri",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3355,7 +3320,6 @@ class SignatureRequestApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3434,7 +3398,6 @@ class SignatureRequestApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3513,7 +3476,6 @@ class SignatureRequestApi:
             "200": "FileResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3638,7 +3600,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3708,7 +3669,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3778,7 +3738,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3928,7 +3887,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4028,7 +3986,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4128,7 +4085,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4265,7 +4221,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4335,7 +4290,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4405,7 +4359,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4530,7 +4483,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4605,7 +4557,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4680,7 +4631,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4835,7 +4785,6 @@ class SignatureRequestApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4905,7 +4854,6 @@ class SignatureRequestApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -4975,7 +4923,6 @@ class SignatureRequestApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5093,7 +5040,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5161,7 +5107,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5229,7 +5174,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5379,7 +5323,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5447,7 +5390,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5515,7 +5457,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5674,7 +5615,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5748,7 +5688,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -5822,7 +5761,6 @@ class SignatureRequestApi:
             "200": "SignatureRequestGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

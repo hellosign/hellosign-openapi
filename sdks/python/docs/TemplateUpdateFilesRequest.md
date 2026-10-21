@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `client_id` | ```str``` |  Client id of the app you&#39;re using to update this template.  |  |
-| `files` | ```List[io.IOBase]``` |  Use `files[]` to indicate the uploaded file(s) to use for the template.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
+| `files` | ```List[bytes]``` |  Use `files[]` to indicate the uploaded file(s) to use for the template.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `file_urls` | ```List[str]``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `message` | ```str``` |  The new default template email message.  |  |
 | `subject` | ```str``` |  The new default template email subject.  |  |
