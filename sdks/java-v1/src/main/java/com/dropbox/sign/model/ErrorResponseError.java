@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorResponseError {
     public static final String JSON_PROPERTY_ERROR_MSG = "error_msg";
@@ -70,13 +70,13 @@ public class ErrorResponseError {
      * @return errorMsg
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ERROR_MSG)
+    @JsonProperty(value = JSON_PROPERTY_ERROR_MSG, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getErrorMsg() {
         return errorMsg;
     }
 
-    @JsonProperty(JSON_PROPERTY_ERROR_MSG)
+    @JsonProperty(value = JSON_PROPERTY_ERROR_MSG, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setErrorMsg(@javax.annotation.Nonnull String errorMsg) {
         this.errorMsg = errorMsg;
@@ -95,13 +95,13 @@ public class ErrorResponseError {
      * @return errorName
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ERROR_NAME)
+    @JsonProperty(value = JSON_PROPERTY_ERROR_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getErrorName() {
         return errorName;
     }
 
-    @JsonProperty(JSON_PROPERTY_ERROR_NAME)
+    @JsonProperty(value = JSON_PROPERTY_ERROR_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setErrorName(@javax.annotation.Nonnull String errorName) {
         this.errorName = errorName;
@@ -117,13 +117,13 @@ public class ErrorResponseError {
      *
      * @return errorPath
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ERROR_PATH)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ERROR_PATH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getErrorPath() {
         return errorPath;
     }
 
-    @JsonProperty(JSON_PROPERTY_ERROR_PATH)
+    @JsonProperty(value = JSON_PROPERTY_ERROR_PATH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setErrorPath(@javax.annotation.Nullable String errorPath) {
         this.errorPath = errorPath;
@@ -261,9 +261,6 @@ public class ErrorResponseError {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

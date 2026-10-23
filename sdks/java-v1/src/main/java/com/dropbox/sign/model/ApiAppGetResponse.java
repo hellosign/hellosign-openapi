@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiAppGetResponse {
     public static final String JSON_PROPERTY_API_APP = "api_app";
@@ -68,13 +68,13 @@ public class ApiAppGetResponse {
      * @return apiApp
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_API_APP)
+    @JsonProperty(value = JSON_PROPERTY_API_APP, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public ApiAppResponse getApiApp() {
         return apiApp;
     }
 
-    @JsonProperty(JSON_PROPERTY_API_APP)
+    @JsonProperty(value = JSON_PROPERTY_API_APP, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setApiApp(@javax.annotation.Nonnull ApiAppResponse apiApp) {
         this.apiApp = apiApp;
@@ -98,13 +98,13 @@ public class ApiAppGetResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<WarningResponse> getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
@@ -216,9 +216,6 @@ public class ApiAppGetResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

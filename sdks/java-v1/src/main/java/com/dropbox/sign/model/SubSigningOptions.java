@@ -41,7 +41,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubSigningOptions {
     /** The default type shown (limited to the listed types) */
@@ -127,13 +127,13 @@ public class SubSigningOptions {
      * @return defaultType
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_DEFAULT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_DEFAULT_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public DefaultTypeEnum getDefaultType() {
         return defaultType;
     }
 
-    @JsonProperty(JSON_PROPERTY_DEFAULT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_DEFAULT_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setDefaultType(@javax.annotation.Nonnull DefaultTypeEnum defaultType) {
         this.defaultType = defaultType;
@@ -149,13 +149,13 @@ public class SubSigningOptions {
      *
      * @return draw
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_DRAW)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_DRAW, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getDraw() {
         return draw;
     }
 
-    @JsonProperty(JSON_PROPERTY_DRAW)
+    @JsonProperty(value = JSON_PROPERTY_DRAW, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setDraw(@javax.annotation.Nullable Boolean draw) {
         this.draw = draw;
@@ -171,13 +171,13 @@ public class SubSigningOptions {
      *
      * @return phone
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PHONE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PHONE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getPhone() {
         return phone;
     }
 
-    @JsonProperty(JSON_PROPERTY_PHONE)
+    @JsonProperty(value = JSON_PROPERTY_PHONE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setPhone(@javax.annotation.Nullable Boolean phone) {
         this.phone = phone;
@@ -193,13 +193,13 @@ public class SubSigningOptions {
      *
      * @return type
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TYPE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setType(@javax.annotation.Nullable Boolean type) {
         this.type = type;
@@ -215,13 +215,13 @@ public class SubSigningOptions {
      *
      * @return upload
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_UPLOAD)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_UPLOAD, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getUpload() {
         return upload;
     }
 
-    @JsonProperty(JSON_PROPERTY_UPLOAD)
+    @JsonProperty(value = JSON_PROPERTY_UPLOAD, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setUpload(@javax.annotation.Nullable Boolean upload) {
         this.upload = upload;
@@ -238,13 +238,13 @@ public class SubSigningOptions {
      *
      * @return forceAdvancedSignatureDetails
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getForceAdvancedSignatureDetails() {
         return forceAdvancedSignatureDetails;
     }
 
-    @JsonProperty(JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS)
+    @JsonProperty(value = JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setForceAdvancedSignatureDetails(
             @javax.annotation.Nullable Boolean forceAdvancedSignatureDetails) {
@@ -449,9 +449,6 @@ public class SubSigningOptions {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

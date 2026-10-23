@@ -39,7 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -121,13 +121,13 @@ public class TemplateResponseDocumentFormFieldBase {
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
@@ -143,13 +143,13 @@ public class TemplateResponseDocumentFormFieldBase {
      *
      * @return apiId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_API_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_API_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getApiId() {
         return apiId;
     }
 
-    @JsonProperty(JSON_PROPERTY_API_ID)
+    @JsonProperty(value = JSON_PROPERTY_API_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setApiId(@javax.annotation.Nullable String apiId) {
         this.apiId = apiId;
@@ -165,13 +165,13 @@ public class TemplateResponseDocumentFormFieldBase {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -192,13 +192,13 @@ public class TemplateResponseDocumentFormFieldBase {
      *
      * @return signer
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSigner() {
         return signer;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSigner(@javax.annotation.Nullable String signer) {
         this.signer = signer;
@@ -218,13 +218,13 @@ public class TemplateResponseDocumentFormFieldBase {
      *
      * @return x
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_X)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_X, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getX() {
         return x;
     }
 
-    @JsonProperty(JSON_PROPERTY_X)
+    @JsonProperty(value = JSON_PROPERTY_X, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setX(@javax.annotation.Nullable Integer x) {
         this.x = x;
@@ -240,13 +240,13 @@ public class TemplateResponseDocumentFormFieldBase {
      *
      * @return y
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_Y)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_Y, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getY() {
         return y;
     }
 
-    @JsonProperty(JSON_PROPERTY_Y)
+    @JsonProperty(value = JSON_PROPERTY_Y, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setY(@javax.annotation.Nullable Integer y) {
         this.y = y;
@@ -262,13 +262,13 @@ public class TemplateResponseDocumentFormFieldBase {
      *
      * @return width
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WIDTH)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getWidth() {
         return width;
     }
 
-    @JsonProperty(JSON_PROPERTY_WIDTH)
+    @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWidth(@javax.annotation.Nullable Integer width) {
         this.width = width;
@@ -284,13 +284,13 @@ public class TemplateResponseDocumentFormFieldBase {
      *
      * @return height
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HEIGHT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getHeight() {
         return height;
     }
 
-    @JsonProperty(JSON_PROPERTY_HEIGHT)
+    @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setHeight(@javax.annotation.Nullable Integer height) {
         this.height = height;
@@ -307,13 +307,13 @@ public class TemplateResponseDocumentFormFieldBase {
      *
      * @return required
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getRequired() {
         return required;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequired(@javax.annotation.Nullable Boolean required) {
         this.required = required;
@@ -566,10 +566,7 @@ public class TemplateResponseDocumentFormFieldBase {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

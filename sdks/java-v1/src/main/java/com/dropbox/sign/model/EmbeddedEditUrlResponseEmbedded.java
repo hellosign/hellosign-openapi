@@ -30,7 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmbeddedEditUrlResponseEmbedded {
     public static final String JSON_PROPERTY_EDIT_URL = "edit_url";
@@ -67,13 +67,13 @@ public class EmbeddedEditUrlResponseEmbedded {
      *
      * @return editUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDIT_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EDIT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEditUrl() {
         return editUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_EDIT_URL)
+    @JsonProperty(value = JSON_PROPERTY_EDIT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEditUrl(@javax.annotation.Nullable String editUrl) {
         this.editUrl = editUrl;
@@ -89,13 +89,13 @@ public class EmbeddedEditUrlResponseEmbedded {
      *
      * @return expiresAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getExpiresAt() {
         return expiresAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
@@ -210,9 +210,6 @@ public class EmbeddedEditUrlResponseEmbedded {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

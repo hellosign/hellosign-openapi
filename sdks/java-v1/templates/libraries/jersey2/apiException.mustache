@@ -16,6 +16,7 @@ import com.dropbox.sign.model.ErrorResponse;
  * API Exception
  */
 {{>generatedAnnotation}}
+
 public class ApiException extends{{#useRuntimeException}} RuntimeException {{/useRuntimeException}}{{^useRuntimeException}} Exception {{/useRuntimeException}}{
     private static final long serialVersionUID = 1L;
 

@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineResponseFaxLine {
     public static final String JSON_PROPERTY_NUMBER = "number";
@@ -76,13 +76,13 @@ public class FaxLineResponseFaxLine {
      *
      * @return number
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NUMBER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NUMBER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getNumber() {
         return number;
     }
 
-    @JsonProperty(JSON_PROPERTY_NUMBER)
+    @JsonProperty(value = JSON_PROPERTY_NUMBER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNumber(@javax.annotation.Nullable String number) {
         this.number = number;
@@ -98,13 +98,13 @@ public class FaxLineResponseFaxLine {
      *
      * @return createdAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getCreatedAt() {
         return createdAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCreatedAt(@javax.annotation.Nullable Integer createdAt) {
         this.createdAt = createdAt;
@@ -120,13 +120,13 @@ public class FaxLineResponseFaxLine {
      *
      * @return updatedAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_UPDATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getUpdatedAt() {
         return updatedAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+    @JsonProperty(value = JSON_PROPERTY_UPDATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setUpdatedAt(@javax.annotation.Nullable Integer updatedAt) {
         this.updatedAt = updatedAt;
@@ -151,13 +151,13 @@ public class FaxLineResponseFaxLine {
      *
      * @return accounts
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<AccountResponse> getAccounts() {
         return accounts;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccounts(@javax.annotation.Nullable List<AccountResponse> accounts) {
         this.accounts = accounts;
@@ -313,9 +313,6 @@ public class FaxLineResponseFaxLine {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

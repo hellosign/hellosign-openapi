@@ -36,7 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseDocument {
     public static final String JSON_PROPERTY_NAME = "name";
@@ -88,13 +88,13 @@ public class TemplateResponseDocument {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -111,13 +111,13 @@ public class TemplateResponseDocument {
      *
      * @return index
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_INDEX)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_INDEX, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getIndex() {
         return index;
     }
 
-    @JsonProperty(JSON_PROPERTY_INDEX)
+    @JsonProperty(value = JSON_PROPERTY_INDEX, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIndex(@javax.annotation.Nullable Integer index) {
         this.index = index;
@@ -143,13 +143,13 @@ public class TemplateResponseDocument {
      *
      * @return fieldGroups
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FIELD_GROUPS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseDocumentFieldGroup> getFieldGroups() {
         return fieldGroups;
     }
 
-    @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
+    @JsonProperty(value = JSON_PROPERTY_FIELD_GROUPS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFieldGroups(
             @javax.annotation.Nullable List<TemplateResponseDocumentFieldGroup> fieldGroups) {
@@ -176,13 +176,13 @@ public class TemplateResponseDocument {
      *
      * @return formFields
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseDocumentFormFieldBase> getFormFields() {
         return formFields;
     }
 
-    @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
+    @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFormFields(
             @javax.annotation.Nullable List<TemplateResponseDocumentFormFieldBase> formFields) {
@@ -209,13 +209,13 @@ public class TemplateResponseDocument {
      *
      * @return customFields
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseDocumentCustomFieldBase> getCustomFields() {
         return customFields;
     }
 
-    @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCustomFields(
             @javax.annotation.Nullable List<TemplateResponseDocumentCustomFieldBase> customFields) {
@@ -243,13 +243,13 @@ public class TemplateResponseDocument {
      *
      * @return staticFields
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_STATIC_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseDocumentStaticFieldBase> getStaticFields() {
         return staticFields;
     }
 
-    @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
+    @JsonProperty(value = JSON_PROPERTY_STATIC_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setStaticFields(
             @javax.annotation.Nullable List<TemplateResponseDocumentStaticFieldBase> staticFields) {
@@ -450,9 +450,6 @@ public class TemplateResponseDocument {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

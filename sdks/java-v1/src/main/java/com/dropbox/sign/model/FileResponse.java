@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({FileResponse.JSON_PROPERTY_FILE_URL, FileResponse.JSON_PROPERTY_EXPIRES_AT})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FileResponse {
     public static final String JSON_PROPERTY_FILE_URL = "file_url";
@@ -63,13 +63,13 @@ public class FileResponse {
      * @return fileUrl
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FILE_URL)
+    @JsonProperty(value = JSON_PROPERTY_FILE_URL, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getFileUrl() {
         return fileUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILE_URL)
+    @JsonProperty(value = JSON_PROPERTY_FILE_URL, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFileUrl(@javax.annotation.Nonnull String fileUrl) {
         this.fileUrl = fileUrl;
@@ -86,13 +86,13 @@ public class FileResponse {
      * @return expiresAt
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getExpiresAt() {
         return expiresAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setExpiresAt(@javax.annotation.Nonnull Integer expiresAt) {
         this.expiresAt = expiresAt;
@@ -206,9 +206,6 @@ public class FileResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EventCallbackRequestEvent {
     public static final String JSON_PROPERTY_EVENT_TIME = "event_time";
@@ -167,13 +167,13 @@ public class EventCallbackRequestEvent {
      * @return eventTime
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EVENT_TIME)
+    @JsonProperty(value = JSON_PROPERTY_EVENT_TIME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getEventTime() {
         return eventTime;
     }
 
-    @JsonProperty(JSON_PROPERTY_EVENT_TIME)
+    @JsonProperty(value = JSON_PROPERTY_EVENT_TIME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEventTime(@javax.annotation.Nonnull String eventTime) {
         this.eventTime = eventTime;
@@ -190,13 +190,13 @@ public class EventCallbackRequestEvent {
      * @return eventType
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_EVENT_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public EventTypeEnum getEventType() {
         return eventType;
     }
 
-    @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_EVENT_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEventType(@javax.annotation.Nonnull EventTypeEnum eventType) {
         this.eventType = eventType;
@@ -213,13 +213,13 @@ public class EventCallbackRequestEvent {
      * @return eventHash
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EVENT_HASH)
+    @JsonProperty(value = JSON_PROPERTY_EVENT_HASH, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getEventHash() {
         return eventHash;
     }
 
-    @JsonProperty(JSON_PROPERTY_EVENT_HASH)
+    @JsonProperty(value = JSON_PROPERTY_EVENT_HASH, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEventHash(@javax.annotation.Nonnull String eventHash) {
         this.eventHash = eventHash;
@@ -236,13 +236,13 @@ public class EventCallbackRequestEvent {
      *
      * @return eventMetadata
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EVENT_METADATA)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EVENT_METADATA, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public EventCallbackRequestEventMetadata getEventMetadata() {
         return eventMetadata;
     }
 
-    @JsonProperty(JSON_PROPERTY_EVENT_METADATA)
+    @JsonProperty(value = JSON_PROPERTY_EVENT_METADATA, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEventMetadata(
             @javax.annotation.Nullable EventCallbackRequestEventMetadata eventMetadata) {
@@ -403,9 +403,6 @@ public class EventCallbackRequestEvent {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

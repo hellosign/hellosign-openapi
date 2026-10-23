@@ -40,7 +40,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -168,13 +168,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
@@ -191,13 +191,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return avgTextLength
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_AVG_TEXT_LENGTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public TemplateResponseFieldAvgTextLength getAvgTextLength() {
         return avgTextLength;
     }
 
-    @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+    @JsonProperty(value = JSON_PROPERTY_AVG_TEXT_LENGTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAvgTextLength(
             @javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
@@ -215,13 +215,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return isMultiline
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_MULTILINE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsMultiline() {
         return isMultiline;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+    @JsonProperty(value = JSON_PROPERTY_IS_MULTILINE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsMultiline(@javax.annotation.Nullable Boolean isMultiline) {
         this.isMultiline = isMultiline;
@@ -238,13 +238,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return originalFontSize
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FONT_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getOriginalFontSize() {
         return originalFontSize;
     }
 
-    @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+    @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FONT_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOriginalFontSize(@javax.annotation.Nullable Integer originalFontSize) {
         this.originalFontSize = originalFontSize;
@@ -261,13 +261,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return fontFamily
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getFontFamily() {
         return fontFamily;
     }
 
-    @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFontFamily(@javax.annotation.Nullable String fontFamily) {
         this.fontFamily = fontFamily;
@@ -286,13 +286,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return validationType
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALIDATION_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public ValidationTypeEnum getValidationType() {
         return validationType;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_VALIDATION_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValidationType(@javax.annotation.Nullable ValidationTypeEnum validationType) {
         this.validationType = validationType;
@@ -310,13 +310,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return validationCustomRegex
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getValidationCustomRegex() {
         return validationCustomRegex;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+    @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValidationCustomRegex(@javax.annotation.Nullable String validationCustomRegex) {
         this.validationCustomRegex = validationCustomRegex;
@@ -334,13 +334,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return validationCustomRegexFormatLabel
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getValidationCustomRegexFormatLabel() {
         return validationCustomRegexFormatLabel;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+    @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValidationCustomRegexFormatLabel(
             @javax.annotation.Nullable String validationCustomRegexFormatLabel) {
@@ -358,13 +358,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return group
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_GROUP)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getGroup() {
         return group;
     }
 
-    @JsonProperty(JSON_PROPERTY_GROUP)
+    @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
@@ -667,10 +667,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

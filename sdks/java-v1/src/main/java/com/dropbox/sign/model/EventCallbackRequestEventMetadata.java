@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EventCallbackRequestEventMetadata {
     public static final String JSON_PROPERTY_RELATED_SIGNATURE_ID = "related_signature_id";
@@ -77,13 +77,13 @@ public class EventCallbackRequestEventMetadata {
      *
      * @return relatedSignatureId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_RELATED_SIGNATURE_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_RELATED_SIGNATURE_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getRelatedSignatureId() {
         return relatedSignatureId;
     }
 
-    @JsonProperty(JSON_PROPERTY_RELATED_SIGNATURE_ID)
+    @JsonProperty(value = JSON_PROPERTY_RELATED_SIGNATURE_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRelatedSignatureId(@javax.annotation.Nullable String relatedSignatureId) {
         this.relatedSignatureId = relatedSignatureId;
@@ -100,13 +100,13 @@ public class EventCallbackRequestEventMetadata {
      *
      * @return reportedForAccountId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getReportedForAccountId() {
         return reportedForAccountId;
     }
 
-    @JsonProperty(JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID)
+    @JsonProperty(value = JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setReportedForAccountId(@javax.annotation.Nullable String reportedForAccountId) {
         this.reportedForAccountId = reportedForAccountId;
@@ -123,13 +123,13 @@ public class EventCallbackRequestEventMetadata {
      *
      * @return reportedForAppId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REPORTED_FOR_APP_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REPORTED_FOR_APP_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getReportedForAppId() {
         return reportedForAppId;
     }
 
-    @JsonProperty(JSON_PROPERTY_REPORTED_FOR_APP_ID)
+    @JsonProperty(value = JSON_PROPERTY_REPORTED_FOR_APP_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setReportedForAppId(@javax.annotation.Nullable String reportedForAppId) {
         this.reportedForAppId = reportedForAppId;
@@ -146,13 +146,13 @@ public class EventCallbackRequestEventMetadata {
      *
      * @return eventMessage
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EVENT_MESSAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EVENT_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEventMessage() {
         return eventMessage;
     }
 
-    @JsonProperty(JSON_PROPERTY_EVENT_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_EVENT_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEventMessage(@javax.annotation.Nullable String eventMessage) {
         this.eventMessage = eventMessage;
@@ -328,9 +328,6 @@ public class EventCallbackRequestEventMetadata {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

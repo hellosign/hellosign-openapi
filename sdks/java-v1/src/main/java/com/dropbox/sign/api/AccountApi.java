@@ -20,7 +20,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class AccountApi {
     private ApiClient apiClient;
 
@@ -65,7 +65,8 @@ public class AccountApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public AccountCreateResponse accountCreate(AccountCreateRequest accountCreateRequest)
+    public AccountCreateResponse accountCreate(
+            @javax.annotation.Nonnull AccountCreateRequest accountCreateRequest)
             throws ApiException {
         return accountCreateWithHttpInfo(accountCreateRequest).getData();
     }
@@ -86,7 +87,8 @@ public class AccountApi {
      * </table>
      */
     public ApiResponse<AccountCreateResponse> accountCreateWithHttpInfo(
-            AccountCreateRequest accountCreateRequest) throws ApiException {
+            @javax.annotation.Nonnull AccountCreateRequest accountCreateRequest)
+            throws ApiException {
 
         // Check required parameters
         if (accountCreateRequest == null) {
@@ -140,7 +142,9 @@ public class AccountApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public AccountGetResponse accountGet(String accountId, String emailAddress)
+    public AccountGetResponse accountGet(
+            @javax.annotation.Nullable String accountId,
+            @javax.annotation.Nullable String emailAddress)
             throws ApiException {
         return accountGetWithHttpInfo(accountId, emailAddress).getData();
     }
@@ -202,7 +206,9 @@ public class AccountApi {
      * </table>
      */
     public ApiResponse<AccountGetResponse> accountGetWithHttpInfo(
-            String accountId, String emailAddress) throws ApiException {
+            @javax.annotation.Nullable String accountId,
+            @javax.annotation.Nullable String emailAddress)
+            throws ApiException {
 
         // Query parameters
         List<Pair> localVarQueryParams =
@@ -249,7 +255,8 @@ public class AccountApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public AccountGetResponse accountUpdate(AccountUpdateRequest accountUpdateRequest)
+    public AccountGetResponse accountUpdate(
+            @javax.annotation.Nonnull AccountUpdateRequest accountUpdateRequest)
             throws ApiException {
         return accountUpdateWithHttpInfo(accountUpdateRequest).getData();
     }
@@ -270,7 +277,8 @@ public class AccountApi {
      * </table>
      */
     public ApiResponse<AccountGetResponse> accountUpdateWithHttpInfo(
-            AccountUpdateRequest accountUpdateRequest) throws ApiException {
+            @javax.annotation.Nonnull AccountUpdateRequest accountUpdateRequest)
+            throws ApiException {
 
         // Check required parameters
         if (accountUpdateRequest == null) {
@@ -321,7 +329,8 @@ public class AccountApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public AccountVerifyResponse accountVerify(AccountVerifyRequest accountVerifyRequest)
+    public AccountVerifyResponse accountVerify(
+            @javax.annotation.Nonnull AccountVerifyRequest accountVerifyRequest)
             throws ApiException {
         return accountVerifyWithHttpInfo(accountVerifyRequest).getData();
     }
@@ -341,7 +350,8 @@ public class AccountApi {
      * </table>
      */
     public ApiResponse<AccountVerifyResponse> accountVerifyWithHttpInfo(
-            AccountVerifyRequest accountVerifyRequest) throws ApiException {
+            @javax.annotation.Nonnull AccountVerifyRequest accountVerifyRequest)
+            throws ApiException {
 
         // Check required parameters
         if (accountVerifyRequest == null) {

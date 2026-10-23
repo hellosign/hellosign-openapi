@@ -16,7 +16,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class UnclaimedDraftApi {
     private ApiClient apiClient;
 
@@ -64,7 +64,8 @@ public class UnclaimedDraftApi {
      * </table>
      */
     public UnclaimedDraftCreateResponse unclaimedDraftCreate(
-            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
+            @javax.annotation.Nonnull UnclaimedDraftCreateRequest unclaimedDraftCreateRequest)
+            throws ApiException {
         return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest).getData();
     }
 
@@ -86,7 +87,8 @@ public class UnclaimedDraftApi {
      * </table>
      */
     public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateWithHttpInfo(
-            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
+            @javax.annotation.Nonnull UnclaimedDraftCreateRequest unclaimedDraftCreateRequest)
+            throws ApiException {
 
         // Check required parameters
         if (unclaimedDraftCreateRequest == null) {
@@ -145,7 +147,8 @@ public class UnclaimedDraftApi {
      * </table>
      */
     public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(
-            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
+            @javax.annotation.Nonnull
+                    UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
             throws ApiException {
         return unclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest)
                 .getData();
@@ -172,7 +175,8 @@ public class UnclaimedDraftApi {
      * </table>
      */
     public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithHttpInfo(
-            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
+            @javax.annotation.Nonnull
+                    UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
             throws ApiException {
 
         // Check required parameters
@@ -232,8 +236,9 @@ public class UnclaimedDraftApi {
      * </table>
      */
     public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(
-            UnclaimedDraftCreateEmbeddedWithTemplateRequest
-                    unclaimedDraftCreateEmbeddedWithTemplateRequest)
+            @javax.annotation.Nonnull
+                    UnclaimedDraftCreateEmbeddedWithTemplateRequest
+                            unclaimedDraftCreateEmbeddedWithTemplateRequest)
             throws ApiException {
         return unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
                         unclaimedDraftCreateEmbeddedWithTemplateRequest)
@@ -262,8 +267,9 @@ public class UnclaimedDraftApi {
      */
     public ApiResponse<UnclaimedDraftCreateResponse>
             unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
-                    UnclaimedDraftCreateEmbeddedWithTemplateRequest
-                            unclaimedDraftCreateEmbeddedWithTemplateRequest)
+                    @javax.annotation.Nonnull
+                            UnclaimedDraftCreateEmbeddedWithTemplateRequest
+                                    unclaimedDraftCreateEmbeddedWithTemplateRequest)
                     throws ApiException {
 
         // Check required parameters
@@ -324,8 +330,9 @@ public class UnclaimedDraftApi {
      * </table>
      */
     public UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(
-            String signatureRequestId,
-            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull
+                    UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
             throws ApiException {
         return unclaimedDraftEditAndResendWithHttpInfo(
                         signatureRequestId, unclaimedDraftEditAndResendRequest)
@@ -353,8 +360,9 @@ public class UnclaimedDraftApi {
      * </table>
      */
     public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftEditAndResendWithHttpInfo(
-            String signatureRequestId,
-            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull
+                    UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
             throws ApiException {
 
         // Check required parameters

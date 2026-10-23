@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubUnclaimedDraftSigner {
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
@@ -71,13 +71,13 @@ public class SubUnclaimedDraftSigner {
      * @return emailAddress
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEmailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
@@ -94,13 +94,13 @@ public class SubUnclaimedDraftSigner {
      * @return name
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
@@ -116,13 +116,13 @@ public class SubUnclaimedDraftSigner {
      *
      * @return order
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORDER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getOrder() {
         return order;
     }
 
-    @JsonProperty(JSON_PROPERTY_ORDER)
+    @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
@@ -256,9 +256,6 @@ public class SubUnclaimedDraftSigner {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }
